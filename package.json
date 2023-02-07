@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "storybook dev -p 6006",
+    "start": "sh check-nvm.sh && storybook dev -p 6006",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "build-storybook": "storybook build",
