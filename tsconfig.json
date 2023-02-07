@@ -7,7 +7,7 @@
     "emitDeclarationOnly": false,
     "noEmit": true,
     "paths": {
-      "@docs/*": ["documentation/*"],
+      "@docs/*": ["documentation/*"]
     }
   },
   // Overwrite “exclude” from parent config, so we can typecheck tests for local development

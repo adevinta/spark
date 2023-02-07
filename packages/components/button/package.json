@@ -1,0 +1,13 @@
+{
+  "name": "@spark-ui/button",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "author": "Andres Alvarez",
+  "license": "ISC"
+}

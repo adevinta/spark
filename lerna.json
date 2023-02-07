@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "useWorkspaces": true,
+  "version": "independent",
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "message": "chore: Release packages [skip ci]"
+    },
+    "version": {
+      "conventionalCommits": true
+    }
+  },
+  "ignoreChanges": [
+    "**/CHANGELOG.md",
+    "**/node_modules/**",
+    "**/*.md"
+  ]
+}
