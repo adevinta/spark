@@ -13,7 +13,8 @@
     "commit": "cz",
     "lint": "eslint --config .eslintrc.cjs . --ext .ts,.tsx,.js --fix",
     "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
-    "prettify": "npm run lint && npm run prettier"
+    "prettify": "npm run lint && npm run prettier",
+    "node:check": "node bin/check-node-version.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
