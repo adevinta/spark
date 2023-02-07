@@ -4,14 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "sh check-nvm.sh && storybook dev -p 6006",
+    "start": "npm run node:check && storybook dev -p 6006",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "build-storybook": "storybook build",
     "commit": "cz",
     "lint": "eslint --config .eslintrc.cjs . --ext .ts,.tsx,.js --fix",
     "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
-    "prettify": "npm run lint && npm run prettier"
+    "prettify": "npm run lint && npm run prettier",
+    "node:check": "node bin/check-node-version.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
