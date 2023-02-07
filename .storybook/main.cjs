@@ -1,18 +1,30 @@
 module.exports = {
-  "stories": [
+  async viteFinal(config, { configType }) {
+    // This is where we can override vite config for storybook
+    return config;
+  },
+  stories: [
+    "../documentation/**/*.mdx",
     "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
   ],
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "@storybook/builder-vite"
+  framework: "@storybook/react-vite",
+  docs: {
+    autodocs: "tag",
   },
-  "features": {
-    "storyStoreV7": true
-  }
-}
+  core: {
+    builder: "@storybook/builder-vite",
+  },
+  features: {
+    storyStoreV7: true,
+  },
+  typescript: {
+    check: true,
+    reactDocgen: "react-docgen-typescript",
+  },
+};

@@ -1,0 +1,131 @@
+import { Meta } from "@storybook/blocks";
+
+import ArgstableImg from "@docs/assets/argstable.png";
+
+<Meta title="Contributing/Writing stories" />
+
+# Writing stories
+
+Write your stories using [MDX format](https://storybook.js.org/docs/react/api/mdx). It allows for more flexibility, and automatically generates a Docs pages for your component.
+
+Each component's documentation should follow this structure:
+
+1. [Meta](#meta)
+2. [Description](#description)
+3. [Anatomy](#anatomy)
+4. [ArgsTable](#argstable)
+5. [Variants and examples](#variants-and-examples)
+
+## Meta
+
+A component's doc should be placed under the `Components` section of the documentation.
+
+They must belong to one of the following categories:
+
+- Disclosure
+- Feedback
+- Overlay
+- Layout
+- Media and Icons
+- Navigation
+- Forms
+- Data Display
+- Typography
+
+> Example:
+
+```
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Forms/Button" component={Button} />
+```
+
+## Description
+
+Using markdown syntax, describe what your component's role is. Try to be concise and clear.
+
+For example, for a `Button` component, it could be:
+
+> Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
+
+## Anatomy
+
+todo
+
+## ArgsTable
+
+Simply use Storybook's `ArgsTable` component in your MDX to generate the props documentation.
+It will parse the typescript files of your component to generate a full table.
+
+It uses the JSDoc comments above each prop of your component to show it as a description, and also retrieves default values for each prop.
+
+```
+import { ArgsTable } from "@storybook/addon-docs";
+
+## Props
+
+<ArgsTable of={Button} />
+```
+
+**Here is what the ArgsTable looks like for a simple component:**
+
+<img
+  width={800}
+  src={ArgstableImg}
+  alt="Argstable shows a table of the component's props"
+/>
+
+## Variants and examples
+
+Display and describe as many use-case as you want to showcase the features offered by your component.
+We [suggest you split JSX examples from the markdown](https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#csf-stories-with-mdx-docs) for a better developer experience, because Typescript does not support MDX typechecking as of today.
+
+### Live editable example
+
+We created `@devtools/ReactLiveBlock` to replace the `Canvas` component offered by Storybook.
+`ReactLiveBlock` allows you to display editable JSX of your stories, copy the code or reset it to its initial state.
+
+Simply create examples like this:
+
+```
+import { Button } from "./Button";
+import { ReactLiveBlock } from "@devtools/ReactLiveBlock";
+
+export const variants = () => (
+  <ReactLiveBlock scope={{ Button }}>
+    <Button variant="default" label="Default" />
+    <Button variant="warning" label="Warning" />
+    <Button variant="danger" label="Danger" />
+    <Button variant="info" label="Info" />
+    <Button variant="success" label="Success" />
+  </ReactLiveBlock>
+);
+
+export const sizes = () => (
+  <ReactLiveBlock scope={{ Button }}>
+    <Button size="small" label="Button (small)" />
+    <Button size="medium" label="Button (medium)" />
+    <Button size="large" label="Button (large)" />
+  </ReactLiveBlock>
+);
+```
+
+Then consume it in your MDX file:
+
+```
+import * as examples from "./ButtonExamples";
+
+## Variants
+
+Some description about the variants and their semantic roles...
+
+<Story name="variants" story={examples.variants} />
+
+## Sizes
+
+Some description about the sizes...
+
+<Story name="sizes" story={examples.sizes} />
+```
+
+Feel free to add as many examples as necessary.

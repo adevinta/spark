@@ -4,21 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
+    "start": "storybook dev -p 6006",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "build-storybook": "build-storybook",
+    "build-storybook": "storybook build",
     "commit": "cz"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-interactions": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/builder-vite": "^0.4.0",
-    "@storybook/react": "^6.5.16",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-actions": "^7.0.0-beta.43",
+    "@storybook/addon-essentials": "^7.0.0-beta.43",
+    "@storybook/addon-interactions": "^7.0.0-beta.43",
+    "@storybook/addon-links": "^7.0.0-beta.43",
+    "@storybook/blocks": "^7.0.0-beta.43",
+    "@storybook/builder-vite": "^7.0.0-beta.43",
+    "@storybook/react": "^7.0.0-beta.43",
+    "@storybook/react-vite": "^7.0.0-beta.43",
+    "@storybook/testing-library": "^0.0.14-next.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
@@ -26,7 +28,9 @@
     "commitizen": "^4.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "storybook": "^7.0.0-beta.43",
     "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "vite": "^4.1.0",
+    "vite-tsconfig-paths": "^4.0.5"
   }
 }
