@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "build-storybook": "storybook build",
     "commit": "cz",
-    "lint": "eslint --config .eslintrc.cjs . --ext .ts,.tsx,.js --fix"
+    "lint": "eslint --config .eslintrc.cjs . --ext .ts,.tsx,.js --fix",
+    "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
+    "prettify": "npm run lint && npm run prettier"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -25,7 +27,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "5.51.0",
-    "@typescript-eslint/parser" :"5.51.0",
+    "@typescript-eslint/parser": "5.51.0",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-loader": "^8.3.0",
     "commitizen": "^4.3.0",
@@ -42,6 +44,7 @@
     "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-standard": "5.0.0",
     "eslint-plugin-storybook": "^0.6.10",
+    "prettier": "2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.0-beta.43",
