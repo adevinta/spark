@@ -10,6 +10,7 @@ module.exports = {
     'react-hooks',
     'simple-import-sort',
     'prettier',
+    'tailwindcss',
   ],
   extends: [
     'standard',
@@ -51,6 +52,11 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-key': 0,
     'react/display-name': [0, { ignoreTranspilerName: false }],
+    // Tailwind
+    "tailwindcss/no-custom-classname": [1, {
+      "config":"./tailwind.config.cjs",
+      "callees": ["cx", "classnames", "clsx", "cva"],
+    }],
     // import
     'import/no-absolute-path': 0,
     'import/exports-last': 0,
