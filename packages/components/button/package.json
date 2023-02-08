@@ -7,7 +7,5 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
-  },
-  "author": "Andres Alvarez",
-  "license": "ISC"
+  }
 }
