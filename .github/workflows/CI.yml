@@ -37,29 +37,25 @@ jobs:
           commit_message: 'docs(chore): update contributions'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  install:
+  lint:
     runs-on: ubuntu-latest
-    name: Install
+    name: lint
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+      - name: Install
+        uses: ./.github/actions/install
 
-      - name: Install dependencies
-        run: npm ci
-  lint:
-    runs-on: ubuntu-latest
-    name: lint
-    needs: [install]
-    steps:
       - run: npm run lint
   test:
     runs-on: ubuntu-latest
     name: test
-    needs: [install]
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/actions/install
+
       - run: npm run test
