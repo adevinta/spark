@@ -37,9 +37,9 @@ jobs:
           commit_message: 'docs(chore): update contributions'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  quality:
+  install:
     runs-on: ubuntu-latest
-    name: Quality
+    name: Install
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -51,9 +51,15 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm run test
+  lint:
+    runs-on: ubuntu-latest
+    name: lint
+    needs: [install]
+    steps:
+      - run: npm run lint
+  test:
+    runs-on: ubuntu-latest
+    name: test
+    needs: [install]
+    steps:
+      - run: npm run test
