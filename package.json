@@ -49,6 +49,7 @@
     "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-standard": "5.0.0",
     "eslint-plugin-storybook": "^0.6.10",
+    "git-cz": "^4.9.0",
     "husky": "^8.0.3",
     "prettier": "2.8.3",
     "react": "^18.2.0",
@@ -63,7 +64,7 @@
   ],
   "config": {
     "commitizen": {
-      "path": "@commitlint/prompt"
+      "path": "git-cz"
     }
   }
 }
