@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  # Cancel Previous Redundant Builds
+  check-skip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Redundant Builds
+        uses: styfle/cancel-workflow-action@0.6.0
+        with:
+          access_token: ${{ github.token }}
+  # Assigns the event creator to the PR
+  assign_pr_owner:
+    runs-on: medium
+    steps:
+      - name: Assign PR to creator
+        uses: toshimaru/auto-author-assign@v1.6.0
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
