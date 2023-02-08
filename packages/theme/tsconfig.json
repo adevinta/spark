@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declarationDir": "./dist",
+    "rootDir": "."
+  },
+  "include": [
+    "**/*.mts",
+    "../../global.d.ts"
+, "types.ts"  ]
+}

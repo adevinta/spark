@@ -1,0 +1,17 @@
+{
+  "name": "@spark-ui/theme",
+  "version": "0.0.0",
+  "description": "Theme configuration",
+  "module": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "bin": "./dist/src/index.mjs",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "hex-rgb": "5.0.0",
+    "parent-module": "3.0.0",
+    "deepmerge": "4.3.0",
+    "type-fest": "3.5.6"
+  }
+}
