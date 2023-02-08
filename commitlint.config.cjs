@@ -5,7 +5,7 @@ module.exports = {
   rules: {
     'scope-enum': async () => {
       const pkgs = await lernaConfig.utils.getPackages()
-      return [2, 'always', ['root', 'release', ...pkgs]]
+      return [2, 'always', ['root', ...pkgs]]
     },
   },
 }
