@@ -10,6 +10,7 @@ jobs:
   # Cancel Previous Redundant Builds
   check-skip:
     runs-on: ubuntu-latest
+    name: Check redundant workflows
     steps:
       - name: Cancel Previous Redundant Builds
         uses: styfle/cancel-workflow-action@0.6.0
@@ -18,6 +19,7 @@ jobs:
   # Assigns the event creator to the PR
   assign_pr_owner:
     runs-on: ubuntu-latest
+    name: PR assignment
     steps:
       - name: Assign PR to creator
         uses: toshimaru/auto-author-assign@v1.6.0
@@ -26,7 +28,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
   contributions:
     runs-on: ubuntu-latest
-    name: A job to automate contrib in readme
+    name: Contributions
     steps:
       - name: Contribute List
         uses: akhilmhdh/contributors-readme-action@v2.3.6
