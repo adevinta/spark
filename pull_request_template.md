@@ -6,7 +6,7 @@
 <!-- #### `❓ Ask` -->
 <!-- https://martinfowler.com/articles/ship-show-ask.html -->
 
-<!-- https://github.com/SUI-Components/sui-components/issues -->
+<!-- https://github.com/adevinta/spark/issues -->
 **TASK**: <!--- #issueID -->
 
 ### Description, Motivation and Context
