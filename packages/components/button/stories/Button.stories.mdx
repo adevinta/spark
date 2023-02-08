@@ -1,0 +1,19 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
+
+import { Button } from '../src/'
+
+import * as stories from './Button.stories'
+
+<Meta title="Components/Forms/Button" component={Button} />
+
+# Button
+
+```
+import { Button } from "@spark-ui/button";
+```
+
+Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
+
+<ArgsTable of={Button} />
+
+<Story name="default" story={stories.Default} />
