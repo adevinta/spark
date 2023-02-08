@@ -14,7 +14,7 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "commit": "cz",
-    "lint": "eslint --config .eslintrc.cjs . --ext .ts,.tsx,.js --fix",
+    "lint": "eslint --config .eslintrc.cjs packages/**/**/src --ext .ts,.tsx,.js --cache",
     "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
     "prettify": "npm run lint && npm run prettier",
     "node:check": "node bin/check-node-version.js"
