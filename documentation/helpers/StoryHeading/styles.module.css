@@ -1,0 +1,16 @@
+.heading {
+  display: flex;
+  align-items: center;
+}
+
+.heading:hover .anchor {
+  opacity: 1;
+}
+
+.anchor {
+  transition: opacity 0.1s ease-out;
+  position: absolute;
+  left: -24px;
+  opacity: 0;
+  cursor: pointer;
+}
