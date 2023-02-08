@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "lerna run build",
