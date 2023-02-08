@@ -40,5 +40,6 @@ jobs:
           commit_message: 'docs(chore): update contributions'
           committer_username: 'spark-ui-bot'
           committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
+          auto_detect_branch_protection: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
