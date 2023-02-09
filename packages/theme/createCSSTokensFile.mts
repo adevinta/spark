@@ -3,7 +3,7 @@ import hexRgb from 'hex-rgb'
 import parentModule from 'parent-module'
 import { join } from 'path'
 
-import type { Theme } from './types.js'
+import type { Theme } from './types.mjs'
 import {
   buildFilePath,
   isHex,

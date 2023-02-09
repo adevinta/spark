@@ -2,11 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "declarationDir": "./dist",
-    "rootDir": "."
+    "rootDir": "./",
+     "outDir": "./dist",
+    "module": "node16",
+    "declaration": true,
   },
-  "include": [
-    "**/*.mts",
-    "../../global.d.ts"
-, "types.ts"  ]
+  "include": ["**/*", "../../global.d.ts"]
 }

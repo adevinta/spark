@@ -1,6 +1,6 @@
 import path from 'path'
 import { terser } from 'rollup-plugin-terser'
-import dts from 'vite-plugin-dts'
+import typescript from '@rollup/plugin-typescript'
 
 const pkg = require(path.resolve(__dirname, './package.json'))
 
@@ -17,12 +17,8 @@ export default {
     },
     rollupOptions: {
       external: [...deps, ...devDeps, 'path', 'fs'],
-      plugins: [terser()],
+      preserveModules: false,
+      plugins: [terser(), typescript({ cacheDir: './dist' })],
     },
   },
-  plugins: [
-    dts({
-      entryRoot: '.',
-    }),
-  ],
 }

@@ -3,7 +3,7 @@ import parentModule from 'parent-module'
 import { join } from 'path'
 
 import { defaultTheme } from './defaultTheme.mjs'
-import type { Theme } from './types.js'
+import type { Theme } from './types.mjs'
 import {
   buildFilePath,
   isHex,
