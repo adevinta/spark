@@ -1,9 +1,9 @@
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 
-import { Button } from '../src/index'
+import { Dummy } from '../src'
 
 export const Default = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <Button>primary button</Button>
+  <ReactLiveBlock scope={{ Dummy }}>
+    <Dummy type="foo" />
   </ReactLiveBlock>
 )
