@@ -1,0 +1,138 @@
+import { Meta } from '@storybook/blocks'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import ArgstableImg from '@docs/assets/argstable.png'
+
+<Meta title="Contributing/Testing" />
+
+# Testing strategy
+
+- [Scripts](#scripts)
+- [Vitest](#vitest)
+- [Testing library](#testing-library)
+- [Testing library: user-event](#userevent)
+- [Testing components](#testing-components)
+  - [Grouping tests](#grouping-tests)
+  - [Naming your tests](#naming-your-tests)
+  - [Given/When/Then and test assertions](#givenwhenthen-and-test-assertions)
+  - [Triggering user events](#triggering-user-events)
+- [Testing utilities (methods, hooks)](#testing-utilities)
+
+<StoryHeading label="Scripts" />
+
+**`npm run test`**: run tests in watch mode (in your terminal)
+
+**`npm run test:ui`**: Run tests in watch mode (in your browser)
+
+**`npm run test:run`**: Run tests once
+
+**`npm run test:coverage`**: Run tests coverage. Output is visible in the terminal, or the `coverage` folder that is generated (html reporter).
+
+<StoryHeading label="Vitest" />
+
+[Vitest](https://vitest.dev/guide/why.html) is the test runner used by Spark.
+
+It allows everything a test runner is known for: test suites, mocking, coverage, test filtering, etc.
+
+We highly recommand you install [the official plugin](https://vitest.dev/guide/ide.html) that matches your IDE (it supports VSCode and IntelliJ).
+
+<StoryHeading label="Testing Library" />
+
+[Testing Library](https://testing-library.com/docs/) is our main ...testing library :3
+
+Before writing tests for any type of Spark package (component, utility, etc), **you must get familiar with the philosophy behing the library**:
+
+**[https://testing-library.com/docs/]()**
+
+Mainly, the idea is to focus on a user-centric approach, especially for component packages. We must test interfaces the same way a user would interact with them.
+What's important to test is the interface we provide to users, not their technical implementations.
+
+> The more your tests resemble the way your software is used,
+> the more confidence they can give you.
+
+<StoryHeading label="user-event" />
+
+[user-event](https://testing-library.com/docs/ecosystem-user-event/) is a companion library that is part
+of the Testing Library ecosystem.
+
+It provides a cleaner way to simulates user events, closer to the real browser behaviour. **It replaces the `fireEvent` method from Testing Library, WHICH MUST NOT BE USED.**
+
+You can read here in details why it is better than `fireEvent`: [https://testing-library.com/docs/user-event/intro#differences-from-fireevent]()
+
+<StoryHeading label="Testing components" />
+
+Spark component packages are scaffolded with a default test file using `Vitest` + `Testing Library` + `user-event`.
+
+<StoryHeading label="Grouping tests" as="h3" />
+
+Group tests in logical blocks using the `describe()` method from `vitest`.
+
+```tsx
+import { describe } from 'vitest'
+
+describe('MenuBar behaviour', () => { ... }) // first block
+describe('BurgerMenu behaviour', () => { ... }) // second block
+```
+
+<StoryHeading label="Naming your tests" as="h3" />
+
+Each test description must start with `should`
+
+```tsx
+import { describe, it } from 'vitest'
+
+describe('MenuBar behaviour', () => {
+   it('should open subMenu on hover', ( ) => { ... }) // first test in this block
+   it('should display login button when user is not logged', ( ) => { ... }) // second test in this block
+   it('should display spinner when user click on login button', ( ) => { ... }) // third test in this block
+})
+```
+
+<StoryHeading label="Given/When/Then and test assertions" as="h3" />
+
+Inside a test, we recommand you stick with the [Given/When/Then pattern](https://martinfowler.com/bliki/GivenWhenThen.html).
+Followind this same pattern across tests makes them easier to read and understand.
+
+```tsx
+import { expect, it } from 'vitest'
+
+it('should trigger click event', async () => {
+  const user = userEvent.setup()
+  const clickEvent = vi.fn()
+
+  // Given a button with a "bar" label
+  render(<Button onClick={clickEvent}>bar</Button>)
+
+  // When I click on the button with that label
+  await user.click(screen.getByText('bar'))
+
+  // Then the onClick event must have been triggered once
+  expect(clickEvent).toHaveBeenCalledTimes(1)
+})
+```
+
+<StoryHeading label="Triggering user events" as="h3" />
+
+[User events](https://testing-library.com/docs/user-event/intro#writing-tests-with-userevent) are simulated using `user-event`, as seen on the previous example.
+
+```tsx
+import userEvent from '@testing-library/user-event'
+```
+
+Then triggering events from that object:
+
+```tsx
+await user.click(screen.getByText('bar'))
+```
+
+A few things to note:
+
+- It is recommanded that you setup the `user` indepently in each test, doing `const user = userEvent.setup()`. That way, you can pass different options at test-level if necessary.
+- Calls to events (`user.click, user.keyboard, user.scroll`, etc.) are asynchronous, so you MUST use `async/await` on your tests when using it.
+
+<StoryHeading label="Testing utilities" />
+
+Hooks, methods, and other type of utilities that are not user interfaces are simply tested using unit testing.
+So for most of them you won't require Testing Library.
+
+For hooks we use the `renderHook` method from [@testing-library/react-hooks](https://github.com/testing-library/react-hooks-testing-library).
