@@ -4,6 +4,6 @@ import { Dummy } from '../src'
 
 export const Default = () => (
   <ReactLiveBlock scope={{ Dummy }}>
-    <Dummy>Hello Dummy World!</Dummy>
+    <Dummy type="foo" />
   </ReactLiveBlock>
 )
