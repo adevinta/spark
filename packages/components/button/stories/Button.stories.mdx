@@ -1,4 +1,6 @@
 import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
+import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { Button } from '../src/'
 
@@ -8,12 +10,24 @@ import * as stories from './Button.stories'
 
 # Button
 
+Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
+
+<StoryHeading label="Install" />
+
+```
+npm i @spark-ui/button;
+```
+
+<StoryHeading label="Import" />
+
 ```
 import { Button } from "@spark-ui/button";
 ```
 
-Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
+<StoryHeading label="Props" />
 
 <ArgsTable of={Button} />
+
+<StoryHeading label="Variants" />
 
 <Story name="default" story={stories.Default} />
