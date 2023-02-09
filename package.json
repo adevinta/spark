@@ -13,7 +13,7 @@
     "storybook:build": "storybook build",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "commit": "cz",
+    "commit": "git-cz",
     "lint": "eslint --config .eslintrc.cjs packages/**/**/src --ext .ts,.tsx,.js --cache",
     "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
     "prettify": "npm run lint && npm run prettier",
@@ -21,6 +21,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@commitlint/config-lerna-scopes": "^17.4.2",
+    "@commitlint/cz-commitlint": "^17.4.2",
+    "@commitlint/prompt-cli": "^17.4.2",
     "@storybook/addon-actions": "^7.0.0-beta.43",
     "@storybook/addon-essentials": "^7.0.0-beta.43",
     "@storybook/addon-interactions": "^7.0.0-beta.43",
@@ -56,9 +61,10 @@
     "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-standard": "5.0.0",
     "eslint-plugin-storybook": "^0.6.10",
+    "husky": "^8.0.3",
+    "lerna": "^6.4.1",
     "eslint-plugin-testing-library": "^5.10.0",
     "jsdom": "^21.1.0",
-    "lerna": "^6.4.1",
     "eslint-plugin-tailwindcss": "3.8.3",
     "postcss": "8.4.21",
     "prettier": "2.8.3",
@@ -76,5 +82,10 @@
   },
   "workspaces": [
     "packages/components/*"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  }
 }
