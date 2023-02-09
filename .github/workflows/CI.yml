@@ -27,6 +27,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
   contributions:
+    needs: [check-skip]
     runs-on: ubuntu-latest
     name: Contributions
     steps:
