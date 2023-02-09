@@ -3,14 +3,6 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  check-skip:
-    runs-on: ubuntu-latest
-    name: Check redundant workflows
-    steps:
-      - name: Cancel Previous Redundant Builds
-        uses: styfle/cancel-workflow-action@0.6.0
-        with:
-          access_token: ${{ github.token }}
   assign-pr-owner:
     runs-on: ubuntu-latest
     name: PR assignment
