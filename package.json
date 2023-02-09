@@ -9,7 +9,7 @@
     "build": "lerna run build",
     "build:watch": "lerna run build && lerna watch -- lerna run build --since",
     "release": "lerna publish --yes --include-merged-tags --no-verify-access",
-    "storybook:start": "storybook dev -p 6006",
+    "storybook:start": "npm run create:theme-config && storybook dev -p 6006",
     "storybook:build": "storybook build",
     "test": "vitest",
     "test:ui": "vitest watch --ui",
