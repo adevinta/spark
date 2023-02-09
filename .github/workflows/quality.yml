@@ -1,0 +1,36 @@
+name: quality
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  assign-pr-owner:
+    runs-on: ubuntu-latest
+    name: PR assignment
+    steps:
+      - name: Assign PR
+        uses: toshimaru/auto-author-assign@v1.6.0
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+  lint:
+    runs-on: ubuntu-latest
+    name: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - run: npm run lint
+  test:
+    runs-on: ubuntu-latest
+    name: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - run: npm run test
