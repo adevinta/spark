@@ -11,10 +11,10 @@
     "release": "lerna publish --yes --include-merged-tags --no-verify-access",
     "storybook:start": "storybook dev -p 6006",
     "storybook:build": "storybook build",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
     "commit": "git-cz",
-    "test": "vitest watch",
-    "test:run": "vitest run",
-    "lint": "eslint --config .eslintrc.cjs . --ext .ts,.tsx,.js --fix",
+    "lint": "eslint --config .eslintrc.cjs packages/**/**/src --ext .ts,.tsx,.js --cache",
     "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
     "prettify": "npm run lint && npm run prettier",
     "node:check": "node bin/check-node-version.js"
