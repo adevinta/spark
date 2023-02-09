@@ -31,17 +31,17 @@ Feel like contributing? That's awesome! We have a [contributing guide](CONTRIBUT
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/arnau-rius">
-            <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="32;" alt="arnau-rius"/>
-            <br />
-            <sub><b>arnau-rius</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Powerplex">
             <img src="https://avatars.githubusercontent.com/u/2033710?v=4" width="32;" alt="Powerplex"/>
             <br />
             <sub><b>Powerplex</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/arnau-rius">
+            <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="32;" alt="arnau-rius"/>
+            <br />
+            <sub><b>arnau-rius</b></sub>
         </a>
     </td>
     <td align="center">
