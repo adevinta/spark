@@ -5,6 +5,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "lerna run build",
     "build:watch": "lerna run build && lerna watch -- lerna run build --since",
