@@ -1,10 +1,12 @@
+import { createRequire } from 'node:module'
+
 import react from '@vitejs/plugin-react'
-import path from 'path'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'vite-plugin-dts'
 
-const pkg = require(path.resolve(__dirname, '../package.json'))
+const require = createRequire(import.meta.url)
 
+const pkg = require('../package.json')
 const deps = Object.keys(pkg.dependencies || {})
 const devDeps = Object.keys(pkg.devDependencies || {})
 
