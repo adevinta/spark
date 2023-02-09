@@ -92,7 +92,7 @@
   },
   "workspaces": [
     "packages/components/*",
-    "packages/theme"
+    "packages/utils/*"
   ],
   "config": {
     "commitizen": {

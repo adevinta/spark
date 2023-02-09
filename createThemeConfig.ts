@@ -4,7 +4,7 @@ import {
   createTheme,
   defaultTheme,
   Theme,
-} from './packages/theme/index.mjs'
+} from './packages/utils/theme/index.mjs'
 
 export const alternativeTheme: Theme = createTheme({
   colors: {

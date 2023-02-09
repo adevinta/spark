@@ -1,5 +1,5 @@
 {
-  "name": "@spark-ui/theme",
+  "name": "@spark-ui/theme-utils",
   "version": "0.0.0",
   "description": "Theme configuration",
   "main": "./dist/index.js",
