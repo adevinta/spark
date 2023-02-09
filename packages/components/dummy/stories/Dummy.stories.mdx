@@ -1,0 +1,33 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
+import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Dummy } from '../src'
+
+import * as stories from './Dummy.stories'
+
+<Meta title="Components/Misc/Dummy" component={Dummy} />
+
+# Dummy
+
+Dummy component is not useful at all 🤪.
+
+<StoryHeading label="Install" />
+
+```
+npm i @spark-ui/dummy;
+```
+
+<StoryHeading label="Import" />
+
+```
+import { Dummy } from "@spark-ui/dummy";
+```
+
+<StoryHeading label="Props" />
+
+<ArgsTable of={Dummy} />
+
+<StoryHeading label="Variants" />
+
+<Story name="default" story={stories.Default} />

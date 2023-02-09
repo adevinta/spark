@@ -1,0 +1,11 @@
+{
+  "name": "@spark-ui/dummy",
+  "version": "1.0.0",
+  "description": "Just a dummy component",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  }
+}
