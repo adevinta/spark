@@ -1,11 +1,5 @@
 ## TYPE(SCOPE): TITLE
 
-<!-- Uncomment what you need -->
-<!-- #### `🚢 Ship` <!-- (should never be used for PR) -->
-<!-- #### `🔍 Show` -->
-<!-- #### `❓ Ask` -->
-<!-- https://martinfowler.com/articles/ship-show-ask.html -->
-
 <!-- https://github.com/adevinta/spark/issues -->
 **TASK**: <!--- #issueID -->
 
