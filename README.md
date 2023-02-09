@@ -20,35 +20,35 @@ Feel like contributing? That's awesome! We have a [contributing guide](CONTRIBUT
         <a href="https://github.com/andresin87">
             <img src="https://avatars.githubusercontent.com/u/1674036?v=4" width="32;" alt="andresin87"/>
             <br />
-            <sub><b>Andrés</b></sub>
+            <sub><b>andresin87</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/Powerplex">
             <img src="https://avatars.githubusercontent.com/u/2033710?v=4" width="32;" alt="Powerplex"/>
             <br />
-            <sub><b>Julien BONNIN</b></sub>
+            <sub><b>Powerplex</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/acd02">
             <img src="https://avatars.githubusercontent.com/u/51230231?v=4" width="32;" alt="acd02"/>
             <br />
-            <sub><b>Acd</b></sub>
+            <sub><b>acd02</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/andresz1">
             <img src="https://avatars.githubusercontent.com/u/6877967?v=4" width="32;" alt="andresz1"/>
             <br />
-            <sub><b>Andres Alvarez</b></sub>
+            <sub><b>andresz1</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/arnau-rius">
             <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="32;" alt="arnau-rius"/>
             <br />
-            <sub><b>Arnau-rius</b></sub>
+            <sub><b>arnau-rius</b></sub>
         </a>
     </td></tr>
 </table>
