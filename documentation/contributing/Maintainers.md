@@ -1,7 +1,3 @@
-import { Meta } from '@storybook/blocks'
-
-<Meta title="Contributing/Maintainers" />
-
 # Maintainers
 
 <!-- readme: contributors,spark-ui-bot/- -start -->

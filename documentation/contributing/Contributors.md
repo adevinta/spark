@@ -1,7 +1,3 @@
-import { Meta } from '@storybook/blocks'
-
-<Meta title="Contributing/Contributors" />
-
 # Contributors
 
 <!-- readme: collaborators,spark-ui-bot/- -start -->
