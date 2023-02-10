@@ -78,6 +78,7 @@ jobs:
       - name: Publish
         run: npm run release
   deploy:
+    needs: [contributions, release]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
