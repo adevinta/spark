@@ -57,6 +57,13 @@ Feel like contributing? That's awesome! We have a [contributing guide](CONTRIBUT
             <br />
             <sub><b>kikoruiz</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/solygambas">
+            <img src="https://avatars.githubusercontent.com/u/51904909?v=4" width="32;" alt="solygambas"/>
+            <br />
+            <sub><b>solygambas</b></sub>
+        </a>
     </td></tr>
 </table>
 <!-- readme: contributors,spark-ui-bot/- -end -->
