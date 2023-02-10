@@ -1,4 +1,5 @@
 # SPARK-UI
+![release](https://github.com/SUI-Components/sui-components/workflows/release/badge.svg)
 
 [Adevinta](https://www.adevinta.com/)'s React Design System.
 
