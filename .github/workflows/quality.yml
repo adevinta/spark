@@ -45,15 +45,17 @@ jobs:
         uses: ./.github/composite-actions/install
       - name: Install Vercel CLI
         run: npm install --global vercel@latest --no-save --no-fund --no-audit --no-scripts
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project Artifacts
-        run: npm run build
+      #      - name: Pull Vercel Environment Information
+      #        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      #      - name: Build Project Artifacts
+      #        run: npm run build
       - name: Build Storybook
         run: npm run storybook:build
       - name: Deploy Storybook to Vercel
         id: deployment
-        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes
+        run: |
+          DEPLOYMENT_URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
