@@ -2,6 +2,7 @@ import { appendFileSync, existsSync, mkdirSync } from 'fs'
 import hexRgb from 'hex-rgb'
 import parentModule from 'parent-module'
 import { join } from 'path'
+import type { RequireAtLeastOne } from 'type-fest'
 
 import type { Theme } from './types.mjs'
 import {
@@ -67,7 +68,32 @@ const getStringifiedThemes = (themeRecord: Record<string, Theme>) =>
       : `.${className}{${toStringifiedTheme(rest)}}`
   })
 
-export function createCSSTokensFile(path: string, themeRecord: Record<string, Theme>) {
+/**
+ * Creates a CSS file containing theme tokens represented as CSS custom properties
+ *
+ * @param {string} path - The file path where the CSS file will be created.
+ * @param {Record<string, Theme>} themeRecord - A record (with a required key of "default") of themes that will be included in the CSS Tokens file.
+ *
+ * @returns {void}
+ *
+ * @example
+ *
+ * const defaultTheme: Theme = { ... }
+ * const darkTheme: Theme = { ... }
+ * const otherTheme: Theme = { ... }
+ *
+ * const themes = {
+ *   default: defaultTheme,
+ *   dark: darkTheme
+ *   other: otherTheme
+ * }
+ *
+ * createCSSTokensFile('somePath.css', themes)
+ */
+export function createCSSTokensFile(
+  path: string,
+  themeRecord: RequireAtLeastOne<Record<string, Theme>, 'default'>
+) {
   const { filepath, rootPath } = buildFilePath(join(parentModule() || '', path))
 
   const folders = filepath.split('/').slice(0, -1)
