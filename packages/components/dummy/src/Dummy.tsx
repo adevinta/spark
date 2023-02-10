@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 
 export interface DummyProps extends ComponentPropsWithoutRef<'span'> {
   /* type of dummy */
-  type: 'foo' | 'bar'
+  type: 'bar' | 'foo'
 }
 
 export function Dummy({ type = 'bar', ...rest }: PropsWithChildren<DummyProps>) {
