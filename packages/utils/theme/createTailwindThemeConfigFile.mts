@@ -56,9 +56,9 @@ function toTailwindConfig(theme: Theme): TailwindConfig {
  *
  * @example
  *
- * createTailwindConfigFile('tailwind.theme.js')
+ * createTailwindThemeConfigFile('tailwind.theme.js')
  */
-export function createTailwindConfigFile(path: string) {
+export function createTailwindThemeConfigFile(path: string) {
   const { filepath, rootPath } = buildFilePath(join(parentModule() || '', path))
 
   const folders = filepath.split('/').slice(0, -1)
