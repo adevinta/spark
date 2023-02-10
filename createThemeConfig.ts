@@ -1,6 +1,6 @@
 import {
   createCSSTokensFile,
-  createTailwindConfigFile,
+  createTailwindThemeConfigFile,
   createTheme,
   defaultTheme,
   Theme,
@@ -36,5 +36,5 @@ const themes = {
   alternative: alternativeTheme,
 }
 
-createTailwindConfigFile('./tailwind.theme.cjs')
+createTailwindThemeConfigFile('./tailwind.theme.cjs')
 createCSSTokensFile('./src/tailwind.css', themes)
