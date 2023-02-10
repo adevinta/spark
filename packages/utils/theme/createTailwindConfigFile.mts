@@ -47,6 +47,17 @@ function toTailwindConfig(theme: Theme): TailwindConfig {
   return toKebabCaseKeys(themeCpy)
 }
 
+/**
+ * Creates a Tailwind config file that links the [theme options](https://tailwindcss.com/docs/theme#configuration-reference) provided by Tailwind with the CSS custom property values generated using the "createCSSTokensFile" function
+ *
+ * @param {string} path - The file path where the Tailwind config file will be created.
+ *
+ * @returns {void}
+ *
+ * @example
+ *
+ * createTailwindConfigFile('tailwind.theme.js')
+ */
 export function createTailwindConfigFile(path: string) {
   const { filepath, rootPath } = buildFilePath(join(parentModule() || '', path))
 
