@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/theme-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Theme configuration",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -9,9 +9,9 @@
     "build": "vite build"
   },
   "devDependencies": {
+    "deepmerge": "4.3.0",
     "hex-rgb": "5.0.0",
     "parent-module": "3.0.0",
-    "deepmerge": "4.3.0",
     "type-fest": "3.5.6"
   }
 }

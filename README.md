@@ -31,10 +31,10 @@ Feel like contributing? That's awesome! We have a [contributing guide](CONTRIBUT
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/acd02">
-            <img src="https://avatars.githubusercontent.com/u/51230231?v=4" width="32;" alt="acd02"/>
+        <a href="https://github.com/Powerplex">
+            <img src="https://avatars.githubusercontent.com/u/2033710?v=4" width="32;" alt="Powerplex"/>
             <br />
-            <sub><b>acd02</b></sub>
+            <sub><b>Powerplex</b></sub>
         </a>
     </td>
     <td align="center">
@@ -45,10 +45,17 @@ Feel like contributing? That's awesome! We have a [contributing guide](CONTRIBUT
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Powerplex">
-            <img src="https://avatars.githubusercontent.com/u/2033710?v=4" width="32;" alt="Powerplex"/>
+        <a href="https://github.com/acd02">
+            <img src="https://avatars.githubusercontent.com/u/51230231?v=4" width="32;" alt="acd02"/>
             <br />
-            <sub><b>Powerplex</b></sub>
+            <sub><b>acd02</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/kikoruiz">
+            <img src="https://avatars.githubusercontent.com/u/2622119?v=4" width="32;" alt="kikoruiz"/>
+            <br />
+            <sub><b>kikoruiz</b></sub>
         </a>
     </td></tr>
 </table>

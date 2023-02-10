@@ -2,13 +2,13 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 
-import { Button } from './Button'
+import { Dummy } from './Dummy'
 
-describe('Button', () => {
+describe('Dummy', () => {
   it('should render', () => {
-    render(<Button>My button</Button>)
+    render(<Dummy type="bar" />)
 
-    expect(screen.getByText('My button')).toBeInTheDocument()
+    expect(screen.getByText('bar')).toBeInTheDocument()
   })
 
   it('should trigger click event', async () => {
@@ -16,10 +16,10 @@ describe('Button', () => {
     const clickEvent = vi.fn()
 
     // Given
-    render(<div onClick={clickEvent}>My button</div>)
+    render(<div onClick={clickEvent}>bar</div>)
 
     // When
-    await user.click(screen.getByText('My button'))
+    await user.click(screen.getByText('bar'))
 
     // Then
     expect(clickEvent).toHaveBeenCalledTimes(1)

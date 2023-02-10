@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/button",
+  "name": "@spark-ui/dummy",
   "version": "1.1.0",
-  "description": "",
+  "description": "Just a dummy component",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
