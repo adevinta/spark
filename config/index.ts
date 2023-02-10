@@ -1,4 +1,5 @@
 import merge from 'deepmerge'
+
 import component from './component'
 
 export function getComponentConfiguration(name: string, options = {}) {
@@ -6,14 +7,7 @@ export function getComponentConfiguration(name: string, options = {}) {
 }
 
 function getConfiguration(configuration: Record<string, unknown>, options = {}, name?: string) {
-  const result = merge.all(
-    [
-      configuration,
-      name ? { build: { lib: { name } } } : {},
-      options
-    ],
-    {}
-  )
+  const result = merge.all([configuration, name ? { build: { lib: { name } } } : {}, options], {})
 
   return result
 }

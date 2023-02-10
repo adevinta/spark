@@ -45,3 +45,87 @@ jobs:
           auto_detect_branch_protection: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    needs: [check-skip]
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.1
+          registry-url: 'https://registry.npmjs.org'
+      - name: install dependencies
+        run: |
+          npm i
+      - name: Compress build directory
+        run: tar -zcvf build-dir.tar.gz ./public/
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-folder
+          path: build-dir.tar.gz
+  lint:
+    needs: [check-skip]
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.1
+          registry-url: 'https://registry.npmjs.org'
+      - name: install dependencies
+        run: |
+          npm i
+      - name: lint
+        run: |
+          npm run lint
+  test:
+    needs: [check-skip]
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.1
+          registry-url: 'https://registry.npmjs.org'
+      - name: test
+        run: |
+          npm run test:run
+  release:
+    needs: [lint, test, build]
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.1
+          registry-url: 'https://registry.npmjs.org'
+  deploy:
+    needs: [build]
+    environment:
+      name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.11.1
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-folder
+          path: .
+      - name: Install Vercel CLI
+        run: npm i -global vercel@latest --no-save --no-fund --no-audit --no-scripts
+      - name: Deploy
+        id: deploy
+        run: |
+          DEPLOYMENT_URL=$(vercel deploy --token $VERCEL_TOKEN --yes $VERCEL_PARAMS)
+          echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
+        env:
+          VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
