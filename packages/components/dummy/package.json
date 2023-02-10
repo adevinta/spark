@@ -1,7 +1,10 @@
 {
   "name": "@spark-ui/dummy",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Just a dummy component",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

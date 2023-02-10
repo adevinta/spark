@@ -1,0 +1,18 @@
+{
+  "config/**/*.(m|c)?ts?(x)": [
+    "eslint --config .eslintrc.cjs --fix",
+    "prettier --config .prettierrc.json --write"
+  ],
+  "documentation/**/*.(m|c)?ts?(x)": [
+    "eslint --config .eslintrc.cjs --fix",
+    "prettier --config .prettierrc.json --write"
+  ],
+  "packages/**/*.(m|c)?ts?(x)": [
+    "eslint --config .eslintrc.cjs --fix",
+    "prettier --config .prettierrc.json --write"
+  ],
+  "src/**/*.(m|c)?ts?(x)": [
+    "eslint --config .eslintrc.cjs --fix",
+    "prettier --config .prettierrc.json --write"
+  ]
+}
