@@ -36,6 +36,9 @@ jobs:
       - run: npm run test
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
+      url: ${{ steps.deploy.outputs.url }}
     steps:
       - uses: actions/checkout@v2
       - name: Install
@@ -43,13 +46,14 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest --no-save --no-fund --no-audit --no-scripts
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
         run: npm run build
       - name: Build Storybook
         run: npm run storybook:build
       - name: Deploy Storybook to Vercel
-        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes
+        id: deployment
+        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes --environment=preview
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
