@@ -53,7 +53,7 @@ jobs:
         run: npm run storybook:build
       - name: Deploy Storybook to Vercel
         id: deployment
-        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes --environment=preview
+        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
