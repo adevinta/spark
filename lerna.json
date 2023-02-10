@@ -5,7 +5,7 @@
   "command": {
     "publish": {
       "conventionalCommits": true,
-      "message": "chore: Release packages [skip ci]"
+      "message": "chore: release packages [skip ci]"
     },
     "version": {
       "conventionalCommits": true
