@@ -7,7 +7,7 @@ import type { Theme } from './types.mjs'
 /**
  * Create a custom theme by merging the default theme with a partial custom theme passed as an argument.
  *
- * @param {PartialDeep<Theme>} theme - A partial theme object of type PartialDeep<Theme> which represents the theme values that need to be customized or overridden
+ * @param {PartialDeep<Theme>} theme - A partial theme object of type PartialDeep<Theme> which holds the theme values that need to be customized or overridden
  *
  * @returns {Theme}
  *
