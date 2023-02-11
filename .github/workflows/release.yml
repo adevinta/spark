@@ -24,6 +24,10 @@ jobs:
           auto_detect_branch_protection: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  contributors:
+    runs-on: ubuntu-latest
+    name: Contributions
+    steps:
       - name: Doc contributors
         uses: akhilmhdh/contributors-readme-action@v2.3.6
         if: github.event_name == 'push'
@@ -38,6 +42,10 @@ jobs:
           auto_detect_branch_protection: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  maintainers:
+    runs-on: ubuntu-latest
+    name: Contributions
+    steps:
       - name: Doc maintainers
         uses: akhilmhdh/contributors-readme-action@v2.3.6
         if: github.event_name == 'push'
