@@ -26,7 +26,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   contributors:
     runs-on: ubuntu-latest
-    name: Contributions
+    name: Contributors
     steps:
       - name: Doc contributors
         uses: akhilmhdh/contributors-readme-action@v2.3.6
@@ -44,7 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   maintainers:
     runs-on: ubuntu-latest
-    name: Contributions
+    name: Maintainers
     steps:
       - name: Doc maintainers
         uses: akhilmhdh/contributors-readme-action@v2.3.6
