@@ -32,7 +32,7 @@ jobs:
           readme_path: 'documentation/contributing/Contributors.md'
           columns_per_row: 8
           use_username: true
-          commit_message: 'docs(chore): update contributions'
+          commit_message: 'docs(chore): update Contributors'
           committer_username: 'spark-ui-bot'
           committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
           auto_detect_branch_protection: false
@@ -46,7 +46,7 @@ jobs:
           readme_path: 'documentation/contributing/Maintainers.md'
           columns_per_row: 8
           use_username: true
-          commit_message: 'docs(chore): update contributions'
+          commit_message: 'docs(chore): update Maintainers'
           committer_username: 'spark-ui-bot'
           committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
           auto_detect_branch_protection: false
