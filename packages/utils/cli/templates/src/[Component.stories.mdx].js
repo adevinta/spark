@@ -7,7 +7,7 @@ export default ({ component, description }) => {
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
 
-import { ${componentName} } from '../src'
+import { ${componentName} } from '.'
 
 import * as stories from './${componentName}.stories'
 

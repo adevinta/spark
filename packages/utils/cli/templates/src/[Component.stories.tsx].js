@@ -5,7 +5,7 @@ export default ({ component, description }) => {
 
   return `import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 
-import { ${componentName} } from '../src'
+import { ${componentName} } from '.'
 
 export const Default = () => (
   <ReactLiveBlock scope={{ ${componentName} }}>
