@@ -4,7 +4,7 @@ import {
   createTheme,
   defaultTheme,
   Theme,
-} from './packages/utils/theme/index.mjs'
+} from '@spark-ui/theme-utils'
 
 export const alternativeTheme: Theme = createTheme({
   colors: {
