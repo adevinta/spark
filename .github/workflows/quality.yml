@@ -34,6 +34,21 @@ jobs:
         uses: ./.github/composite-actions/install
 
       - run: npm run test
+  visual-testing:
+    runs-on: ubuntu-latest
+    name: visual testing
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
   deploy:
     runs-on: ubuntu-latest
     environment:
