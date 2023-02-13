@@ -1,6 +1,6 @@
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 
-import { Dummy } from '../src'
+import { Dummy } from '.'
 
 export const Default = () => (
   <ReactLiveBlock scope={{ Dummy }}>
