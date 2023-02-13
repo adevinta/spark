@@ -12,7 +12,7 @@ import {
   objectEntries,
   objectKeys,
   toKebabCase,
-} from './utils.js'
+} from './utils'
 
 /* eslint-disable-next-line @typescript-eslint/ban-types */
 type FlattenedTheme = Record<'className' | (string & {}), string | number>

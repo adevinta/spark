@@ -11,7 +11,7 @@ export default {
   build: {
     target: 'es2015',
     lib: {
-      entry: 'index.ts',
+      entry: 'src/index.ts',
       formats: ['es', 'cjs'],
       fileName: 'index',
     },
@@ -22,7 +22,7 @@ export default {
   },
   plugins: [
     dts({
-      entryRoot: './',
+      entryRoot: './src',
     }),
   ],
 }

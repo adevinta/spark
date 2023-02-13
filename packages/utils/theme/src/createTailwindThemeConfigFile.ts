@@ -11,7 +11,7 @@ import {
   objectEntries,
   toKebabCase,
   toKebabCaseKeys,
-} from './utils.js'
+} from './utils'
 
 type NestedObj = Record<string, string | number | Record<string, string | number>>
 type TailwindConfig = Record<string, Theme[keyof Theme]>
