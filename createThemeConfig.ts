@@ -1,10 +1,10 @@
 import {
   createCSSTokensFile,
-  createTailwindConfigFile,
+  createTailwindThemeConfigFile,
   createTheme,
   defaultTheme,
   Theme,
-} from './packages/utils/theme/index.mjs'
+} from '@spark-ui/theme-utils'
 
 export const alternativeTheme: Theme = createTheme({
   colors: {
@@ -36,5 +36,5 @@ const themes = {
   alternative: alternativeTheme,
 }
 
-createTailwindConfigFile('./tailwind.theme.cjs')
+createTailwindThemeConfigFile('./tailwind.theme.cjs')
 createCSSTokensFile('./src/tailwind.css', themes)

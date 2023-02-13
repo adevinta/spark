@@ -2,8 +2,8 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import parentModule from 'parent-module'
 import { join } from 'path'
 
-import { defaultTheme } from './defaultTheme.mjs'
-import type { Theme } from './types.mjs'
+import { defaultTheme } from './defaultTheme'
+import type { Theme } from './types'
 import {
   buildFilePath,
   isHex,
@@ -11,7 +11,7 @@ import {
   objectEntries,
   toKebabCase,
   toKebabCaseKeys,
-} from './utils.mjs'
+} from './utils'
 
 type NestedObj = Record<string, string | number | Record<string, string | number>>
 type TailwindConfig = Record<string, Theme[keyof Theme]>
@@ -47,7 +47,18 @@ function toTailwindConfig(theme: Theme): TailwindConfig {
   return toKebabCaseKeys(themeCpy)
 }
 
-export function createTailwindConfigFile(path: string) {
+/**
+ * Creates a Tailwind config file that links the [theme options](https://tailwindcss.com/docs/theme#configuration-reference) provided by Tailwind with the CSS custom property values generated using the "createCSSTokensFile" function
+ *
+ * @param {string} path - The file path where the Tailwind config file will be created.
+ *
+ * @returns {void}
+ *
+ * @example
+ *
+ * createTailwindThemeConfigFile('tailwind.theme.js')
+ */
+export function createTailwindThemeConfigFile(path: string) {
   const { filepath, rootPath } = buildFilePath(join(parentModule() || '', path))
 
   const folders = filepath.split('/').slice(0, -1)

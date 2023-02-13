@@ -1,4 +1,4 @@
-import type { Theme } from './types.mjs'
+import type { Theme } from './types'
 
 export const defaultTheme: Theme = {
   screens: {
