@@ -1,5 +1,5 @@
 export { createTheme } from './createTheme.mjs'
-export { createTailwindConfigFile } from './createTailwindConfigFile.mjs'
+export { createTailwindThemeConfigFile } from './createTailwindThemeConfigFile.mjs'
 export { createCSSTokensFile } from './createCSSTokensFile.mjs'
 export { defaultTheme } from './defaultTheme.mjs'
 
