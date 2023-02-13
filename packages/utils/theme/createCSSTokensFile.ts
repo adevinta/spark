@@ -4,7 +4,7 @@ import parentModule from 'parent-module'
 import { join } from 'path'
 import type { RequireAtLeastOne } from 'type-fest'
 
-import type { Theme } from './types.mjs'
+import type { Theme } from './types'
 import {
   buildFilePath,
   isHex,
@@ -12,7 +12,7 @@ import {
   objectEntries,
   objectKeys,
   toKebabCase,
-} from './utils.mjs'
+} from './utils.js'
 
 /* eslint-disable-next-line @typescript-eslint/ban-types */
 type FlattenedTheme = Record<'className' | (string & {}), string | number>
