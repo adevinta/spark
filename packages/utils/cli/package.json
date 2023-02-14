@@ -1,0 +1,20 @@
+{
+  "name": "@spark-ui/cli-utils",
+  "version": "1.0.0",
+  "description": "Spark CLI utils",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "spark": "./bin/spark.mjs",
+    "spark-generate": "./bin/spark-generate.mjs"
+  },
+  "type": "module",
+  "devDependencies": {
+    "chalk": "5.2.0",
+    "commander": "10.0.0",
+    "fs-extra": "11.1.0",
+    "glob": "8.1.0",
+    "pascal-case": "3.1.2"
+  }
+}
