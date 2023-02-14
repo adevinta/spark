@@ -1,9 +1,10 @@
-import { existsSync, mkdirSync, writeFileSync } from 'fs'
-import parentModule from 'parent-module'
-import { join } from 'path'
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 
-import { defaultTheme } from './defaultTheme'
-import type { Theme } from './types'
+import parentModule from 'parent-module'
+
+import { defaultTheme } from '../../theme/src/defaultTheme'
+import type { Theme } from '../../theme/src/types'
 import {
   buildFilePath,
   isHex,
