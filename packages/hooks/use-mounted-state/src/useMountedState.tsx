@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 
 export function useMountedState(): () => boolean {
-  const mountedRef = useRef<boolean>(false)
+  const mountedRef = useRef(false)
 
   const get = useCallback(() => mountedRef.current, [])
 
