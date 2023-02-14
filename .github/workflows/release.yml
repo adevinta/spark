@@ -6,19 +6,37 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 jobs:
-  contributions:
+  contributors:
     runs-on: ubuntu-latest
-    name: Contributions
+    name: Contributors
     steps:
-      - name: Contribute List
+      - name: Doc contributors
         uses: akhilmhdh/contributors-readme-action@v2.3.6
         if: github.event_name == 'push'
         with:
-          image_size: 32
-          readme_path: 'README.md'
+          image_size: 50
+          readme_path: 'documentation/contributing/Contributors.md'
           columns_per_row: 8
           use_username: true
-          commit_message: 'docs(chore): update contributions'
+          commit_message: 'docs(chore): update Contributors'
+          committer_username: 'spark-ui-bot'
+          committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
+          auto_detect_branch_protection: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  maintainers:
+    runs-on: ubuntu-latest
+    name: Maintainers
+    steps:
+      - name: Doc maintainers
+        uses: akhilmhdh/contributors-readme-action@v2.3.6
+        if: github.event_name == 'push'
+        with:
+          image_size: 50
+          readme_path: 'documentation/contributing/Maintainers.md'
+          columns_per_row: 8
+          use_username: true
+          commit_message: 'docs(chore): update Maintainers'
           committer_username: 'spark-ui-bot'
           committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
           auto_detect_branch_protection: false
@@ -49,3 +67,24 @@ jobs:
 
       - name: Publish
         run: npm run release
+  deploy:
+    needs: [contributors, maintainers, release]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        uses: ./.github/composite-actions/install
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest --no-save --no-fund --no-audit --no-scripts
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: npm run build
+      - name: Build Storybook
+        run: npm run storybook:build
+      - name: Deploy Storybook to Vercel
+        run: vercel deploy --token $VERCEL_TOKEN --prod --yes
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}

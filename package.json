@@ -6,12 +6,13 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
+    "postinstall": "lerna run build --scope=@spark-ui/theme-utils",
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "lerna run build",
     "build:watch": "lerna run build && lerna watch -- lerna run build --since",
     "release": "lerna publish --yes --include-merged-tags --no-verify-access",
     "storybook:start": "npm run create:theme-config && storybook dev -p 6006",
-    "storybook:build": "storybook build",
+    "storybook:build": "storybook build -o dist",
     "test": "vitest",
     "test:ui": "vitest watch --ui",
     "test:run": "vitest run",
@@ -24,14 +25,17 @@
     "node:check": "node bin/check-node-version.js",
     "create:theme-config": "ts-node-esm createThemeConfig.ts"
   },
+  "dependencies": {
+    "@spark-ui/theme-utils": "*"
+  },
   "devDependencies": {
+    "@spark-ui/cli-utils": "*",
     "@babel/core": "^7.20.12",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@commitlint/config-lerna-scopes": "^17.4.2",
     "@commitlint/cz-commitlint": "^17.4.2",
     "@commitlint/prompt-cli": "^17.4.2",
-    "@rollup/plugin-typescript": "11.0.0",
     "@storybook/addon-actions": "^7.0.0-beta.43",
     "@storybook/addon-essentials": "^7.0.0-beta.43",
     "@storybook/addon-interactions": "^7.0.0-beta.43",
@@ -96,6 +100,9 @@
   "workspaces": [
     "packages/components/*",
     "packages/utils/*"
+  ],
+  "namespaces": [
+    "spark-ui"
   ],
   "config": {
     "commitizen": {

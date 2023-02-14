@@ -1,13 +1,13 @@
 {
   "name": "@spark-ui/theme-utils",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Theme configuration",
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
   },
