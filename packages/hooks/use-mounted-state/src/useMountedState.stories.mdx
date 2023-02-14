@@ -1,0 +1,45 @@
+import { Meta, Story } from '@storybook/addon-docs'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+<Meta title="Hooks/useMountedState" />
+
+# useMountedState
+
+> **NOTE!:** despite having `State` in its name **_this hook does not cause component re-render_**.
+> This component designed to be used to avoid state updates on unmounted components.
+
+Lifecycle hook provides the ability to check the component's mount state.
+Returns a function that will return `true` if component mounted and `false` otherwise.
+
+<StoryHeading label="Install" />
+
+```
+npm install @spark-ui/use-mounted-state
+```
+
+<StoryHeading label="Import" />
+
+```
+import { useMountedState } from "@spark-ui/use-mounted-state"
+```
+
+<StoryHeading label="Usage" />
+
+```jsx
+import * as React from 'react'
+import { useMountedState } from 'react-use'
+
+const Demo = () => {
+  const isMounted = useMountedState()
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      if (isMounted()) {
+        // ...
+      } else {
+        // ...
+      }
+    }, 1000)
+  })
+}
+```
