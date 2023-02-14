@@ -2,8 +2,8 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import parentModule from 'parent-module'
 import { join } from 'path'
 
-import { defaultTheme } from './defaultTheme.mjs'
-import type { Theme } from './types.mjs'
+import { defaultTheme } from './defaultTheme'
+import type { Theme } from './types'
 import {
   buildFilePath,
   isHex,
@@ -11,7 +11,7 @@ import {
   objectEntries,
   toKebabCase,
   toKebabCaseKeys,
-} from './utils.mjs'
+} from './utils'
 
 type NestedObj = Record<string, string | number | Record<string, string | number>>
 type TailwindConfig = Record<string, Theme[keyof Theme]>
