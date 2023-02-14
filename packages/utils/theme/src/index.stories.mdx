@@ -3,14 +3,7 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 <Meta title="utils/Theme" />
 
-# Theme
-
-- [Theme](#theme-interface)
-- [defaultTheme](#default-theme)
-- [createTheme](#createtheme)
-- [createCSSTokensFile](#createcsstokensfile)
-- [createTailwindThemeConfigFile](#createtailwindthemeconfigfile)
-- [Practical example](#practical-example)
+# Theme utils
 
 > **Note**
 >
@@ -18,17 +11,27 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 ---
 
-The **`packages/utils/theme`** exposes the following:
+The **`@spark-ui/theme-utils`** exposes the following:
 
 ```tsx
-import {
-  Theme,
-  defaultTheme,
-  createTheme,
-  createCSSTokensFile,
-  createTailwindThemeConfigFile,
-} from '@spark-ui/theme-utils'
+import { Theme, defaultTheme, createTheme } from '@spark-ui/theme-utils'
 ```
+
+- [Theme](#theme-interface)
+- [defaultTheme](#default-theme)
+- [createTheme](#createtheme)
+
+The **`@spark-ui/theme-utils-node`** exposes the following:
+
+```tsx
+import { createCSSTokensFile, createTailwindThemeConfigFile } from '@spark-ui/theme-utils-node'
+```
+
+- [createCSSTokensFile](#createcsstokensfile)
+- [createTailwindThemeConfigFile](#createtailwindthemeconfigfile)
+- [Practical example](#practical-example)
+
+<StoryHeading label="@spark-ui/theme-utils" as="h2" />
 
 <StoryHeading label="theme interface" as="h4" />
 
@@ -49,10 +52,15 @@ This function expects one argument:
 **Usage:**
 
 ```tsx
+
+import { createTheme } from '@spark-ui/theme-utils'
+
 const someTheme: PartialDeep<Theme> = { ... }
 const newTheme = createTheme(someTheme) // Theme
 
 ```
+
+<StoryHeading label="@spark-ui/theme-utils-node" as="h2" />
 
 <StoryHeading label="createCSSTokensFile" as="h4" />
 
@@ -69,7 +77,9 @@ This function expects two arguments:
 
 ```tsx
 // createTokens.ts
-const defaultTheme: Theme = { ... }
+import { Theme, defaultTheme } from '@spark-ui/theme-utils'
+import { createCSSTokensFile } from '@spark-ui/theme-utils-node'
+
 const darkTheme: Theme = { ... }
 const someOtherTheme: Theme = { ... }
 
@@ -86,6 +96,7 @@ createCSSTokensFile('./somePath.css', themes)
 - Executing `createTokens.ts` will generate a `somePath.css` file with the following structure:
 
 ```css
+/* 🛠️ generated somePath.css file  */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -128,6 +139,8 @@ This function expects one argument:
 
 ```tsx
 // overrideTailwindConfig.ts
+import { createTailwindThemeConfigFile } from '@spark-ui/theme-utils-node'
+
 createTailwindThemeConfigFile('./tailwind.theme.js)
 
 ```
@@ -135,7 +148,7 @@ createTailwindThemeConfigFile('./tailwind.theme.js)
 - Executing `overrideTailwindConfig.ts` will generate a `tailwind.theme.js` file with the following structure:
 
 ```js
-// tailwind.theme.js
+// ⚙️ generated tailwind.theme.js file
 module.exports = {
   ...,
   screens: {
@@ -172,7 +185,7 @@ module.exports = {
 
 ```tsx
 // createThemeConfig.ts
-import { createCSSTokensFile, createTailwindThemeConfigFile } from '@spark-ui/theme-utils'
+import { createCSSTokensFile, createTailwindThemeConfigFile } from '@spark-ui/theme-utils-node'
 import { themes } from '/myThemes'
 
 createTailwindThemeConfigFile('./tailwind.theme.js') // ⬅️ will generate the Tailwind theme config file

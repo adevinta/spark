@@ -1,11 +1,11 @@
 {
-  "name": "@spark-ui/theme-utils",
+  "name": "@spark-ui/theme-utils-node",
   "version": "1.2.0",
-  "description": "package for managing Spark theme configuration",
+  "description": "package for generating Spark theme configuration files",
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -13,6 +13,8 @@
   },
   "devDependencies": {
     "deepmerge": "4.3.0",
+    "hex-rgb": "5.0.0",
+    "parent-module": "3.0.0",
     "type-fest": "3.5.6"
   }
 }

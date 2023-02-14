@@ -1,10 +1,11 @@
-import { appendFileSync, existsSync, mkdirSync } from 'fs'
+import { appendFileSync, existsSync, mkdirSync } from 'node:fs'
+import { join } from 'node:path'
+
 import hexRgb from 'hex-rgb'
 import parentModule from 'parent-module'
-import { join } from 'path'
 import type { RequireAtLeastOne } from 'type-fest'
 
-import type { Theme } from './types'
+import type { Theme } from '../../theme/src/types'
 import {
   buildFilePath,
   isHex,

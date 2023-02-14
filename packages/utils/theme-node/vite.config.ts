@@ -16,7 +16,7 @@ export default {
       fileName: 'index',
     },
     rollupOptions: {
-      external: [...deps, ...devDeps],
+      external: [...deps, ...devDeps, 'node:path', 'node:fs'],
       plugins: [terser()],
     },
   },
