@@ -1,0 +1,504 @@
+import { Meta } from '@storybook/blocks'
+import { StoryHeading } from '@devtools/StoryHeading'
+
+<Meta title="Contributing/Practises/Naming" />
+
+<StoryHeading label="Naming" heading="h1" />> Write for reading
+
+**Naming** increases speed to comprehend code and reduces bugs through confusion.
+
+- ✅ [Leverage names to reveal intent](#leverage-names-to-reveal-intent)
+- ✅ [Empathize with others](#empathize-with-others)
+- ✅ [Reuse established names for concepts](#reuse-established-names-for-concepts)
+- ✅ [Be specific & avoid general terms unless they have contextual meaning](#be-specific--avoid-general-terms-unless-they-have-contextual-meaning)
+- ✅ [Use longer names for larger scopes](#use-longer-names-for-larger-scopes)
+- ✅ [Include _all_ effects of the method/class](#include-all-effects-of-the-methodclass)
+- ✅ [Establish a _single_ domain terminology](#establish-a-single-domain-terminology)
+- ✅ [Apply consistent standards in a project](#apply-consistent-standards-in-a-project)
+- ✅ [Stick to idiomatic case](#stick-to-idiomatic-case)
+- ✅ [Rather encode hints in the name than in comments](#rather-encode-hints-in-the-name-than-in-comments)
+- ❌ [Reuse names in different scopes](#reuse-names-in-different-scopes)
+- ❌ [Pick names making only sense to you](#pick-names-making-only-sense-to-you)
+- ❌ [Be funny](#be-funny)
+
+<StoryHeading label="✅ Leverage names to reveal intent" heading="h2" />
+
+```js
+const think = '🍌' // ❌
+const food = '🍌' // ❌
+const fruit = '🍌' // ❌
+const banana = '🍌' // ✅
+```
+
+<StoryHeading label="✅ Empathize with others" heading="h2" />
+
+```js
+const [blackList, whileList] = permissionLists // ❌
+const [excludeList, allowedList] = permissionLists // ✅
+
+const [master, slave] = branches // ❌
+const [main, divergent] = branches // ✅
+```
+
+<StoryHeading label="✅ Reuse established names for concepts" heading="h2" />
+
+```js
+const [appleMeasurement, grapeDimensions, ...fruitSizes] = ['xs', 'l', 'm'] // ❌
+const [appleSize, grapeSize, ...fruitSizes] = ['xs', 'l', 'm'] // ✅
+```
+
+<StoryHeading
+  label="✅ Be specific & avoid general terms unless they have contextual meaning"
+  heading="h2"
+/>
+
+```js
+const [stuff, name, concept] = ['🍎', '🍐', '🍊'] // ❌
+const [entity, think, variable, ...other] = ['🍋', '🍌', '🍉', '🍇'] // ❌
+
+const [fruit1, fruit2, fruit3] = ['🍎', '🍐', '🍊'] // ❌
+const [fruit4, fruit5, fruit6, ...otherFruits] = ['🍋', '🍌', '🍉', '🍇'] // ❌
+
+const [apple, pear, orange] = ['🍎', '🍐', '🍊'] // ✅
+const [lemon, banana, watermelon, grape, ...otherFruits] = ['🍋', '🍌', '🍉', '🍇'] // ✅
+```
+
+<StoryHeading label="✅ Use longer names for larger scopes" heading="h2" />
+
+```js
+const a11y // ❌
+const accessibility // ✅
+const i18n // ❌
+const internationalization // ✅
+const i19s // ❌
+const incomprehensibilities // ✅
+```
+
+<StoryHeading label="✅ Include all defined effects of the method/class" heading="h2" />
+
+```js
+// Car entity ❌
+class Car {
+  #engine
+  #color
+
+  // Create ❌
+  create = ({ engine, color }) => {
+    // TODO: creates the entity ❌
+  }
+
+  // Read ✅
+  read = () =>
+    Object.assign(
+      {},
+      {
+        engine: this.#engine,
+        color: this.#color,
+      }
+    )
+
+  // Update ❌
+
+  // Delete ❌
+  remove = () => {
+    // TODO ❌
+  }
+}
+```
+
+```js
+// Car entity ✅
+class Car {
+  #engine
+  #color
+
+  // Create ✅
+  create = ({ engine, color }) => {
+    this.#engine = engine
+    this.#color = color
+    return this
+  }
+
+  // Read ✅
+  read = () =>
+    Object.assign(
+      {},
+      {
+        engine: this.#engine,
+        color: this.#color,
+      }
+    )
+
+  // Update ✅
+  update = ({ engine, color }) => {
+    engine && this.#engine == engine
+    color && this.#color == color
+    return this
+  }
+
+  // Delete ✅
+  remove = () => {
+    this.#engine = undefined
+    this.#color = undefined
+    return this
+  }
+}
+```
+
+<StoryHeading label="✅ Establish a single domain terminology" heading="h2" />
+
+```js
+const car = '🚗'
+
+class Insurance {
+  #vehicle // ❌
+  constructor({ car }) {
+    this.#vehicle = car
+  }
+}
+
+class Roads {
+  #autos // ❌
+  constructor({ car }) {
+    this.#autos = car
+  }
+}
+```
+
+```js
+const car = '🚗'
+
+class Insurance {
+  #car // ❌
+  constructor({ car }) {
+    this.#car = car
+  }
+}
+
+class Roads {
+  #car // ❌
+  constructor({ car }) {
+    this.#car = car
+  }
+}
+```
+
+<StoryHeading label="Reserved prefixes" heading="h3" />
+
+- **use**Something: react hook
+- **with**Something: react HighOrderComponent
+- **on**Something: react component handler
+
+<StoryHeading label="DataType directives" heading="h3" />
+
+<StoryHeading label="Booleans" heading="h4" />
+
+Add **is** or **has** as variable name prefixes + participle verb or adjective:
+
+```js
+const name = true // ❌
+const isNamed = true // ✅
+
+const red = true // ❌
+const isRed = true
+```
+
+Better use a semantic affirmative naming
+
+```js
+const isInvisible = false // ❌
+const isVisible = true // ✅
+
+const hasRestrictions = false // ❌
+const hasPermissions = true // ✅
+```
+
+<StoryHeading label="Number" heading="h4" />
+
+Use singular
+Use -**number** postfix on **n**- prefix
+
+```js
+const count = 0
+const pageNumber = 3
+const nPage = 3
+```
+
+<StoryHeading label="String" heading="h4" />
+
+Use singular
+
+```js
+const fruits = '🍎' // ❌
+const fruit = '🍎' // ✅
+
+const cars = '🚗' // ❌
+const car = '🚗' // ✅
+
+const person = '🧑‍🦱' // ✅
+const user = '👩‍💻' // ✅
+const number = '1️⃣' // ✅
+```
+
+<StoryHeading label="Array, Set or Map" heading="h4" />
+
+Use plural
+
+```js
+const fruits = '🍎' // ❌
+const fruits = ['🍎', '🍌', '🍐'] // ✅
+
+const cars = '🚗' // ❌
+const cars = ['🚗', '🚙', '🚘'] // ✅
+
+const persons = new Map([
+  [1, '🧑‍🦱'],
+  [2, '👨‍🦳'],
+  [3, '👩‍🦳'],
+  [4, '👩'],
+  [5, '👶'],
+]) // ✅
+const users = new Set(['👩‍💻', '🧑‍💻', '👨‍💻']) // ✅
+const numbers = ['1️⃣'] // ✅
+```
+
+<StoryHeading label="Functions" heading="h4" />
+Use a infinitive **verb**
+
+```js
+const handleThat = () => {}
+```
+
+It's async? Use gerund (-ing)
+
+```js
+const handlingThat = async () => {}
+const gettingThose = new Promise(resolve => setTimeout(resolve, 3000))
+```
+
+Is it a React component prop handler? use the **on**-Whatever prefix
+
+```js
+const Component = ({click, ...props}) => <div onClick={click} {...props}/> // ❌
+const Component = ({onClick, ...props}) => <div onClick={onClick} {...props}/> // ❌
+```
+
+
+<StoryHeading label="Class or React Component entity" heading="h4" />
+
+Use initial Capital Letter for its declarations.
+Use lower-case for its instances
+
+```js
+// class declarations
+class car {} // ❌
+class Car {} // ✅
+
+// class instances
+const Ferrari = new Car('Ferrari') // ❌
+const ferrari = new Car('Ferrari') // ✅
+
+// React component declarations
+const car = props => <div {...props} >🏎️</div> // ❌
+const Car = props => <div {...props} >🏎️</div> // ✅
+
+// class instances
+const Ferrari = <Car /> // ❌
+const ferrari = <Car /> // ✅
+
+```
+
+<StoryHeading label="✅ Apply consistent standards in a project" heading="h2" />
+
+```❌
+// Component1.js
+const Component1 = () => {}
+export default Component1
+
+// Component2.js
+export default () => {}
+
+// Component3.js
+export const Component3 = () => {}
+```
+
+```✅
+// Component1.js
+export default () => {}
+
+// Component2.js
+export default () => {}
+
+// Component3.js
+export default () => {}
+```
+
+<StoryHeading label="✅ Stick to idiomatic case" heading="h2" />
+
+<table>
+  <thead>
+    <tr>
+      <th>case</th>
+      <th></th>
+      <th>"Test String"</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>**camel case**</th>
+      <th>Transform into a string with the separator denoted by the next word capitalized.</th>
+      <th>"testString"</th>
+    </tr>
+    <tr>
+      <th>**capital-case**</th>
+      <th>Transform into a space separated string with each word capitalized.</th>
+      <th>"Test String"</th>
+    </tr>
+    <tr>
+      <th>**constant-case**</th>
+      <th>Transform into upper case string with an underscore between words.</th>
+      <th>"TEST_STRING"</th>
+    </tr>
+    <tr>
+      <th>**dot-case**</th>
+      <th>Transform into a lower case string with a period between words.</th>
+      <th>"test.string"</th>
+    </tr>
+    <tr>
+      <th>**header-case**</th>
+      <th>Transform into a dash separated string of capitalized words.</th>
+      <th>"Test-String"</th>
+    </tr>
+    <tr>
+      <th>**no-case**</th>
+      <th>Transform into a lower cased string with spaces between words.</th>
+      <th>"test string"</th>
+    </tr>
+    <tr>
+      <th>**kebab-case(param-case)**</th>
+      <th>Transform into a lower cased string with dashes between words.</th>
+      <th>"test-string"</th>
+    </tr>
+    <tr>
+      <th>**pascal-case**</th>
+      <th>Transform into a string of capitalized words without separators.</th>
+      <th>"TestString"</th>
+    </tr>
+    <tr>
+      <th>**path-case**</th>
+      <th>Transform into a lower case string with slashes between words.</th>
+      <th>"test/string"</th>
+    </tr>
+    <tr>
+      <th>**sentence-case**</th>
+      <th>Transform into a lower case with spaces between words, then capitalize the string.</th>
+      <th>"Test string"</th>
+    </tr>
+    <tr>
+      <th>**snake-case**</th>
+      <th>Transform into a lower case string with underscores between words.</th>
+      <th>"test_string"</th>
+    </tr>
+    <tr>
+      <th>**title-case**</th>
+      <th>
+        Transform a string into [title case](https://en.wikipedia.org/wiki/Letter_case#Title_case)
+        following English rules.
+      </th>
+      <th>"Test String"</th>
+    </tr>
+    <tr>
+      <th>**swap-case**</th>
+      <th>
+        Transform a string by swapping every character from upper to lower case, or lower to upper
+        case.
+      </th>
+      <th>"tEST sTRING"</th>
+    </tr>
+    <tr>
+      <th>**lower-case**</th>
+      <th>Transforms the string to lower case.</th>
+      <th>"test string"</th>
+    </tr>
+    <tr>
+      <th>**upper-case**</th>
+      <th>Transforms the string to upper case.</th>
+      <th>"TEST STRING"</th>
+    </tr>
+    <tr>
+      <th>**sponge-case**</th>
+      <th>Transform into a string with random capitalization applied.</th>
+      <th>"tEst stRINg"</th>
+    </tr>
+  </tbody>
+</table>
+
+<StoryHeading label="✅ Rather encode hints in the name than in comments" heading="h2" />
+
+```js
+const pet = '🐶' // domesticated wolf's descendant animal. ❌
+const dog = '🐶' // ✅
+```
+
+<StoryHeading label="❌ Reuse names in different scopes" heading="h2" />
+
+```js
+const Component = ({ children, ...props }) => {
+  const Children = ({ ...props }) => <div {...props} /> // ❌
+  return (
+    <div {...props}>
+      <Children foo="bar" />
+    </div>
+  )
+}
+```
+
+```js
+const Component = ({ children, ...props }) => {
+  const Children = ({ ...childrenProps }) => <div {...childrenProps} /> // ✅
+  return (
+    <div {...props}>
+      <Children foo="bar" />
+    </div>
+  )
+}
+```
+
+<StoryHeading label="❌ Pick names making only sense to you" heading="h2" />
+
+Try to avoid acronyms. It normally belongs to a jargon, and it's not universally spread.
+
+```js
+const WIP // ❌
+const workInProgress // ✅
+
+const WYSIWYG // ❌
+const whatYouSeeIsWhatYouGet // ✅
+
+const palta = "🥑" // ❌
+const avocado = "🥑" // ✅
+
+const lol = '🤣' // ❌
+const hilarious = '🤣' // ✅
+
+const AFAIK, ASAP, AKA, FYI, DRY, H8, DM, MD // ❌
+
+```
+
+<StoryHeading label="❌ Be funny" heading="h2" />
+
+```js
+// Magic. Do not touch. ❌
+const sum = (a, b) => {
+  return a + b;
+  const youShouldNeverReadThis // ❌
+  // nobody read comments! ❌
+}
+```
+
+```js
+// ✅
+const sum = (a, b) => {
+  return a + b
+}
+```
