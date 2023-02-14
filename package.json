@@ -100,6 +100,7 @@
   },
   "workspaces": [
     "packages/components/*",
+    "packages/hooks/*",
     "packages/utils/*"
   ],
   "namespaces": [
