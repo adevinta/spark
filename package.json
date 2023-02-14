@@ -30,6 +30,7 @@
     "@spark-ui/theme-utils-node": "*"
   },
   "devDependencies": {
+    "@spark-ui/cli-utils": "*",
     "@babel/core": "^7.20.12",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
@@ -101,6 +102,9 @@
     "packages/components/*",
     "packages/hooks/*",
     "packages/utils/*"
+  ],
+  "namespaces": [
+    "spark-ui"
   ],
   "config": {
     "commitizen": {
