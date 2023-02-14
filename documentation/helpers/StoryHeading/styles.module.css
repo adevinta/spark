@@ -13,4 +13,5 @@
   left: -24px;
   opacity: 0;
   cursor: pointer;
+  scroll-margin-top: 24px;
 }
