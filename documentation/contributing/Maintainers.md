@@ -25,10 +25,10 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/arnau-rius">
-            <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="50;" alt="arnau-rius"/>
+        <a href="https://github.com/kikoruiz">
+            <img src="https://avatars.githubusercontent.com/u/2622119?v=4" width="50;" alt="kikoruiz"/>
             <br />
-            <sub><b>arnau-rius</b></sub>
+            <sub><b>kikoruiz</b></sub>
         </a>
     </td>
     <td align="center">
@@ -39,10 +39,10 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/kikoruiz">
-            <img src="https://avatars.githubusercontent.com/u/2622119?v=4" width="50;" alt="kikoruiz"/>
+        <a href="https://github.com/arnau-rius">
+            <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="50;" alt="arnau-rius"/>
             <br />
-            <sub><b>kikoruiz</b></sub>
+            <sub><b>arnau-rius</b></sub>
         </a>
     </td>
     <td align="center">
