@@ -18,6 +18,15 @@ export function StoryHeading({ label, heading = 'h2' }: Props) {
   return (
     <HeadingTag className={styles.heading} id={slugifiedLabel}>
       <a
+        ref={node => {
+          /* HACK: make sure that when a user accesses a URL containing an ID, the page scrolls to the relevant section */
+          if (!node) return
+          if (window.top?.location.hash === `#${slugifiedLabel}`) {
+            setTimeout(() => {
+              node.scrollIntoView({ behavior: 'smooth' })
+            }, 500)
+          }
+        }}
         className={styles.anchor}
         aria-hidden="true"
         href={`#${slugifiedLabel}`}
