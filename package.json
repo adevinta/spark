@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "postinstall": "lerna run build --scope=@spark-ui/theme-utils",
+    "postinstall": "lerna run build --scope=@spark-ui/{theme-utils,theme-utils-node}",
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "lerna run build",
     "build:watch": "lerna run build && lerna watch -- lerna run build --since",
@@ -26,7 +26,8 @@
     "create:theme-config": "ts-node-esm createThemeConfig.ts"
   },
   "dependencies": {
-    "@spark-ui/theme-utils": "*"
+    "@spark-ui/theme-utils": "*",
+    "@spark-ui/theme-utils-node": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
