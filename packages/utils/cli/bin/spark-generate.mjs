@@ -50,7 +50,7 @@ glob(templatesPattern, async (err, res) => {
     const filesToWrite = await Promise.all(templateContents)
 
     Promise.all(filesToWrite.map(writeFile)).then(() => {
-      log('All component files has been properly written!')
+      log('All component files have been properly written!')
     })
   }
 })
