@@ -14,7 +14,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
   lint:
     runs-on: ubuntu-latest
-    name: lint
+    name: Lint
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -22,10 +22,23 @@ jobs:
       - name: Install
         uses: ./.github/composite-actions/install
 
-      - run: npm run lint
+      - name: Lint
+        run: npm run lint
+  typecheck:
+    runs-on: ubuntu-latest
+    name: Typecheck
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Type checking
+        run: npm run typecheck
   test:
     runs-on: ubuntu-latest
-    name: test
+    name: Test
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,10 +46,11 @@ jobs:
       - name: Install
         uses: ./.github/composite-actions/install
 
-      - run: npm run test
+      - name: Test
+        run: npm run test
   visual-testing:
     runs-on: ubuntu-latest
-    name: visual testing
+    name: Visual testing
     steps:
       - name: Checkout
         uses: actions/checkout@v3
