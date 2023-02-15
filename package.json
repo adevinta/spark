@@ -30,13 +30,13 @@
     "@spark-ui/theme-utils-node": "*"
   },
   "devDependencies": {
-    "@spark-ui/cli-utils": "*",
     "@babel/core": "^7.20.12",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@commitlint/config-lerna-scopes": "^17.4.2",
     "@commitlint/cz-commitlint": "^17.4.2",
     "@commitlint/prompt-cli": "^17.4.2",
+    "@spark-ui/cli-utils": "*",
     "@storybook/addon-actions": "^7.0.0-beta.43",
     "@storybook/addon-essentials": "^7.0.0-beta.43",
     "@storybook/addon-interactions": "^7.0.0-beta.43",
