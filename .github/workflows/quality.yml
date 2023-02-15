@@ -24,7 +24,7 @@ jobs:
 
       - name: Lint
         run: npm run lint
-  lint:
+  typecheck:
     runs-on: ubuntu-latest
     name: lint
     steps:
