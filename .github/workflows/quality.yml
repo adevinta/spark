@@ -14,7 +14,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
   lint:
     runs-on: ubuntu-latest
-    name: lint
+    name: Lint
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -38,7 +38,7 @@ jobs:
         run: npm run typecheck
   test:
     runs-on: ubuntu-latest
-    name: test
+    name: Test
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -50,7 +50,7 @@ jobs:
         run: npm run test
   visual-testing:
     runs-on: ubuntu-latest
-    name: visual testing
+    name: Visual testing
     steps:
       - name: Checkout
         uses: actions/checkout@v3
