@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@1.1.1...@spark-ui/cli-utils@1.2.0) (2023-02-15)
+
+### Features
+
+- **cli-utils:** prompt system for spark generate command ([12aec9b](https://github.com/adevinta/spark/commit/12aec9bb2af9aacdf2337e0de92e97ea608db962)), closes [#237](https://github.com/adevinta/spark/issues/237) [#237](https://github.com/adevinta/spark/issues/237)
+
 ## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@1.1.0...@spark-ui/cli-utils@1.1.1) (2023-02-15)
 
 ### Bug Fixes
