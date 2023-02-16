@@ -1,4 +1,4 @@
-import { createCSSTokensFile, createTailwindThemeConfigFile } from '@spark-ui/theme-node'
+import { createCSSTokensFile, createTailwindThemeConfigFile } from '@spark-ui/theme-utils-node'
 import { createTheme, defaultTheme, Theme } from '@spark-ui/theme-utils'
 
 export const alternativeTheme: Theme = createTheme({
