@@ -7,6 +7,7 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 **Naming** increases speed to comprehend code and reduces bugs through confusion.
 
+- ✅ [Use english as universal naming standard language](#-use-english-as-universal-naming-standard-language)
 - ✅ [Leverage names to reveal intent](#-leverage-names-to-reveal-intent)
 - ✅ [Empathize with others](#-empathize-with-others)
 - ✅ [Reuse established names for concepts](#-reuse-established-names-for-concepts)
@@ -21,10 +22,25 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 - ❌ [Pick names making only sense to you](#-pick-names-making-only-sense-to-you)
 - ❌ [Be funny](#-be-funny)
 
+<StoryHeading label="✅ Use english as universal naming standard language" heading="h2" />
+
+English is the most used language on the internet.
+Use it as a code naming convention in order to give universal readability and maintenance.
+
+```js
+const coche = '🚘' // ❌
+const car = '🚘' // ✅
+
+const animaux = '🐶🐭🦊🐻🐷🐮🦁🐯🐨🐵🐸🐼🐰🐹🐱' // ❌
+const animalium = '🐶🐭🦊🐻🐷🐮🦁🐯🐨🐵🐸🐼🐰🐹🐱' // ❌
+const tiere = '🐶🐭🦊🐻🐷🐮🦁🐯🐨🐵🐸🐼🐰🐹🐱' // ❌
+const animals = '🐶🐭🦊🐻🐷🐮🦁🐯🐨🐵🐸🐼🐰🐹🐱' // ✅
+```
+
 <StoryHeading label="✅ Leverage names to reveal intent" heading="h2" />
 
 ```js
-const think = '🍌' // ❌
+const thing = '🍌' // ❌
 const food = '🍌' // ❌
 const fruit = '🍌' // ❌
 const banana = '🍌' // ✅
