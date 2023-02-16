@@ -100,7 +100,6 @@
     "vitest": "^0.28.4"
   },
   "workspaces": [
-    "packages/addons/*",
     "packages/components/*",
     "packages/hooks/*",
     "packages/utils/*"
