@@ -19,6 +19,7 @@
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
     "commit": "git-cz",
+    "generate-theme": "npx spark-generate",
     "lint": "eslint --config .eslintrc.cjs packages/**/**/src --ext .ts,.tsx,.js --cache",
     "lint:staged": "lint-staged --config .lintstagedrc.json",
     "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
@@ -28,7 +29,8 @@
   },
   "dependencies": {
     "@spark-ui/theme-utils": "*",
-    "@spark-ui/theme-utils-node": "*"
+    "@spark-ui/theme-utils-node": "*",
+    "@spark-ui/cli-utils": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
