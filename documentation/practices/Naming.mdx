@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/blocks'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
 
-<Meta title="Practises/Naming" />
+<Meta title="Practices/Naming" />
 
 <StoryHeading label="Naming" heading="h1" /> Write for reading
 
@@ -295,10 +295,9 @@ const gettingThose = new Promise(resolve => setTimeout(resolve, 3000))
 Is it a React component prop handler? use the **on**-Whatever prefix
 
 ```js
-const Component = ({click, ...props}) => <div onClick={click} {...props}/> // ❌
-const Component = ({onClick, ...props}) => <div onClick={onClick} {...props}/> // ❌
+const Component = ({ click, ...props }) => <div onClick={click} {...props} /> // ❌
+const Component = ({ onClick, ...props }) => <div onClick={onClick} {...props} /> // ❌
 ```
-
 
 <StoryHeading label="Class or React Component entity" heading="h4" />
 
@@ -315,13 +314,12 @@ const Ferrari = new Car('Ferrari') // ❌
 const ferrari = new Car('Ferrari') // ✅
 
 // React component declarations
-const car = props => <div {...props} >🏎️</div> // ❌
-const Car = props => <div {...props} >🏎️</div> // ✅
+const car = props => <div {...props}>🏎️</div> // ❌
+const Car = props => <div {...props}>🏎️</div> // ✅
 
 // class instances
 const Ferrari = <Car /> // ❌
 const ferrari = <Car /> // ✅
-
 ```
 
 <StoryHeading label="✅ Apply consistent standards in a project" heading="h2" />
