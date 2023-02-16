@@ -20,11 +20,11 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 **`npm run test`**: run tests in watch mode (in your terminal)
 
-**`npm run test:ui`**: Run tests in watch mode (in your browser)
+**`npm run test:ui`**: run tests in watch mode (in your browser)
 
-**`npm run test:run`**: Run tests once
+**`npm run test:run`**: run tests once
 
-**`npm run test:coverage`**: Run tests coverage. Output is visible in the terminal, or the `coverage` folder that is generated (html reporter).
+**`npm run test:coverage`**: run tests with coverage. Output is visible in the terminal, or in the `coverage` folder that is generated (html reporter).
 
 <StoryHeading label="Vitest" />
 
@@ -32,18 +32,16 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 It allows everything a test runner is known for: test suites, mocking, coverage, test filtering, etc.
 
-We highly recommand you install [the official plugin](https://vitest.dev/guide/ide.html) that matches your IDE (it supports VSCode and IntelliJ).
+We highly recommend installing [the official plugin](https://vitest.dev/guide/ide.html) that matches your IDE (it supports VSCode and IntelliJ).
 
 <StoryHeading label="Testing Library" />
 
-[Testing Library](https://testing-library.com/docs/) is our main ...testing library :3
+[Testing Library](https://testing-library.com/docs/) is our main... testing library :3
 
-Before writing tests for any type of Spark package (component, utility, etc), **you must get familiar with the philosophy behing the library**:
-
-**[https://testing-library.com/docs/]()**
+Before writing tests for any Spark package (component, utility, etc.), **you must get familiar with the philosophy behind the library**. Go through [the documentation](https://testing-library.com/docs/).
 
 Mainly, the idea is to focus on a user-centric approach, especially for component packages. We must test interfaces the same way a user would interact with them.
-What's important to test is the interface we provide to users, not their technical implementations.
+We want to check the interface we provide to users, not their technical implementations.
 
 > The more your tests resemble the way your software is used,
 > the more confidence they can give you.
@@ -53,9 +51,9 @@ What's important to test is the interface we provide to users, not their technic
 [user-event](https://testing-library.com/docs/ecosystem-user-event/) is a companion library that is part
 of the Testing Library ecosystem.
 
-It provides a cleaner way to simulates user events, closer to the real browser behaviour. **It replaces the `fireEvent` method from Testing Library, WHICH MUST NOT BE USED.**
+It provides a cleaner way to simulate user events. It is closer to the browser behavior. **It replaces the `fireEvent` method from Testing Library, WHICH MUST NOT BE USED.**
 
-You can read here in details why it is better than `fireEvent`: [https://testing-library.com/docs/user-event/intro#differences-from-fireevent]()
+You can read [here](https://testing-library.com/docs/user-event/intro#differences-from-fireevent) in detail why it is better than `fireEvent`.
 
 <StoryHeading label="Testing components" />
 
@@ -88,8 +86,8 @@ describe('MenuBar behaviour', () => {
 
 <StoryHeading label="Given/When/Then and test assertions" as="h3" />
 
-Inside a test, we recommand you stick with the [Given/When/Then pattern](https://martinfowler.com/bliki/GivenWhenThen.html).
-Followind this same pattern across tests makes them easier to read and understand.
+Inside a test, we recommend you stick with the [Given/When/Then pattern](https://martinfowler.com/bliki/GivenWhenThen.html).
+Following this same pattern across tests makes them easier to read and understand.
 
 ```tsx
 import { expect, it } from 'vitest'
@@ -111,7 +109,7 @@ it('should trigger click event', async () => {
 
 <StoryHeading label="Triggering user events" as="h3" />
 
-[User events](https://testing-library.com/docs/user-event/intro#writing-tests-with-userevent) are simulated using `user-event`, as seen on the previous example.
+[User events](https://testing-library.com/docs/user-event/intro#writing-tests-with-userevent) are simulated using `user-event`, as seen in the previous example.
 
 ```tsx
 import userEvent from '@testing-library/user-event'
@@ -125,12 +123,12 @@ await user.click(screen.getByText('bar'))
 
 A few things to note:
 
-- It is recommanded that you setup the `user` indepently in each test, doing `const user = userEvent.setup()`. That way, you can pass different options at test-level if necessary.
-- Calls to events (`user.click, user.keyboard, user.scroll`, etc.) are asynchronous, so you MUST use `async/await` on your tests when using it.
+- It is recommended that you set up the `user` independently in each test, doing `const user = userEvent.setup()`. That way, you can pass different options at the test level if necessary.
+- Calls to events (`user.click, user.keyboard, user.scroll`, etc.) are asynchronous, so you MUST use `async/await` on your tests.
 
 <StoryHeading label="Testing utilities" />
 
-Hooks, methods, and other type of utilities that are not user interfaces are simply tested using unit testing.
-So for most of them you won't require Testing Library.
+Hooks, methods, and other types of utilities that are not user interfaces are simply tested using unit testing.
+So for most of them, you won't require Testing Library.
 
 For hooks we use the `renderHook` method from [@testing-library/react-hooks](https://github.com/testing-library/react-hooks-testing-library).
