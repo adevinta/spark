@@ -1,21 +1,29 @@
-import React from 'react';
-import { addons } from '@storybook/addons';
-import { DARK_MODE_EVENT_NAME } from './constants';
-import { store } from './Tool';
+import React from 'react'
+import { addons } from '@storybook/addons'
+import { DARK_MODE_EVENT_NAME } from './constants'
 
 /**
  * Returns the current state of storybook's dark-mode
  */
 export function useDarkMode(): boolean {
-  const [isDark, setIsDark] = React.useState(store().current === 'dark');
+  const canUseDOM = !!(
+    typeof window !== 'undefined' &&
+    window.document &&
+    window.document.createElement
+  )
+  const [isDark, setIsDark] = React.useState()
 
   React.useEffect(() => {
-    const chan = addons.getChannel();
-    chan.on(DARK_MODE_EVENT_NAME, setIsDark);
-    return () => chan.off(DARK_MODE_EVENT_NAME, setIsDark);
-  }, []);
+    setIsDark(window.matchMedia('(prefers-color-scheme: dark)'))
+  }, [canUseDOM])
 
-  return isDark;
+  React.useEffect(() => {
+    const chan = addons.getChannel()
+    chan.on(DARK_MODE_EVENT_NAME, setIsDark)
+    return () => chan.off(DARK_MODE_EVENT_NAME, setIsDark)
+  }, [])
+
+  return isDark
 }
 
-export * from './constants';
+export * from './constants'

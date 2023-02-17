@@ -15,6 +15,7 @@ import { Sun } from './icons/Sun';
 import { Moon } from './icons/Moon';
 
 const { document, window } = global as { document: Document; window: Window };
+
 const modes = ['light', 'dark'] as const;
 type Mode = typeof modes[number];
 
