@@ -1,8 +1,8 @@
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import { defaultTheme } from '../../theme/src/defaultTheme'
-import type { Theme } from '../../theme/src/types'
+import { defaultTheme, Theme } from '@spark-ui/theme-utils'
+
 import { isHex, isStringOrNumber, objectEntries, toKebabCase, toKebabCaseKeys } from './utils'
 
 type NestedObj = Record<string, string | number | Record<string, string | number>>

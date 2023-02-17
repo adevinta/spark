@@ -12,6 +12,7 @@
     "build": "vite build"
   },
   "devDependencies": {
+    "@spark-ui/theme-utils": "*",
     "deepmerge": "4.3.0",
     "hex-rgb": "5.0.0",
     "type-fest": "3.5.6"
