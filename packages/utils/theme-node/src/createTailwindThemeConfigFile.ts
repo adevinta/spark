@@ -1,18 +1,9 @@
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-
-import parentModule from 'parent-module'
 
 import { defaultTheme } from '../../theme/src/defaultTheme'
 import type { Theme } from '../../theme/src/types'
-import {
-  buildFilePath,
-  isHex,
-  isStringOrNumber,
-  objectEntries,
-  toKebabCase,
-  toKebabCaseKeys,
-} from './utils'
+import { isHex, isStringOrNumber, objectEntries, toKebabCase, toKebabCaseKeys } from './utils'
 
 type NestedObj = Record<string, string | number | Record<string, string | number>>
 type TailwindConfig = Record<string, Theme[keyof Theme]>
@@ -53,36 +44,20 @@ function toTailwindConfig(theme: Theme): TailwindConfig {
  *
  * @param {string} path - The file path where the Tailwind config file will be created.
  *
- * @returns {void}
- *
  * @example
  *
- * createTailwindThemeConfigFile('tailwind.theme.js')
+ * createTailwindThemeConfigFile('./tailwind.theme.js') // will generate a "tailwind.theme.js" in the relative location from which it was called
  */
 export function createTailwindThemeConfigFile(path: string) {
-  const { filepath, rootPath } = buildFilePath(join(parentModule() || '', path))
-
-  const folders = filepath.split('/').slice(0, -1)
-  folders.reduce((acc, folder) => {
-    const folderPath = acc + folder + '/'
-    if (!existsSync(folderPath)) {
-      mkdirSync(folderPath)
-    }
-
-    return folderPath
-  }, rootPath)
-
   try {
     writeFileSync(
-      rootPath + filepath,
+      join(process.cwd(), path),
       `module.exports = ${JSON.stringify(toTailwindConfig(defaultTheme))}`,
       {
         flag: 'w',
       }
     )
-
-    console.log(`✨ Tailwind theme config file has been created 👉 ${path}`)
   } catch (error) {
-    console.error(error)
+    console.error('Failed to create the Tailwind theme config file', error)
   }
 }

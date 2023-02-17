@@ -38,34 +38,4 @@ function toKebabCaseKeys<T extends Object>(obj: T, level = 1): Record<string, T[
   return result
 }
 
-function getFormattedPath(input: string) {
-  const preFormat = input.slice(input.indexOf(':') + 1)
-  const extensionRegex = /\/([^/]+)\.(jsx|js|tsx|ts|mjs|mts|cjs|cts)(?!$)/g
-
-  return preFormat.replace(preFormat.match(extensionRegex)?.at(0) || '', '')
-}
-
-function buildFilePath(path: string) {
-  let filepath = getFormattedPath(path).replace(/\\/g, '/')
-
-  let rootPath = ''
-  if (filepath[0] === '/') {
-    rootPath = '/'
-    filepath = filepath.slice(1)
-  } else if (filepath[1] === ':') {
-    rootPath = filepath.slice(0, 3)
-    filepath = filepath.slice(3)
-  }
-
-  return { filepath, rootPath }
-}
-
-export {
-  objectKeys,
-  objectEntries,
-  toKebabCase,
-  isHex,
-  toKebabCaseKeys,
-  buildFilePath,
-  isStringOrNumber,
-}
+export { objectKeys, objectEntries, toKebabCase, isHex, toKebabCaseKeys, isStringOrNumber }
