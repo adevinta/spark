@@ -7,10 +7,12 @@
   },
   "bin": {
     "spark": "./bin/spark.mjs",
-    "spark-generate": "./bin/spark-generate.mjs"
+    "spark-generate": "./bin/spark-generate.mjs",
+    "spark-setup-theme": "./bin/spark-setup-theme.mjs"
   },
   "type": "module",
-  "devDependencies": {
+  "dependencies": {
+    "esbuild": "0.17.8",
     "@clack/prompts": "^0.2.2",
     "chalk": "5.2.0",
     "commander": "10.0.0",
