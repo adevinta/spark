@@ -1,5 +1,5 @@
 import { DocsContainer as AddonDocsContainer } from '@storybook/addon-docs'
-import { useDarkMode } from 'storybook-dark-mode'
+import { useDarkMode } from './addons/dark-mode/src'
 
 import { lightTheme } from './Light.theme.js'
 import { darkTheme } from './Dark.theme.js'

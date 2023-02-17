@@ -8,7 +8,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-dark-mode',
+    './addons/dark-mode/preset.js'
   ],
   framework: '@storybook/react-vite',
   docs: {
