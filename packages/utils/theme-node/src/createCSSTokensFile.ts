@@ -1,10 +1,10 @@
 import { appendFileSync } from 'node:fs'
 import { join } from 'node:path'
 
+import type { Theme } from '@spark-ui/theme-utils'
 import hexRgb from 'hex-rgb'
 import type { RequireAtLeastOne } from 'type-fest'
 
-import type { Theme } from '../../theme/src/types'
 import { isHex, isStringOrNumber, objectEntries, objectKeys, toKebabCase } from './utils'
 
 /* eslint-disable-next-line @typescript-eslint/ban-types */
