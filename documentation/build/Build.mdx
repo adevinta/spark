@@ -12,15 +12,15 @@ import ArgstableImg from '@docs/assets/argstable.png'
 
 <StoryHeading label="How it works" />
 
-The build task of each package is managed by Vite. Among other things, Vite offers "A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production."
+Vite manages the build task of each package. Among other things, Vite offers "a build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production."
 
 When it is time to deploy your app for production, simply run the `vite build` command.
 
 <StoryHeading label="Configuration" />
 
-Each package must include a `vite.config.ts` that will allow certain configuration about the final result of the artifact. The list of posible configutation can be found in the [Vite documentation website](https://vitejs.dev/config/build-options.html#build-target)
+Each package must include a `vite.config.ts` that will allow custom configurations about the final result of the artifact. You can find the list of possible settings on the [Vite documentation website](https://vitejs.dev/config/build-options.html#build-target).
 
-Spark has a base configuration located in the `/config` directory with certain defaults that should be shared between all the packages. Including:
+Spark has a base configuration located in the `/config` directory with some default settings shared between all the packages. Including:
 
 <StoryHeading label="build.target" heading="h3" />
 
@@ -47,7 +47,7 @@ Definition: Build as a library.
 - `entry` is required since the library cannot use HTML as entry.
 - `name` is the exposed global variable and is required when formats includes 'umd' or 'iife'.
 - `formats`: Default formats are ['es', 'umd'], or ['es', 'cjs'], if multiple entries are used.
-- `fileName` is the name of the package file output, default fileName is the name option of package.json, it can also be defined as function taking the format and entryAlias as arguments.
+- `fileName` is the name of the package file output, default fileName is the name option of package.json. It can also be defined as a function taking the format and entryAlias as arguments.
 
 [Documentation](https://vitejs.dev/config/build-options.html#build-lib)
 

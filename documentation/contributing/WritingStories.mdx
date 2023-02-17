@@ -7,9 +7,9 @@ import ArgstableImg from '@docs/assets/argstable.png'
 
 # Writing stories
 
-Write your stories using [MDX format](https://storybook.js.org/docs/react/api/mdx). It allows for more flexibility, and automatically generates a Docs pages for your component.
+Write your stories using the [MDX format](https://storybook.js.org/docs/react/api/mdx). It allows for more flexibility and automatically generates a Docs page for your component.
 
-Each component's documentation should follow this structure:
+Each component documentation should follow this structure:
 
 1. [Meta](#meta)
 2. [Description](#description)
@@ -19,7 +19,7 @@ Each component's documentation should follow this structure:
 
 <StoryHeading label="Meta" />
 
-A component's doc should be placed under the `Components` section of the documentation.
+The component documentation should be placed under the `Components` section of the documentation.
 
 They must belong to one of the following categories:
 
@@ -56,9 +56,9 @@ todo
 <StoryHeading label="ArgsTable" />
 
 Simply use Storybook's `ArgsTable` component in your MDX to generate the props documentation.
-It will parse the typescript files of your component to generate a full table.
+It will parse the TypeScript files of your component to generate a full table.
 
-It uses the JSDoc comments above each prop of your component to show it as a description, and also retrieves default values for each prop.
+It uses the JSDoc comments above each prop of your component to show it as a description. It also retrieves default values for each property.
 
 ```
 import { ArgsTable } from "@storybook/addon-docs";
@@ -74,8 +74,8 @@ import { ArgsTable } from "@storybook/addon-docs";
 
 <StoryHeading label="Variants and examples" />
 
-Display and describe as many use-case as you want to showcase the features offered by your component.
-We [suggest you split JSX examples from the markdown](https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#csf-stories-with-mdx-docs) for a better developer experience, because Typescript does not support MDX typechecking as of today.
+Display and describe as many use cases as you want to showcase the features offered by your component.
+We [suggest you split JSX examples from the markdown](https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#csf-stories-with-mdx-docs) for a better developer experience because TypeScript does not support MDX type-checking as of today.
 
 ###
 
