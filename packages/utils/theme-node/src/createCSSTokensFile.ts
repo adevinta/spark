@@ -1,19 +1,11 @@
-import { appendFileSync, existsSync, mkdirSync } from 'node:fs'
+import { appendFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import hexRgb from 'hex-rgb'
-import parentModule from 'parent-module'
 import type { RequireAtLeastOne } from 'type-fest'
 
 import type { Theme } from '../../theme/src/types'
-import {
-  buildFilePath,
-  isHex,
-  isStringOrNumber,
-  objectEntries,
-  objectKeys,
-  toKebabCase,
-} from './utils'
+import { isHex, isStringOrNumber, objectEntries, objectKeys, toKebabCase } from './utils'
 
 /* eslint-disable-next-line @typescript-eslint/ban-types */
 type FlattenedTheme = Record<'className' | (string & {}), string | number>
@@ -75,8 +67,6 @@ const getStringifiedThemes = (themeRecord: Record<string, Theme>) =>
  * @param {string} path - The file path where the CSS file will be created.
  * @param {Record<string, Theme>} themeRecord - A record (with a required key of "default") of themes that will be included in the CSS Tokens file.
  *
- * @returns {void}
- *
  * @example
  *
  * const defaultTheme: Theme = { ... }
@@ -89,27 +79,15 @@ const getStringifiedThemes = (themeRecord: Record<string, Theme>) =>
  *   other: otherTheme
  * }
  *
- * createCSSTokensFile('somePath.css', themes)
+ * createCSSTokensFile('somePath.css', themes) // will generate a "somePath.css" file in the relative location from which it was called
  */
 export function createCSSTokensFile(
   path: string,
   themeRecord: RequireAtLeastOne<Record<string, Theme>, 'default'>
 ) {
-  const { filepath, rootPath } = buildFilePath(join(parentModule() || '', path))
-
-  const folders = filepath.split('/').slice(0, -1)
-  folders.reduce((acc, folder) => {
-    const folderPath = acc + folder + '/'
-    if (!existsSync(folderPath)) {
-      mkdirSync(folderPath)
-    }
-
-    return folderPath
-  }, rootPath)
-
   try {
     appendFileSync(
-      rootPath + filepath,
+      join(process.cwd(), path),
       `
         @tailwind base;
         @tailwind components;
@@ -120,9 +98,7 @@ export function createCSSTokensFile(
         flag: 'w',
       }
     )
-
-    console.log(`✨ CSS tokens file has been created 👉 ${path}`)
   } catch (error) {
-    console.error(error)
+    console.error('Failed to create the CSS token file', error)
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "@spark-ui/theme-utils-node",
   "version": "2.0.0",
-  "description": "package for generating Spark theme configuration files",
+  "description": "helps with the creation of theme configuration files necessary for Spark",
   "publishConfig": {
     "access": "public"
   },
@@ -14,7 +14,6 @@
   "devDependencies": {
     "deepmerge": "4.3.0",
     "hex-rgb": "5.0.0",
-    "parent-module": "3.0.0",
     "type-fest": "3.5.6"
   }
 }
