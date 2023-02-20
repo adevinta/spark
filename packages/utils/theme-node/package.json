@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/theme-utils-node",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "helps with the creation of theme configuration files necessary for Spark",
   "publishConfig": {
     "access": "public"

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@1.2.0...@spark-ui/cli-utils@1.3.0) (2023-02-20)
+
+### Bug Fixes
+
+- **cli-utils:** fix release ([e1c5ee0](https://github.com/adevinta/spark/commit/e1c5ee0923a2beaa8172be2c54c4cc4191ef13b7))
+
+### Features
+
+- **cli-utils:** add new "spark setup-theme" cli command ([5b51126](https://github.com/adevinta/spark/commit/5b51126206ba0440d78f6429dcba3a7dd2f3af81)), closes [#253](https://github.com/adevinta/spark/issues/253)
+
 # [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@1.1.1...@spark-ui/cli-utils@1.2.0) (2023-02-15)
 
 ### Features
