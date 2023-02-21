@@ -12,27 +12,121 @@ export interface Theme {
     s: string
     m: string
   }
+  /**
+   * Spark color specifications: https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3
+   */
   colors: {
-    transparent: string
-    bg: {
-      body: string
-      primary: string
-      primaryAccent: string
-      primarySubtle: string
-      secondary: string
-      secondaryAccent: string
-      secondarySubtle: string
-    }
-    fg: {
-      default: string
-      accent: string
-      cta: string
-      ctaInverse: string
-    }
-    bd: {
-      primary: string
-      secondary: string
-    }
+    // Primary
+    primary: string
+    onPrimary: string
+    primaryHovered: string
+    primaryDisabled: string
+    primaryFocused: string
+    primaryContainer: string
+    onPrimaryContainer: string
+    primaryContainerHovered: string
+    primaryContainerDisabled: string
+    primaryContainerFocused: string
+    // Secondary
+    secondary: string
+    onSecondary: string
+    secondaryHovered: string
+    secondaryDisabled: string
+    secondaryFocused: string
+    secondaryContainer: string
+    onSecondaryContainer: string
+    secondaryContainerHovered: string
+    secondaryContainerDisabled: string
+    secondaryContainerFocused: string
+    // Primary Variant
+    primaryVariant: string
+    onPrimaryVariant: string
+    primaryVariantHovered: string
+    primaryVariantDisabled: string
+    primaryVariantFocused: string
+    // Secondary Variant
+    secondaryVariant: string
+    onSecondaryVariant: string
+    secondaryVariantHovered: string
+    secondaryVariantDisabled: string
+    secondaryVariantFocused: string
+    // Success
+    success: string
+    onSuccess: string
+    successHovered: string
+    successDisabled: string
+    successFocused: string
+    successContainer: string
+    onSuccessContainer: string
+    successContainerHovered: string
+    successContainerDisabled: string
+    successContainerFocused: string
+    // Alert
+    alert: string
+    onAlert: string
+    alertHovered: string
+    alertDisabled: string
+    alertFocused: string
+    alertContainer: string
+    onAlertContainer: string
+    alertContainerHovered: string
+    alertContainerDisabled: string
+    alertContainerFocused: string
+    // Error
+    error: string
+    onError: string
+    errorHovered: string
+    errorDisabled: string
+    errorFocused: string
+    errorContainer: string
+    onErrorContainer: string
+    errorContainerHovered: string
+    errorContainerDisabled: string
+    errorContainerFocused: string
+    // Info
+    info: string
+    onInfo: string
+    infoHovered: string
+    infoDisabled: string
+    infoFocused: string
+    infoContainer: string
+    onInfoContainer: string
+    infoContainerHovered: string
+    infoContainerDisabled: string
+    infoContainerFocused: string
+    // Neutral
+    neutral: string
+    onNeutral: string
+    neutralHovered: string
+    neutralDisabled: string
+    neutralFocused: string
+    neutralContainer: string
+    onNeutralContainer: string
+    neutralContainerHovered: string
+    neutralContainerDisabled: string
+    neutralContainerFocused: string
+    // Background
+    background: string
+    onBackground: string
+    backgroundHovered: string
+    backgroundDisabled: string
+    backgroundFocused: string
+    // Surface
+    surface: string
+    onSurface: string
+    surfaceHovered: string
+    surfaceDisabled: string
+    surfaceFocused: string
+    // Surface Inverse
+    surfaceInverse: string
+    onSurfaceInverse: string
+    surfaceInverseHovered: string
+    surfaceInverseDisabled: string
+    surfaceInverseFocused: string
+    // Outline
+    outline: string
+    // Overlay
+    overlay: string
   }
   fontFamily: {
     openSans: string
