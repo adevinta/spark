@@ -19,7 +19,8 @@
     "esbuild": "0.17.8",
     "fs-extra": "11.1.0",
     "glob": "8.1.0",
-    "pascal-case": "3.1.2"
+    "pascal-case": "3.1.2",
+    "@spark-ui/theme-utils-node": "*"
   },
   "repository": {
     "type": "git",

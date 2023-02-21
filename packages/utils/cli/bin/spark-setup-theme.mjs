@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
 import { spawn } from 'child_process'
-import { join, extname, parse, sep } from 'path'
-import { readFileSync, readdirSync, writeFileSync, unlinkSync } from 'fs'
+import { join, extname } from 'node:path'
+import { readFileSync, readdirSync, writeFileSync, unlinkSync } from 'node:fs'
 import { transformSync } from 'esbuild'
+import { log, showError } from '../utils.js'
+import { createRequire } from 'node:module'
 
-const logger = new Logger()
-const system = new System({ logger })
+import { createTailwindThemeConfigFile, createCSSTokensFile } from '@spark-ui/theme-utils-node'
 
-const jsFileExtension = '.js'
-
+const require = createRequire(import.meta.url)
 const configFile = readdirSync(process.cwd()).find(fileName =>
   /^(spark\.theme\.config)\.(js|ts|mjs|mts|cjs|cts)$/.test(fileName)
 )
@@ -20,30 +20,56 @@ if (!configFile) {
   )
 }
 
+const configFilePath = join(process.cwd(), configFile)
 const configFileIsInJS = configFile === 'spark.theme.config.js'
-const filePath = join(process.cwd(), configFile)
 
 const allowedExtensions = ['.ts', '.mts', '.cts', '.js', '.cjs', '.mjs']
-const fileExtension = extname(filePath)
-
-if (!allowedExtensions.includes(fileExtension)) {
-  system.exit(`Your spark.theme.config file extension (${fileExtension}) is not supported.`)
+const jsFileExtension = '.js'
+const configFileExtension = extname(configFilePath)
+if (!allowedExtensions.includes(configFileExtension)) {
+  showError(`Your spark.theme.config file extension (${configFileExtension}) is not supported.`)
 }
 
-const tsCode = readFileSync(filePath, 'utf-8')
-const jsCode = transformSync(tsCode, { loader: 'ts' }).code
+const configFileContent = readFileSync(configFilePath, 'utf-8')
+const jsCode = transformSync(configFileContent, { loader: 'ts' }).code
 
-const jsFilePath = filePath.replace(/\.ts$|\.mts$|\.cts$|\.mjs|\.cjs$/, jsFileExtension)
-const jsFileContents = Buffer.from(jsCode, 'utf-8')
+const jsFilePath = configFilePath.replace(/\.ts$|\.mts$|\.cts$|\.mjs|\.cjs$/, jsFileExtension)
+const jsFileContents = jsCode
 
 if (!configFileIsInJS) writeFileSync(jsFilePath, jsFileContents)
 
-const child = spawn(process.execPath, [jsFilePath], {
-  stdio: 'inherit',
-})
+import(jsFilePath)
+  .then(module => {
+    const { tailwindThemeConfigFilePath, CSSTokens } = module.default
 
-child.on('exit', code => {
-  if (!configFileIsInJS) unlinkSync(jsFilePath)
-  logger.success('✨ Your Spark theme config files have been successfully created!')
-  process.exit(code)
-})
+    createTailwindThemeConfigFile(tailwindThemeConfigFilePath)
+    createCSSTokensFile(CSSTokens.filePath, CSSTokens.themes)
+
+    const child = spawn(process.execPath, [jsFilePath], {
+      stdio: 'inherit',
+    })
+
+    child.on('exit', code => {
+      if (!configFileIsInJS) unlinkSync(jsFilePath)
+      log.success(
+        `✨ Your Spark Tailwind theme config file has been successfully created: ${join(
+          process.cwd(),
+          tailwindThemeConfigFilePath
+        )}`
+      )
+
+      log.success(
+        `✨ Your Spark Tailwind CSS Tokens file file has been successfully created: ${join(
+          process.cwd(),
+          CSSTokens.filePath
+        )}`
+      )
+
+      process.exit(code)
+    })
+  })
+  .catch(err => {
+    unlinkSync(jsFilePath)
+    showError(`
+    Something went wrong while running ${configFilePath}: ${err}`)
+  })
