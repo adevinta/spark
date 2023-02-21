@@ -26,6 +26,10 @@
     "node:check": "node bin/check-node-version.js",
     "create:theme-config": "ts-node-esm createThemeConfig.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git"
+  },
   "dependencies": {
     "@spark-ui/theme-utils": "*",
     "@spark-ui/theme-utils-node": "*"
