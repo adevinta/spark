@@ -5,16 +5,19 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "./dist/index.js",
   "bin": {
-    "spark": "./bin/spark.mjs",
-    "spark-generate": "./bin/spark-generate.mjs"
+    "template": "./bin/template"
   },
-  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
   "devDependencies": {
     "@clack/prompts": "^0.2.2",
-    "chalk": "5.2.0",
+    "chalk": "4.1.2",
     "commander": "10.0.0",
     "fs-extra": "11.1.0",
+    "@types/fs-extra": "11.0.1",
     "glob": "8.1.0",
     "pascal-case": "3.1.2"
   }
