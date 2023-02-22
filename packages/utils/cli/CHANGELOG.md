@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@1.4.0...@spark-ui/cli-utils@2.0.0) (2023-02-22)
+
+### Code Refactoring
+
+- **cli-utils:** clean up code following PR feedbacks ([724c83e](https://github.com/adevinta/spark/commit/724c83e771307addeabd1fcea45b810d56f41e2f))
+
+### Features
+
+- **cli-utils:** optimize DS configuration for spark consumers ([8d18892](https://github.com/adevinta/spark/commit/8d188920cffc3d24f96b1d5a9398eb22149c1640))
+
+### BREAKING CHANGES
+
+- **cli-utils:** update the way the cli spark-setup-theme command works
+- **cli-utils:** update the way the cli spark-setup-theme command works
+
 # [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@1.3.2...@spark-ui/cli-utils@1.4.0) (2023-02-22)
 
 ### Features
