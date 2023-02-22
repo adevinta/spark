@@ -20,7 +20,7 @@
     "fs-extra": "11.1.0",
     "glob": "8.1.0",
     "pascal-case": "3.1.2",
-    "@spark-ui/theme-utils-node": "*"
+    "@spark-ui/theme-utils": "*"
   },
   "repository": {
     "type": "git",

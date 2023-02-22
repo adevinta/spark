@@ -4,10 +4,13 @@ import { spawn } from 'child_process'
 import { join, extname } from 'node:path'
 import { readFileSync, readdirSync, writeFileSync, unlinkSync } from 'node:fs'
 import { transformSync } from 'esbuild'
-import { log, showError } from '../utils.js'
 import { createRequire } from 'node:module'
 
-import { createTailwindThemeConfigFile, createCSSTokensFile } from '@spark-ui/theme-utils-node'
+import { Logger, System } from './core/index.mjs'
+import { createCSSTokensFile, createTailwindThemeConfigFile } from '../utils/setupTheme/index.js'
+
+const logger = new Logger()
+const system = new System({ logger })
 
 const require = createRequire(import.meta.url)
 const configFile = readdirSync(process.cwd()).find(fileName =>
@@ -27,7 +30,7 @@ const allowedExtensions = ['.ts', '.mts', '.cts', '.js', '.cjs', '.mjs']
 const jsFileExtension = '.js'
 const configFileExtension = extname(configFilePath)
 if (!allowedExtensions.includes(configFileExtension)) {
-  showError(`Your spark.theme.config file extension (${configFileExtension}) is not supported.`)
+  system.exit(`Your spark.theme.config file extension (${configFileExtension}) is not supported.`)
 }
 
 const configFileContent = readFileSync(configFilePath, 'utf-8')
@@ -51,14 +54,14 @@ import(jsFilePath)
 
     child.on('exit', code => {
       if (!configFileIsInJS) unlinkSync(jsFilePath)
-      log.success(
+      logger.success(
         `✨ Your Spark Tailwind theme config file has been successfully created: ${join(
           process.cwd(),
           tailwindThemeConfigFilePath
         )}`
       )
 
-      log.success(
+      logger.success(
         `✨ Your Spark Tailwind CSS Tokens file file has been successfully created: ${join(
           process.cwd(),
           CSSTokens.filePath
@@ -70,6 +73,6 @@ import(jsFilePath)
   })
   .catch(err => {
     unlinkSync(jsFilePath)
-    showError(`
+    system.exit(`
     Something went wrong while running ${configFilePath}: ${err}`)
   })
