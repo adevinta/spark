@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/blocks'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+<Meta title="utils/CLI" />
+
+# CLI utils
+
+This package provides some CLI commands to improve the development experience when building the Spark design system. Right now there are some different commands available:
+
+- A command for generating new components: `$ spark generate`.
+- A command for doing the initial setup for a new theme: `$ spark setup-theme`.
+
+## Contents
+
+- [Installation](#installation)
+- [Generating a new package](#generating-a-new-package)
+- [Setting up a theme](#setting-up-a-theme)
+
+<StoryHeading label="Installation" as="h2" />
+
+CLI utils can be used by installing the package `@spark-ui/cli-utils` in your project:
+
+```bash
+$ npm install --save-dev @spark-ui/cli-utils
+```
+
+or just by running the following command:
+
+```bash
+$ npx spark COMMAND_NAME
+```
+
+<StoryHeading label="Generating a new package" as="h2" />
+
+In order to generate a new package, the following command has to be executed:
+
+```bash
+$ spark generate
+```
+
+Then, a command prompt will guide you through the process by asking you for:
+
+- the package name (required),
+- the template used (required, only `Component` template available right now)
+- and the package description (optional).
+
+<StoryHeading label="Setting up a theme" as="h2" />
+
+```bash
+$ spark setup-theme
+```

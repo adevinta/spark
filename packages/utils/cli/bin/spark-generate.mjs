@@ -38,6 +38,7 @@ const packageUtils = {
   alreadyExists: name => {
     return rootPackageJSON.workspaces.some(workspace => {
       const existingPackages = glob.sync(`${BASE_DIR}/${workspace}/`)
+
       return existingPackages.some(path => path.endsWith(`/${name}/`))
     })
   },
