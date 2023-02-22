@@ -1,7 +1,7 @@
 import { pascalCase } from 'pascal-case'
 
-export default ({ component, description }) => {
-  const componentName = pascalCase(component)
+export default ({ name, description }) => {
+  const componentName = pascalCase(name)
 
   return `import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
@@ -20,13 +20,13 @@ ${description}
 <StoryHeading label="Install" />
 
 \`\`\`
-npm install @spark-ui/${component}
+npm install @spark-ui/${name}
 \`\`\`
 
 <StoryHeading label="Import" />
 
 \`\`\`
-import { ${componentName} } from "@spark-ui/${component}"
+import { ${componentName} } from "@spark-ui/${name}"
 \`\`\`
 
 <StoryHeading label="Props" />

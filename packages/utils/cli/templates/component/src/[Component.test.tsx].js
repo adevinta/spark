@@ -1,7 +1,7 @@
 import { pascalCase } from 'pascal-case'
 
-export default ({ component }) => {
-  const componentName = pascalCase(component)
+export default ({ name }) => {
+  const componentName = pascalCase(name)
 
   return `import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

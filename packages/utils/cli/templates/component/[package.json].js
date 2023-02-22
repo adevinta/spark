@@ -1,5 +1,5 @@
-export default ({ component, description }) => `{
-  "name": "@spark-ui/${component}",
+export default ({ name, description }) => `{
+  "name": "@spark-ui/${name}",
   "version": "1.0.0",
   "description": "${description}",
   "publishConfig": {
