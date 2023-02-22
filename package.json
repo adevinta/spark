@@ -6,11 +6,12 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "postinstall": "lerna run build --scope=@spark-ui/{theme-utils,theme-utils-node}",
+    "postinstall": "lerna run build --scope=@spark-ui/theme-utils",
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "lerna run build",
     "build:watch": "lerna run build && lerna watch -- lerna run build --since",
     "release": "lerna publish --yes --include-merged-tags --no-verify-access",
+    "bloop": "npx spark-setup-theme",
     "storybook:start": "npx spark-setup-theme && storybook dev -p 6006",
     "storybook:build": "storybook build -o dist",
     "test": "vitest",
