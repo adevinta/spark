@@ -1,7 +1,7 @@
 import { pascalCase } from 'pascal-case'
 
-export default ({ component, description }) => {
-  const componentName = pascalCase(component)
+export default ({ name, description }) => {
+  const componentName = pascalCase(name)
 
   return `import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 

@@ -5,7 +5,8 @@ import { join, extname, parse, sep } from 'path'
 import { readFileSync, readdirSync, writeFileSync, unlinkSync } from 'fs'
 import { transformSync } from 'esbuild'
 
-import { log, showError } from '../utils.js'
+const logger = new Logger()
+const system = new System({ logger })
 
 const jsFileExtension = '.js'
 
@@ -14,7 +15,7 @@ const configFile = readdirSync(process.cwd()).find(fileName =>
 )
 
 if (!configFile) {
-  showError(
+  system.exit(
     "We couldn't find a `spark.theme.config` file in this folder. Please make sure that the file is located in the root folder of your project"
   )
 }
@@ -24,8 +25,9 @@ const filePath = join(process.cwd(), configFile)
 
 const allowedExtensions = ['.ts', '.mts', '.cts', '.js', '.cjs', '.mjs']
 const fileExtension = extname(filePath)
+
 if (!allowedExtensions.includes(fileExtension)) {
-  showError(`Your spark.theme.config file extension (${fileExtension}) is not supported.`)
+  system.exit(`Your spark.theme.config file extension (${fileExtension}) is not supported.`)
 }
 
 const tsCode = readFileSync(filePath, 'utf-8')
@@ -42,6 +44,6 @@ const child = spawn(process.execPath, [jsFilePath], {
 
 child.on('exit', code => {
   if (!configFileIsInJS) unlinkSync(jsFilePath)
-  log.success('✨ Your Spark theme config files have been successfully created!')
+  logger.success('✨ Your Spark theme config files have been successfully created!')
   process.exit(code)
 })
