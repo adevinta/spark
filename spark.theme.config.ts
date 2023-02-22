@@ -1,5 +1,4 @@
 import { createTheme, defaultTheme, Theme } from '@spark-ui/theme-utils'
-import { createCSSTokensFile, createTailwindThemeConfigFile } from '@spark-ui/theme-utils-node'
 
 export const darkTheme: Theme = createTheme({
   colors: {
@@ -122,5 +121,19 @@ const themes = {
   dark: darkTheme,
 }
 
-createTailwindThemeConfigFile('./tailwind.theme.cjs')
-createCSSTokensFile('./src/tailwind.css', themes)
+// TODO: this interface should be imported from @spark-ui/theme-utils
+interface SparkConfig {
+  tailwindThemeConfigFilePath: string
+  CSSTokens: {
+    themes: Record<string, Theme>
+    filePath: string
+  }
+}
+
+export default {
+  tailwindThemeConfigFilePath: './tailwind.theme.cjs',
+  CSSTokens: {
+    themes,
+    filePath: './src/tailwind.css',
+  },
+} satisfies SparkConfig
