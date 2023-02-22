@@ -24,10 +24,10 @@ if (!configFile) {
 }
 
 const configFilePath = join(process.cwd(), configFile)
-const configFileIsInJS = configFile === 'spark.theme.config.js'
+const configFileIsMJS = /spark\.theme\.config\.(mjs)$/.test(configFile)
 
 const allowedExtensions = ['.ts', '.mts', '.cts', '.js', '.cjs', '.mjs']
-const jsFileExtension = '.js'
+const jsFileExtension = '.mjs'
 const configFileExtension = extname(configFilePath)
 if (!allowedExtensions.includes(configFileExtension)) {
   system.exit(`Your spark.theme.config file extension (${configFileExtension}) is not supported.`)
@@ -36,10 +36,10 @@ if (!allowedExtensions.includes(configFileExtension)) {
 const configFileContent = readFileSync(configFilePath, 'utf-8')
 const jsCode = transformSync(configFileContent, { loader: 'ts' }).code
 
-const jsFilePath = configFilePath.replace(/\.ts$|\.mts$|\.cts$|\.mjs|\.cjs$/, jsFileExtension)
+const jsFilePath = configFilePath.replace(/\.ts$|\.mts$|\.cts$|\.js|\.cjs$/, jsFileExtension)
 const jsFileContents = jsCode
 
-if (!configFileIsInJS) writeFileSync(jsFilePath, jsFileContents)
+if (!configFileIsMJS) writeFileSync(jsFilePath, jsFileContents)
 
 import(jsFilePath)
   .then(module => {
@@ -53,7 +53,7 @@ import(jsFilePath)
     })
 
     child.on('exit', code => {
-      if (!configFileIsInJS) unlinkSync(jsFilePath)
+      if (!configFileIsMJS) unlinkSync(jsFilePath)
       logger.success(
         `✨ Your Spark Tailwind theme config file has been successfully created: ${join(
           process.cwd(),
