@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.2.0...@spark-ui/theme-utils@2.3.0) (2023-02-23)
+
+### Features
+
+- **theme-utils:** createTheme will mandate design tokens in every namespace ([bb7126f](https://github.com/adevinta/spark/commit/bb7126f68b562b329d2f80cdd20a057dba50fa24)), closes [#292](https://github.com/adevinta/spark/issues/292)
+
 # [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.1.1...@spark-ui/theme-utils@2.2.0) (2023-02-23)
 
 ### Features
