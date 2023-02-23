@@ -1,24 +1,19 @@
 import deepMerge from 'deepmerge'
-import { PartialDeep } from 'type-fest'
 
 import { defaultTheme } from './defaultTheme'
-import type { Theme } from './types'
+import { type Theme } from './types'
 
 /**
  * Create a custom theme by merging the default theme with a partial custom theme passed as an argument.
  *
- * @param {PartialDeep<Theme>} theme - A partial theme object of type PartialDeep<Theme> which holds the theme values that need to be customized or overridden
- *
- * @returns {Theme}
+ * @param theme - A partial theme object of type Partial<Theme> which holds the theme values that need to be customized or overridden
+ * @param fromTheme - Use this argument if you want to derivate your theme from another theme (instead of Spark's default theme)
  *
  * @example
  *
- * const alternativeTheme: PartialDeep<Theme> = { ... }
+ * const alternativeTheme: Partial<Theme> = { ... }
  * const newTheme = createTheme(alternativeTheme)
  */
-export function createTheme(
-  theme: PartialDeep<Theme> = {},
-  fromTheme: Theme = defaultTheme
-): Theme {
-  return deepMerge<Theme, PartialDeep<Theme>>(fromTheme, theme)
+export function createTheme(theme: Partial<Theme>, fromTheme: Theme = defaultTheme): Theme {
+  return deepMerge<Theme, Partial<Theme>>(fromTheme, theme)
 }
