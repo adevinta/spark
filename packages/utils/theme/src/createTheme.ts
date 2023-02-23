@@ -16,6 +16,9 @@ import type { Theme } from './types'
  * const alternativeTheme: PartialDeep<Theme> = { ... }
  * const newTheme = createTheme(alternativeTheme)
  */
-export function createTheme(theme: PartialDeep<Theme> = {}): Theme {
-  return deepMerge<Theme, PartialDeep<Theme>>(defaultTheme, theme)
+export function createTheme(
+  theme: PartialDeep<Theme> = {},
+  fromTheme: Theme = defaultTheme
+): Theme {
+  return deepMerge<Theme, PartialDeep<Theme>>(fromTheme, theme)
 }
