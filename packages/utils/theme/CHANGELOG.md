@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.1.1...@spark-ui/theme-utils@2.2.0) (2023-02-23)
+
+### Features
+
+- **theme-utils:** make it possible to create a theme from a custom theme ([b7a5d93](https://github.com/adevinta/spark/commit/b7a5d9346f2183408a7d9e327f927692e498bb6e))
+- **theme-utils:** spark dark mode theme setup in theme-utils ([a146560](https://github.com/adevinta/spark/commit/a1465609e1831c37599d484367084645c41a2f9b))
+
 ## [2.1.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.1.0...@spark-ui/theme-utils@2.1.1) (2023-02-21)
 
 **Note:** Version bump only for package @spark-ui/theme-utils

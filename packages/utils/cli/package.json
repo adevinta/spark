@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/cli-utils",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Spark CLI utils",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,7 @@
   "type": "module",
   "dependencies": {
     "@clack/prompts": "0.2.2",
-    "@spark-ui/theme-utils": "*",
+    "@spark-ui/theme-utils": "^2.2.0",
     "camel-case": "4.1.2",
     "chalk": "5.2.0",
     "commander": "10.0.0",
