@@ -1,10 +1,11 @@
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
+import { camelCase } from 'camel-case'
 import glob from 'glob'
 import { pascalCase } from 'pascal-case'
-import { camelCase } from 'camel-case'
 
-import { System } from '../core/index.mjs'
+import { System } from '../../core/index.mjs'
 import { Generator } from './Generator.mjs'
 
 export class TemplateGenerator extends Generator {
@@ -16,7 +17,7 @@ export class TemplateGenerator extends Generator {
 
   static CONTEXTS = {
     [TemplateGenerator.TYPES.COMPONENT]: 'components',
-    [TemplateGenerator.TYPES.HOOK]: 'components',
+    [TemplateGenerator.TYPES.HOOK]: 'hooks',
     [TemplateGenerator.TYPES.UTIL]: 'utils',
   }
 
@@ -33,7 +34,7 @@ export class TemplateGenerator extends Generator {
   }
 
   getTemplatePaths({ type }) {
-    const pattern = fileURLToPath(new URL(`../../templates/${type}/**/*.js`, import.meta.url))
+    const pattern = fileURLToPath(new URL(`../templates/${type}/**/*.js`, import.meta.url))
 
     return new Promise((resolve, reject) => {
       glob(pattern, async (error, paths) => {

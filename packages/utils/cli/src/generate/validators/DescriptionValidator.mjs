@@ -1,10 +1,6 @@
 import { Validator } from './Validator.mjs'
 
 export class DescriptionValidator extends Validator {
-  constructor() {
-    super()
-  }
-
   validate(description) {
     if (!description) {
       return 'You package must have a description'

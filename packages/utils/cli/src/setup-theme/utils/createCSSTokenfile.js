@@ -3,7 +3,7 @@ import { join } from 'node:path'
 
 import hexRgb from 'hex-rgb'
 
-import { isHex, isStringOrNumber, toKebabCase } from './utils.js'
+import { isHex, isStringOrNumber, toKebabCase } from '../../utils.js'
 
 function flattenTheme(theme, className) {
   const flattenedTheme = {}

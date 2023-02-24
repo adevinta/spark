@@ -1,4 +1,4 @@
-import { System } from '../core/index.mjs'
+import { System } from '../../core/index.mjs'
 import { Validator } from './Validator.mjs'
 
 export class NameValidator extends Validator {

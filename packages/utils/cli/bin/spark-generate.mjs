@@ -2,9 +2,9 @@
 
 import * as prompt from '@clack/prompts'
 
-import { TemplateGenerator } from './generators/index.mjs'
-import { Logger, System } from './core/index.mjs'
-import { DescriptionValidator, NameValidator } from './validators/index.mjs'
+import { TemplateGenerator } from '../src/generate/generators/index.mjs'
+import { Logger, System } from '../src/core/index.mjs'
+import { DescriptionValidator, NameValidator } from '../src/generate/validators/index.mjs'
 
 const logger = new Logger()
 const system = new System({ logger })
