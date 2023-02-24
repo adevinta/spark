@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 
 interface Props {
-  heading: 'h1' | 'h2' | 'h3' | 'h4'
+  as: 'h1' | 'h2' | 'h3' | 'h4'
   label: string
 }
 
@@ -11,8 +11,8 @@ interface Props {
  *
  * Until this is resolved, we must use this compoennt instead of markdown syntax for headings inside stories.
  */
-export function StoryHeading({ label, heading = 'h2' }: Props) {
-  const HeadingTag = heading as keyof JSX.IntrinsicElements
+export function StoryHeading({ label, as = 'h2' }: Props) {
+  const HeadingTag = as as keyof JSX.IntrinsicElements
   const slugifiedLabel = slugify(label)
 
   return (
