@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.0.7...@spark-ui/cli-utils@2.1.0) (2023-02-24)
+
+### Features
+
+- **cli-utils:** flattened cli args for theme config ([ccb13de](https://github.com/adevinta/spark/commit/ccb13de785f2d6d2f8893bdff83b032af6416a38))
+
 ## [2.0.7](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.0.6...@spark-ui/cli-utils@2.0.7) (2023-02-24)
 
 ### Bug Fixes
