@@ -1,12 +1,11 @@
 import { RequireAtLeastOne } from 'type-fest'
 
-type SparkFontSize = [
-  string,
-  {
-    lineHeight: string
-    fontWeight?: string
-  }
-]
+interface SparkFontSize {
+  fontSize: string
+  lineHeight: string
+  fontWeight?: string
+  letterSpacing?: string
+}
 
 export interface Theme {
   borderRadius: {
@@ -164,23 +163,9 @@ export interface Theme {
     headline2: SparkFontSize
     headline1: SparkFontSize
     // large screens
-    ['display-3']: SparkFontSize
-    ['display-2']: SparkFontSize
-    ['display-1']: SparkFontSize
-  }
-  fontWeight: {
-    regular: number
-    semibold: number
-    bold: number
-  }
-  lineHeight: {
-    xs: string
-    s: string
-    m: string
-    l: string
-    xl: string
-    '2xl': string
-    '3xl': string
+    display3: SparkFontSize
+    display2: SparkFontSize
+    display1: SparkFontSize
   }
   screens: {
     sm: string

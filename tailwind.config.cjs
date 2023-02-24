@@ -4,5 +4,5 @@ const themeConf = require('./tailwind.theme.cjs')
 
 module.exports = {
   theme: themeConf,
-  content: ['./packages/**/*.{js,ts,jsx,tsx}', './documentation/**/*.{js,ts,jsx,tsx}'],
+  content: ['./packages/**/*.{js,ts,jsx,tsx}', './documentation/**/*.{js,ts,jsx,tsx,mdx}'],
 }
