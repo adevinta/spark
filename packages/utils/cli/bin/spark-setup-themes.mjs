@@ -45,10 +45,10 @@ if (!configFileIsMJS) writeFileSync(jsFilePath, jsFileContents)
 
 import(jsFilePath)
   .then(module => {
-    const { tailwindThemeConfigFilePath, CSSTokens } = module.default
+    const { tailwindThemeConfigPath, tailwindCSSPath, themes } = module.default
 
-    createTailwindThemeConfigFile(tailwindThemeConfigFilePath)
-    createCSSTokensFile(CSSTokens.filePath, CSSTokens.themes)
+    createTailwindThemeConfigFile(tailwindThemeConfigPath)
+    createCSSTokensFile(tailwindCSSPath, themes)
 
     const child = spawn(process.execPath, [jsFilePath], {
       stdio: 'inherit',
@@ -59,14 +59,14 @@ import(jsFilePath)
       logger.success(
         `✨ Your Spark Tailwind theme config file has been successfully created: ${join(
           process.cwd(),
-          tailwindThemeConfigFilePath
+          tailwindThemeConfigPath
         )}`
       )
 
       logger.success(
         `✨ Your Spark Tailwind CSS Tokens file file has been successfully created: ${join(
           process.cwd(),
-          CSSTokens.filePath
+          tailwindCSSPath
         )}`
       )
 
