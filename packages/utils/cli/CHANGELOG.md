@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.1.0...@spark-ui/cli-utils@2.2.0) (2023-02-24)
+
+### Features
+
+- **cli-utils:** update cli setup-themes functions ([8723891](https://github.com/adevinta/spark/commit/8723891243a11a81176a3cdefe7fadf2951ce613))
+
 # [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.0.7...@spark-ui/cli-utils@2.1.0) (2023-02-24)
 
 ### Features
