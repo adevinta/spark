@@ -4,10 +4,10 @@ import { defaultTheme } from './defaultTheme'
 import { type Theme } from './types'
 
 /**
- * Create a custom theme by merging the default theme with a partial custom theme passed as an argument.
+ * Creates a custom theme by merging the default theme with a partial custom theme passed as an argument.
  *
- * @param theme - A partial theme object of type Partial<Theme> which holds the theme values that need to be customized or overridden
- * @param fromTheme - Use this argument if you want to derivate your theme from another theme (instead of Spark's default theme)
+ * @param {Partial<Theme>} theme - A partial theme object which holds the theme values that need to be customized or overridden. When a category is included in the `theme` parameter, all of the category's tokens must be overridden.
+ * @param {Theme} [fromTheme=defaultTheme] - (Optional) A theme object from which to derive the new custom theme (instead of Spark's `defaultTheme`)
  *
  * @example
  *
