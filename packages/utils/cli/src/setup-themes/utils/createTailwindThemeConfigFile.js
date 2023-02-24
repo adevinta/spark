@@ -8,8 +8,36 @@ import { isHex, isStringOrNumber, toKebabCase, toKebabCaseKeys } from '../../uti
 function toTailwindConfig(theme) {
   const themeCpy = JSON.parse(JSON.stringify(theme))
 
+  /* eslint-disable complexity */
   function flatten(obj, path) {
     Object.entries(obj).forEach(([key, value]) => {
+      if (value !== null && typeof value === 'object' && !path && key === 'fontSize') {
+        Object.keys(value).forEach(k => {
+          if (isStringOrNumber(value[k])) {
+            obj[key][k] = `var(--${toKebabCase(key)}-${k})`
+
+            return
+          }
+
+          obj[key][k] = [
+            `var(--${toKebabCase(key)}-${k}-font-size`,
+            {
+              ...(value[k].lineHeight && {
+                lineHeight: `var(--${toKebabCase(key)}-${k}-line-height`,
+              }),
+              ...(value[k].letterSpacing && {
+                letterSpacing: `var(--${toKebabCase(key)}-${k}-letter-spacing`,
+              }),
+              ...(value[k].fontWeight && {
+                fontWeight: `var(--${toKebabCase(key)}-${k}-font-weight`,
+              }),
+            },
+          ]
+        })
+
+        return
+      }
+
       if (value !== null && typeof value === 'object') {
         const formattedPath = path ? `--${path}-${key}` : `--${key}`
         flatten(value, toKebabCase(formattedPath.replace(/-{3,}/, '--')))
@@ -19,13 +47,14 @@ function toTailwindConfig(theme) {
 
       /* eslint-disable */
       if (isStringOrNumber(value)) {
-        const formattedPath =
-          /--colors/.test(path || '') && isHex(value)
-            ? `rgb(var(${path}-${toKebabCase(key)}) / <alpha-value>)`
-            : `var(${path}-${toKebabCase(key)})`
+        const formattedValue = (() => {
+          if (/--colors/.test(path || '') && isHex(value))
+            return `rgb(var(${path}-${toKebabCase(key)}) / <alpha-value>)`
+          if (/--screens/.test(path || '')) return value
+          return `var(${path}-${toKebabCase(key)})`
+        })()
 
-        /* @ts-ignore */
-        obj[key] = formattedPath
+        obj[key] = formattedValue
         /* eslint-enable */
       }
     })
