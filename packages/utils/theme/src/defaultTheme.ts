@@ -137,13 +137,26 @@ export const defaultTheme: Theme = {
       'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"',
   },
   fontSize: {
-    xs: '1rem',
-    s: '1.2rem',
-    m: '1.4rem',
-    l: '1.6rem',
-    xl: '1.8rem',
-    '2xl': '2rem',
-    '3xl': '2.4rem',
+    // small screens
+    mention: ['10px', { lineHeight: '16px' }],
+    mentionBold: ['10px', { lineHeight: '16px', fontWeight: '700' }],
+    // standard screens
+    captionLink: ['12px', { lineHeight: '16px' }],
+    captionLinkBold: ['12px', { lineHeight: '16px', fontWeight: '700' }],
+    bodyLink: ['14px', { lineHeight: '24px' }],
+    bodyLinkBold: ['14px', { lineHeight: '24px', fontWeight: '700' }],
+    caption: ['12px', { lineHeight: '16px' }],
+    captionBold: ['12px', { lineHeight: '16px', fontWeight: '700' }],
+    body: ['14px', { lineHeight: '24px' }],
+    bodyBold: ['14px', { lineHeight: '24px', fontWeight: '700' }],
+    subhead: ['16px', { lineHeight: '24px' }],
+    subheadBold: ['16px', { lineHeight: '24px', fontWeight: '700' }],
+    headline2: ['20px', { lineHeight: '32px', fontWeight: '700' }],
+    headline1: ['24px', { lineHeight: '32px', fontWeight: '700' }],
+    // large screens
+    'display-3': ['32px', { lineHeight: '48px', fontWeight: '700' }],
+    'display-2': ['40px', { lineHeight: '56px', fontWeight: '700' }],
+    'display-1': ['48px', { lineHeight: '50px', fontWeight: '700' }],
   },
   fontWeight: {
     regular: 400,

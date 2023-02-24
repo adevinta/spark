@@ -1,5 +1,13 @@
 import { RequireAtLeastOne } from 'type-fest'
 
+type SparkFontSize = [
+  string,
+  {
+    lineHeight: string
+    fontWeight?: string
+  }
+]
+
 export interface Theme {
   borderRadius: {
     none: string
@@ -139,13 +147,26 @@ export interface Theme {
     openSans: string
   }
   fontSize: {
-    xs: string
-    s: string
-    m: string
-    l: string
-    xl: string
-    '2xl': string
-    '3xl': string
+    // small screens
+    mention: SparkFontSize
+    mentionBold: SparkFontSize
+    // standard screens
+    captionLink: SparkFontSize
+    captionLinkBold: SparkFontSize
+    bodyLink: SparkFontSize
+    bodyLinkBold: SparkFontSize
+    caption: SparkFontSize
+    captionBold: SparkFontSize
+    body: SparkFontSize
+    bodyBold: SparkFontSize
+    subhead: SparkFontSize
+    subheadBold: SparkFontSize
+    headline2: SparkFontSize
+    headline1: SparkFontSize
+    // large screens
+    ['display-3']: SparkFontSize
+    ['display-2']: SparkFontSize
+    ['display-1']: SparkFontSize
   }
   fontWeight: {
     regular: number
