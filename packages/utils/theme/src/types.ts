@@ -1,3 +1,5 @@
+import { RequireAtLeastOne } from 'type-fest'
+
 export interface Theme {
   screens: {
     sm: string
@@ -194,4 +196,10 @@ export interface Theme {
     toast: number
     tooltip: number
   }
+}
+
+export interface ThemeConfig {
+  tailwindThemeConfigPath: string
+  tailwindCSSPath: string
+  themes: RequireAtLeastOne<Record<string, Theme>, 'default'>
 }

@@ -1,21 +1,10 @@
-import { defaultTheme, defaultThemeDark, type Theme } from '@spark-ui/theme-utils'
-
-// TODO: this interface should be imported from @spark-ui/theme-utils
-interface SparkConfig {
-  tailwindThemeConfigFilePath: string
-  CSSTokens: {
-    themes: Record<string, Theme>
-    filePath: string
-  }
-}
+import { defaultTheme, defaultThemeDark, type ThemeConfig } from '@spark-ui/theme-utils'
 
 export default {
-  tailwindThemeConfigFilePath: './tailwind.theme.cjs',
-  CSSTokens: {
-    themes: {
-      default: defaultTheme,
-      dark: defaultThemeDark,
-    },
-    filePath: './src/tailwind.css',
+  tailwindThemeConfigPath: './tailwind.theme.cjs',
+  tailwindCSSPath: './src/tailwind.css',
+  themes: {
+    default: defaultTheme,
+    dark: defaultThemeDark,
   },
-} satisfies SparkConfig
+} satisfies ThemeConfig
