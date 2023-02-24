@@ -37,8 +37,6 @@ Within this file, you will be abe to define your project's themes, as well as th
 
 This file should export a **default** object adhering to the `ThemeConfig` interface.
 
-**ThemeConfig:**
-
 ```ts
 interface ThemeConfig {
   tailwindThemeConfigPath: string
@@ -51,7 +49,7 @@ interface ThemeConfig {
 
 This field specifies the path where our CLI command will generate a `.js` file. This file will contain an object that tells Tailwind how to retrieve values from our Spark theme structure
 
-**tailwindCSSFilePath**:
+**tailwindCSSPath**:
 
 This field specifies the path where our CLI command will generate a `.css` file. This file will contain the **Tailwind CSS directives** + the different classes containing every token defined in your theme. Each class will correspond to a key in the `themes` object.
 
@@ -96,7 +94,7 @@ const themes = {
 
 export default {
   tailwindThemeConfigPath: './tailwind.theme.js',
-  tailwindCSSFilePath: './src/tailwind.css',
+  tailwindCSSPath: './src/tailwind.css',
   themes
 } satisfies ThemeConfig
 ```
