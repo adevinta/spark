@@ -3,7 +3,7 @@ import { join } from 'node:path'
 
 import { defaultTheme } from '@spark-ui/theme-utils'
 
-import { isHex, isStringOrNumber, toKebabCase, toKebabCaseKeys } from './utils.js'
+import { isHex, isStringOrNumber, toKebabCase, toKebabCaseKeys } from '../../utils.js'
 
 function toTailwindConfig(theme) {
   const themeCpy = JSON.parse(JSON.stringify(theme))

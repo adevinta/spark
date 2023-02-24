@@ -40,6 +40,6 @@ export class System {
     return fse
       .outputFile(path, content)
       .then(() => this.logger.info(`Created ${path}`))
-      .catch(error => this.exit(`Failed creating ${path}`))
+      .catch(() => this.exit(`Failed creating ${path}`))
   }
 }

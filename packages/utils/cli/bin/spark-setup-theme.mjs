@@ -5,9 +5,11 @@ import { join, extname } from 'node:path'
 import { readFileSync, readdirSync, writeFileSync, unlinkSync } from 'node:fs'
 import { transformSync } from 'esbuild'
 import { createRequire } from 'node:module'
-
-import { Logger, System } from './core/index.mjs'
-import { createCSSTokensFile, createTailwindThemeConfigFile } from '../utils/setupTheme/index.js'
+import { Logger, System } from '../src/core/index.mjs'
+import {
+  createCSSTokensFile,
+  createTailwindThemeConfigFile,
+} from '../src/setup-theme/utils/index.js'
 
 const logger = new Logger()
 const system = new System({ logger })
