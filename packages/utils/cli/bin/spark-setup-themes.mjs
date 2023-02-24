@@ -9,7 +9,7 @@ import { Logger, System } from '../src/core/index.mjs'
 import {
   createCSSTokensFile,
   createTailwindThemeConfigFile,
-} from '../src/setup-theme/utils/index.js'
+} from '../src/setup-themes/utils/index.js'
 
 const logger = new Logger()
 const system = new System({ logger })

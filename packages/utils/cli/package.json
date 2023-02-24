@@ -8,7 +8,7 @@
   "bin": {
     "spark": "./bin/spark.mjs",
     "spark-generate": "./bin/spark-generate.mjs",
-    "spark-setup-theme": "./bin/spark-setup-theme.mjs"
+    "spark-setup-themes": "./bin/spark-setup-themes.mjs"
   },
   "type": "module",
   "dependencies": {
