@@ -10,7 +10,7 @@ The **`@spark-ui/theme-utils`** exposes the following:
 ```tsx
 import {
   Theme,
-  SparkThemeConfig,
+  ThemeConfig,
   defaultTheme,
   defaultThemeDark,
   createTheme,
@@ -18,7 +18,7 @@ import {
 ```
 
 - [Theme](#theme)
-- [SparkThemeConfig](#theme-interface)
+- [ThemeConfig](#themeconfig)
 - [defaultTheme](#defaulttheme)
 - [defaultThemeDark](#defaultthemedark)
 - [createTheme](#createtheme)
@@ -29,9 +29,9 @@ import {
 
 - `Theme`, the TypeScript interface for our theme
 
-<StoryHeading label="SparkThemeConfig" as="h3" />
+<StoryHeading label="ThemeConfig" as="h3" />
 
-- `SparkThemeConfig`, the TypeScript interface used to ensure that the `spark.theme.config` file adheres to the structure expected by our CLI command. It specifies the configuration options for the project's themes, including the paths for the Tailwind theme config file and CSS file, and the definition of one or more theme objects adhering to the `Theme` interface.
+- `ThemeConfig`, the TypeScript interface used to ensure that the `spark.theme.config` file adheres to the structure expected by our CLI command. It specifies the configuration options for the project's themes, including the paths for the Tailwind theme config file and CSS file, and the definition of one or more theme objects adhering to the `Theme` interface.
 
 <StoryHeading label="defaultTheme" as="h3" />
 
