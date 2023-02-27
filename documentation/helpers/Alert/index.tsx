@@ -30,23 +30,21 @@ const styles = cva(['sb-unstyled  rounded-s p-m text-m'], {
   },
 })
 
-export type StylesProps = VariantProps<typeof styles>
+export type StylesProps = ExcludeNull<VariantProps<typeof styles>>
 
-const emojiMapper: Record<NonNullable<StylesProps['kind'] | null>, string> = {
+const emojiLookup: Record<NonNullable<StylesProps['kind']>, string> = {
   info: 'ℹ️',
   error: '🚨',
   success: '✅',
   warning: '⚠️',
 }
 
-export function Alert({ children, kind, ...variants }: PropsWithChildren<StylesProps>) {
+export function Alert({ children, kind = 'info', ...variants }: PropsWithChildren<StylesProps>) {
   return (
     <div className={styles({ kind, ...variants })}>
       <div className="flex items-center">
-        <div className="pr-s text-2xl">{emojiMapper[kind ?? 'info']}</div>
-        <div className="ml-s flex-1 md:flex md:justify-between">
-          <div className="text-m">{children}</div>
-        </div>
+        <div className="pr-s text-2xl">{emojiLookup[kind]}</div>
+        <div className="ml-s">{children}</div>
       </div>
     </div>
   )
