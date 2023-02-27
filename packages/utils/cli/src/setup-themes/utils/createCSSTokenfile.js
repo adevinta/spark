@@ -3,18 +3,15 @@ import { join } from 'node:path'
 
 import hexRgb from 'hex-rgb'
 
-import { isHex, isStringOrNumber, toKebabCase } from '../../utils.js'
+import { doubleHyphensRegex, isHex, isObject, isStringOrNumber, toKebabCase } from './utils.js'
 
-function flattenTheme(theme, className) {
+function toCSSVars(_theme, className) {
   const flattenedTheme = {}
 
-  function flatten(obj, path) {
-    Object.entries(obj).forEach(([key, value]) => {
-      if (value !== null && typeof value === 'object') {
-        const formattedPath = path ? `--${path}-${key}` : `--${key}`
-        flatten(value, toKebabCase(formattedPath.replace(/-{3,}/, '--')))
-
-        return
+  function flatten(theme, paths = []) {
+    Object.entries(theme).forEach(([key, value]) => {
+      if (isObject(value)) {
+        return flatten(value, paths.concat(key))
       }
 
       if (isStringOrNumber(value)) {
@@ -28,12 +25,14 @@ function flattenTheme(theme, className) {
           return value
         }
 
-        flattenedTheme[`${path}-${toKebabCase(key)}`] = getFormattedValue()
+        flattenedTheme[
+          `--${[...paths, key].map(toKebabCase).join('-').replace(doubleHyphensRegex, '-')}`
+        ] = getFormattedValue()
       }
     })
   }
 
-  flatten(theme)
+  flatten(_theme)
 
   return {
     ...flattenedTheme,
@@ -48,7 +47,7 @@ const toStringifiedTheme = theme =>
 
 const getStringifiedThemes = themeRecord =>
   Object.keys(themeRecord).map(key => {
-    const { className, ...rest } = flattenTheme(themeRecord[key], key)
+    const { className, ...rest } = toCSSVars(themeRecord[key], key)
 
     return key === 'default'
       ? `:root{${toStringifiedTheme(rest)}}`

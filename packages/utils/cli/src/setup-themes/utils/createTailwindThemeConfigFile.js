@@ -3,33 +3,53 @@ import { join } from 'node:path'
 
 import { defaultTheme } from '@spark-ui/theme-utils'
 
-import { isHex, isStringOrNumber, toKebabCase, toKebabCaseKeys } from '../../utils.js'
+import { tailwindKeys } from './constants.js'
+import {
+  doubleHyphensRegex,
+  hasNumber,
+  isCamelCase,
+  isHex,
+  isObject,
+  isStringOrNumber,
+  toKebabCase,
+} from './utils.js'
 
-function toTailwindConfig(theme) {
-  const themeCpy = JSON.parse(JSON.stringify(theme))
+function toTailwindConfig(_theme) {
+  const themeCpy = JSON.parse(JSON.stringify(_theme))
 
-  /* eslint-disable complexity */
-  function flatten(obj, path) {
-    Object.entries(obj).forEach(([key, value]) => {
-      if (value !== null && typeof value === 'object' && !path && key === 'fontSize') {
+  const { fontSize, colors, screens } = tailwindKeys
+
+  function traverse(theme, paths = []) {
+    Object.entries(theme).forEach(([key, value]) => {
+      // 👀 see: https://tailwindcss.com/docs/font-size#providing-a-default-line-height
+      if (isObject(value) && !paths.length && key === fontSize) {
         Object.keys(value).forEach(k => {
+          const prefix = toKebabCase(fontSize)
           if (isStringOrNumber(value[k])) {
-            obj[key][k] = `var(--${toKebabCase(key)}-${k})`
+            theme[key][k] = `var(--${prefix}-${k})`
 
             return
           }
 
-          obj[key][k] = [
-            `var(--${toKebabCase(key)}-${k}-font-size`,
+          const kebabedKey = isCamelCase(k) || hasNumber(k) ? toKebabCase(k) : k
+
+          if (kebabedKey !== k) {
+            const tmp = theme[key][k]
+            delete theme[key][k]
+            theme[key][kebabedKey] = tmp
+          }
+
+          theme[key][kebabedKey] = [
+            `var(--${prefix}-${kebabedKey}-font-size)`,
             {
-              ...(value[k].lineHeight && {
-                lineHeight: `var(--${toKebabCase(key)}-${k}-line-height`,
+              ...(value[kebabedKey].lineHeight && {
+                lineHeight: `var(--${prefix}-${kebabedKey}-line-height)`,
               }),
-              ...(value[k].letterSpacing && {
-                letterSpacing: `var(--${toKebabCase(key)}-${k}-letter-spacing`,
+              ...(value[kebabedKey].letterSpacing && {
+                letterSpacing: `var(--${prefix}-${kebabedKey}-letter-spacing)`,
               }),
-              ...(value[k].fontWeight && {
-                fontWeight: `var(--${toKebabCase(key)}-${k}-font-weight`,
+              ...(value[kebabedKey].fontWeight && {
+                fontWeight: `var(--${prefix}-${kebabedKey}-font-weight)`,
               }),
             },
           ]
@@ -38,31 +58,46 @@ function toTailwindConfig(theme) {
         return
       }
 
-      if (value !== null && typeof value === 'object') {
-        const formattedPath = path ? `--${path}-${key}` : `--${key}`
-        flatten(value, toKebabCase(formattedPath.replace(/-{3,}/, '--')))
+      if (isObject(value)) {
+        Object.keys(value).forEach(k => {
+          if (!isObject(value[k]) && !isCamelCase(k)) {
+            return
+          }
 
-        return
+          const tmp = value[k]
+          delete value[k]
+          value[toKebabCase(k)] = tmp
+        })
+
+        return traverse(value, paths.concat(key))
       }
 
-      /* eslint-disable */
       if (isStringOrNumber(value)) {
+        const rootPath = paths.at(0) ?? ''
+        const isScreenValue = rootPath.includes(screens)
+        const isColorValue = rootPath.includes(colors)
+
         const formattedValue = (() => {
-          if (/--colors/.test(path || '') && isHex(value))
-            return `rgb(var(${path}-${toKebabCase(key)}) / <alpha-value>)`
-          if (/--screens/.test(path || '')) return value
-          return `var(${path}-${toKebabCase(key)})`
+          if (isColorValue && isHex(value)) {
+            return `rgb(var(--${paths.join('-')}-${key}) / <alpha-value>)`
+          }
+          if (isScreenValue) {
+            return String(value).toLowerCase()
+          }
+
+          return `var(--${paths.join('-')}-${key})`
         })()
 
-        obj[key] = formattedValue
-        /* eslint-enable */
+        theme[key] = isScreenValue
+          ? formattedValue
+          : toKebabCase(formattedValue).replace(doubleHyphensRegex, '-')
       }
     })
   }
 
-  flatten(themeCpy)
+  traverse(themeCpy)
 
-  return toKebabCaseKeys(themeCpy)
+  return themeCpy
 }
 
 /**
