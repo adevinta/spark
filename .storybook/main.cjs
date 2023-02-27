@@ -4,7 +4,8 @@ module.exports = {
     return config;
   },
   stories: [
-    "../documentation/**/*.mdx",
+    "../documentation/getting-started/GettingStarted.mdx",
+    "../documentation/**/!(getting-started)/*.mdx",
     "../packages/**/*.stories.@(mdx|ts|tsx)"
   ],
   addons: [
