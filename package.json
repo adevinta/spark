@@ -13,6 +13,7 @@
     "release": "lerna publish --yes --include-merged-tags --no-verify-access",
     "storybook:start": "npx spark setup-themes && storybook dev -p 6006",
     "storybook:build": "storybook build -o dist",
+    "tailwind-config-viewer": "tailwind-config-viewer -c ./tailwind.config.viewer.cjs",
     "tailwind-config-viewer:build": "tailwind-config-viewer -c ./tailwind.config.viewer.cjs export ./docs",
     "test": "vitest",
     "test:ui": "vitest watch --ui",
