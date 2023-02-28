@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/blocks'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+import { Alert } from '@docs/helpers/Alert'
+
+<Meta title="Migration/Styled Components" />
+
+<StoryHeading label="Migrating from styled-components" as="h1" />
+
+If you've recently switched from using **styled-components** to **Spark** for styling your application.
+
+This guide can help you understand how to adapt your styling workflow to Spark, showing you how to achieve the same styling results with Spark that you had with styled-components.
+
+<Alert kind="warning" marginBottom="medium">
+  It's important to note that the tokens used in these examples are for illustrative purposes and
+  will likely require adjustments to suit your specific use case.
+</Alert>
+
+<StoryHeading label="using styled-component with a Theme Provider" as="h4" />
+
+- before
+
+```tsx
+export const StyledNad = styled('nav')(({ theme }) => ({
+  display: 'flex',
+  maxWidth: theme.pageWidth.max,
+  margin: '0 auto',
+  padding: `0 ${theme.space.medium}`,
+}))
+
+function SomeComponent() {
+  return <StyledNav>{...}</StyledNav>
+}
+```
+
+- after
+
+```tsx
+function SomeComponent() {
+  return <nav className="flex max-w-max mx-auto px-m">{...}</nav>
+}
+```
+
+⬆️ The class names used in the example code are **regular Tailwind CSS classes**, and you can refer to
+the Tailwind documentation for more information on their usage.
+
+However, **Spark** uses a custom theme, so the suffixes for **tokens** such as spacings, colors, etc., may not match the default Tailwind theme. For example, instead of using `m-4` for a margin of 16 pixels, you will have to use `m-m` in Spark.
+
+<Alert>
+  If you want to know more about the custom token class names used in Spark, please check out our
+  dedicated page where you can find a comprehensive list of these class names.
+</Alert>
