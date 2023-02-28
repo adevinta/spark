@@ -3,7 +3,7 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 <Meta title="utils/Theme" />
 
-# Theme utils
+<StoryHeading label="Theme utils" as="h1" />
 
 The **`@spark-ui/theme-utils`** exposes the following:
 
@@ -79,6 +79,6 @@ const partialTheme: Partial<Theme> = {
 }
 
 // Create a custom theme by passing the partial theme object and the base theme object
-// The resulting custom theme object will be a merge of `baseTheme` and `defaultThemeDark`
+// The resulting custom theme object will be a merge of `partialTheme` and `defaultThemeDark`
 const newTheme = createTheme(partialTheme, defaultThemeDark)
 ```
