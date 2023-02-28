@@ -25,7 +25,7 @@ function toTailwindConfigViewer(defaultTheme) {
       if (utils.isStringOrNumber(value)) {
         if (paths.includes('colors')) {
           result[
-            `rbg(var(--${[...paths, key]
+            `rgb(var(--${[...paths, key]
               .map(utils.toKebabCase)
               .join('-')
               .replace(utils.doubleHyphensRegex, '-')}) / <alpha-value>)`
