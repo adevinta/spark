@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/adevinta/spark/compare/@spark-ui/dummy@1.2.4...@spark-ui/dummy@1.2.5) (2023-03-01)
+
+### Bug Fixes
+
+- **dummy:** fix default stories export ([16b1951](https://github.com/adevinta/spark/commit/16b195104a6408927edd2c63c714370e2ac8436a))
+
 ## [1.2.4](https://github.com/adevinta/spark/compare/@spark-ui/dummy@1.2.3...@spark-ui/dummy@1.2.4) (2023-02-21)
 
 **Note:** Version bump only for package @spark-ui/dummy
