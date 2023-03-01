@@ -1,0 +1,191 @@
+import { Meta } from '@storybook/blocks'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+import { Alert } from '@docs/helpers/Alert'
+
+<Meta title="Migration/Styled Components" />
+
+<StoryHeading label="Migrating from styled-components" as="h1" />
+
+- [using a Theme Provider](#using-a-theme-provider)
+- [using dynamic props](#using-dynamic-props)
+- [using multiple props (more complexe case)](#using-multiple-props-more-complexe-case)
+- [using arbitrary values](#using-arbitrary-values)
+
+If you've recently switched from using **styled-components** to **Spark** for styling your application.
+
+This guide can help you understand how to adapt your styling workflow to Spark, showing you how to achieve the same styling results with Spark that you had with styled-components.
+
+The class names used in these examples are **regular Tailwind CSS classes**, and you can refer to the Tailwind documentation for more information on their usage.
+
+<Alert kind="warning" marginBottom="medium">
+  It's important to note that the tokens used in these examples are for illustrative purposes and
+  will likely require adjustments to suit your specific use case.
+</Alert>
+
+<StoryHeading label="using a Theme Provider" as="h3" />
+
+- before
+
+```tsx
+export const StyledNad = styled.nav(({ theme }) => ({
+  display: 'flex',
+  maxWidth: theme.pageWidth.max,
+  margin: '0 auto',
+  padding: `0 ${theme.space.medium}`,
+}))
+
+function SomeComponent() {
+  return <StyledNav>{...}</StyledNav>
+}
+```
+
+- after
+
+```tsx
+function SomeComponent() {
+  return <nav className="flex max-w-max mx-auto px-md">{...}</nav>
+}
+```
+
+⬆️ With Tailwind, you can **access your theme tokens directly in your class names**, without the need for a theme provider à la Styled Components
+
+<Alert kind="warning" marginBottom="medium">
+  Once again, **Spark** uses a custom theme, so the suffixes for **tokens** such as spacings,
+  colors, etc., may not match the default Tailwind theme. For example, instead of using `m-4` for a
+  margin of 16 pixels, you will have to use `m-md` in Spark.
+</Alert>
+
+<Alert>
+  If you want to know more about the custom token class names used in Spark, please check out our
+  [**dedicated page**](https://adevinta.github.io/spark) where you can find a comprehensive list of
+  these class names.
+</Alert>
+
+<StoryHeading label="using dynamic props" as="h3" />
+
+- before
+
+```tsx
+interface TitleProps {
+  isActive: boolean
+}
+
+const Title = styled.h1<TitleProps>`
+  color: ${props => (props.isActive ? props.theme.colors.main : props.theme.colors.secondary)};
+`
+
+function SomeComponent() {
+  return <Title>{...}</Title>
+}
+```
+
+- after
+
+```tsx
+
+interface Props {
+  isActive: boolean
+}
+
+function SomeComponent({ isActive }: Props) {
+  return <h1 className={isActive ? 'bg-main' : 'bg-secondary'}>{...}</h1>
+}
+```
+
+<StoryHeading label="using multiple props (more complexe case)" as="h3" />
+
+- before
+
+```tsx
+interface CardProps {
+  size: 'small' | 'medium' | 'large'
+}
+
+const Card = styled.div<CardProps>`
+  display: flex;
+  position: relative;
+  margin-top: ${({ size, theme }) => {
+    if (size === 'small') return theme.space.small
+    if (size === 'medium') return theme.space.medium
+    return theme.space.large
+  }};
+`
+
+interface Props extends CardProps {}
+
+function SomeComponent({ size }: Props) {
+  return <Card size={size}>{...}</Card>
+}
+```
+
+- after
+
+```tsx
+import { cva, VariantProps } from 'class-variance-authority'
+
+const styles = cva(['flex relative'], {
+  variants: {
+    size: {
+      small: ['mt-sm'],
+      medium: ['mt-md'],
+      large: ['mt-lg'],
+    },
+  },
+  defaultVariants: {
+    size: 'small',
+  },
+})
+
+type CardsProps = VariantProps<typeof styles>
+
+function Card({ size } : CardsProps) {
+  return <div className={styled({ size })}>{...}</div>
+}
+
+interface Props extends CardProps {}
+
+function SomeComponent({ size }: Props) {
+  return <Card size={size}>{...}</Card>
+}
+```
+
+⬆️ To handle complex styling scenarios like this, we recommend using the [**CVA (Class Variance Authority) package**](https://cva.style/docs), this is what we are using to style our Spark components.
+
+In a nutshell, CVA is a tool that automates the process of matching classes to props and adding types, making it easier to create variants for traditional CSS.
+
+<StoryHeading label="using arbitrary values" as="h3" />
+
+- before
+
+```tsx
+interface TitleProps {
+  height: number
+}
+
+const Title = styled.h1<TitleProps>`
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: ${props => props.height};
+  }
+`
+
+interface Props {
+  height: number
+}
+
+function SomeComponent({ height }: Props) {
+  return <Title height={height}>{...}</Title>
+}
+```
+
+- after
+
+```tsx
+
+interface Props {
+  height: boolean
+}
+
+function SomeComponent({ height }: Props) {
+  return <h1 style={{ "--height": height }} className="md:h-[var(--height)">{...}</h1>
+}
+```
