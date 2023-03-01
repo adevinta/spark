@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.4.2...@spark-ui/theme-utils@2.5.0) (2023-03-01)
+
+### Features
+
+- setup rem basis to 8px ([a7ffd2a](https://github.com/adevinta/spark/commit/a7ffd2a933d2785d7dbc1a25bdfab1844abcd45b))
+
 ## [2.4.2](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.4.1...@spark-ui/theme-utils@2.4.2) (2023-02-28)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
