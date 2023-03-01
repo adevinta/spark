@@ -40,7 +40,7 @@
     "@commitlint/cli": "17.4.2",
     "@commitlint/config-conventional": "17.4.2",
     "@commitlint/config-lerna-scopes": "17.4.2",
-    "@commitlint/cz-commitlint": "17.4.2",
+    "@commitlint/cz-commitlint": "17.4.4",
     "@commitlint/prompt-cli": "17.4.2",
     "@spark-ui/cli-utils": "*",
     "@storybook/addon-actions": "next",
