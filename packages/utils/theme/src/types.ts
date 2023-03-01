@@ -6,7 +6,6 @@ export interface Theme {
     md: string
     lg: string
     xl: string
-    '2xl': string
   }
   borderWidth: {
     none: string
