@@ -1,22 +1,22 @@
 import { PropsWithChildren } from 'react'
 import { cva, VariantProps } from 'class-variance-authority'
 
-const styles = cva(['sb-unstyled  rounded-s p-m text-m'], {
+const styles = cva(['sb-unstyled  rounded-md p-md text-m'], {
   variants: {
     marginY: {
-      small: 'my-s',
-      medium: 'my-m',
-      large: 'my-l',
+      small: 'my-sm',
+      medium: 'my-md',
+      large: 'my-lg',
     },
     marginTop: {
-      small: 'mt-s',
-      medium: 'mt-m',
-      large: 'mt-l',
+      small: 'mt-sm',
+      medium: 'mt-md',
+      large: 'mt-lg',
     },
     marginBottom: {
-      small: 'mb-s',
-      medium: 'mb-m',
-      large: 'mb-l',
+      small: 'mb-sm',
+      medium: 'mb-md',
+      large: 'mb-lg',
     },
     kind: {
       success: ['bg-success-container', 'text-on-success-container'],
@@ -43,8 +43,8 @@ export function Alert({ children, kind = 'info', ...variants }: PropsWithChildre
   return (
     <div className={styles({ kind, ...variants })}>
       <div className="flex items-center">
-        <div className="pr-s text-2xl">{emojiLookup[kind]}</div>
-        <div className="ml-s">{children}</div>
+        <div className="pr-sm text-2xl">{emojiLookup[kind]}</div>
+        <div className="ml-sm">{children}</div>
       </div>
     </div>
   )

@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 import { cva } from 'class-variance-authority'
 
 const wrapperStyles = cva(
-  ['sb-unstyled', 'shadow-normal', 'my-l', 'rounded-s', 'p-m', 'shadow-normal'],
+  ['sb-unstyled', 'shadow-normal', 'my-lg', 'rounded-md', 'p-md', 'shadow-normal'],
   {
     variants: {
       status: {
@@ -31,7 +31,7 @@ export const StoryStatus = ({ status }: Props): ReactElement | null => {
 
   return (
     <div className={wrapperStyles({ status })}>
-      <p className={'mb-s text-l font-bold'}>{title}</p>
+      <p className={'mb-sm text-l font-bold'}>{title}</p>
       <p className="text-m">{description}</p>
     </div>
   )
