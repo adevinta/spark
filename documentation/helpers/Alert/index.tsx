@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { cva, VariantProps } from 'class-variance-authority'
 
-const styles = cva(['sb-unstyled  rounded-s p-md text-m'], {
+const styles = cva(['sb-unstyled  rounded-md p-md text-m'], {
   variants: {
     marginY: {
       small: 'my-sm',

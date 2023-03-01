@@ -8,10 +8,9 @@ export const defaultTheme: Theme = {
     xl: '1280px',
   },
   borderWidth: {
-    none: '0',
-    xs: '0.1rem',
-    s: '0.2rem',
-    m: '0.4rem',
+    none: '0px',
+    sm: '1px',
+    md: '2px',
   },
   colors: {
     // Primary
@@ -158,12 +157,12 @@ export const defaultTheme: Theme = {
     pageMax: '1066px',
   },
   borderRadius: {
-    none: '0',
-    xs: '0.4rem',
-    s: '0.8rem',
-    m: '1.6rem',
-    l: '2.4rem',
-    full: '100%',
+    none: '0px',
+    sm: '0.5rem',
+    md: '1rem',
+    lg: '2rem',
+    xl: '3rem',
+    full: '9999px',
   },
   boxShadow: {
     none: 'none',

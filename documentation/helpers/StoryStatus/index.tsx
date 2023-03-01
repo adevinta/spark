@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 import { cva } from 'class-variance-authority'
 
 const wrapperStyles = cva(
-  ['sb-unstyled', 'shadow-normal', 'my-lg', 'rounded-s', 'p-md', 'shadow-normal'],
+  ['sb-unstyled', 'shadow-normal', 'my-lg', 'rounded-md', 'p-md', 'shadow-normal'],
   {
     variants: {
       status: {

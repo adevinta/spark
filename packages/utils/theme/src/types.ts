@@ -9,9 +9,8 @@ export interface Theme {
   }
   borderWidth: {
     none: string
-    xs: string
-    s: string
-    m: string
+    sm: string
+    md: string
   }
   /**
    * Spark color specifications: https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3
@@ -161,10 +160,10 @@ export interface Theme {
   }
   borderRadius: {
     none: string
-    xs: string
-    s: string
-    m: string
-    l: string
+    sm: string
+    md: string
+    lg: string
+    xl: string
     full: string
   }
   boxShadow: {
