@@ -176,12 +176,12 @@ export interface Theme {
   spacing: {
     auto: string
     none: string
-    xs: string
-    s: string
-    m: string
-    l: string
+    sm: string
+    md: string
+    lg: string
     xl: string
-    xxl: string
+    '2xl': string
+    '3xl': string
   }
   zIndex: {
     hide: number
