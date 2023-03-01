@@ -1,16 +1,23 @@
 import { RequireAtLeastOne } from 'type-fest'
 
 export interface Theme {
-  screens: {
+  borderRadius: {
+    none: string
     sm: string
     md: string
     lg: string
     xl: string
+    full: string
   }
   borderWidth: {
     none: string
     sm: string
     md: string
+  }
+  boxShadow: {
+    none: string
+    normal: string
+    highlighted: string
   }
   /**
    * Spark color specifications: https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3
@@ -154,22 +161,11 @@ export interface Theme {
     '2xl': string
     '3xl': string
   }
-  width: {
-    pageMin: string
-    pageMax: string
-  }
-  borderRadius: {
-    none: string
+  screens: {
     sm: string
     md: string
     lg: string
     xl: string
-    full: string
-  }
-  boxShadow: {
-    none: string
-    normal: string
-    highlighted: string
   }
   spacing: {
     auto: string

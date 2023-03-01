@@ -1,16 +1,23 @@
 import type { Theme } from './types'
 
 export const defaultTheme: Theme = {
-  screens: {
-    sm: '640px',
-    md: '768px',
-    lg: '1024px',
-    xl: '1280px',
+  borderRadius: {
+    none: '0px',
+    sm: '0.5rem',
+    md: '1rem',
+    lg: '2rem',
+    xl: '3rem',
+    full: '9999px',
   },
   borderWidth: {
     none: '0px',
     sm: '1px',
     md: '2px',
+  },
+  boxShadow: {
+    none: 'none',
+    normal: '0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12)',
+    highlighted: '0 -1px 8px 0 rgba(26, 26, 26, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.14)',
   },
   colors: {
     // Primary
@@ -152,22 +159,11 @@ export const defaultTheme: Theme = {
     '2xl': '2.6rem',
     '3xl': '2.8rem',
   },
-  width: {
-    pageMin: '320px',
-    pageMax: '1066px',
-  },
-  borderRadius: {
-    none: '0px',
-    sm: '0.5rem',
-    md: '1rem',
-    lg: '2rem',
-    xl: '3rem',
-    full: '9999px',
-  },
-  boxShadow: {
-    none: 'none',
-    normal: '0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12)',
-    highlighted: '0 -1px 8px 0 rgba(26, 26, 26, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.14)',
+  screens: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
   },
   spacing: {
     auto: 'auto',
