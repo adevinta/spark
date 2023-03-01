@@ -87,7 +87,7 @@
     "husky": "8.0.3",
     "jsdom": "21.1.0",
     "lerna": "6.4.1",
-    "lint-staged": "13.1.1",
+    "lint-staged": "13.1.2",
     "postcss": "8.4.21",
     "prettier": "2.8.3",
     "prettier-plugin-tailwindcss": "0.2.2",
