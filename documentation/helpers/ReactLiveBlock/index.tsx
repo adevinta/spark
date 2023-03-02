@@ -3,8 +3,8 @@ import React, { PropsWithChildren, ReactElement, useState } from 'react'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 
-import { useClipboard } from './utils'
 import styles from './styles.module.css'
+import { useClipboard } from './utils'
 
 interface ReactLiveBlockProps {
   children: ReactElement | ReactElement[]

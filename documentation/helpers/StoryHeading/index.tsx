@@ -20,7 +20,9 @@ export function StoryHeading({ label, as = 'h2' }: Props) {
       <a
         ref={node => {
           /* HACK: make sure that when a user accesses a URL containing an ID, the page scrolls to the relevant section */
-          if (!node) return
+          if (!node) {
+            return
+          }
           if (window.top?.location.hash === `#${slugifiedLabel}`) {
             setTimeout(() => {
               node.scrollIntoView({ behavior: 'smooth' })

@@ -1,5 +1,5 @@
-import { ReactElement } from 'react'
 import { cva } from 'class-variance-authority'
+import { ReactElement } from 'react'
 
 const wrapperStyles = cva(
   ['sb-unstyled', 'shadow-normal', 'my-lg', 'rounded-md', 'p-md', 'shadow-normal'],
@@ -11,7 +11,7 @@ const wrapperStyles = cva(
       },
     },
     defaultVariants: {
-      status: 'draft',
+      status: 'draft' as const,
     },
   }
 )
@@ -21,7 +21,9 @@ interface Props {
 }
 
 export const StoryStatus = ({ status }: Props): ReactElement | null => {
-  if (status === 'final') return null
+  if (status === 'final') {
+    return null
+  }
 
   const title = status === 'draft' ? 'Draft' : 'Deprecated'
   const description =
