@@ -1,5 +1,12 @@
 import { RequireAtLeastOne } from 'type-fest'
 
+interface SparkFontSize {
+  fontSize: string
+  lineHeight: string
+  fontWeight?: string
+  letterSpacing?: string
+}
+
 export interface Theme {
   borderRadius: {
     none: string
@@ -138,28 +145,49 @@ export interface Theme {
   fontFamily: {
     openSans: string
   }
+  /**
+   * https://www.figma.com/file/ezqkDE3LqYrek9MvYnr4dR/Spark-Foundations?node-id=105%3A2710&t=lLeJnznf64zUBmdL-4
+   */
   fontSize: {
-    xs: string
-    s: string
-    m: string
-    l: string
-    xl: string
-    '2xl': string
-    '3xl': string
+    /** Reserved for short/important large text */
+    display1: SparkFontSize
+    /** Reserved for short/important medium text */
+    display2: SparkFontSize
+    /** Reserved for short/important small text */
+    display3: SparkFontSize
+    /** High-emphasis large text */
+    headline1: SparkFontSize
+    /** High-emphasis medium text  */
+    headline2: SparkFontSize
+    /** High-emphasis small text  */
+    subhead: SparkFontSize
+    /** Content base text */
+    body1: SparkFontSize
+    /** Content base text low hierarchy */
+    body2: SparkFontSize
+    /** Support texts or error texts */
+    caption: SparkFontSize
+    /** Legal texts, App bar labels */
+    small: SparkFontSize
+    /** Content base text, Links */
+    body1Link: SparkFontSize
+    /** Content base text, low hierarchy Links */
+    body2Link: SparkFontSize
+    /** Support or error texts with a link */
+    captionLink: SparkFontSize
+    /** Call to actions */
+    callout: SparkFontSize
   }
   fontWeight: {
-    regular: number
-    semibold: number
-    bold: number
+    regular: string
+    medium: string
+    semiBold: string
+    bold: string
   }
-  lineHeight: {
-    xs: string
-    s: string
-    m: string
-    l: string
-    xl: string
-    '2xl': string
-    '3xl': string
+  letterSpacing: {
+    default: string
+    lowExpand: string
+    highExpand: string
   }
   screens: {
     sm: string
