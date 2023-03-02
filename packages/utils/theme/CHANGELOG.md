@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.5.1...@spark-ui/theme-utils@2.6.0) (2023-03-02)
+
+### Features
+
+- **theme-utils:** theme contract for typography ([db41e6e](https://github.com/adevinta/spark/commit/db41e6e1131a6335e37d56c5a52004353915e728))
+
 ## [2.5.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.5.0...@spark-ui/theme-utils@2.5.1) (2023-03-01)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
