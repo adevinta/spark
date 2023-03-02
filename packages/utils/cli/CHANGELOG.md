@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.2.7...@spark-ui/cli-utils@2.3.0) (2023-03-02)
+
+### Features
+
+- **cli-utils:** update toTailwindConfig mapper to handle edge cases ([2af919a](https://github.com/adevinta/spark/commit/2af919a3dd7bbab02d00cd9892c1e9a7971aec38))
+
 ## [2.2.7](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.2.6...@spark-ui/cli-utils@2.2.7) (2023-03-02)
 
 **Note:** Version bump only for package @spark-ui/cli-utils
