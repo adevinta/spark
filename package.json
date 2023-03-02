@@ -104,7 +104,7 @@
     "vite": "4.1.0",
     "vite-plugin-dts": "1.7.2",
     "vite-tsconfig-paths": "4.0.5",
-    "vitest": "0.28.4"
+    "vitest": "0.29.2"
   },
   "workspaces": [
     "packages/components/*",
