@@ -145,27 +145,49 @@ export interface Theme {
   fontFamily: {
     openSans: string
   }
+  /**
+   * https://www.figma.com/file/ezqkDE3LqYrek9MvYnr4dR/Spark-Foundations?node-id=105%3A2710&t=lLeJnznf64zUBmdL-4
+   */
   fontSize: {
-    // small screens
-    mention: SparkFontSize
-    mentionBold: SparkFontSize
-    // standard screens
-    captionLink: SparkFontSize
-    captionLinkBold: SparkFontSize
-    bodyLink: SparkFontSize
-    bodyLinkBold: SparkFontSize
-    caption: SparkFontSize
-    captionBold: SparkFontSize
-    body: SparkFontSize
-    bodyBold: SparkFontSize
-    subhead: SparkFontSize
-    subheadBold: SparkFontSize
-    headline2: SparkFontSize
-    headline1: SparkFontSize
-    // large screens
-    display3: SparkFontSize
-    display2: SparkFontSize
+    /** Reserved for short/important large text */
     display1: SparkFontSize
+    /** Reserved for short/important medium text */
+    display2: SparkFontSize
+    /** Reserved for short/important small text */
+    display3: SparkFontSize
+    /** High-emphasis large text */
+    headline1: SparkFontSize
+    /** High-emphasis medium text  */
+    headline2: SparkFontSize
+    /** High-emphasis small text  */
+    subhead: SparkFontSize
+    /** Content base text */
+    body1: SparkFontSize
+    /** Content base text low hierarchy */
+    body2: SparkFontSize
+    /** Support texts or error texts */
+    caption: SparkFontSize
+    /** Legal texts, App bar labels */
+    small: SparkFontSize
+    /** Content base text, Links */
+    body1Link: SparkFontSize
+    /** Content base text, low hierarchy Links */
+    body2Link: SparkFontSize
+    /** Support or error texts with a link */
+    captionLink: SparkFontSize
+    /** Call to actions */
+    callout: SparkFontSize
+  }
+  fontWeight: {
+    regular: string
+    medium: string
+    semiBold: string
+    bold: string
+  }
+  letterSpacing: {
+    default: string
+    lowExpand: string
+    highExpand: string
   }
   screens: {
     sm: string

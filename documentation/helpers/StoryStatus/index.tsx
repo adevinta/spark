@@ -31,8 +31,8 @@ export const StoryStatus = ({ status }: Props): ReactElement | null => {
 
   return (
     <div className={wrapperStyles({ status })}>
-      <p className={'mb-sm text-l font-bold'}>{title}</p>
-      <p className="text-m">{description}</p>
+      <p className={'mb-sm text-headline-2 font-bold'}>{title}</p>
+      <p className="text-caption">{description}</p>
     </div>
   )
 }
