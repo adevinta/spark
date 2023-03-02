@@ -3,12 +3,11 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
     reviewers:
       - '@adevinta/spark-dev'
     ignore:
       - dependency-name: '*'
         update-types: ['version-update:semver-major']
     commit-message:
-      prefix: 'feat'
-      include: 'scope'
+      prefix: 'build(npm)'
