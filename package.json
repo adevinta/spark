@@ -21,9 +21,9 @@
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
     "commit": "git-cz",
-    "lint": "eslint --config .eslintrc.cjs 'packages/**/**/src/**/*{.ts,.tsx,.js}' --cache",
+    "lint": "eslint --config .eslintrc.cjs '{packages,documentation}/{src/**/*.{ts,tsx,js},helpers/**/*.{ts,tsx,js}}' --cache",
     "lint:staged": "lint-staged --config .lintstagedrc.json",
-    "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
+    "prettier": "prettier --config .prettierrc.json --write \"{packages,documentation,src}/**/*.{ts,tsx}\"",
     "prettify": "npm run lint && npm run prettier",
     "node:check": "node bin/check-node-version.js"
   },
