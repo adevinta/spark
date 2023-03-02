@@ -3,7 +3,7 @@ import { join } from 'node:path'
 
 import { defaultTheme } from '@spark-ui/theme-utils'
 
-import { tailwindKeys } from './constants.js'
+import { DEFAULT_KEY, defaultColors, tailwindKeys } from './constants.js'
 import {
   doubleHyphensRegex,
   hasNumber,
@@ -60,6 +60,10 @@ function toTailwindConfig(_theme) {
 
       if (isObject(value)) {
         Object.keys(value).forEach(k => {
+          if (k === DEFAULT_KEY) {
+            return
+          }
+
           if (!isObject(value[k]) && !isCamelCase(k)) {
             return
           }
@@ -85,7 +89,7 @@ function toTailwindConfig(_theme) {
             return String(value).toLowerCase()
           }
 
-          return `var(--${paths.join('-')}-${key})`
+          return `var(--${paths.join('-')}-${key.toLowerCase()})`
         })()
 
         theme[key] = isScreenValue
@@ -97,7 +101,7 @@ function toTailwindConfig(_theme) {
 
   traverse(themeCpy)
 
-  return themeCpy
+  return { ...themeCpy, colors: { ...themeCpy.colors, ...defaultColors } }
 }
 
 /**
