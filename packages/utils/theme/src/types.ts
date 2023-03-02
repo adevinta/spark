@@ -184,11 +184,6 @@ export interface Theme {
     semiBold: string
     bold: string
   }
-  letterSpacing: {
-    default: string
-    lowExpand: string
-    highExpand: string
-  }
   screens: {
     sm: string
     md: string
