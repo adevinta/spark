@@ -1,7 +1,6 @@
 .storybook
 bin
 dist
-documentation
 vite.config.ts
 *.cjs
 node_modules

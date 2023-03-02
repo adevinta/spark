@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react'
 import { cva, VariantProps } from 'class-variance-authority'
+import { PropsWithChildren } from 'react'
 
 const styles = cva(['sb-unstyled rounded-md p-md text-caption'], {
   variants: {
@@ -26,7 +26,7 @@ const styles = cva(['sb-unstyled rounded-md p-md text-caption'], {
     },
   },
   defaultVariants: {
-    kind: 'info',
+    kind: 'info' as const,
   },
 })
 

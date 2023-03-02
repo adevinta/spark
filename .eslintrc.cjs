@@ -5,13 +5,7 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-    'react-hooks',
-    'simple-import-sort',
-    'prettier',
-    'tailwindcss',
-  ],
+  plugins: ['@typescript-eslint', 'react-hooks', 'simple-import-sort', 'prettier', 'tailwindcss'],
   extends: [
     'standard',
     'plugin:@typescript-eslint/recommended',
@@ -53,10 +47,14 @@ module.exports = {
     'react/jsx-key': 0,
     'react/display-name': [0, { ignoreTranspilerName: false }],
     // Tailwind
-    "tailwindcss/no-custom-classname": [1, {
-      "config":"./tailwind.config.cjs",
-      "callees": ["cx", "classnames", "clsx", "cva"],
-    }],
+    'tailwindcss/no-custom-classname': [
+      2,
+      {
+        config: './tailwind.config.cjs',
+        callees: ['cx', 'classnames', 'clsx', 'cva'],
+        whitelist: ['sb-unstyled'],
+      },
+    ],
     // import
     'import/no-absolute-path': 0,
     'import/exports-last': 0,
