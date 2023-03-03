@@ -139,6 +139,7 @@ export interface Theme {
     surfaceInverseFocused: string
     // Outline
     outline: string
+    outlineHigh: string
     // Overlay
     overlay: string
   }

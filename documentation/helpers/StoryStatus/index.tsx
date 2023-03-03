@@ -1,20 +1,17 @@
 import { cva } from 'class-variance-authority'
 import { ReactElement } from 'react'
 
-const wrapperStyles = cva(
-  ['sb-unstyled', 'shadow-normal', 'my-lg', 'rounded-md', 'p-md', 'shadow-normal'],
-  {
-    variants: {
-      status: {
-        draft: ['bg-error-container', 'text-on-error-container'],
-        deprecated: ['bg-neutral-container', 'text-on-neutral-container'],
-      },
+const wrapperStyles = cva(['sb-unstyled', 'my-lg', 'rounded-md', 'p-lg'], {
+  variants: {
+    status: {
+      draft: ['bg-error', 'text-on-error'],
+      deprecated: ['bg-neutral', 'text-on-neutral'],
     },
-    defaultVariants: {
-      status: 'draft' as const,
-    },
-  }
-)
+  },
+  defaultVariants: {
+    status: 'draft' as const,
+  },
+})
 
 interface Props {
   status: 'draft' | 'final' | 'deprecated'
