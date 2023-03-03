@@ -3,6 +3,7 @@ import { join } from 'node:path'
 
 import hexRgb from 'hex-rgb'
 
+import { DEFAULT_KEY } from './constants.js'
 import { doubleHyphensRegex, isHex, isObject, isStringOrNumber, toKebabCase } from './utils.js'
 
 function toCSSVars(_theme, className) {
@@ -26,7 +27,10 @@ function toCSSVars(_theme, className) {
         }
 
         flattenedTheme[
-          `--${[...paths, key].map(toKebabCase).join('-').replace(doubleHyphensRegex, '-')}`
+          `--${[...paths, key === DEFAULT_KEY ? key.toLowerCase() : key]
+            .map(toKebabCase)
+            .join('-')
+            .replace(doubleHyphensRegex, '-')}`
         ] = getFormattedValue()
       }
     })
