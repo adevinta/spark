@@ -6,7 +6,7 @@ module.exports = {
   stories: [
     "../documentation/getting-started/GettingStarted.mdx",
     "../documentation/**/!(getting-started)/*.mdx",
-    "../packages/**/*.stories.@(mdx|ts|tsx)"
+    "../packages/**/*.stories.@(mdx)"
   ],
   addons: [
     "@storybook/addon-links",
