@@ -21,11 +21,6 @@ export interface Theme {
     sm: string
     md: string
   }
-  boxShadow: {
-    none: string
-    normal: string
-    highlighted: string
-  }
   /**
    * Spark color specifications: https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3
    */
