@@ -14,11 +14,6 @@ export const defaultTheme: Theme = {
     sm: '1px',
     md: '2px',
   },
-  boxShadow: {
-    none: 'none',
-    normal: '0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12)',
-    highlighted: '0 -1px 8px 0 rgba(26, 26, 26, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.14)',
-  },
   colors: {
     // Primary
     primary: '#2118C9',
