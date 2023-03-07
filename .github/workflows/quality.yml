@@ -78,6 +78,8 @@ jobs:
         run: npm install --global vercel@latest --no-save --no-fund --no-audit --no-scripts
       - name: Build Storybook
         run: npm run storybook:build
+      - name: Build tailwind config viewer
+        run: npm run tailwind-config-viewer:build
       - name: Deploy Storybook to Vercel
         id: deployment
         run: |
