@@ -18,7 +18,7 @@
     "chalk": "5.2.0",
     "commander": "10.0.0",
     "deepmerge": "4.3.0",
-    "esbuild": "0.17.8",
+    "esbuild": "0.17.11",
     "fs-extra": "11.1.0",
     "glob": "8.1.0",
     "hex-rgb": "5.0.0",
