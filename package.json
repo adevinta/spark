@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "postinstall": "lerna run build --scope=@spark-ui/theme-utils",
+    "postinstall": "lerna run build",
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "lerna run build",
     "build:watch": "lerna run build && lerna watch -- lerna run build --since",
