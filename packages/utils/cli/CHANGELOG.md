@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.4](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.4.3...@spark-ui/cli-utils@2.4.4) (2023-03-07)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+## [2.4.3](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.4.2...@spark-ui/cli-utils@2.4.3) (2023-03-07)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+## [2.4.2](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.4.1...@spark-ui/cli-utils@2.4.2) (2023-03-06)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+## [2.4.1](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.4.0...@spark-ui/cli-utils@2.4.1) (2023-03-03)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+# [2.4.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.3.0...@spark-ui/cli-utils@2.4.0) (2023-03-03)
+
+### Features
+
+- **cli-utils:** handle overlooked edge cases ([d5c1ae3](https://github.com/adevinta/spark/commit/d5c1ae3d1eb41aa7c7c8a265d63e74dd7c416531))
+
 # [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.2.7...@spark-ui/cli-utils@2.3.0) (2023-03-02)
 
 ### Features

@@ -43,8 +43,8 @@ export function Alert({ children, kind = 'info', ...variants }: PropsWithChildre
   return (
     <div className={styles({ kind, ...variants })}>
       <div className="flex items-center">
-        <div className="pr-sm text-headline-2">{emojiLookup[kind]}</div>
-        <div className="ml-sm">{children}</div>
+        <div className="pr-sm text-display-3">{emojiLookup[kind]}</div>
+        <div className="ml-sm text-body-2">{children}</div>
       </div>
     </div>
   )

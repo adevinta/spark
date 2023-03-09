@@ -21,11 +21,6 @@ export interface Theme {
     sm: string
     md: string
   }
-  boxShadow: {
-    none: string
-    normal: string
-    highlighted: string
-  }
   /**
    * Spark color specifications: https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3
    */
@@ -139,6 +134,7 @@ export interface Theme {
     surfaceInverseFocused: string
     // Outline
     outline: string
+    outlineHigh: string
     // Overlay
     overlay: string
   }
@@ -151,16 +147,22 @@ export interface Theme {
   fontSize: {
     /** Reserved for short/important large text */
     display1: SparkFontSize
+    display1Expanded: SparkFontSize
     /** Reserved for short/important medium text */
     display2: SparkFontSize
+    display2Expanded: SparkFontSize
     /** Reserved for short/important small text */
     display3: SparkFontSize
+    display3Expanded: SparkFontSize
     /** High-emphasis large text */
     headline1: SparkFontSize
+    headline1Expanded: SparkFontSize
     /** High-emphasis medium text  */
     headline2: SparkFontSize
+    headline2Expanded: SparkFontSize
     /** High-emphasis small text  */
     subhead: SparkFontSize
+    subheadExpanded: SparkFontSize
     /** Content base text */
     body1: SparkFontSize
     /** Content base text low hierarchy */
