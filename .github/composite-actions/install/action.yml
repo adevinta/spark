@@ -16,7 +16,7 @@ runs:
         path: ./node_modules
         key: node-cache-${{ hashFiles('package-lock.json') }}
 
-    - Name: Cache hit
+    - name: Cache hit
       if: ${{ steps.node_modules-cache.outputs.cache-hit == 'true' }}
       shell: bash
       run: echo 'Dependencies cache hit'
