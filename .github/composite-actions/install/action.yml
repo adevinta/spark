@@ -3,11 +3,27 @@ description: 'Sets up Node.js and runs install'
 runs:
   using: composite
   steps:
-    - uses: actions/setup-node@v3
+    - name: Node setup
+      uses: actions/setup-node@v3
       with:
         node-version-file: '.nvmrc'
         cache: 'npm'
 
-    - name: Install dependencies
+    - name: Cache configuration
+      id: node-cache
+      uses: actions/cache@v3
+      with:
+        path: ./node_modules
+        key: node-cache-${{ hashFiles('package-lock.json') }}
+
+    - Name: Cache hit
+      if: ${{ steps.node_modules-cache.outputs.cache-hit == 'true' }}
       shell: bash
-      run: npm ci
+      run: echo 'Dependencies cache hit'
+
+    - name: Install dependencies
+      if: ${{ steps.node_modules-cache.outputs.cache-hit != 'true' }}
+      shell: bash
+      run: |
+        echo 'Dependencies cache miss'
+        npm ci --prefer-offline --no-audit
