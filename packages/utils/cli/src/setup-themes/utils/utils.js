@@ -28,6 +28,13 @@ function hasNumber(value) {
   return /\d/.test(value)
 }
 
+function getRemEquivalentValue(remValue, htmlFontSize) {
+  const defaultBrowserBase = 16
+  const pxValue = parseFloat(remValue) * defaultBrowserBase
+
+  return `${pxValue / htmlFontSize}rem`
+}
+
 const doubleHyphensRegex = /(?<!var\()--+/g
 
 export {
@@ -37,5 +44,6 @@ export {
   isObject,
   isCamelCase,
   hasNumber,
+  getRemEquivalentValue,
   doubleHyphensRegex,
 }

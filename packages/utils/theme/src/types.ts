@@ -219,6 +219,7 @@ export interface Theme {
 
 export interface ThemeConfig {
   tailwindThemeConfigPath: string
+  htmlFontSize?: number
   tailwindCSSPath: string
   themes: RequireAtLeastOne<Record<string, Theme>, 'default'>
 }
