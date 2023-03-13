@@ -1,6 +1,7 @@
 import { createRequire } from 'node:module'
 
 import react from '@vitejs/plugin-react'
+import browserslistToEsbuild from 'browserslist-to-esbuild'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'vite-plugin-dts'
 
@@ -12,7 +13,7 @@ const devDeps = Object.keys(pkg.devDependencies || {})
 
 export default {
   build: {
-    target: 'es2015',
+    target: browserslistToEsbuild(),
     lib: {
       entry: 'src/index.ts',
       formats: ['es', 'cjs'],

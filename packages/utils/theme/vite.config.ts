@@ -1,6 +1,7 @@
 import path from 'path'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'vite-plugin-dts'
+import browserslistToEsbuild from 'browserslist-to-esbuild'
 
 const pkg = require(path.resolve(__dirname, './package.json'))
 
@@ -9,7 +10,7 @@ const devDeps = Object.keys(pkg.devDependencies || {})
 
 export default {
   build: {
-    target: 'es2015',
+    target: browserslistToEsbuild(),
     lib: {
       entry: 'src/index.ts',
       formats: ['es', 'cjs'],

@@ -65,6 +65,7 @@
     "@vitest/ui": "0.28.4",
     "autoprefixer": "10.4.13",
     "babel-loader": "8.3.0",
+    "browserslist-to-esbuild": "^1.2.0",
     "class-variance-authority": "0.4.0",
     "commitizen": "4.3.0",
     "copy-to-clipboard": "3.3.3",
@@ -110,6 +111,9 @@
     "packages/components/*",
     "packages/hooks/*",
     "packages/utils/*"
+  ],
+  "browserslist": [
+    "> 0.5% or > 0.1% and last 2 years, not dead, not Firefox ESR, not and_qq > 0, not and_uc > 0, not and_ff >0"
   ],
   "namespaces": [
     "spark-ui"
