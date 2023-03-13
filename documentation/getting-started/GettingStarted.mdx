@@ -42,6 +42,7 @@ interface ThemeConfig {
   tailwindThemeConfigPath: string
   tailwindCSSPath: string
   themes: RequireAtLeastOne<Record<string, Theme>, 'default'>
+  htmlFontSize?: number
 }
 ```
 
@@ -77,6 +78,24 @@ You will get the following CSS classes in the generated `.css` file:
   /* ...tokens from barTheme */
 }
 ```
+
+**htmlFontSize (optional)**:
+
+Spark uses a base font size of **16 pixels** as a standard value for calculating the sizes of all other font-related properties defined in the theme. For example, our `spacing.lg` value is defined as **1rem**, which is equal to 16 pixels (based on the default base font size of 16 pixels).
+
+However, if your application uses a different base font size, such as **10 pixels** for example, this can cause issues with the sizing of elements in the application. To account for this, you can set the `htmlFontSize` to the appropriate value for your application's base font size. This will adjust the `rem` based values in Spark to be relative to the new base font size.
+
+<Alert>
+  <p>
+    To better understand what happens when you adjust `htmlFontSize`, it's useful to know that we
+    use CSS custom properties to define the values of our design tokens, such as `spacing.lg`.
+  </p>
+  <p>
+    By default, the value for this token is expressed as `--spacing-lg: 1rem;`. However, when you
+    define a `htmlFontSize` of **10**, for example, this value will be updated to `--spacing-lg:
+    1.6rem;`
+  </p>
+</Alert>
 
 Now, let's get back to our `spark.theme.config` file. Check out the example below to see how a properly structured config file should look.
 
@@ -215,6 +234,6 @@ Just remember to run our **CLI command** every time you update your themes to av
 
 <Alert>
   If you want to know more about the custom token class names used in Spark, please check out our
-  [**dedicated page**](https://sparkui.vercel.app/viewer/) where you can find a comprehensive list of
-  these class names.
+  [**dedicated page**](https://sparkui.vercel.app/viewer/) where you can find a comprehensive list
+  of these class names.
 </Alert>
