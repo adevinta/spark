@@ -1,0 +1,190 @@
+import { Meta } from '@storybook/blocks'
+import { Alert } from '@docs/helpers/Alert'
+import AtomicDesignPNG from '@docs/assets/atomic-design.png'
+
+<Meta title="Practices/Component - Definition of Done" />
+
+# Component - Definition of Done
+
+<Alert kind="warning">
+  Work in progress. This page has must be submitted to Spark's team approval.
+</Alert>
+
+**This document provides a list of criterias that each Spark component must fullfill.**
+
+## 1. Must provide stateful implementation
+
+A stateful component is a component that holds some state.
+Stateful implementation, also called "uncontrolled" mode, means that every component that has visual interactions (ex: Radio, Checkbox, Popover, etc.) must be able to trigger those status changes without any props.
+
+For example, a simple `Checkbox` should be able to be checked/unchecked without being controlled by a prop:
+
+```jsx
+<Checkbox /> // stateful implementation
+```
+
+As opposed to a controlled (stateless) implementation, which would be controlled from the outside by a prop:
+
+```jsx
+<Checkbox isChecked={isMyCheckboxChecked} /> // stateless implementation
+```
+
+Stateful implementation makes integration easier for developers for basic use-cases, because they don't need to necessarily know the props of the component.
+
+## 2. Must provide stateless implementation (controlled mode)
+
+For other edge-cases, or simply to enforce better control over components, **both stateful and stateless implementation must be implemented in a Spark component**.
+
+Most of the time, it implies props for the value of the various states, as well as props for event handlers, to detect when/how to update a state.
+
+Controlled mode is nice for edge-cases, for example, if you want to add conditions to state updates:
+
+```jsx
+const [isChecked, setIsChecked] = useState(false)
+
+// stateless controlled implementation
+<Checkbox
+    isChecked={isChecked}
+    onCheckedChange={(value: boolean): void => {
+        if (user.isLoggedIn()) {
+            setIsChecked(value)
+        } else {
+            alert('You must be logged in to use that feature.')
+        }
+    }}
+/>
+```
+
+<Alert kind="info">
+  <p>**To summarize:**</p>
+  <ul class="p-md">
+    <li>- Stateful (uncontrolled) mode relies on the component's internal state.</li>
+    <li>- Stateless (controlled) mode relies on an external state provided through props.</li>
+  </ul>
+  <p>**Both must be possible for every Spark component.**</p>
+</Alert>
+
+## 3. Must forward ref to component
+
+`forwardRef` is a feature in React that allows you to pass a `ref` from a parent component to a child component. This is useful when you want to access the underlying DOM element or React component instance of a child component from a parent component.
+
+Here are some common scenarios where you might want to use `forwardRef`:
+
+1. Accessing child component DOM elements: If you need to manipulate or retrieve information from a DOM element in a child component, you can use `forwardRef` to pass a `ref` to the child component and then use that `ref` to access the underlying DOM element.
+2. Controlling child component behavior: If you need to control the behavior of a child component from a parent component, you can use `forwardRef` to pass a `ref` to the child component and then use that `ref` to call methods on the child component instance.
+3. Integrating with third-party libraries: If you're using a third-party library that expects a `ref` to be passed to a component, you can use `forwardRef` to pass a `ref` to the child component and then pass that `ref` to the third-party library.
+
+Here's an example of how you might use `forwardRef` to pass a `ref` to a child component:
+
+```jsx
+import React, { forwardRef } from 'react'
+
+const ChildComponent = forwardRef((props, ref) => {
+  return <div ref={ref}>Child component</div>
+})
+
+const ParentComponent = () => {
+  const childRef = React.createRef()
+
+  const handleClick = () => {
+    console.log(childRef.current) // logs the child component DOM element
+  }
+
+  return (
+    <div>
+      <ChildComponent ref={childRef} />
+      <button onClick={handleClick}>Log child ref</button>
+    </div>
+  )
+}
+```
+
+In this example, `ChildComponent` is a child component that uses `forwardRef` to pass a `ref` to its underlying DOM element. ParentComponent renders ChildComponent and also creates a `ref` using `React.createRef()`. When the button is clicked, the `handleClick` function logs the `childRef.current` value, which is the underlying DOM element of `ChildComponent`.
+
+Overall, `forwardRef` is a powerful feature in React that can help you access and control child components from parent components, integrate with third-party libraries, and more.
+
+## 4. Must be composable (compound components only)
+
+Spark follows Atomic Design specifications, where each Component is either an **Atom, Molecule or Organism**:
+
+<div class="flex justify-center pb-lg">
+  <img width={800} src={AtomicDesignPNG} alt="Argstable shows a table of the component's props" />
+</div>
+
+<Alert kind="info">
+  **Templates** and **pages** do not belong in a design system, thus Spark does not provide any.
+</Alert>
+
+Composability refers to the ability to combine smaller building blocks to create larger and more complex structures. In React, composability is important because it enables developers to create reusable, modular components that can be easily combined to create complex user interfaces.
+
+There are several benefits to composing React components:
+
+- **Reusability**: Composable components can be reused in multiple parts of an application or in multiple applications altogether, reducing development time and increasing code maintainability.
+- **Scalability**: As an application grows, composability allows developers to add new components without having to refactor existing code.
+- **Flexibility**: Composable components can be easily rearranged and combined to create new UIs, giving developers more flexibility in designing the application.
+- **Readability**: Composable components are typically smaller and easier to understand than large, monolithic components. This makes it easier for developers to read, understand, and modify the codebase.
+- **Testability**: Composable components can be tested in isolation, which makes it easier to write and maintain automated tests.
+
+Overall, composability is an important aspect of building scalable, maintainable, and flexible React applications. By breaking down complex user interfaces into smaller, composable components, developers can create code that is easier to understand, modify, and test.
+
+**Other benefits involves:**
+
+- Markup (JSX) is interopable with custom html elements.
+- Drastically reduce the number of props. No more monolithic components.
+
+<p className="sb-unstyled font-bold text-error">
+  You must absolutely avoid the monolithic approach when writing a Molecule/Organism component.
+</p>
+
+❌ Monolithic:
+
+```jsx
+import { Dialog } from '@spark-ui/dialog'
+
+function MyDialog() {
+  return (
+    <>
+      <button type="button">Open dialog</button>
+      <Dialog
+        title="My dialog"
+        size="medium"
+        isOpen={isModalOpened}
+        withOverlay={false}
+        withCloseButton={false}
+      >
+        My modal content.
+      </Dialog>
+    </>
+  )
+}
+```
+
+✅ Composable:
+
+```jsx
+import { Dialog } from '@spark-ui/dialog'
+
+function MyDialog() {
+  return (
+    <Dialog size="medium">
+      <Dialog.Trigger>
+        <button type="button">Open dialog</button>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        {/* <Dialog.Overlay /> */}
+        <Dialog.Content>
+          <Dialog.Title>My dialog</Dialog.Title>
+          {/* <Dialog.CloseButton /> */}
+          <p>My modal content.</p>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog>
+  )
+}
+```
+
+But more complicated components
+
+## 5. Must be documented according to our Storybook guidelines
+
+[Go to stories guidelines](?path=/docs/contributing-writing-stories--docs)
