@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/blocks'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+import { Alert } from '@docs/helpers/Alert'
+
+<Meta title="utils/Tailwind plugins/animations" />
+
+# Tailwind animation plugin
+
+To use our Tailwind animation plugins, simply install the `@spark-ui/tailwind-plugins` package and add the animation plugin to your `tailwind.config.js` file
+
+```bash
+$ npm i @spark-ui/tailwind-plugins
+```
+
+```js
+// tailwind.config.js
+
+const sparkPlugins = require('@spark-ui/tailwind-plugins')
+
+module.exports = {
+  ...,
+  plugins: [sparkPlugins.animation()],
+}
+
+```
+
+This plugin provides the following **animation-related** declaration properties that are missing by default in **Tailwind**:
+
+- **animation-fill-mode**: `sp-anime-fill-{value}` (where `value` can be `forwards`, `backwards`, or `none`)
+- **animation-duration**: `sp-anime-duration-{value}` (where `value` can be any keys of `theme.transitionDuration` or an arbitrary value like `sp-anime-duration-[458ms]`)
+- **animation-delay**: `sp-anime-delay-{value}` (where `value` can be any keys of `theme.transitionDuration` or an arbitrary value like `sp-anime-delay-[458ms]`)
+- **animation-direction**: `sp-anime-direction-{value}` (where `value` can be `normal`, `reverse`, `alternate`, `alternate-reverse`, `revert`, or `revert-layer`)
+- **animation-iteration-count**: `sp-anime-iteration-{value}` (where `value` can be `1`, `2`, `3`, `infinite`, or an arbitrary value like `sp-iteration-[12]`)
+- **animation-play-running**: `sp-anime-play-{value}` (where `value` can be `running`, or `paused`)
+- **animation-timing-function**: `sp-anime-easing-{value}` (where `value` can be, `linear`, `in`, `out`, `in-out`, `in-back`, `out-back`, `in-out-back` or an arbitrary value like `sp-anime-easing-[cubic-bezier(0.95,0.05,0.795,0.035)]`)
+
+<StoryHeading label="@keyframes" as="h3" />
+
+This plugin also includes four animation keyframes:
+
+- **animate-slide-top**: `animate-slide-top`
+- **animate-slide-right**: `animate-slide-right`
+- **animate-slide-bottom**: `animate-slide-bottom`
+- **animate-slide-left**: `animate-slide-left`
+
+<StoryHeading label="plugin options" as="h3" />
+
+You can customize the **CSS class prefix** using the `prefixVariant` option.
+
+By default, the prefix will be `anime-sp` (e.g. `anime-sp-animation-fill-forwards`), but you can change it like so:
+
+```js
+// tailwind.config.js
+
+const sparkPlugins = require('@spark-ui/tailwind-plugins')
+
+module.exports = {
+  ...,
+  plugins: [sparkPlugins.animation({ prefixVariant: 'bar' })],
+}
+
+```
+
+This will change the prefix to `bar` (e.g. `bar-animation-fill-forwards`).
