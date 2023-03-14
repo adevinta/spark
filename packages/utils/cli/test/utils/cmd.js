@@ -1,3 +1,9 @@
+/**
+ * CLI Integration Test Helper
+ * @author Andrés Zorro <zorrodg@gmail.com>
+ * @see https://gist.github.com/zorrodg/c349cf54a3f6d0a9ba62e0f4066f31cb
+ */
+
 import concat from 'concat-stream'
 import spawn from 'cross-spawn'
 import { existsSync } from 'fs'
