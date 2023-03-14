@@ -1,9 +1,10 @@
 export default () => `import { terser } from 'rollup-plugin-terser'
 import dts from 'vite-plugin-dts'
+import browserslistToEsbuild from 'browserslist-to-esbuild'
 
 export default {
   build: {
-    target: 'es2015',
+    target: browserslistToEsbuild(),
     lib: {
       entry: 'src/index.ts',
       formats: ['es', 'cjs'],

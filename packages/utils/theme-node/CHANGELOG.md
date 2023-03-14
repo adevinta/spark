@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.21](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils-node@2.0.20...@spark-ui/theme-utils-node@2.0.21) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/theme-utils-node
+
+## [2.0.20](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils-node@2.0.19...@spark-ui/theme-utils-node@2.0.20) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/theme-utils-node
+
+## [2.0.19](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils-node@2.0.18...@spark-ui/theme-utils-node@2.0.19) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/theme-utils-node
+
+## [2.0.18](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils-node@2.0.17...@spark-ui/theme-utils-node@2.0.18) (2023-03-09)
+
+**Note:** Version bump only for package @spark-ui/theme-utils-node
+
 ## [2.0.17](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils-node@2.0.16...@spark-ui/theme-utils-node@2.0.17) (2023-03-07)
 
 **Note:** Version bump only for package @spark-ui/theme-utils-node

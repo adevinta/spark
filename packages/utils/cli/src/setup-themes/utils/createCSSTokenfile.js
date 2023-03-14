@@ -4,9 +4,16 @@ import { join } from 'node:path'
 import hexRgb from 'hex-rgb'
 
 import { DEFAULT_KEY } from './constants.js'
-import { doubleHyphensRegex, isHex, isObject, isStringOrNumber, toKebabCase } from './utils.js'
+import {
+  doubleHyphensRegex,
+  getRemEquivalentValue,
+  isHex,
+  isObject,
+  isStringOrNumber,
+  toKebabCase,
+} from './utils.js'
 
-function toCSSVars(_theme, className) {
+function toCSSVars(_theme, className, htmlFontSize) {
   const flattenedTheme = {}
 
   function flatten(theme, paths = []) {
@@ -21,6 +28,10 @@ function toCSSVars(_theme, className) {
             const { red, green, blue } = hexRgb(value)
 
             return `${red} ${green} ${blue}`
+          }
+
+          if (/rem$/gi.test(value)) {
+            return getRemEquivalentValue(value, htmlFontSize)
           }
 
           return value
@@ -49,9 +60,9 @@ const toStringifiedTheme = theme =>
     .map(([k, v]) => `${k}:${v}`)
     .join(';')
 
-const getStringifiedThemes = themeRecord =>
+const getStringifiedThemes = (themeRecord, htmlFontSize) =>
   Object.keys(themeRecord).map(key => {
-    const { className, ...rest } = toCSSVars(themeRecord[key], key)
+    const { className, ...rest } = toCSSVars(themeRecord[key], key, htmlFontSize)
 
     return key === 'default'
       ? `:root{${toStringifiedTheme(rest)}}`
@@ -78,7 +89,7 @@ const getStringifiedThemes = themeRecord =>
  *
  * createCSSTokensFile('somePath.css', themes) // will generate a "somePath.css" file in the relative location from which it was called
  */
-export function createCSSTokensFile(path, themeRecord) {
+export function createCSSTokensFile(path, themeRecord, htmlFontSize) {
   try {
     appendFileSync(
       join(process.cwd(), path),
@@ -86,7 +97,7 @@ export function createCSSTokensFile(path, themeRecord) {
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
-        @layer base {${getStringifiedThemes(themeRecord).join('')}}
+        @layer base {${getStringifiedThemes(themeRecord, htmlFontSize).join('')}}
         `,
       {
         flag: 'w',

@@ -51,7 +51,7 @@ module.exports = {
   theme: {
     ...themeConf,
     configViewer: {
-      baseFontSize: 10,
+      baseFontSize: 16,
       themeReplacements: toTailwindConfigViewer(themeUtils.defaultTheme),
     },
   },

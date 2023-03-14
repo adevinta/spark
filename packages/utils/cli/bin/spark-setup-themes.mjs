@@ -45,10 +45,10 @@ if (!configFileIsMJS) writeFileSync(jsFilePath, jsFileContents)
 
 import(jsFilePath)
   .then(module => {
-    const { tailwindThemeConfigPath, tailwindCSSPath, themes } = module.default
+    const { tailwindThemeConfigPath, tailwindCSSPath, themes, htmlFontSize = 16 } = module.default
 
     createTailwindThemeConfigFile(tailwindThemeConfigPath)
-    createCSSTokensFile(tailwindCSSPath, themes)
+    createCSSTokensFile(tailwindCSSPath, themes, htmlFontSize)
 
     const child = spawn(process.execPath, [jsFilePath], {
       stdio: 'inherit',
