@@ -44,11 +44,11 @@ export function ReactLiveBlock({ children, editable = true, scope }: ReactLiveBl
           {editable && <p className="text-center text-body-2 font-bold">Editable Example</p>}
           <div className="absolute top-sm right-md flex gap-md">
             {code !== editorCode && (
-              <button onClick={reset} className="hover:text-on-surface-inverse/70">
+              <button onClick={reset} className="hover:text-on-surface-inverse/dim-1">
                 Reset code
               </button>
             )}
-            <button onClick={onCopy} className="hover:text-on-surface-inverse/70">
+            <button onClick={onCopy} className="hover:text-on-surface-inverse/dim-1">
               {hasCopied ? 'Copied' : 'Copy'}
             </button>
           </div>
