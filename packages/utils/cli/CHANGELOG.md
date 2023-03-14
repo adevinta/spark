@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.3](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.5.2...@spark-ui/cli-utils@2.5.3) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+## [2.5.2](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.5.1...@spark-ui/cli-utils@2.5.2) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+## [2.5.1](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.5.0...@spark-ui/cli-utils@2.5.1) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+# [2.5.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.4.4...@spark-ui/cli-utils@2.5.0) (2023-03-09)
+
+### Features
+
+- **cli-utils:** implement support for various base font sizes in theme building process ([7734203](https://github.com/adevinta/spark/commit/7734203330a411ba9c6898c6c1b4a84f6c168537)), closes [#385](https://github.com/adevinta/spark/issues/385)
+
 ## [2.4.4](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.4.3...@spark-ui/cli-utils@2.4.4) (2023-03-07)
 
 **Note:** Version bump only for package @spark-ui/cli-utils

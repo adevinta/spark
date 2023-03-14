@@ -65,6 +65,7 @@
     "@vitest/ui": "0.28.4",
     "autoprefixer": "10.4.13",
     "babel-loader": "8.3.0",
+    "browserslist-to-esbuild": "^1.2.0",
     "class-variance-authority": "0.4.0",
     "commitizen": "4.3.0",
     "copy-to-clipboard": "3.3.3",
@@ -73,7 +74,7 @@
     "eslint-config-prettier": "8.6.0",
     "eslint-config-standard": "17.0.0",
     "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-n": "15.6.0",
+    "eslint-plugin-n": "15.6.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-promise": "6.1.1",
@@ -83,14 +84,14 @@
     "eslint-plugin-standard": "5.0.0",
     "eslint-plugin-storybook": "0.6.10",
     "eslint-plugin-tailwindcss": "3.8.3",
-    "eslint-plugin-testing-library": "5.10.0",
+    "eslint-plugin-testing-library": "5.10.2",
     "husky": "8.0.3",
     "jsdom": "21.1.0",
     "lerna": "6.4.1",
     "lint-staged": "13.1.2",
     "postcss": "8.4.21",
     "prettier": "2.8.3",
-    "prettier-plugin-tailwindcss": "0.2.3",
+    "prettier-plugin-tailwindcss": "0.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-live": "3.1.1",
@@ -99,7 +100,7 @@
     "tailwind-config-viewer": "1.7.2",
     "tailwindcss": "3.2.7",
     "ts-node": "10.9.1",
-    "type-fest": "3.5.6",
+    "type-fest": "3.6.1",
     "typescript": "4.9.5",
     "vite": "4.1.0",
     "vite-plugin-dts": "1.7.2",
@@ -110,6 +111,9 @@
     "packages/components/*",
     "packages/hooks/*",
     "packages/utils/*"
+  ],
+  "browserslist": [
+    "> 0.5% or > 0.1% and last 2 years, not dead, not Firefox ESR, not and_qq > 0, not and_uc > 0, not and_ff >0"
   ],
   "namespaces": [
     "spark-ui"

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.3](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.7.2...@spark-ui/theme-utils@2.7.3) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/theme-utils
+
+## [2.7.2](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.7.1...@spark-ui/theme-utils@2.7.2) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/theme-utils
+
+## [2.7.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.7.0...@spark-ui/theme-utils@2.7.1) (2023-03-13)
+
+**Note:** Version bump only for package @spark-ui/theme-utils
+
+# [2.7.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.6.4...@spark-ui/theme-utils@2.7.0) (2023-03-09)
+
+### Features
+
+- **theme-utils:** add support for various base font sizes in theme building process ([bb9f2a7](https://github.com/adevinta/spark/commit/bb9f2a72203d496edfe597a36425913b0953ff2d)), closes [#385](https://github.com/adevinta/spark/issues/385)
+
 ## [2.6.4](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.6.3...@spark-ui/theme-utils@2.6.4) (2023-03-07)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
