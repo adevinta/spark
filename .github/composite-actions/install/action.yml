@@ -19,7 +19,9 @@ runs:
     - name: Cache hit
       if: ${{ steps.node-cache.outputs.cache-hit == 'true' }}
       shell: bash
-      run: echo 'Dependencies cache hit'
+      run: |
+        echo 'Dependencies cache hit'
+        npm run build
 
     - name: Install dependencies
       if: ${{ steps.node-cache.outputs.cache-hit != 'true' }}
