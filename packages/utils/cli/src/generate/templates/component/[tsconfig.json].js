@@ -1,8 +1,5 @@
 export default () => `{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "declarationDir": "./dist",
-    "rootDir": "./src"
-  }
+  "extends": "../../../tsconfig.json",
+  "include": ["src/**/*", "../../../global.d.ts"]
 }
 `
