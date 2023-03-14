@@ -23,6 +23,7 @@ export class TemplateGenerator extends Generator {
 
   constructor({ system }) {
     super()
+
     this.system = system
   }
 
