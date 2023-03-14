@@ -1,9 +1,8 @@
 import path from 'node:path'
 
 import fse from 'fs-extra'
-import { EOL } from 'os'
 import { fileURLToPath } from 'url'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { TemplateGenerator } from '../src/generate/generators/TemplateGenerator.mjs'
 import cmd, { ENTER } from './utils/cmd'
@@ -19,7 +18,7 @@ describe('CLI `spark generate`', async () => {
     ['generate'],
     [packageName, ENTER, packageType, ENTER, 'This is my foo component', ENTER]
   )
-  const contextPath = TemplateGenerator.CONTEXTS[packageType]
+  const contextPath = TemplateGenerator.CONTEXTS[packageType] as string
   const packagePath = path.join(process.cwd(), 'packages', contextPath, packageName)
 
   afterAll(() => {

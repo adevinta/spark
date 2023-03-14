@@ -11,7 +11,7 @@ const PATH = process.env.PATH
  * @param args Arguments to the command
  * @param env (optional) Environment variables
  */
-function createProcess(processPath: string, args: string[] = [], env: object | null = null) {
+function createProcess(processPath, args = [], env = null) {
   // Ensure that path exists
   if (!processPath || !existsSync(processPath)) {
     throw new Error('Invalid process path')
@@ -43,12 +43,7 @@ function createProcess(processPath: string, args: string[] = [], env: object | n
  * @param inputs (Optional) Array of inputs (user responses)
  * @param opts (optional) Environment variables
  */
-function executeWithInput(
-  processPath: string,
-  args: string[] = [],
-  inputs: string[] = [],
-  opts: object = {}
-) {
+function executeWithInput(processPath, args, inputs, opts = {}) {
   if (!Array.isArray(inputs)) {
     opts = inputs
     inputs = []
