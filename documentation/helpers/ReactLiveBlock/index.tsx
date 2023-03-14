@@ -3,7 +3,6 @@ import React, { PropsWithChildren, ReactElement, useState } from 'react'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 
-import styles from './styles.module.css'
 import { useClipboard } from './utils'
 
 interface ReactLiveBlockProps {
@@ -41,25 +40,19 @@ export function ReactLiveBlock({ children, editable = true, scope }: ReactLiveBl
     <UnstyledBlock>
       <LiveProvider code={editorCode} scope={scope}>
         <LivePreview />
-        <div className={styles.wrapper}>
-          {editable && <p className={styles.label}>Editable Example</p>}
-          <div className={styles.actions}>
+        <div className="relative mt-md rounded-md bg-surface-inverse p-md text-body-2 text-on-surface-inverse outline-none">
+          {editable && <p className="text-center text-body-2 font-bold">Editable Example</p>}
+          <div className="absolute top-sm right-md flex gap-md">
             {code !== editorCode && (
-              <button onClick={reset} className={styles.action}>
+              <button onClick={reset} className="hover:text-on-surface-inverse/70">
                 Reset code
               </button>
             )}
-            <button onClick={onCopy} className={styles.action}>
+            <button onClick={onCopy} className="hover:text-on-surface-inverse/70">
               {hasCopied ? 'Copied' : 'Copy'}
             </button>
           </div>
-          <LiveEditor
-            disabled={!editable}
-            onChange={onChange}
-            style={{
-              fontSize: '1.6rem',
-            }}
-          />
+          <LiveEditor disabled={!editable} onChange={onChange} className="text-body-1" />
         </div>
         {editable && <LiveError />}
       </LiveProvider>
