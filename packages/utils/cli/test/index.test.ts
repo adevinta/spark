@@ -11,7 +11,7 @@ const __dirname = fileURLToPath(import.meta.url)
 const cliPath = path.join(__dirname, '../../bin/spark.mjs')
 const cliProcess = cmd.create(cliPath)
 
-describe('CLI `spark generate`', async () => {
+describe('CLI `spark generate`, when a package name is properly typed', async () => {
   const packageName = 'bar'
   const packageType = 'component'
   const response = await cliProcess.execute(
@@ -20,10 +20,6 @@ describe('CLI `spark generate`', async () => {
   )
   const contextPath = TemplateGenerator.CONTEXTS[packageType] as string
   const packagePath = path.join(process.cwd(), 'packages', contextPath, packageName)
-
-  afterAll(() => {
-    fse.removeSync(packagePath)
-  })
 
   it('should print the correct output', () => {
     expect(response).toContain(`Created ${packagePath}/.npmignore`)
@@ -49,5 +45,18 @@ describe('CLI `spark generate`', async () => {
     expect(fse.pathExistsSync(`${packagePath}/src/Bar.test.tsx`)).toBe(true)
     expect(fse.pathExistsSync(`${packagePath}/src/Bar.stories.tsx`)).toBe(true)
     expect(fse.pathExistsSync(`${packagePath}/tsconfig.json`)).toBe(true)
+
+    fse.removeSync(packagePath)
+  })
+})
+
+describe('CLI `spark generate`, when a package name is wrongly typed', async () => {
+  const packageName = '123'
+  const response = await cliProcess.execute(['generate'], [packageName, ENTER])
+
+  it('should print the correct output', () => {
+    expect(response).toContain(
+      'Name name must contain letters and dash symbols only (ex: "my-package")'
+    )
   })
 })
