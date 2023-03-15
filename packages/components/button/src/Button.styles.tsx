@@ -12,7 +12,7 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
   variants: {
     design: {
       filled: [''],
-      outlined: ['ring-2', 'ring-current'],
+      outlined: ['ring-2', 'ring-current', 'ring-inset'],
       tinted: [],
       ghost: [],
     },
