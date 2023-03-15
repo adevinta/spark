@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.2](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.6.1...@spark-ui/cli-utils@2.6.2) (2023-03-14)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+## [2.6.1](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.6.0...@spark-ui/cli-utils@2.6.1) (2023-03-14)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
+# [2.6.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.5.3...@spark-ui/cli-utils@2.6.0) (2023-03-14)
+
+### Features
+
+- **cli-utils:** update setup-themes transformer functions ([5c9a305](https://github.com/adevinta/spark/commit/5c9a3056807758e3178f1ae183b7d5718f06f3b7))
+
 ## [2.5.3](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.5.2...@spark-ui/cli-utils@2.5.3) (2023-03-13)
 
 **Note:** Version bump only for package @spark-ui/cli-utils
