@@ -1,5 +1,3 @@
-import DefaultTailwindTheme from 'tailwindcss/defaultTheme'
-
 import type { Theme } from './types'
 
 export const defaultTheme: Theme = {
@@ -176,7 +174,6 @@ export const defaultTheme: Theme = {
     xl: '1280px',
   },
   spacing: {
-    ...DefaultTailwindTheme.spacing,
     auto: 'auto',
     none: '0px',
     sm: '0.25rem',
