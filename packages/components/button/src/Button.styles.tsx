@@ -40,8 +40,8 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
   },
   compoundVariants: [
     {
-      intent: 'primary',
-      design: 'filled',
+      intent: 'primary' as const,
+      design: 'filled' as const,
       class: [
         'bg-primary',
         'hover:bg-primary-hovered',
@@ -49,10 +49,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-primary-focused',
         'text-on-primary',
       ],
-    } as const,
+    },
     {
-      intent: 'primaryContainer',
-      design: 'filled',
+      intent: 'primaryContainer' as const,
+      design: 'filled' as const,
       class: [
         'bg-primary-container',
         'hover:bg-primary-container-hovered',
@@ -60,10 +60,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-primary-container-focused',
         'text-on-primary-container',
       ],
-    } as const,
+    },
     {
-      intent: 'primaryVariant',
-      design: 'filled',
+      intent: 'primaryVariant' as const,
+      design: 'filled' as const,
       class: [
         'bg-primary-variant',
         'hover:bg-primary-variant-hovered',
@@ -71,10 +71,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-primary-variant-focused',
         'text-on-primary-variant',
       ],
-    } as const,
+    },
     {
-      intent: 'secondary',
-      design: 'filled',
+      intent: 'secondary' as const,
+      design: 'filled' as const,
       class: [
         'bg-secondary',
         'hover:bg-secondary-hovered',
@@ -82,10 +82,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-secondary-focused',
         'text-on-secondary',
       ],
-    } as const,
+    },
     {
-      intent: 'secondaryContainer',
-      design: 'filled',
+      intent: 'secondaryContainer' as const,
+      design: 'filled' as const,
       class: [
         'bg-secondary-container',
         'hover:bg-secondary-container-hovered',
@@ -93,10 +93,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-secondary-container-focused',
         'text-on-secondary-container',
       ],
-    } as const,
+    },
     {
-      intent: 'secondaryVariant',
-      design: 'filled',
+      intent: 'secondaryVariant' as const,
+      design: 'filled' as const,
       class: [
         'bg-secondary-variant',
         'hover:bg-secondary-variant-hovered',
@@ -104,10 +104,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-secondary-variant-focused',
         'text-on-secondary-variant',
       ],
-    } as const,
+    },
     {
-      intent: 'primary',
-      design: 'outlined',
+      intent: 'primary' as const,
+      design: 'outlined' as const,
       class: [
         // 'border-primary',
         'bg-on-primary',
@@ -116,10 +116,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-primary-focused',
         'text-primary',
       ],
-    } as const,
+    },
     {
-      intent: 'primaryContainer',
-      design: 'outlined',
+      intent: 'primaryContainer' as const,
+      design: 'outlined' as const,
       class: [
         // 'border-primary-container',
         'bg-on-primary-container',
@@ -128,10 +128,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-primary-container-focused',
         'text-primary-container',
       ],
-    } as const,
+    },
     {
-      intent: 'primaryVariant',
-      design: 'outlined',
+      intent: 'primaryVariant' as const,
+      design: 'outlined' as const,
       class: [
         // 'border-primary-variant',
         'bg-on-primary-variant',
@@ -140,10 +140,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-primary-variant-focused',
         'text-primary-variant',
       ],
-    } as const,
+    },
     {
-      intent: 'secondary',
-      design: 'outlined',
+      intent: 'secondary' as const,
+      design: 'outlined' as const,
       class: [
         // 'border-secondary',
         'bg-on-secondary',
@@ -152,10 +152,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-secondary-focused',
         'text-secondary',
       ],
-    } as const,
+    },
     {
-      intent: 'secondaryContainer',
-      design: 'outlined',
+      intent: 'secondaryContainer' as const,
+      design: 'outlined' as const,
       class: [
         // 'border-secondary-container',
         'bg-on-secondary-container',
@@ -164,10 +164,10 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-secondary-container-focused',
         'text-secondary-container',
       ],
-    } as const,
+    },
     {
-      intent: 'secondaryVariant',
-      design: 'outlined',
+      intent: 'secondaryVariant' as const,
+      design: 'outlined' as const,
       class: [
         // 'border-secondary-variant',
         'bg-on-secondary-variant',
@@ -176,7 +176,7 @@ export const buttonStyles = cva('flex items-center text-body-1 justify-center bo
         'focus:bg-secondary-variant-focused',
         'text-secondary-variant',
       ],
-    } as const,
+    },
   ],
   defaultVariants,
 })
