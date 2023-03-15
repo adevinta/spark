@@ -13,7 +13,8 @@ export const Default = () => (
 
 const sizes: ButtonProps['size'][] = ['md', 'lg']
 const intents: ButtonProps['intent'][] = ['primary', 'secondary']
-const design: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost']
+const designs: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost']
+const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 
 export const Variants = () => (
   <ReactLiveBlock scope={{ Button }}>
@@ -26,7 +27,7 @@ export const Variants = () => (
             {sizes.map(size => {
               return (
                 <Button size={size} intent={intent}>
-                  Button ({size})
+                  {size} button
                 </Button>
               )
             })}
@@ -34,10 +35,21 @@ export const Variants = () => (
 
           <div className="flex items-center gap-md">
             <p className="text-headline-2 font-bold">Design</p>
-            {design.map(size => {
+            {designs.map(design => {
               return (
-                <Button design={size} intent={intent}>
-                  Button ({size})
+                <Button design={design} intent={intent}>
+                  {design} button
+                </Button>
+              )
+            })}
+          </div>
+
+          <div className="flex items-center gap-md">
+            <p className="text-headline-2 font-bold">Shape</p>
+            {shapes.map(shape => {
+              return (
+                <Button shape={shape} intent={intent}>
+                  {shape} button
                 </Button>
               )
             })}

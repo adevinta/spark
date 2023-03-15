@@ -8,13 +8,15 @@ interface Props
     ButtonStylesProps {}
 
 export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
-  ({ size, intent, ...rest }, ref) => {
+  ({ intent, design, size, shape, ...rest }, ref) => {
     return (
       <button
         ref={ref}
         className={buttonStyles({
-          size,
           intent,
+          design,
+          size,
+          shape,
         })}
         {...rest}
       />
