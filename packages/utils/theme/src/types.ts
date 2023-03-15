@@ -1,4 +1,3 @@
-import DefaultTailwindTheme from 'tailwindcss/defaultTheme'
 import { RequireAtLeastOne } from 'type-fest'
 interface SparkFontSize {
   fontSize: string
@@ -192,7 +191,7 @@ export interface Theme {
     lg: string
     xl: string
   }
-  spacing: (typeof DefaultTailwindTheme)['spacing'] & {
+  spacing: {
     auto: string
     none: string
     sm: string
