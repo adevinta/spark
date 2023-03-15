@@ -24,8 +24,8 @@ export const defaultTheme: Theme = {
     // Primary container
     primaryContainer: '#E2E1F8',
     onPrimaryContainer: '#140E79',
-    primaryContainerHovered: '##F4F4FC',
-    primaryContainerDisabled: '##F4F4FC',
+    primaryContainerHovered: '#F4F4FC',
+    primaryContainerDisabled: '#F4F4FC',
     primaryContainerFocused: '#F4F4FC',
     // Primary Variant
     primaryVariant: '#140E79',
