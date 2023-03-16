@@ -10,6 +10,8 @@ import { Alert } from '@docs/helpers/Alert'
 - [using dynamic props](#using-dynamic-props)
 - [using multiple props (more complexe case)](#using-multiple-props-more-complexe-case)
 - [using arbitrary values](#using-arbitrary-values)
+- [composing styles](#composing-styles)
+- [overriding styles](#overriding-styles)
 
 If you've recently switched from using **styled-components** to **Spark** for styling your application.
 
@@ -52,7 +54,7 @@ function SomeComponent() {
 <Alert kind="warning" marginBottom="medium">
   Once again, **Spark** uses a custom theme, so the suffixes for **tokens** such as spacings,
   colors, etc., may not match the default Tailwind theme. For example, instead of using `m-4` for a
-  margin of 16 pixels, you will have to use `m-md` in Spark.
+  margin of 16 pixels, you will have to use `m-lg` in Spark.
 </Alert>
 
 <Alert>
@@ -139,7 +141,7 @@ const styles = cva(['flex relative'], {
 type CardsProps = VariantProps<typeof styles>
 
 function Card({ size } : CardsProps) {
-  return <div className={styled({ size })}>{...}</div>
+  return <div className={styles({ size })}>{...}</div>
 }
 
 interface Props extends CardProps {}
@@ -149,9 +151,14 @@ function SomeComponent({ size }: Props) {
 }
 ```
 
-⬆️ To handle complex styling scenarios like this, we recommend using the [**CVA (Class Variance Authority) package**](https://cva.style/docs), this is what we are using to style our Spark components.
+<Alert>
+To handle complex styling scenarios like this ⬆️, we recommend using the [**CVA (Class Variance Authority) package**](https://cva.style/docs).
+
+This is what we are using to style our Spark components.
 
 In a nutshell, CVA is a tool that automates the process of matching classes to props and adding types, making it easier to create variants for traditional CSS.
+
+</Alert>
 
 <StoryHeading label="using arbitrary values" as="h3" />
 
@@ -164,7 +171,7 @@ interface TitleProps {
 
 const Title = styled.h1<TitleProps>`
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    height: ${props => props.height};
+    height: ${props => props.height}px;
   }
 `
 
@@ -182,10 +189,133 @@ function SomeComponent({ height }: Props) {
 ```tsx
 
 interface Props {
-  height: boolean
+  height: number
 }
 
 function SomeComponent({ height }: Props) {
-  return <h1 style={{ "--height": height }} className="md:h-[var(--height)">{...}</h1>
+  return <h1 style={{ "--height": `${height}px` }} className="md:h-[var(--height)]">{...}</h1>
 }
 ```
+
+<StoryHeading label="composing styles" as="h3" />
+
+<Alert>
+  Composing styles is not a one-size-fits-all process, and different methods may be more suitable
+  for different situations. With that in mind, let's explore a few options
+</Alert>
+
+- before
+
+```tsx
+interface CardProps {
+  kind: 'success' | 'error'
+}
+
+const StyledCard = styled.div<TitleProps>`...`
+
+const StyledRoundedCard = styled(Card)`
+  border-radius: ${({ theme }) => theme.radius.xl)};
+`
+
+function RoundedCard({ kind }: RoundedCardProps) {
+  return <StyledRoundedCard kind={kind}>{...}</StyledRoundedCard>
+}
+```
+
+- after
+
+```tsx
+import { cva, cx } from 'class-variance-authority'
+
+const card = cva(['...'], {
+  variants: {
+    kind: {
+      error: [...],
+      success: [...],
+    },
+  },
+})
+
+const roundedCard = cva(['rounded-xl'])
+
+function RoundedCard({ kind }: RoundedCardProps) {
+  return <div className={cx(card({ kind }), roundedCard())}>{...}</div>
+}
+```
+
+- or
+
+```tsx
+import { cva } from 'class-variance-authority'
+
+const card = cva(['...'], {
+  variants: {
+    kind: {
+      error: [...],
+      success: [...],
+    },
+  },
+})
+
+function Card({ kind, className }: RoundedCardProps) {
+  return <div className={card({ kind, className }))}>{...}</div>
+}
+
+function RoundedCard({ kind, className }: RoundedCardProps) {
+  return <Card className="rounded-xl">{...}</Card>
+}
+```
+
+<StoryHeading label="overriding styles" as="h3" />
+
+Let's say you need to override some predefined styles
+
+- before
+
+```tsx
+interface CardProps {
+  kind: 'success' | 'error'
+}
+
+const StyledCard = styled.div<TitleProps>`
+  background-color: ${({ theme }) => theme.colors.primary};
+`
+
+const StyledSecondaryCard = styled(Card)`
+  background-color: ${({ theme }) => theme.colors.secondary)};
+`
+
+function SecondaryCard({ kind }: RoundedCardProps) {
+  return <StyledSecondaryCard kind={kind}>{...}</StyledSecondaryCard>
+}
+```
+
+- after
+
+```tsx
+import { cva } from 'class-variance-authority'
+
+const card = cva(['bg-primary'], {
+  variants: {
+    kind: {
+      error: [...],
+      success: [...],
+    },
+  },
+})
+
+function Card({ kind, className }: RoundedCardProps) {
+  return <div className={card({ kind, className }))}>{...}</div>
+}
+
+// It would have been better to use CVA variants to address that case, but let's set that aside for the sake of illustration purposes
+function SecondaryCard({ kind, className }: RoundedCardProps) {
+  return <Card className="!bg-secondary">{...}</Card>
+}
+```
+
+<Alert>
+  By using the [Tailwind !important
+  modifier](https://tailwindcss.com/docs/configuration#important-modifier), we can ensure that the
+  styles will be correctly overridden
+</Alert>
