@@ -1,0 +1,33 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
+import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Checkbox } from '.'
+
+import * as stories from './Checkbox.stories'
+
+<Meta title="Components/Forms/Checkbox" component={Checkbox} />
+
+# Checkbox
+
+A control that allows the user to toggle between checked and not checked.
+
+<StoryHeading label="Install" />
+
+```
+npm install @spark-ui/checkbox
+```
+
+<StoryHeading label="Import" />
+
+```
+import { Checkbox } from "@spark-ui/checkbox"
+```
+
+<StoryHeading label="Props" />
+
+<ArgsTable of={Checkbox} />
+
+<StoryHeading label="Variants" />
+
+<Story name="default" story={stories.Default} />
