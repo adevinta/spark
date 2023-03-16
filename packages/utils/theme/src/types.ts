@@ -185,6 +185,13 @@ export interface Theme {
     semiBold: string
     bold: string
   }
+  opacity: {
+    dim1: string
+    dim2: string
+    dim3: string
+    dim4: string
+    dim5: string
+  }
   screens: {
     sm: string
     md: string

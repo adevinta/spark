@@ -167,6 +167,13 @@ export const defaultTheme: Theme = {
     semiBold: '600',
     bold: '700',
   },
+  opacity: {
+    dim1: '0.72',
+    dim2: '0.56',
+    dim3: '0.40',
+    dim4: '0.16',
+    dim5: '0.08',
+  },
   screens: {
     sm: '640px',
     md: '768px',
