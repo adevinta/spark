@@ -3,6 +3,39 @@ import React, { SVGProps } from 'react'
 
 import { styles } from './Checkbox.variants'
 
+// interface CheckboxRadixProps {
+//   /**
+//    * The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.
+//    */
+//   defaultChecked?: boolean
+//   /**
+//    * The controlled checked state of the checkbox. Must be used in conjunction with onCheckedChange.
+//    */
+//   checked?: boolean
+//   /**
+//    * Event handler called when the checked state of the checkbox changes.
+//    */
+//   onCheckedChange?: (checked: boolean | 'indeterminate') => void
+//   /**
+//    * When true, prevents the user from interacting with the checkbox.
+//    */
+//   disabled?: boolean
+//   /**
+//    * When true, indicates that the user must check the checkbox before the owning form can be submitted.
+//    */
+//   required?: boolean
+//   /**
+//    * The name of the checkbox. Submitted with its owning form as part of a name/value pair.
+//    */
+//   name?: string
+//   /**
+//    * The value given as data when submitted with a name.
+//    */
+//   value?: string
+// }
+
+// export interface CheckboxProps extends CheckboxRadixProps, StylesProps {}
+
 export type CheckboxProps = React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
 
 export const Checkbox = React.forwardRef<
