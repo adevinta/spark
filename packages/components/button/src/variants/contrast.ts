@@ -1,13 +1,12 @@
 const tw = <T>(a: T): T => a
 
-export const tintedVariants = [
+export const contrastVariants = [
   // Primary
   {
     intent: 'primary' as const,
-    design: 'tinted' as const,
+    design: 'contrast' as const,
     class: tw([
-      'bg-primary-container',
-      'text-on-primary-container',
+      'text-primary',
       'enabled:hover:bg-primary-container-hovered',
       'enabled:active:bg-primary-container-hovered',
       'focus-visible:bg-primary-container-focused',
@@ -16,10 +15,9 @@ export const tintedVariants = [
   // Secondary
   {
     intent: 'secondary' as const,
-    design: 'tinted' as const,
+    design: 'contrast' as const,
     class: tw([
-      'bg-secondary-container',
-      'text-on-secondary-container',
+      'text-secondary',
       'enabled:hover:bg-secondary-container-hovered',
       'enabled:active:bg-secondary-container-hovered',
       'focus-visible:bg-secondary-container-focused',
@@ -28,10 +26,9 @@ export const tintedVariants = [
   // Success
   {
     intent: 'success' as const,
-    design: 'tinted' as const,
+    design: 'contrast' as const,
     class: tw([
-      'bg-success-container',
-      'text-on-success-container',
+      'text-success',
       'enabled:hover:bg-success-container-hovered',
       'enabled:active:bg-success-container-hovered',
       'focus-visible:bg-success-container-focused',
@@ -40,10 +37,9 @@ export const tintedVariants = [
   // Alert
   {
     intent: 'alert' as const,
-    design: 'tinted' as const,
+    design: 'contrast' as const,
     class: tw([
-      'bg-alert-container',
-      'text-on-alert-container',
+      'text-alert',
       'enabled:hover:bg-alert-container-hovered',
       'enabled:active:bg-alert-container-hovered',
       'focus-visible:bg-alert-container-focused',
@@ -52,10 +48,9 @@ export const tintedVariants = [
   // Danger
   {
     intent: 'danger' as const,
-    design: 'tinted' as const,
+    design: 'contrast' as const,
     class: tw([
-      'bg-error-container',
-      'text-on-error-container',
+      'text-error',
       'enabled:hover:bg-error-container-hovered',
       'enabled:active:bg-error-container-hovered',
       'focus-visible:bg-error-container-focused',
@@ -64,10 +59,9 @@ export const tintedVariants = [
   // Neutral
   {
     intent: 'neutral' as const,
-    design: 'tinted' as const,
+    design: 'contrast' as const,
     class: tw([
-      'bg-neutral-container',
-      'text-on-neutral-container',
+      'text-neutral',
       'enabled:hover:bg-neutral-container-hovered',
       'enabled:active:bg-neutral-container-hovered',
       'focus-visible:bg-neutral-container-focused',
@@ -76,10 +70,9 @@ export const tintedVariants = [
   // Surface
   {
     intent: 'surface' as const,
-    design: 'tinted' as const,
+    design: 'contrast' as const,
     class: tw([
-      'bg-surface-container',
-      'text-on-surface-container',
+      'text-surface',
       'enabled:hover:bg-surface-container-hovered',
       'enabled:active:bg-surface-container-hovered',
       'focus-visible:bg-surface-container-focused',

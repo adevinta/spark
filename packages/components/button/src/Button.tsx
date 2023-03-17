@@ -13,7 +13,6 @@ export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<Prop
       design = 'filled',
       disabled = false,
       intent = 'primary',
-      reversed = false,
       shape = 'rounded',
       size = 'md',
       ...rest
@@ -28,7 +27,6 @@ export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<Prop
           design,
           disabled,
           intent,
-          reversed,
           shape,
           size,
         })}
