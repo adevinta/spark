@@ -9,25 +9,18 @@ export const radioVariants = cva(
   [
     'block',
     'rounded-full',
-    'border-md',
-    'border-outline',
+    'border-md border-outline',
     'outline-transparent',
-    'rounded-full',
-    'hover:outline',
-    'hover:outline-4',
-    'focus-visible:outline',
-    'focus-visible:outline-1',
-    'focus-visible:outline-on-surface',
+    'hover:outline hover:outline-4',
+    'focus-visible:outline focus-visible:outline-1 focus-visible:outline-on-surface',
+    'disabled:border-outline/dim-2 disabled:hover:outline-none disabled:cursor-not-allowed',
     '[transition:outline-color_0.1s_ease-in,_border-color_0.3s_ease-in]',
-    'disabled:border-outline/dim-2',
-    'disabled:hover:outline-none',
-    'disabled:cursor-not-allowed',
   ],
   {
     variants: {
       size: {
-        small: ['h-[1.25rem]', 'w-[1.25rem]'],
-        medium: ['h-[1.75rem]', 'w-[1.75rem]'],
+        small: ['w-sz-20', 'h-sz-20'],
+        medium: ['w-sz-28', 'h-sz-28'],
       },
       intent: {
         primary: ['spark-state-checked:border-primary', 'hover:outline-primary-container'],
