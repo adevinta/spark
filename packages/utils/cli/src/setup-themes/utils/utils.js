@@ -1,5 +1,9 @@
 function toKebabCase(v) {
-  return v.replace(/[A-Z0-9]/g, e => `-${e.toLocaleLowerCase()}`)
+  return v.replace(/[A-Z]+(?=[a-z0-9])|\d+/g, match => '-' + match.toLowerCase())
+}
+
+function isAlphanumericWithLeadingLetter(v) {
+  return /^[a-zA-Z](?=.*\d)[a-zA-Z\d]*$/.test(v)
 }
 
 function isHex(value) {
@@ -43,6 +47,7 @@ export {
   isStringOrNumber,
   isObject,
   isCamelCase,
+  isAlphanumericWithLeadingLetter,
   hasNumber,
   getRemEquivalentValue,
   doubleHyphensRegex,

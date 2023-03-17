@@ -1,5 +1,4 @@
 import { RequireAtLeastOne } from 'type-fest'
-
 interface SparkFontSize {
   fontSize: string
   lineHeight: string
@@ -185,6 +184,13 @@ export interface Theme {
     medium: string
     semiBold: string
     bold: string
+  }
+  opacity: {
+    dim1: string
+    dim2: string
+    dim3: string
+    dim4: string
+    dim5: string
   }
   screens: {
     sm: string

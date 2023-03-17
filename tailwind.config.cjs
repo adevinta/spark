@@ -7,10 +7,7 @@ const tailwindcssRadix = require('tailwindcss-radix')
 module.exports = {
   theme: themeConf,
   content: ['./packages/**/*.{js,ts,jsx,tsx}', './documentation/**/*.{js,ts,jsx,tsx,mdx}'],
-  plugins: [
-    sparkPlugins.animations(),
-    tailwindcssRadix({
-      variantPrefix: 'spark',
-    }),
-  ],
+  plugins: [sparkPlugins.animations(), sparkPlugins.sizings(), tailwindcssRadix({
+    variantPrefix: 'spark',
+  })],
 }

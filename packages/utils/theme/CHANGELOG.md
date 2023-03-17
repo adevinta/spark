@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.8.1...@spark-ui/theme-utils@2.9.0) (2023-03-15)
+
+### Features
+
+- **theme-utils:** added opacity tokens in default theme ([4f46c4c](https://github.com/adevinta/spark/commit/4f46c4ce5144db7cd9ad658c1733cb4af6266797))
+
+## [2.8.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.8.0...@spark-ui/theme-utils@2.8.1) (2023-03-15)
+
+**Note:** Version bump only for package @spark-ui/theme-utils
+
+# [2.8.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.7.3...@spark-ui/theme-utils@2.8.0) (2023-03-14)
+
+### Features
+
+- **theme-utils:** preserve default tailwind spacings ([77f74b1](https://github.com/adevinta/spark/commit/77f74b1de989316be5fd9264b0f3d586468a364e)), closes [#398](https://github.com/adevinta/spark/issues/398)
+
 ## [2.7.3](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.7.2...@spark-ui/theme-utils@2.7.3) (2023-03-13)
 
 **Note:** Version bump only for package @spark-ui/theme-utils

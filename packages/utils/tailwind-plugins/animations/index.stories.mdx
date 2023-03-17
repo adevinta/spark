@@ -6,7 +6,9 @@ import { Alert } from '@docs/helpers/Alert'
 
 # Tailwind animation plugin
 
-To use our Tailwind animation plugins, simply install the `@spark-ui/tailwind-plugins` package and add the animation plugin to your `tailwind.config.js` file
+## Installation
+
+To use our Tailwind animation plugin, simply install the `@spark-ui/tailwind-plugins` package and add the animation plugin to your `tailwind.config.js` file
 
 ```bash
 $ npm i @spark-ui/tailwind-plugins
@@ -19,10 +21,12 @@ const sparkPlugins = require('@spark-ui/tailwind-plugins')
 
 module.exports = {
   ...,
-  plugins: [sparkPlugins.animation()],
+  plugins: [sparkPlugins.animations()],
 }
 
 ```
+
+## Usage
 
 This plugin provides the following **animation-related** declaration properties that are missing by default in **Tailwind**:
 
@@ -43,7 +47,7 @@ This plugin also includes four animation keyframes:
 - **animate-slide-bottom**: `animate-slide-bottom`
 - **animate-slide-left**: `animate-slide-left`
 
-<StoryHeading label="plugin options" as="h3" />
+<StoryHeading label="Configuration" as="h3" />
 
 You can customize the **CSS class prefix** using the `prefixVariant` option.
 
@@ -56,7 +60,7 @@ const sparkPlugins = require('@spark-ui/tailwind-plugins')
 
 module.exports = {
   ...,
-  plugins: [sparkPlugins.animation({ prefixVariant: 'bar' })],
+  plugins: [sparkPlugins.animations({ prefixVariant: 'bar' })],
 }
 
 ```

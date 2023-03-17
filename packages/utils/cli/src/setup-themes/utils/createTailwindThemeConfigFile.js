@@ -7,6 +7,7 @@ import { DEFAULT_KEY, defaultColors, tailwindKeys } from './constants.js'
 import {
   doubleHyphensRegex,
   hasNumber,
+  isAlphanumericWithLeadingLetter,
   isCamelCase,
   isHex,
   isObject,
@@ -19,6 +20,7 @@ function toTailwindConfig(_theme) {
 
   const { fontSize, colors, screens } = tailwindKeys
 
+  /* eslint-disable complexity */
   function traverse(theme, paths = []) {
     Object.entries(theme).forEach(([key, value]) => {
       // 👀 see: https://tailwindcss.com/docs/font-size#providing-a-default-line-height
@@ -92,7 +94,13 @@ function toTailwindConfig(_theme) {
           return `var(--${paths.join('-')}-${key.toLowerCase()})`
         })()
 
-        theme[key] = isScreenValue
+        const formattedKey = isAlphanumericWithLeadingLetter(key) ? toKebabCase(key) : key
+
+        if (formattedKey !== key) {
+          delete theme[key]
+        }
+
+        theme[formattedKey] = isScreenValue
           ? formattedValue
           : toKebabCase(formattedValue).replace(doubleHyphensRegex, '-')
       }
