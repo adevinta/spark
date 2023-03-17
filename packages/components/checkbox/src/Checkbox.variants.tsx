@@ -6,7 +6,7 @@ const defaultVariants = {
 
 export const styles = cva(
   [
-    'peer h-[20px] w-[20px] rounded-sm border-md bg-transparent items-center justify-center',
+    'peer h-sz-20 w-sz-20 rounded-sm border-md bg-transparent items-center justify-center',
     'radix-state-unchecked:border-outline',
     'radix-disabled:opacity-dim-3 radix-disabled:cursor-not-allowed radix-disabled:hover:ring-0',
     'radix-state-checked:bg-primary radix-state-checked:border-primary',
