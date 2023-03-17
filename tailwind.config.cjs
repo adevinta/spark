@@ -1,11 +1,19 @@
-const themeConf = require('./tailwind.theme.cjs')
 const sparkPlugins = require('@spark-ui/tailwind-plugins')
+const themeUtils = require('@spark-ui/theme-utils')
 const tailwindcssRadix = require('tailwindcss-radix')
 
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
-  theme: themeConf,
   content: ['./packages/**/*.{js,ts,jsx,tsx}', './documentation/**/*.{js,ts,jsx,tsx,mdx}'],
-  plugins: [sparkPlugins.animations(), sparkPlugins.sizings(), tailwindcssRadix()],
+  plugins: [
+    sparkPlugins.sparkTheme({
+      themes: {
+        default: themeUtils.defaultTheme,
+        dark: themeUtils.defaultThemeDark,
+      },
+    }),
+    sparkPlugins.animations(),
+    sparkPlugins.sizings(),
+    tailwindcssRadix(),
+  ],
 }
