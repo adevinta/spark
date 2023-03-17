@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.6.4...@spark-ui/cli-utils@2.7.0) (2023-03-17)
+
+### Bug Fixes
+
+- **cli-utils:** fix types ([4e4ee36](https://github.com/adevinta/spark/commit/4e4ee362b0af53c994c7b8c682d04c8160294854))
+
+### Features
+
+- **cli-utils:** fix some issues ([cd0cc3e](https://github.com/adevinta/spark/commit/cd0cc3e31100316c2b544cc6ef74994e1a124fa0))
+
 ## [2.6.4](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.6.3...@spark-ui/cli-utils@2.6.4) (2023-03-15)
 
 **Note:** Version bump only for package @spark-ui/cli-utils
