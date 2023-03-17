@@ -26,7 +26,7 @@ export const run = async () => {
   }
 
   const type = await prompt.select({
-    message: 'Chose a template:',
+    message: 'Choose a template:',
     initialValue: 'component',
     options: [
       {
