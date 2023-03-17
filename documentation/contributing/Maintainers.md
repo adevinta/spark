@@ -51,6 +51,13 @@
             <br />
             <sub><b>solygambas</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ferminhg">
+            <img src="https://avatars.githubusercontent.com/u/944856?v=4" width="50;" alt="ferminhg"/>
+            <br />
+            <sub><b>ferminhg</b></sub>
+        </a>
     </td></tr>
 </table>
 <!-- readme: contributors,spark-ui-bot/- -end -->
