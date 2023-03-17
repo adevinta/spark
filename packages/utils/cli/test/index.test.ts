@@ -2,7 +2,7 @@ import path from 'node:path'
 
 import fse from 'fs-extra'
 import { fileURLToPath } from 'url'
-import { describe, expect, it } from 'vitest'
+import { afterAll, describe, expect, it } from 'vitest'
 
 import { TemplateGenerator } from '../src/generate/generators/TemplateGenerator.mjs'
 import cmd, { ENTER } from './utils/cmd'
@@ -20,6 +20,10 @@ describe('CLI `spark generate`, when a package name is properly typed', async ()
   )
   const contextPath = TemplateGenerator.CONTEXTS[packageType] as string
   const packagePath = path.join(process.cwd(), 'packages', contextPath, packageName)
+
+  afterAll(() => {
+    fse.removeSync(packagePath)
+  })
 
   it('should print the correct output', () => {
     expect(response).toContain(`Created ${packagePath}/.npmignore`)
@@ -45,8 +49,6 @@ describe('CLI `spark generate`, when a package name is properly typed', async ()
     expect(fse.pathExistsSync(`${packagePath}/src/Bar.test.tsx`)).toBe(true)
     expect(fse.pathExistsSync(`${packagePath}/src/Bar.stories.tsx`)).toBe(true)
     expect(fse.pathExistsSync(`${packagePath}/tsconfig.json`)).toBe(true)
-
-    fse.removeSync(packagePath)
   })
 })
 
