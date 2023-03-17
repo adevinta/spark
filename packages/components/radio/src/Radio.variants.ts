@@ -7,14 +7,12 @@ const defaultVariants = {
 
 export const radioVariants = cva(
   [
-    'block',
     'rounded-full',
     'border-md border-outline',
-    'outline-transparent',
-    'hover:outline hover:outline-4',
-    'focus-visible:outline focus-visible:outline-1 focus-visible:outline-on-surface',
-    'disabled:border-outline/dim-2 disabled:hover:outline-none disabled:cursor-not-allowed',
-    '[transition:outline-color_0.1s_ease-in,_border-color_0.3s_ease-in]',
+    'hover:ring-4',
+    'focus-visible:ring-1 focus-visible:ring-on-surface',
+    'disabled:border-outline/dim-2 disabled:hover:ring-transparent disabled:cursor-not-allowed',
+    '[transition:box-shadow_0.1s_ease-in,_border-color_0.3s_ease-in]',
   ],
   {
     variants: {
@@ -23,13 +21,13 @@ export const radioVariants = cva(
         medium: ['w-sz-28', 'h-sz-28'],
       },
       intent: {
-        primary: ['spark-state-checked:border-primary', 'hover:outline-primary-container'],
-        secondary: ['spark-state-checked:border-secondary', 'hover:outline-secondary-container'],
-        success: ['spark-state-checked:border-success', 'hover:outline-success-container'],
-        alert: ['spark-state-checked:border-alert', 'hover:outline-alert-container'],
-        error: ['spark-state-checked:border-error', 'hover:outline-error-container'],
-        info: ['spark-state-checked:border-info', 'hover:outline-info-container'],
-        neutral: ['spark-state-checked:border-neutral', 'hover:outline-neutral-container'],
+        primary: ['spark-state-checked:border-primary', 'hover:ring-primary-container'],
+        secondary: ['spark-state-checked:border-secondary', 'hover:ring-secondary-container'],
+        success: ['spark-state-checked:border-success', 'hover:ring-success-container'],
+        alert: ['spark-state-checked:border-alert', 'hover:ring-alert-container'],
+        error: ['spark-state-checked:border-error', 'hover:ring-error-container'],
+        info: ['spark-state-checked:border-info', 'hover:ring-info-container'],
+        neutral: ['spark-state-checked:border-neutral', 'hover:ring-neutral-container'],
       },
     },
     defaultVariants,
