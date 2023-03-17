@@ -1,0 +1,96 @@
+import { Canvas, ArgsTable, Meta, Story } from '@storybook/addon-docs'
+import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Radio, RadioGroup } from '.'
+
+import * as stories from './Radio.stories'
+
+<Meta title="Components/Radio" component={Radio} />
+
+# Radio
+
+Component used when only one choice may be selected in a series of options
+
+<StoryHeading label="Install" />
+
+```sh
+npm install @spark-ui/radio
+```
+
+<StoryHeading label="Import" />
+
+```ts
+import { RadioGroup, Radio } from '@spark-ui/radio'
+```
+
+<StoryHeading label="Default" />
+
+Compound `RadioGroup` and `Radio` components to create a radio group.
+
+<Canvas>
+  <Story name="default">{stories.Default.bind({})}</Story>
+</Canvas>
+
+<StoryHeading label="Uncontrolled" />
+
+Use `defaultValue` prop to make the radio group uncontrolled.
+
+<Canvas>
+  <Story name="uncontrolled">{stories.Uncontrolled.bind({})}</Story>
+</Canvas>
+
+<StoryHeading label="Controlled" />
+
+Use `value` and `onValueChange` props to make the radio group controlled.
+
+<Canvas>
+  <Story name="controlled">{stories.Controlled.bind({})}</Story>
+</Canvas>
+
+<StoryHeading label="Intent" />
+
+Use `intent` prop to set the color of every radio inside the group. Optinally, you can set the `intent` in each the radio component.
+
+<Canvas>
+  <Story name="intent">{stories.Intent.bind({})}</Story>
+</Canvas>
+
+<StoryHeading label="Size" />
+
+Use `size` prop to set the size of every radio inside the group. Optinally, you can set the `size` in each the radio component.
+
+<Canvas>
+  <Story name="size">{stories.Size.bind({})}</Story>
+</Canvas>
+
+<StoryHeading label="Disabled" />
+
+Use `disable` prop to disable all radios inside the group.
+
+<Canvas>
+  <Story name="disabled">{stories.Disabled.bind({})}</Story>
+</Canvas>
+
+<StoryHeading label="Props" />
+
+<StoryHeading as="h3" label="RadioGroup" />
+
+<ArgsTable of={RadioGroup} />
+
+<StoryHeading as="h3" label="Radio" />
+
+<ArgsTable of={Radio} />
+
+<StoryHeading label="Accessibility" />
+
+Adheres to the Radio Group WAI-ARIA design pattern and uses roving tabindex to manage focus movement among radio items.
+
+<StoryHeading as="h3" label="Keyboard Interactions" />
+
+- `Tab`: Moves focus to either the checked radio item or the first radio item in the group.
+- `Space`: When focus is on an unchecked radio item, checks it.
+- `ArrowDown`: Moves focus and checks the next radio item in the group.
+- `ArrowRight`: Moves focus and checks the next radio item in the group.
+- `ArrowUp`: Moves focus to the previous radio item in the group.
+- `ArrowLeft`: Moves focus to the previous radio item in the group.
