@@ -61,6 +61,10 @@ module.exports = plugin.withOptions(
       })
 
       Object.entries(themes).forEach(([key, value]) => {
+        if (key === 'default') {
+          return
+        }
+
         const { missingItems, additionalItems } = retrieveArrayDifferences({
           ref: getAllObjectKeys(themeUtils.defaultTheme),
           comp: getAllObjectKeys(value),
