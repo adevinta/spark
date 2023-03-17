@@ -1,17 +1,13 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { filledVariants } from './variants/filled'
-import { ghostVariants } from './variants/ghost'
-import { outlinedVariants } from './variants/outlined'
-import { tintedVariants } from './variants/tinted'
-
-const defaultVariants = {
-  design: 'filled',
-  intent: 'primary',
-  size: 'md',
-  reversed: false,
-  shape: 'rounded',
-} as const
+import {
+  contrastVariants,
+  defaultVariants,
+  filledVariants,
+  ghostVariants,
+  outlinedVariants,
+  tintedVariants,
+} from './variants'
 
 export const buttonStyles = cva(
   [
@@ -38,6 +34,7 @@ export const buttonStyles = cva(
         outlined: ['bg-transparent', 'ring-2', 'ring-current'],
         tinted: [],
         ghost: [],
+        contrast: ['bg-surface'],
       },
       /**
        * Color scheme of the button.
@@ -49,19 +46,12 @@ export const buttonStyles = cva(
         alert: [],
         danger: [],
         neutral: [],
+        surface: [],
       },
       size: {
         sm: ['py-sm px-lg'],
         md: ['py-md px-lg'],
         lg: ['p-lg'],
-      },
-      /**
-       * Use this prop to reverse the color scheme.
-       *
-       * Note: Does not work on `tinted` design.
-       */
-      reversed: {
-        true: [],
       },
       /**
        * Disable the button, preventing user interaction and adding opacity.
@@ -75,7 +65,13 @@ export const buttonStyles = cva(
         pill: ['rounded-full'],
       },
     },
-    compoundVariants: [...filledVariants, ...outlinedVariants, ...tintedVariants, ...ghostVariants],
+    compoundVariants: [
+      ...filledVariants,
+      ...outlinedVariants,
+      ...tintedVariants,
+      ...ghostVariants,
+      ...contrastVariants,
+    ],
     defaultVariants,
   }
 )

@@ -19,8 +19,9 @@ const intents: ButtonProps['intent'][] = [
   'alert',
   'danger',
   'neutral',
+  'surface',
 ]
-const designs: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost']
+const designs: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost', 'contrast']
 const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 
 export const Sizes = () => (
@@ -49,12 +50,29 @@ export const Disabled = () => (
   </ReactLiveBlock>
 )
 
+export const Design = () => (
+  <ReactLiveBlock scope={{ Button }}>
+    <div className="flex flex-col gap-md">
+      {designs.map(design => (
+        <div key={design} className="flex flex-row gap-lg">
+          <p className="text-headline-1 font-bold">{design}</p>
+          {intents.map(intent => (
+            <Button key={`${design}-${intent}`} design={design} intent={intent}>
+              {intent}
+            </Button>
+          ))}
+        </div>
+      ))}
+    </div>
+  </ReactLiveBlock>
+)
+
 export const Variants = () => (
   <ReactLiveBlock scope={{ Button }}>
     <div className="flex flex-col gap-md">
       {intents.map(intent => (
         <div className=" flex flex-col gap-md rounded-sm border-outline p-lg shadow-md">
-          <div className="flex flex-col  gap-lg">
+          <div className="flex flex-col gap-lg">
             <p className="text-headline-1 font-bold">{intent}</p>
             {designs.map(design => {
               return (
@@ -65,16 +83,6 @@ export const Variants = () => (
                   <Button design={design} intent={intent} disabled>
                     {design} (disabled)
                   </Button>
-                  {design !== 'tinted' && (
-                    <>
-                      <Button design={design} intent={intent} reversed>
-                        {design} (reversed)
-                      </Button>
-                      <Button design={design} intent={intent} reversed disabled>
-                        {design} (reversed + disabled)
-                      </Button>
-                    </>
-                  )}
                 </div>
               )
             })}

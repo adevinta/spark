@@ -5,7 +5,6 @@ export const filledVariants = [
   {
     intent: 'primary' as const,
     design: 'filled' as const,
-    reversed: false,
     class: tw([
       'bg-primary',
       'text-on-primary',
@@ -14,23 +13,10 @@ export const filledVariants = [
       'focus-visible:bg-primary-focused',
     ]),
   },
-  {
-    intent: 'primary' as const,
-    design: 'filled' as const,
-    reversed: true,
-    class: tw([
-      'bg-surface',
-      'text-primary',
-      'enabled:hover:bg-primary-container-hovered',
-      'enabled:active:bg-primary-container-hovered',
-      'focus-visible:bg-primary-container-focused',
-    ]),
-  },
   // Secondary
   {
     intent: 'secondary' as const,
     design: 'filled' as const,
-    reversed: false,
     class: tw([
       'bg-secondary',
       'text-on-secondary',
@@ -39,23 +25,10 @@ export const filledVariants = [
       'focus-visible:bg-secondary-focused',
     ]),
   },
-  {
-    intent: 'secondary' as const,
-    design: 'filled' as const,
-    reversed: true,
-    class: tw([
-      'bg-surface',
-      'text-secondary',
-      'enabled:hover:bg-secondary-container-hovered',
-      'enabled:active:bg-secondary-container-hovered',
-      'focus-visible:bg-secondary-container-focused',
-    ]),
-  },
   // Success
   {
     intent: 'success' as const,
     design: 'filled' as const,
-    reversed: false,
     class: tw([
       'bg-success',
       'text-on-success',
@@ -64,23 +37,10 @@ export const filledVariants = [
       'focus-visible:bg-success-focused',
     ]),
   },
-  {
-    intent: 'success' as const,
-    design: 'filled' as const,
-    reversed: true,
-    class: tw([
-      'bg-surface',
-      'text-success',
-      'enabled:hover:bg-success-container-hovered',
-      'enabled:active:bg-success-container-hovered',
-      'focus-visible:bg-success-container-focused',
-    ]),
-  },
   // Alert
   {
     intent: 'alert' as const,
     design: 'filled' as const,
-    reversed: false,
     class: tw([
       'bg-alert',
       'text-on-alert',
@@ -89,23 +49,10 @@ export const filledVariants = [
       'focus-visible:bg-alert-focused',
     ]),
   },
-  {
-    intent: 'alert' as const,
-    design: 'filled' as const,
-    reversed: true,
-    class: tw([
-      'bg-surface',
-      'text-alert',
-      'enabled:hover:bg-alert-container-hovered',
-      'enabled:active:bg-alert-container-hovered',
-      'focus-visible:bg-alert-container-focused',
-    ]),
-  },
   // Danger
   {
     intent: 'danger' as const,
     design: 'filled' as const,
-    reversed: false,
     class: tw([
       'bg-error',
       'text-on-error',
@@ -114,23 +61,10 @@ export const filledVariants = [
       'focus-visible:bg-error-focused',
     ]),
   },
-  {
-    intent: 'danger' as const,
-    design: 'filled' as const,
-    reversed: true,
-    class: tw([
-      'bg-surface',
-      'text-error',
-      'enabled:hover:bg-error-container-hovered',
-      'enabled:active:bg-error-container-hovered',
-      'focus-visible:bg-error-container-focused',
-    ]),
-  },
   // Neutral
   {
     intent: 'neutral' as const,
     design: 'filled' as const,
-    reversed: false,
     class: tw([
       'bg-neutral',
       'text-on-neutral',
@@ -139,16 +73,16 @@ export const filledVariants = [
       'focus-visible:bg-neutral-focused',
     ]),
   },
+  // Surface
   {
-    intent: 'neutral' as const,
+    intent: 'surface' as const,
     design: 'filled' as const,
-    reversed: true,
     class: tw([
       'bg-surface',
-      'text-neutral',
-      'enabled:hover:bg-neutral-container-hovered',
-      'enabled:active:bg-neutral-container-hovered',
-      'focus-visible:bg-neutral-container-focused',
+      'text-on-surface',
+      'enabled:hover:bg-surface-hovered',
+      'enabled:active:bg-surface-hovered',
+      'focus-visible:bg-surface-focused',
     ]),
   },
 ]
