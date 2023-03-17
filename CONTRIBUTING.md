@@ -15,7 +15,7 @@ cd spark
 - Setup all the dependencies and packages. This command will install dependencies.
 
 ```sh
-npm run install
+npm install
 ```
 
 > If you run into any problem during this step, feel free to open an issue
@@ -36,7 +36,7 @@ This project follows a monorepo structure. Each folder inside `packages` is an i
 
 Some of the most important commands are listed below.
 
-- **`npm run install`** install all dependencies
+- **`npm install`** install all dependencies
 
 - **`npm run build`** run build for all packages
 
