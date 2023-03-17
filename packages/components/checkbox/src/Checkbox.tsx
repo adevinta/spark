@@ -38,8 +38,8 @@ export interface CheckboxProps
 export const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
->(({ ...props }, ref) => (
-  <CheckboxPrimitive.Root ref={ref} className={styles()} {...props}>
+>(({ intent, ...props }, ref) => (
+  <CheckboxPrimitive.Root ref={ref} className={styles({ intent })} {...props}>
     <CheckboxPrimitive.Indicator className="flex items-center justify-center text-surface">
       <CheckIcon />
     </CheckboxPrimitive.Indicator>
