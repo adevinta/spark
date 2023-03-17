@@ -111,6 +111,12 @@ export const defaultThemeDark: Theme = createTheme({
     surfaceHovered: '#FFFFFF', // use with 8% opacity
     surfaceDisabled: '#F8F8F9',
     surfaceFocused: '#FFFFFF', // use with 8% opacity
+    // Surface container
+    surfaceContainer: '#000000',
+    onSurfaceContainer: '#FFFFFF',
+    surfaceContainerHovered: '#FFFFFF',
+    surfaceContainerDisabled: '#F8F8F9',
+    surfaceContainerFocused: '#FFFFFF',
     // Surface Inverse
     surfaceInverse: '#F8F8F9',
     onSurfaceInverse: '#000000',
