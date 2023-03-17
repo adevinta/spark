@@ -2,7 +2,7 @@ import path from 'node:path'
 
 import fse from 'fs-extra'
 import { fileURLToPath } from 'url'
-import { afterAll, describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { TemplateGenerator } from '../src/generate/generators/TemplateGenerator.mjs'
 import cmd, { ENTER } from './utils/cmd'
@@ -38,7 +38,7 @@ describe('CLI `spark generate` (component package)', () => {
       '/src/Bar.stories.tsx',
       '/tsconfig.json',
     ]
-    const assertExpectedFiles = filePath => {
+    const assertExpectedFiles = (filePath: string) => {
       expect(response).toContain(`Created ${packagePath}${filePath}`)
       expect(fse.pathExistsSync(`${packagePath}${filePath}`)).toBe(true)
     }
