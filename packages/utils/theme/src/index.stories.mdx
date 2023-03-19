@@ -9,17 +9,10 @@ import { Alert } from '@docs/helpers/Alert'
 The **`@spark-ui/theme-utils`** exposes the following:
 
 ```tsx
-import {
-  Theme,
-  ThemeConfig,
-  defaultTheme,
-  defaultThemeDark,
-  createTheme,
-} from '@spark-ui/theme-utils'
+import { Theme, defaultTheme, defaultThemeDark, createTheme } from '@spark-ui/theme-utils'
 ```
 
 - [Theme](#theme)
-- [ThemeConfig](#themeconfig)
 - [defaultTheme](#defaulttheme)
 - [defaultThemeDark](#defaultthemedark)
 - [createTheme](#createtheme)
@@ -29,70 +22,6 @@ import {
 <StoryHeading label="Theme" as="h3" />
 
 - `Theme`, the TypeScript interface for our theme
-
-<StoryHeading label="ThemeConfig" as="h3" />
-
-```ts
-interface ThemeConfig {
-  tailwindThemeConfigPath: string
-  tailwindCSSPath: string
-  themes: RequireAtLeastOne<Record<string, Theme>, 'default'>
-  htmlFontSize?: number
-}
-```
-
-- `ThemeConfig`, the TypeScript interface used to ensure that the `spark.theme.config` file adheres to the structure expected by our CLI command. It specifies the configuration options for the project's themes, including the paths for the Tailwind theme config file and CSS file, and the definition of one or more theme objects adhering to the `Theme` interface.
-
-**tailwindThemeConfigPath**:
-
-This field specifies the path where our CLI command will generate a `.js` file. This file will contain an object that tells Tailwind how to retrieve values from our Spark theme structure
-
-**tailwindCSSPath**:
-
-This field specifies the path where our CLI command will generate a `.css` file. This file will contain the **Tailwind CSS directives** + the different classes containing every token defined in your theme. Each class will correspond to a key in the `themes` object.
-
-**themes**:
-
-An object containing your themes. Each key in the object will be extracted to a class name, and the values will be converted to CSS custom properties inside the `.css` generated file. **Note that this object requires a key with a value of default**, which specifies the default theme for your project.
-
-For example, if your themes object looks like this:
-
-```ts
-const themes = {
-  default: defaultTheme,
-  foo: barTheme,
-}
-```
-
-You will get the following CSS classes in the generated `.css` file:
-
-```css
-:root {
-  /* ...tokens from defaultTheme */
-}
-
-.foo {
-  /* ...tokens from barTheme */
-}
-```
-
-**htmlFontSize (optional)**:
-
-Spark uses a base font size of **16 pixels** as a standard value for calculating the sizes of all other font-related properties defined in the theme. For example, our `spacing.lg` value is defined as **1rem**, which is equal to 16 pixels (based on the default base font size of 16 pixels).
-
-However, if your application uses a different base font size, such as **10 pixels** for example, this can cause issues with the sizing of elements in the application. To account for this, you can set the `htmlFontSize` to the appropriate value for your application's base font size. This will adjust the `rem` based values in Spark to be relative to the new base font size.
-
-<Alert>
-  <p>
-    To better understand what happens when you adjust `htmlFontSize`, it's useful to know that we
-    use CSS custom properties to define the values of our design tokens, such as `spacing.lg`.
-  </p>
-  <p>
-    By default, the value for this token is expressed as `--spacing-lg: 1rem;`. However, when you
-    define a `htmlFontSize` of **10**, for example, this value will be updated to `--spacing-lg:
-    1.6rem;`
-  </p>
-</Alert>
 
 <StoryHeading label="defaultTheme" as="h3" />
 
