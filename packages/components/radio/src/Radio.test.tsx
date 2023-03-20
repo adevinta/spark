@@ -31,7 +31,7 @@ describe('Radio', () => {
     expect(within(radiogroupEl).getByRole('radio', { name: '3' })).not.toBeChecked()
   })
 
-  it('should be able to handle state by itself', async () => {
+  it('should check and uncheck when a radio is clicked while in uncontrolled mode', async () => {
     render(
       <RadioGroup defaultValue="1">
         <label>
@@ -61,7 +61,7 @@ describe('Radio', () => {
     )
   })
 
-  it('should be able to delegate the state', async () => {
+  it('should check and uncheck when a radio is clicked while in controlled mode', async () => {
     const onValueChange = vitest.fn()
 
     render(
