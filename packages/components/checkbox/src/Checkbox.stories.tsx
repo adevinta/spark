@@ -43,7 +43,7 @@ export const DefaultChecked = () => (
     </div>
   </ReactLiveBlock>
 )
-const colors = ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+const colors = ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral'] as const
 
 export const Colors = () => (
   <ReactLiveBlock scope={{ Checkbox }}>
