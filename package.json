@@ -32,7 +32,7 @@
     "url": "git@github.com:adevinta/spark.git"
   },
   "dependencies": {
-    "@radix-ui/react-checkbox": "^1.0.3",
+    "@radix-ui/react-checkbox": "1.0.3",
     "@spark-ui/theme-utils": "*",
     "@spark-ui/theme-utils-node": "*"
   },
