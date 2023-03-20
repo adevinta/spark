@@ -1,5 +1,4 @@
-import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
-import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { Button } from '.'
@@ -14,13 +13,13 @@ Button component is used to trigger an action or event, such as submitting a for
 
 <StoryHeading label="Install" />
 
-```
+```sh
 npm install @spark-ui/button
 ```
 
 <StoryHeading label="Import" />
 
-```
+```js
 import { Button } from "@spark-ui/button"
 ```
 
@@ -28,20 +27,28 @@ import { Button } from "@spark-ui/button"
 
 <ArgsTable of={Button} />
 
-<StoryHeading label="Usage" />
-<Story name="Usage" story={stories.Default} />
+<StoryHeading label="Default" />
+
+<Canvas>
+  <Story name="Usage" story={stories.Default} />
+</Canvas>
+
+<StoryHeading label="Disabled" />
+
+Use `disable` prop to disable the element.
+<Canvas>
+  <Story name="Disabled" story={stories.Disabled} />
+</Canvas>
 
 <StoryHeading label="Sizes" />
+
 <Story name="Sizes" story={stories.Sizes} />
 
 <StoryHeading label="Shapes" />
 <Story name="Shapes" story={stories.Shapes} />
 
-<StoryHeading label="Disabled" />
-<Story name="Disabled" story={stories.Disabled} />
-
 <StoryHeading label="Design" />
 <Story name="Design" story={stories.Design} />
 
-<StoryHeading label="Variants" />
-<Story name="Variants" story={stories.Variants} />
+<StoryHeading label="Intent" />
+<Story name="Intent" story={stories.Intent} />

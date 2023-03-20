@@ -1,11 +1,12 @@
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
 
 import { Button } from '.'
 
 type ButtonProps = ComponentProps<typeof Button>
 
-export const Default = () => (
+export const Default: StoryFn = () => (
   <ReactLiveBlock scope={{ Button }}>
     <Button>Default button</Button>
   </ReactLiveBlock>
@@ -24,71 +25,40 @@ const intents: ButtonProps['intent'][] = [
 const designs: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost', 'contrast']
 const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 
-export const Sizes = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <div className="flex items-center gap-md">
-      {sizes.map(size => {
-        return <Button size={size}>{size} button</Button>
-      })}
-    </div>
-  </ReactLiveBlock>
+export const Sizes: StoryFn = () => (
+  <div className="flex items-center gap-md">
+    {sizes.map(size => {
+      return <Button size={size}>{size} button</Button>
+    })}
+  </div>
 )
 
-export const Shapes = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <div className="flex items-center gap-md">
-      {shapes.map(shape => {
-        return <Button shape={shape}>{shape} button</Button>
-      })}
-    </div>
-  </ReactLiveBlock>
+export const Shapes: StoryFn = () => (
+  <div className="flex items-center gap-md">
+    {shapes.map(shape => {
+      return <Button shape={shape}>{shape} button</Button>
+    })}
+  </div>
 )
 
-export const Disabled = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <Button disabled>Disabled button</Button>
-  </ReactLiveBlock>
+export const Disabled: StoryFn = () => <Button disabled>Disabled button</Button>
+
+export const Design: StoryFn = () => (
+  <div className="flex flex-row gap-md">
+    {designs.map(design => (
+      <Button key={design} design={design} intent="primary">
+        {design} button
+      </Button>
+    ))}
+  </div>
 )
 
-export const Design = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <div className="flex flex-col gap-md">
-      {designs.map(design => (
-        <div key={design} className="flex flex-row gap-lg">
-          <p className="text-headline-1 font-bold">{design}</p>
-          {intents.map(intent => (
-            <Button key={`${design}-${intent}`} design={design} intent={intent}>
-              {intent}
-            </Button>
-          ))}
-        </div>
-      ))}
-    </div>
-  </ReactLiveBlock>
-)
-
-export const Variants = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <div className="flex flex-col gap-md">
-      {intents.map(intent => (
-        <div className=" flex flex-col gap-md rounded-sm border-outline p-lg shadow-md">
-          <div className="flex flex-col gap-lg">
-            <p className="text-headline-1 font-bold">{intent}</p>
-            {designs.map(design => {
-              return (
-                <div className="flex items-center gap-md">
-                  <Button design={design} intent={intent}>
-                    {design}
-                  </Button>
-                  <Button design={design} intent={intent} disabled>
-                    {design} (disabled)
-                  </Button>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      ))}
-    </div>
-  </ReactLiveBlock>
+export const Intent: StoryFn = () => (
+  <div className="flex flex-row gap-md">
+    {intents.map(intent => (
+      <Button key={intent} design="filled" intent={intent}>
+        {intent} button
+      </Button>
+    ))}
+  </div>
 )
