@@ -22,11 +22,13 @@ export const buttonStyles = cva(
        *
        * - `filled`: Button will be plain.
        *
-       * - `outlined`: Button will be transparent with a border.
+       * - `outlined`: Button will be transparent with an outline.
        *
-       * - `tinted`: Button will be filled but using lighter color scheme.
+       * - `tinted`: Button will be filled but using a lighter color scheme.
        *
        * - `ghost`: Button will look like a link. No borders, plain text.
+       *
+       * - `contrast`: Button will be surface filled. No borders, plain text.
        *
        */
       design: {
