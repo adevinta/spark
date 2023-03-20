@@ -1,2 +1,2 @@
-export { RadioGroup } from './RadioGroup'
-export { Radio } from './Radio'
+export * from './RadioGroup'
+export * from './Radio'
