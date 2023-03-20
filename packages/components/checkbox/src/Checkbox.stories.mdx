@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
 
@@ -29,13 +29,26 @@ import { Checkbox } from "@spark-ui/checkbox"
 <ArgsTable of={Checkbox} />
 
 <StoryHeading label="Usage" />
-<Story name="Usage" story={stories.Default} />
+<Canvas>
+  <Story name="Usage" story={stories.Default} />
+</Canvas>
 
 <StoryHeading label="Disabled" />
-<Story name="Disabled" story={stories.Disabled} />
+<Canvas>
+  <Story name="Disabled" story={stories.Disabled} />
+</Canvas>
 
 <StoryHeading label="DefaultChecked" />
-<Story name="DefaultChecked" story={stories.DefaultChecked} />
+<Canvas>
+  <Story name="DefaultChecked" story={stories.DefaultChecked} />
+</Canvas>
 
-<StoryHeading label="Colors" />
-<Story name="Variants/Colors" story={stories.Colors} />
+<StoryHeading label="Controlled" />
+<Canvas>
+  <Story name="Controlled" story={stories.Controlled} />
+</Canvas>
+
+<StoryHeading label="Intent" />
+<Canvas>
+  <Story name="Variants/Intent" story={stories.Intent} />
+</Canvas>
