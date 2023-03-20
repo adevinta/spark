@@ -1,0 +1,17 @@
+{
+  "name": "@spark-ui/radio",
+  "version": "1.1.0",
+  "description": "Component used when only one choice may be selected in a series of options",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@radix-ui/react-radio-group": "1.1.2"
+  }
+}

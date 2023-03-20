@@ -19,7 +19,6 @@ export class System {
 
   getPackageJSON() {
     const basePath = this.getBasePath()
-
     const raw = fse.readFileSync(`${basePath}/package.json`).toString()
 
     return JSON.parse(raw)

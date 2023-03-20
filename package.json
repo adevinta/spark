@@ -11,7 +11,7 @@
     "build": "lerna run build",
     "build:watch": "lerna run build && lerna watch -- lerna run build --since",
     "release": "lerna publish --yes --include-merged-tags --no-verify-access",
-    "storybook:start": "npx spark setup-themes && storybook dev -p 6006",
+    "storybook:start": "storybook dev -p 6006",
     "storybook:build": "storybook build -o dist",
     "tailwind-config-viewer": "npx tailwind-config-viewer -c ./tailwind.config.viewer.cjs",
     "tailwind-config-viewer:build": "mkdir -p ./dist/viewer && npx tailwind-config-viewer -c ./tailwind.config.viewer.cjs export ./dist/viewer",

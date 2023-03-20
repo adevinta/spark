@@ -18,17 +18,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Powerplex">
-            <img src="https://avatars.githubusercontent.com/u/2033710?v=4" width="50;" alt="Powerplex"/>
-            <br />
-            <sub><b>Powerplex</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/kikoruiz">
             <img src="https://avatars.githubusercontent.com/u/2622119?v=4" width="50;" alt="kikoruiz"/>
             <br />
             <sub><b>kikoruiz</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Powerplex">
+            <img src="https://avatars.githubusercontent.com/u/2033710?v=4" width="50;" alt="Powerplex"/>
+            <br />
+            <sub><b>Powerplex</b></sub>
         </a>
     </td>
     <td align="center">
@@ -50,6 +50,13 @@
             <img src="https://avatars.githubusercontent.com/u/51904909?v=4" width="50;" alt="solygambas"/>
             <br />
             <sub><b>solygambas</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ferminhg">
+            <img src="https://avatars.githubusercontent.com/u/944856?v=4" width="50;" alt="ferminhg"/>
+            <br />
+            <sub><b>ferminhg</b></sub>
         </a>
     </td></tr>
 </table>
