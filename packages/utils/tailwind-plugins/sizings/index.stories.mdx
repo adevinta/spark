@@ -6,7 +6,7 @@ import { Alert } from '@docs/helpers/Alert'
 
 # Tailwind sizing plugin
 
-## Installation
+<StoryHeading label="Installation" as="h2" />
 
 To use our Tailwind sizing plugin, simply install the `@spark-ui/tailwind-plugins` package and add the animation plugin to your `tailwind.config.js` file
 
@@ -27,7 +27,7 @@ module.exports = {
 
 ```
 
-## Usage
+<StoryHeading label="Usage" as="h2" />
 
 This plugin predefines a sizing range with the following pixel values:
 
@@ -43,7 +43,7 @@ These values are converted into rem units based on the specified **HTML font siz
 
 The plugin generates CSS variables for each size value, which can then be used for `width`, `height`, `max-width`, `max-height`, and `translate` properties.
 
-<StoryHeading label="Example" as="h3" />
+<StoryHeading label="Example" as="h2" />
 
 To set the `width` of an element using the sizing plugin, use the `w-sz-{size}` class, where`{size}` is the desired pixel value from the predefined range:
 
@@ -53,7 +53,7 @@ To set the `width` of an element using the sizing plugin, use the `w-sz-{size}` 
 
 This will set the width of the element to **10px** (0.625rem, if `htmlFontSize` is 16) using the custom sizing scale provided by the plugin.
 
-<StoryHeading label="Configuration" as="h3" />
+<StoryHeading label="Configuration" as="h2" />
 
 You can customize the **base html font size** using the `htmlFontSize` option.
 

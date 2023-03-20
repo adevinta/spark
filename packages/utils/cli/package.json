@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/cli-utils",
-  "version": "2.6.4",
+  "version": "2.7.1",
   "description": "Spark CLI utils",
   "publishConfig": {
     "access": "public"
@@ -11,9 +11,14 @@
     "spark-setup-themes": "./bin/spark-setup-themes.mjs"
   },
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/utils/cli"
+  },
   "dependencies": {
     "@clack/prompts": "0.6.2",
-    "@spark-ui/theme-utils": "^2.9.0",
+    "@spark-ui/theme-utils": "^2.9.1",
     "camel-case": "4.1.2",
     "chalk": "5.2.0",
     "commander": "10.0.0",
@@ -24,9 +29,7 @@
     "hex-rgb": "5.0.0",
     "pascal-case": "3.1.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:adevinta/spark.git",
-    "directory": "packages/utils/cli"
+  "devDependencies": {
+    "@types/fs-extra": "11.0.1"
   }
 }
