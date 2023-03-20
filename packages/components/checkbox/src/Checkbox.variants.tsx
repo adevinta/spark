@@ -9,8 +9,6 @@ export const styles = cva(
     'peer h-sz-20 w-sz-20 rounded-sm border-md bg-transparent items-center justify-center',
     'radix-state-unchecked:border-outline',
     'radix-disabled:opacity-dim-3 radix-disabled:cursor-not-allowed radix-disabled:hover:ring-0',
-    // 'radix-state-checked:bg-primary radix-state-checked:border-primary',
-    // 'radix-state-indeterminate:bg-primary radix-state-indeterminate:border-primary',
     'focus:outline-none focus:ring-2 focus:ring focus:ring-offset-0 focus:ring-[#000000]',
     'hover:outline-none hover:ring-2 hover:ring hover:ring-offset-0',
   ],
