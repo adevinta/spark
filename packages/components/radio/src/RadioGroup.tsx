@@ -1,5 +1,5 @@
 import { RadioGroup as RadioGroupPrimitive } from '@radix-ui/react-radio-group'
-import { HTMLAttributes } from 'react'
+import { forwardRef, HTMLAttributes } from 'react'
 
 import { RadioVariantsProps } from './Radio.variants'
 import { RadioGroupProvider } from './RadioGroupProvider'
@@ -49,10 +49,12 @@ export interface RadioGroupProps
   loop?: boolean
 }
 
-export const RadioGroup = ({ loop = true, intent, size, ...others }: RadioGroupProps) => {
-  return (
-    <RadioGroupProvider intent={intent} size={size}>
-      <RadioGroupPrimitive {...others} />
-    </RadioGroupProvider>
-  )
-}
+export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
+  ({ loop = true, intent, size, ...others }, ref) => {
+    return (
+      <RadioGroupProvider intent={intent} size={size}>
+        <RadioGroupPrimitive ref={ref} {...others} />
+      </RadioGroupProvider>
+    )
+  }
+)

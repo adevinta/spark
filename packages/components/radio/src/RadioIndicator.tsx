@@ -1,4 +1,5 @@
 import { RadioGroupIndicator as RadioIndicatorPrimitive } from '@radix-ui/react-radio-group'
+import { forwardRef } from 'react'
 
 import { radioIndicatorVariants, RadioIndicatorVariantsProps } from './RadioIndicator.variants'
 
@@ -13,6 +14,14 @@ export interface RadioIndicatorProps extends RadioIndicatorVariantsProps {
   forceMount?: true | undefined
 }
 
-export const RadioIndicator = ({ intent, ...others }: RadioIndicatorProps) => {
-  return <RadioIndicatorPrimitive className={radioIndicatorVariants({ intent })} {...others} />
-}
+export const RadioIndicator = forwardRef<HTMLSpanElement, RadioIndicatorProps>(
+  ({ intent, ...others }, ref) => {
+    return (
+      <RadioIndicatorPrimitive
+        ref={ref}
+        className={radioIndicatorVariants({ intent })}
+        {...others}
+      />
+    )
+  }
+)

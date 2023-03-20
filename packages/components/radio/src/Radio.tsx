@@ -1,5 +1,5 @@
 import { RadioGroupItem as RadioPrimitive } from '@radix-ui/react-radio-group'
-import { ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes, forwardRef } from 'react'
 
 import { radioVariants, RadioVariantsProps } from './Radio.variants'
 import { RadioIndicator } from './RadioIndicator'
@@ -26,14 +26,16 @@ export interface RadioProps
   required?: boolean
 }
 
-export function Radio({ intent: intentProp, size: sizeProp, ...others }: RadioProps) {
-  const context = useRadioGroup()
-  const intent = intentProp || context.intent
-  const size = sizeProp || context.size
+export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
+  ({ intent: intentProp, size: sizeProp, ...others }, ref) => {
+    const context = useRadioGroup()
+    const intent = intentProp || context.intent
+    const size = sizeProp || context.size
 
-  return (
-    <RadioPrimitive className={radioVariants({ size, intent })} {...others}>
-      <RadioIndicator intent={intent} forceMount />
-    </RadioPrimitive>
-  )
-}
+    return (
+      <RadioPrimitive ref={ref} className={radioVariants({ size, intent })} {...others}>
+        <RadioIndicator intent={intent} forceMount />
+      </RadioPrimitive>
+    )
+  }
+)
