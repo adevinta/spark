@@ -6,30 +6,34 @@ import { Checkbox } from './Checkbox'
 
 describe('Checkbox', () => {
   it('should render', () => {
+    // Given
+
+    // When
     render(
       <>
-        <Checkbox id={'c1'} />
-        <label htmlFor={'c1'}>Accept terms and conditions</label>
+        <Checkbox id="c1" />
+        <label htmlFor="c1">Accept terms and conditions</label>
       </>
     )
+    const element = screen.getByRole('checkbox', { name: 'Accept terms and conditions' })
 
-    expect(screen.getByText('Accept terms and conditions')).toBeInTheDocument()
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
+    // Then
+    expect(element).toBeInTheDocument()
+    expect(element).not.toBeChecked()
   })
 
   it('should trigger check event', async () => {
+    // Given
     const user = userEvent.setup()
     const clickEvent = vi.fn()
 
-    // Given
+    // When
     render(
       <>
-        <Checkbox id={'c1'} onCheckedChange={clickEvent} />
-        <label htmlFor={'c1'}>Accept terms and conditions</label>
+        <Checkbox id="c1" onCheckedChange={clickEvent} />
+        <label htmlFor="c1">Accept terms and conditions</label>
       </>
     )
-
-    // When
     await user.click(screen.getByText('Accept terms and conditions'))
 
     // Then
@@ -37,40 +41,45 @@ describe('Checkbox', () => {
     expect(clickEvent).toHaveBeenCalledTimes(1)
     expect(clickEvent).toHaveBeenCalledWith(true)
   })
+
   it('should trigger uncheck event', async () => {
+    // Given
     const user = userEvent.setup()
     const clickEvent = vi.fn()
 
-    // Given
+    // When
     render(
       <>
-        <Checkbox id={'c1'} defaultChecked onCheckedChange={clickEvent} />
-        <label htmlFor={'c1'}>Accept terms and conditions</label>
+        <Checkbox id="c1" defaultChecked onCheckedChange={clickEvent} />
+        <label htmlFor="c1">Accept terms and conditions</label>
       </>
     )
 
-    // When
+    // Then
     expect(screen.getByRole('checkbox')).toBeChecked()
+
+    // When
     await user.click(screen.getByText('Accept terms and conditions'))
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
 
     // Then
+    expect(screen.getByRole('checkbox')).not.toBeChecked()
     expect(clickEvent).toHaveBeenCalledTimes(1)
     expect(clickEvent).toHaveBeenCalledWith(false)
   })
+
   it('should not trigger events', async () => {
+    // Given
     const user = userEvent.setup()
     const clickEvent = vi.fn()
 
-    // Given
+    // When
     render(
       <>
-        <Checkbox id={'c1'} disabled />
-        <label htmlFor={'c1'}>Accept terms and conditions</label>
+        <Checkbox id="c1" disabled />
+        <label htmlFor="c1">Accept terms and conditions</label>
       </>
     )
 
-    // When
     await user.click(screen.getByText('Accept terms and conditions'))
 
     // Then
