@@ -15,7 +15,7 @@ interface CheckboxRadixProps {
   /**
    * Event handler called when the checked state of the checkbox changes.
    */
-  onCheckedChange?: (checked: boolean | 'indeterminate') => void
+  onCheckedChange?: (checked: boolean) => void
   /**
    * When true, prevents the user from interacting with the checkbox.
    */
