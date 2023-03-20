@@ -1,4 +1,3 @@
-import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 import { StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
 
@@ -6,11 +5,7 @@ import { Button } from '.'
 
 type ButtonProps = ComponentProps<typeof Button>
 
-export const Default: StoryFn = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <Button>Default button</Button>
-  </ReactLiveBlock>
-)
+export const Default: StoryFn = () => <Button>Default button</Button>
 
 const sizes: ButtonProps['size'][] = ['sm', 'md', 'lg']
 const intents: ButtonProps['intent'][] = [
