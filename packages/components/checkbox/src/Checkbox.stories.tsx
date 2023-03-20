@@ -42,7 +42,7 @@ export const DefaultChecked: StoryFn = args => (
 export const Controlled: StoryFn = args => {
   const [value, setValue] = useState(false)
 
-  const handleChange = (checked: boolean | 'indeterminate') => {
+  const handleChange = (checked: boolean) => {
     setValue(!!checked)
   }
 
