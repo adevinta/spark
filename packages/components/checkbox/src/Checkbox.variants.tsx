@@ -7,21 +7,16 @@ const defaultVariants = {
 export const styles = cva(
   [
     'peer h-sz-20 w-sz-20 rounded-sm border-md bg-transparent items-center justify-center',
-    'radix-state-unchecked:border-outline',
     'radix-disabled:opacity-dim-3 radix-disabled:cursor-not-allowed radix-disabled:hover:ring-0',
-    'focus:outline-none focus:ring-2 focus:ring focus:ring-offset-0 focus:ring-[#000000]',
-    'hover:outline-none hover:ring-2 hover:ring hover:ring-offset-0',
+    'focus-visible:outline-none focus-visible:ring-2 focus:ring-outline-high',
+    'hover:outline-none hover:ring-2 hover:border-primary-container',
   ],
   {
     variants: {
       intent: {
         primary: [
-          'radix-state-unchecked:border-primary',
+          'radix-state-unchecked:border-outline',
           'radix-state-checked:border-primary radix-state-checked:bg-primary',
-        ],
-        secondary: [
-          'radix-state-unchecked:border-secondary',
-          'radix-state-checked:border-secondary radix-state-checked:bg-secondary',
         ],
         success: [
           'radix-state-unchecked:border-success',
@@ -34,14 +29,6 @@ export const styles = cva(
         error: [
           'radix-state-unchecked:border-error',
           'radix-state-checked:border-error radix-state-checked:bg-error',
-        ],
-        info: [
-          'radix-state-unchecked:border-info',
-          'radix-state-checked:border-info radix-state-checked:bg-info',
-        ],
-        neutral: [
-          'radix-state-unchecked:border-neutral',
-          'radix-state-checked:border-neutral radix-state-checked:bg-neutral',
         ],
       },
     },
