@@ -14,6 +14,8 @@ module.exports = {
     }),
     sparkPlugins.animations(),
     sparkPlugins.sizings(),
-    tailwindcssRadix(),
+    tailwindcssRadix({
+      variantPrefix: 'spark',
+    }),
   ],
 }
