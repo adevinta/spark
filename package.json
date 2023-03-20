@@ -63,7 +63,7 @@
     "@vitejs/plugin-react": "3.1.0",
     "@vitest/coverage-istanbul": "0.28.4",
     "@vitest/ui": "0.28.4",
-    "autoprefixer": "10.4.13",
+    "autoprefixer": "10.4.14",
     "babel-loader": "8.3.0",
     "browserslist-to-esbuild": "^1.2.0",
     "class-variance-authority": "0.4.0",
