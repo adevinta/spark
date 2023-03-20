@@ -59,7 +59,7 @@ export const Controlled: StoryFn = args => {
   )
 }
 
-const intent = ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral'] as const
+const intent = ['primary', 'success', 'alert', 'error'] as const
 
 export const Intent: StoryFn = args => (
   <>
