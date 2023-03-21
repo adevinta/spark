@@ -11,7 +11,7 @@ describe('Button', () => {
 
     // When
     render(<Button {...props} />)
-    const element = screen.getByRole('button')
+    const element = screen.getByRole('button', { name: props.children })
 
     // Then
     expect(element).toBeInTheDocument()
@@ -28,7 +28,7 @@ describe('Button', () => {
 
     // When
     render(<Button {...props} />)
-    const element = screen.getByRole('button')
+    const element = screen.getByRole('button', { name: props.children })
     await user.click(element)
 
     // Then
@@ -47,7 +47,7 @@ describe('Button', () => {
 
     // When
     render(<Button {...props} />)
-    const element = screen.getByRole('button')
+    const element = screen.getByRole('button', { name: props.children })
     await user.click(element)
 
     // Then
