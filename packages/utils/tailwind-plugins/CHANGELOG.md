@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.1.3...@spark-ui/tailwind-plugins@2.2.0) (2023-03-21)
+
+### Features
+
+- **tailwind-plugins:** consolidate tw plugin calls and auto-apply options ([c203355](https://github.com/adevinta/spark/commit/c2033552976cc611172de2a14f6927be76522e41))
+
 ## [2.1.3](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.1.2...@spark-ui/tailwind-plugins@2.1.3) (2023-03-21)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins
