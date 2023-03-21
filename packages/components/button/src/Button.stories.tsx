@@ -5,7 +5,7 @@ import { Button } from '.'
 
 type ButtonProps = ComponentProps<typeof Button>
 
-export const Default: StoryFn = () => <Button>Default button</Button>
+export const Default: StoryFn = args => <Button {...args}>Default button</Button>
 
 const sizes: ButtonProps['size'][] = ['sm', 'md', 'lg']
 const intents: ButtonProps['intent'][] = [
@@ -20,38 +20,50 @@ const intents: ButtonProps['intent'][] = [
 const designs: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost', 'contrast']
 const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 
-export const Sizes: StoryFn = () => (
+export const Sizes: StoryFn = args => (
   <div className="flex items-center gap-md">
     {sizes.map(size => {
-      return <Button size={size}>{size} button</Button>
+      return (
+        <Button size={size} {...args}>
+          {size} button
+        </Button>
+      )
     })}
   </div>
 )
 
-export const Shapes: StoryFn = () => (
+export const Shapes: StoryFn = args => (
   <div className="flex items-center gap-md">
     {shapes.map(shape => {
-      return <Button shape={shape}>{shape} button</Button>
+      return (
+        <Button shape={shape} {...args}>
+          {shape} button
+        </Button>
+      )
     })}
   </div>
 )
 
-export const Disabled: StoryFn = () => <Button disabled>Disabled button</Button>
+export const Disabled: StoryFn = args => (
+  <Button disabled {...args}>
+    Disabled button
+  </Button>
+)
 
-export const Design: StoryFn = () => (
+export const Design: StoryFn = args => (
   <div className="flex flex-row gap-md">
     {designs.map(design => (
-      <Button key={design} design={design} intent="primary">
+      <Button key={design} design={design} intent="primary" {...args}>
         {design} button
       </Button>
     ))}
   </div>
 )
 
-export const Intent: StoryFn = () => (
+export const Intent: StoryFn = args => (
   <div className="flex flex-row gap-md">
     {intents.map(intent => (
-      <Button key={intent} design="filled" intent={intent}>
+      <Button key={intent} design="filled" intent={intent} {...args}>
         {intent} button
       </Button>
     ))}

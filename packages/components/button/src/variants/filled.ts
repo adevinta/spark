@@ -1,4 +1,4 @@
-const tw = <T>(a: T): T => a
+import { tw } from './default'
 
 export const filledVariants = [
   // Primary

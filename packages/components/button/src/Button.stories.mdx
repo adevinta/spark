@@ -23,10 +23,6 @@ npm install @spark-ui/button
 import { Button } from "@spark-ui/button"
 ```
 
-<StoryHeading label="Props" />
-
-<ArgsTable of={Button} />
-
 <StoryHeading label="Default" />
 
 <Canvas>
@@ -36,19 +32,38 @@ import { Button } from "@spark-ui/button"
 <StoryHeading label="Disabled" />
 
 Use `disable` prop to disable the element.
+
 <Canvas>
   <Story name="Disabled" story={stories.Disabled} />
 </Canvas>
 
 <StoryHeading label="Sizes" />
 
-<Story name="Sizes" story={stories.Sizes} />
+Use `size` prop to set the size of a button.
+
+<Canvas>
+  <Story name="Sizes" story={stories.Sizes} />
+</Canvas>
 
 <StoryHeading label="Shapes" />
-<Story name="Shapes" story={stories.Shapes} />
+
+Use `shape` prop to set the shape of a button.
+
+<Canvas>
+  <Story name="Shapes" story={stories.Shapes} />
+</Canvas>
 
 <StoryHeading label="Design" />
-<Story name="Design" story={stories.Design} />
+Use `design` prop to set the different look and feels of a button.
+<Canvas>
+  <Story name="Design" story={stories.Design} />
+</Canvas>
 
 <StoryHeading label="Intent" />
-<Story name="Intent" story={stories.Intent} />
+Use `intent` prop to set the color intent of a button.
+<Canvas>
+  <Story name="Intent" story={stories.Intent} />
+</Canvas>
+
+<StoryHeading label="Props" />
+<ArgsTable of={Button} />

@@ -10,5 +10,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
+  },
+  "dependencies": {
+    "class-variance-authority": "0.4.0"
   }
 }

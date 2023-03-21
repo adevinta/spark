@@ -7,22 +7,29 @@ import { Button } from './Button'
 describe('Button', () => {
   it('should render', () => {
     // Given
+    const props = { children: 'Hello World!' }
 
     // When
-    render(<Button>Hello World!</Button>)
+    render(<Button {...props} />)
+    const element = screen.getByRole('button')
 
     // Then
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
+    expect(element).toBeInTheDocument()
   })
 
   it('should trigger click event', async () => {
     // Given
     const user = userEvent.setup()
     const clickEvent = vi.fn()
+    const props = {
+      onClick: clickEvent,
+      children: 'Hello World!',
+    }
 
     // When
-    render(<Button onClick={clickEvent}>Hello World!</Button>)
-    await user.click(screen.getByText('Hello World!'))
+    render(<Button {...props} />)
+    const element = screen.getByRole('button')
+    await user.click(element)
 
     // Then
     expect(clickEvent).toHaveBeenCalledTimes(1)
@@ -32,16 +39,19 @@ describe('Button', () => {
     // Given
     const user = userEvent.setup()
     const clickEvent = vi.fn()
+    const props = {
+      onClick: clickEvent,
+      disabled: true,
+      children: 'Hello World!',
+    }
 
     // When
-    render(
-      <Button onClick={clickEvent} disabled>
-        Hello World!
-      </Button>
-    )
-    await user.click(screen.getByText('Hello World!'))
+    render(<Button {...props} />)
+    const element = screen.getByRole('button')
+    await user.click(element)
 
     // Then
     expect(clickEvent).toHaveBeenCalledTimes(0)
+    expect(element).toHaveAttribute('disabled')
   })
 })

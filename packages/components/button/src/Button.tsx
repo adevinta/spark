@@ -3,11 +3,11 @@ import React, { PropsWithChildren } from 'react'
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
 /** Review: Prop VS ButtonProps */
-interface Props
+export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size' | 'disabled'>,
     ButtonStylesProps {}
 
-export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
+export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(
   (
     {
       design = 'filled',
@@ -15,13 +15,12 @@ export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<Prop
       intent = 'primary',
       shape = 'rounded',
       size = 'md',
-      ...rest
+      ...otherProps
     },
     ref
   ) => {
     return (
       <button
-        role="button"
         ref={ref}
         className={buttonStyles({
           design,
@@ -31,7 +30,7 @@ export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<Prop
           size,
         })}
         disabled={!!disabled}
-        {...rest}
+        {...otherProps}
       />
     )
   }
