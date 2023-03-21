@@ -7,7 +7,7 @@ const defaultVariants = {
 export const styles = cva(
   [
     'peer h-sz-20 w-sz-20 rounded-sm border-md bg-transparent items-center justify-center',
-    'radix-disabled:opacity-dim-3 radix-disabled:cursor-not-allowed radix-disabled:hover:ring-0',
+    'spark-disabled:opacity-dim-3 spark-disabled:cursor-not-allowed spark-disabled:hover:ring-0',
     'focus-visible:outline-none focus-visible:ring-2 focus:ring-outline-high',
     'hover:outline-none hover:ring-2 hover:border-primary-container',
   ],
@@ -15,20 +15,20 @@ export const styles = cva(
     variants: {
       intent: {
         primary: [
-          'radix-state-unchecked:border-outline',
-          'radix-state-checked:border-primary radix-state-checked:bg-primary',
+          'spark-state-unchecked:border-outline',
+          'spark-state-checked:border-primary spark-state-checked:bg-primary',
         ],
         success: [
-          'radix-state-unchecked:border-success',
-          'radix-state-checked:border-success radix-state-checked:bg-success',
+          'spark-state-unchecked:border-success',
+          'spark-state-checked:border-success spark-state-checked:bg-success',
         ],
         alert: [
-          'radix-state-unchecked:border-alert',
-          'radix-state-checked:border-alert radix-state-checked:bg-alert',
+          'spark-state-unchecked:border-alert',
+          'spark-state-checked:border-alert spark-state-checked:bg-alert',
         ],
         error: [
-          'radix-state-unchecked:border-error',
-          'radix-state-checked:border-error radix-state-checked:bg-error',
+          'spark-state-unchecked:border-error',
+          'spark-state-checked:border-error spark-state-checked:bg-error',
         ],
       },
     },
