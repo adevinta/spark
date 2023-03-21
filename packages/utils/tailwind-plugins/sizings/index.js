@@ -46,11 +46,9 @@ module.exports = plugin.withOptions(
    */
   options =>
     ({ addBase }) => {
-      const opts = options || {
-        htmlFontSize: 16,
-      }
+      const opts = options || {}
 
-      const { htmlFontSize } = opts
+      const { htmlFontSize = 16 } = opts
 
       addBase({
         ':root': getCSSVariableDeclarations(htmlFontSize),

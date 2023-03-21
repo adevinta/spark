@@ -43,11 +43,9 @@ module.exports = plugin.withOptions(
    */
   options =>
     ({ addUtilities, addVariant, matchUtilities, theme }) => {
-      const opts = options || {
-        variantPrefix: 'sp-anime',
-      }
+      const opts = options || {}
 
-      const { variantPrefix } = opts
+      const { variantPrefix = 'sp-anime' } = opts
 
       matchUtilities(
         {
