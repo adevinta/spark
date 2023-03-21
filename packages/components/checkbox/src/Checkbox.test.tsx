@@ -8,13 +8,13 @@ describe('Checkbox', () => {
   it('should render', () => {
     render(
       <>
-        <Checkbox id={'c1'} />
-        <label htmlFor={'c1'}>Accept terms and conditions</label>
+        <Checkbox id="c1" />
+        <label htmlFor="c1">Accept terms and conditions</label>
       </>
     )
 
     expect(screen.getByText('Accept terms and conditions')).toBeInTheDocument()
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
+    expect(screen.getByRole('checkbox', { name: 'Accept terms and conditions' })).not.toBeChecked()
   })
 
   it('should trigger check event', async () => {
@@ -24,8 +24,8 @@ describe('Checkbox', () => {
     // Given
     render(
       <>
-        <Checkbox id={'c1'} onCheckedChange={clickEvent} />
-        <label htmlFor={'c1'}>Accept terms and conditions</label>
+        <Checkbox id="c1" onCheckedChange={clickEvent} />
+        <label htmlFor="c1">Accept terms and conditions</label>
       </>
     )
 
@@ -33,7 +33,7 @@ describe('Checkbox', () => {
     await user.click(screen.getByText('Accept terms and conditions'))
 
     // Then
-    expect(screen.getByRole('checkbox')).toBeChecked()
+    expect(screen.getByRole('checkbox', { name: 'Accept terms and conditions' })).toBeChecked()
     expect(clickEvent).toHaveBeenCalledTimes(1)
     expect(clickEvent).toHaveBeenCalledWith(true)
   })
@@ -44,15 +44,15 @@ describe('Checkbox', () => {
     // Given
     render(
       <>
-        <Checkbox id={'c1'} defaultChecked onCheckedChange={clickEvent} />
-        <label htmlFor={'c1'}>Accept terms and conditions</label>
+        <Checkbox id="c1" defaultChecked onCheckedChange={clickEvent} />
+        <label htmlFor="c1">Accept terms and conditions</label>
       </>
     )
 
     // When
-    expect(screen.getByRole('checkbox')).toBeChecked()
+    expect(screen.getByRole('checkbox', { name: 'Accept terms and conditions' })).toBeChecked()
     await user.click(screen.getByText('Accept terms and conditions'))
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
+    expect(screen.getByRole('checkbox', { name: 'Accept terms and conditions' })).not.toBeChecked()
 
     // Then
     expect(clickEvent).toHaveBeenCalledTimes(1)
@@ -65,8 +65,8 @@ describe('Checkbox', () => {
     // Given
     render(
       <>
-        <Checkbox id={'c1'} disabled />
-        <label htmlFor={'c1'}>Accept terms and conditions</label>
+        <Checkbox id="c1" disabled />
+        <label htmlFor="c1">Accept terms and conditions</label>
       </>
     )
 
