@@ -51,7 +51,7 @@ module.exports = {
       2,
       {
         config: './tailwind.config.cjs',
-        callees: ['cx', 'classnames', 'clsx', 'cva'],
+        callees: ['cx', 'classnames', 'clsx', 'cva', 'tw'],
         whitelist: ['sb-unstyled'],
       },
     ],
