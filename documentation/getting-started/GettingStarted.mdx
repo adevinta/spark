@@ -47,7 +47,9 @@ module.exports = {
     sparkPlugins.sizings({
       htmlFontSize: 16 // replace this value with your app's base font size if needed (default: 16)
     }),
-    tailwindcssRadix(), // we use this plugin internally, so it's necessary for consumers to install it as well
+    tailwindcssRadix({
+      variantPrefix: 'spark',
+    }), // we use this plugin internally, so it's necessary for consumers to install it as well
   ],
   ],
 }
