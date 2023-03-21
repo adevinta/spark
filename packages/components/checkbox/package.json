@@ -12,6 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-checkbox": "1.0.3"
+    "@radix-ui/react-checkbox": "1.0.3",
+    "class-variance-authority": "0.4.0"
   }
 }
