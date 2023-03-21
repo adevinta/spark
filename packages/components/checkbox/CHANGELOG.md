@@ -1,0 +1,23 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.1.0 (2023-03-21)
+
+### Bug Fixes
+
+- **checkbox:** solve ts error ([e6fcea3](https://github.com/adevinta/spark/commit/e6fcea3a2ed9d5eb50be31f3e16af38e7b7a9b11))
+
+### Features
+
+- **checkbox:** add cva dependency ([866929e](https://github.com/adevinta/spark/commit/866929e4a6bfb0c2ed5a79e7fa6d7ed81549305a))
+- **checkbox:** add intent prop and use opacity-dim-3 class for disabled components ([54ac320](https://github.com/adevinta/spark/commit/54ac32040d9982daa37ea7ec9ee1d663581170a9))
+- **checkbox:** add to Form group ([3c89bf0](https://github.com/adevinta/spark/commit/3c89bf08c586e2fbf3bed805f65e4c62b78c2ad5))
+- **checkbox:** apply PR suggestions to checkbox ([40f353a](https://github.com/adevinta/spark/commit/40f353a7eb99be04ae8753831839c907cd5c38f6))
+- **checkbox:** basic checkbox component, checkbox disabled and default checked examples ([425f325](https://github.com/adevinta/spark/commit/425f325eb4d2fe02d707fc358fc98c9ef6ddd3fc))
+- **checkbox:** basic component files ([5d6ab52](https://github.com/adevinta/spark/commit/5d6ab52be1ffbbd5a8fa0c38cdae0b92d48444d4))
+- **checkbox:** change unchecked border colors for intent variant ([4da81b5](https://github.com/adevinta/spark/commit/4da81b55c9848d19deca5d7d5ed740266aa12d76))
+- **checkbox:** do not override colors ([cf2a5e0](https://github.com/adevinta/spark/commit/cf2a5e0271a215ad9175894d8b4711a793cffe1c))
+- **checkbox:** remove from Form directory ([222293b](https://github.com/adevinta/spark/commit/222293b90e7a3967667ed253d655dd1699fc9d61))
+- **checkbox:** replace variantPrefix radix by spark ([3c8997b](https://github.com/adevinta/spark/commit/3c8997bd9835d7c6954faec68434365e92d0ae0e))

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.9.1...@spark-ui/theme-utils@2.10.0) (2023-03-21)
+
+### Features
+
+- **button:** implement every button variants ([febdcb2](https://github.com/adevinta/spark/commit/febdcb2e5f0b7cb8ab9d986c2249c84026dc1361))
+- **theme-utils:** add surface container colors ([802f924](https://github.com/adevinta/spark/commit/802f9241a962fae9f3cbdba0858ab7586ca72f3f))
+
 ## [2.9.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.9.0...@spark-ui/theme-utils@2.9.1) (2023-03-19)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
