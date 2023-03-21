@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.1.0...@spark-ui/radio@1.1.1) (2023-03-21)
+
+### Bug Fixes
+
+- **radio:** add missing dep ([1de96a9](https://github.com/adevinta/spark/commit/1de96a948eeddf024982286cf54ad3a503f45425))
+- **radio:** remove outline ([4ba62b4](https://github.com/adevinta/spark/commit/4ba62b423337b8bade0dd3641c556abc5304c306))
+
 # 1.1.0 (2023-03-20)
 
 ### Features
