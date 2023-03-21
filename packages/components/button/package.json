@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/radio",
-  "version": "1.1.1",
-  "description": "Component used when only one choice may be selected in a series of options",
+  "name": "@spark-ui/button",
+  "version": "1.0.0",
+  "description": "Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.",
   "publishConfig": {
     "access": "public"
   },
@@ -12,7 +12,6 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-radio-group": "1.1.2",
     "class-variance-authority": "0.4.0"
   }
 }

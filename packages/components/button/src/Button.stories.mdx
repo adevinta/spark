@@ -1,0 +1,69 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Button } from '.'
+
+import * as stories from './Button.stories'
+
+<Meta title="Components/Button" component={Button} />
+
+# Button
+
+Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
+
+<StoryHeading label="Install" />
+
+```sh
+npm install @spark-ui/button
+```
+
+<StoryHeading label="Import" />
+
+```js
+import { Button } from "@spark-ui/button"
+```
+
+<StoryHeading label="Default" />
+
+<Canvas>
+  <Story name="Usage" story={stories.Default} />
+</Canvas>
+
+<StoryHeading label="Disabled" />
+
+Use `disable` prop to disable the element.
+
+<Canvas>
+  <Story name="Disabled" story={stories.Disabled} />
+</Canvas>
+
+<StoryHeading label="Sizes" />
+
+Use `size` prop to set the size of a button.
+
+<Canvas>
+  <Story name="Sizes" story={stories.Sizes} />
+</Canvas>
+
+<StoryHeading label="Shapes" />
+
+Use `shape` prop to set the shape of a button.
+
+<Canvas>
+  <Story name="Shapes" story={stories.Shapes} />
+</Canvas>
+
+<StoryHeading label="Design" />
+Use `design` prop to set the different look and feels of a button.
+<Canvas>
+  <Story name="Design" story={stories.Design} />
+</Canvas>
+
+<StoryHeading label="Intent" />
+Use `intent` prop to set the color intent of a button.
+<Canvas>
+  <Story name="Intent" story={stories.Intent} />
+</Canvas>
+
+<StoryHeading label="Props" />
+<ArgsTable of={Button} />
