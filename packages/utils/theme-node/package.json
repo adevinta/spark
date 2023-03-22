@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/theme-utils-node",
-  "version": "2.0.26",
+  "version": "2.0.27",
   "description": "helps with the creation of theme configuration files necessary for Spark",
   "publishConfig": {
     "access": "public"
@@ -12,7 +12,7 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@spark-ui/theme-utils": "^2.10.0",
+    "@spark-ui/theme-utils": "^2.10.1",
     "deepmerge": "4.3.0",
     "hex-rgb": "5.0.0",
     "type-fest": "3.6.1"

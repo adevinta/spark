@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.10.0...@spark-ui/theme-utils@2.10.1) (2023-03-22)
+
+**Note:** Version bump only for package @spark-ui/theme-utils
+
 # [2.10.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.9.1...@spark-ui/theme-utils@2.10.0) (2023-03-21)
 
 ### Features
