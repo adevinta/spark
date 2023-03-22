@@ -8,140 +8,211 @@ import ArgstableImg from '@docs/assets/argstable.png'
 
 # Writing stories
 
-Write your stories using the [MDX format](https://storybook.js.org/docs/react/api/mdx). It allows for more flexibility and automatically generates a Docs page for your component.
+The following guide is showing you how to structure your components documentation.
 
-The official recipe we follow for now is [CSF Stories with MDX Docs](https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#csf-stories-with-mdx-docs)
+<StoryHeading label="Docs VS Stories" />
 
-<Alert kind="warning">
-  <p class="text-headline-2 font-bold">Draft</p>
-  <p>Spark's team needs to validate/challenge this document, which is subject to changes.</p>
-  <p>
-    <span>There are </span>
-    <a
-      class="inline-block underline"
-      href="https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md"
-    >
-      other ways to write stories.
-    </a>
-  </p>
-</Alert>
+Each component must have a `doc` and a `stories` file. For example:
 
-Each component documentation should follow this structure:
+- `MyComponent.doc.mdx`: Main page of documentation for the component. It uses markdown (MDX) syntax for easy documentation.
+  - This page gather the component's props and stories
+- `MyComponent.stories.tsx`:
+  - This file contains every example (story) for your component.
+  - It is using the CSF format.
 
-1. [Meta](#meta)
-2. [Description](#description)
-3. [Anatomy](#anatomy)
-4. [ArgsTable](#argstable)
-5. [Variants and examples](#variants-and-examples)
+<StoryHeading label="Docs" />
 
-<StoryHeading label="Meta" />
+<StoryHeading label="Docs guidelines" as="h3" />
 
-The component documentation should be placed under the `Components` section of the documentation.
+- Every Docs file must have the following extension: `*.doc.mdx`.
+- You must write the following sections in the same order for every component.
 
-They must belong to one of the following categories:
+<StoryHeading label="1. Referencing the Meta" as="h3" />
 
-- Disclosure
-- Feedback
-- Overlay
-- Layout
-- Media and Icons
-- Navigation
-- Forms
-- Data Display
-- Typography
-
-> Example:
+The meta is the semantic information about the documented component.
+It must be located in the `*stories.tsx` file, but must be referenced in this one to link both files.
 
 ```
-import { Meta } from "@storybook/addon-docs";
+// Radio.doc.mdx
 
-<Meta title="Components/Forms/Button" component={Button} />
+import { Meta } from '@storybook/addon-docs'
+
+import * as RadioStories from './Radio.stories'
+
+<Meta of={RadioStories} />
 ```
 
-<StoryHeading label="Description" />
+<StoryHeading label="2. Install" as="h3" />
 
-Using markdown syntax, describe what your component's role is. Try to be concise and clear.
+Add a section to show developers how to install this component on their repository.
 
-For example, for a `Button` component, it could be:
+````
+// Radio.doc.mdx
 
-> Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
+import { StoryHeading } from '@docs/helpers/StoryHeading'
 
-<StoryHeading label="Anatomy" />
+<StoryHeading label="Install" />
 
-todo
+\```sh
+npm install @spark-ui/radio
+\```
+````
 
-<StoryHeading label="ArgsTable" />
+<StoryHeading label="3. Import" as="h3" />
 
-Simply use Storybook's `ArgsTable` component in your MDX to generate the props documentation.
-It will parse the TypeScript files of your component to generate a full table.
+Add a section to show developers how to import this component from their repository.
 
-It uses the JSDoc comments above each prop of your component to show it as a description. It also retrieves default values for each property.
+````
+// Radio.doc.mdx
+
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+<StoryHeading label="Import" />
+
+\```ts
+import { RadioGroup, Radio } from '@spark-ui/radio'
+\```
+````
+
+<StoryHeading label="4. Props" as="h3" />
+
+<StoryHeading label="Props for single components" as="h4" />
+
+For prop, we rely on `ArgsTable` to read TS files and generate them automatically.
 
 ```
-import { ArgsTable } from "@storybook/addon-docs";
+// Radio.doc.mdx
 
-## Props
+import { ArgsTable } from '@storybook/addon-docs'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
 
-<ArgsTable of={Button} />
+import { Radio } from '.'
+
+<StoryHeading label="Props" />
+<ArgsTable of={Radio} />
 ```
 
 **Here is what the ArgsTable looks like for a simple component:**
 
 <img width={800} src={ArgstableImg} alt="Argstable shows a table of the component's props" />
 
-<StoryHeading label="Variants and examples" />
+<StoryHeading label="Props for compound components" as="h4" />
 
-Display and describe as many use cases as you want to showcase the features offered by your component.
-We [suggest you split JSX examples from the markdown](https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#csf-stories-with-mdx-docs) for a better developer experience because TypeScript does not support MDX type-checking as of today.
+TODO
 
-###
+<StoryHeading label="5. Linking stories" as="h3" />
 
-<StoryHeading label="Live editable example" as="h3" />
+Stories are imported from the associated `*.stories.tsx` file, which is written with CSF format.
 
-We created `@devtools/ReactLiveBlock` to replace the `Canvas` component offered by Storybook.
-`ReactLiveBlock` allows you to display editable JSX of your stories, copy the code or reset it to its initial state.
+`Canvas` is used to allow preview of source code for each story.
 
-Simply create examples like this:
-
-```
-import { Button } from "./Button";
-import { ReactLiveBlock } from "@devtools/ReactLiveBlock";
-
-export const variants = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <Button variant="default" label="Default" />
-    <Button variant="warning" label="Warning" />
-    <Button variant="danger" label="Danger" />
-    <Button variant="info" label="Info" />
-    <Button variant="success" label="Success" />
-  </ReactLiveBlock>
-);
-
-export const sizes = () => (
-  <ReactLiveBlock scope={{ Button }}>
-    <Button size="small" label="Button (small)" />
-    <Button size="medium" label="Button (medium)" />
-    <Button size="large" label="Button (large)" />
-  </ReactLiveBlock>
-);
-```
-
-Then consume it in your MDX file:
+<Alert kind="warning">
+  Each story should showcase a single prop/feature of your component. **Avoid stories mixing many
+  properties at once to keep things simple**.
+</Alert>
 
 ```
-import * as examples from "./ButtonExamples";
+// Radio.doc.mdx
 
-## Variants
+import { Canvas, Story } from '@storybook/addon-docs'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
 
-Some description about the variants and their semantic roles...
+<StoryHeading label="Default" />
 
-<Story name="variants" story={examples.variants} />
+Compound `RadioGroup` and `Radio` components to create a radio group.
 
-## Sizes
-
-Some description about the sizes...
-
-<Story name="sizes" story={examples.sizes} />
+<Canvas>
+  <Story of={RadioStories.Default} />
+</Canvas>
 ```
 
-Feel free to add as many examples as necessary.
+<StoryHeading label="6. Accessibility" as="h3" />
+
+It is nice to add an `Accessibility` section at the end to summarize keyboard interactions and important a11y requirements of the component.
+
+```
+// Radio.doc.mdx
+
+<StoryHeading label="Accessibility" />
+
+Adheres to the Radio Group WAI-ARIA design pattern and uses roving tabindex to manage focus movement among radio items.
+
+
+<StoryHeading as="h3" label="Keyboard Interactions" />
+
+- `Tab`: Moves focus to either the checked radio item or the first radio item in the group.
+- `Space`: When focus is on an unchecked radio item, checks it.
+- `ArrowDown`: Moves focus and checks the next radio item in the group.
+- `ArrowRight`: Moves focus and checks the next radio item in the group.
+- `ArrowUp`: Moves focus to the previous radio item in the group.
+- `ArrowLeft`: Moves focus to the previous radio item in the group.
+
+```
+
+<StoryHeading label="Stories" />
+
+<StoryHeading label="Guidelines" as="h3" />
+
+- Every stories file must have the following extension: `*.stories.tsx`.
+- You should write one story per prop. Avoid compolicated stories mixing many props.
+
+<StoryHeading label="1. Define the Meta" as="h3" />
+
+Component must be using a `Components/*` meta. This meta must be the default export of the file.
+
+Please refer to [official Storybook documentation](https://storybook.js.org/docs/7.0/react/writing-stories/introduction#default-export) to see extra arguments you may be able to use.
+
+```tsx
+// Radio.stories.tsx
+
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
+import { useState } from 'react'
+
+import { Radio, RadioGroup } from '.'
+
+const meta: Meta<typeof RadioGroup> = {
+  title: 'Components/RadioGroup',
+  component: RadioGroup,
+}
+
+export default meta
+```
+
+<StoryHeading label="2. Write down your stories" as="h3" />
+
+Please refer to [official Storybook documentation](https://storybook.js.org/docs/7.0/react/writing-stories/introduction#defining-stories) to see how you can write stories
+
+<Alert kind="warning">
+  Each story must use the `_args` parameter, otherwise the `show source` button of the Canvas will
+  show raw js code instead of dynamic JSX.
+</Alert>
+
+```tsx
+// Radio.stories.tsx
+
+export const Default: StoryFn = _args => (
+  <RadioGroup className="flex gap-md">
+    <Radio value="1" />
+    <Radio value="2" />
+    <Radio value="3" />
+  </RadioGroup>
+)
+
+export const Controlled: StoryFn = _args => {
+  const [value, setValue] = useState('1')
+
+  const handleChange = (current: string) => {
+    setValue(current)
+  }
+
+  return (
+    <RadioGroup className="flex gap-md" value={value} onValueChange={handleChange}>
+      <Radio value="1" />
+      <Radio value="2" />
+      <Radio value="3" />
+    </RadioGroup>
+  )
+}
+
+// ...additional stories
+```

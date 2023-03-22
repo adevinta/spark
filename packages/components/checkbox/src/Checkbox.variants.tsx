@@ -8,7 +8,7 @@ export const styles = cva(
   [
     'peer h-sz-20 w-sz-20 rounded-sm border-md bg-transparent items-center justify-center',
     'spark-disabled:opacity-dim-3 spark-disabled:cursor-not-allowed spark-disabled:hover:ring-0',
-    'focus-visible:outline-none focus-visible:ring-2 focus:ring-outline-high',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
     'hover:outline-none hover:ring-2 hover:border-primary-container',
   ],
   {

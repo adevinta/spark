@@ -6,7 +6,8 @@ module.exports = {
   stories: [
     '../documentation/getting-started/GettingStarted.mdx',
     '../documentation/**/!(getting-started)/*.mdx',
-    '../packages/**/*.stories.@(mdx)',
+    '../packages/**/*.doc.mdx',
+    '../packages/**/*.stories.tsx',
   ],
   addons: [
     '@storybook/addon-links',
@@ -14,12 +15,9 @@ module.exports = {
     '@storybook/addon-interactions',
   ],
   staticDirs: ['../public'],
-  framework: '@storybook/react-vite',
-  docs: {
-    autodocs: 'tag',
-  },
-  core: {
-    builder: '@storybook/builder-vite',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
   },
   features: {
     storyStoreV7: true,
@@ -27,5 +25,8 @@ module.exports = {
   typescript: {
     check: true,
     reactDocgen: 'react-docgen-typescript',
+  },
+  docs: {
+    autodocs: true,
   },
 }

@@ -1,11 +1,12 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { Source } from '@storybook/blocks'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { Button } from '.'
 
-import * as stories from './Button.stories'
+import * as ButtonStories from './Button.stories'
 
-<Meta title="Components/Button" component={Button} />
+<Meta of={ButtonStories} />
 
 # Button
 
@@ -20,13 +21,16 @@ npm install @spark-ui/button
 <StoryHeading label="Import" />
 
 ```js
-import { Button } from "@spark-ui/button"
+import { Button } from '@spark-ui/button'
 ```
+
+<StoryHeading label="Props" />
+<ArgsTable of={Button} />
 
 <StoryHeading label="Default" />
 
 <Canvas>
-  <Story name="Usage" story={stories.Default} />
+  <Story of={ButtonStories.Default} />
 </Canvas>
 
 <StoryHeading label="Disabled" />
@@ -34,7 +38,7 @@ import { Button } from "@spark-ui/button"
 Use `disable` prop to disable the element.
 
 <Canvas>
-  <Story name="Disabled" story={stories.Disabled} />
+  <Story of={ButtonStories.Disabled} />
 </Canvas>
 
 <StoryHeading label="Sizes" />
@@ -42,7 +46,7 @@ Use `disable` prop to disable the element.
 Use `size` prop to set the size of a button.
 
 <Canvas>
-  <Story name="Sizes" story={stories.Sizes} />
+  <Story of={ButtonStories.Sizes} />
 </Canvas>
 
 <StoryHeading label="Shapes" />
@@ -50,20 +54,21 @@ Use `size` prop to set the size of a button.
 Use `shape` prop to set the shape of a button.
 
 <Canvas>
-  <Story name="Shapes" story={stories.Shapes} />
+  <Story of={ButtonStories.Shapes} />
 </Canvas>
 
 <StoryHeading label="Design" />
+
 Use `design` prop to set the different look and feels of a button.
+
 <Canvas>
-  <Story name="Design" story={stories.Design} />
+  <Story of={ButtonStories.Design} />
 </Canvas>
 
 <StoryHeading label="Intent" />
-Use `intent` prop to set the color intent of a button.
-<Canvas>
-  <Story name="Intent" story={stories.Intent} />
-</Canvas>
 
-<StoryHeading label="Props" />
-<ArgsTable of={Button} />
+Use `intent` prop to set the color intent of a button.
+
+<Canvas>
+  <Story of={ButtonStories.Intent} />
+</Canvas>

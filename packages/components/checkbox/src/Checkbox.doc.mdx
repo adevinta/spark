@@ -3,9 +3,9 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { Checkbox } from '.'
 
-import * as stories from './Checkbox.stories'
+import * as CheckboxStories from './Checkbox.stories'
 
-<Meta title="Components/Checkbox" component={Checkbox} />
+<Meta of={CheckboxStories} />
 
 # Checkbox
 
@@ -24,30 +24,29 @@ import { Checkbox } from "@spark-ui/checkbox"
 ```
 
 <StoryHeading label="Props" />
-
 <ArgsTable of={Checkbox} />
 
 <StoryHeading label="Usage" />
 <Canvas>
-  <Story name="Usage" story={stories.Default} />
+  <Story of={CheckboxStories.Default} />
 </Canvas>
 
 <StoryHeading label="Disabled" />
 <Canvas>
-  <Story name="Disabled" story={stories.Disabled} />
+  <Story of={CheckboxStories.Disabled} />
 </Canvas>
 
 <StoryHeading label="DefaultChecked" />
 <Canvas>
-  <Story name="DefaultChecked" story={stories.DefaultChecked} />
+  <Story of={CheckboxStories.DefaultChecked} />
 </Canvas>
 
 <StoryHeading label="Controlled" />
 <Canvas>
-  <Story name="Controlled" story={stories.Controlled} />
+  <Story of={CheckboxStories.Controlled} />
 </Canvas>
 
 <StoryHeading label="Intent" />
 <Canvas>
-  <Story name="Variants/Intent" story={stories.Intent} />
+  <Story of={CheckboxStories.Intent} />
 </Canvas>
