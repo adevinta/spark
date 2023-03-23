@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.7.3...@spark-ui/cli-utils@2.8.0) (2023-03-23)
+
+### Features
+
+- **cli-utils:** remove deprecated spark-setup-themes cli package ([a2efa9c](https://github.com/adevinta/spark/commit/a2efa9c15b3ece4285043fd25858435f455f257d))
+
 ## [2.7.3](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.7.2...@spark-ui/cli-utils@2.7.3) (2023-03-22)
 
 **Note:** Version bump only for package @spark-ui/cli-utils
