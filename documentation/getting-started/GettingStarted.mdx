@@ -51,7 +51,7 @@ Two important notes regarding the example above:
 - we are using our default themes from our `theme-utils` package. However, you can replace it with your own themes, as long as they adhere to our `Theme` interface.
   The Theme interface is available through the [**@spark-ui/theme-utils**](?path=/docs/utils-theme--docs) package.
 
-- The `sparkTheme` plugin accepts an object with two fields: `themes` and `htmlFontSize`.
+- The `sparkConfig` plugin accepts an object with two fields: `themes` and `htmlFontSize`.
 
 **themes**:
 
@@ -61,7 +61,7 @@ For example, if your `themes` object looks like this:
 
 ```js
 
-sparkPlugins.sparkTheme({
+sparkPlugins.sparkConfig({
   themes: {
     default: yourDefaultTheme,
     alternative: someAlternativeTheme,
