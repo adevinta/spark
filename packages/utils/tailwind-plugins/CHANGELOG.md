@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.2.3...@spark-ui/tailwind-plugins@2.3.0) (2023-03-23)
+
+### Features
+
+- **tailwind-plugins:** add min-height and min-width to sizing plugin ([e47d920](https://github.com/adevinta/spark/commit/e47d920687e8ecf2891b17da8ab8abff2d0cd3fa))
+
 ## [2.2.3](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.2.2...@spark-ui/tailwind-plugins@2.2.3) (2023-03-23)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins
