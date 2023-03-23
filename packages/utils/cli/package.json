@@ -7,8 +7,7 @@
   },
   "bin": {
     "spark": "./bin/spark.mjs",
-    "spark-generate": "./bin/spark-generate.mjs",
-    "spark-setup-themes": "./bin/spark-setup-themes.mjs"
+    "spark-generate": "./bin/spark-generate.mjs"
   },
   "type": "module",
   "repository": {
@@ -18,15 +17,12 @@
   },
   "dependencies": {
     "@clack/prompts": "0.6.2",
-    "@spark-ui/theme-utils": "^2.10.1",
     "camel-case": "4.1.2",
     "chalk": "5.2.0",
     "commander": "10.0.0",
-    "deepmerge": "4.3.0",
     "esbuild": "0.17.11",
     "fs-extra": "11.1.0",
     "glob": "8.1.0",
-    "hex-rgb": "5.0.0",
     "pascal-case": "3.1.2"
   },
   "devDependencies": {
