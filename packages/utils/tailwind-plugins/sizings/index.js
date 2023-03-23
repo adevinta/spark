@@ -59,8 +59,10 @@ module.exports = plugin.withOptions(
       extend: {
         width: getCSSVariableReferences(),
         maxWidth: getCSSVariableReferences(),
+        minWidth: getCSSVariableReferences(),
         height: getCSSVariableReferences(),
         maxHeight: getCSSVariableReferences(),
+        minHeight: getCSSVariableReferences(),
         translate: getCSSVariableReferences(),
       },
     },
