@@ -65,7 +65,9 @@ export const Intent: StoryFn = _args => (
   </div>
 )
 export const Link: StoryFn = _args => (
-  <Button asChild>
-    <a href="/">button</a>
-  </Button>
+  <div className="flex flex-row gap-md">
+    <Button asChild>
+      <a href="/">button</a>
+    </Button>
+  </div>
 )
