@@ -4,12 +4,10 @@ import * as Icons from './index'
 
 const meta: Meta = {
   title: 'components/Icons',
-  component: Object.entries(Icons)[0][1],
+  component: Icons.Check,
 }
 
 export default meta
-
-// console.log(JSON.stringify(Object.entries(Icons)))
 
 export const Default: StoryFn = _args => (
   <div className="flex items-center gap-sm">
