@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Misc
 node_modules
 dist
 dist-ssr
@@ -15,6 +16,7 @@ storybook-static
 coverage
 *.tsbuildinfo
 .eslintcache
+.vercel
 
 # Editor directories and files
 .vscode/*
@@ -26,4 +28,3 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-.vercel
