@@ -1,0 +1,42 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Portal } from '.'
+
+import * as PortalStories from './Portal.stories'
+
+<Meta of={PortalStories} />
+
+# Portal
+
+Renders a React subtree in a different part of the DOM.
+
+- Render any React subtree outside of your App.
+- Appends to `document.body` by default but can be customized to use a different container.
+
+<StoryHeading label="Install" />
+
+```
+npm install @spark-ui/portal
+```
+
+<StoryHeading label="Import" />
+
+```
+import { Portal } from "@spark-ui/portal"
+```
+
+<StoryHeading label="Props" />
+
+<ArgsTable of={Portal} />
+
+<StoryHeading label="Usage" />
+
+In the following example, the JSX element is located in the left block, but rendered inside the right block.
+
+This is because we wrapped it with a `Portal` whose `container` is the block to the right.
+
+<Canvas>
+  <Story of={PortalStories.Usage} />
+</Canvas>

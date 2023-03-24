@@ -1,7 +1,16 @@
-import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
+import { Portal as PortalPrimitive } from '@radix-ui/react-portal'
+import type * as Radix from '@radix-ui/react-primitive'
+import React, { PropsWithChildren } from 'react'
 
-export type PortalProps = ComponentPropsWithoutRef<'div'>
-
-export function Portal(props: PropsWithChildren<PortalProps>) {
-  return <div {...props} />
+interface PortalProps {
+  /**
+   * An optional different container where the portaled content should be appended.
+   */
+  container?: HTMLElement | null
 }
+
+type PortalRef = React.ElementRef<typeof Radix.Primitive.div>
+
+export const Portal = React.forwardRef<PortalRef, PropsWithChildren<PortalProps>>((props, ref) => {
+  return <PortalPrimitive ref={ref} {...props} />
+})
