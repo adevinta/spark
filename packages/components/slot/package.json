@@ -1,0 +1,17 @@
+{
+  "name": "@spark-ui/slot",
+  "version": "1.0.0",
+  "description": "Merges its props onto its immediate child",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "1.0.1"
+  }
+}
