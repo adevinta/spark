@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import * as IconsStories from './index.stories'
+
+<Meta of={IconsStories} />
+
+# Icons
+
+A set of icons for the Spark-ui.
+
+<StoryHeading label="Install" />
+
+```
+npm install @spark-ui/icons
+```
+
+<StoryHeading label="Import" />
+
+```
+import { Check } from "@spark-ui/icons"
+```
+
+<StoryHeading label="Usage" />
+<Canvas>
+  <Story of={IconsStories.Default} />
+</Canvas>
