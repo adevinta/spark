@@ -1,6 +1,6 @@
 import { optimize as optimizeSVGO } from 'svgo'
 
-const optimize = (svgString, { attributes = [] } = {}) => {
+const optimize = (svgString, { attributes = [], title } = {}) => {
   return optimizeSVGO(svgString, {
     multipass: true, // boolean. false by default
     js2svg: {
@@ -17,7 +17,7 @@ const optimize = (svgString, { attributes = [] } = {}) => {
       {
         name: 'addAttributesToSVGElement',
         params: {
-          attributes,
+          attributes: [title && { 'data-title': title }, ...attributes].filter(Boolean),
         },
       },
       'removeDimensions',
