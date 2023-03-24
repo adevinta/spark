@@ -1,26 +1,37 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { describe, expect, it, vitest } from 'vitest'
 
 import { Slot } from './Slot'
 
 describe('Slot', () => {
   it('should render wrapped component', () => {
+    // Given
+    const props = {}
+
+    // When
     render(
-      <Slot>
-        <button>Link</button>
+      <Slot {...props}>
+        <button>Button</button>
       </Slot>
     )
 
-    expect(screen.getByRole('button', { name: 'Link' })).toBeInTheDocument()
+    // Then
+    expect(screen.getByRole('button', { name: 'Button' })).toBeInTheDocument()
   })
 
-  it('should pass props to child component', () => {
+  it('should pass props to child component', async () => {
+    // Given
+    const props = { onClick: vitest.fn() }
+
+    // When
     render(
-      <Slot href="/home">
-        <a>Link</a>
+      <Slot {...props}>
+        <button>Button</button>
       </Slot>
     )
+    fireEvent.click(screen.getByRole('button', { name: 'Button' }))
 
-    expect(screen.getByRole('link', { name: 'Link' })).toHaveAttribute('href', '/home')
+    // Then
+    await waitFor(() => expect(props.onClick).toBeCalled())
   })
 })

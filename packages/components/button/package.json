@@ -12,6 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@spark-ui/slot": "1",
     "class-variance-authority": "0.4.0"
   }
 }

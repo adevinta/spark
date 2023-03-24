@@ -17,6 +17,18 @@ describe('Button', () => {
     expect(element).toBeInTheDocument()
   })
 
+  it('should render as link', async () => {
+    // Given
+    const props = { asChild: true, children: <a href="/">Link</a> }
+
+    // When
+    render(<Button {...props} />)
+    const element = screen.getByRole('link', { name: 'Link' })
+
+    // Then
+    expect(element).toHaveAttribute('href', '/')
+  })
+
   it('should trigger click event', async () => {
     // Given
     const user = userEvent.setup()
@@ -35,7 +47,7 @@ describe('Button', () => {
     expect(clickEvent).toHaveBeenCalledTimes(1)
   })
 
-  it('should not trigger events', async () => {
+  it('should not trigger events when disabled', async () => {
     // Given
     const user = userEvent.setup()
     const clickEvent = vi.fn()

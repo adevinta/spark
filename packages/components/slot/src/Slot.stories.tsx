@@ -10,7 +10,7 @@ const meta: Meta<typeof Slot> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <Slot href="/">
-    <a>Link</a>
+  <Slot>
+    <a href="/">Link</a>
   </Slot>
 )

@@ -1,13 +1,18 @@
+import { Slot } from '@spark-ui/slot'
 import React, { PropsWithChildren } from 'react'
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
-/** Review: Prop VS ButtonProps */
 export interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size' | 'disabled'>,
-    ButtonStylesProps {}
+  extends PropsWithChildren<Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>>,
+    ButtonStylesProps {
+  /**
+   * Change the component to the HTML tag or custom component of the only child.
+   */
+  asChild?: boolean
+}
 
-export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       design = 'filled',
@@ -15,12 +20,15 @@ export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<Butt
       intent = 'primary',
       shape = 'rounded',
       size = 'md',
-      ...otherProps
+      asChild,
+      ...others
     },
     ref
   ) => {
+    const Component = asChild ? Slot : 'button'
+
     return (
-      <button
+      <Component
         ref={ref}
         className={buttonStyles({
           design,
@@ -30,7 +38,7 @@ export const Button = React.forwardRef<HTMLButtonElement, PropsWithChildren<Butt
           size,
         })}
         disabled={!!disabled}
-        {...otherProps}
+        {...others}
       />
     )
   }

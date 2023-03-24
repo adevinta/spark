@@ -6,8 +6,12 @@ import { Radio, RadioGroup } from '.'
 
 describe('Radio', () => {
   it('should render correctly', () => {
+    // Given
+    const props = { defaultValue: '1' }
+
+    // When
     render(
-      <RadioGroup defaultValue="1">
+      <RadioGroup {...props}>
         <label>
           1
           <Radio value="1" />
@@ -22,18 +26,22 @@ describe('Radio', () => {
         </label>
       </RadioGroup>
     )
+    const element = screen.getByRole('radiogroup')
 
-    const radiogroupEl = screen.getByRole('radiogroup')
-
-    expect(radiogroupEl).toBeInTheDocument()
-    expect(within(radiogroupEl).getByRole('radio', { name: '1' })).toBeChecked()
-    expect(within(radiogroupEl).getByRole('radio', { name: '2' })).not.toBeChecked()
-    expect(within(radiogroupEl).getByRole('radio', { name: '3' })).not.toBeChecked()
+    // Then
+    expect(element).toBeInTheDocument()
+    expect(within(element).getByRole('radio', { name: '1' })).toBeChecked()
+    expect(within(element).getByRole('radio', { name: '2' })).not.toBeChecked()
+    expect(within(element).getByRole('radio', { name: '3' })).not.toBeChecked()
   })
 
   it('should check and uncheck when a radio is clicked while in uncontrolled mode', async () => {
+    // Given
+    const props = { defaultValue: '1' }
+
+    // When
     render(
-      <RadioGroup defaultValue="1">
+      <RadioGroup {...props}>
         <label>
           1
           <Radio value="1" />
@@ -48,24 +56,24 @@ describe('Radio', () => {
         </label>
       </RadioGroup>
     )
+    const element = screen.getByRole('radiogroup')
 
-    const radiogroupEl = screen.getByRole('radiogroup')
+    // Then
+    expect(element).toBeInTheDocument()
+    expect(within(element).getByRole('radio', { name: '1' })).toBeChecked()
 
-    expect(radiogroupEl).toBeInTheDocument()
-    expect(within(radiogroupEl).getByRole('radio', { name: '1' })).toBeChecked()
+    userEvent.click(within(element).getByRole('radio', { name: '2' }))
 
-    userEvent.click(within(radiogroupEl).getByRole('radio', { name: '2' }))
-
-    await waitFor(() =>
-      expect(within(radiogroupEl).getByRole('radio', { name: '1' })).toBeChecked()
-    )
+    await waitFor(() => expect(within(element).getByRole('radio', { name: '1' })).toBeChecked())
   })
 
   it('should check and uncheck when a radio is clicked while in controlled mode', async () => {
-    const onValueChange = vitest.fn()
+    // Given
+    const props = { value: '1', onValueChange: vitest.fn() }
 
+    // When
     render(
-      <RadioGroup value="1" onValueChange={onValueChange}>
+      <RadioGroup {...props}>
         <label>
           1
           <Radio value="1" />
@@ -80,14 +88,14 @@ describe('Radio', () => {
         </label>
       </RadioGroup>
     )
+    const element = screen.getByRole('radiogroup')
 
-    const radiogroupEl = screen.getByRole('radiogroup')
+    // Then
+    expect(element).toBeInTheDocument()
+    expect(within(element).getByRole('radio', { name: '1' })).toBeChecked()
 
-    expect(radiogroupEl).toBeInTheDocument()
-    expect(within(radiogroupEl).getByRole('radio', { name: '1' })).toBeChecked()
+    userEvent.click(within(element).getByRole('radio', { name: '2' }))
 
-    userEvent.click(within(radiogroupEl).getByRole('radio', { name: '2' }))
-
-    await waitFor(() => expect(onValueChange).toBeCalledWith('2'))
+    await waitFor(() => expect(props.onValueChange).toBeCalledWith('2'))
   })
 })

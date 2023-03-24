@@ -1,8 +1,8 @@
 import { Slot as SlotPrimitive } from '@radix-ui/react-slot'
-import { PropsWithChildren } from 'react'
+import { forwardRef, PropsWithChildren } from 'react'
 
-export type SlotProps = PropsWithChildren<Omit<React.HTMLProps<HTMLDivElement>, 'ref'>>
+export type SlotProps = PropsWithChildren<React.HTMLAttributes<HTMLElement>>
 
-export function Slot(props: SlotProps) {
-  return <SlotPrimitive {...props} />
-}
+export const Slot = forwardRef<HTMLElement, SlotProps>((props, ref) => {
+  return <SlotPrimitive ref={ref} {...props} />
+})
