@@ -80,3 +80,22 @@ export const Intent: StoryFn = _args => (
     })}
   </>
 )
+export const Icon: StoryFn = _args => (
+  <div className="flex items-center gap-sm">
+    <Checkbox
+      id={'c6'}
+      defaultChecked
+      icon={
+        <svg viewBox="0 0 200 200" fill="currentColor">
+          <path d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0" />
+        </svg>
+      }
+    />
+    <label
+      htmlFor={'c6'}
+      className="cursor-pointer pl-[4px] text-body-1 font-medium peer-disabled:cursor-not-allowed  peer-disabled:opacity-dim-3"
+    >
+      Accept terms and conditions.
+    </label>
+  </div>
+)
