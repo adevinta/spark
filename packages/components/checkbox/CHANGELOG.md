@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.1.2...@spark-ui/checkbox@1.2.0) (2023-03-27)
+
+### Features
+
+- **checkbox:** remove hardcoded check icon ([811e47f](https://github.com/adevinta/spark/commit/811e47fcacacfcdb0c521cdbfe59ffb5f7fca6dd))
+
 ## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.1.1...@spark-ui/checkbox@1.1.2) (2023-03-22)
 
 **Note:** Version bump only for package @spark-ui/checkbox
