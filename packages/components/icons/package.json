@@ -15,7 +15,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
-    "directory": "packages/components/dummy"
+    "directory": "packages/components/icons"
   },
   "devDependencies": {
     "change-case": "4.1.2",
