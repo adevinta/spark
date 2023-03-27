@@ -3,15 +3,14 @@ import { pascalCase } from 'pascal-case'
 export default ({ name, description }) => {
   const componentName = pascalCase(name)
 
-  return `import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
-import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+  return `import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { ${componentName} } from '.'
 
 import * as stories from './${componentName}.stories'
 
-<Meta title="Components/Misc/${componentName}" component={${componentName}} />
+<Meta of={stories} />
 
 # ${componentName}
 
@@ -35,6 +34,8 @@ import { ${componentName} } from "@spark-ui/${name}"
 
 <StoryHeading label="Variants" />
 
-<Story name="default" story={stories.Default} />
+<Canvas>
+  <Story of={stories.Default} />
+</Canvas>
 `
 }

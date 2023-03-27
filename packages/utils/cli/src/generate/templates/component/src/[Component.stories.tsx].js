@@ -3,14 +3,19 @@ import { pascalCase } from 'pascal-case'
 export default ({ name, description }) => {
   const componentName = pascalCase(name)
 
-  return `import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+  return `import { Meta, StoryFn } from '@storybook/react'
 
 import { ${componentName} } from '.'
 
-export const Default = () => (
-  <ReactLiveBlock scope={{ ${componentName} }}>
-    <${componentName}>Hello World!</${componentName}>
-  </ReactLiveBlock>
+const meta: Meta<typeof Portal> = {
+  title: 'Components/${componentName}',
+  component: ${componentName},
+}
+
+export default meta
+
+export const Default: StoryFn = _args => (
+  <${componentName}>Hello World!</${componentName}>
 )
 `
 }
