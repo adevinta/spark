@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.1.1...@spark-ui/icons@1.1.2) (2023-03-27)
+
+### Bug Fixes
+
+- **icons:** untrack assests directory when publishing to npm ([e727d2b](https://github.com/adevinta/spark/commit/e727d2b47c717ea8825affbfcc40d5dd10b0792b))
+
 ## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.1.0...@spark-ui/icons@1.1.1) (2023-03-27)
 
 ### Bug Fixes
