@@ -10,7 +10,6 @@ import optimize from './utils/optimize.mjs'
 import pathSVG from './utils/pathSVG.mjs'
 import prettify from './utils/prettify.mjs'
 import readFile from './utils/readFile.mjs'
-import titleize from './utils/titleize.mjs'
 import writeFile from './utils/writeFile.mjs'
 
 const main = async (pattern = 'assets/**/*.svg') => {
@@ -27,13 +26,11 @@ const main = async (pattern = 'assets/**/*.svg') => {
       const tsxIconCode = prettify(
         componentize({
           componentName: capitalCase(name),
-          node: titleize(
-            optimize(svgData, {
-              attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }],
-              title: name,
-            }).trim(),
-            name
-          ),
+          node: optimize(svgData, {
+            attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }],
+            title: name,
+          }).trim(),
+          title: name,
         })
       )
 
