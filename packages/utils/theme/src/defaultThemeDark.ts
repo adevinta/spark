@@ -12,8 +12,8 @@ export const defaultThemeDark: Theme = createTheme({
     // Primary container
     primaryContainer: '#0D0A50',
     onPrimaryContainer: '#B1AEEC',
-    primaryContainerHovered: '##080632',
-    primaryContainerDisabled: '##080632',
+    primaryContainerHovered: '#080632',
+    primaryContainerDisabled: '#080632',
     primaryContainerFocused: '#080632',
     // Primary Variant
     primaryVariant: '#B1AEEC',
@@ -102,21 +102,18 @@ export const defaultThemeDark: Theme = createTheme({
     // Background
     background: '#000000',
     onBackground: '#FFFFFF',
-    backgroundHovered: '#FFFFFF', // use with 8% opacity
+    backgroundHovered: '#7583FF', // use with 8% opacity
     backgroundDisabled: '#252428',
     backgroundFocused: '#FFFFFF', // use with 8% opacity
+    // Background variant
+    backgroundVariant: '#252428',
+    onBackgroundVariant: '#FFFFFF',
     // Surface
     surface: '#000000',
     onSurface: '#FFFFFF',
-    surfaceHovered: '#FFFFFF', // use with 8% opacity
-    surfaceDisabled: '#F8F8F9',
-    surfaceFocused: '#FFFFFF', // use with 8% opacity
-    // Surface container
-    surfaceContainer: '#000000',
-    onSurfaceContainer: '#FFFFFF',
-    surfaceContainerHovered: '#FFFFFF',
-    surfaceContainerDisabled: '#F8F8F9',
-    surfaceContainerFocused: '#FFFFFF',
+    surfaceHovered: '#7583FF', // use with dim-5 opacity
+    surfaceDisabled: '#252428',
+    surfaceFocused: '#FFFFFF', // use with dim-5 opacity
     // Surface Inverse
     surfaceInverse: '#F8F8F9',
     onSurfaceInverse: '#000000',
@@ -126,7 +123,11 @@ export const defaultThemeDark: Theme = createTheme({
     // Outline
     outline: '#4A4950',
     outlineHigh: '#FFFFFF',
+    outlineHovered: '#7583FF',
+    outlineDisabled: '#252428',
+    outlineFocused: '#4A4950',
     // Overlay
-    overlay: '#313036', // use with 75% opacity
+    overlay: '#313036', // use with dim-1 opacity
+    onOverlay: '#FFFFFF',
   },
 })
