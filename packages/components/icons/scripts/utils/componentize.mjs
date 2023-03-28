@@ -22,7 +22,6 @@ export const ${componentName} = ({title, fill = '${fill}', stroke = '${stroke}',
     ${stringify(children)}
   </svg>
 )
-
 `
 }
 
