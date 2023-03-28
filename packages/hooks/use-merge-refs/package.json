@@ -1,0 +1,19 @@
+{
+  "name": "@spark-ui/use-merge-refs",
+  "version": "0.0.0",
+  "description": "check the component's mount state",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/hooks/use-mounted-state"
+  }
+}
