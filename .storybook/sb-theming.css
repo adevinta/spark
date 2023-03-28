@@ -1,0 +1,4 @@
+/* Enabled dark mode preview inside Canvas blocks */
+.docs-story:first-child {
+    @apply !bg-background;
+}
