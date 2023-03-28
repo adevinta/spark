@@ -1,50 +1,46 @@
-#!/usr/bin/env node
+import { capitalCase } from 'change-case'
+import path from 'path'
 
-process.exit(1)
+import componentize from './utils/componentize.mjs'
+import indexify from './utils/indexify.mjs'
+import matchFileRoute from './utils/matchFileRoutes.mjs'
+import optimize from './utils/optimize.mjs'
+import pathSVG from './utils/pathSVG.mjs'
+import prettify from './utils/prettify.mjs'
+import readFile from './utils/readFile.mjs'
+import writeFile from './utils/writeFile.mjs'
 
-// import { capitalCase } from 'change-case'
-// import path from 'path'
+const main = async (pattern = 'assets/**/*.svg') => {
+  const files = matchFileRoute(undefined, pattern)
+  const data = new Map()
 
-// import componentize from './utils/componentize.mjs'
-// import indexify from './utils/indexify.mjs'
-// import matchFileRoute from './utils/matchFileRoutes.mjs'
-// import optimize from './utils/optimize.mjs'
-// import pathSVG from './utils/pathSVG.mjs'
-// import prettify from './utils/prettify.mjs'
-// import readFile from './utils/readFile.mjs'
-// import writeFile from './utils/writeFile.mjs'
+  await Promise.all(
+    files.map(async filepath => {
+      const relativePath = path.relative(path.join(process.cwd()), filepath)
+      const { root, dir, base, ext, name } = path.parse(relativePath)
 
-// const main = async (pattern = 'assets/**/*.svg') => {
-//   const files = matchFileRoute(undefined, pattern)
-//   const data = new Map()
+      const svgData = await pathSVG(readFile(path.join(dir, base)))
 
-//   await Promise.all(
-//     files.map(async filepath => {
-//       const relativePath = path.relative(path.join(process.cwd()), filepath)
-//       const { root, dir, base, ext, name } = path.parse(relativePath)
+      const tsxIconCode = prettify(
+        componentize({
+          componentName: capitalCase(name),
+          node: optimize(svgData, {
+            attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }],
+            title: name,
+          }).trim(),
+          title: name,
+        })
+      )
 
-//       const svgData = await pathSVG(readFile(path.join(dir, base)))
+      data.set(capitalCase(name), { value: tsxIconCode, dir: path.relative('assets', dir) })
+    })
+  )
 
-//       const tsxIconCode = prettify(
-//         componentize({
-//           componentName: capitalCase(name),
-//           node: optimize(svgData, {
-//             attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }],
-//             title: name,
-//           }).trim(),
-//           title: name,
-//         })
-//       )
+  data.forEach(({ value, dir }, name) => {
+    writeFile(path.join('src/icons', dir, `${name}.tsx`), value)
+  })
 
-//       data.set(capitalCase(name), { value: tsxIconCode, dir: path.relative('assets', dir) })
-//     })
-//   )
+  writeFile(path.join('src', 'index.ts'), indexify(data))
+}
 
-//   data.forEach(({ value, dir }, name) => {
-//     writeFile(path.join('src/icons', dir, `${name}.tsx`), value)
-//   })
-
-//   writeFile(path.join('src', 'index.ts'), indexify(data))
-// }
-
-// await main(...process.argv.splice(2))
+await main(...process.argv.splice(2))

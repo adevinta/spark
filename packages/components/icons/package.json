@@ -9,7 +9,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prebuild": "./scripts/build.mjs",
+    "prebuild": "node ./scripts/build.mjs",
     "build": "vite build"
   },
   "repository": {
