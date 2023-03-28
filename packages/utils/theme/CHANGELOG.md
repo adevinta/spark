@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.10.1...@spark-ui/theme-utils@2.11.0) (2023-03-28)
+
+### Features
+
+- **switch:** created switch component ([58b2456](https://github.com/adevinta/spark/commit/58b24563d239af40dc8243135a496d1076406f9e))
+
 ## [2.10.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.10.0...@spark-ui/theme-utils@2.10.1) (2023-03-22)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
