@@ -191,6 +191,7 @@ export interface Theme {
     bold: string
   }
   opacity: {
+    0: string
     dim1: string
     dim2: string
     dim3: string

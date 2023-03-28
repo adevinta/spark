@@ -1,0 +1,49 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Switch } from '.'
+
+import * as stories from './Switch.stories'
+
+<Meta of={stories} />
+
+# Switch
+
+A control that allows the user to toggle between checked and not checked.
+
+<StoryHeading label="Install" />
+
+```
+npm install @spark-ui/switch
+```
+
+<StoryHeading label="Import" />
+
+```
+import { Switch } from "@spark-ui/switch"
+```
+
+<StoryHeading label="Props" />
+
+<ArgsTable of={Switch} />
+
+<StoryHeading label="Usage" />
+<Canvas>
+  <Story of={stories.Default} />
+</Canvas>
+
+<StoryHeading label="Disabled" />
+<Canvas>
+  <Story of={stories.Disabled} />
+</Canvas>
+
+<StoryHeading label="Sizes" />
+<Canvas>
+  <Story of={stories.Sizes} />
+</Canvas>
+
+<StoryHeading label="Colors" />
+<Canvas>
+  <Story of={stories.Colors} />
+</Canvas>
