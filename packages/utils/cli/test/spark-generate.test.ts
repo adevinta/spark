@@ -33,7 +33,7 @@ describe('CLI `spark generate` (component package)', () => {
       '/src/Bar.variants.tsx',
       '/src/Bar.tsx',
       '/vite.config.ts',
-      '/src/Bar.stories.mdx',
+      '/src/Bar.doc.mdx',
       '/src/Bar.test.tsx',
       '/src/Bar.stories.tsx',
       '/tsconfig.json',
