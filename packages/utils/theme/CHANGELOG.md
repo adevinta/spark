@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.11.0...@spark-ui/theme-utils@2.11.1) (2023-03-28)
+
+### Bug Fixes
+
+- **theme-utils:** prevent "px" suffix by using string values ([069c872](https://github.com/adevinta/spark/commit/069c87271526464d9a71283d408ece8b7ec7f82f)), closes [#476](https://github.com/adevinta/spark/issues/476)
+
 # [2.11.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.10.1...@spark-ui/theme-utils@2.11.0) (2023-03-28)
 
 ### Features
