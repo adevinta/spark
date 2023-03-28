@@ -21,6 +21,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       shape = 'rounded',
       size = 'md',
       asChild,
+      className,
       ...others
     },
     ref
@@ -31,6 +32,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Component
         ref={ref}
         className={buttonStyles({
+          className,
           design,
           disabled,
           intent,
