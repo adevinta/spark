@@ -1,12 +1,13 @@
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 
 import { iconVariants, IconVariantsProps } from './Icon.variants'
 
-export interface IconProps
-  extends PropsWithChildren,
-    IconVariantsProps,
-    React.SVGProps<SVGElement> {
+export interface IconProps extends IconVariantsProps, React.SVGProps<SVGElement> {
+  /**
+   * The svg icon that will be wrapped
+   */
+  children: React.ReactElement
   /**
    * The accessible label for the icon. This label will be visually hidden but announced to screen
    * reader users, similar to `alt` text for `img` tags.
