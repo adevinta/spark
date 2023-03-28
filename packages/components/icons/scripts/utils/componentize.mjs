@@ -18,7 +18,7 @@ export const ${componentName} = ({title, fill = '${fill}', stroke = '${stroke}',
     .join(' ')}
     {...{ ...(title && {'data-title': title}), fill, stroke, ...props}}
     >
-    \${title === undefined ? undefined : <title>{title}</title>}
+      {title === undefined ? undefined : <title>{title}</title>}
     ${stringify(children)}
   </svg>
 )
