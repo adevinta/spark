@@ -1,7 +1,7 @@
 {
   "name": "@spark-ui/use-merge-refs",
   "version": "0.0.0",
-  "description": "check the component's mount state",
+  "description": "merge and sync the passed references into a single one",
   "publishConfig": {
     "access": "public"
   },
@@ -14,6 +14,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
-    "directory": "packages/hooks/use-mounted-state"
+    "directory": "packages/hooks/use-merge-refs"
   }
 }
