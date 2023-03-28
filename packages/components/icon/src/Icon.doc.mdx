@@ -1,0 +1,62 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Icon } from '.'
+
+import * as IconStories from './Icon.stories'
+
+<Meta of={IconStories} />
+
+# Icon
+
+Accessible icon wrapper
+
+<StoryHeading label="Install" />
+
+```
+npm install @spark-ui/icon
+```
+
+<StoryHeading label="Import" />
+
+```
+import { Icon } from "@spark-ui/icon"
+```
+
+<StoryHeading label="Props" />
+
+<ArgsTable of={Icon} />
+
+<StoryHeading label="Default" />
+
+<Canvas>
+  <Story of={IconStories.Default} />
+</Canvas>
+
+<StoryHeading label="Sizes" />
+
+Use `size` prop to change the size of the icon.
+
+<Canvas>
+  <Story of={IconStories.Sizes} />
+</Canvas>
+
+<StoryHeading label="Colors" />
+
+Use a utility text color class to change the color of the icon.
+
+<Canvas>
+  <Story of={IconStories.Colors} />
+</Canvas>
+
+<StoryHeading label="Label" />
+
+Use `label` prop so it could be announced correctly by screen readers. There is no visual difference.
+
+<Canvas>
+  <Story of={IconStories.Label} />
+</Canvas>
+
+<StoryHeading label="Accessibility" />
+
+Most icons or icon systems come with no accessibility built-in. For example, the same visual cross icon may in fact mean "close" or "delete". This component lets you give meaning to icons used throughout your app.

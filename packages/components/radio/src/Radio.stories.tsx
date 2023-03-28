@@ -43,6 +43,7 @@ export const Controlled: StoryFn = _args => {
 }
 
 const intents = ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral'] as const
+
 export const Intent: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
@@ -61,6 +62,7 @@ export const Intent: StoryFn = _args => {
 }
 
 const sizes = ['small', 'medium'] as const
+
 export const Size: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
