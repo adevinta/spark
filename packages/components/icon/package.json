@@ -1,0 +1,17 @@
+{
+  "name": "@spark-ui/icon",
+  "version": "1.0.0",
+  "description": "Accessible icon wrapper",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@radix-ui/react-visually-hidden": "1.0.2"
+  }
+}
