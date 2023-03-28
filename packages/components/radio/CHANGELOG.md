@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.1.3...@spark-ui/radio@1.2.0) (2023-03-28)
+
+### Features
+
+- **icon:** add icon component ([8af0eb7](https://github.com/adevinta/spark/commit/8af0eb734b34ed7c50d4c0aeb08dada5a068d1b5))
+
 ## [1.1.3](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.1.2...@spark-ui/radio@1.1.3) (2023-03-24)
 
 **Note:** Version bump only for package @spark-ui/radio

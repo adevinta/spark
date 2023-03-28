@@ -191,6 +191,7 @@ export interface Theme {
     bold: string
   }
   opacity: {
+    0: string
     dim1: string
     dim2: string
     dim3: string
@@ -214,17 +215,17 @@ export interface Theme {
     '3xl': string
   }
   zIndex: {
-    hide: number
-    base: number
-    raised: number
-    dropdown: number
-    sticky: number
-    overlay: number
-    modal: number
-    popover: number
-    skipLink: number
-    toast: number
-    tooltip: number
+    hide: string
+    base: string
+    raised: string
+    dropdown: string
+    sticky: string
+    overlay: string
+    modal: string
+    popover: string
+    skipLink: string
+    toast: string
+    tooltip: string
   }
 }
 
