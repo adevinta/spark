@@ -6,7 +6,6 @@ import indexify from './utils/indexify.mjs'
 import matchFileRoute from './utils/matchFileRoutes.mjs'
 import optimize from './utils/optimize.mjs'
 import pathSVG from './utils/pathSVG.mjs'
-import prettify from './utils/prettify.mjs'
 import readFile from './utils/readFile.mjs'
 import writeFile from './utils/writeFile.mjs'
 
@@ -21,16 +20,14 @@ const main = async (pattern = 'assets/**/*.svg') => {
 
       const svgData = await pathSVG(readFile(path.join(dir, base)))
 
-      const tsxIconCode = prettify(
-        componentize({
-          componentName: capitalCase(name),
-          node: optimize(svgData, {
-            attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }],
-            title: name,
-          }).trim(),
+      const tsxIconCode = componentize({
+        componentName: capitalCase(name),
+        node: optimize(svgData, {
+          attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }],
           title: name,
-        })
-      )
+        }).trim(),
+        title: name,
+      })
 
       data.set(capitalCase(name), { value: tsxIconCode, dir: path.relative('assets', dir) })
     })
