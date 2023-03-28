@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { capitalCase } from 'change-case'
 import path from 'path'
 
