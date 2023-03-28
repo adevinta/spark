@@ -114,21 +114,18 @@ export const defaultTheme: Theme = {
     // Background
     background: '#FFFFFF',
     onBackground: '#000000',
-    backgroundHovered: '#000000', // use with 8% opacity
+    backgroundHovered: '#F4F4FC',
     backgroundDisabled: '#F8F8F9',
-    backgroundFocused: '#000000', // use with 8% opacity
+    backgroundFocused: '#000000', // use with dim-5 opacity
+    // Background variant
+    backgroundVariant: '#F8F8F9',
+    onBackgroundVariant: '#000000',
     // Surface
     surface: '#FFFFFF',
     onSurface: '#000000',
-    surfaceHovered: '#F7FAFD',
+    surfaceHovered: '#F4F4FC',
     surfaceDisabled: '#F8F8F9',
-    surfaceFocused: '#FFFFFF',
-    // Surface container
-    surfaceContainer: '#EBEBED',
-    onSurfaceContainer: '#4A4950',
-    surfaceContainerHovered: '#F7FAFD',
-    surfaceContainerDisabled: '#F8F8F9',
-    surfaceContainerFocused: '#FFFFFF',
+    surfaceFocused: '#000000', // use with dim-5 opacity
     // Surface Inverse
     surfaceInverse: '#252428',
     onSurfaceInverse: '#FFFFFF',
@@ -138,8 +135,12 @@ export const defaultTheme: Theme = {
     // Outline
     outline: '#D1D0D5',
     outlineHigh: '#000000',
+    outlineHovered: '#2118C9',
+    outlineDisabled: '#F8F8F9',
+    outlineFocused: '#D1D0D5',
     // Overlay
-    overlay: '#313036', // use with 75% opacity
+    overlay: '#313036', // use with dim-1 opacity
+    onOverlay: '#FFFFFF',
   },
   fontFamily: {
     openSans:

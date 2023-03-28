@@ -119,17 +119,15 @@ export interface Theme {
     backgroundHovered: string
     backgroundDisabled: string
     backgroundFocused: string
+    // Background variant
+    backgroundVariant: string
+    onBackgroundVariant: string
     // Surface
     surface: string
     onSurface: string
     surfaceHovered: string
     surfaceDisabled: string
     surfaceFocused: string
-    surfaceContainer: string
-    onSurfaceContainer: string
-    surfaceContainerHovered: string
-    surfaceContainerDisabled: string
-    surfaceContainerFocused: string
     // Surface Inverse
     surfaceInverse: string
     onSurfaceInverse: string
@@ -139,8 +137,12 @@ export interface Theme {
     // Outline
     outline: string
     outlineHigh: string
+    outlineHovered: string
+    outlineDisabled: string
+    outlineFocused: string
     // Overlay
     overlay: string
+    onOverlay: string
   }
   fontFamily: {
     openSans: string
