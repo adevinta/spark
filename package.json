@@ -25,7 +25,8 @@
     "lint:staged": "lint-staged --config .lintstagedrc.json",
     "prettier": "prettier --config .prettierrc.json --write \"{packages,documentation,src}/**/*.{ts,tsx}\"",
     "prettify": "npm run lint && npm run prettier",
-    "node:check": "node bin/check-node-version.js"
+    "node:check": "node bin/check-node-version.js",
+    "generate": "spark-generate"
   },
   "repository": {
     "type": "git",
