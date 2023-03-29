@@ -65,6 +65,8 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: 'storybook:build'
+          onlyChanged: true
+          untraced: 'packages/utils/\*\*"'
   deploy:
     runs-on: ubuntu-latest
     environment:
