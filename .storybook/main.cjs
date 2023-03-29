@@ -1,7 +1,13 @@
+const turbosnap = require('vite-plugin-turbosnap')
+const { mergeConfig } = require('vite');
+
 module.exports = {
   async viteFinal(config, { configType }) {
     // This is where we can override vite config for storybook
-    return config
+    return mergeConfig(config, {
+      plugins: configType === 'PRODUCTION' ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : [],
+      // ...And any other config you need to change...
+    });
   },
   stories: [
     '../documentation/getting-started/GettingStarted.mdx',
