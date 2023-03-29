@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/blocks'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
-import { Alert } from '@docs/helpers/Alert'
+import { Callout } from '@docs/helpers/Callout'
 
 import ArgstableImg from '@docs/assets/argstable.png'
 
@@ -106,10 +106,10 @@ Stories are imported from the associated `*.stories.tsx` file, which is written 
 
 `Canvas` is used to allow preview of source code for each story.
 
-<Alert kind="warning">
+<Callout kind="warning">
   Each story should showcase a single prop/feature of your component. **Avoid stories mixing many
   properties at once to keep things simple**.
-</Alert>
+</Callout>
 
 ```
 // Radio.doc.mdx
@@ -182,10 +182,10 @@ export default meta
 
 Please refer to [official Storybook documentation](https://storybook.js.org/docs/7.0/react/writing-stories/introduction#defining-stories) to see how you can write stories
 
-<Alert kind="warning">
+<Callout kind="warning">
   Each story must use the `_args` parameter, otherwise the `show source` button of the Canvas will
   show raw js code instead of dynamic JSX.
-</Alert>
+</Callout>
 
 ```tsx
 // Radio.stories.tsx

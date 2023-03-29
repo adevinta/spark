@@ -39,7 +39,7 @@ const emojiLookup: Record<NonNullable<StylesProps['kind']>, string> = {
   warning: '⚠️',
 }
 
-export function Alert({ children, kind = 'info', ...variants }: PropsWithChildren<StylesProps>) {
+export function Callout({ children, kind = 'info', ...variants }: PropsWithChildren<StylesProps>) {
   return (
     <div className={styles({ kind, ...variants })}>
       <div className="flex items-center">
