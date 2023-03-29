@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.1.4...@spark-ui/icons@1.1.5) (2023-03-29)
+
+### Bug Fixes
+
+- **icons:** remove not needed char ([319a7c6](https://github.com/adevinta/spark/commit/319a7c6c252a3d101178c5f11dacb25135143303))
+- **icons:** remove unwanted char ([d778b1f](https://github.com/adevinta/spark/commit/d778b1fb6eb99795732d488248520a19950ed4a6))
+- **icons:** update tsx template ([dcceb6d](https://github.com/adevinta/spark/commit/dcceb6da1a8ac36b75b657f4a36b00b42c63b47b))
+
 ## [1.1.4](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.1.3...@spark-ui/icons@1.1.4) (2023-03-28)
 
 ### Bug Fixes
