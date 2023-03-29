@@ -1,1 +1,1 @@
-export { useMergeRefs } from './useMergeRefs'
+export { useMergeRefs, assignRef, mergeRefs } from './useMergeRefs'
