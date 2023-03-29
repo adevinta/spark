@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/blocks'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
-import { Alert } from '@docs/helpers/Alert'
+import { Callout } from '@docs/helpers/Callout'
 
 <Meta title="utils/Tailwind plugins/spark config" />
 
@@ -128,9 +128,9 @@ However, if your application uses a different base font size, such as **10 pixel
 
 This will ensure that the `rem`-based values are accurately calculated according to your application's HTML font size.
 
-<Alert>
+<Callout>
 To better understand what happens when you adjust `htmlFontSize`, it's useful to know that we use CSS custom properties to define the values of our design tokens, such as `spacing.lg`.
 
 By default, the value for this token is expressed as `--spacing-lg: 1rem;`. However, when you define a `htmlFontSize` of 10, for example, this value will be updated to `--spacing-lg: 1.6rem;`
 
-</Alert>
+</Callout>

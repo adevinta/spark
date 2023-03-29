@@ -1,14 +1,14 @@
 import { Meta } from '@storybook/blocks'
 import { StoryHeading } from '@docs/helpers/StoryHeading'
-import { Alert } from '@docs/helpers/Alert'
+import { Callout } from '@docs/helpers/Callout'
 
 <Meta title="Getting Started" />
 
 <StoryHeading label="Getting started" as="h1" />
 
-<Alert marginBottom="medium">
+<Callout marginBottom="medium">
   **The Spark Design System** is built using the **Tailwind CSS** framework.
-</Alert>
+</Callout>
 
 <StoryHeading label="Set up TailwindCSS" as="h2" />
 
@@ -87,10 +87,10 @@ Spark uses a base font size of **16 pixels** as a standard value for calculating
 
 However, if your application uses a different base font size, such as **10 pixels** for example, this can cause issues with the sizing of elements in the application. To account for this, you can set the `htmlFontSize` to the appropriate value for your application's base font size. This will adjust the `rem` based values in Spark to be relative to the new base font size.
 
-<Alert>
+<Callout>
   See the documentation for the rest of our [**Tailwind plugins**
   ](?path=/docs/utils-tailwind-plugins--docs) for more information.
-</Alert>
+</Callout>
 
 <StoryHeading label="Extending Spark config" as="h2" />
 
@@ -115,8 +115,8 @@ module.exports = {
 
 That's all there is to it! 🎉
 
-<Alert>
+<Callout>
   If you want to know more about the custom token class names used in Spark, please check out our
   [**dedicated page**](https://sparkui.vercel.app/viewer/) where you can find a comprehensive list
   of these class names.
-</Alert>
+</Callout>

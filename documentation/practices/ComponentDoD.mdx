@@ -1,14 +1,14 @@
 import { Meta } from '@storybook/blocks'
-import { Alert } from '@docs/helpers/Alert'
+import { Callout } from '@docs/helpers/Callout'
 import AtomicDesignPNG from '@docs/assets/atomic-design.png'
 
 <Meta title="Practices/Component - Definition of Done" />
 
 # Component - Definition of Done
 
-<Alert kind="warning">
+<Callout kind="warning">
   Work in progress. This page must be submitted to the Spark team to get the approval.
-</Alert>
+</Callout>
 
 **This document provides a list of criterias that each Spark component must fulfill.**
 
@@ -55,14 +55,14 @@ const [isChecked, setIsChecked] = useState(false)
 />
 ```
 
-<Alert kind="info">
+<Callout kind="info">
   <p>**To summarize:**</p>
   <ul class="p-md">
     <li>- Stateful (uncontrolled) mode relies on the component's internal state.</li>
     <li>- Stateless (controlled) mode relies on an external state provided through props.</li>
   </ul>
   <p>**Both must be possible for every Spark component.**</p>
-</Alert>
+</Callout>
 
 ## 3. Must forward ref to component
 
@@ -111,9 +111,9 @@ Spark follows Atomic Design specifications, where each Component is either an **
   <img width={800} src={AtomicDesignPNG} alt="Argstable shows a table of the component's props" />
 </div>
 
-<Alert kind="info">
+<Callout kind="info">
   **Templates** and **pages** do not belong in a design system, thus Spark does not provide any.
-</Alert>
+</Callout>
 
 Composability refers to the ability to combine smaller building blocks to create larger and more complex structures. In React, composability is important because it enables developers to create reusable, modular components that can be easily combined to create complex user interfaces.
 
