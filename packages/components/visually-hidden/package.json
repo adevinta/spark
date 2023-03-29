@@ -8,6 +8,11 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/visually-hidden"
+  },
   "scripts": {
     "build": "vite build"
   },
