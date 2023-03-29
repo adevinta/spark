@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { createRef, ErrorBoundary, forwardRef, useEffect, useRef } from 'react'
+import { createRef, forwardRef, useEffect, useRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { useMergeRefs } from './index'
