@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/use-merge-refs@0.1.0...@spark-ui/use-merge-refs@0.2.0) (2023-03-29)
+
+### Features
+
+- **use-merge-refs:** export extra utilities ([e55bf96](https://github.com/adevinta/spark/commit/e55bf966ebd292ba7b94b6b06bee9bea1932fd9b))
+
+### BREAKING CHANGES
+
+- **use-merge-refs:** mergeRefs fn and assignRef fn exported
+
 # 0.1.0 (2023-03-29)
 
 ### Bug Fixes
