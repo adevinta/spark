@@ -1,0 +1,58 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { Source } from '@storybook/blocks'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Tag } from '.'
+
+import * as TagStories from './Tag.stories'
+
+<Meta of={TagStories} />
+
+# Tag
+
+Tag component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
+
+<StoryHeading label="Install" />
+
+```sh
+npm install @spark-ui/tag
+```
+
+<StoryHeading label="Import" />
+
+```js
+import { Tag } from '@spark-ui/tag'
+```
+
+<StoryHeading label="Props" />
+<ArgsTable of={Tag} />
+
+<StoryHeading label="Default" />
+
+<Canvas>
+  <Story of={TagStories.Default} />
+</Canvas>
+
+<StoryHeading label="Design" />
+
+Use `design` prop to set the different look and feels of a tag.
+
+<Canvas>
+  <Story of={TagStories.Design} />
+</Canvas>
+
+<StoryHeading label="Intent" />
+
+Use `intent` prop to set the color intent of a tag.
+
+<Canvas>
+  <Story of={TagStories.Intent} />
+</Canvas>
+
+<StoryHeading label="Shapes" />
+
+Use `shape` prop to set the shape of a tag.
+
+<Canvas>
+  <Story of={TagStories.Shapes} />
+</Canvas>
