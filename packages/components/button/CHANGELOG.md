@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/adevinta/spark/compare/@spark-ui/button@1.3.1...@spark-ui/button@1.3.2) (2023-03-30)
+
+### Bug Fixes
+
+- **button:** update invalid tw classnames ([9926570](https://github.com/adevinta/spark/commit/9926570a3534807a2d79a522e9b5030721a181d4)), closes [#500](https://github.com/adevinta/spark/issues/500)
+
 ## [1.3.1](https://github.com/adevinta/spark/compare/@spark-ui/button@1.3.0...@spark-ui/button@1.3.1) (2023-03-28)
 
 **Note:** Version bump only for package @spark-ui/button
