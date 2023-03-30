@@ -72,9 +72,9 @@ export const outlinedVariants = [
     intent: 'surface' as const,
     design: 'outlined' as const,
     class: tw([
-      'enabled:hover:bg-surface-container-hovered',
-      'enabled:active:bg-surface-container-hovered',
-      'focus-visible:bg-surface-container-focused',
+      'enabled:hover:bg-surface-hovered',
+      'enabled:active:bg-surface-hovered',
+      'focus-visible:bg-surface-focused',
       'text-surface',
     ]),
   },
