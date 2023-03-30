@@ -1,0 +1,15 @@
+{
+  "name": "@spark-ui/internal-utils",
+  "version": "1.0.0",
+  "private": true,
+  "description": "package for sharing reusable code and resources across the codebase",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  }
+}
