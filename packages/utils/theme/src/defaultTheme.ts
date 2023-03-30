@@ -14,6 +14,14 @@ export const defaultTheme: Theme = {
     sm: '1px',
     md: '2px',
   },
+  boxShadow: {
+    sm: '0 1px 2px 0 rgb(0 0 0 / 0.2)',
+    DEFAULT: '0 4px 8px 0 rgb(0 0 0 / 0.2)',
+    md: '0 6px 12px 0 rgb(0 0 0 / 0.2)',
+    lg: '0 8px 16px 0 rgb(0 0 0 / 0.2)',
+    xl: '0 12px 24px 0 rgb(0 0 0 / 0.2)',
+    none: 'none',
+  },
   colors: {
     // Primary
     primary: '#2118C9',

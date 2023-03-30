@@ -51,7 +51,6 @@ export const thumbStyles = cva(
     'group-spark-state-unchecked:left-none group-spark-state-unchecked:translate-x-none',
     'pointer-events-none',
     'rounded-full',
-    'shadow-lg',
     'ring-0',
     'transform transition-all duration-200 ease-in-out',
   ],
