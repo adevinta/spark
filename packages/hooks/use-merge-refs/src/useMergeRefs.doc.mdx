@@ -26,11 +26,20 @@ import * as React from 'react'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 
 const Demo = React.forwardRef((props, forwardedRef) => {
-  const firstRef = useRef()
-  const secondRef = useRef()
+  const innerRef = useRef()
 
-  const ref = useMergeRefs(firstRef, secondRef, forwardedRef)
+  const inputRef = useMergeRefs(innerRef, forwardedRef)
 
-  return <div ref={ref} {...props} />
+  const handleFocus = () => {
+    // selects the input value text when its wrapper gets focused
+    inputRef?.current?.select()
+  }
+
+  return (
+    <div onFocus={handleFocus}>
+      <input {...props} ref={inputRef} />
+      <Icon ><Close/></Icon>
+    </>
+  )
 })
 ```
