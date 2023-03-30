@@ -1,6 +1,5 @@
+import { tw } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
-
-export const tw = <T,>(a: T): T => a
 
 const defaultVariants = {
   intent: 'primary',
