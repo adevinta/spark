@@ -16,6 +16,9 @@
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/components/switch"
   },
+  "dependencies": {
+    "@spark-ui/internal-utils": "1.1.0"
+  },
   "peerDependencies": {
     "@radix-ui/react-switch": "1.0.2",
     "@spark-ui/icons": "1",
