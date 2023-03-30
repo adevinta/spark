@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.6](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.3.5...@spark-ui/tailwind-plugins@2.3.6) (2023-03-30)
+
+**Note:** Version bump only for package @spark-ui/tailwind-plugins
+
 ## [2.3.5](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.3.4...@spark-ui/tailwind-plugins@2.3.5) (2023-03-29)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins
