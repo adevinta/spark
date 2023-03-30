@@ -78,11 +78,11 @@ export const tintedVariants = [
     intent: 'surface' as const,
     design: 'tinted' as const,
     class: tw([
-      'bg-surface-container',
-      'text-on-surface-container',
-      'enabled:hover:bg-surface-container-hovered',
-      'enabled:active:bg-surface-container-hovered',
-      'focus-visible:bg-surface-container-focused',
+      'bg-surface',
+      'text-on-surface',
+      'enabled:hover:bg-surface-hovered',
+      'enabled:active:bg-surface-hovered',
+      'focus-visible:bg-surface-focused',
     ]),
   },
 ]
