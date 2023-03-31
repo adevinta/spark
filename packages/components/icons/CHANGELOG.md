@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.2.1...@spark-ui/icons@1.2.2) (2023-03-31)
+
+### Bug Fixes
+
+- **icons:** wrong stroke ([30c3b48](https://github.com/adevinta/spark/commit/30c3b4878c3774adceca91b9558283aed5496b87))
+
 ## [1.2.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.2.0...@spark-ui/icons@1.2.1) (2023-03-31)
 
 **Note:** Version bump only for package @spark-ui/icons
