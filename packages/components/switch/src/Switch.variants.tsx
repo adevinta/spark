@@ -4,7 +4,7 @@ export const tw = <T,>(a: T): T => a
 
 const defaultVariants = {
   intent: 'primary',
-  size: 'small',
+  size: 'sm',
 } as const
 
 export const styles = cva(
@@ -21,8 +21,8 @@ export const styles = cva(
   {
     variants: {
       size: {
-        small: tw(['h-sz-24', 'w-sz-40', 'border-md']),
-        medium: tw(['h-sz-32', 'w-sz-56', 'border-[4px]']),
+        sm: tw(['h-sz-24', 'w-sz-40', 'border-md']),
+        md: tw(['h-sz-32', 'w-sz-56', 'border-[4px]']),
       },
       intent: {
         primary: ['spark-state-checked:bg-primary', 'hover:ring-primary-container', 'text-primary'],
@@ -59,8 +59,8 @@ export const thumbStyles = cva(
   {
     variants: {
       size: {
-        small: ['h-sz-20', 'w-sz-20'],
-        medium: ['h-sz-24', 'w-sz-24'],
+        sm: ['h-sz-20', 'w-sz-20'],
+        md: ['h-sz-24', 'w-sz-24'],
       },
     },
     defaultVariants,
@@ -72,8 +72,8 @@ export const thumbCheckSVGStyles = cva(
   {
     variants: {
       size: {
-        small: 'h-sz-10 w-sz-10',
-        medium: 'h-sz-12 w-sz-12',
+        sm: 'h-sz-10 w-sz-10',
+        md: 'h-sz-12 w-sz-12',
       },
     },
     defaultVariants,
