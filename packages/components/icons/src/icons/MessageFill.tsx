@@ -3,7 +3,7 @@ import { IconProps } from '../Types'
 export const MessageFill = ({
   title,
   fill = 'currentColor',
-  stroke = 'currentColor',
+  stroke = 'none',
   ...props
 }: IconProps) => (
   <svg

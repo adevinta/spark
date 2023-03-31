@@ -1,11 +1,6 @@
 import { IconProps } from '../Types'
 
-export const Close = ({
-  title,
-  fill = 'currentColor',
-  stroke = 'currentColor',
-  ...props
-}: IconProps) => (
+export const Close = ({ title, fill = 'currentColor', stroke = 'none', ...props }: IconProps) => (
   <svg
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"

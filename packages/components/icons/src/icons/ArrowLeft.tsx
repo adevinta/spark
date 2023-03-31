@@ -3,7 +3,7 @@ import { IconProps } from '../Types'
 export const ArrowLeft = ({
   title,
   fill = 'currentColor',
-  stroke = 'currentColor',
+  stroke = 'none',
   ...props
 }: IconProps) => (
   <svg
