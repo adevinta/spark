@@ -1,0 +1,58 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { StoryHeading } from '@docs/helpers/StoryHeading'
+
+import { Spinner } from '.'
+
+import * as stories from './Spinner.stories'
+
+<Meta of={stories} />
+
+# Spinner
+
+Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+
+<StoryHeading label="Install" />
+
+```sh
+npm install @spark-ui/spinner
+```
+
+<StoryHeading label="Import" />
+
+```tsx
+import { Spinner } from '@spark-ui/spinner'
+```
+
+<StoryHeading label="Props" />
+
+<ArgsTable of={Spinner} />
+
+<StoryHeading label="Default" />
+
+<Canvas>
+  <Story of={stories.Default} />
+</Canvas>
+
+<StoryHeading label="Intent" />
+
+Use `intent` prop to set the color of the spinner.
+
+<Canvas>
+  <Story of={stories.Intents} />
+</Canvas>
+
+<StoryHeading label="Size" />
+
+Use `size` prop to set the size of the spinner.
+
+<Canvas>
+  <Story of={stories.Sizes} />
+</Canvas>
+
+<StoryHeading label="Label" />
+
+Use `label` prop for accessibility, it is important to add a fallback loading text. This text will be visible to screen readers.
+
+<Canvas>
+  <Story of={stories.Label} />
+</Canvas>
