@@ -18,13 +18,13 @@ ${description}
 
 <StoryHeading label="Install" />
 
-\`\`\`
+\`\`\`sh
 npm install @spark-ui/${name}
 \`\`\`
 
 <StoryHeading label="Import" />
 
-\`\`\`
+\`\`\`tsx
 import { ${componentName} } from "@spark-ui/${name}"
 \`\`\`
 

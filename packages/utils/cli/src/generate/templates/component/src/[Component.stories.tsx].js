@@ -7,7 +7,7 @@ export default ({ name, description }) => {
 
 import { ${componentName} } from '.'
 
-const meta: Meta<typeof Portal> = {
+const meta: Meta<typeof ${componentName}> = {
   title: 'Components/${componentName}',
   component: ${componentName},
 }
