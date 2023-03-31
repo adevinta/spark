@@ -2,7 +2,7 @@ import { IconProps } from '../Types'
 
 export const AddFill = ({ title, fill = 'currentColor', stroke = 'none', ...props }: IconProps) => (
   <svg
-    viewBox="0 0 24 25"
+    viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     {...{ ...(title && { 'data-title': title }), fill, stroke, ...props }}
     dangerouslySetInnerHTML={{
