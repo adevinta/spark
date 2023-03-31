@@ -23,6 +23,12 @@ export default defineConfig({
     css: true,
     coverage: {
       provider: 'istanbul',
+      reportsDirectory: 'dist/coverage',
+      reporter: [
+        ['lcovonly', { }],
+        ['json', { 'file': 'coverage.json' }],
+        ['html']
+      ]
     },
   },
 })
