@@ -42,7 +42,7 @@ export function ReactLiveBlock({ children, editable = true, scope }: ReactLiveBl
         <LivePreview />
         <div className="relative mt-md rounded-md bg-surface-inverse p-md text-body-2 text-on-surface-inverse outline-none">
           {editable && <p className="text-center text-body-2 font-bold">Editable Example</p>}
-          <div className="absolute top-sm right-md flex gap-md">
+          <div className="absolute right-md top-sm flex gap-md">
             {code !== editorCode && (
               <button onClick={reset} className="hover:text-on-surface-inverse/dim-1">
                 Reset code
@@ -59,3 +59,5 @@ export function ReactLiveBlock({ children, editable = true, scope }: ReactLiveBl
     </UnstyledBlock>
   )
 }
+
+export { useClipboard }
