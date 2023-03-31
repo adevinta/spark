@@ -26,7 +26,7 @@ export const Disabled: StoryFn = _args => (
   </div>
 )
 
-const switchSizes: ComponentProps<typeof Switch>['size'][] = ['small', 'medium']
+const switchSizes: ComponentProps<typeof Switch>['size'][] = ['sm', 'md']
 
 export const Sizes: StoryFn = _args => (
   <div className="flex flex-col gap-xl">

@@ -17,7 +17,7 @@ export const Default: StoryFn = _args => (
   </Icon>
 )
 
-const sizes = ['small', 'medium'] as const
+const sizes = ['sm', 'md', 'lg'] as const
 
 export const Sizes: StoryFn = _args => (
   <>
