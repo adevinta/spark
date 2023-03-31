@@ -151,22 +151,23 @@ export const defaultTheme: Theme = {
     onOverlay: '#FFFFFF',
   },
   fontFamily: {
+    nunitoSans: '"Nunito Sans", sans-serif',
     openSans:
       'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"',
   },
   fontSize: {
-    display1: { fontSize: '2.5rem', lineHeight: '3.5rem' },
-    display1Expanded: { fontSize: '3rem', lineHeight: '4rem' },
-    display2: { fontSize: '2rem', lineHeight: '2.75rem' },
-    display2Expanded: { fontSize: '2.5rem', lineHeight: '3.5rem' },
-    display3: { fontSize: '1.5rem', lineHeight: '2rem' },
-    display3Expanded: { fontSize: '2rem', lineHeight: '2.75rem' },
-    headline1: { fontSize: '1.25rem', lineHeight: '1.75rem' },
-    headline1Expanded: { fontSize: '1.5rem', lineHeight: '2rem' }, //
-    headline2: { fontSize: '1.125rem', lineHeight: '1.5rem' }, //
-    headline2Expanded: { fontSize: '1.25rem', lineHeight: '1.75rem' }, //
-    subhead: { fontSize: '1rem', lineHeight: '1.5rem' },
-    subheadExpanded: { fontSize: '1rem', lineHeight: '1.5rem' },
+    display1: { fontSize: '2.5rem', lineHeight: '3.5rem', fontWeight: '700' },
+    display1Expanded: { fontSize: '3rem', lineHeight: '4rem', fontWeight: '700' },
+    display2: { fontSize: '2rem', lineHeight: '2.75rem', fontWeight: '700' },
+    display2Expanded: { fontSize: '2.5rem', lineHeight: '3.5rem', fontWeight: '700' },
+    display3: { fontSize: '1.5rem', lineHeight: '2rem', fontWeight: '700' },
+    display3Expanded: { fontSize: '2rem', lineHeight: '2.75rem', fontWeight: '700' },
+    headline1: { fontSize: '1.25rem', lineHeight: '1.75rem', fontWeight: '700' },
+    headline1Expanded: { fontSize: '1.5rem', lineHeight: '2rem', fontWeight: '700' }, //
+    headline2: { fontSize: '1.125rem', lineHeight: '1.5rem', fontWeight: '700' }, //
+    headline2Expanded: { fontSize: '1.25rem', lineHeight: '1.75rem', fontWeight: '700' }, //
+    subhead: { fontSize: '1rem', lineHeight: '1.5rem', fontWeight: '700' },
+    subheadExpanded: { fontSize: '1rem', lineHeight: '1.5rem', fontWeight: '700' },
     body1: { fontSize: '1rem', lineHeight: '1.5rem' },
     body2: { fontSize: '0.875rem', lineHeight: '1.25rem' },
     caption: { fontSize: '0.75rem', lineHeight: '1rem' },

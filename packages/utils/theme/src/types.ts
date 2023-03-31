@@ -153,6 +153,7 @@ export interface Theme {
     onOverlay: string
   }
   fontFamily: {
+    nunitoSans: string
     openSans: string
   }
   /**
