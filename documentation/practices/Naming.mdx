@@ -1,9 +1,8 @@
 import { Meta } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 <Meta title="Practices/Naming" />
 
-<StoryHeading label="Naming" as="h1" /> Write for reading
+# Naming
 
 **Naming** increases speed to comprehend code and reduces bugs through confusion.
 
@@ -22,7 +21,7 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 - ❌ [Pick names making only sense to you](#-pick-names-making-only-sense-to-you)
 - ❌ [Be funny](#-be-funny)
 
-<StoryHeading label="✅ Use english as universal naming standard language" as="h2" />
+## ✅ Use english as universal naming standard language
 
 English is the most used language on the internet.
 Use it as a code naming convention in order to give universal readability and maintenance.
@@ -37,7 +36,7 @@ const tiere = '🐶🐭🦊🐻🐷🐮🦁🐯🐨🐵🐸🐼🐰🐹🐱' // 
 const animals = '🐶🐭🦊🐻🐷🐮🦁🐯🐨🐵🐸🐼🐰🐹🐱' // ✅
 ```
 
-<StoryHeading label="✅ Leverage names to reveal intent" as="h2" />
+## ✅ Leverage names to reveal intent
 
 ```js
 const thing = '🍌' // ❌
@@ -46,7 +45,7 @@ const fruit = '🍌' // ❌
 const banana = '🍌' // ✅
 ```
 
-<StoryHeading label="✅ Empathize with others" as="h2" />
+## ✅ Empathize with others
 
 ```js
 const [blackList, whileList] = permissionLists // ❌
@@ -56,17 +55,14 @@ const [master, slave] = branches // ❌
 const [main, divergent] = branches // ✅
 ```
 
-<StoryHeading label="✅ Reuse established names for concepts" as="h2" />
+## ✅ Reuse established names for concepts
 
 ```js
 const [appleMeasurement, grapeDimensions, ...fruitSizes] = ['xs', 'l', 'm'] // ❌
 const [appleSize, grapeSize, ...fruitSizes] = ['xs', 'l', 'm'] // ✅
 ```
 
-<StoryHeading
-  label="✅ Be specific & avoid general terms unless they have contextual meaning"
-  as="h2"
-/>
+## ✅ Be specific & avoid general terms unless they have contextual meaning
 
 ```js
 const [stuff, name, concept] = ['🍎', '🍐', '🍊'] // ❌
@@ -79,7 +75,7 @@ const [apple, pear, orange] = ['🍎', '🍐', '🍊'] // ✅
 const [lemon, banana, watermelon, grape, ...otherFruits] = ['🍋', '🍌', '🍉', '🍇'] // ✅
 ```
 
-<StoryHeading label="✅ Use longer names for larger scopes" as="h2" />
+## ✅ Use longer names for larger scopes
 
 ```js
 const a11y // ❌
@@ -90,7 +86,7 @@ const i19s // ❌
 const incomprehensibilities // ✅
 ```
 
-<StoryHeading label="✅ Include all defined effects of the method/class" as="h2" />
+## ✅ Include all defined effects of the method/class
 
 ```js
 // Car entity ❌
@@ -161,7 +157,7 @@ class Car {
 }
 ```
 
-<StoryHeading label="✅ Establish a single domain terminology" as="h2" />
+## ✅ Establish a single domain terminology
 
 ```js
 const car = '🚗'
@@ -199,15 +195,15 @@ class Roads {
 }
 ```
 
-<StoryHeading label="Reserved prefixes" as="h3" />
+### Reserved prefixes
 
 - **use**Something: react hook
 - **with**Something: react HighOrderComponent
 - **on**Something: react component handler
 
-<StoryHeading label="DataType directives" as="h3" />
+### DataType directives
 
-<StoryHeading label="Booleans" as="h4" />
+#### Booleans
 
 Add **is** or **has** as variable name prefixes + participle verb or adjective:
 
@@ -229,7 +225,7 @@ const hasRestrictions = false // ❌
 const hasPermissions = true // ✅
 ```
 
-<StoryHeading label="Number" as="h4" />
+#### Number
 
 Use singular
 Use -**number** postfix on **n**- prefix
@@ -240,7 +236,7 @@ const pageNumber = 3
 const nPage = 3
 ```
 
-<StoryHeading label="String" as="h4" />
+#### String
 
 Use singular
 
@@ -256,7 +252,7 @@ const user = '👩‍💻' // ✅
 const number = '1️⃣' // ✅
 ```
 
-<StoryHeading label="Array, Set or Map" as="h4" />
+#### Array, Set or Map
 
 Use plural
 
@@ -278,7 +274,8 @@ const users = new Set(['👩‍💻', '🧑‍💻', '👨‍💻']) // ✅
 const numbers = ['1️⃣'] // ✅
 ```
 
-<StoryHeading label="Functions" as="h4" />
+#### Functions
+
 Use a infinitive **verb**
 
 ```js
@@ -299,7 +296,7 @@ const Component = ({ click, ...props }) => <div onClick={click} {...props} /> //
 const Component = ({ onClick, ...props }) => <div onClick={onClick} {...props} /> // ❌
 ```
 
-<StoryHeading label="Class or React Component entity" as="h4" />
+#### Class or React Component entity
 
 Use initial Capital Letter for its declarations.
 Use lower-case for its instances
@@ -322,7 +319,7 @@ const Ferrari = <Car /> // ❌
 const ferrari = <Car /> // ✅
 ```
 
-<StoryHeading label="✅ Apply consistent standards in a project" as="h2" />
+## ✅ Apply consistent standards in a project
 
 ```❌
 // Component1.js
@@ -347,7 +344,7 @@ export default () => {}
 export default () => {}
 ```
 
-<StoryHeading label="✅ Stick to idiomatic case" as="h2" />
+## ✅ Stick to idiomatic case
 
 <table>
   <thead>
@@ -447,14 +444,14 @@ export default () => {}
   </tbody>
 </table>
 
-<StoryHeading label="✅ Rather encode hints in the name than in comments" as="h2" />
+## ✅ Rather encode hints in the name than in comments
 
 ```js
 const pet = '🐶' // domesticated wolf's descendant animal. ❌
 const dog = '🐶' // ✅
 ```
 
-<StoryHeading label="❌ Reuse names in different scopes" as="h2" />
+## ❌ Reuse names in different scopes
 
 ```js
 const Component = ({ children, ...props }) => {
@@ -478,7 +475,7 @@ const Component = ({ children, ...props }) => {
 }
 ```
 
-<StoryHeading label="❌ Pick names making only sense to you" as="h2" />
+## ❌ Pick names making only sense to you
 
 Try to avoid acronyms. It normally belongs to a jargon, and it's not universally spread.
 
@@ -499,7 +496,7 @@ const AFAIK, ASAP, AKA, FYI, DRY, H8, DM, MD // ❌
 
 ```
 
-<StoryHeading label="❌ Be funny" as="h2" />
+## ❌ Be funny
 
 ```js
 // Magic. Do not touch. ❌

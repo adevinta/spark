@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 <Meta title="Build/Build" />
 
@@ -8,19 +7,19 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 - [How it works](#how-it-works)
 - [Configuration](#configuration)
 
-<StoryHeading label="How it works" />
+## How it works
 
 Vite manages the build task of each package. Among other things, Vite offers "a build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production."
 
 When it is time to deploy your app for production, simply run the `vite build` command.
 
-<StoryHeading label="Configuration" />
+## Configuration
 
 Each package must include a `vite.config.ts` that will allow custom configurations about the final result of the artifact. You can find the list of possible settings on the [Vite documentation website](https://vitejs.dev/config/build-options.html#build-target).
 
 Spark has a base configuration located in the `/config` directory with some default settings shared between all the packages. Including:
 
-<StoryHeading label="build.target" as="h3" />
+### build.target
 
 Definition: Browser compatibility target for the final bundle.
 
@@ -30,7 +29,7 @@ Definition: Browser compatibility target for the final bundle.
 build.target: 'es2015'
 ```
 
-<StoryHeading label="build.lib" as="h3" />
+### build.lib
 
 ```json
 build.lib: {

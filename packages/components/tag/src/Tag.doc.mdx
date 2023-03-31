@@ -1,6 +1,5 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import { Source } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { Tag } from '.'
 
@@ -12,28 +11,29 @@ import * as TagStories from './Tag.stories'
 
 Tag component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
 
-<StoryHeading label="Install" />
+## Install
 
 ```sh
 npm install @spark-ui/tag
 ```
 
-<StoryHeading label="Import" />
+## Import
 
 ```js
 import { Tag } from '@spark-ui/tag'
 ```
 
-<StoryHeading label="Props" />
+## Props
+
 <ArgsTable of={Tag} />
 
-<StoryHeading label="Default" />
+## Default
 
 <Canvas>
   <Story of={TagStories.Default} />
 </Canvas>
 
-<StoryHeading label="Design" />
+## Design
 
 Use `design` prop to set the different look and feels of a tag.
 
@@ -41,7 +41,7 @@ Use `design` prop to set the different look and feels of a tag.
   <Story of={TagStories.Design} />
 </Canvas>
 
-<StoryHeading label="Intent" />
+## Intent
 
 Use `intent` prop to set the color intent of a tag.
 
@@ -49,7 +49,7 @@ Use `intent` prop to set the color intent of a tag.
   <Story of={TagStories.Intent} />
 </Canvas>
 
-<StoryHeading label="Shapes" />
+## Shapes
 
 Use `shape` prop to set the shape of a tag.
 
