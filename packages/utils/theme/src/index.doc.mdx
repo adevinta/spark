@@ -1,9 +1,8 @@
 import { Meta } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 <Meta title="utils/Theme" />
 
-<StoryHeading label="Theme utils" as="h1" />
+# Theme utils
 
 The **`@spark-ui/theme-utils`** exposes the following:
 
@@ -16,21 +15,21 @@ import { Theme, defaultTheme, defaultThemeDark, createTheme } from '@spark-ui/th
 - [defaultThemeDark](#defaultthemedark)
 - [createTheme](#createtheme)
 
-<StoryHeading label="@spark-ui/theme-utils" as="h2" />
+## @spark-ui/theme-utils
 
-<StoryHeading label="Theme" as="h3" />
+### Theme
 
 - `Theme`, the TypeScript interface for our theme
 
-<StoryHeading label="defaultTheme" as="h3" />
+### defaultTheme
 
 - `defaultTheme`, our default theme, represented as an `Object`
 
-<StoryHeading label="defaultThemeDark" as="h3" />
+### defaultThemeDark
 
 - `defaultTheme`, our dark default theme, represented as an `Object`
 
-<StoryHeading label="createTheme" as="h3" />
+### createTheme
 
 - A function used to create a custom theme by merging a partial custom theme with our `defaultTheme`. The resulting custom theme is a complete theme object with all values overridden or customized based on the input partial custom theme. If a theme object other than the `defaultTheme` is to be used as the base, it can be passed in the optional `fromTheme` parameter.
 

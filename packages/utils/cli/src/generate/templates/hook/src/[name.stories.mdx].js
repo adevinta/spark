@@ -5,7 +5,6 @@ export default ({ name, description }) => {
 
   return `import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { ${hookName} } from '.'
 
@@ -17,19 +16,19 @@ import * as stories from './${hookName}.stories'
 
 ${description}
 
-<StoryHeading label="Install" />
+## Install
 
 \`\`\`
 npm install @spark-ui/${name}
 \`\`\`
 
-<StoryHeading label="Import" />
+## Import
 
 \`\`\`
 import { ${hookName} } from "@spark-ui/${name}"
 \`\`\`
 
-<StoryHeading label="Usage" />
+## Usage
 
 <ArgsTable of={${hookName}} />
 

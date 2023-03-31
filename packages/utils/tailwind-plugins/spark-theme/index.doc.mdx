@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 import { Callout } from '@docs/helpers/Callout'
 
 <Meta title="utils/Tailwind plugins/spark theme" />
@@ -34,7 +33,7 @@ module.exports = {
 
 ```
 
-<StoryHeading label="Usage" as="h2" />
+## Usage
 
 The plugin performs two main tasks:
 
@@ -45,10 +44,10 @@ The plugin performs two main tasks:
 Once the plugin is configured, all Spark custom classes become available for use.
 
 ```tsx
-<div className="bg-primary text-primary...">...</div>
+<div className="text-primary... bg-primary">...</div>
 ```
 
-<StoryHeading label="Configuration" as="h2" />
+## Configuration
 
 This plugin can be customized by providing a configuration object with two fields, `themes` and `htmlFontSize`.
 
