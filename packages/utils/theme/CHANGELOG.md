@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.11.3...@spark-ui/theme-utils@2.12.0) (2023-03-30)
+
+### Features
+
+- **theme-utils:** setup shadow tokens ([947441a](https://github.com/adevinta/spark/commit/947441a6dbac59840e2fb775e2078a499ddf160d))
+
 ## [2.11.3](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.11.2...@spark-ui/theme-utils@2.11.3) (2023-03-29)
 
 **Note:** Version bump only for package @spark-ui/theme-utils

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/switch",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "A control that allows the user to toggle between checked and not checked.",
   "publishConfig": {
     "access": "public"
@@ -15,6 +15,9 @@
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/components/switch"
+  },
+  "dependencies": {
+    "@spark-ui/internal-utils": "1.1.0"
   },
   "peerDependencies": {
     "@radix-ui/react-switch": "1.0.2",

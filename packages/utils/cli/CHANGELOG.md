@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.2](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.9.1...@spark-ui/cli-utils@2.9.2) (2023-03-30)
+
+### Bug Fixes
+
+- update vite config for package-level external dependencies ([fa21c73](https://github.com/adevinta/spark/commit/fa21c73d8ea579a1c5059f48cabca7188696d32e)), closes [#503](https://github.com/adevinta/spark/issues/503)
+
 ## [2.9.1](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.9.0...@spark-ui/cli-utils@2.9.1) (2023-03-29)
 
 **Note:** Version bump only for package @spark-ui/cli-utils

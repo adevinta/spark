@@ -1,4 +1,4 @@
-import { tw } from './default'
+import { tw } from '@spark-ui/internal-utils'
 
 export const contrastVariants = [
   // Primary
@@ -73,9 +73,9 @@ export const contrastVariants = [
     design: 'contrast' as const,
     class: tw([
       'text-surface',
-      'enabled:hover:bg-surface-container-hovered',
-      'enabled:active:bg-surface-container-hovered',
-      'focus-visible:bg-surface-container-focused',
+      'enabled:hover:bg-surface-hovered',
+      'enabled:active:bg-surface-hovered',
+      'focus-visible:bg-surface-focused',
     ]),
   },
 ]

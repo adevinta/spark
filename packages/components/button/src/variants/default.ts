@@ -4,5 +4,3 @@ export const defaultVariants = {
   size: 'md',
   shape: 'rounded',
 } as const
-
-export const tw = <T>(a: T): T => a
