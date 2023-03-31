@@ -26,7 +26,7 @@ const main = async (pattern = 'assets/**/*.svg') => {
       const tsxIconCode = componentize({
         componentName: pascalCase(name),
         node: optimize(svgData, {
-          attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }],
+          attributes: [{ fill: 'currentColor' }, { stroke: 'none' }],
           title: name,
         }).trim(),
         name,

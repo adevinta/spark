@@ -3,7 +3,7 @@ import { IconProps } from '../Types'
 export const VoiceOffOutline = ({
   title,
   fill = 'currentColor',
-  stroke = 'currentColor',
+  stroke = 'none',
   ...props
 }: IconProps) => (
   <svg
