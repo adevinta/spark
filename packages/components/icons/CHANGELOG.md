@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.2.2...@spark-ui/icons@1.3.0) (2023-04-03)
+
+### Bug Fixes
+
+- **icons:** wrong viewbox ([4778f17](https://github.com/adevinta/spark/commit/4778f176ed97c6756ad89006a2ea1f53b9152249))
+
+### Features
+
+- **icons:** add alert icons ([7bf8a20](https://github.com/adevinta/spark/commit/7bf8a20249a7874063fb31a032149a9f8b2e8328))
+- **icons:** add categories ([0c46052](https://github.com/adevinta/spark/commit/0c46052decaf6eb5eb51441aa57e6ceed8e6073d))
+- **icons:** add criteria ([82d962a](https://github.com/adevinta/spark/commit/82d962a6046f9b0723ecc226b669990d6aaad960))
+- **icons:** add delivery icons ([977b6d7](https://github.com/adevinta/spark/commit/977b6d7872b5be21ae62bd6002ccb4e00bc237bf))
+- **icons:** add images ([8d13eb0](https://github.com/adevinta/spark/commit/8d13eb01f317130c1006ecb0f53bd5e05123a519))
+- **icons:** add security icons ([9e1d600](https://github.com/adevinta/spark/commit/9e1d60026cdad7a923afb54c607ea0f431788eea))
+
 ## [1.2.2](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.2.1...@spark-ui/icons@1.2.2) (2023-03-31)
 
 ### Bug Fixes
