@@ -1,14 +1,13 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
 const defaultVariants = {
-  intent: 'primary',
+  intent: 'current',
   size: 'small',
 } as const
 
 export const spinnerVariants = cva(
   [
     'inline-block',
-    'border-current',
     'border-solid',
     'rounded-full',
     'border-md',
@@ -23,6 +22,7 @@ export const spinnerVariants = cva(
         medium: ['w-sz-28', 'h-sz-28'],
       },
       intent: {
+        current: ['border-current'],
         primary: ['border-primary'],
         secondary: ['border-secondary'],
         success: ['border-success'],

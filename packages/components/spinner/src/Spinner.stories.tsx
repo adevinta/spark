@@ -24,6 +24,8 @@ const intents: ComponentProps<typeof Spinner>['intent'][] = [
 
 export const Intents: StoryFn = _args => (
   <div className="flex items-center gap-md">
+    <Spinner className="text-secondary" />
+
     {intents.map(intent => (
       <Spinner key={intent} intent={intent} />
     ))}
