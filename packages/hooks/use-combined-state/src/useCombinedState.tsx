@@ -1,6 +1,6 @@
-import { useMountedState } from '@spark-ui/use-mounted-state'
-import isEqual from 'lodash.isequal'
 import { useCallback, useLayoutEffect, useRef, useState } from 'react'
+import isEqual from 'lodash.isequal'
+import { useMountedState } from '@spark-ui/use-mounted-state'
 
 export function useCombinedState(
   controlledValue?: any,
