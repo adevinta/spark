@@ -1,13 +1,11 @@
 name: release
-
 on:
   push:
     branches:
       - main
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-
+  cancel-in-progress: true
 jobs:
   contributors:
     runs-on: ubuntu-latest
@@ -27,7 +25,6 @@ jobs:
           auto_detect_branch_protection: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   maintainers:
     runs-on: ubuntu-latest
     name: Maintainers
@@ -46,7 +43,6 @@ jobs:
           auto_detect_branch_protection: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   release:
     runs-on: ubuntu-latest
     steps:
@@ -55,29 +51,25 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-
       - name: Identity
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-
       - name: Install
         uses: ./.github/composite-actions/install
-
       - name: Setup npm
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Publish
         run: npm run release
-
   deploy:
     needs: [contributors, maintainers, release]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Install
         uses: ./.github/composite-actions/install
       - name: Install Vercel CLI
