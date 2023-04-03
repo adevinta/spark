@@ -34,7 +34,7 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
 
     return (
       <RadioPrimitive ref={ref} className={radioVariants({ size, intent })} {...others}>
-        <RadioIndicator intent={intent} forceMount />
+        <RadioIndicator intent={intent} size={size} forceMount />
       </RadioPrimitive>
     )
   }

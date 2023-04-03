@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
-import { Radio, RadioGroup } from '.'
+import { Radio, RadioGroup, RadioGroupProps } from '.'
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Components/RadioGroup',
@@ -42,7 +42,15 @@ export const Controlled: StoryFn = _args => {
   )
 }
 
-const intents = ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral'] as const
+const intents: RadioGroupProps['intent'][] = [
+  'primary',
+  'secondary',
+  'success',
+  'alert',
+  'error',
+  'info',
+  'neutral',
+]
 
 export const Intent: StoryFn = _args => {
   return (
@@ -61,7 +69,7 @@ export const Intent: StoryFn = _args => {
   )
 }
 
-const sizes = ['small', 'medium'] as const
+const sizes: RadioGroupProps['size'][] = ['sm', 'md']
 
 export const Size: StoryFn = _args => {
   return (
