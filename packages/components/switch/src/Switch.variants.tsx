@@ -11,10 +11,10 @@ export const styles = cva(
     'group relative inline-flex flex-shrink-0 items-center',
     'cursor-pointer',
     'rounded-full border-transparent',
-    'transition-colors duration-200 ease-in-out',
-    'spark-disabled:opacity-dim-3 spark-disabled:cursor-not-allowed',
-    'focus-visible:outline-none focus-visible:ring focus-visible:ring-outline-high',
     'hover:ring-4',
+    'transition-colors duration-200 ease-in-out',
+    'spark-disabled:opacity-dim-3 disabled:hover:ring-transparent spark-disabled:cursor-not-allowed',
+    'focus-visible:outline-none focus-visible:ring focus-visible:ring-outline-high',
     'spark-state-unchecked:bg-on-surface/dim-4',
   ]),
   {
