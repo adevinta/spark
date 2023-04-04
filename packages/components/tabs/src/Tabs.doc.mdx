@@ -1,0 +1,33 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+
+import { Tabs } from '.'
+
+import * as stories from './Tabs.stories'
+
+<Meta of={stories} />
+
+# Tabs
+
+A set of layered sections of content—known as tab panels—that are displayed one at a time.
+
+## Install
+
+```
+npm install @spark-ui/tabs
+```
+
+## Import
+
+```
+import { Tabs } from "@spark-ui/tabs"
+```
+
+## Props
+
+<ArgsTable of={Tabs} />
+
+## Variants
+
+<Canvas>
+  <Story of={stories.Default} />
+</Canvas>
