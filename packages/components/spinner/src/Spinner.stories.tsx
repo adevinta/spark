@@ -43,3 +43,5 @@ export const Sizes: StoryFn = _args => (
 )
 
 export const Label: StoryFn = _args => <Spinner label="Loading" />
+
+export const Background: StoryFn = _args => <Spinner isBackgroundVisible />

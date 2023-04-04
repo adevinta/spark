@@ -3,18 +3,11 @@ import { cva, VariantProps } from 'class-variance-authority'
 const defaultVariants = {
   intent: 'current',
   size: 'small',
+  isBackgroundVisible: false,
 } as const
 
 export const spinnerVariants = cva(
-  [
-    'inline-block',
-    'border-solid',
-    'rounded-full',
-    'border-md',
-    'border-b-neutral-container',
-    'border-l-neutral-container',
-    'animate-spin',
-  ],
+  ['inline-block', 'border-solid', 'rounded-full', 'border-md', 'animate-spin'],
   {
     variants: {
       size: {
@@ -30,6 +23,10 @@ export const spinnerVariants = cva(
         error: ['border-error'],
         info: ['border-info'],
         neutral: ['border-neutral'],
+      },
+      isBackgroundVisible: {
+        true: ['border-b-neutral-container', 'border-l-neutral-container'],
+        false: ['border-b-transparent', 'border-l-transparent'],
       },
     },
     defaultVariants,

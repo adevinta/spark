@@ -12,6 +12,6 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/visuall-hidden": "1"
+    "@spark-ui/visually-hidden": "0"
   }
 }
