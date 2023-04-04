@@ -1,6 +1,5 @@
 import { Canvas, ArgsTable, Meta, Story } from '@storybook/addon-docs'
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { Radio, RadioGroup } from '.'
 
@@ -12,29 +11,29 @@ import * as RadioStories from './Radio.stories'
 
 Component used when only one choice may be selected in a series of options
 
-<StoryHeading label="Install" />
+## Install
 
 ```sh
 npm install @spark-ui/radio
 ```
 
-<StoryHeading label="Import" />
+## Import
 
 ```ts
 import { RadioGroup, Radio } from '@spark-ui/radio'
 ```
 
-<StoryHeading label="Props" />
+## Props
 
-<StoryHeading as="h3" label="RadioGroup" />
+### RadioGroup
 
 <ArgsTable of={RadioGroup} />
 
-<StoryHeading as="h3" label="Radio" />
+### Radio
 
 <ArgsTable of={Radio} />
 
-<StoryHeading label="Default" />
+## Default
 
 Compound `RadioGroup` and `Radio` components to create a radio group.
 
@@ -42,7 +41,7 @@ Compound `RadioGroup` and `Radio` components to create a radio group.
   <Story of={RadioStories.Default} />
 </Canvas>
 
-<StoryHeading label="Uncontrolled" />
+## Uncontrolled
 
 Use `defaultValue` prop to make the radio group uncontrolled.
 
@@ -50,7 +49,7 @@ Use `defaultValue` prop to make the radio group uncontrolled.
   <Story of={RadioStories.Uncontrolled} />
 </Canvas>
 
-<StoryHeading label="Controlled" />
+## Controlled
 
 Use `value` and `onValueChange` props to make the radio group controlled.
 
@@ -58,7 +57,7 @@ Use `value` and `onValueChange` props to make the radio group controlled.
   <Story of={RadioStories.Controlled} />
 </Canvas>
 
-<StoryHeading label="Disabled" />
+## Disabled
 
 Use `disable` prop to disable all radios inside the group.
 
@@ -66,7 +65,7 @@ Use `disable` prop to disable all radios inside the group.
   <Story of={RadioStories.Disabled} />
 </Canvas>
 
-<StoryHeading label="Intent" />
+## Intent
 
 Use `intent` prop to set the color of every radio inside the group. Optinally, you can set the `intent` in each radio component.
 
@@ -74,7 +73,7 @@ Use `intent` prop to set the color of every radio inside the group. Optinally, y
   <Story of={RadioStories.Intent} />
 </Canvas>
 
-<StoryHeading label="Size" />
+## Size
 
 Use `size` prop to set the size of every radio inside the group. Optinally, you can set the `size` in each radio component.
 
@@ -82,11 +81,11 @@ Use `size` prop to set the size of every radio inside the group. Optinally, you 
   <Story of={RadioStories.Size} />
 </Canvas>
 
-<StoryHeading label="Accessibility" />
+## Accessibility
 
 Adheres to the Radio Group WAI-ARIA design pattern and uses roving tabindex to manage focus movement among radio items.
 
-<StoryHeading as="h3" label="Keyboard Interactions" />
+### Keyboard Interactions
 
 - `Tab`: Moves focus to either the checked radio item or the first radio item in the group.
 - `Space`: When focus is on an unchecked radio item, checks it.

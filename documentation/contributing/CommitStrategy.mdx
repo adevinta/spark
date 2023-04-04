@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 <Meta title="Contributing/Commit" />
 
@@ -11,7 +10,7 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 - [Lerna Integration](#lerna-integration)
 - [Further reading](#further-reading)
 
-<StoryHeading label="How it works" />
+## How it works
 
 - Stage changes `git add .`
 - Commit `npm run commit`
@@ -22,7 +21,7 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
   - Select if are there any **breaking changes** (y/N)
   - Select if the change affects any open issues (y/N)
 
-<StoryHeading label="Commit Convention" />
+## Commit Convention
 
 Spark ✨ adheres to a commit convention called [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0).
 
@@ -45,15 +44,15 @@ In general, the pattern mostly looks like this:
 
 Checkout [specification docs](https://www.conventionalcommits.org/en/v1.0.0/#specification) for deeper information.
 
-<StoryHeading label="Enforcing Convention" />
+## Enforcing Convention
 
 In order to enforce the convention, [commitlint](https://github.com/conventional-changelog/commitlint) checks if your commit messages meet the conventional commit format using [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional).
 
-<StoryHeading label="Lerna Integration" />
+## Lerna Integration
 
 In order to automatically detect and enforce the lerna package and workspace names as scopes, we are using [@commitlint/config-lerna-scopes](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-lerna-scopes)
 
-<StoryHeading label="Further reading" />
+## Further reading
 
 - [Why Use Conventional Commits?](https://www.conventionalcommits.org/en/v1.0.0/#why-use-conventional-commits)
 - ["The perks of committing with conventions" (Talk slides)](https://slides.com/marionebl/the-perks-of-committing-with-conventions)

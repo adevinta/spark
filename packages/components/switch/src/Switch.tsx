@@ -42,7 +42,7 @@ export interface Props
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {}
 
 export const Switch = React.forwardRef<HTMLButtonElement, Props>(
-  ({ intent, value = 'on', size = 'medium', ...rest }, ref) => {
+  ({ intent, value = 'on', size = 'md', ...rest }, ref) => {
     return (
       <SwitchPrimitive.Root ref={ref} className={styles({ intent, size })} value={value} {...rest}>
         <SwitchPrimitive.Thumb className={thumbStyles({ size })}>

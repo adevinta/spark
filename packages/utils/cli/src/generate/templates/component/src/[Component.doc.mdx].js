@@ -4,7 +4,6 @@ export default ({ name, description }) => {
   const componentName = pascalCase(name)
 
   return `import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { ${componentName} } from '.'
 
@@ -16,23 +15,23 @@ import * as stories from './${componentName}.stories'
 
 ${description}
 
-<StoryHeading label="Install" />
+## Install
 
 \`\`\`sh
 npm install @spark-ui/${name}
 \`\`\`
 
-<StoryHeading label="Import" />
+## Import
 
 \`\`\`tsx
 import { ${componentName} } from "@spark-ui/${name}"
 \`\`\`
 
-<StoryHeading label="Props" />
+## Props
 
 <ArgsTable of={${componentName}} />
 
-<StoryHeading label="Variants" />
+## Variants
 
 <Canvas>
   <Story of={stories.Default} />

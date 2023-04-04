@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 const defaultVariants = {
   intent: 'primary',
-  size: 'small',
+  size: 'sm',
 } as const
 
 export const radioVariants = cva(
@@ -18,8 +18,8 @@ export const radioVariants = cva(
   {
     variants: {
       size: {
-        small: ['w-sz-20', 'h-sz-20'],
-        medium: ['w-sz-28', 'h-sz-28'],
+        sm: ['w-sz-20', 'h-sz-20'],
+        md: ['w-sz-28', 'h-sz-28'],
       },
       intent: {
         primary: ['spark-state-checked:border-primary', 'hover:ring-primary-container'],

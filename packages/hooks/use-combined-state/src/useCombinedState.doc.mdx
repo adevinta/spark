@@ -1,0 +1,46 @@
+import { Meta} from '@storybook/addon-docs'
+
+<Meta title="Hooks/useCombinedState" />
+
+# useCombinedState
+
+> The `useCombinedState` hook has the purpose of combine the state of a value prop and its default value.
+
+## Install
+
+```
+npm install @spark-ui/use-mounted-state
+```
+
+## Import
+
+```
+import { useCombinedState } from "@spark-ui/use-combined-state"
+```
+
+## Usage
+
+```jsx
+import * as React from 'react'
+import { useCombinedState } from '@spark-ui/use-combined-state'
+
+const Demo = ({ value, defaultValue, onHandler }) => {
+  const [
+    innerValue, // state
+    setInnerValue, // state setter
+    isControlledValue, // using controlled behavior or not
+    initialInnerValue // first inner value state
+  ] = useCombinedState(
+    value,
+    defaultValue
+  )
+
+  const handler = event => {
+    const {target: {value}} = event
+    setInnerValue(value) // you dnt have to take care if its controlled or not
+    typeof onHandler === 'function' && onHandler(event, {value})
+  }
+
+  return <element value={innerValue} onHandler={handler} />
+}
+```

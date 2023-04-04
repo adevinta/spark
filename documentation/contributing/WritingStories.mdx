@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 import { Callout } from '@docs/helpers/Callout'
 
 import ArgstableImg from '@docs/assets/argstable.png'
@@ -10,7 +9,7 @@ import ArgstableImg from '@docs/assets/argstable.png'
 
 The following guide is showing you how to structure your components documentation.
 
-<StoryHeading label="Docs VS Stories" />
+## Docs VS Stories
 
 Each component must have a `doc` and a `stories` file. For example:
 
@@ -20,14 +19,14 @@ Each component must have a `doc` and a `stories` file. For example:
   - This file contains every example (story) for your component.
   - It is using the CSF format.
 
-<StoryHeading label="Docs" />
+## Docs
 
-<StoryHeading label="Docs guidelines" as="h3" />
+### Docs guidelines
 
 - Every Docs file must have the following extension: `*.doc.mdx`.
 - You must write the following sections in the same order for every component.
 
-<StoryHeading label="1. Referencing the Meta" as="h3" />
+### 1. Referencing the Meta
 
 The meta is the semantic information about the documented component.
 It must be located in the `*stories.tsx` file, but must be referenced in this one to link both files.
@@ -42,41 +41,37 @@ import * as RadioStories from './Radio.stories'
 <Meta of={RadioStories} />
 ```
 
-<StoryHeading label="2. Install" as="h3" />
+### 2. Install
 
 Add a section to show developers how to install this component on their repository.
 
 ````
 // Radio.doc.mdx
 
-import { StoryHeading } from '@docs/helpers/StoryHeading'
-
-<StoryHeading label="Install" />
+## Install
 
 \```sh
 npm install @spark-ui/radio
 \```
 ````
 
-<StoryHeading label="3. Import" as="h3" />
+### 3. Import
 
 Add a section to show developers how to import this component from their repository.
 
 ````
 // Radio.doc.mdx
 
-import { StoryHeading } from '@docs/helpers/StoryHeading'
-
-<StoryHeading label="Import" />
+## Import
 
 \```ts
 import { RadioGroup, Radio } from '@spark-ui/radio'
 \```
 ````
 
-<StoryHeading label="4. Props" as="h3" />
+### 4. Props
 
-<StoryHeading label="Props for single components" as="h4" />
+#### Props for single components
 
 For prop, we rely on `ArgsTable` to read TS files and generate them automatically.
 
@@ -84,11 +79,11 @@ For prop, we rely on `ArgsTable` to read TS files and generate them automaticall
 // Radio.doc.mdx
 
 import { ArgsTable } from '@storybook/addon-docs'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 import { Radio } from '.'
 
-<StoryHeading label="Props" />
+## Props
+
 <ArgsTable of={Radio} />
 ```
 
@@ -96,11 +91,11 @@ import { Radio } from '.'
 
 <img width={800} src={ArgstableImg} alt="Argstable shows a table of the component's props" />
 
-<StoryHeading label="Props for compound components" as="h4" />
+#### Props for compound components
 
 TODO
 
-<StoryHeading label="5. Linking stories" as="h3" />
+### 5. Linking stories
 
 Stories are imported from the associated `*.stories.tsx` file, which is written with CSF format.
 
@@ -115,9 +110,8 @@ Stories are imported from the associated `*.stories.tsx` file, which is written 
 // Radio.doc.mdx
 
 import { Canvas, Story } from '@storybook/addon-docs'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
-<StoryHeading label="Default" />
+## Default
 
 Compound `RadioGroup` and `Radio` components to create a radio group.
 
@@ -126,19 +120,18 @@ Compound `RadioGroup` and `Radio` components to create a radio group.
 </Canvas>
 ```
 
-<StoryHeading label="6. Accessibility" as="h3" />
+### 6. Accessibility
 
 It is nice to add an `Accessibility` section at the end to summarize keyboard interactions and important a11y requirements of the component.
 
 ```
 // Radio.doc.mdx
 
-<StoryHeading label="Accessibility" />
+## Accessibility
 
 Adheres to the Radio Group WAI-ARIA design pattern and uses roving tabindex to manage focus movement among radio items.
 
-
-<StoryHeading as="h3" label="Keyboard Interactions" />
+### Keyboard Interactions
 
 - `Tab`: Moves focus to either the checked radio item or the first radio item in the group.
 - `Space`: When focus is on an unchecked radio item, checks it.
@@ -149,14 +142,14 @@ Adheres to the Radio Group WAI-ARIA design pattern and uses roving tabindex to m
 
 ```
 
-<StoryHeading label="Stories" />
+## Stories
 
-<StoryHeading label="Guidelines" as="h3" />
+### Guidelines
 
 - Every stories file must have the following extension: `*.stories.tsx`.
 - You should write one story per prop. Avoid compolicated stories mixing many props.
 
-<StoryHeading label="1. Define the Meta" as="h3" />
+### 1. Define the Meta
 
 Component must be using a `Components/*` meta. This meta must be the default export of the file.
 
@@ -178,7 +171,7 @@ const meta: Meta<typeof RadioGroup> = {
 export default meta
 ```
 
-<StoryHeading label="2. Write down your stories" as="h3" />
+### 2. Write down your stories
 
 Please refer to [official Storybook documentation](https://storybook.js.org/docs/7.0/react/writing-stories/introduction#defining-stories) to see how you can write stories
 

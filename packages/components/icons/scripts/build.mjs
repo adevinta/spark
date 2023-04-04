@@ -1,4 +1,4 @@
-import { capitalCase } from 'change-case'
+import { pascalCase } from 'change-case'
 import path from 'path'
 
 import componentize from './utils/componentize.mjs'
@@ -7,6 +7,7 @@ import matchFileRoute from './utils/matchFileRoutes.mjs'
 import optimize from './utils/optimize.mjs'
 import pathSVG from './utils/pathSVG.mjs'
 import readFile from './utils/readFile.mjs'
+import tagify from './utils/tagify.mjs'
 import writeFile from './utils/writeFile.mjs'
 
 const main = async (pattern = 'assets/**/*.svg') => {
@@ -20,24 +21,28 @@ const main = async (pattern = 'assets/**/*.svg') => {
 
       const svgData = await pathSVG(readFile(path.join(dir, base)))
 
+      const relativeDir = path.relative('assets', dir)
+
       const tsxIconCode = componentize({
-        componentName: capitalCase(name),
+        componentName: pascalCase(name),
         node: optimize(svgData, {
-          attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }],
+          attributes: [{ fill: 'currentColor' }, { stroke: 'none' }],
           title: name,
         }).trim(),
-        title: name,
+        name,
+        tags: relativeDir.split('/'),
       })
 
-      data.set(capitalCase(name), { value: tsxIconCode, dir: path.relative('assets', dir) })
+      data.set(pascalCase(name), { value: tsxIconCode, dir: relativeDir })
     })
   )
 
   data.forEach(({ value, dir }, name) => {
-    writeFile(path.join('src/icons', dir, `${name}.tsx`), value)
+    writeFile(path.join('src/icons', `${name}.tsx`), value)
   })
 
   writeFile(path.join('src', 'index.ts'), indexify(data))
+  writeFile(path.join('src', 'tags.ts'), tagify(data))
 }
 
 await main(...process.argv.splice(2))

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.1.0...@spark-ui/visually-hidden@0.1.1) (2023-03-31)
+
+**Note:** Version bump only for package @spark-ui/visually-hidden
+
+# 0.1.0 (2023-03-31)
+
+### Bug Fixes
+
+- revise code in accordance with the updated vite configuration ([4f4174a](https://github.com/adevinta/spark/commit/4f4174a0ef8df71f28af5c77acf0c5f7c7837e58)), closes [#503](https://github.com/adevinta/spark/issues/503)
+
+### Features
+
+- **visuall-hidden:** add repository info in package.json ([85d53d9](https://github.com/adevinta/spark/commit/85d53d9cddf95548096470d028fa8db8f4699236))
+- **visuall-hidden:** create component ([d84d0aa](https://github.com/adevinta/spark/commit/d84d0aa71e09bee0a5806a3dd6e37b6a9fa608e9))
+- **visually-hidden:** new package name ([69bfe78](https://github.com/adevinta/spark/commit/69bfe78e443b7a1bff1d1820f9f522daa23e3eb0))
+
+### BREAKING CHANGES
+
+- **visually-hidden:** package name
+
 ## [1.3.1](https://github.com/adevinta/spark/compare/@spark-ui/visuall-hidden@1.3.0...@spark-ui/visuall-hidden@1.3.1) (2023-03-30)
 
 ### Bug Fixes

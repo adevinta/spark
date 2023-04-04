@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.2.2...@spark-ui/radio@1.3.0) (2023-04-03)
+
+### Features
+
+- **radio:** size values should match others and size value update ([77dbebe](https://github.com/adevinta/spark/commit/77dbebe970d3fc36d4840547fad0512ffbc5f82f))
+
+## [1.2.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.2.1...@spark-ui/radio@1.2.2) (2023-03-31)
+
+**Note:** Version bump only for package @spark-ui/radio
+
 ## [1.2.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.2.0...@spark-ui/radio@1.2.1) (2023-03-30)
 
 ### Bug Fixes

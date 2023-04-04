@@ -1,5 +1,4 @@
 import { Meta, Story } from '@storybook/addon-docs'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 <Meta title="Hooks/useMergeRefs" />
 
@@ -7,19 +6,19 @@ import { StoryHeading } from '@docs/helpers/StoryHeading'
 
 > The `useMergeRefs` hook has the purpose of merging and sync the passed references into a single one. It could be useful when implementing a component that receives a forwarded ref and that use internal refs, making it easier to pass a single ref to the DOM target.
 
-<StoryHeading label="Install" />
+## Install
 
 ```
 npm install @spark-ui/use-merge-refs
 ```
 
-<StoryHeading label="Import" />
+## Import
 
 ```
 import { useMergeRefs } from "@spark-ui/use-merge-refs"
 ```
 
-<StoryHeading label="Usage" />
+## Usage
 
 ```jsx
 import * as React from 'react'

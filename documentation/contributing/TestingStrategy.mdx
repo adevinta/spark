@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 import { StoryStatus } from '@docs/helpers/StoryStatus'
 
 <Meta title="Contributing/Testing" />
@@ -19,7 +18,7 @@ import { StoryStatus } from '@docs/helpers/StoryStatus'
   - [Triggering user events](#triggering-user-events)
 - [Testing utilities (methods, hooks)](#testing-utilities)
 
-<StoryHeading label="Scripts" />
+## Scripts
 
 **`npm run test`**: run tests in watch mode (in your terminal)
 
@@ -29,7 +28,7 @@ import { StoryStatus } from '@docs/helpers/StoryStatus'
 
 **`npm run test:coverage`**: run tests with coverage. Output is visible in the terminal, or in the `coverage` folder that is generated (html reporter).
 
-<StoryHeading label="Vitest" />
+## Vitest
 
 [Vitest](https://vitest.dev/guide/why.html) is the test runner used by Spark.
 
@@ -37,7 +36,7 @@ It allows everything a test runner is known for: test suites, mocking, coverage,
 
 We highly recommend installing [the official plugin](https://vitest.dev/guide/ide.html) that matches your IDE (it supports VSCode and IntelliJ).
 
-<StoryHeading label="Testing Library" />
+## Testing Library
 
 [Testing Library](https://testing-library.com/docs/) is our main... testing library :3
 
@@ -49,7 +48,7 @@ We want to check the interface we provide to users, not their technical implemen
 > The more your tests resemble the way your software is used,
 > the more confidence they can give you.
 
-<StoryHeading label="user-event" />
+## user-event
 
 [user-event](https://testing-library.com/docs/ecosystem-user-event/) is a companion library that is part
 of the Testing Library ecosystem.
@@ -58,11 +57,11 @@ It provides a cleaner way to simulate user events. It is closer to the browser b
 
 You can read [here](https://testing-library.com/docs/user-event/intro#differences-from-fireevent) in detail why it is better than `fireEvent`.
 
-<StoryHeading label="Testing components" />
+## Testing components
 
 Spark component packages are scaffolded with a default test file using `Vitest` + `Testing Library` + `user-event`.
 
-<StoryHeading label="Grouping tests" as="h3" />
+### Grouping tests
 
 Group tests in logical blocks using the `describe()` method from `vitest`.
 
@@ -73,7 +72,7 @@ describe('MenuBar behaviour', () => { ... }) // first block
 describe('BurgerMenu behaviour', () => { ... }) // second block
 ```
 
-<StoryHeading label="Naming your tests" as="h3" />
+### Naming your tests
 
 Each test description must start with `should`
 
@@ -87,7 +86,7 @@ describe('MenuBar behaviour', () => {
 })
 ```
 
-<StoryHeading label="Given/When/Then and test assertions" as="h3" />
+### Given/When/Then and test assertions
 
 Inside a test, we recommend you stick with the [Given/When/Then pattern](https://martinfowler.com/bliki/GivenWhenThen.html).
 Following this same pattern across tests makes them easier to read and understand.
@@ -110,7 +109,7 @@ it('should trigger click event', async () => {
 })
 ```
 
-<StoryHeading label="Triggering user events" as="h3" />
+### Triggering user events
 
 [User events](https://testing-library.com/docs/user-event/intro#writing-tests-with-userevent) are simulated using `user-event`, as seen in the previous example.
 
@@ -129,7 +128,7 @@ A few things to note:
 - It is recommended that you set up the `user` independently in each test, doing `const user = userEvent.setup()`. That way, you can pass different options at the test level if necessary.
 - Calls to events (`user.click, user.keyboard, user.scroll`, etc.) are asynchronous, so you MUST use `async/await` on your tests.
 
-<StoryHeading label="Testing utilities" />
+## Testing utilities
 
 Hooks, methods, and other types of utilities that are not user interfaces are simply tested using unit testing.
 So for most of them, you won't require Testing Library.

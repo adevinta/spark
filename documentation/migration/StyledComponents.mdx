@@ -1,10 +1,9 @@
 import { Meta } from '@storybook/blocks'
-import { StoryHeading } from '@docs/helpers/StoryHeading'
 import { Callout } from '@docs/helpers/Callout'
 
 <Meta title="Migration/Styled Components" />
 
-<StoryHeading label="Migrating from styled-components" as="h1" />
+# Migrating from styled-components
 
 - [using a Theme Provider](#using-a-theme-provider)
 - [using dynamic props](#using-dynamic-props)
@@ -24,7 +23,7 @@ The class names used in these examples are **regular Tailwind CSS classes**, and
   will likely require adjustments to suit your specific use case.
 </Callout>
 
-<StoryHeading label="using a Theme Provider" as="h3" />
+## using a Theme Provider
 
 - before
 
@@ -59,11 +58,11 @@ function SomeComponent() {
 
 <Callout>
   If you want to know more about the custom token class names used in Spark, please check out our
-  [**dedicated page**](https://sparkui.vercel.app/viewer/) where you can find a comprehensive list of
-  these class names.
+  [**dedicated page**](https://sparkui.vercel.app/viewer/) where you can find a comprehensive list
+  of these class names.
 </Callout>
 
-<StoryHeading label="using dynamic props" as="h3" />
+## using dynamic props
 
 - before
 
@@ -94,7 +93,7 @@ function SomeComponent({ isActive }: Props) {
 }
 ```
 
-<StoryHeading label="using multiple props (more complexe case)" as="h3" />
+## using multiple props (more complexe case)
 
 - before
 
@@ -160,7 +159,7 @@ In a nutshell, CVA is a tool that automates the process of matching classes to p
 
 </Callout>
 
-<StoryHeading label="using arbitrary values" as="h3" />
+## using arbitrary values
 
 - before
 
@@ -197,7 +196,7 @@ function SomeComponent({ height }: Props) {
 }
 ```
 
-<StoryHeading label="composing styles" as="h3" />
+## composing styles
 
 <Callout>
   Composing styles is not a one-size-fits-all process, and different methods may be more suitable
@@ -266,7 +265,7 @@ function RoundedCard({ kind, className }: RoundedCardProps) {
 }
 ```
 
-<StoryHeading label="overriding styles" as="h3" />
+## overriding styles
 
 Let's say you need to override some predefined styles
 

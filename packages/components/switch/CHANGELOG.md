@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.2...@spark-ui/switch@1.2.3) (2023-04-03)
+
+### Bug Fixes
+
+- **switch:** hover with disable state ([c76697d](https://github.com/adevinta/spark/commit/c76697d5e6c1b243460eb888347060911f794dff))
+
+## [1.2.2](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.1...@spark-ui/switch@1.2.2) (2023-03-31)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.2.1](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.0...@spark-ui/switch@1.2.1) (2023-03-31)
+
+### Bug Fixes
+
+- **switch:** redefine size values ([1ff0577](https://github.com/adevinta/spark/commit/1ff05773876ff407e0cc5e7a392fe6ac9dc7b905))
+
 # [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.1.2...@spark-ui/switch@1.2.0) (2023-03-30)
 
 ### Features

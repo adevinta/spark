@@ -15,7 +15,7 @@ export interface IconProps extends IconVariantsProps, React.SVGProps<SVGElement>
   label?: string
 }
 
-export function Icon({ label, className, size = 'small', children, ...others }: IconProps) {
+export function Icon({ label, className, size = 'md', children, ...others }: IconProps) {
   const child = React.Children.only(children)
 
   return (
