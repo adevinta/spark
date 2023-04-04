@@ -32,7 +32,7 @@ export const Intents: StoryFn = _args => (
   </div>
 )
 
-const sizes: ComponentProps<typeof Spinner>['size'][] = ['small', 'medium']
+const sizes: ComponentProps<typeof Spinner>['size'][] = ['sm', 'md']
 
 export const Sizes: StoryFn = _args => (
   <div className="flex items-center gap-md">

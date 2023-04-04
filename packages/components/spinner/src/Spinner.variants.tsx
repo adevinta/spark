@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 const defaultVariants = {
   intent: 'current',
-  size: 'small',
+  size: 'sm',
   isBackgroundVisible: false,
 } as const
 
@@ -11,8 +11,8 @@ export const spinnerVariants = cva(
   {
     variants: {
       size: {
-        small: ['w-sz-20', 'h-sz-20'],
-        medium: ['w-sz-28', 'h-sz-28'],
+        sm: ['w-sz-20', 'h-sz-20'],
+        md: ['w-sz-28', 'h-sz-28'],
       },
       intent: {
         current: ['border-current'],
