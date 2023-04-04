@@ -2,6 +2,9 @@ name: quality
 on:
   pull_request:
     branches: [main]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   assign-pr-owner:
     runs-on: ubuntu-latest
