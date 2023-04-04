@@ -1,7 +1,6 @@
 {
   "name": "@spark-ui/internal-utils",
   "version": "1.1.0",
-  "private": true,
   "description": "package for sharing reusable code and resources across the codebase",
   "publishConfig": {
     "access": "public"
