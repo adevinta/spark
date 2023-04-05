@@ -73,23 +73,23 @@ import { RadioGroup, Radio } from '@spark-ui/radio'
 
 #### Props for single components
 
-For prop, we rely on `ArgsTable` to read TS files and generate them automatically.
+For prop, we rely on `ArgTypes` to read TS files and generate them automatically.
 
 ```
 // Radio.doc.mdx
 
-import { ArgsTable } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
 
 import { Radio } from '.'
 
 ## Props
 
-<ArgsTable of={Radio} />
+<ArgTypes of={Radio} />
 ```
 
-**Here is what the ArgsTable looks like for a simple component:**
+**Here is what the ArgTypes looks like for a simple component:**
 
-<img width={800} src={ArgstableImg} alt="Argstable shows a table of the component's props" />
+<img width={800} src={ArgstableImg} alt="ArgTypes shows a table of the component's props" />
 
 #### Props for compound components
 
