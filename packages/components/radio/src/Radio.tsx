@@ -1,41 +1,28 @@
-import { RadioGroupItem as RadioPrimitive } from '@radix-ui/react-radio-group'
-import { ButtonHTMLAttributes, forwardRef } from 'react'
+import { forwardRef } from 'react'
 
-import { radioVariants, RadioVariantsProps } from './Radio.variants'
-import { RadioIndicator } from './RadioIndicator'
+import { RadioInput, RadioInputProps } from './RadioInput'
+import { RadioLabel } from './RadioLabel'
 import { useRadioGroup } from './useRadioGroup'
 
-export interface RadioProps
-  extends RadioVariantsProps,
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {
-  /**
-   * Change the component to the HTML tag or custom component of the only child.
-   */
-  asChild?: boolean
-  /**
-   * The value given as data when submitted with a name.
-   */
-  value: string
-  /**
-   * When true, prevents the user from interacting with the radio item.
-   */
-  disabled?: boolean
-  /**
-   * When true, indicates that the user must check the radio item before the owning form can be submitted.
-   */
-  required?: boolean
-}
+export type RadioProps = RadioInputProps
 
 export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
-  ({ intent: intentProp, size: sizeProp, ...others }, ref) => {
+  (
+    { intent: intentProp, size: sizeProp, disabled: disabledProp, className, children, ...others },
+    ref
+  ) => {
     const context = useRadioGroup()
     const intent = intentProp || context.intent
     const size = sizeProp || context.size
+    const disabled = disabledProp || context.disabled
+
+    console.log('xd', disabled)
 
     return (
-      <RadioPrimitive ref={ref} className={radioVariants({ size, intent })} {...others}>
-        <RadioIndicator intent={intent} size={size} forceMount />
-      </RadioPrimitive>
+      <RadioLabel disabled={disabled}>
+        <RadioInput ref={ref} intent={intent} size={size} {...others} />
+        {children}
+      </RadioLabel>
     )
   }
 )

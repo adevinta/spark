@@ -5,7 +5,7 @@ const defaultVariants = {
   size: 'sm',
 } as const
 
-export const radioVariants = cva(
+export const radioInputVariants = cva(
   [
     'rounded-full',
     'border-md border-outline',
@@ -35,4 +35,4 @@ export const radioVariants = cva(
   }
 )
 
-export type RadioVariantsProps = VariantProps<typeof radioVariants>
+export type RadioInputVariantsProps = VariantProps<typeof radioInputVariants>

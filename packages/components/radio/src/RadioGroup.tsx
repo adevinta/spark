@@ -1,11 +1,11 @@
 import { RadioGroup as RadioGroupPrimitive } from '@radix-ui/react-radio-group'
 import { forwardRef, HTMLAttributes } from 'react'
 
-import { RadioVariantsProps } from './Radio.variants'
 import { RadioGroupProvider } from './RadioGroupProvider'
+import { RadioInputVariantsProps } from './RadioInput.variants'
 
 export interface RadioGroupProps
-  extends Pick<RadioVariantsProps, 'intent' | 'size'>,
+  extends Pick<RadioInputVariantsProps, 'intent' | 'size'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'value' | 'defaultValue' | 'dir'> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -50,10 +50,10 @@ export interface RadioGroupProps
 }
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ loop = true, intent, size, ...others }, ref) => {
+  ({ loop = true, intent, size, disabled, ...others }, ref) => {
     return (
-      <RadioGroupProvider intent={intent} size={size}>
-        <RadioGroupPrimitive ref={ref} {...others} />
+      <RadioGroupProvider intent={intent} size={size} disabled={disabled}>
+        <RadioGroupPrimitive ref={ref} disabled={disabled} {...others} />
       </RadioGroupProvider>
     )
   }

@@ -80,16 +80,3 @@ Use `size` prop to set the size of every radio inside the group. Optinally, you 
 <Canvas>
   <Story of={RadioStories.Size} />
 </Canvas>
-
-## Accessibility
-
-Adheres to the Radio Group WAI-ARIA design pattern and uses roving tabindex to manage focus movement among radio items.
-
-### Keyboard Interactions
-
-- `Tab`: Moves focus to either the checked radio item or the first radio item in the group.
-- `Space`: When focus is on an unchecked radio item, checks it.
-- `ArrowDown`: Moves focus and checks the next radio item in the group.
-- `ArrowRight`: Moves focus and checks the next radio item in the group.
-- `ArrowUp`: Moves focus to the previous radio item in the group.
-- `ArrowLeft`: Moves focus to the previous radio item in the group.
