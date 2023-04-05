@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { ArgsTable, Meta, Canvas } from '@storybook/addon-docs'
 
 import { Icon } from '.'
 
@@ -27,34 +27,25 @@ import { Icon } from "@spark-ui/icon"
 <ArgsTable of={Icon} />
 
 ## Default
-
-<Canvas>
-  <Story of={IconStories.Default} />
-</Canvas>
+<Canvas of={IconStories.Default} />
 
 ## Sizes
 
 Use `size` prop to change the size of the icon.
 
-<Canvas>
-  <Story of={IconStories.Sizes} />
-</Canvas>
+<Canvas of={IconStories.Sizes} />
 
 ## Colors
 
 Use a utility text color class to change the color of the icon.
 
-<Canvas>
-  <Story of={IconStories.Colors} />
-</Canvas>
+<Canvas of={IconStories.Colors} />
 
 ## Label
 
 Use `label` prop so it could be announced correctly by screen readers. There is no visual difference.
 
-<Canvas>
-  <Story of={IconStories.Label} />
-</Canvas>
+<Canvas of={IconStories.Label} />
 
 ## Accessibility
 

@@ -72,7 +72,7 @@ export const List: StoryFn = _args => {
       />
       <div className="flex flex-wrap content-center items-start justify-evenly gap-lg">
         {Object.entries(Icons).map(([name, Value]) => (
-          <IconElement name={name} value={Value} />
+          <IconElement key={name} name={name} value={Value} />
         ))}
       </div>
     </div>
