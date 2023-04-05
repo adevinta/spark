@@ -53,6 +53,14 @@
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/soykje">
+            <img src="https://avatars.githubusercontent.com/u/66770550?v=4" width="50;" alt="soykje"/>
+            <br />
+            <sub><b>soykje</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/ferminhg">
             <img src="https://avatars.githubusercontent.com/u/944856?v=4" width="50;" alt="ferminhg"/>
             <br />
