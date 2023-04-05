@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { ArgsTable, Meta, Canvas } from '@storybook/addon-docs'
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 
 import { Portal } from '.'
@@ -36,6 +36,4 @@ In the following example, the JSX element is located in the left block, but rend
 
 This is because we wrapped it with a `Portal` whose `container` is the block to the right.
 
-<Canvas>
-  <Story of={PortalStories.Usage} />
-</Canvas>
+<Canvas of={PortalStories.Usage} />

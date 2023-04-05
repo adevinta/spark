@@ -1,4 +1,4 @@
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { ArgsTable, Canvas, Meta } from '@storybook/addon-docs'
 import { Source } from '@storybook/blocks'
 
 import { Tag } from '.'
@@ -28,31 +28,22 @@ import { Tag } from '@spark-ui/tag'
 <ArgsTable of={Tag} />
 
 ## Default
-
-<Canvas>
-  <Story of={TagStories.Default} />
-</Canvas>
+<Canvas of={TagStories.Default} />
 
 ## Design
 
 Use `design` prop to set the different look and feels of a tag.
 
-<Canvas>
-  <Story of={TagStories.Design} />
-</Canvas>
+<Canvas of={TagStories.Design} />
 
 ## Intent
 
 Use `intent` prop to set the color intent of a tag.
 
-<Canvas>
-  <Story of={TagStories.Intent} />
-</Canvas>
+<Canvas of={TagStories.Intent} />
 
 ## Shapes
 
 Use `shape` prop to set the shape of a tag.
 
-<Canvas>
-  <Story of={TagStories.Shapes} />
-</Canvas>
+<Canvas of={TagStories.Shapes} />

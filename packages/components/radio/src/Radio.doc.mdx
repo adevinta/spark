@@ -1,4 +1,4 @@
-import { Canvas, ArgsTable, Meta, Story } from '@storybook/addon-docs'
+import { Canvas, ArgsTable, Meta } from '@storybook/addon-docs'
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 
 import { Radio, RadioGroup } from '.'
@@ -37,49 +37,37 @@ import { RadioGroup, Radio } from '@spark-ui/radio'
 
 Compound `RadioGroup` and `Radio` components to create a radio group.
 
-<Canvas>
-  <Story of={RadioStories.Default} />
-</Canvas>
+<Canvas of={RadioStories.Default} />
 
 ## Uncontrolled
 
 Use `defaultValue` prop to make the radio group uncontrolled.
 
-<Canvas>
-  <Story of={RadioStories.Uncontrolled} />
-</Canvas>
+<Canvas of={RadioStories.Uncontrolled} />
 
 ## Controlled
 
 Use `value` and `onValueChange` props to make the radio group controlled.
 
-<Canvas>
-  <Story of={RadioStories.Controlled} />
-</Canvas>
+<Canvas of={RadioStories.Controlled} />
 
 ## Disabled
 
 Use `disable` prop to disable all radios inside the group.
 
-<Canvas>
-  <Story of={RadioStories.Disabled} />
-</Canvas>
+<Canvas of={RadioStories.Disabled} />
 
 ## Intent
 
 Use `intent` prop to set the color of every radio inside the group. Optinally, you can set the `intent` in each radio component.
 
-<Canvas>
-  <Story of={RadioStories.Intent} />
-</Canvas>
+<Canvas of={RadioStories.Intent} />
 
 ## Size
 
 Use `size` prop to set the size of every radio inside the group. Optinally, you can set the `size` in each radio component.
 
-<Canvas>
-  <Story of={RadioStories.Size} />
-</Canvas>
+<Canvas of={RadioStories.Size} />
 
 ## Accessibility
 
