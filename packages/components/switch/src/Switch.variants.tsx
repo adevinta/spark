@@ -52,7 +52,7 @@ export const thumbStyles = cva(
     'pointer-events-none',
     'rounded-full',
     'ring-0',
-    'transform transition-all duration-200 ease-in-out',
+    'transition-all duration-200 ease-in-out',
   ],
   {
     variants: {
