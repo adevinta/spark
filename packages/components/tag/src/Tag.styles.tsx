@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { defaultVariants, filledVariants, outlinedVariants, tintedVariants } from './variants'
+import { filledVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const tagStyles = cva(
   [
@@ -45,7 +45,11 @@ export const tagStyles = cva(
       },
     },
     compoundVariants: [...filledVariants, ...outlinedVariants, ...tintedVariants],
-    defaultVariants,
+    defaultVariants: {
+      design: 'filled',
+      intent: 'primary',
+      shape: 'rounded',
+    },
   }
 )
 

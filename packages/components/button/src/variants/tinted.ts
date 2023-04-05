@@ -1,10 +1,9 @@
 import { tw } from '@spark-ui/internal-utils'
 
 export const tintedVariants = [
-  // Primary
   {
-    intent: 'primary' as const,
-    design: 'tinted' as const,
+    intent: 'primary',
+    design: 'tinted',
     class: tw([
       'bg-primary-container',
       'text-on-primary-container',
@@ -13,10 +12,9 @@ export const tintedVariants = [
       'focus-visible:bg-primary-container-focused',
     ]),
   },
-  // Secondary
   {
-    intent: 'secondary' as const,
-    design: 'tinted' as const,
+    intent: 'secondary',
+    design: 'tinted',
     class: tw([
       'bg-secondary-container',
       'text-on-secondary-container',
@@ -25,10 +23,9 @@ export const tintedVariants = [
       'focus-visible:bg-secondary-container-focused',
     ]),
   },
-  // Success
   {
-    intent: 'success' as const,
-    design: 'tinted' as const,
+    intent: 'success',
+    design: 'tinted',
     class: tw([
       'bg-success-container',
       'text-on-success-container',
@@ -37,10 +34,9 @@ export const tintedVariants = [
       'focus-visible:bg-success-container-focused',
     ]),
   },
-  // Alert
   {
-    intent: 'alert' as const,
-    design: 'tinted' as const,
+    intent: 'alert',
+    design: 'tinted',
     class: tw([
       'bg-alert-container',
       'text-on-alert-container',
@@ -49,10 +45,9 @@ export const tintedVariants = [
       'focus-visible:bg-alert-container-focused',
     ]),
   },
-  // Danger
   {
-    intent: 'danger' as const,
-    design: 'tinted' as const,
+    intent: 'danger',
+    design: 'tinted',
     class: tw([
       'bg-error-container',
       'text-on-error-container',
@@ -61,10 +56,9 @@ export const tintedVariants = [
       'focus-visible:bg-error-container-focused',
     ]),
   },
-  // Neutral
   {
-    intent: 'neutral' as const,
-    design: 'tinted' as const,
+    intent: 'neutral',
+    design: 'tinted',
     class: tw([
       'bg-neutral-container',
       'text-on-neutral-container',
@@ -73,10 +67,9 @@ export const tintedVariants = [
       'focus-visible:bg-neutral-container-focused',
     ]),
   },
-  // Surface
   {
-    intent: 'surface' as const,
-    design: 'tinted' as const,
+    intent: 'surface',
+    design: 'tinted',
     class: tw([
       'bg-surface',
       'text-on-surface',
@@ -85,4 +78,4 @@ export const tintedVariants = [
       'focus-visible:bg-surface-focused',
     ]),
   },
-]
+] as const

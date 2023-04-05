@@ -1,10 +1,9 @@
 import { tw } from '@spark-ui/internal-utils'
 
 export const outlinedVariants = [
-  // Primary
   {
-    intent: 'primary' as const,
-    design: 'outlined' as const,
+    intent: 'primary',
+    design: 'outlined',
     class: tw([
       'enabled:hover:bg-primary-container-hovered',
       'enabled:active:bg-primary-container-hovered',
@@ -12,10 +11,9 @@ export const outlinedVariants = [
       'text-primary',
     ]),
   },
-  // Secondary
   {
-    intent: 'secondary' as const,
-    design: 'outlined' as const,
+    intent: 'secondary',
+    design: 'outlined',
     class: tw([
       'enabled:hover:bg-secondary-container-hovered',
       'enabled:active:bg-secondary-container-hovered',
@@ -23,10 +21,9 @@ export const outlinedVariants = [
       'text-secondary',
     ]),
   },
-  // Success
   {
-    intent: 'success' as const,
-    design: 'outlined' as const,
+    intent: 'success',
+    design: 'outlined',
     class: tw([
       'enabled:hover:bg-success-container-hovered',
       'enabled:active:bg-success-container-hovered',
@@ -34,10 +31,9 @@ export const outlinedVariants = [
       'text-success',
     ]),
   },
-  // Alert
   {
-    intent: 'alert' as const,
-    design: 'outlined' as const,
+    intent: 'alert',
+    design: 'outlined',
     class: tw([
       'enabled:hover:bg-alert-container-hovered',
       'enabled:active:bg-alert-container-hovered',
@@ -45,10 +41,9 @@ export const outlinedVariants = [
       'text-alert',
     ]),
   },
-  // Danger
   {
-    intent: 'danger' as const,
-    design: 'outlined' as const,
+    intent: 'danger',
+    design: 'outlined',
     class: tw([
       'enabled:hover:bg-error-container-hovered',
       'enabled:active:bg-error-container-hovered',
@@ -56,10 +51,9 @@ export const outlinedVariants = [
       'text-error',
     ]),
   },
-  // Neutral
   {
-    intent: 'neutral' as const,
-    design: 'outlined' as const,
+    intent: 'neutral',
+    design: 'outlined',
     class: tw([
       'enabled:hover:bg-neutral-container-hovered',
       'enabled:active:bg-neutral-container-hovered',
@@ -67,10 +61,9 @@ export const outlinedVariants = [
       'text-neutral',
     ]),
   },
-  // Surface
   {
-    intent: 'surface' as const,
-    design: 'outlined' as const,
+    intent: 'surface',
+    design: 'outlined',
     class: tw([
       'enabled:hover:bg-surface-hovered',
       'enabled:active:bg-surface-hovered',
@@ -78,4 +71,4 @@ export const outlinedVariants = [
       'text-surface',
     ]),
   },
-]
+] as const

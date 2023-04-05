@@ -1,46 +1,39 @@
 import { tw } from './default'
 
 export const outlinedVariants = [
-  // Primary
   {
-    intent: 'primary' as const,
-    design: 'outlined' as const,
+    intent: 'primary',
+    design: 'outlined',
     class: tw(['text-primary']),
   },
-  // Secondary
   {
-    intent: 'secondary' as const,
-    design: 'outlined' as const,
+    intent: 'secondary',
+    design: 'outlined',
     class: tw(['text-secondary']),
   },
-  // Success
   {
-    intent: 'success' as const,
-    design: 'outlined' as const,
+    intent: 'success',
+    design: 'outlined',
     class: tw(['text-success']),
   },
-  // Alert
   {
-    intent: 'alert' as const,
-    design: 'outlined' as const,
+    intent: 'alert',
+    design: 'outlined',
     class: tw(['text-alert']),
   },
-  // Danger
   {
-    intent: 'danger' as const,
-    design: 'outlined' as const,
+    intent: 'danger',
+    design: 'outlined',
     class: tw(['text-error']),
   },
-  // Info
   {
-    intent: 'info' as const,
-    design: 'outlined' as const,
+    intent: 'info',
+    design: 'outlined',
     class: tw(['text-info']),
   },
-  // Neutral
   {
-    intent: 'neutral' as const,
-    design: 'outlined' as const,
+    intent: 'neutral',
+    design: 'outlined',
     class: tw(['text-neutral']),
   },
-]
+] as const

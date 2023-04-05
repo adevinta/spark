@@ -2,7 +2,6 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import {
   contrastVariants,
-  defaultVariants,
   filledVariants,
   ghostVariants,
   outlinedVariants,
@@ -74,7 +73,12 @@ export const buttonStyles = cva(
       ...ghostVariants,
       ...contrastVariants,
     ],
-    defaultVariants,
+    defaultVariants: {
+      design: 'filled',
+      intent: 'primary',
+      size: 'md',
+      shape: 'rounded',
+    },
   }
 )
 
