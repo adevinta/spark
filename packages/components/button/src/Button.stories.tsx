@@ -30,7 +30,11 @@ export const Default: StoryFn = _args => <Button>Default button</Button>
 export const Sizes: StoryFn = _args => (
   <div className="flex items-center gap-md">
     {sizes.map(size => {
-      return <Button size={size}>{size} button</Button>
+      return (
+        <Button key={size} size={size}>
+          {size} button
+        </Button>
+      )
     })}
   </div>
 )
@@ -38,7 +42,11 @@ export const Sizes: StoryFn = _args => (
 export const Shapes: StoryFn = _args => (
   <div className="flex items-center gap-md">
     {shapes.map(shape => {
-      return <Button shape={shape}>{shape} button</Button>
+      return (
+        <Button key={shape} shape={shape}>
+          {shape} button
+        </Button>
+      )
     })}
   </div>
 )
