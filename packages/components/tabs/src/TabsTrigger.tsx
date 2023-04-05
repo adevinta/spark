@@ -2,23 +2,14 @@ import * as RadixTabs from '@radix-ui/react-tabs'
 import { cva } from 'class-variance-authority'
 
 export const styles = cva([
-  'flex-1 p-sm',
-  // first item
-  'first:rounded-tl-sm first:border-l-transparent',
-  // last item
-  'last:rounded-tr-sm last:border-l-transparent last:border-r-transparent',
-  // borders
-  'border-sm',
-  'border-l-none',
-  'border-t-transparent',
-  'border-b-sm border-b first:border-r-sm last:border-l-sm',
-  'border-b-primary-variant',
+  'px-lg h-sz-44',
+  'outline-none',
+  'text-body-2 text-on-surface',
+  'border-b-sm border-outline',
   // radix states
-  'spark-state-active:border-b-sm',
-  'spark-state-active:border-b-primary',
-  'focus-visible:spark-state-active:border-b-transparent',
-  'spark-state-active:bg-primary spark-state-active:text-on-primary',
-  'focus:z-raised focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
+  'hover:text-outline',
+  'ring-inset focus-visible:ring-2 focus-visible:ring-outline-high focus-visible:border-none',
+  'spark-state-active:text-primary spark-state-active:border-b-md spark-state-active:border-primary spark-state-active:mb-[1px]',
 ])
 
 interface Props extends RadixTabs.TabsTriggerProps {

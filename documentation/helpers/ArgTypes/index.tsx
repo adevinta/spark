@@ -3,13 +3,13 @@ import { ArgTypes as StorybookArgTypes } from '@storybook/blocks'
 
 interface Props {
   of: any
-  subcomponents?: Record<string, any>
+  subComponents?: Record<string, any>
 }
 
-export const ArgTypes = ({ of, subcomponents = [] }: Props) => {
+export const ArgTypes = ({ of, subComponents = [] }: Props) => {
   const componentsList = {
     [of.displayName]: of,
-    ...subcomponents,
+    ...subComponents,
   }
 
   return (

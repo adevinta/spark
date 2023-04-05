@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Tabs } from '.'
 
@@ -24,10 +25,15 @@ import { Tabs } from "@spark-ui/tabs"
 
 ## Props
 
-<ArgsTable of={Tabs} />
+<ArgTypes
+  of={Tabs}
+  subComponents={{
+    'Tabs.List': Tabs.List,
+    'Tabs.Trigger': Tabs.Trigger,
+    'Tabs.Content': Tabs.Content,
+  }}
+/>
 
 ## Variants
 
-<Canvas>
-  <Story of={stories.Default} />
-</Canvas>
+<Canvas of={stories.Default} />
