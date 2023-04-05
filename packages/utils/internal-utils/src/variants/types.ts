@@ -1,13 +1,13 @@
 import { designs, intents, shapes, sizes } from './constants'
 
 /* eslint-disable-next-line @typescript-eslint/ban-types */
-type Picks<T extends object, Entries extends (keyof T)[], Acc = {}> = Entries extends [
-  infer Entry,
+type Picks<T extends object, PickedItems extends (keyof T)[], Acc = {}> = PickedItems extends [
+  infer Head,
   ...infer Rest
 ]
   ? Rest extends (keyof T)[]
-    ? Entry extends keyof T
-      ? Picks<T, Rest, Acc & Pick<T, Entry>>
+    ? Head extends keyof T
+      ? Picks<T, Rest, Acc & Pick<T, Head>>
       : Acc
     : Acc
   : Acc
@@ -24,6 +24,13 @@ type DesignLookup = Record<Design, string[]>
 type Shape = (typeof shapes)[number]
 type ShapeLookup = Record<Shape, string[]>
 
+interface VariantLookup {
+  design: DesignLookup
+  intent: IntentLookup
+  shape: ShapeLookup
+  size: SizeLookup
+}
+
 export type {
   Size,
   SizeLookup,
@@ -34,4 +41,5 @@ export type {
   Shape,
   ShapeLookup,
   Picks,
+  VariantLookup,
 }
