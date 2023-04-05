@@ -45,7 +45,7 @@ export const Checkbox = React.forwardRef<
   CheckboxProps
 >(({ intent, icon = <Check />, ...props }, ref) => (
   <CheckboxPrimitive.Root ref={ref} className={styles({ intent })} {...props}>
-    <CheckboxPrimitive.Indicator className="flex items-center justify-center text-surface">
+    <CheckboxPrimitive.Indicator className="text-surface flex items-center justify-center">
       {icon}
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
