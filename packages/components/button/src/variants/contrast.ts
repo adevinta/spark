@@ -65,7 +65,7 @@ export const contrastVariants = [
     intent: 'surface',
     design: 'contrast',
     class: tw([
-      'text-surface',
+      'text-on-surface',
       'enabled:hover:bg-surface-hovered',
       'enabled:active:bg-surface-hovered',
       'focus-visible:bg-surface-focused',
