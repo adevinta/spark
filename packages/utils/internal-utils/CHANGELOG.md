@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@1.2.0...@spark-ui/internal-utils@1.3.0) (2023-04-05)
+
+### Features
+
+- **internal-utils:** add variants folder ([c286382](https://github.com/adevinta/spark/commit/c28638297833ce50db909e1d43bdfd94bdb92ab8))
+
 # [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@1.1.0...@spark-ui/internal-utils@1.2.0) (2023-04-04)
 
 ### Features
