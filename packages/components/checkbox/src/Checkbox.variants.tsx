@@ -1,9 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-const defaultVariants = {
-  intent: 'primary',
-} as const
-
 export const styles = cva(
   [
     'peer h-sz-20 w-sz-20 rounded-sm border-md bg-transparent items-center justify-center',
@@ -32,7 +28,9 @@ export const styles = cva(
         ],
       },
     },
-    defaultVariants,
+    defaultVariants: {
+      intent: 'primary',
+    },
   }
 )
 

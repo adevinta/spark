@@ -1,46 +1,39 @@
 import { tw } from './default'
 
 export const filledVariants = [
-  // Primary
   {
-    intent: 'primary' as const,
-    design: 'filled' as const,
+    intent: 'primary',
+    design: 'filled',
     class: tw(['bg-primary', 'text-on-primary']),
   },
-  // Secondary
   {
-    intent: 'secondary' as const,
-    design: 'filled' as const,
+    intent: 'secondary',
+    design: 'filled',
     class: tw(['bg-secondary', 'text-on-secondary']),
   },
-  // Success
   {
-    intent: 'success' as const,
-    design: 'filled' as const,
+    intent: 'success',
+    design: 'filled',
     class: tw(['bg-success', 'text-on-success']),
   },
-  // Alert
   {
-    intent: 'alert' as const,
-    design: 'filled' as const,
+    intent: 'alert',
+    design: 'filled',
     class: tw(['bg-alert', 'text-on-alert']),
   },
-  // Danger
   {
-    intent: 'danger' as const,
-    design: 'filled' as const,
+    intent: 'danger',
+    design: 'filled',
     class: tw(['bg-error', 'text-on-error']),
   },
-  // Info
   {
-    intent: 'info' as const,
-    design: 'filled' as const,
+    intent: 'info',
+    design: 'filled',
     class: tw(['bg-info', 'text-on-info']),
   },
-  // Neutral
   {
-    intent: 'neutral' as const,
-    design: 'filled' as const,
+    intent: 'neutral',
+    design: 'filled',
     class: tw(['bg-neutral', 'text-on-neutral']),
   },
-]
+] as const

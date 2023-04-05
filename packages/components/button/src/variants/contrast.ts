@@ -1,10 +1,9 @@
 import { tw } from '@spark-ui/internal-utils'
 
 export const contrastVariants = [
-  // Primary
   {
-    intent: 'primary' as const,
-    design: 'contrast' as const,
+    intent: 'primary',
+    design: 'contrast',
     class: tw([
       'text-primary',
       'enabled:hover:bg-primary-container-hovered',
@@ -12,10 +11,9 @@ export const contrastVariants = [
       'focus-visible:bg-primary-container-focused',
     ]),
   },
-  // Secondary
   {
-    intent: 'secondary' as const,
-    design: 'contrast' as const,
+    intent: 'secondary',
+    design: 'contrast',
     class: tw([
       'text-secondary',
       'enabled:hover:bg-secondary-container-hovered',
@@ -23,10 +21,9 @@ export const contrastVariants = [
       'focus-visible:bg-secondary-container-focused',
     ]),
   },
-  // Success
   {
-    intent: 'success' as const,
-    design: 'contrast' as const,
+    intent: 'success',
+    design: 'contrast',
     class: tw([
       'text-success',
       'enabled:hover:bg-success-container-hovered',
@@ -34,10 +31,9 @@ export const contrastVariants = [
       'focus-visible:bg-success-container-focused',
     ]),
   },
-  // Alert
   {
-    intent: 'alert' as const,
-    design: 'contrast' as const,
+    intent: 'alert',
+    design: 'contrast',
     class: tw([
       'text-alert',
       'enabled:hover:bg-alert-container-hovered',
@@ -45,10 +41,9 @@ export const contrastVariants = [
       'focus-visible:bg-alert-container-focused',
     ]),
   },
-  // Danger
   {
-    intent: 'danger' as const,
-    design: 'contrast' as const,
+    intent: 'danger',
+    design: 'contrast',
     class: tw([
       'text-error',
       'enabled:hover:bg-error-container-hovered',
@@ -56,10 +51,9 @@ export const contrastVariants = [
       'focus-visible:bg-error-container-focused',
     ]),
   },
-  // Neutral
   {
-    intent: 'neutral' as const,
-    design: 'contrast' as const,
+    intent: 'neutral',
+    design: 'contrast',
     class: tw([
       'text-neutral',
       'enabled:hover:bg-neutral-container-hovered',
@@ -67,10 +61,9 @@ export const contrastVariants = [
       'focus-visible:bg-neutral-container-focused',
     ]),
   },
-  // Surface
   {
-    intent: 'surface' as const,
-    design: 'contrast' as const,
+    intent: 'surface',
+    design: 'contrast',
     class: tw([
       'text-surface',
       'enabled:hover:bg-surface-hovered',
@@ -78,4 +71,4 @@ export const contrastVariants = [
       'focus-visible:bg-surface-focused',
     ]),
   },
-]
+] as const
