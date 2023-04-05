@@ -3,7 +3,7 @@ import { pascalCase } from 'pascal-case'
 export default ({ name, description }) => {
   const componentName = pascalCase(name)
 
-  return `import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+  return `import { ArgsTable, Meta, Canvas } from '@storybook/addon-docs'
 
 import { ${componentName} } from '.'
 
@@ -32,9 +32,6 @@ import { ${componentName} } from "@spark-ui/${name}"
 <ArgsTable of={${componentName}} />
 
 ## Variants
-
-<Canvas>
-  <Story of={stories.Default} />
-</Canvas>
+<Canvas of={stories.Default} />
 `
 }
