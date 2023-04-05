@@ -11,7 +11,7 @@ const meta: Meta<typeof RadioGroup> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <RadioGroup className="flex gap-md">
+  <RadioGroup className="gap-md flex">
     <Radio value="1" />
     <Radio value="2" />
     <Radio value="3" />
@@ -19,7 +19,7 @@ export const Default: StoryFn = _args => (
 )
 
 export const Uncontrolled: StoryFn = _args => (
-  <RadioGroup className="flex gap-md" defaultValue="1">
+  <RadioGroup className="gap-md flex" defaultValue="1">
     <Radio value="1" />
     <Radio value="2" />
     <Radio value="3" />
@@ -34,7 +34,7 @@ export const Controlled: StoryFn = _args => {
   }
 
   return (
-    <RadioGroup className="flex gap-md" value={value} onValueChange={handleChange}>
+    <RadioGroup className="gap-md flex" value={value} onValueChange={handleChange}>
       <Radio value="1" />
       <Radio value="2" />
       <Radio value="3" />
@@ -54,11 +54,11 @@ const intents: RadioGroupProps['intent'][] = [
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-md">
+    <div className="gap-md flex flex-col">
       {intents.map(intent => (
-        <div className="flex items-center gap-md">
+        <div className="gap-md flex items-center">
           <span>{intent}</span>
-          <RadioGroup key={intent} className="flex gap-md" defaultValue="1" intent={intent}>
+          <RadioGroup key={intent} className="gap-md flex" defaultValue="1" intent={intent}>
             <Radio value="1" />
             <Radio value="2" />
             <Radio value="3" />
@@ -73,11 +73,11 @@ const sizes: RadioGroupProps['size'][] = ['sm', 'md']
 
 export const Size: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-md">
+    <div className="gap-md flex flex-col">
       {sizes.map(size => (
-        <div className="flex items-center gap-md">
+        <div className="gap-md flex items-center">
           <span>{size}</span>
-          <RadioGroup key={size} className="flex gap-md" defaultValue="1" size={size}>
+          <RadioGroup key={size} className="gap-md flex" defaultValue="1" size={size}>
             <Radio value="1" />
             <Radio value="2" />
             <Radio value="3" />
@@ -89,7 +89,7 @@ export const Size: StoryFn = _args => {
 }
 
 export const Disabled: StoryFn = _args => (
-  <RadioGroup className="flex gap-md" disabled>
+  <RadioGroup className="gap-md flex" disabled>
     <Radio value="1">
       <input />
     </Radio>
