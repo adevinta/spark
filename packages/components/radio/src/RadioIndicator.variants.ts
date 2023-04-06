@@ -1,5 +1,4 @@
-/* eslint-disable tailwindcss/no-custom-classname */
-
+import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
 export const radioIndicatorVariants = cva(
@@ -19,7 +18,10 @@ export const radioIndicatorVariants = cva(
   ],
   {
     variants: {
-      intent: {
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+      >({
         primary: ['after:bg-primary'],
         secondary: ['after:bg-secondary'],
         success: ['after:bg-success'],
@@ -27,11 +29,11 @@ export const radioIndicatorVariants = cva(
         error: ['after:bg-error'],
         info: ['after:bg-info'],
         neutral: ['after:bg-neutral'],
-      },
-      size: {
+      }),
+      size: makeVariants<'size', ['sm', 'md']>({
         sm: ['after:spark-state-checked:h-sz-10', 'after:spark-state-checked:w-sz-10'],
         md: ['after:spark-state-checked:h-sz-16', 'after:spark-state-checked:w-sz-16'],
-      },
+      }),
     },
     defaultVariants: {
       intent: 'primary',

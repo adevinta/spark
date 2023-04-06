@@ -1,3 +1,4 @@
+import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
 export const styles = cva(
@@ -9,7 +10,7 @@ export const styles = cva(
   ],
   {
     variants: {
-      intent: {
+      intent: makeVariants<'intent', ['primary', 'success', 'alert', 'error']>({
         primary: [
           'spark-state-unchecked:border-outline',
           'spark-state-checked:border-primary spark-state-checked:bg-primary',
@@ -26,7 +27,7 @@ export const styles = cva(
           'spark-state-unchecked:border-error',
           'spark-state-checked:border-error spark-state-checked:bg-error',
         ],
-      },
+      }),
     },
     defaultVariants: {
       intent: 'primary',
