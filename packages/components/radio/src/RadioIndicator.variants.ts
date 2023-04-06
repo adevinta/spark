@@ -2,11 +2,6 @@
 
 import { cva, VariantProps } from 'class-variance-authority'
 
-const defaultVariants = {
-  intent: 'primary',
-  size: 'sm',
-} as const
-
 export const radioIndicatorVariants = cva(
   [
     'block',
@@ -14,7 +9,7 @@ export const radioIndicatorVariants = cva(
     'h-full',
     'w-full',
     'after:absolute',
-    'after:top-1/2 after:left-1/2 after:transform after:-translate-x-1/2 after:-translate-y-1/2',
+    'after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2',
     'after:h-none',
     'after:w-none',
     'after:block',
@@ -38,7 +33,10 @@ export const radioIndicatorVariants = cva(
         md: ['after:spark-state-checked:h-sz-16', 'after:spark-state-checked:w-sz-16'],
       },
     },
-    defaultVariants,
+    defaultVariants: {
+      intent: 'primary',
+      size: 'sm',
+    },
   }
 )
 

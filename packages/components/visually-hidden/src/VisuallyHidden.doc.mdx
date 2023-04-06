@@ -1,5 +1,4 @@
-import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
-import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { Meta, Canvas } from '@storybook/addon-docs'
 
 import { VisuallyHidden } from '.'
 
@@ -29,6 +28,4 @@ import { VisuallyHidden } from "@spark-ui/visually-hidden"
 
 A button without text can be absolutely mysterious for someone using screen reader. They might be announced simply as "button". We can solve this problem without compromising on our design. A VisuallyHidden component will allow us to place text inside this button that will only be made available to people using screen readers.
 
-<Canvas>
-  <Story of={VisuallyHiddenStories.Default} />
-</Canvas>
+<Canvas of={VisuallyHiddenStories.Default} />

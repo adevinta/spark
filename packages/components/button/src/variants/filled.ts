@@ -3,8 +3,8 @@ import { tw } from '@spark-ui/internal-utils'
 export const filledVariants = [
   // Primary
   {
-    intent: 'primary' as const,
-    design: 'filled' as const,
+    intent: 'primary',
+    design: 'filled',
     class: tw([
       'bg-primary',
       'text-on-primary',
@@ -15,8 +15,8 @@ export const filledVariants = [
   },
   // Secondary
   {
-    intent: 'secondary' as const,
-    design: 'filled' as const,
+    intent: 'secondary',
+    design: 'filled',
     class: tw([
       'bg-secondary',
       'text-on-secondary',
@@ -27,8 +27,8 @@ export const filledVariants = [
   },
   // Success
   {
-    intent: 'success' as const,
-    design: 'filled' as const,
+    intent: 'success',
+    design: 'filled',
     class: tw([
       'bg-success',
       'text-on-success',
@@ -39,8 +39,8 @@ export const filledVariants = [
   },
   // Alert
   {
-    intent: 'alert' as const,
-    design: 'filled' as const,
+    intent: 'alert',
+    design: 'filled',
     class: tw([
       'bg-alert',
       'text-on-alert',
@@ -51,20 +51,18 @@ export const filledVariants = [
   },
   // Danger
   {
-    intent: 'danger' as const,
-    design: 'filled' as const,
+    intent: 'danger',
+    design: 'filled',
     class: tw([
-      'bg-error',
-      'text-on-error',
-      'enabled:hover:bg-error-hovered',
-      'enabled:active:bg-error-hovered',
+      'text-on-error bg-error',
+      'enabled:hover:bg-error-hovered enabled:active:bg-error-hovered',
       'focus-visible:bg-error-focused',
     ]),
   },
   // Neutral
   {
-    intent: 'neutral' as const,
-    design: 'filled' as const,
+    intent: 'neutral',
+    design: 'filled',
     class: tw([
       'bg-neutral',
       'text-on-neutral',
@@ -75,8 +73,8 @@ export const filledVariants = [
   },
   // Surface
   {
-    intent: 'surface' as const,
-    design: 'filled' as const,
+    intent: 'surface',
+    design: 'filled',
     class: tw([
       'bg-surface',
       'text-on-surface',
@@ -85,4 +83,4 @@ export const filledVariants = [
       'focus-visible:bg-surface-focused',
     ]),
   },
-]
+] as const

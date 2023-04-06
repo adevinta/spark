@@ -42,7 +42,7 @@ export const List: StoryFn = _args => {
     return (
       <Wrapper key={name}>
         <div
-          className="flex flex-col content-start items-center gap-sm"
+          className="gap-sm flex flex-col content-start items-center"
           onClick={onCopy}
           data-tags={`${currentIconTags.join(' ')}`}
         >
@@ -51,7 +51,7 @@ export const List: StoryFn = _args => {
               <Value />
             </Icon>
           </Button>
-          <span className="min-w-[80px] text-center text-caption">{name}</span>
+          <span className="text-caption min-w-[80px] text-center">{name}</span>
           <span>{hasCopied ? 'copied!' : <br />}</span>
         </div>
       </Wrapper>
@@ -59,20 +59,20 @@ export const List: StoryFn = _args => {
   }
 
   return (
-    <div className="flex flex-col content-start items-start gap-md">
+    <div className="gap-md flex flex-col content-start items-start">
       <label htmlFor="default-search-input" className="px-md text-small uppercase">
         search
       </label>
       <input
-        className="rounded-md px-md py-sm text-on-surface ring-2 ring-current focus-visible:outline-0"
+        className="px-md py-sm text-on-surface rounded-md ring-2 ring-current focus-visible:outline-0"
         id="default-search-input"
         value={value}
         placeholder="icon name"
         onChange={handleChange}
       />
-      <div className="flex flex-wrap content-center items-start justify-evenly gap-lg">
+      <div className="gap-lg flex flex-wrap content-center items-start justify-evenly">
         {Object.entries(Icons).map(([name, Value]) => (
-          <IconElement name={name} value={Value} />
+          <IconElement key={name} name={name} value={Value} />
         ))}
       </div>
     </div>

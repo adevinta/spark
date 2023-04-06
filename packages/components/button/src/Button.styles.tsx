@@ -2,7 +2,6 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import {
   contrastVariants,
-  defaultVariants,
   filledVariants,
   ghostVariants,
   outlinedVariants,
@@ -11,9 +10,9 @@ import {
 
 export const buttonStyles = cva(
   [
-    'flex items-center gap-md justify-center box-border whitespace-nowrap',
+    'gap-md box-border flex items-center justify-center whitespace-nowrap',
     'text-body-1 font-bold',
-    'ring-inset focus-visible:ring-2 focus-visible:ring-outline-high focus-visible:outline-none',
+    'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
   ],
   {
     variants: {
@@ -74,7 +73,12 @@ export const buttonStyles = cva(
       ...ghostVariants,
       ...contrastVariants,
     ],
-    defaultVariants,
+    defaultVariants: {
+      design: 'filled',
+      intent: 'primary',
+      size: 'md',
+      shape: 'rounded',
+    },
   }
 )
 

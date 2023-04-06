@@ -1,10 +1,10 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { defaultVariants, filledVariants, outlinedVariants, tintedVariants } from './variants'
+import { filledVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const tagStyles = cva(
   [
-    'inline-flex items-center gap-md justify-center box-border whitespace-nowrap',
+    'gap-md box-border inline-flex items-center justify-center whitespace-nowrap',
     'text-caption font-bold',
     'h-sz-20 px-md',
     'ring-inset',
@@ -45,7 +45,11 @@ export const tagStyles = cva(
       },
     },
     compoundVariants: [...filledVariants, ...outlinedVariants, ...tintedVariants],
-    defaultVariants,
+    defaultVariants: {
+      design: 'filled',
+      intent: 'primary',
+      shape: 'rounded',
+    },
   }
 )
 

@@ -11,11 +11,11 @@ const meta: Meta<typeof Checkbox> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <div className="flex items-center gap-sm">
+  <div className="gap-sm flex items-center">
     <Checkbox id={'c1'} />
     <label
       htmlFor={'c1'}
-      className="cursor-pointer pl-[4px] text-body-1 font-medium peer-disabled:cursor-not-allowed  peer-disabled:opacity-dim-3"
+      className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
     >
       Accept terms and conditions.
     </label>
@@ -23,11 +23,11 @@ export const Default: StoryFn = _args => (
 )
 
 export const Disabled: StoryFn = _args => (
-  <div className="flex items-center gap-sm">
+  <div className="gap-sm flex items-center">
     <Checkbox id={'c2'} disabled />
     <label
       htmlFor={'c2'}
-      className="cursor-pointer pl-[4px] text-body-1 font-medium peer-disabled:cursor-not-allowed  peer-disabled:opacity-dim-3"
+      className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
     >
       Accept terms and conditions.
     </label>
@@ -35,11 +35,11 @@ export const Disabled: StoryFn = _args => (
 )
 
 export const DefaultChecked: StoryFn = _args => (
-  <div className="flex items-center gap-sm">
+  <div className="gap-sm flex items-center">
     <Checkbox id={'c3'} defaultChecked />
     <label
       htmlFor={'c3'}
-      className="cursor-pointer pl-[4px] text-body-1 font-medium peer-disabled:cursor-not-allowed  peer-disabled:opacity-dim-3"
+      className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
     >
       Accept terms and conditions.
     </label>
@@ -54,11 +54,11 @@ export const Controlled: StoryFn = _args => {
   }
 
   return (
-    <div className="flex items-center gap-sm">
+    <div className="gap-sm flex items-center">
       <Checkbox id={'c4'} checked={value} onCheckedChange={handleChange} />
       <label
         htmlFor={'c4'}
-        className="cursor-pointer pl-[4px] text-body-1 font-medium peer-disabled:cursor-not-allowed  peer-disabled:opacity-dim-3"
+        className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
       >
         Accept terms and conditions.
       </label>
@@ -72,7 +72,7 @@ export const Intent: StoryFn = _args => (
   <>
     {intent.map(color => {
       return (
-        <div className="flex items-center gap-sm" key={color}>
+        <div className="gap-sm flex items-center" key={color}>
           <Checkbox id={color} intent={color} />
           <label htmlFor={color}>{color}</label>
         </div>
@@ -81,7 +81,7 @@ export const Intent: StoryFn = _args => (
   </>
 )
 export const Icon: StoryFn = _args => (
-  <div className="flex items-center gap-sm">
+  <div className="gap-sm flex items-center">
     <Checkbox
       id={'c6'}
       defaultChecked
@@ -93,7 +93,7 @@ export const Icon: StoryFn = _args => (
     />
     <label
       htmlFor={'c6'}
-      className="cursor-pointer pl-[4px] text-body-1 font-medium peer-disabled:cursor-not-allowed  peer-disabled:opacity-dim-3"
+      className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
     >
       Accept terms and conditions.
     </label>

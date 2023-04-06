@@ -1,10 +1,9 @@
 import { tw } from '@spark-ui/internal-utils'
 
 export const ghostVariants = [
-  // Primary
   {
-    intent: 'primary' as const,
-    design: 'ghost' as const,
+    intent: 'primary',
+    design: 'ghost',
     class: tw([
       'text-primary',
       'enabled:hover:bg-primary-container-hovered',
@@ -12,10 +11,9 @@ export const ghostVariants = [
       'focus-visible:bg-primary-container-focused',
     ]),
   },
-  // Secondary
   {
-    intent: 'secondary' as const,
-    design: 'ghost' as const,
+    intent: 'secondary',
+    design: 'ghost',
     class: tw([
       'text-secondary',
       'enabled:hover:bg-secondary-container-hovered',
@@ -23,10 +21,9 @@ export const ghostVariants = [
       'focus-visible:bg-secondary-container-focused',
     ]),
   },
-  // Success
   {
-    intent: 'success' as const,
-    design: 'ghost' as const,
+    intent: 'success',
+    design: 'ghost',
     class: tw([
       'text-success',
       'enabled:hover:bg-success-container-hovered',
@@ -34,10 +31,9 @@ export const ghostVariants = [
       'focus-visible:bg-success-container-focused',
     ]),
   },
-  // Alert
   {
-    intent: 'alert' as const,
-    design: 'ghost' as const,
+    intent: 'alert',
+    design: 'ghost',
     class: tw([
       'text-alert',
       'enabled:hover:bg-alert-container-hovered',
@@ -45,10 +41,9 @@ export const ghostVariants = [
       'focus-visible:bg-alert-container-focused',
     ]),
   },
-  // Danger
   {
-    intent: 'danger' as const,
-    design: 'ghost' as const,
+    intent: 'danger',
+    design: 'ghost',
     class: tw([
       'text-error',
       'enabled:hover:bg-error-container-hovered',
@@ -56,10 +51,9 @@ export const ghostVariants = [
       'focus-visible:bg-error-container-focused',
     ]),
   },
-  // Neutral
   {
-    intent: 'neutral' as const,
-    design: 'ghost' as const,
+    intent: 'neutral',
+    design: 'ghost',
     class: tw([
       'text-neutral',
       'enabled:hover:bg-neutral-container-hovered',
@@ -67,10 +61,9 @@ export const ghostVariants = [
       'focus-visible:bg-neutral-container-focused',
     ]),
   },
-  // Surface
   {
-    intent: 'surface' as const,
-    design: 'ghost' as const,
+    intent: 'surface',
+    design: 'ghost',
     class: tw([
       'text-on-surface',
       'enabled:hover:bg-surface-hovered',
@@ -78,4 +71,4 @@ export const ghostVariants = [
       'focus-visible:bg-surface-focused',
     ]),
   },
-]
+] as const

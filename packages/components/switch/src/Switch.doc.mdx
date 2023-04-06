@@ -1,5 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
-import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { Canvas, Meta } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
 
 import { Switch } from '.'
 
@@ -25,28 +25,20 @@ import { Switch } from "@spark-ui/switch"
 
 ## Props
 
-<ArgsTable of={Switch} />
+<ArgTypes of={Switch} />
 
 ## Usage
 
-<Canvas>
-  <Story of={stories.Default} />
-</Canvas>
+<Canvas of={stories.Default} />
 
 ## Disabled
 
-<Canvas>
-  <Story of={stories.Disabled} />
-</Canvas>
+<Canvas of={stories.Disabled} />
 
 ## Sizes
 
-<Canvas>
-  <Story of={stories.Sizes} />
-</Canvas>
+<Canvas of={stories.Sizes} />
 
 ## Colors
 
-<Canvas>
-  <Story of={stories.Colors} />
-</Canvas>
+<Canvas of={stories.Colors} />
