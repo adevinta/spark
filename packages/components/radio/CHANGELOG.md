@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.3.2...@spark-ui/radio@1.4.0) (2023-04-06)
+
+### Features
+
+- **radio:** add label to radio ([0a6cf7b](https://github.com/adevinta/spark/commit/0a6cf7b07ba3fffca1e4a51ae7acd0279a55a9de))
+- **radio:** remove not needed log ([156e9df](https://github.com/adevinta/spark/commit/156e9dfe85dd4981ed804d65605cdca1354dbe6a))
+
 ## [1.3.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.3.1...@spark-ui/radio@1.3.2) (2023-04-05)
 
 **Note:** Version bump only for package @spark-ui/radio
