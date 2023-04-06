@@ -1,3 +1,4 @@
+import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 import { filledVariants, outlinedVariants, tintedVariants } from './variants'
@@ -21,15 +22,18 @@ export const tagStyles = cva(
        * - `tinted`: Tag will be filled but using a lighter color scheme.
        *
        */
-      design: {
+      design: makeVariants<'design', ['filled', 'outlined', 'tinted']>({
         filled: [],
         outlined: ['bg-transparent', 'ring-2', 'ring-current'],
         tinted: [],
-      },
+      }),
       /**
        * Color scheme of the tag.
        */
-      intent: {
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'info', 'neutral', 'danger']
+      >({
         primary: [],
         secondary: [],
         success: [],
@@ -37,12 +41,12 @@ export const tagStyles = cva(
         danger: [],
         info: [],
         neutral: [],
-      },
-      shape: {
+      }),
+      shape: makeVariants<'shape'>({
         rounded: ['rounded-lg'],
         square: ['rounded-none'],
         pill: ['rounded-full'],
-      },
+      }),
     },
     compoundVariants: [...filledVariants, ...outlinedVariants, ...tintedVariants],
     defaultVariants: {

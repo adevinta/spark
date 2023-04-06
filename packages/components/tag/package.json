@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@spark-ui/slot": "^1.2.4",
+    "@spark-ui/internal-utils": "1",
     "class-variance-authority": "0.4.0"
   }
 }

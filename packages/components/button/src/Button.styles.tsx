@@ -1,3 +1,4 @@
+import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 import {
@@ -30,17 +31,21 @@ export const buttonStyles = cva(
        * - `contrast`: Button will be surface filled. No borders, plain text.
        *
        */
-      design: {
+      design: makeVariants<'design'>({
         filled: [],
         outlined: ['bg-transparent', 'ring-2', 'ring-current'],
         tinted: [],
         ghost: [],
         contrast: ['bg-surface'],
-      },
+      }),
+
       /**
        * Color scheme of the button.
        */
-      intent: {
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'danger', 'neutral', 'surface']
+      >({
         primary: [],
         secondary: [],
         success: [],
@@ -48,22 +53,25 @@ export const buttonStyles = cva(
         danger: [],
         neutral: [],
         surface: [],
-      },
-      size: {
+      }),
+
+      size: makeVariants<'size'>({
         sm: ['py-sm px-lg'],
         md: ['py-md px-lg'],
         lg: ['p-lg'],
-      },
+      }),
+
+      shape: makeVariants<'shape'>({
+        rounded: ['rounded-lg'],
+        square: ['rounded-none'],
+        pill: ['rounded-full'],
+      }),
+
       /**
        * Disable the button, preventing user interaction and adding opacity.
        */
       disabled: {
         true: ['cursor-not-allowed', 'opacity-dim-3'],
-      },
-      shape: {
-        rounded: ['rounded-lg'],
-        square: ['rounded-none'],
-        pill: ['rounded-full'],
       },
     },
     compoundVariants: [
