@@ -124,7 +124,7 @@ export const defaultTheme: Theme = {
     onBackground: '#000000',
     backgroundHovered: '#F4F4FC',
     backgroundDisabled: '#F8F8F9',
-    backgroundFocused: '#000000', // use with dim-5 opacity
+    backgroundFocused: '#F4F4FC',
     // Background variant
     backgroundVariant: '#F8F8F9',
     onBackgroundVariant: '#000000',
@@ -133,7 +133,7 @@ export const defaultTheme: Theme = {
     onSurface: '#000000',
     surfaceHovered: '#F4F4FC',
     surfaceDisabled: '#F8F8F9',
-    surfaceFocused: '#000000', // use with dim-5 opacity
+    surfaceFocused: '#F4F4FC',
     // Surface Inverse
     surfaceInverse: '#252428',
     onSurfaceInverse: '#FFFFFF',
