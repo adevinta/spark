@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.4.0...@spark-ui/radio@1.4.1) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/radio
+
 # [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.3.2...@spark-ui/radio@1.4.0) (2023-04-06)
 
 ### Features
