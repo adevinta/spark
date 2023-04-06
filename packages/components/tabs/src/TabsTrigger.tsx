@@ -1,5 +1,6 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { cva } from 'class-variance-authority'
+import { forwardRef } from 'react'
 
 export const styles = cva([
   'px-lg h-sz-44',
@@ -8,25 +9,40 @@ export const styles = cva([
   'border-b-sm border-outline',
   // radix states
   'hover:text-outline',
-  'ring-inset focus-visible:ring-2 focus-visible:ring-outline-high focus-visible:border-none',
+  'focus-visible:ring-outline-high ring-inset focus-visible:border-none focus-visible:ring-2',
   'spark-state-active:text-primary spark-state-active:border-b-md spark-state-active:border-primary spark-state-active:mb-[1px]',
 ])
 
-interface Props extends RadixTabs.TabsTriggerProps {
+export interface TabsTriggerProps extends RadixTabs.TabsTriggerProps {
   disabled?: boolean
 }
 
-export function TabsTrigger({ children, asChild = false, disabled = false, ...rest }: Props) {
-  const defaultRadixValues = {
-    asChild,
-    disabled,
+export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
+  (
+    {
+      /**
+       * Default Radix Primitive values
+       * see https://www.radix-ui.com/docs/primitives/components/tabs#trigger
+       */
+      asChild = false,
+      disabled = false,
+      children,
+      ...rest
+    },
+    ref
+  ) => {
+    return (
+      <RadixTabs.Trigger
+        ref={ref}
+        className={styles()}
+        asChild={asChild}
+        disabled={disabled}
+        {...rest}
+      >
+        {children}
+      </RadixTabs.Trigger>
+    )
   }
+)
 
-  return (
-    <RadixTabs.Trigger className={styles()} {...defaultRadixValues} {...rest}>
-      {children}
-    </RadixTabs.Trigger>
-  )
-}
-
-TabsTrigger.displayName = TabsTrigger.name
+TabsTrigger.displayName = 'Tabs.Trigger'
