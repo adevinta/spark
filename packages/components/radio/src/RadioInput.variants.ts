@@ -1,6 +1,11 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const radioVariants = cva(
+const defaultVariants = {
+  intent: 'primary',
+  size: 'sm',
+} as const
+
+export const radioInputVariants = cva(
   [
     'rounded-full',
     'border-md border-outline',
@@ -26,11 +31,8 @@ export const radioVariants = cva(
         neutral: ['spark-state-checked:border-neutral', 'hover:ring-neutral-container'],
       },
     },
-    defaultVariants: {
-      intent: 'primary',
-      size: 'sm',
-    },
+    defaultVariants,
   }
 )
 
-export type RadioVariantsProps = VariantProps<typeof radioVariants>
+export type RadioInputVariantsProps = VariantProps<typeof radioInputVariants>

@@ -12,18 +12,9 @@ describe('Radio', () => {
     // When
     render(
       <RadioGroup {...props}>
-        <label>
-          1
-          <Radio value="1" />
-        </label>
-        <label>
-          2
-          <Radio value="2" />
-        </label>
-        <label>
-          3
-          <Radio value="3" />
-        </label>
+        <Radio value="1">1</Radio>
+        <Radio value="2">2</Radio>
+        <Radio value="3">3</Radio>
       </RadioGroup>
     )
     const element = screen.getByRole('radiogroup')
@@ -42,18 +33,9 @@ describe('Radio', () => {
     // When
     render(
       <RadioGroup {...props}>
-        <label>
-          1
-          <Radio value="1" />
-        </label>
-        <label>
-          2
-          <Radio value="2" />
-        </label>
-        <label>
-          3
-          <Radio value="3" />
-        </label>
+        <Radio value="1">1</Radio>
+        <Radio value="2">2</Radio>
+        <Radio value="3">3</Radio>
       </RadioGroup>
     )
     const element = screen.getByRole('radiogroup')
@@ -74,18 +56,9 @@ describe('Radio', () => {
     // When
     render(
       <RadioGroup {...props}>
-        <label>
-          1
-          <Radio value="1" />
-        </label>
-        <label>
-          2
-          <Radio value="2" />
-        </label>
-        <label>
-          3
-          <Radio value="3" />
-        </label>
+        <Radio value="1">1</Radio>
+        <Radio value="2">2</Radio>
+        <Radio value="3">3</Radio>
       </RadioGroup>
     )
     const element = screen.getByRole('radiogroup')
