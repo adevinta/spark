@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.1.3...@spark-ui/visually-hidden@0.2.0) (2023-04-07)
+
+### Features
+
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+
 ## [0.1.3](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.1.2...@spark-ui/visually-hidden@0.1.3) (2023-04-06)
 
 **Note:** Version bump only for package @spark-ui/visually-hidden

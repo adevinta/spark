@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.8...@spark-ui/switch@1.3.0) (2023-04-07)
+
+### Features
+
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+
 ## [1.2.8](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.7...@spark-ui/switch@1.2.8) (2023-04-06)
 
 **Note:** Version bump only for package @spark-ui/switch

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.1.6...@spark-ui/icon@1.2.0) (2023-04-07)
+
+### Features
+
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+
 ## [1.1.6](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.1.5...@spark-ui/icon@1.1.6) (2023-04-06)
 
 **Note:** Version bump only for package @spark-ui/icon
