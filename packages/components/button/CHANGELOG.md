@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.4.0...@spark-ui/button@1.5.0) (2023-04-07)
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+
 # [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.3.13...@spark-ui/button@1.4.0) (2023-04-07)
 
 ### Features

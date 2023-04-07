@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.2.0...@spark-ui/visually-hidden@0.3.0) (2023-04-07)
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.1.3...@spark-ui/visually-hidden@0.2.0) (2023-04-07)
 
 ### Features
