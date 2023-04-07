@@ -18,5 +18,10 @@
   },
   "dependencies": {
     "@radix-ui/react-visually-hidden": "^1.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "tailwind": "^3.0.0"
   }
 }
