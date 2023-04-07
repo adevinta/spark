@@ -44,5 +44,3 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
     )
   }
 )
-
-TabsTrigger.displayName = 'Tabs.Trigger'

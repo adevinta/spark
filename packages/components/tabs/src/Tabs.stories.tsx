@@ -2,10 +2,15 @@ import { Meta, StoryFn } from '@storybook/react'
 
 import { Tabs } from '.'
 
-const meta: Meta<typeof Tabs> = {
+const meta = {
   title: 'Components/Tabs',
   component: Tabs,
-}
+  subcomponents: {
+    'Tabs.List': Tabs.List,
+    'Tabs.Trigger': Tabs.Trigger,
+    'Tabs.Content': Tabs.Content,
+  },
+} as Meta<typeof Tabs>
 
 export default meta
 
