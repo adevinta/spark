@@ -1,17 +1,8 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { cva } from 'class-variance-authority'
 import { forwardRef } from 'react'
 
-export const styles = cva([
-  'px-lg h-sz-44',
-  'outline-none',
-  'text-body-2 text-on-surface',
-  'border-b-sm border-outline',
-  // radix states
-  'hover:text-outline',
-  'focus-visible:ring-outline-high ring-inset focus-visible:border-none focus-visible:ring-2',
-  'spark-state-active:text-primary spark-state-active:border-b-md spark-state-active:border-primary spark-state-active:mb-[1px]',
-])
+import { tabsTriggerVariants } from './Tabs.styles'
+import { useTabsContext } from './TabsContext'
 
 export interface TabsTriggerProps extends RadixTabs.TabsTriggerProps {
   disabled?: boolean
@@ -31,10 +22,12 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
     },
     ref
   ) => {
+    const { intent, size } = useTabsContext()
+
     return (
       <RadixTabs.Trigger
         ref={ref}
-        className={styles()}
+        className={tabsTriggerVariants({ intent, size })}
         asChild={asChild}
         disabled={disabled}
         {...rest}
