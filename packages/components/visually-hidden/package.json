@@ -17,6 +17,6 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-visually-hidden": "1.0.2"
+    "@radix-ui/react-visually-hidden": "^1.0.2"
   }
 }

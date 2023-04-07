@@ -17,11 +17,9 @@
     "directory": "packages/components/switch"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "^1.4.0"
-  },
-  "peerDependencies": {
-    "@radix-ui/react-switch": "1.0.2",
     "@spark-ui/icons": "1",
+    "@radix-ui/react-switch": "^1.0.2",
+    "@spark-ui/internal-utils": "^1.4.0",
     "@spark-ui/slot": "^1.2.0",
     "class-variance-authority": "^0.4.0"
   }
