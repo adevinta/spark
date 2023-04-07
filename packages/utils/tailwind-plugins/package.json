@@ -8,7 +8,7 @@
   "main": "index.js",
   "dependencies": {
     "@spark-ui/theme-utils": "^2.12.4",
-    "tailwindcss-radix": "2.8.0"
+    "tailwindcss-radix": "^2.8.0"
   },
   "peerDependencies": {
     "tailwindcss": "^3.2.7"
