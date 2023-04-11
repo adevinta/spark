@@ -102,18 +102,18 @@ export const defaultThemeDark: Theme = createTheme({
     // Background
     background: '#000000',
     onBackground: '#FFFFFF',
-    backgroundHovered: '#7583FF', // use with 8% opacity
+    backgroundHovered: '#080632',
     backgroundDisabled: '#252428',
-    backgroundFocused: '#FFFFFF', // use with 8% opacity
+    backgroundFocused: '#080632',
     // Background variant
     backgroundVariant: '#252428',
     onBackgroundVariant: '#FFFFFF',
     // Surface
     surface: '#000000',
     onSurface: '#FFFFFF',
-    surfaceHovered: '#7583FF', // use with dim-5 opacity
+    surfaceHovered: '#080632',
     surfaceDisabled: '#252428',
-    surfaceFocused: '#FFFFFF', // use with dim-5 opacity
+    surfaceFocused: '#080632',
     // Surface Inverse
     surfaceInverse: '#F8F8F9',
     onSurfaceInverse: '#000000',

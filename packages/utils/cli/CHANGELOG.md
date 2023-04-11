@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.9.5...@spark-ui/cli-utils@2.10.0) (2023-04-07)
+
+### Features
+
+- add peerDeps field inside templates ([66791cc](https://github.com/adevinta/spark/commit/66791cc8f0af3ce561c11561e01b41e256ece242))
+
+## [2.9.5](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.9.4...@spark-ui/cli-utils@2.9.5) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/cli-utils
+
 ## [2.9.4](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.9.3...@spark-ui/cli-utils@2.9.4) (2023-04-05)
 
 **Note:** Version bump only for package @spark-ui/cli-utils

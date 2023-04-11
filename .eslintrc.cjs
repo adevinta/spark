@@ -5,10 +5,11 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react-hooks', 'simple-import-sort', 'prettier', 'tailwindcss'],
+  plugins: ['@typescript-eslint', 'react-hooks', 'simple-import-sort', 'prettier'],
   extends: [
     'standard',
     'plugin:@typescript-eslint/recommended',
+    'plugin:tailwindcss/recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
@@ -51,7 +52,7 @@ module.exports = {
       2,
       {
         config: './tailwind.config.cjs',
-        callees: ['cx', 'classnames', 'clsx', 'cva', 'tw'],
+        callees: ['cx', 'classnames', 'clsx', 'cva', 'tw', 'makeVariants'],
         whitelist: ['sb-unstyled'],
       },
     ],

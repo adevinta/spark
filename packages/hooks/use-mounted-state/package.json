@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/use-mounted-state",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "check the component's mount state",
   "publishConfig": {
     "access": "public"
@@ -15,5 +15,9 @@
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/hooks/use-mounted-state"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0"
   }
 }

@@ -54,10 +54,8 @@ export const filledVariants = [
     intent: 'danger',
     design: 'filled',
     class: tw([
-      'bg-error',
-      'text-on-error',
-      'enabled:hover:bg-error-hovered',
-      'enabled:active:bg-error-hovered',
+      'text-on-error bg-error',
+      'enabled:hover:bg-error-hovered enabled:active:bg-error-hovered',
       'focus-visible:bg-error-focused',
     ]),
   },

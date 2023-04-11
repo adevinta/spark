@@ -28,11 +28,11 @@ const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 export const Default: StoryFn = _args => <Button>Default button</Button>
 
 export const Sizes: StoryFn = _args => (
-  <div className="flex items-center gap-md">
+  <div className="gap-md flex items-center">
     {sizes.map(size => {
       return (
         <Button key={size} size={size}>
-          {size} button
+          Button {size}
         </Button>
       )
     })}
@@ -40,7 +40,7 @@ export const Sizes: StoryFn = _args => (
 )
 
 export const Shapes: StoryFn = _args => (
-  <div className="flex items-center gap-md">
+  <div className="gap-md flex items-center">
     {shapes.map(shape => {
       return (
         <Button key={shape} shape={shape}>
@@ -54,7 +54,7 @@ export const Shapes: StoryFn = _args => (
 export const Disabled: StoryFn = _args => <Button disabled>Disabled button</Button>
 
 export const Design: StoryFn = _args => (
-  <div className="flex flex-row gap-md">
+  <div className="gap-md flex flex-row">
     {designs.map(design => (
       <Button key={design} design={design}>
         {design} button
@@ -64,7 +64,7 @@ export const Design: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-row gap-md">
+  <div className="gap-md flex flex-row">
     {intents.map(intent => (
       <Button key={intent} intent={intent}>
         {intent} button
@@ -74,7 +74,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Link: StoryFn = _args => (
-  <div className="flex flex-row gap-md">
+  <div className="gap-md flex flex-row">
     <Button asChild>
       <a href="/">button</a>
     </Button>

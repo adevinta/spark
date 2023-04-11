@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.3.0...@spark-ui/switch@1.4.0) (2023-04-07)
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.8...@spark-ui/switch@1.3.0) (2023-04-07)
+
+### Features
+
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+
+## [1.2.8](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.7...@spark-ui/switch@1.2.8) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.2.7](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.6...@spark-ui/switch@1.2.7) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/switch
+
 ## [1.2.6](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.2.5...@spark-ui/switch@1.2.6) (2023-04-05)
 
 **Note:** Version bump only for package @spark-ui/switch

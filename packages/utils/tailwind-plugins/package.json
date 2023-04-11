@@ -1,17 +1,17 @@
 {
   "name": "@spark-ui/tailwind-plugins",
-  "version": "2.3.8",
+  "version": "2.5.0",
   "description": "Spark Tailwind plugins",
   "publishConfig": {
     "access": "public"
   },
   "main": "index.js",
   "dependencies": {
-    "@spark-ui/theme-utils": "^2.12.2",
-    "tailwindcss-radix": "2.8.0"
+    "@spark-ui/theme-utils": "^2.13.0",
+    "tailwindcss-radix": "^2.8.0"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.0.0"
   },
   "repository": {
     "type": "git",

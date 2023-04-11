@@ -2,6 +2,8 @@
  * A utility function that serves as a workaround for Tailwind CSS IntelliSense issues
  * in large objects or when regex breaks in VSCode.
  *
+ * For more context, see: https://github.com/joe-bell/cva/discussions/85#discussioncomment-4568738
+ *
  * @example
  *
  * // before

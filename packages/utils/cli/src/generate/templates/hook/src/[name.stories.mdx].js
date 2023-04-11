@@ -3,8 +3,8 @@ import { camelCase } from 'camel-case'
 export default ({ name, description }) => {
   const hookName = camelCase(name)
 
-  return `import { ArgsTable, Meta, Story } from '@storybook/addon-docs'
-import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+  return `import { Meta, Story } from '@storybook/addon-docs'
+  import { ArgTypes } from '@storybook/blocks';
 
 import { ${hookName} } from '.'
 
@@ -30,7 +30,7 @@ import { ${hookName} } from "@spark-ui/${name}"
 
 ## Usage
 
-<ArgsTable of={${hookName}} />
+<ArgTypes of={${hookName}} />
 
 \`\`\`jsx
 import { ${hookName} } from "@spark-ui/${name}"

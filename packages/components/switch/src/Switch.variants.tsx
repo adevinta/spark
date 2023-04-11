@@ -1,4 +1,4 @@
-import { tw } from '@spark-ui/internal-utils'
+import { makeVariants, tw } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
 const defaultVariants = {
@@ -19,11 +19,14 @@ export const styles = cva(
   ]),
   {
     variants: {
-      size: {
+      size: makeVariants<'size', ['sm', 'md']>({
         sm: tw(['h-sz-24', 'w-sz-40', 'border-md']),
         md: tw(['h-sz-32', 'w-sz-56', 'border-[4px]']),
-      },
-      intent: {
+      }),
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+      >({
         primary: ['spark-state-checked:bg-primary', 'hover:ring-primary-container', 'text-primary'],
         secondary: [
           'spark-state-checked:bg-secondary',
@@ -35,7 +38,7 @@ export const styles = cva(
         error: ['spark-state-checked:bg-error', 'hover:ring-error-container', 'text-error'],
         info: ['spark-state-checked:bg-info', 'hover:ring-info-container', 'text-info'],
         neutral: ['spark-state-checked:bg-neutral', 'hover:ring-neutral-container', 'text-neutral'],
-      },
+      }),
     },
     defaultVariants,
   }
@@ -52,14 +55,14 @@ export const thumbStyles = cva(
     'pointer-events-none',
     'rounded-full',
     'ring-0',
-    'transform transition-all duration-200 ease-in-out',
+    'transition-all duration-200 ease-in-out',
   ],
   {
     variants: {
-      size: {
+      size: makeVariants<'size', ['sm', 'md']>({
         sm: ['h-sz-20', 'w-sz-20'],
         md: ['h-sz-24', 'w-sz-24'],
-      },
+      }),
     },
     defaultVariants,
   }
@@ -69,10 +72,10 @@ export const thumbCheckSVGStyles = cva(
   ['transition-opacity duration-200', 'group-spark-state-unchecked:opacity-0 '],
   {
     variants: {
-      size: {
-        sm: 'h-sz-10 w-sz-10',
-        md: 'h-sz-12 w-sz-12',
-      },
+      size: makeVariants<'size', ['sm', 'md']>({
+        sm: ['h-sz-10 w-sz-10'],
+        md: ['h-sz-12 w-sz-12'],
+      }),
     },
     defaultVariants,
   }
