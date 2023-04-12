@@ -17,7 +17,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-visually-hidden": "^1.0.2",
+    "@spark-ui/visually-hidden": "0",
     "@spark-ui/internal-utils": "1"
   },
   "peerDependencies": {
