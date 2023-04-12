@@ -1,5 +1,5 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import { Check } from '@spark-ui/icons'
+import { Check } from '@spark-ui/icons/src/icons/Check'
 import { Slot } from '@spark-ui/slot'
 import React from 'react'
 
