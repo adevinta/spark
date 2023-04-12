@@ -87,7 +87,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-standard": "5.0.0",
-    "eslint-plugin-storybook": "0.6.10",
+    "eslint-plugin-storybook": "0.6.11",
     "eslint-plugin-tailwindcss": "3.11.0",
     "eslint-plugin-testing-library": "5.10.2",
     "husky": "8.0.3",
