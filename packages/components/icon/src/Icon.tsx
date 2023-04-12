@@ -1,4 +1,4 @@
-import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
+import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import React from 'react'
 
 import { iconVariants, IconVariantsProps } from './Icon.variants'
@@ -27,7 +27,7 @@ export function Icon({ label, className, size = 'md', children, ...others }: Ico
         ...others,
       })}
 
-      {label && <VisuallyHidden.Root>{label}</VisuallyHidden.Root>}
+      {label && <VisuallyHidden>{label}</VisuallyHidden>}
     </>
   )
 }
