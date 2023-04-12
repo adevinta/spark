@@ -72,3 +72,31 @@ export const Size: StoryFn = _args => (
     {invokeTabs({ size: 'md' })}
   </div>
 )
+
+export const State: StoryFn = _args => (
+  <div className="gap-lg flex flex-row">
+    <Tabs defaultValue="tab2">
+      <Tabs.List>
+        {tabs.map(({ title, value }) => (
+          <Tabs.Trigger key={value} value={value} disabled={value === 'tab1'}>
+            <span>{title}</span>
+          </Tabs.Trigger>
+        ))}
+      </Tabs.List>
+
+      {tabs.map(({ value }) => (
+        <Tabs.Content key={value} value={value}>
+          <span>
+            {
+              {
+                tab1: 'Your inbox is empty',
+                tab2: 'Make some coffee',
+                tab3: 'Order more coffee',
+              }[value]
+            }
+          </span>
+        </Tabs.Content>
+      ))}
+    </Tabs>
+  </div>
+)

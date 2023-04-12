@@ -6,9 +6,12 @@ export const tabsTriggerVariants = cva(
     'px-lg',
     'border-b-sm border-outline',
     'relative',
+    'bg-surface hover:bg-surface-hovered',
     'after:content after:left-none after:right-none after:h-sz-2 after:absolute after:bottom-[-1px]',
     'outline-none',
-    'focus-visible:ring-outline-high ring-inset focus-visible:border-none focus-visible:ring-2',
+    'focus-visible:ring-outline-high focus-visible:bg-surface-hovered ring-inset focus-visible:border-none focus-visible:ring-2',
+    'spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3',
+    'duration-300 ease-linear',
   ],
   {
     variants: {
@@ -29,8 +32,4 @@ export const tabsTriggerVariants = cva(
   }
 )
 
-export type TabsTriggerVariantsProps = VariantProps<typeof tabsTriggerVariants>
-// {
-//   intent?: 'primary'|'secondary'
-//   size?: 'xs'|'sm'|'md'
-// }
+export type TabsTriggerVariantsProps = ExcludeNull<VariantProps<typeof tabsTriggerVariants>>
