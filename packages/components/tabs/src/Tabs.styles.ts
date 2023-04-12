@@ -3,9 +3,8 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 export const tabsTriggerVariants = cva(
   [
-    'px-lg',
+    'px-lg gap-md relative flex items-center',
     'border-b-sm border-outline',
-    'relative',
     'bg-surface hover:bg-surface-hovered',
     'after:content after:left-none after:right-none after:h-sz-2 after:absolute after:bottom-[-1px]',
     'outline-none',

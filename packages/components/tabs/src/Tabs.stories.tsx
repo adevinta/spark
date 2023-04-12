@@ -1,3 +1,4 @@
+import { ConversationFill, HolidayFill, MailFill } from '@spark-ui/icons'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { Tabs } from '.'
@@ -14,15 +15,18 @@ const tabs = [
   {
     title: 'Inbox',
     value: 'tab1',
+    icon: MailFill,
   },
   {
     title: 'Today',
     value: 'tab2',
+    icon: ConversationFill,
   },
 
   {
     title: 'Upcoming',
     value: 'tab3',
+    icon: HolidayFill,
   },
 ]
 
@@ -31,9 +35,7 @@ const invokeTabs = (customProps: TabsRootProps = {}) => {
     <Tabs defaultValue="tab1" {...customProps}>
       <Tabs.List>
         {tabs.map(({ title, value }) => (
-          <Tabs.Trigger key={value} value={value}>
-            <span>{title}</span>
-          </Tabs.Trigger>
+          <Tabs.Trigger key={value} value={value} label={title} />
         ))}
       </Tabs.List>
 
@@ -78,10 +80,70 @@ export const State: StoryFn = _args => (
     <Tabs defaultValue="tab2">
       <Tabs.List>
         {tabs.map(({ title, value }) => (
-          <Tabs.Trigger key={value} value={value} disabled={value === 'tab1'}>
-            <span>{title}</span>
-          </Tabs.Trigger>
+          <Tabs.Trigger key={value} value={value} label={title} disabled={value === 'tab1'} />
         ))}
+      </Tabs.List>
+
+      {tabs.map(({ value }) => (
+        <Tabs.Content key={value} value={value}>
+          <span>
+            {
+              {
+                tab1: 'Your inbox is empty',
+                tab2: 'Make some coffee',
+                tab3: 'Order more coffee',
+              }[value]
+            }
+          </span>
+        </Tabs.Content>
+      ))}
+    </Tabs>
+  </div>
+)
+
+export const Iconed: StoryFn = _args => (
+  <div className="gap-lg flex flex-row">
+    <Tabs defaultValue="tab3">
+      <Tabs.List>
+        {tabs.map(({ title, value, icon }) => {
+          const Icon = icon
+
+          return (
+            <Tabs.Trigger
+              key={value}
+              value={value}
+              label={title}
+              icon={<Icon />}
+              disabled={value === 'tab1'}
+            />
+          )
+        })}
+      </Tabs.List>
+
+      {tabs.map(({ value }) => (
+        <Tabs.Content key={value} value={value}>
+          <span>
+            {
+              {
+                tab1: 'Your inbox is empty',
+                tab2: 'Make some coffee',
+                tab3: 'Order more coffee',
+              }[value]
+            }
+          </span>
+        </Tabs.Content>
+      ))}
+    </Tabs>
+
+    <Tabs defaultValue="tab3">
+      <Tabs.List>
+        {tabs.map(({ value, icon }) => {
+          const Icon = icon
+
+          return (
+            <Tabs.Trigger key={value} value={value} icon={<Icon />} disabled={value === 'tab1'} />
+          )
+        })}
       </Tabs.List>
 
       {tabs.map(({ value }) => (

@@ -1,10 +1,13 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
+import { Icon, type IconProps } from '@spark-ui/icon'
 import { forwardRef } from 'react'
 
 import { tabsTriggerVariants } from './Tabs.styles'
 import { useTabsContext } from './TabsContext'
 
-export interface TabsTriggerProps extends RadixTabs.TabsTriggerProps {
+export interface TabsTriggerProps extends Omit<RadixTabs.TabsTriggerProps, 'children'> {
+  label?: string
+  icon?: IconProps['children']
   disabled?: boolean
 }
 
@@ -17,7 +20,8 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
        */
       asChild = false,
       disabled = false,
-      children,
+      label,
+      icon,
       ...rest
     },
     ref
@@ -32,7 +36,8 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         disabled={disabled}
         {...rest}
       >
-        {children}
+        {icon && <Icon size="sm">{icon}</Icon>}
+        {label && <span>{label}</span>}
       </RadixTabs.Trigger>
     )
   }
