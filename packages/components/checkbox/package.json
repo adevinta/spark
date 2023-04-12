@@ -12,8 +12,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-checkbox": "^1.0.3",
-    "@spark-ui/icons": "^1.4.1",
+    "@radix-ui/react-checkbox": "1",
+    "@spark-ui/icons": "1",
     "@spark-ui/internal-utils": "1",
     "class-variance-authority": "^0.4.0"
   },
