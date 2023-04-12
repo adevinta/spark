@@ -1,7 +1,7 @@
 import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const styles = cva(
+export const inputStyles = cva(
   [
     'h-sz-20 w-sz-20 border-md peer items-center justify-center rounded-sm bg-transparent',
     'spark-disabled:opacity-dim-3 spark-disabled:cursor-not-allowed spark-disabled:hover:ring-0',
@@ -35,4 +35,4 @@ export const styles = cva(
   }
 )
 
-export type StylesProps = VariantProps<typeof styles>
+export type InputStylesProps = VariantProps<typeof inputStyles>

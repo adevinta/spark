@@ -9,12 +9,7 @@ describe('Checkbox', () => {
     // Given
 
     // When
-    render(
-      <>
-        <Checkbox id="c1" />
-        <label htmlFor="c1">Accept terms and conditions</label>
-      </>
-    )
+    render(<Checkbox>Accept terms and conditions</Checkbox>)
     const element = screen.getByRole('checkbox', { name: 'Accept terms and conditions' })
 
     // Then
@@ -28,12 +23,7 @@ describe('Checkbox', () => {
     const clickEvent = vi.fn()
 
     // When
-    render(
-      <>
-        <Checkbox id="c1" onCheckedChange={clickEvent} />
-        <label htmlFor="c1">Accept terms and conditions</label>
-      </>
-    )
+    render(<Checkbox onCheckedChange={clickEvent}> Accept terms and conditions</Checkbox>)
     await user.click(screen.getByText('Accept terms and conditions'))
 
     // Then
@@ -49,10 +39,9 @@ describe('Checkbox', () => {
 
     // When
     render(
-      <>
-        <Checkbox id="c1" defaultChecked onCheckedChange={clickEvent} />
-        <label htmlFor="c1">Accept terms and conditions</label>
-      </>
+      <Checkbox defaultChecked onCheckedChange={clickEvent}>
+        Accept terms and conditions
+      </Checkbox>
     )
 
     // Then
@@ -73,12 +62,7 @@ describe('Checkbox', () => {
     const clickEvent = vi.fn()
 
     // When
-    render(
-      <>
-        <Checkbox id="c1" disabled />
-        <label htmlFor="c1">Accept terms and conditions</label>
-      </>
-    )
+    render(<Checkbox disabled>Accept terms and conditions</Checkbox>)
 
     await user.click(screen.getByText('Accept terms and conditions'))
 
