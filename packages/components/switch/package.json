@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@radix-ui/react-switch": "^1.0.2",
-    "@spark-ui/icons": "^1.4.1",
-    "@spark-ui/internal-utils": "^1.4.0",
-    "@spark-ui/slot": "^1.4.0",
+    "@spark-ui/icons": "1",
+    "@spark-ui/internal-utils": "1",
+    "@spark-ui/slot": "1",
     "class-variance-authority": "^0.4.0"
   },
   "peerDependencies": {
