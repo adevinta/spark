@@ -162,3 +162,10 @@ export const Iconed: StoryFn = _args => (
     </Tabs>
   </div>
 )
+
+export const Orientation: StoryFn = _args => (
+  <div className="gap-lg flex flex-row">
+    {invokeTabs({ orientation: 'horizontal' })}
+    {invokeTabs({ orientation: 'vertical' })}
+  </div>
+)

@@ -1,8 +1,7 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { cva } from 'class-variance-authority'
 import { forwardRef, type PropsWithChildren } from 'react'
 
-export const styles = cva(['mb-lg flex min-w-full'])
+import { tabsListStyles } from './Tabs.styles'
 
 export type TabsListProps = PropsWithChildren<RadixTabs.TabsListProps>
 
@@ -21,7 +20,13 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     ref
   ) => {
     return (
-      <RadixTabs.List ref={ref} className={styles()} asChild={asChild} loop={loop} {...rest}>
+      <RadixTabs.List
+        ref={ref}
+        className={tabsListStyles()}
+        asChild={asChild}
+        loop={loop}
+        {...rest}
+      >
         {children}
       </RadixTabs.List>
     )
