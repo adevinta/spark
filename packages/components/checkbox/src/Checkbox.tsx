@@ -1,5 +1,5 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
-import { Check } from '@spark-ui/icons'
+import { Check } from '@spark-ui/icons/src/icons/Check'
 import React, { ReactNode } from 'react'
 
 import { styles, type StylesProps } from './Checkbox.variants'
