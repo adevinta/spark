@@ -1,10 +1,10 @@
-import { Label } from '@radix-ui/react-label'
+import { Label as RadixLabel } from '@radix-ui/react-label'
 import { PropsWithChildren } from 'react'
 
-import { checkboxLabelStyles, type CheckboxLabelStylesProps } from './CheckboxLabel.styles'
+import { labelStyles, type LabelStylesProps } from './CheckboxLabel.styles'
 
-export interface CheckboxLabelProps
-  extends CheckboxLabelStylesProps,
+export interface LabelProps
+  extends LabelStylesProps,
     PropsWithChildren<React.HTMLAttributes<HTMLLabelElement>> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -20,6 +20,6 @@ export interface CheckboxLabelProps
   disabled?: boolean
 }
 
-export const CheckboxLabel = ({ className, disabled, ...others }: CheckboxLabelProps) => {
-  return <Label className={checkboxLabelStyles({ className, disabled })} {...others} />
+export const Label = ({ className, disabled, ...others }: LabelProps) => {
+  return <RadixLabel className={labelStyles({ className, disabled })} {...others} />
 }

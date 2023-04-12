@@ -4,7 +4,7 @@ const defaultCheckboxVariants = {
   disabled: false,
 }
 
-export const checkboxLabelStyles = cva(['flex', 'items-center', 'gap-md', 'text-body-1'], {
+export const labelStyles = cva(['flex', 'items-center', 'gap-md', 'text-body-1'], {
   variants: {
     disabled: {
       true: ['text-neutral/dim-2', 'cursor-not-allowed'],
@@ -14,4 +14,4 @@ export const checkboxLabelStyles = cva(['flex', 'items-center', 'gap-md', 'text-
   defaultVariants: defaultCheckboxVariants,
 })
 
-export type CheckboxLabelStylesProps = VariantProps<typeof checkboxLabelStyles>
+export type LabelStylesProps = VariantProps<typeof labelStyles>

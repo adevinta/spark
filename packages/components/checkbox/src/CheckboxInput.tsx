@@ -2,9 +2,9 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import { Check } from '@spark-ui/icons'
 import React, { ReactNode } from 'react'
 
-import { styles, type StylesProps } from './CheckboxInput.styles'
+import { inputStyles, type InputStylesProps } from './CheckboxInput.styles'
 
-interface CheckboxRadixProps {
+interface RadixProps {
   /**
    * The checked icon to use
    */
@@ -35,18 +35,17 @@ interface CheckboxRadixProps {
   name?: string
 }
 
-export interface CheckboxInputProps
-  extends CheckboxRadixProps, // Radix props
-    StylesProps, // CVA props (variants)
+export interface InputProps
+  extends RadixProps, // Radix props
+    InputStylesProps, // CVA props (variants)
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {} // Native HTML props
 
-export const CheckboxInput = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  CheckboxInputProps
->(({ intent, icon = <Check />, ...props }, ref) => (
-  <CheckboxPrimitive.Root ref={ref} className={styles({ intent })} {...props}>
-    <CheckboxPrimitive.Indicator className="text-surface flex items-center justify-center">
-      {icon}
-    </CheckboxPrimitive.Indicator>
-  </CheckboxPrimitive.Root>
-))
+export const Input = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root>, InputProps>(
+  ({ intent, icon = <Check />, ...props }, ref) => (
+    <CheckboxPrimitive.Root ref={ref} className={inputStyles({ intent })} {...props}>
+      <CheckboxPrimitive.Indicator className="text-surface flex items-center justify-center">
+        {icon}
+      </CheckboxPrimitive.Indicator>
+    </CheckboxPrimitive.Root>
+  )
+)
