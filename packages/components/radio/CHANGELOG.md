@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.6.0...@spark-ui/radio@1.6.1) (2023-04-12)
+
+### Bug Fixes
+
+- **radio:** fix radio story canvas not using story component ([bc1ea8b](https://github.com/adevinta/spark/commit/bc1ea8b002bff3d4c04c51d3ca3c704f3e1c0186))
+
 # [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.5.0...@spark-ui/radio@1.6.0) (2023-04-07)
 
 ### Features
