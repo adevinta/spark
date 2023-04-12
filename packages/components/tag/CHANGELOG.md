@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.4.0...@spark-ui/tag@1.5.0) (2023-04-12)
+
+### Features
+
+- **tag:** froze versions ([5ffd0c2](https://github.com/adevinta/spark/commit/5ffd0c267f565c7deb13ca9f914a7fe94e9fdf5b))
+
 # [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.3.0...@spark-ui/tag@1.4.0) (2023-04-07)
 
 ### Features

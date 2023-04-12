@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.3.0...@spark-ui/icon@1.4.0) (2023-04-12)
+
+### Features
+
+- **icon:** froze versions and use spark visually hidden ([5c0cf46](https://github.com/adevinta/spark/commit/5c0cf4619c2c0a28ec1c1b6f6acf52af7e5d52cb))
+
 # [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.2.0...@spark-ui/icon@1.3.0) (2023-04-07)
 
 ### Features
