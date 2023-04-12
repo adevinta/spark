@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.5.0...@spark-ui/switch@1.6.0) (2023-04-12)
+
+### Features
+
+- **switch:** embed label in switch component ([3a1f9c6](https://github.com/adevinta/spark/commit/3a1f9c6347793a5c883d84ece4ab10cdb805d58a))
+
 # [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.4.1...@spark-ui/switch@1.5.0) (2023-04-12)
 
 ### Features
