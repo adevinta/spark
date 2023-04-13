@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/use-mounted-state@0.1.5...@spark-ui/use-mounted-state@0.2.0) (2023-04-07)
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+
 ## [0.1.5](https://github.com/adevinta/spark/compare/@spark-ui/use-mounted-state@0.1.4...@spark-ui/use-mounted-state@0.1.5) (2023-03-31)
 
 **Note:** Version bump only for package @spark-ui/use-mounted-state

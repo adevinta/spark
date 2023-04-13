@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.6.0...@spark-ui/radio@1.6.1) (2023-04-12)
+
+### Bug Fixes
+
+- **radio:** fix radio story canvas not using story component ([bc1ea8b](https://github.com/adevinta/spark/commit/bc1ea8b002bff3d4c04c51d3ca3c704f3e1c0186))
+
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.5.0...@spark-ui/radio@1.6.0) (2023-04-07)
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.4.1...@spark-ui/radio@1.5.0) (2023-04-07)
+
+### Features
+
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+
+## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.4.0...@spark-ui/radio@1.4.1) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/radio
+
 # [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.3.2...@spark-ui/radio@1.4.0) (2023-04-06)
 
 ### Features

@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.4.1...@spark-ui/icons@1.5.0) (2023-04-12)
+
+### Features
+
+- **icons:** frooze versions ([a306d88](https://github.com/adevinta/spark/commit/a306d88f24b36354f6d38f8a293adfc64f7a0b58))
+
+## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.4.0...@spark-ui/icons@1.4.1) (2023-04-11)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.3.8...@spark-ui/icons@1.4.0) (2023-04-07)
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+
+## [1.3.8](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.3.7...@spark-ui/icons@1.3.8) (2023-04-07)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.3.7](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.3.6...@spark-ui/icons@1.3.7) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.3.6](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.3.5...@spark-ui/icons@1.3.6) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/icons
+
 ## [1.3.5](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.3.4...@spark-ui/icons@1.3.5) (2023-04-06)
 
 **Note:** Version bump only for package @spark-ui/icons

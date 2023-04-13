@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.5.0...@spark-ui/checkbox@1.6.0) (2023-04-12)
+
+### Features
+
+- **checkbox:** wrap every checkbox with its label ([19e8b6b](https://github.com/adevinta/spark/commit/19e8b6be965ec32a81e7b128f9fad373c3131a99))
+
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.4.1...@spark-ui/checkbox@1.5.0) (2023-04-12)
+
+### Features
+
+- **checkbox:** keep versions ([a80adb5](https://github.com/adevinta/spark/commit/a80adb5b51680c4dc9a9b3e30d08c8f18698dbc6))
+
+## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.4.0...@spark-ui/checkbox@1.4.1) (2023-04-11)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.3.0...@spark-ui/checkbox@1.4.0) (2023-04-07)
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.2.15...@spark-ui/checkbox@1.3.0) (2023-04-07)
+
+### Features
+
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+
+## [1.2.15](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.2.14...@spark-ui/checkbox@1.2.15) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
+## [1.2.14](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.2.13...@spark-ui/checkbox@1.2.14) (2023-04-06)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
 ## [1.2.13](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.2.12...@spark-ui/checkbox@1.2.13) (2023-04-06)
 
 **Note:** Version bump only for package @spark-ui/checkbox

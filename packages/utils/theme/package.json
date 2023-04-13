@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/theme-utils",
-  "version": "2.12.2",
+  "version": "2.13.0",
   "description": "package for managing Spark theme configuration",
   "publishConfig": {
     "access": "public"
@@ -11,9 +11,9 @@
   "scripts": {
     "build": "vite build"
   },
-  "devDependencies": {
-    "deepmerge": "4.3.0",
-    "type-fest": "3.6.1"
+  "dependencies": {
+    "deepmerge": "^4.3.0",
+    "type-fest": "^3.6.1"
   },
   "repository": {
     "type": "git",

@@ -10,6 +10,10 @@ export default ({ name, description }) => `{
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0"
   }
 }
 `

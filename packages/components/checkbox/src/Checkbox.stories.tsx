@@ -10,40 +10,12 @@ const meta: Meta<typeof Checkbox> = {
 
 export default meta
 
-export const Default: StoryFn = _args => (
-  <div className="gap-sm flex items-center">
-    <Checkbox id={'c1'} />
-    <label
-      htmlFor={'c1'}
-      className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
-    >
-      Accept terms and conditions.
-    </label>
-  </div>
-)
+export const Default: StoryFn = _args => <Checkbox id={'c1'}>Accept terms and conditions.</Checkbox>
 
-export const Disabled: StoryFn = _args => (
-  <div className="gap-sm flex items-center">
-    <Checkbox id={'c2'} disabled />
-    <label
-      htmlFor={'c2'}
-      className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
-    >
-      Accept terms and conditions.
-    </label>
-  </div>
-)
+export const Disabled: StoryFn = _args => <Checkbox disabled>Accept terms and conditions.</Checkbox>
 
 export const DefaultChecked: StoryFn = _args => (
-  <div className="gap-sm flex items-center">
-    <Checkbox id={'c3'} defaultChecked />
-    <label
-      htmlFor={'c3'}
-      className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
-    >
-      Accept terms and conditions.
-    </label>
-  </div>
+  <Checkbox defaultChecked>Accept terms and conditions.</Checkbox>
 )
 
 export const Controlled: StoryFn = _args => {
@@ -54,15 +26,9 @@ export const Controlled: StoryFn = _args => {
   }
 
   return (
-    <div className="gap-sm flex items-center">
-      <Checkbox id={'c4'} checked={value} onCheckedChange={handleChange} />
-      <label
-        htmlFor={'c4'}
-        className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
-      >
-        Accept terms and conditions.
-      </label>
-    </div>
+    <Checkbox checked={value} onCheckedChange={handleChange}>
+      Accept terms and conditions.
+    </Checkbox>
   )
 }
 
@@ -71,31 +37,19 @@ const intent = ['primary', 'success', 'alert', 'error'] as const
 export const Intent: StoryFn = _args => (
   <>
     {intent.map(color => {
-      return (
-        <div className="gap-sm flex items-center" key={color}>
-          <Checkbox id={color} intent={color} />
-          <label htmlFor={color}>{color}</label>
-        </div>
-      )
+      return <Checkbox intent={color}>{color}</Checkbox>
     })}
   </>
 )
 export const Icon: StoryFn = _args => (
-  <div className="gap-sm flex items-center">
-    <Checkbox
-      id={'c6'}
-      defaultChecked
-      icon={
-        <svg viewBox="0 0 200 200" fill="currentColor">
-          <path d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0" />
-        </svg>
-      }
-    />
-    <label
-      htmlFor={'c6'}
-      className="text-body-1 peer-disabled:opacity-dim-3 cursor-pointer pl-[4px] font-medium  peer-disabled:cursor-not-allowed"
-    >
-      Accept terms and conditions.
-    </label>
-  </div>
+  <Checkbox
+    defaultChecked
+    icon={
+      <svg viewBox="0 0 200 200" fill="currentColor">
+        <path d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0" />
+      </svg>
+    }
+  >
+    Accept terms and conditions.
+  </Checkbox>
 )

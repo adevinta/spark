@@ -10,20 +10,12 @@ const meta: Meta<typeof Switch> = {
 
 export default meta
 
-export const Default: StoryFn = _args => (
-  <div className="gap-md flex items-center">
-    <Switch id="switch" />
-    <label htmlFor="switch">Switch</label>
-  </div>
-)
+export const Default: StoryFn = _args => <Switch>Switch</Switch>
 
 export const Disabled: StoryFn = _args => (
-  <div className="gap-md flex items-center">
-    <Switch id="disabled" disabled />
-    <label htmlFor="disabled" className="text-on-background/dim-3">
-      Disabled switch
-    </label>
-  </div>
+  <Switch id="disabled" disabled>
+    Disabled switch
+  </Switch>
 )
 
 const switchSizes: ComponentProps<typeof Switch>['size'][] = ['sm', 'md']
@@ -31,10 +23,9 @@ const switchSizes: ComponentProps<typeof Switch>['size'][] = ['sm', 'md']
 export const Sizes: StoryFn = _args => (
   <div className="gap-xl flex flex-col">
     {switchSizes.map(size => (
-      <div className="gap-md flex items-center" key={size}>
-        <Switch name="small" size={size} id={`switch-${size}`} />
-        <label htmlFor={`switch-${size}`}>{size}</label>
-      </div>
+      <Switch name="small" size={size}>
+        {size}
+      </Switch>
     ))}
   </div>
 )
@@ -52,10 +43,9 @@ const switchColors: ComponentProps<typeof Switch>['intent'][] = [
 export const Colors: StoryFn = _args => (
   <div className="gap-xl flex flex-col">
     {switchColors.map(color => (
-      <div className="gap-md flex items-center" key={color}>
-        <Switch name="primary" intent={color} defaultChecked id={`switch-${color}`} />
-        <label htmlFor={`switch-${color}`}>{color}</label>
-      </div>
+      <Switch name="primary" intent={color} defaultChecked>
+        {color}
+      </Switch>
     ))}
   </div>
 )

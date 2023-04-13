@@ -1,3 +1,4 @@
+import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
 const defaultVariants = {
@@ -17,11 +18,14 @@ export const radioInputVariants = cva(
   ],
   {
     variants: {
-      size: {
+      size: makeVariants<'size', ['sm', 'md']>({
         sm: ['w-sz-20', 'h-sz-20'],
         md: ['w-sz-28', 'h-sz-28'],
-      },
-      intent: {
+      }),
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+      >({
         primary: ['spark-state-checked:border-primary', 'hover:ring-primary-container'],
         secondary: ['spark-state-checked:border-secondary', 'hover:ring-secondary-container'],
         success: ['spark-state-checked:border-success', 'hover:ring-success-container'],
@@ -29,7 +33,7 @@ export const radioInputVariants = cva(
         error: ['spark-state-checked:border-error', 'hover:ring-error-container'],
         info: ['spark-state-checked:border-info', 'hover:ring-info-container'],
         neutral: ['spark-state-checked:border-neutral', 'hover:ring-neutral-container'],
-      },
+      }),
     },
     defaultVariants,
   }

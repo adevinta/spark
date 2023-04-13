@@ -32,7 +32,7 @@ export const Sizes: StoryFn = _args => (
     {sizes.map(size => {
       return (
         <Button key={size} size={size}>
-          {size} button
+          Button {size}
         </Button>
       )
     })}

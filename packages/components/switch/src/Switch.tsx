@@ -1,56 +1,17 @@
-import * as SwitchPrimitive from '@radix-ui/react-switch'
-import { Check } from '@spark-ui/icons/src/icons/Check'
-import { Slot } from '@spark-ui/slot'
 import React from 'react'
 
-import { styles, type StylesProps, thumbCheckSVGStyles, thumbStyles } from './Switch.variants'
+import { Input, type InputProps } from './SwitchInput'
+import { Label } from './SwitchLabel'
 
-interface SwitchRadixProps {
-  /**
-   * The state of the switch when it is initially rendered. Use when you do not need to control its state.
-   */
-  defaultChecked?: boolean
-  /**
-   * When true, prevents the user from interacting with the switch.
-   */
-  disabled?: boolean
-  /**
-   * When true, indicates that the user must check the switch before the owning form can be submitted.
-   */
-  required?: boolean
-  /**
-   * The name of the switch. Submitted with its owning form as part of a name/value pair.
-   */
-  name?: string
-  /**
-   * The value given as data when submitted with a name.
-   */
-  value?: string
-  /**
-   * The controlled state of the switch. Must be used in conjunction with `onCheckedChange`.
-   */
-  checked?: boolean
-  /**
-   * Event handler called when the state of the switch changes.
-   */
-  onCheckedChange?: (checked: boolean) => void
-}
+export type SwitchProps = InputProps
 
-export interface Props
-  extends SwitchRadixProps,
-    StylesProps,
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {}
-
-export const Switch = React.forwardRef<HTMLButtonElement, Props>(
-  ({ intent, value = 'on', size = 'md', ...rest }, ref) => {
+export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
+  ({ value = 'on', size = 'md', children, ...rest }, ref) => {
     return (
-      <SwitchPrimitive.Root ref={ref} className={styles({ intent, size })} value={value} {...rest}>
-        <SwitchPrimitive.Thumb className={thumbStyles({ size })}>
-          <Slot className={thumbCheckSVGStyles({ size })}>
-            <Check />
-          </Slot>
-        </SwitchPrimitive.Thumb>
-      </SwitchPrimitive.Root>
+      <Label disabled={rest.disabled}>
+        <Input ref={ref} size={size} {...rest} />
+        {children}
+      </Label>
     )
   }
 )
