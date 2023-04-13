@@ -12,7 +12,7 @@ import {
 export const buttonStyles = cva(
   [
     'gap-md box-border flex items-center justify-center whitespace-nowrap',
-    'text-headline-1 font-bold',
+    'text-body-1 font-bold',
     'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
   ],
   {
