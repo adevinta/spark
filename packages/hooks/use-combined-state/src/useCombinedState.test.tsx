@@ -96,7 +96,6 @@ describe('useCombinedState', () => {
     let [response, setResponse, isControlledValue, initialValue] = hook.result.current
 
     // Then
-    console.log(response)
     expect(typeof response).toBe('number')
     expect(typeof setResponse).toBe('function')
     expect(typeof isControlledValue).toBe('boolean')
