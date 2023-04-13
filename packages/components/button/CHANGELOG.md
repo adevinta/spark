@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/adevinta/spark/compare/@spark-ui/button@1.5.3...@spark-ui/button@1.5.4) (2023-04-13)
+
+### Bug Fixes
+
+- **button:** fixed default font size of buttons ([1af92fe](https://github.com/adevinta/spark/commit/1af92fee8dad296b5cbd2af915b02602cf6b1f14))
+
 ## [1.5.3](https://github.com/adevinta/spark/compare/@spark-ui/button@1.5.2...@spark-ui/button@1.5.3) (2023-04-13)
 
 **Note:** Version bump only for package @spark-ui/button
