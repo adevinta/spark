@@ -11,7 +11,7 @@ const meta: Meta<typeof Slot> = {
 export default meta
 
 const useDOMElementString = () => {
-  const ref = useRef()
+  const ref = useRef<undefined | HTMLElement>()
   const [, set] = useState(false)
   useEffect(() => {
     set(true)
