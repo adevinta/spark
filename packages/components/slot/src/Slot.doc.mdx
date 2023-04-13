@@ -1,7 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 
-import { Slot } from '.'
-
 import * as SlotStories from './Slot.stories'
 
 <Meta of={SlotStories} />
@@ -43,7 +41,7 @@ Depending on each type of prop, Slot applies different techniques for its combin
 The Slot-n-Child defined default props merging technique is the `join` props method.
 In case of collision, it will preserve the most declarative (child value)
 
-<Canvas of={SlotStories.ClassNames} />
+<Canvas of={SlotStories.Default} />
 
 ### Handlers
 
