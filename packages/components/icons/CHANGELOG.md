@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.5.3...@spark-ui/icons@1.5.4) (2023-04-14)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.5.3](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.5.2...@spark-ui/icons@1.5.3) (2023-04-13)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.5.2](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.5.1...@spark-ui/icons@1.5.2) (2023-04-13)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.5.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.5.0...@spark-ui/icons@1.5.1) (2023-04-13)
+
+**Note:** Version bump only for package @spark-ui/icons
+
 # [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.4.1...@spark-ui/icons@1.5.0) (2023-04-12)
 
 ### Features

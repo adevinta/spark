@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.5.0...@spark-ui/tailwind-plugins@2.6.0) (2023-04-14)
+
+### Features
+
+- **tailwind-plugins:** optimize multi-theme handling by eliminating token duplication ([fdf1483](https://github.com/adevinta/spark/commit/fdf1483685f0ce1ab64c4a8f03270b32a97796ec)), closes [#592](https://github.com/adevinta/spark/issues/592)
+
 # [2.5.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.4.0...@spark-ui/tailwind-plugins@2.5.0) (2023-04-07)
 
 ### Features

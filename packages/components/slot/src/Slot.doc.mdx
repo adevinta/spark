@@ -1,14 +1,12 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 
-import { Slot } from '.'
-
 import * as SlotStories from './Slot.stories'
 
 <Meta of={SlotStories} />
 
 # Slot
 
-Merges its props onto its immediate child
+Merges its props onto its immediate child.
 
 ## Install
 
@@ -27,3 +25,53 @@ import { Slot } from "@spark-ui/slot"
 `Slot` props are merged with the child ones.
 
 <Canvas of={SlotStories.Default} />
+
+## Prop Merge Techniques
+
+Depending on each type of prop, Slot applies different techniques for its combination
+
+- default (common props)
+- handlers
+- classNames
+- style
+- refs
+
+### Default
+
+The Slot-n-Child defined default props merging technique is the `join` props method.
+In case of collision, it will preserve the most declarative (child value)
+
+<Canvas of={SlotStories.Default} />
+
+### Handlers
+
+The Slot-n-Child defined handlers props merging technique is firing all 2 handlers in 1.
+
+```js
+const resultingHandler =
+  ([...handlers] = []) =>
+  (...handlerArgs) =>
+    handlers.forEach(handler => typeof handler === 'function' && handler(...args))
+```
+
+<Canvas of={SlotStories.Handlers} />
+
+### ClassNames
+
+The Slot-n-Child defined `classNames` props merging technique is the string **concat** `${slotClassNames} ${childrenClassName}`
+
+<Canvas of={SlotStories.ClassNames} />
+
+### Style
+
+The Slot-n-Child defined `style` prop merging object technique is the `join` props method.
+In case of collision, it will preserve the most declarative (child value)
+
+<Canvas of={SlotStories.Style} />
+
+### Ref
+
+The Slot-n-Child defined `style` prop merging object technique is the `join` props method.
+In case of collision, it will preserve the most declarative (child value)
+
+<Canvas of={SlotStories.Ref} />

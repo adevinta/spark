@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.4.2...@spark-ui/slot@1.4.3) (2023-04-14)
+
+### Bug Fixes
+
+- handle TS errors ([e33f0cd](https://github.com/adevinta/spark/commit/e33f0cd6e3651b8818d84e94cfabc4ce8dd37c1a))
+
+## [1.4.2](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.4.1...@spark-ui/slot@1.4.2) (2023-04-13)
+
+**Note:** Version bump only for package @spark-ui/slot
+
+## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.4.0...@spark-ui/slot@1.4.1) (2023-04-13)
+
+**Note:** Version bump only for package @spark-ui/slot
+
 # [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.3.0...@spark-ui/slot@1.4.0) (2023-04-07)
 
 ### Features
