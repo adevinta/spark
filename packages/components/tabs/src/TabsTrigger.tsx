@@ -1,9 +1,9 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { Icon, type IconProps } from '@spark-ui/icon'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect, useRef } from 'react'
 
-import { tabsTriggerVariants } from './Tabs.styles'
 import { useTabsContext } from './TabsContext'
+import { triggerVariants } from './TabsTrigger.styles'
 
 export interface TabsTriggerProps extends Omit<RadixTabs.TabsTriggerProps, 'children'> {
   label?: string
@@ -22,18 +22,32 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
       disabled = false,
       label,
       icon,
+      value,
       ...rest
     },
     ref
   ) => {
-    const { intent, size } = useTabsContext()
+    const { intent, size, selectedTab } = useTabsContext()
+    const innerRef = useRef(null)
+
+    const triggerRef = ref || innerRef
+
+    useEffect(() => {
+      if (typeof triggerRef !== 'function' && selectedTab === value) {
+        triggerRef.current?.scrollIntoView({
+          block: 'nearest',
+          inline: 'nearest',
+        })
+      }
+    }, [selectedTab, value, triggerRef])
 
     return (
       <RadixTabs.Trigger
-        ref={ref}
-        className={tabsTriggerVariants({ intent, size })}
+        ref={triggerRef}
+        className={triggerVariants({ intent, size })}
         asChild={asChild}
         disabled={disabled}
+        value={value}
         {...rest}
       >
         {icon && <Icon size="sm">{icon}</Icon>}

@@ -1,24 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { cva, type VariantProps } from 'class-variance-authority'
 
-export const tabsRootStyles = cva([
-  'flex',
-  'spark-orientation-horizontal:flex-col',
-  'spark-orientation-vertical:flex-row',
-])
-
-export const tabsListStyles = cva([
-  'flex',
-  'spark-orientation-horizontal:flex-row',
-  'spark-orientation-vertical:flex-col',
-])
-
-export const tabsContentStyles = cva([
-  'spark-orientation-horizontal:mt-lg',
-  'spark-orientation-vertical:ml-lg',
-])
-
-export const tabsTriggerVariants = cva(
+export const triggerVariants = cva(
   [
     'px-lg gap-md relative flex items-center',
     'border-outline',
@@ -50,4 +33,4 @@ export const tabsTriggerVariants = cva(
   }
 )
 
-export type TabsTriggerVariantsProps = ExcludeNull<VariantProps<typeof tabsTriggerVariants>>
+export type TabsTriggerVariantsProps = ExcludeNull<VariantProps<typeof triggerVariants>>
