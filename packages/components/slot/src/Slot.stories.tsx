@@ -10,19 +10,19 @@ const meta: Meta<typeof Slot> = {
 
 export default meta
 
-const useDOMElementString = () => {
-  const ref = useRef<undefined | HTMLElement>()
+const useDOMElementString = <T extends HTMLElement = HTMLDivElement>() => {
+  const ref = useRef<null | T>(null)
   const [, set] = useState(false)
   useEffect(() => {
     set(true)
   }, [])
   const stringElement = ref.current?.outerHTML
 
-  return [stringElement, ref]
+  return [stringElement, ref] as const
 }
 
 export const Default: StoryFn = _args => {
-  const [element, ref] = useDOMElementString()
+  const [element, ref] = useDOMElementString<HTMLAnchorElement>()
 
   return (
     <div className="flex flex-col">
@@ -48,7 +48,7 @@ export const Handlers: StoryFn = _args => {
 }
 /* eslint-disable tailwindcss/no-custom-classname */
 export const ClassNames: StoryFn = _args => {
-  const [element, ref] = useDOMElementString()
+  const [element, ref] = useDOMElementString<HTMLAnchorElement>()
 
   return (
     <div className="flex flex-col">
@@ -64,7 +64,7 @@ export const ClassNames: StoryFn = _args => {
 /* eslint-enable */
 
 export const Style: StoryFn = _args => {
-  const [element, ref] = useDOMElementString()
+  const [element, ref] = useDOMElementString<HTMLDivElement>()
 
   return (
     <div className="flex flex-col">
