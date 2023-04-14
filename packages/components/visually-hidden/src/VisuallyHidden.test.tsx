@@ -1,7 +1,7 @@
+import { Check } from '@spark-ui/icons'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { Check } from '../../icons'
 import { VisuallyHidden } from './VisuallyHidden'
 
 describe('VisuallyHidden', () => {
