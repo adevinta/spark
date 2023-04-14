@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "1",
-    "@spark-ui/icons": "^1.5.0",
+    "@spark-ui/icons": "1",
     "@spark-ui/internal-utils": "1",
-    "class-variance-authority": "^0.4.0"
+    "class-variance-authority": "0.4.0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
