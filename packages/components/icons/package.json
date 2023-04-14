@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/icons",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "spark-ui icons",
   "publishConfig": {
     "access": "public"
@@ -18,7 +18,7 @@
     "directory": "packages/components/icons"
   },
   "devDependencies": {
-    "@spark-ui/button": "^1.5.4",
+    "@spark-ui/button": "^1.5.5",
     "@spark-ui/icon": "^1.4.0",
     "@spark-ui/visually-hidden": "^0.4.0",
     "change-case": "4.1.2",
