@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { getCSSVariableDeclarations } = require('./getCSSVariableDeclarations')
 const { getCSSVariableReferences } = require('./getCSSVariableReferences')
-const { retrieveArrayDifferences, getAllObjectKeys } = require('./utils')
+const { retrieveArrayDifferences, getAllObjectKeys, getObjectDifferences } = require('./utils')
 
 const themeUtils = require('@spark-ui/theme-utils')
 const plugin = require('tailwindcss/plugin')
@@ -78,7 +78,10 @@ module.exports = plugin.withOptions(
         }
 
         addBase({
-          [`[data-theme="${key}"]`]: getCSSVariableDeclarations(value, htmlFontSize),
+          [`[data-theme="${key}"]`]: getObjectDifferences(
+            getCSSVariableDeclarations(themes.default, htmlFontSize),
+            getCSSVariableDeclarations(value, htmlFontSize)
+          ),
         })
       })
     },

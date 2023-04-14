@@ -68,6 +68,19 @@ function retrieveArrayDifferences({ ref, comp }) {
   }
 }
 
+function getObjectDifferences(reference, comparison) {
+  const diffObj = {}
+
+  Object.keys(comparison).forEach(key => {
+    if (reference[key] === comparison[key]) {
+      return
+    }
+    diffObj[key] = comparison[key]
+  })
+
+  return diffObj
+}
+
 module.exports = {
   isObject,
   isStringOrNumber,
@@ -80,4 +93,5 @@ module.exports = {
   doubleHyphensRegex,
   getAllObjectKeys,
   retrieveArrayDifferences,
+  getObjectDifferences,
 }
