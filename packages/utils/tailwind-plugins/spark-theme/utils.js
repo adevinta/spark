@@ -7,9 +7,7 @@ function isStringOrNumber(value) {
 }
 
 function isHex(value) {
-  if (typeof value === 'number') {
-    return false
-  }
+  if (typeof value === 'number') return false
 
   const regexp = /^#[0-9a-fA-F]+$/
 
@@ -44,9 +42,7 @@ const doubleHyphensRegex = /(?<!var\()--+/g
 function getAllObjectKeys(obj, path = '') {
   return Object.keys(obj).flatMap(key => {
     const newPath = path ? `${path}.${key}` : key
-    if (isObject(obj[key])) {
-      return getAllObjectKeys(obj[key], newPath)
-    }
+    if (isObject(obj[key])) return getAllObjectKeys(obj[key], newPath)
 
     return newPath
   })

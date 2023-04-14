@@ -58,13 +58,9 @@ function getCSSVariableReferences(_theme) {
 
       if (isObject(value)) {
         Object.keys(value).forEach(k => {
-          if (k === DEFAULT_KEY) {
-            return
-          }
+          if (k === DEFAULT_KEY) return
 
-          if (!isObject(value[k]) && !isCamelCase(k)) {
-            return
-          }
+          if (!isObject(value[k]) && !isCamelCase(k)) return
 
           const tmp = value[k]
           delete value[k]
@@ -83,9 +79,7 @@ function getCSSVariableReferences(_theme) {
           if (isColorValue && isHex(value)) {
             return `rgb(var(--${paths.join('-')}-${key}) / <alpha-value>)`
           }
-          if (isScreenValue) {
-            return String(value).toLowerCase()
-          }
+          if (isScreenValue) return String(value).toLowerCase()
 
           return `var(--${paths.join('-')}-${key.toLowerCase()})`
         })()
