@@ -17,10 +17,11 @@
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/components/icons"
   },
+  "sideEffects": false,
   "devDependencies": {
     "@spark-ui/button": "1",
-    "@spark-ui/icon": "^1.4.0",
-    "@spark-ui/visually-hidden": "^0.4.0",
+    "@spark-ui/icon": "1",
+    "@spark-ui/visually-hidden": "0",
     "change-case": "4.1.2",
     "minimatch": "7.4.2",
     "path-that-svg": "1.2.4",
