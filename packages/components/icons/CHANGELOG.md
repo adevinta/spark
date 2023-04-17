@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.5.4...@spark-ui/icons@1.6.0) (2023-04-17)
+
+### Bug Fixes
+
+- **icons:** fix imports and tests ([6875914](https://github.com/adevinta/spark/commit/68759145ea8572c52adcae5c3fc628c0717ec85f))
+- **icons:** fix types ([5d368ec](https://github.com/adevinta/spark/commit/5d368ecb6dc3ea02b97472e8663de5bfd1e15e0c))
+
+### Features
+
+- **icons:** load dynamically icons in stories ([bf96bd3](https://github.com/adevinta/spark/commit/bf96bd35682bb9439477ffe37f3e76d936c01dc4))
+
 ## [1.5.4](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.5.3...@spark-ui/icons@1.5.4) (2023-04-14)
 
 **Note:** Version bump only for package @spark-ui/icons

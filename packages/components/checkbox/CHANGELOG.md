@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.5](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.6.4...@spark-ui/checkbox@1.6.5) (2023-04-17)
+
+### Bug Fixes
+
+- **checkbox:** fix versioning ([724b957](https://github.com/adevinta/spark/commit/724b957a62ba0bf4968101901ba08eabc1c730ea))
+- **checkbox:** import only the needed icon ([d479cc5](https://github.com/adevinta/spark/commit/d479cc5dc96b385795680933bf18c9384d949053))
+
 ## [1.6.4](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.6.3...@spark-ui/checkbox@1.6.4) (2023-04-14)
 
 **Note:** Version bump only for package @spark-ui/checkbox
