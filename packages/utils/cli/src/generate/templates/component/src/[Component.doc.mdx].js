@@ -18,13 +18,13 @@ ${description}
 
 ## Install
 
-\`\`\`
+\`\`\`sh
 npm install @spark-ui/${name}
 \`\`\`
 
 ## Import
 
-\`\`\`
+\`\`\`tsx
 import { ${componentName} } from "@spark-ui/${name}"
 \`\`\`
 
