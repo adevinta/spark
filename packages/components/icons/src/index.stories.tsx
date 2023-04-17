@@ -27,7 +27,7 @@ export const Default: StoryFn = _args => {
 }
 
 export const List: StoryFn = _args => {
-  const [icons, setIcons] = useState([])
+  const [icons, setIcons] = useState<[string, any][]>([]) // eslint-disable-line @typescript-eslint/no-explicit-any
   const [value, setValue] = useState<string>('')
   const handleChange = (event: FormEvent<EventTarget>) => {
     const target = event.target as HTMLInputElement
@@ -61,7 +61,7 @@ export const List: StoryFn = _args => {
 
   useEffect(() => {
     import('./index').then(dynamicIcons => {
-      setIcons(Object.entries(dynamicIcons))
+      setIcons(Object.entries(dynamicIcons as object))
     })
   }, [])
 
