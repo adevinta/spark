@@ -1,6 +1,6 @@
+import { Check } from '@spark-ui/icons'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { Check } from '../../icons'
 import { VisuallyHidden } from '.'
 
 const meta: Meta<typeof VisuallyHidden> = {
