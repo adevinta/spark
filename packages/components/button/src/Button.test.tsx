@@ -15,6 +15,7 @@ describe('Button', () => {
 
     // Then
     expect(element).toBeInTheDocument()
+    expect(document.querySelector('[data-spark-component="button"]')).toBeInTheDocument()
   })
 
   it('should render as link', async () => {

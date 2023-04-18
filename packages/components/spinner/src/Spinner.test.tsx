@@ -13,5 +13,6 @@ describe('Spinner', () => {
 
     // Then
     expect(screen.getByText(props.label)).toBeInTheDocument()
+    expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()
   })
 })
