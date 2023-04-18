@@ -1,17 +1,31 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import { Check } from '@spark-ui/icons'
+import { Check, Close } from '@spark-ui/icons'
 import { Slot } from '@spark-ui/slot'
-import React from 'react'
+import { useCombinedState } from '@spark-ui/use-combined-state'
+import React, { ReactNode } from 'react'
 
 import { styles, type StylesProps, thumbCheckSVGStyles, thumbStyles } from './SwitchInput.styles'
 
-interface RadixProps {
+export interface InputProps
+  extends StylesProps,
+    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {
   /**
    * The state of the switch when it is initially rendered. Use when you do not need to control its state.
    */
   defaultChecked?: boolean
   /**
+   * The controlled state of the switch. Must be used in conjunction with `onCheckedChange`.
+   */
+  checked?: boolean
+  /**
    * When true, prevents the user from interacting with the switch.
+   */
+  /**
+   * Event handler called when the state of the switch changes.
+   */
+  onCheckedChange?: (checked: boolean) => void
+  /**
+   * When `true`, prevents the user from interacting with the switch.
    */
   disabled?: boolean
   /**
@@ -27,28 +41,54 @@ interface RadixProps {
    */
   value?: string
   /**
-   * The controlled state of the switch. Must be used in conjunction with `onCheckedChange`.
+   * Icon shown inside the thumb of the Switch whenever it is checked
    */
-  checked?: boolean
+  checkedIcon?: ReactNode
   /**
-   * Event handler called when the state of the switch changes.
+   * Icon shown inside the thumb of the Switch whenever it is unchecked
    */
-  onCheckedChange?: (checked: boolean) => void
+  uncheckedIcon?: ReactNode
 }
 
-export interface InputProps
-  extends RadixProps,
-    StylesProps,
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {}
-
 export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
-  ({ intent, value = 'on', size = 'md', ...rest }, ref) => {
+  (
+    {
+      checked,
+      checkedIcon = <Check />,
+      defaultChecked,
+      intent,
+      uncheckedIcon = <Close />,
+      size = 'md',
+      value = 'on',
+      onCheckedChange,
+      ...rest
+    },
+    ref
+  ) => {
+    const [isChecked, setIsChecked] = useCombinedState(checked, defaultChecked)
+
+    const handleCheckedChange = (updatedValue: boolean): void => {
+      setIsChecked(updatedValue)
+      onCheckedChange?.(updatedValue)
+    }
+
     return (
-      <SwitchPrimitive.Root ref={ref} className={styles({ intent, size })} value={value} {...rest}>
-        <SwitchPrimitive.Thumb className={thumbStyles({ size })}>
-          <Slot className={thumbCheckSVGStyles({ size })}>
-            <Check />
-          </Slot>
+      <SwitchPrimitive.Root
+        ref={ref}
+        className={styles({ intent, size })}
+        value={value}
+        checked={checked}
+        defaultChecked={defaultChecked}
+        onCheckedChange={handleCheckedChange}
+        {...rest}
+      >
+        <SwitchPrimitive.Thumb className={thumbStyles({ size, checked: isChecked })}>
+          {isChecked && checkedIcon && (
+            <Slot className={thumbCheckSVGStyles({ size })}>{checkedIcon}</Slot>
+          )}
+          {!isChecked && uncheckedIcon && (
+            <Slot className={thumbCheckSVGStyles({ size })}>{uncheckedIcon}</Slot>
+          )}
         </SwitchPrimitive.Thumb>
       </SwitchPrimitive.Root>
     )
