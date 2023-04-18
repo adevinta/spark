@@ -199,6 +199,7 @@ export const defaultTheme: Theme = {
   },
   spacing: {
     auto: 'auto',
+    current: '1em',
     none: '0px',
     sm: '0.25rem',
     md: '0.5rem',
