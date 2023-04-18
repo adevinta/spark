@@ -21,6 +21,7 @@ export function Icon({ label, className, size = 'md', children, ...others }: Ico
   return (
     <>
       {React.cloneElement(child as React.ReactElement, {
+        'data-spark-component': 'icon',
         className: iconVariants({ className, size }),
         'aria-hidden': 'true',
         focusable: 'false',

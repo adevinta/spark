@@ -7,6 +7,12 @@ import { describe, expect, it, vi } from 'vitest'
 import { Switch } from './Switch'
 
 describe('Switch', () => {
+  it('should render', () => {
+    render(<Switch />)
+
+    expect(document.querySelector('[data-spark-component="switch"]')).toBeInTheDocument()
+  })
+
   it('should be unchecked by default', () => {
     render(<Switch />)
 

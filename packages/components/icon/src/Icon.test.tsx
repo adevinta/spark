@@ -20,6 +20,7 @@ describe('Icon', () => {
 
     // Then
     expect(screen.getByTestId(id)).toBeInTheDocument()
+    expect(document.querySelector('[data-spark-component="icon"]')).toBeInTheDocument()
   })
 
   it('should set aria-hidden attribute to true by default', () => {

@@ -21,6 +21,7 @@ export const Tag = React.forwardRef<HTMLButtonElement, TagProps>(
 
     return (
       <Component
+        data-spark-component="tag"
         ref={ref}
         className={tagStyles({
           className,

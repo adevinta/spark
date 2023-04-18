@@ -30,6 +30,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Component
+        data-spark-component="button"
         ref={ref}
         className={buttonStyles({
           className,

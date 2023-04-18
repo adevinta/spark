@@ -24,6 +24,7 @@ describe('Radio', () => {
     expect(within(element).getByRole('radio', { name: '1' })).toBeChecked()
     expect(within(element).getByRole('radio', { name: '2' })).not.toBeChecked()
     expect(within(element).getByRole('radio', { name: '3' })).not.toBeChecked()
+    expect(document.querySelector('[data-spark-component="radio-group"]')).toBeInTheDocument()
   })
 
   it('should check and uncheck when a radio is clicked while in uncontrolled mode', async () => {
