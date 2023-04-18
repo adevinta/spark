@@ -8,5 +8,6 @@ describe('Tag', () => {
     render(<Tag>My tag</Tag>)
 
     expect(screen.getByText('My tag')).toBeInTheDocument()
+    expect(document.querySelector('[data-spark-component="tag"]')).toBeInTheDocument()
   })
 })

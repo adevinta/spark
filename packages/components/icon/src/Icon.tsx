@@ -29,6 +29,7 @@ export function Icon({
     <>
       {React.cloneElement(child as React.ReactElement, {
         className: iconVariants({ className, size, intent }),
+        'data-spark-component': 'icon',
         'aria-hidden': 'true',
         focusable: 'false',
         ...others,
