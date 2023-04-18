@@ -1,3 +1,5 @@
+import { Button } from '@spark-ui/button'
+import { Radio, RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
@@ -14,21 +16,60 @@ export const Default: StoryFn = _args => <Checkbox id={'c1'}>Accept terms and co
 
 export const Disabled: StoryFn = _args => <Checkbox disabled>Accept terms and conditions.</Checkbox>
 
-export const DefaultChecked: StoryFn = _args => (
-  <Checkbox defaultChecked>Accept terms and conditions.</Checkbox>
-)
-
-export const Controlled: StoryFn = _args => {
-  const [value, setValue] = useState(false)
-
-  const handleChange = (checked: boolean) => {
-    setValue(!!checked)
+export const UncontrolledState: StoryFn = _args => {
+  const [index, setIndex] = useState<number>(0)
+  const handleReset = () => {
+    setIndex(index + 1)
   }
 
   return (
-    <Checkbox checked={value} onCheckedChange={handleChange}>
-      Accept terms and conditions.
-    </Checkbox>
+    <div className="gap-lg flex flex-col" key={index}>
+      <div className="gap-lg flex flex-row">
+        <Button onClick={handleReset}>reset</Button>
+      </div>
+      <Checkbox defaultChecked>Accept terms and conditions.</Checkbox>
+      <Checkbox defaultChecked="indeterminate">Accept terms and conditions.</Checkbox>
+      <Checkbox defaultChecked={false}>Accept terms and conditions.</Checkbox>
+    </div>
+  )
+}
+
+export const ControlledState: StoryFn = _args => {
+  const [index, setIndex] = useState<number>(0)
+  const [checked, setChecked] = useState<boolean | 'indeterminate' | undefined>()
+  const handleReset = () => {
+    setIndex(index + 1)
+    setChecked(undefined)
+  }
+  const handleChange = (value: string) => {
+    if (value === 'undefined') {
+      setChecked(undefined)
+    } else if (value === 'true') {
+      setChecked(true)
+    } else if (value === 'indeterminate') {
+      setChecked('indeterminate')
+    } else {
+      setChecked(false)
+    }
+  }
+
+  return (
+    <div className="gap-lg flex flex-col">
+      <div className="gap-lg flex flex-row">
+        <Button onClick={handleReset} disabled={checked === undefined}>
+          reset
+        </Button>
+        <RadioGroup onValueChange={handleChange} value={`${checked}`}>
+          <Radio value="undefined">undefined (uncontrolled – state-full)</Radio>
+          <Radio value="true">checked</Radio>
+          <Radio value="indeterminate">indeterminate</Radio>
+          <Radio value="false">unchecked</Radio>
+        </RadioGroup>
+      </div>
+      <Checkbox key={index} checked={checked} onCheckedChange={checked => setChecked(checked)}>
+        Accept terms and conditions.
+      </Checkbox>
+    </div>
   )
 }
 
