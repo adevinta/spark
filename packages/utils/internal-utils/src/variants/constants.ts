@@ -1,6 +1,7 @@
-const sizes = ['sm', 'md', 'lg'] as const
+const sizes = ['current', 'sm', 'md', 'lg'] as const
 
 const intents = [
+  'current',
   'primary',
   'secondary',
   'success',
