@@ -10,7 +10,7 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
     return (
       <Label data-spark-component="switch" disabled={rest.disabled}>
         <Input ref={ref} size={size} {...rest} />
-        {children}
+        <div className="block">{children}</div>
       </Label>
     )
   }
