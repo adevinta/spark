@@ -6,6 +6,7 @@ import { forwardRef, type ReactElement, useEffect, useMemo, useRef, useState } f
 
 import { useTabsContext } from './TabsContext'
 import { listStyles, navigationArrowStyles, wrapperStyles } from './TabsList.styles'
+import { useResizeObserver } from './useResizeObserver'
 
 export type TabsListProps = Omit<RadixTabs.TabsListProps, 'children'> & {
   children: ReactElement[]
@@ -31,10 +32,13 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     },
     ref
   ) => {
+    const wrapperRef = useRef(null)
     const innerRef = useRef(null)
     const listRef = ref || innerRef
     const { orientation, selectedTab, setSelectedTab } = useTabsContext()
     const tabs = useRef<ReactElement[]>(children)
+
+    const { width } = useResizeObserver(wrapperRef)
 
     const tabPivots = useMemo(() => {
       const selected = getSelectedTabIndex(children, selectedTab)
@@ -50,7 +54,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     // eslint-disable-next-line complexity
     useEffect(() => {
       const hasOverflow =
-        typeof listRef !== 'function' && listRef.current
+        listRef && 'current' in listRef && listRef.current
           ? listRef.current.scrollWidth > listRef.current.clientWidth
           : false
 
@@ -60,13 +64,13 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       setShouldDisplayNext(
         orientation === 'horizontal' && hasOverflow && (loop || tabPivots.next !== 0)
       )
-    }, [loop, orientation, tabPivots, listRef])
+    }, [loop, orientation, tabPivots, listRef, width])
 
     const handlePrevClick = () => setSelectedTab(tabs.current?.[tabPivots.previous]?.props.value)
     const handleNextClick = () => setSelectedTab(tabs.current?.[tabPivots.next]?.props.value)
 
     return (
-      <div className={wrapperStyles()}>
+      <div className={wrapperStyles()} ref={wrapperRef}>
         {shouldDisplayPrev && (
           <Button
             shape="square"

@@ -1,4 +1,3 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import { cva, type VariantProps } from 'class-variance-authority'
 
 export const triggerVariants = cva(
@@ -7,7 +6,7 @@ export const triggerVariants = cva(
     'border-outline',
     'outline-none',
     'bg-surface hover:bg-surface-hovered',
-    'after:content after:absolute',
+    'after:absolute',
     'spark-orientation-horizontal:border-b-sm spark-orientation-horizontal:after:h-sz-2 spark-orientation-horizontal:after:left-none spark-orientation-horizontal:after:right-none spark-orientation-horizontal:after:bottom-[-1px]',
     'spark-orientation-vertical:border-r-sm spark-orientation-vertical:after:w-sz-2 spark-orientation-vertical:after:top-none spark-orientation-vertical:after:bottom-none spark-orientation-vertical:after:right-[-1px]',
     'focus-visible:ring-outline-high focus-visible:bg-surface-hovered ring-inset focus-visible:border-none focus-visible:ring-2',

@@ -1,4 +1,3 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import { cva } from 'class-variance-authority'
 
 export const wrapperStyles = cva(['relative flex'])

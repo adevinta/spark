@@ -19,11 +19,10 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
        * see https://www.radix-ui.com/docs/primitives/components/tabs#trigger
        */
       asChild = false,
+      value,
       disabled = false,
       label,
       icon,
-      value,
-      ...rest
     },
     ref
   ) => {
@@ -33,11 +32,8 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
     const triggerRef = ref || innerRef
 
     useEffect(() => {
-      if (typeof triggerRef !== 'function' && selectedTab === value) {
-        triggerRef.current?.scrollIntoView({
-          block: 'nearest',
-          inline: 'nearest',
-        })
+      if (triggerRef && 'current' in triggerRef && triggerRef.current && selectedTab === value) {
+        triggerRef.current.focus()
       }
     }, [selectedTab, value, triggerRef])
 
@@ -48,7 +44,6 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         asChild={asChild}
         disabled={disabled}
         value={value}
-        {...rest}
       >
         {icon && <Icon size="sm">{icon}</Icon>}
         {label && <span>{label}</span>}
