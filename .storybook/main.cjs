@@ -40,6 +40,24 @@ module.exports = {
   typescript: {
     check: true,
     reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      propFilter: prop => {
+        const prohibitedPropsRegexes = [/node_modules\/\@types\/react\/index.d.ts/]
+
+        if (prop.declarations?.length > 0) {
+          const isProhibitedProps = prop.declarations.some(declaration =>
+            prohibitedPropsRegexes.some(regex => regex.test(declaration.fileName))
+          )
+
+          return !isProhibitedProps
+        }
+
+        return true
+      },
+      componentNameResolver: expression => {
+        return expression.getName()
+      },
+    },
   },
   docs: {
     autodocs: true,
