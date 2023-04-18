@@ -217,6 +217,7 @@ export interface Theme {
   }
   spacing: {
     auto: string
+    current: string
     none: string
     sm: string
     md: string
