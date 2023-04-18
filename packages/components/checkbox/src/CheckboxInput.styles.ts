@@ -13,18 +13,22 @@ export const inputStyles = cva(
       intent: makeVariants<'intent', ['primary', 'success', 'alert', 'error']>({
         primary: [
           'spark-state-unchecked:border-outline',
+          'spark-state-indeterminate:border-primary spark-state-indeterminate:bg-primary',
           'spark-state-checked:border-primary spark-state-checked:bg-primary',
         ],
         success: [
           'spark-state-unchecked:border-success',
+          'spark-state-indeterminate:border-success spark-state-indeterminate:bg-success',
           'spark-state-checked:border-success spark-state-checked:bg-success',
         ],
         alert: [
           'spark-state-unchecked:border-alert',
+          'spark-state-indeterminate:border-alert spark-state-indeterminate:bg-alert',
           'spark-state-checked:border-alert spark-state-checked:bg-alert',
         ],
         error: [
           'spark-state-unchecked:border-error',
+          'spark-state-indeterminate:border-error spark-state-indeterminate:bg-error',
           'spark-state-checked:border-error spark-state-checked:bg-error',
         ],
       }),

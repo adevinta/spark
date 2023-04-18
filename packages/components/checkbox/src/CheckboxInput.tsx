@@ -1,8 +1,13 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
-import { Check } from '@spark-ui/icons'
-import React, { ReactNode } from 'react'
+import { Check, Minus } from '@spark-ui/icons'
+import { useMergeRefs } from '@spark-ui/use-merge-refs'
+import { ButtonHTMLAttributes, ElementRef, forwardRef, ReactNode, useState } from 'react'
 
 import { inputStyles, type InputStylesProps } from './CheckboxInput.styles'
+
+type CheckedStatus = boolean | 'indeterminate'
+
+type AriaCheckedStatus = 'true' | 'false' | 'mixed' | undefined
 
 interface RadixProps {
   /**
@@ -12,15 +17,15 @@ interface RadixProps {
   /**
    * The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.
    */
-  defaultChecked?: boolean
+  defaultChecked?: CheckedStatus
   /**
    * The controlled checked state of the checkbox. Must be used in conjunction with onCheckedChange.
    */
-  checked?: boolean
+  checked?: CheckedStatus
   /**
    * Event handler called when the checked state of the checkbox changes.
    */
-  onCheckedChange?: (checked: boolean) => void
+  onCheckedChange?: (checked: CheckedStatus) => void
   /**
    * When true, prevents the user from interacting with the checkbox.
    */
@@ -35,17 +40,39 @@ interface RadixProps {
   name?: string
 }
 
+const useIcon = ({ icon, checked }: { icon: ReactNode; checked: AriaCheckedStatus }) => {
+  if (icon) {
+    return icon
+  }
+  switch (checked) {
+    case 'true':
+      return <Check />
+    case 'mixed':
+      return <Minus />
+    default:
+      return null
+  }
+}
+
 export interface InputProps
   extends RadixProps, // Radix props
     InputStylesProps, // CVA props (variants)
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {} // Native HTML props
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'checked' | 'defaultChecked'> {} // Native HTML props
 
-export const Input = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root>, InputProps>(
-  ({ intent, icon = <Check />, ...props }, ref) => (
-    <CheckboxPrimitive.Root ref={ref} className={inputStyles({ intent })} {...props}>
-      <CheckboxPrimitive.Indicator className="text-surface flex items-center justify-center">
-        {icon}
-      </CheckboxPrimitive.Indicator>
-    </CheckboxPrimitive.Root>
-  )
+export const Input = forwardRef<ElementRef<typeof CheckboxPrimitive.Root>, InputProps>(
+  ({ intent, icon, ...props }, forwardedRef) => {
+    const [innerChecked, setInnerChecked] = useState<'true' | 'false' | 'mixed'>()
+    const ref = useMergeRefs(forwardedRef, node => {
+      setInnerChecked(node?.getAttribute('aria-checked') as AriaCheckedStatus)
+    })
+    const innerIcon = useIcon({ icon, checked: innerChecked })
+
+    return (
+      <CheckboxPrimitive.Root ref={ref} className={inputStyles({ intent })} {...props}>
+        <CheckboxPrimitive.Indicator className="text-surface flex items-center justify-center">
+          {innerIcon}
+        </CheckboxPrimitive.Indicator>
+      </CheckboxPrimitive.Root>
+    )
+  }
 )
