@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.5.4...@spark-ui/tag@1.6.0) (2023-04-19)
+
+### Features
+
+- **tag:** update make variants function ([c8bab4e](https://github.com/adevinta/spark/commit/c8bab4e8ef3d1388e4688d8bce07ead47f142af6))
+
 ## [1.5.4](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.5.3...@spark-ui/tag@1.5.4) (2023-04-18)
 
 **Note:** Version bump only for package @spark-ui/tag

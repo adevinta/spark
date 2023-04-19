@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.4.2...@spark-ui/icon@1.5.0) (2023-04-19)
+
+### Features
+
+- **icon:** add intent and current size support ([4e24bd7](https://github.com/adevinta/spark/commit/4e24bd7a90dd1e8fe60a9b86dc0c158f1ad79f11))
+- **icon:** update current size ([332f7fc](https://github.com/adevinta/spark/commit/332f7fca46c33083e6f341c4bd3985a02ef1413e))
+
 ## [1.4.2](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.4.1...@spark-ui/icon@1.4.2) (2023-04-18)
 
 **Note:** Version bump only for package @spark-ui/icon

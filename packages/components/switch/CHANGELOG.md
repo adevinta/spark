@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.6.7...@spark-ui/switch@1.7.0) (2023-04-19)
+
+### Features
+
+- **switch:** update make variants function ([15fbea1](https://github.com/adevinta/spark/commit/15fbea17469ddd7c0ecb471565d07953c34069e1))
+
 ## [1.6.7](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.6.6...@spark-ui/switch@1.6.7) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/switch
