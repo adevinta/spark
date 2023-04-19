@@ -3,6 +3,7 @@ import { join } from 'node:path'
 
 import react from '@vitejs/plugin-react'
 import browserslistToEsbuild from 'browserslist-to-esbuild'
+import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'vite-plugin-dts'
 
@@ -27,7 +28,7 @@ export function buildComponentConfig(path: string) {
       },
       rollupOptions: {
         external: [...deps, ...rootDeps, ...devDeps, ...rootDevDeps],
-        plugins: [terser()],
+        plugins: [terser(), commonjs()],
       },
     },
     plugins: [
