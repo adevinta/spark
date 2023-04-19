@@ -27,5 +27,10 @@
   "devDependencies": {
     "@spark-ui/button": "1",
     "@spark-ui/radio": "1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/checkbox"
   }
 }

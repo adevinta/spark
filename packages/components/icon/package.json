@@ -17,8 +17,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "^1.5.0",
-    "@spark-ui/visually-hidden": "^0.4.4"
+    "@spark-ui/internal-utils": "1",
+    "@spark-ui/visually-hidden": "0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
