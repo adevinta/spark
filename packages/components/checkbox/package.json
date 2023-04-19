@@ -14,7 +14,7 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "1",
     "@radix-ui/react-label": "^2.0.1",
-    "@spark-ui/icons": "^1.7.2",
+    "@spark-ui/icons": "1",
     "@spark-ui/internal-utils": "1",
     "@spark-ui/use-merge-refs": "0",
     "class-variance-authority": "0.5.2"
