@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin.withOptions(options => ({ addUtilities }) => {
   addUtilities({
-    '.current-icon-size': {
+    '.current-font-size': {
       width: '1em',
       height: '1em',
     },
