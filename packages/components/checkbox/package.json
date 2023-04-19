@@ -14,7 +14,7 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "1",
     "@radix-ui/react-label": "^2.0.1",
-    "@spark-ui/icons": "^1.7.3",
+    "@spark-ui/icons": "1",
     "@spark-ui/internal-utils": "1",
     "@spark-ui/use-merge-refs": "0",
     "class-variance-authority": "0.5.2"
@@ -25,7 +25,12 @@
     "tailwindcss": "^3.0.0"
   },
   "devDependencies": {
-    "@spark-ui/button": "^1.6.1",
-    "@spark-ui/radio": "^1.7.1"
+    "@spark-ui/button": "1",
+    "@spark-ui/radio": "1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/checkbox"
   }
 }

@@ -12,6 +12,11 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/visually-hidden": "^0.4.5"
+    "@spark-ui/visually-hidden": "0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/spinner"
   }
 }
