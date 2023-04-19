@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.6.1...@spark-ui/icons@1.7.0) (2023-04-19)
+
+### Features
+
+- **icons:** add minus icon ([bf83d6b](https://github.com/adevinta/spark/commit/bf83d6bcc30e1b94fc21174181c06162bd104bf1))
+- **icons:** add minus icon ([593493c](https://github.com/adevinta/spark/commit/593493c79412f6f42eabaa4962de04138bbab09a))
+
 ## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.6.0...@spark-ui/icons@1.6.1) (2023-04-18)
 
 **Note:** Version bump only for package @spark-ui/icons
