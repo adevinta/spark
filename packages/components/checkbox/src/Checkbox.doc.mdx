@@ -10,6 +10,7 @@ import * as CheckboxStories from './Checkbox.stories'
 # Checkbox
 
 A control that allows the user to toggle between checked and not checked.
+It is used in forms when a user needs to select multiple values from several options.
 
 ## Install
 
@@ -29,19 +30,24 @@ import { Checkbox } from "@spark-ui/checkbox"
 
 ## Usage
 
+The default behavior is the uncontrolled (stateful) unchecked status.
+It changes its own state when clicking on the element.
+It will also be focused when the user navigates using the keyboard and changes its status when pressing 'Space' key.
+
 <Canvas of={CheckboxStories.Default} />
 
 ## Disabled
+The element will not change its status when clicking on it and it will never be focused using keyboard navigation.
 
 <Canvas of={CheckboxStories.Disabled} />
 
-## DefaultChecked
+## Uncontrolled State
 
-<Canvas of={CheckboxStories.DefaultChecked} />
+<Canvas of={CheckboxStories.UncontrolledState} />
 
-## Controlled
+## ControlledState
 
-<Canvas of={CheckboxStories.Controlled} />
+<Canvas of={CheckboxStories.ControlledState} />
 
 ## Intent
 
