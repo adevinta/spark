@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/use-combined-state",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "combine controlled-uncontrolled component state by stateful-stateless inner state management",
   "publishConfig": {
     "access": "public"
