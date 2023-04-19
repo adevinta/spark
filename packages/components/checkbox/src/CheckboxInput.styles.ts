@@ -10,7 +10,7 @@ export const inputStyles = cva(
   ],
   {
     variants: {
-      intent: makeVariants<'intent', ['primary', 'success', 'alert', 'error']>({
+      intent: makeVariants<'intent'>({
         primary: [
           'spark-state-unchecked:border-outline',
           'spark-state-checked:border-primary spark-state-checked:bg-primary',

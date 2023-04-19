@@ -42,10 +42,7 @@ export const buttonStyles = cva(
       /**
        * Color scheme of the button.
        */
-      intent: makeVariants<
-        'intent',
-        ['primary', 'secondary', 'success', 'alert', 'danger', 'neutral', 'surface']
-      >({
+      intent: makeVariants<'intent'>({
         primary: [],
         secondary: [],
         success: [],
