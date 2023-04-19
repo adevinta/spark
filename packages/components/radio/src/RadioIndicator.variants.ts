@@ -18,7 +18,10 @@ export const radioIndicatorVariants = cva(
   ],
   {
     variants: {
-      intent: makeVariants<'intent'>({
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+      >({
         primary: ['after:bg-primary'],
         secondary: ['after:bg-secondary'],
         success: ['after:bg-success'],
@@ -27,7 +30,7 @@ export const radioIndicatorVariants = cva(
         info: ['after:bg-info'],
         neutral: ['after:bg-neutral'],
       }),
-      size: makeVariants<'size'>({
+      size: makeVariants<'size', ['sm', 'md']>({
         sm: ['after:spark-state-checked:h-sz-10', 'after:spark-state-checked:w-sz-10'],
         md: ['after:spark-state-checked:h-sz-16', 'after:spark-state-checked:w-sz-16'],
       }),
