@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.7.0...@spark-ui/checkbox@1.8.0) (2023-04-19)
+
+### Features
+
+- **checkbox:** indeterminate status ([f5f7fb8](https://github.com/adevinta/spark/commit/f5f7fb88843559b25b2abf69ac32023fed973b15))
+- **checkbox:** indeterminate status ([e6a66f1](https://github.com/adevinta/spark/commit/e6a66f151f907b848e1947a2799343dc70f9679a))
+- **checkbox:** indeterminate status ([7f41e99](https://github.com/adevinta/spark/commit/7f41e996ca2ec85137a8f5518e98222a2dd6471a))
+
 # [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.6.7...@spark-ui/checkbox@1.7.0) (2023-04-19)
 
 ### Features
