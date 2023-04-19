@@ -1,8 +1,12 @@
-import { VariantLookup } from './types'
+import { Picks, VariantLookup } from './types'
 
-function makeVariants<Variant extends 'design' | 'intent' | 'shape' | 'size'>(
-  variants: Partial<VariantLookup[Variant]>
-): Partial<VariantLookup[Variant]> {
+/* eslint-disable space-before-function-paren */
+function makeVariants<
+  Variant extends 'design' | 'intent' | 'shape' | 'size',
+  P extends (keyof VariantLookup[Variant])[] = []
+>(
+  variants: P extends [] ? VariantLookup[Variant] : Picks<VariantLookup[Variant], P>
+): P extends [] ? VariantLookup[Variant] : Picks<VariantLookup[Variant], P> {
   return variants
 }
 
