@@ -1,8 +1,21 @@
 import { RadioGroup as RadioGroupPrimitive } from '@radix-ui/react-radio-group'
+import { cva } from 'class-variance-authority'
 import { forwardRef, HTMLAttributes } from 'react'
 
 import { RadioGroupProvider } from './RadioGroupProvider'
 import { RadioInputVariantsProps } from './RadioInput.variants'
+
+export const radioGroupStyles = cva(['gap-xl flex'], {
+  variants: {
+    orientation: {
+      horizontal: 'flex-row',
+      vertical: 'flex-col',
+    },
+  },
+  defaultVariants: {
+    orientation: 'vertical',
+  },
+})
 
 export interface RadioGroupProps
   extends Pick<RadioInputVariantsProps, 'intent' | 'size'>,
@@ -50,13 +63,18 @@ export interface RadioGroupProps
 }
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ loop = true, intent, size, disabled, ...others }, ref) => {
+  (
+    { orientation = 'vertical', loop = true, intent, size, disabled, className, ...others },
+    ref
+  ) => {
     return (
       <RadioGroupProvider intent={intent} size={size} disabled={disabled}>
         <RadioGroupPrimitive
           data-spark-component="radio-group"
+          className={radioGroupStyles({ orientation, className })}
           ref={ref}
           disabled={disabled}
+          orientation={orientation}
           {...others}
         />
       </RadioGroupProvider>
