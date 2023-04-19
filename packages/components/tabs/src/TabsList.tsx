@@ -2,7 +2,7 @@ import * as RadixTabs from '@radix-ui/react-tabs'
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
 import { ArrowVerticalLeft, ArrowVerticalRight } from '@spark-ui/icons'
-import { forwardRef, type ReactElement, useEffect, useMemo, useRef, useState } from 'react'
+import React, { forwardRef, type ReactElement, useEffect, useMemo, useRef, useState } from 'react'
 
 import { useTabsContext } from './TabsContext'
 import { listStyles, navigationArrowStyles, wrapperStyles } from './TabsList.styles'
@@ -13,9 +13,25 @@ export type TabsListProps = Omit<RadixTabs.TabsListProps, 'children'> & {
 }
 
 const getSelectedTabIndex = (list: ReactElement[], selectedTab?: string) => {
-  const matchingChild = list.find(elm => (elm?.props.value as string) === selectedTab)
+  return list.findIndex(elm => (elm?.props.value as string) === selectedTab)
+}
 
-  return matchingChild ? list.indexOf(matchingChild) : 0
+const getNextTabIndex = (list: ReactElement[], selectedTabIndex: number) => {
+  if (selectedTabIndex < list.length - 1) {
+    return list.findIndex(elm => list.indexOf(elm) >= selectedTabIndex + 1 && !elm.props.disabled)
+  } else {
+    return 0
+  }
+}
+
+const getPreviousTabIndex = (list: ReactElement[], selectedTabIndex: number) => {
+  if (selectedTabIndex > 0) {
+    const match = list.filter(elm => list.indexOf(elm) < selectedTabIndex && !elm.props.disabled)
+
+    return match ? list.indexOf(match[match.length - 1] as ReactElement) : list.length - 1
+  } else {
+    return list.length - 1
+  }
 }
 
 export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
@@ -41,12 +57,12 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     const { width } = useResizeObserver(wrapperRef)
 
     const tabPivots = useMemo(() => {
-      const selected = getSelectedTabIndex(children, selectedTab)
-      const next = selected < children.length - 1 ? selected + 1 : 0
-      const previous = selected > 0 ? selected - 1 : children.length - 1
+      const selected = getSelectedTabIndex(tabs.current, selectedTab)
+      const next = getNextTabIndex(tabs.current, selected)
+      const previous = getPreviousTabIndex(tabs.current, selected)
 
       return { previous, selected, next }
-    }, [children, selectedTab])
+    }, [tabs, selectedTab])
 
     const [shouldDisplayPrev, setShouldDisplayPrev] = useState(false)
     const [shouldDisplayNext, setShouldDisplayNext] = useState(false)
@@ -79,6 +95,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
             className={navigationArrowStyles()}
             onClick={handlePrevClick}
             disabled={tabPivots.previous === undefined}
+            aria-label="Previous"
           >
             <Icon size="sm">
               <ArrowVerticalLeft />
@@ -104,6 +121,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
             className={navigationArrowStyles()}
             onClick={handleNextClick}
             disabled={tabPivots.next === undefined}
+            aria-label="Next"
           >
             <Icon size="sm">
               <ArrowVerticalRight />

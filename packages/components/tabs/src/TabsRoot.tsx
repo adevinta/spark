@@ -22,7 +22,6 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
       defaultValue,
       value,
       onValueChange,
-      ...rest
     },
     ref
   ) => {
@@ -46,7 +45,6 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
           onValueChange={handleChange}
           value={selectedTab}
           data-spark-component="tabs"
-          {...rest}
         >
           {children}
         </RadixTabs.Root>

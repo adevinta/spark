@@ -12,8 +12,8 @@ export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
        * Default Radix Primitive values
        * see https://www.radix-ui.com/docs/primitives/components/tabs#content
        */
-      asChild = false,
       children,
+      asChild = false,
       ...rest
     },
     ref

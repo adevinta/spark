@@ -7,8 +7,8 @@ interface Size {
 
 type ResizeCallback = (entry?: ResizeObserverEntry) => void
 
-export const useResizeObserver = <T extends Element>(
-  target: RefObject<T> | T,
+export const useResizeObserver = <T extends HTMLElement>(
+  target: RefObject<T> | T | null,
   onResize?: ResizeCallback
 ): Size => {
   const [size, setSize] = useState<Size>({ width: undefined, height: undefined })
@@ -33,9 +33,8 @@ export const useResizeObserver = <T extends Element>(
     resizeObserverRef.current.observe(targetElm as unknown as HTMLElement)
 
     return () => {
-      if (resizeObserverRef.current) {
+      resizeObserverRef.current &&
         resizeObserverRef.current.unobserve(targetElm as unknown as HTMLElement)
-      }
     }
   }, [target, resizeCallbackRef])
 

@@ -2,6 +2,7 @@ import { ConversationFill, HolidayFill, MailFill } from '@spark-ui/icons'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { Tabs } from '.'
+import { TabsListProps } from './TabsList'
 import type { TabsRootProps } from './TabsRoot'
 import type { TabsTriggerProps } from './TabsTrigger'
 
@@ -12,7 +13,7 @@ const meta: Meta<typeof Tabs> = {
 
 export default meta
 
-interface TabItem {
+export interface TabItem {
   title?: string
   value: string
   disabled?: boolean
@@ -41,10 +42,18 @@ const defaultTabs = [
   },
 ]
 
-const invokeTabs = (customProps: TabsRootProps = {}, tabs: TabItem[] = defaultTabs) => {
+export const createTabs = ({
+  rootProps = {},
+  listProps = {},
+  tabs = defaultTabs,
+}: {
+  rootProps?: TabsRootProps
+  listProps?: Omit<TabsListProps, 'children'>
+  tabs?: TabItem[]
+} = {}) => {
   return (
-    <Tabs defaultValue="tab1" {...customProps}>
-      <Tabs.List>
+    <Tabs defaultValue="tab1" {...rootProps}>
+      <Tabs.List {...listProps}>
         {tabs.map(({ title, value, icon, disabled }) => (
           <Tabs.Trigger key={value} value={value} label={title} icon={icon} disabled={disabled} />
         ))}
@@ -61,50 +70,61 @@ const invokeTabs = (customProps: TabsRootProps = {}, tabs: TabItem[] = defaultTa
 
 export const Default: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
-    <div className="shrink basis-auto overflow-auto">{invokeTabs({ size: 'xs' })}</div>
+    <div className="shrink basis-auto overflow-auto">{createTabs()}</div>
   </div>
 )
 
 export const Intent: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
-    <div className="shrink basis-auto overflow-auto">{invokeTabs()}</div>
-    <div className="shrink basis-auto overflow-auto">{invokeTabs({ intent: 'secondary' })}</div>
+    <div className="shrink basis-auto overflow-auto">{createTabs()}</div>
+    <div className="shrink basis-auto overflow-auto">
+      {createTabs({ rootProps: { intent: 'secondary' } })}
+    </div>
   </div>
 )
 
 export const Size: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
-    <div className="shrink basis-auto overflow-auto">{invokeTabs({ size: 'xs' })}</div>
+    <div className="shrink basis-auto overflow-auto">
+      {createTabs({ rootProps: { size: 'xs' } })}
+    </div>
 
-    <div className="shrink basis-auto overflow-auto">{invokeTabs({ size: 'sm' })}</div>
+    <div className="shrink basis-auto overflow-auto">
+      {createTabs({ rootProps: { size: 'sm' } })}
+    </div>
 
-    <div className="shrink basis-auto overflow-auto">{invokeTabs({ size: 'md' })}</div>
+    <div className="shrink basis-auto overflow-auto">
+      {createTabs({ rootProps: { size: 'md' } })}
+    </div>
   </div>
 )
 
 export const State: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
     <div className="shrink basis-auto overflow-auto">
-      {invokeTabs({ defaultValue: 'tab2' }, [
-        {
-          title: 'Inbox',
-          value: 'tab1',
-          content: 'Your inbox is empty',
-          disabled: true,
-        },
-        {
-          title: 'Today',
-          value: 'tab2',
-          content: 'Make some coffee',
-          disabled: false,
-        },
-        {
-          title: 'Upcoming',
-          value: 'tab3',
-          content: 'Order more coffee',
-          disabled: false,
-        },
-      ])}
+      {createTabs({
+        rootProps: { defaultValue: 'tab2' },
+        tabs: [
+          {
+            title: 'Inbox',
+            value: 'tab1',
+            content: 'Your inbox is empty',
+            disabled: true,
+          },
+          {
+            title: 'Today',
+            value: 'tab2',
+            content: 'Make some coffee',
+            disabled: false,
+          },
+          {
+            title: 'Upcoming',
+            value: 'tab3',
+            content: 'Order more coffee',
+            disabled: false,
+          },
+        ],
+      })}
     </div>
   </div>
 )
@@ -112,52 +132,58 @@ export const State: StoryFn = _args => (
 export const Iconed: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
     <div className="shrink basis-auto overflow-auto">
-      {invokeTabs({ defaultValue: 'tab2' }, [
-        {
-          title: 'Inbox',
-          value: 'tab1',
-          icon: <MailFill />,
-          content: 'Your inbox is empty',
-          disabled: true,
-        },
-        {
-          title: 'Today',
-          value: 'tab2',
-          icon: <ConversationFill />,
-          content: 'Make some coffee',
-          disabled: false,
-        },
-        {
-          title: 'Upcoming',
-          value: 'tab3',
-          icon: <HolidayFill />,
-          content: 'Order more coffee',
-          disabled: false,
-        },
-      ])}
+      {createTabs({
+        rootProps: { defaultValue: 'tab2' },
+        tabs: [
+          {
+            title: 'Inbox',
+            value: 'tab1',
+            icon: <MailFill />,
+            content: 'Your inbox is empty',
+            disabled: true,
+          },
+          {
+            title: 'Today',
+            value: 'tab2',
+            icon: <ConversationFill />,
+            content: 'Make some coffee',
+            disabled: false,
+          },
+          {
+            title: 'Upcoming',
+            value: 'tab3',
+            icon: <HolidayFill />,
+            content: 'Order more coffee',
+            disabled: false,
+          },
+        ],
+      })}
     </div>
 
     <div className="shrink basis-auto overflow-auto">
-      {invokeTabs({ defaultValue: 'tab2' }, [
-        {
-          value: 'tab1',
-          icon: <MailFill />,
-          content: 'Your inbox is empty',
-          disabled: true,
-        },
-        {
-          value: 'tab2',
-          icon: <ConversationFill />,
-          content: 'Make some coffee',
-          disabled: false,
-        },
-        {
-          value: 'tab3',
-          icon: <HolidayFill />,
-          content: 'Order more coffee',
-          disabled: false,
-        },
-      ])}
+      {createTabs({
+        rootProps: { defaultValue: 'tab2' },
+        tabs: [
+          {
+            value: 'tab1',
+            icon: <MailFill />,
+            content: 'Your inbox is empty',
+            disabled: true,
+          },
+          {
+            value: 'tab2',
+            icon: <ConversationFill />,
+            content: 'Make some coffee',
+            disabled: false,
+          },
+          {
+            value: 'tab3',
+            icon: <HolidayFill />,
+            content: 'Order more coffee',
+            disabled: false,
+          },
+        ],
+      })}
     </div>
   </div>
 )
@@ -165,10 +191,12 @@ export const Iconed: StoryFn = _args => (
 export const Orientation: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
     <div className="shrink basis-auto overflow-auto">
-      {invokeTabs({ orientation: 'horizontal' })}
+      {createTabs({ rootProps: { orientation: 'horizontal' } })}
     </div>
 
-    <div className="shrink basis-auto overflow-auto">{invokeTabs({ orientation: 'vertical' })}</div>
+    <div className="shrink basis-auto overflow-auto">
+      {createTabs({ rootProps: { orientation: 'vertical' } })}
+    </div>
   </div>
 )
 
@@ -197,22 +225,13 @@ export const Overflow: StoryFn = _args => {
 
   return (
     <div className="gap-lg flex flex-row">
-      <div className="shrink basis-auto overflow-auto">{invokeTabs({}, overflowTabs)}</div>
+      <div className="shrink basis-auto overflow-auto">{createTabs({ tabs: overflowTabs })}</div>
 
       <div className="shrink basis-auto overflow-auto">
-        <Tabs defaultValue="tab1">
-          <Tabs.List loop={false}>
-            {overflowTabs.map(({ title, value, disabled }) => (
-              <Tabs.Trigger key={value} value={value} label={title} disabled={disabled} />
-            ))}
-          </Tabs.List>
-
-          {overflowTabs.map(({ content, value }) => (
-            <Tabs.Content key={value} value={value}>
-              <p>{content}</p>
-            </Tabs.Content>
-          ))}
-        </Tabs>
+        {createTabs({
+          listProps: { loop: false },
+          tabs: overflowTabs,
+        })}
       </div>
     </div>
   )
