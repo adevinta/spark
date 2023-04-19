@@ -15,6 +15,7 @@ describe('Checkbox', () => {
     // Then
     expect(element).toBeInTheDocument()
     expect(element).not.toBeChecked()
+    expect(document.querySelector('[data-spark-component="checkbox"]')).toBeInTheDocument()
   })
 
   it('should trigger check event', async () => {

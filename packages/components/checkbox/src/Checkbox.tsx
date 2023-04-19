@@ -10,7 +10,7 @@ export const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
 >(({ children, ...props }, ref) => (
-  <Label disabled={props.disabled}>
+  <Label data-spark-component="checkbox" disabled={props.disabled}>
     <Input ref={ref} {...props} />
     {children}
   </Label>

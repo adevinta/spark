@@ -8,7 +8,7 @@ export type SwitchProps = InputProps
 export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
   ({ value = 'on', size = 'md', children, ...rest }, ref) => {
     return (
-      <Label disabled={rest.disabled}>
+      <Label data-spark-component="switch" disabled={rest.disabled}>
         <Input ref={ref} size={size} {...rest} />
         {children}
       </Label>

@@ -53,7 +53,12 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ loop = true, intent, size, disabled, ...others }, ref) => {
     return (
       <RadioGroupProvider intent={intent} size={size} disabled={disabled}>
-        <RadioGroupPrimitive ref={ref} disabled={disabled} {...others} />
+        <RadioGroupPrimitive
+          data-spark-component="radio-group"
+          ref={ref}
+          disabled={disabled}
+          {...others}
+        />
       </RadioGroupProvider>
     )
   }
