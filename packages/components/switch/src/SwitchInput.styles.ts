@@ -19,14 +19,11 @@ export const styles = cva(
   ]),
   {
     variants: {
-      size: makeVariants<'size', ['sm', 'md']>({
+      size: makeVariants<'size'>({
         sm: tw(['h-sz-24', 'w-sz-40', 'border-md']),
         md: tw(['h-sz-32', 'w-sz-56', 'border-[4px]']),
       }),
-      intent: makeVariants<
-        'intent',
-        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
-      >({
+      intent: makeVariants<'intent'>({
         primary: ['spark-state-checked:bg-primary', 'hover:ring-primary-container', 'text-primary'],
         secondary: [
           'spark-state-checked:bg-secondary',
@@ -59,7 +56,7 @@ export const thumbStyles = cva(
   ],
   {
     variants: {
-      size: makeVariants<'size', ['sm', 'md']>({
+      size: makeVariants<'size'>({
         sm: ['h-sz-20', 'w-sz-20'],
         md: ['h-sz-24', 'w-sz-24'],
       }),
@@ -72,7 +69,7 @@ export const thumbCheckSVGStyles = cva(
   ['transition-opacity duration-200', 'group-spark-state-unchecked:opacity-0 '],
   {
     variants: {
-      size: makeVariants<'size', ['sm', 'md']>({
+      size: makeVariants<'size'>({
         sm: ['h-sz-10 w-sz-10'],
         md: ['h-sz-12 w-sz-12'],
       }),
