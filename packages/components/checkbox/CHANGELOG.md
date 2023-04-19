@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.6.7...@spark-ui/checkbox@1.7.0) (2023-04-19)
+
+### Features
+
+- **checkbox:** update make variants function ([eb38d0f](https://github.com/adevinta/spark/commit/eb38d0f19967097023666bd666520b8fa0b91fda))
+
 ## [1.6.7](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.6.6...@spark-ui/checkbox@1.6.7) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/checkbox

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.5.6...@spark-ui/button@1.6.0) (2023-04-19)
+
+### Features
+
+- **button:** update make variants function ([64e700d](https://github.com/adevinta/spark/commit/64e700dd65cecc98466bf8675f9819a343bc4424))
+
 ## [1.5.6](https://github.com/adevinta/spark/compare/@spark-ui/button@1.5.5...@spark-ui/button@1.5.6) (2023-04-18)
 
 **Note:** Version bump only for package @spark-ui/button
