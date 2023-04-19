@@ -22,7 +22,7 @@ export const tagStyles = cva(
        * - `tinted`: Tag will be filled but using a lighter color scheme.
        *
        */
-      design: makeVariants<'design', ['filled', 'outlined', 'tinted']>({
+      design: makeVariants<'design'>({
         filled: [],
         outlined: ['bg-transparent', 'ring-2', 'ring-current'],
         tinted: [],
@@ -30,10 +30,7 @@ export const tagStyles = cva(
       /**
        * Color scheme of the tag.
        */
-      intent: makeVariants<
-        'intent',
-        ['primary', 'secondary', 'success', 'alert', 'info', 'neutral', 'danger']
-      >({
+      intent: makeVariants<'intent'>({
         primary: [],
         secondary: [],
         success: [],
