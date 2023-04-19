@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/icons",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "spark-ui icons",
   "publishConfig": {
     "access": "public"
@@ -20,8 +20,8 @@
   "sideEffects": false,
   "devDependencies": {
     "@spark-ui/button": "^1.6.1",
-    "@spark-ui/icon": "^1.5.1",
-    "@spark-ui/visually-hidden": "^0.4.5",
+    "@spark-ui/icon": "^1.5.2",
+    "@spark-ui/visually-hidden": "^0.4.6",
     "change-case": "4.1.2",
     "minimatch": "7.4.2",
     "path-that-svg": "1.2.4",
