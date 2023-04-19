@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.7.0...@spark-ui/switch@1.8.0) (2023-04-19)
+
+### Features
+
+- **switch:** customisable icons for switch, controlled mode ([543568e](https://github.com/adevinta/spark/commit/543568e5c5eedc9a6e2ea6a0ef669c73f4b1ce12))
+
 # [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.6.7...@spark-ui/switch@1.7.0) (2023-04-19)
 
 ### Features
