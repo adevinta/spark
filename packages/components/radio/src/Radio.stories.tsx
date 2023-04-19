@@ -11,7 +11,7 @@ const meta: Meta<typeof RadioGroup> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <RadioGroup className="gap-lg flex">
+  <RadioGroup>
     <Radio value="1">First</Radio>
     <Radio value="2">Second</Radio>
     <Radio value="3">Third</Radio>
@@ -19,14 +19,14 @@ export const Default: StoryFn = _args => (
 )
 
 export const Uncontrolled: StoryFn = _args => (
-  <RadioGroup className="gap-lg flex" defaultValue="1">
+  <RadioGroup defaultValue="1">
     <Radio value="1">First</Radio>
     <Radio value="2">Second</Radio>
     <Radio value="3">Third</Radio>
   </RadioGroup>
 )
 
-export const Controlled: StoryFn = _args => {
+export const Controlled: StoryFn = () => {
   const [value, setValue] = useState('1')
 
   const handleChange = (current: string) => {
@@ -34,7 +34,7 @@ export const Controlled: StoryFn = _args => {
   }
 
   return (
-    <RadioGroup className="gap-lg flex" value={value} onValueChange={handleChange}>
+    <RadioGroup value={value} onValueChange={handleChange}>
       <Radio value="1">First</Radio>
       <Radio value="2">Second</Radio>
       <Radio value="3">Third</Radio>
@@ -56,9 +56,9 @@ export const Intent: StoryFn = _args => {
   return (
     <div className="gap-lg flex flex-col">
       {intents.map(intent => (
-        <div className="gap-lg flex flex-col justify-center">
-          <p>{intent}</p>
-          <RadioGroup key={intent} className="gap-lg flex" defaultValue="1" intent={intent}>
+        <div className="gap-md flex flex-col justify-center">
+          <p className="text-headline-2">{intent}</p>
+          <RadioGroup key={intent} defaultValue="1" intent={intent} orientation="horizontal">
             <Radio value="1">First</Radio>
             <Radio value="2">Second</Radio>
             <Radio value="3">Third</Radio>
@@ -76,8 +76,8 @@ export const Size: StoryFn = _args => {
     <div className="gap-lg flex flex-col">
       {sizes.map(size => (
         <div className="gap-lg flex flex-col justify-center">
-          <p>{size}</p>
-          <RadioGroup key={size} className="gap-lg flex" defaultValue="1" size={size}>
+          <p className="text-headline-2">{size}</p>
+          <RadioGroup key={size} defaultValue="1" size={size} orientation="horizontal">
             <Radio value="1">First</Radio>
             <Radio value="2">Second</Radio>
             <Radio value="3">Third</Radio>
@@ -89,7 +89,7 @@ export const Size: StoryFn = _args => {
 }
 
 export const Disabled: StoryFn = _args => (
-  <RadioGroup className="gap-lg flex" disabled>
+  <RadioGroup disabled>
     <Radio value="1">First</Radio>
     <Radio value="2">Second</Radio>
     <Radio value="3">Third</Radio>
