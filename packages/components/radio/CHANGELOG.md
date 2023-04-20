@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.7.2...@spark-ui/radio@1.8.0) (2023-04-19)
+
+### Features
+
+- **radio:** radioGroup orientation prop ([d8e02c7](https://github.com/adevinta/spark/commit/d8e02c777f564feca16871ae28f14ce6f5606439))
+
+## [1.7.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.7.1...@spark-ui/radio@1.7.2) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/radio
+
+## [1.7.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.7.0...@spark-ui/radio@1.7.1) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/radio
+
 # [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.6.3...@spark-ui/radio@1.7.0) (2023-04-19)
 
 ### Features

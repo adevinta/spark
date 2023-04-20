@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const animations = require('./animations')
 const sizings = require('./sizings')
+const utilities = require('./utilities')
 const sparkTheme = require('./spark-theme')
 const tailwindcssRadix = require('tailwindcss-radix')
 
@@ -21,6 +22,7 @@ const sparkConfig = ({ htmlFontSize, themes }) => {
     sparkTheme({ htmlFontSize, themes }),
     sizings({ htmlFontSize }),
     animations(),
+    utilities(),
     tailwindcssRadix({ variantPrefix: 'spark' }),
   ]
 }
@@ -28,6 +30,7 @@ const sparkConfig = ({ htmlFontSize, themes }) => {
 module.exports = {
   animations,
   sizings,
+  utilities,
   sparkTheme,
   sparkConfig,
 }
