@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.8.4...@spark-ui/checkbox@1.9.0) (2023-04-21)
+
+### Bug Fixes
+
+- **checkbox:** fix label alignment ([d5b2f23](https://github.com/adevinta/spark/commit/d5b2f238029f4e111892ed0a860fa103070b6460))
+
+### Features
+
+- **checkbox:** fix vertical alignment ([3f7df59](https://github.com/adevinta/spark/commit/3f7df59075b19987eab6e13b4d94ab93f540aebd))
+
 ## [1.8.4](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.8.3...@spark-ui/checkbox@1.8.4) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/checkbox
