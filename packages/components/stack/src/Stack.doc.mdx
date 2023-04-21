@@ -1,0 +1,62 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+
+import { Stack } from '.'
+
+import * as stories from './Stack.stories'
+
+<Meta of={stories} />
+
+# Stack
+
+Stack is a layout component used to group elements together and apply a space between them.
+
+## Install
+
+```sh
+npm install @spark-ui/stack
+```
+
+## Import
+
+```tsx
+import { Stack } from '@spark-ui/stack'
+```
+
+## Props
+
+<ArgTypes of={Stack} />
+
+## Direction
+
+Set the direction of the stack by setting its `direction`.
+
+<Canvas of={stories.Direction} />
+
+## Spacing
+
+Specify the gap between each item in the stack. Every space token from Spark is available.
+
+<Canvas of={stories.Spacing} />
+
+## Align
+
+Controls the aligment of stacked items on the cross axis (depending on the `direction`).
+
+<Canvas of={stories.Align} />
+
+## Justify
+
+Use the `justify` prop to define how the browser distributes space between and around the stacked items.
+
+<Canvas of={stories.Justify} />
+
+## Wrap
+
+Use the `wrap` prop to allow stacked items to wrap onto multiple lines.
+
+<Canvas of={stories.Wrap} />
+
+## Separator (todo)
+
+todo
