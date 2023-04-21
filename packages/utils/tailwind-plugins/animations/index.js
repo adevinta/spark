@@ -38,14 +38,14 @@ module.exports = plugin.withOptions(
 
   /**
    * @param {Object} options The options for the plugin.
-   * @param {string} [options.variantPrefix="sp-anime"] The prefix to use for the animation variants.
+   * @param {string} [options.variantPrefix="spark-anime"] The prefix to use for the animation variants.
    * @returns {Function} The PostCSS plugin function.
    */
   options =>
     ({ addUtilities, addVariant, matchUtilities, theme }) => {
       const opts = options || {}
 
-      const { variantPrefix = 'sp-anime' } = opts
+      const { variantPrefix = 'spark-anime' } = opts
 
       matchUtilities(
         {
