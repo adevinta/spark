@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.7.1...@spark-ui/tailwind-plugins@2.8.0) (2023-04-21)
+
+### Features
+
+- **tailwind-plugins:** update default prefix in tw animation plugin ([2c147cb](https://github.com/adevinta/spark/commit/2c147cb0342ea801d22f1a69c9cea4ffac74b46f))
+
 ## [2.7.1](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.7.0...@spark-ui/tailwind-plugins@2.7.1) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins
