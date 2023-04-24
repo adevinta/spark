@@ -13,14 +13,15 @@ export const ArgTypes = ({ of, subcomponents = [] }: Props) => {
   }
 
   return (
-    <Tabs defaultValue={of.displayName} className="sb-unstyled">
+    <Tabs defaultValue={of.displayName} orientation="vertical" className="mt-xl sb-unstyled">
       <Tabs.List>
         {Object.entries(componentsList).map(([name]) => (
           <Tabs.Trigger key={name} value={name} label={name} />
         ))}
       </Tabs.List>
+
       {Object.entries(componentsList).map(([name, component]) => (
-        <Tabs.Content key={name} value={name}>
+        <Tabs.Content key={name} value={name} className="py-none">
           <StorybookArgTypes of={component} />
         </Tabs.Content>
       ))}
