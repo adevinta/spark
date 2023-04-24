@@ -12,7 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/button": "^1.6.0",
+    "@spark-ui/button": "1",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
