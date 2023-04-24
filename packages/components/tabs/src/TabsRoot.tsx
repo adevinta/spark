@@ -19,6 +19,7 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
       asChild = false,
       orientation = 'horizontal',
       children,
+      className,
       defaultValue,
       value,
       onValueChange,
@@ -39,7 +40,7 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
         <RadixTabs.Root
           ref={ref}
           asChild={asChild}
-          className={rootStyles()}
+          className={rootStyles({ className })}
           orientation={orientation}
           activationMode="automatic"
           onValueChange={handleChange}

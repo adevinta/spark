@@ -44,6 +44,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       asChild = false,
       loop = true,
       children,
+      className,
       ...rest
     },
     ref
@@ -86,7 +87,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     const handleNextClick = () => setSelectedTab(tabs.current?.[tabPivots.next]?.props.value)
 
     return (
-      <div className={wrapperStyles()} ref={wrapperRef}>
+      <div className={wrapperStyles({ className })} ref={wrapperRef}>
         {shouldDisplayPrev && (
           <Button
             shape="square"

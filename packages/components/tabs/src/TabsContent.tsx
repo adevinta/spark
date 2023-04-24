@@ -14,12 +14,18 @@ export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
        */
       children,
       asChild = false,
+      className,
       ...rest
     },
     ref
   ) => {
     return (
-      <RadixTabs.Content ref={ref} className={contentStyles()} asChild={asChild} {...rest}>
+      <RadixTabs.Content
+        ref={ref}
+        className={contentStyles({ className })}
+        asChild={asChild}
+        {...rest}
+      >
         {children}
       </RadixTabs.Content>
     )

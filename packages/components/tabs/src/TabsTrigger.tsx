@@ -23,6 +23,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
       disabled = false,
       label,
       icon,
+      className,
     },
     ref
   ) => {
@@ -40,7 +41,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
     return (
       <RadixTabs.Trigger
         ref={triggerRef}
-        className={triggerVariants({ intent, size })}
+        className={triggerVariants({ intent, size, className })}
         asChild={asChild}
         disabled={disabled}
         value={value}

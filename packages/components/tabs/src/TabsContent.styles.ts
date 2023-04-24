@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 
 export const contentStyles = cva([
-  'spark-orientation-horizontal:mt-lg',
-  'spark-orientation-vertical:ml-lg',
+  'p-lg',
+  'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
 ])
