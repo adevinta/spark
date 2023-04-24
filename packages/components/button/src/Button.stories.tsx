@@ -1,3 +1,5 @@
+import { Icon } from '@spark-ui/icon'
+import { Check, FavoriteOutline } from '@spark-ui/icons'
 import { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
 
@@ -28,7 +30,7 @@ const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 export const Default: StoryFn = _args => <Button>Default button</Button>
 
 export const Sizes: StoryFn = _args => (
-  <div className="gap-md flex items-center">
+  <div className="gap-md flex flex-wrap items-center">
     {sizes.map(size => {
       return (
         <Button key={size} size={size}>
@@ -40,7 +42,7 @@ export const Sizes: StoryFn = _args => (
 )
 
 export const Shapes: StoryFn = _args => (
-  <div className="gap-md flex items-center">
+  <div className="gap-md flex flex-wrap items-center">
     {shapes.map(shape => {
       return (
         <Button key={shape} shape={shape}>
@@ -54,7 +56,7 @@ export const Shapes: StoryFn = _args => (
 export const Disabled: StoryFn = _args => <Button disabled>Disabled button</Button>
 
 export const Design: StoryFn = _args => (
-  <div className="gap-md flex flex-row">
+  <div className="gap-md flex flex-wrap">
     {designs.map(design => (
       <Button key={design} design={design}>
         {design} button
@@ -64,7 +66,7 @@ export const Design: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-md flex flex-row">
+  <div className="gap-md flex flex-wrap">
     {intents.map(intent => (
       <Button key={intent} intent={intent}>
         {intent} button
@@ -73,8 +75,34 @@ export const Intent: StoryFn = _args => (
   </div>
 )
 
+export const Icons: StoryFn = _args => (
+  <div className="gap-md flex flex-wrap">
+    <Button>
+      Button
+      <Icon>
+        <FavoriteOutline />
+      </Icon>
+    </Button>
+    <Button>
+      <Icon>
+        <FavoriteOutline />
+      </Icon>
+      Button
+    </Button>
+    <Button>
+      <Icon>
+        <FavoriteOutline />
+      </Icon>
+      Button
+      <Icon>
+        <Check />
+      </Icon>
+    </Button>
+  </div>
+)
+
 export const Link: StoryFn = _args => (
-  <div className="gap-md flex flex-row">
+  <div className="gap-md flex flex-wrap">
     <Button asChild>
       <a href="/">button</a>
     </Button>
