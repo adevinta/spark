@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.2...@spark-ui/tag@1.6.3) (2023-04-24)
+
+### Bug Fixes
+
+- **tag:** props table ([7308044](https://github.com/adevinta/spark/commit/7308044aa4e660d3154ced0ceccfa3b9ce70c520))
+
 ## [1.6.2](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.1...@spark-ui/tag@1.6.2) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/tag

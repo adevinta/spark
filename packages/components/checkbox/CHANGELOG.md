@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.9.0...@spark-ui/checkbox@1.9.1) (2023-04-24)
+
+### Bug Fixes
+
+- **checkbox:** props table ([17a5dd2](https://github.com/adevinta/spark/commit/17a5dd2fe364275ab32560f61d4b8582950a8987))
+
 # [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.8.4...@spark-ui/checkbox@1.9.0) (2023-04-21)
 
 ### Bug Fixes

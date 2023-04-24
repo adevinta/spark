@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.8.0...@spark-ui/radio@1.8.1) (2023-04-24)
+
+### Bug Fixes
+
+- **radio:** props table ([625c5e3](https://github.com/adevinta/spark/commit/625c5e327c4ad04c5c07b5b4e22cbc6ea21d65dc))
+
 # [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.7.2...@spark-ui/radio@1.8.0) (2023-04-19)
 
 ### Features

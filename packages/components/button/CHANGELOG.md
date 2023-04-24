@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.6.2...@spark-ui/button@1.7.0) (2023-04-24)
+
+### Bug Fixes
+
+- **button:** add display name ([4d1e9d7](https://github.com/adevinta/spark/commit/4d1e9d7e99bcfde3524eb83a06120d3a224f4160))
+
+### Features
+
+- **button:** improve button styles ([c796d57](https://github.com/adevinta/spark/commit/c796d57c501d7a595d0c9976de0b9a6e1acd4941))
+
 ## [1.6.2](https://github.com/adevinta/spark/compare/@spark-ui/button@1.6.1...@spark-ui/button@1.6.2) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/button

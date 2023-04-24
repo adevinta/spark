@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.3...@spark-ui/icon@1.5.4) (2023-04-24)
+
+### Bug Fixes
+
+- **icon:** add display name ([d2bc33e](https://github.com/adevinta/spark/commit/d2bc33ee27eadbbcd441b127d40cb872b5870e84))
+- **icon:** props table ([ee468cf](https://github.com/adevinta/spark/commit/ee468cf69fc31f1ab01703fa9eb5ef6f8a7a0d1b))
+
 ## [1.5.3](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.2...@spark-ui/icon@1.5.3) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/icon
