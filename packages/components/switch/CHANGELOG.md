@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.4](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.8.3...@spark-ui/switch@1.8.4) (2023-04-24)
+
+### Bug Fixes
+
+- **switch:** props table ([8cd5096](https://github.com/adevinta/spark/commit/8cd50960e18324589e799de3f16fd41ab27dedc8))
+
 ## [1.8.3](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.8.2...@spark-ui/switch@1.8.3) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/switch
