@@ -31,3 +31,5 @@ export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
     )
   }
 )
+
+TabsContent.displayName = 'Tabs.Content'

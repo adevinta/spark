@@ -133,3 +133,5 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     )
   }
 )
+
+TabsList.displayName = 'Tabs.List'

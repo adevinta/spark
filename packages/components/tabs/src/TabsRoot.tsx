@@ -53,3 +53,5 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
     )
   }
 )
+
+TabsRoot.displayName = 'Tabs'
