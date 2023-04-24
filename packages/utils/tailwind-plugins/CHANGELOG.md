@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.8.0...@spark-ui/tailwind-plugins@2.9.0) (2023-04-24)
+
+### Features
+
+- **tailwind-plugins:** update transition theme values to match figma ([92f37c2](https://github.com/adevinta/spark/commit/92f37c23e89d5b491a8feef9cf8764c0dc4c1b66)), closes [#642](https://github.com/adevinta/spark/issues/642)
+
 # [2.8.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.7.1...@spark-ui/tailwind-plugins@2.8.0) (2023-04-21)
 
 ### Features
