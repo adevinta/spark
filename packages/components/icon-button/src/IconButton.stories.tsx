@@ -64,7 +64,7 @@ export const Disabled: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-md flex flex-row">
+  <div className="gap-md flex">
     {intents.map(intent => (
       <IconButton key={intent} intent={intent} aria-label={`${intent} button`}>
         {icon}
@@ -74,7 +74,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Design: StoryFn = _args => (
-  <div className="gap-md flex flex-row">
+  <div className="gap-md flex">
     {designs.map(design => (
       <IconButton key={design} design={design} aria-label={`${design} button`}>
         {icon}
@@ -84,7 +84,7 @@ export const Design: StoryFn = _args => (
 )
 
 export const Link: StoryFn = _args => (
-  <div className="gap-md flex flex-row">
+  <div className="gap-md flex">
     <IconButton aria-label="Link" asChild>
       <a href="/">{icon}</a>
     </IconButton>
