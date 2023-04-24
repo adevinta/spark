@@ -1,6 +1,5 @@
 import { Meta } from '@storybook/blocks'
 import { Callout } from '@docs/helpers/Callout'
-import AtomicDesignPNG from '@docs/assets/atomic-design.png'
 
 <Meta title="Developer/Practices/Component - Definition of Done" />
 
@@ -105,14 +104,14 @@ Overall, `forwardRef` is a powerful feature in React that can help you access an
 
 ## 4. Must be composable (compound components only)
 
-Spark follows Atomic Design specifications, where each Component is either an **Atom, Molecule or Organism**:
+Spark components are of two kinds:
 
-<div class="flex justify-center pb-lg">
-  <img width={800} src={AtomicDesignPNG} alt="Argstable shows a table of the component's props" />
-</div>
+- **Single components**: Consist of only one element and are generally simpler and easier to use. They are typically used when a particular functionality is required in a single instance and does not need to interact with other components. Single part components are often more lightweight and can be easier to maintain and test.
+- **Compound components**: Consist of multiple elements and are designed to work together to provide more complex functionality. They are often used when a more sophisticated solution is required, or when multiple components need to be combined to achieve a particular outcome. Compound components are often more modular and can be reused across different parts of an application.
 
 <Callout kind="info">
-  **Templates** and **pages** do not belong in a design system, thus Spark does not provide any.
+  **If your component's visual part could be used separately to achieve different layouts, you must
+  use the compound component pattern**
 </Callout>
 
 Composability refers to the ability to combine smaller building blocks to create larger and more complex structures. In React, composability is important because it enables developers to create reusable, modular components that can be easily combined to create complex user interfaces.
@@ -133,7 +132,7 @@ Overall, composability is an important aspect of building scalable, maintainable
 - Drastically reduce the number of props. No more monolithic components.
 
 <p className="sb-unstyled font-bold text-error">
-  You must absolutely avoid the monolithic approach when writing a Molecule/Organism component.
+  You must absolutely avoid the monolithic approach when writing a compound component.
 </p>
 
 ❌ Monolithic:
@@ -183,8 +182,17 @@ function MyDialog() {
 }
 ```
 
-But more complicated components
+## 5. Chrome extension compatibility
 
-## 5. Must be documented according to our Storybook guidelines
+Spark provides a Chrome extension that can highlight any Spark component on any website using Spark.
+This feature requires every Spark component to have a `data-spark-component` HTML attribute.
+
+This attribute's value must be the component name (kebab-case). **For compound components, each subComponent must have the attribute.**
+
+```
+<div data-spark-component="radio-group" ...
+```
+
+## 6. Must be documented according to our Storybook guidelines
 
 [Go to stories guidelines](?path=/docs/contributing-writing-stories--docs)
