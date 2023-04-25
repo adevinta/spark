@@ -193,6 +193,74 @@ This attribute's value must be the component name (kebab-case). **For compound c
 <div data-spark-component="radio-group" ...
 ```
 
-## 6. Must be documented according to our Storybook guidelines
+## 6. Enable outside customization with className
+
+Every spark component must accept a className so that consumers can customize its styling for their use-cases, for example:
+
+- adding some margin
+- adding some absolute positioning
+- adding some responsive behaviour
+
+```jsx
+<Button className="absolute top-none m-md md:top-lg">My custom button</Button>
+```
+
+Be careful if you are spreading props inside Spark components, you must get the `className` and apply it to the JSX.
+Otherwise, passing a `className` to the component would erase its default styles.
+
+### ❌ Don't spread `className` attribute
+
+```jsx
+export const MySparkComponent = ({ children, ...rest }) => {
+  return (
+    <div
+      data-spark-component="demo-component"
+      className="p-md bg-primary text-on-primary"
+      {...rest} // ❌ If the consumer pass a `className` prop, it would override the className just above.
+    >
+      {children}
+    </div>
+  )
+}
+```
+
+### ✅ Combine className prop with inner styles
+
+```jsx
+export const MySparkComponent = ({
+  children,
+  className, // ✅ get the className from props...
+  ...rest
+}) => {
+  return (
+    <div
+      data-spark-component="demo-component"
+      className={`p-md bg-primary text-on-primary ${className}`} // ✅ ...and merge it with existing classes.
+      {...rest}
+    >
+      {children}
+    </div>
+  )
+}
+```
+
+### ✅ Combine className prop with CVA styles
+
+```jsx
+export const MySparkComponent = ({
+  children,
+  className, // ✅ get the className from props...
+  ...rest
+}) => {
+  return (
+    // ✅ ...and pass it to the CVA method returning your styles
+    <div data-spark-component="demo-component" className={styles({ className })} {...rest}>
+      {children}
+    </div>
+  )
+}
+```
+
+## 7. Must be documented according to our Storybook guidelines
 
 [Go to stories guidelines](?path=/docs/contributing-writing-stories--docs)
