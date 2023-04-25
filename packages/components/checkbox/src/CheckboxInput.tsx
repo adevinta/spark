@@ -60,7 +60,7 @@ export interface InputProps
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'checked' | 'defaultChecked'> {} // Native HTML props
 
 export const Input = forwardRef<ElementRef<typeof CheckboxPrimitive.Root>, InputProps>(
-  ({ intent, icon, ...props }, forwardedRef) => {
+  ({ intent, icon, className, ...props }, forwardedRef) => {
     const [innerChecked, setInnerChecked] = useState<'true' | 'false' | 'mixed'>()
     const ref = useMergeRefs(forwardedRef, node => {
       setInnerChecked(node?.getAttribute('aria-checked') as AriaCheckedStatus)
@@ -68,7 +68,7 @@ export const Input = forwardRef<ElementRef<typeof CheckboxPrimitive.Root>, Input
     const innerIcon = useIcon({ icon, checked: innerChecked })
 
     return (
-      <CheckboxPrimitive.Root ref={ref} className={inputStyles({ intent })} {...props}>
+      <CheckboxPrimitive.Root ref={ref} className={inputStyles({ intent, className })} {...props}>
         <CheckboxPrimitive.Indicator className="text-surface flex items-center justify-center">
           {innerIcon}
         </CheckboxPrimitive.Indicator>
