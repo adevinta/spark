@@ -10,12 +10,12 @@ export interface IconButtonProps extends ButtonProps {
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     {
-      className,
       design = 'filled',
       disabled = false,
       intent = 'primary',
       shape = 'rounded',
       size = 'md',
+      className,
       ...others
     },
     ref
@@ -23,7 +23,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <Button
         ref={ref}
-        className={iconButtonVariants({ size })}
+        className={iconButtonVariants({ size, className })}
         design={design}
         disabled={disabled}
         intent={intent}
