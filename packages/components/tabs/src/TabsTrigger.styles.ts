@@ -2,7 +2,8 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 export const triggerVariants = cva(
   [
-    'px-lg gap-md relative flex items-center',
+    'px-md',
+    'relative flex flex-none items-center',
     'border-outline',
     'outline-none',
     'bg-surface hover:bg-surface-hovered',
@@ -20,9 +21,9 @@ export const triggerVariants = cva(
         secondary: ['spark-state-active:text-secondary spark-state-active:after:bg-secondary'],
       },
       size: {
-        xs: ['h-sz-32 text-caption'],
-        sm: ['h-sz-36 text-body-2'],
-        md: ['h-sz-40 text-body-1'],
+        xs: ['h-sz-32 min-w-sz-32 text-caption'],
+        sm: ['h-sz-36 min-w-sz-36 text-body-2'],
+        md: ['h-sz-40 min-w-sz-40 text-body-1'],
       },
     },
     defaultVariants: {

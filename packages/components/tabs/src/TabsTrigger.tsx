@@ -46,8 +46,13 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         disabled={disabled}
         value={value}
       >
-        {icon && <Icon size="sm">{icon}</Icon>}
-        {label && <span>{label}</span>}
+        {icon && (
+          <Icon size="sm" className="ml-md flex-none last:mx-auto">
+            {icon}
+          </Icon>
+        )}
+
+        {label && <span className="mx-md block">{label}</span>}
       </RadixTabs.Trigger>
     )
   }
