@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/adevinta/spark/compare/@spark-ui/button@1.7.0...@spark-ui/button@1.7.1) (2023-04-25)
+
+### Bug Fixes
+
+- **button:** update sm size ([1dd0440](https://github.com/adevinta/spark/commit/1dd0440a2d56ce00ebfade575f8822275ef909bd))
+
 # [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.6.2...@spark-ui/button@1.7.0) (2023-04-24)
 
 ### Bug Fixes
