@@ -17,7 +17,7 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
     const disabled = disabledProp || context.disabled
 
     return (
-      <RadioLabel disabled={disabled}>
+      <RadioLabel className={className} disabled={disabled}>
         <RadioInput ref={ref} intent={intent} size={size} {...others} />
         {children}
       </RadioLabel>
