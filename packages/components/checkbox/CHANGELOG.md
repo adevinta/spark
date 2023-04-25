@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.10.0...@spark-ui/checkbox@1.10.1) (2023-04-25)
+
+### Bug Fixes
+
+- global fix for custom styles and cva ([083e5ec](https://github.com/adevinta/spark/commit/083e5ec890f41b526a040282355757bc5501f040))
+
 # [1.10.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.9.1...@spark-ui/checkbox@1.10.0) (2023-04-25)
 
 ### Features

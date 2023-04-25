@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.8.1...@spark-ui/radio@1.8.2) (2023-04-25)
+
+### Bug Fixes
+
+- global fix for custom styles and cva ([083e5ec](https://github.com/adevinta/spark/commit/083e5ec890f41b526a040282355757bc5501f040))
+
 ## [1.8.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.8.0...@spark-ui/radio@1.8.1) (2023-04-24)
 
 ### Bug Fixes
