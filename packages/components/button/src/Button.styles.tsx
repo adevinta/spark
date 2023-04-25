@@ -57,7 +57,7 @@ export const buttonStyles = cva(
       }),
 
       size: makeVariants<'size', ['sm', 'md', 'lg']>({
-        sm: ['min-w-sz-24', 'h-sz-24'],
+        sm: ['min-w-sz-32', 'h-sz-32'],
         md: ['min-w-sz-44', 'h-sz-44'],
         lg: ['min-w-sz-56', 'h-sz-56'],
       }),
