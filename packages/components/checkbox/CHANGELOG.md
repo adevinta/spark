@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.9.1...@spark-ui/checkbox@1.10.0) (2023-04-25)
+
+### Features
+
+- **checkbox:** apply motion on hover ([83f4bc6](https://github.com/adevinta/spark/commit/83f4bc66cb3a2854c014a66decb168bd4dc9a47a))
+
 ## [1.9.1](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.9.0...@spark-ui/checkbox@1.9.1) (2023-04-24)
 
 ### Bug Fixes

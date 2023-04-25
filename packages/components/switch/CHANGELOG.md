@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.8.4...@spark-ui/switch@1.9.0) (2023-04-25)
+
+### Features
+
+- **switch:** apply motion on hover ([27a9185](https://github.com/adevinta/spark/commit/27a9185c7b4269fd6af5a9c01368aff23786645a))
+
 ## [1.8.4](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.8.3...@spark-ui/switch@1.8.4) (2023-04-24)
 
 ### Bug Fixes
