@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.8.2...@spark-ui/radio@1.9.0) (2023-04-26)
+
+### Features
+
+- **tailwind-plugins:** add new "shadow-border-transition" utility class ([289ff71](https://github.com/adevinta/spark/commit/289ff71d39e2c064132ed0d8c55e758a1ab21695)), closes [#676](https://github.com/adevinta/spark/issues/676)
+
 ## [1.8.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.8.1...@spark-ui/radio@1.8.2) (2023-04-25)
 
 ### Bug Fixes
