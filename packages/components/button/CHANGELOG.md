@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/adevinta/spark/compare/@spark-ui/button@1.8.0...@spark-ui/button@1.8.1) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/button
+
 # [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.7.1...@spark-ui/button@1.8.0) (2023-04-26)
 
 ### Features
