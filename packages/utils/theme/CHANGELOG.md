@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.13.0...@spark-ui/theme-utils@2.14.0) (2023-04-26)
+
+### Features
+
+- **theme-utils:** removed background colors state tokens ([6f2349c](https://github.com/adevinta/spark/commit/6f2349c6f66f7f7689aca615d9fc80e0698f1210))
+
 # [2.13.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.12.4...@spark-ui/theme-utils@2.13.0) (2023-04-07)
 
 ### Features
