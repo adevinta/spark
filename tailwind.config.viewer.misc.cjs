@@ -50,6 +50,7 @@ const misc = {
   },
   utilities: {
     'current-font-size': `width: 1em; height: 1em;`,
+    'shadow-border-transition': `transition: box-shadow 100ms ease-in, border-color 300ms ease-in;`,
   },
 }
 

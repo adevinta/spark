@@ -7,7 +7,7 @@ export const inputStyles = cva(
     'spark-disabled:opacity-dim-3 spark-disabled:cursor-not-allowed spark-disabled:hover:ring-0',
     'focus-visible:ring-outline-high focus-visible:outline-none focus-visible:ring-2',
     'hover:border-primary-container hover:outline-none hover:ring-2',
-    '[transition:box-shadow_0.1s_ease-in,_border-color_0.3s_ease-in]',
+    'shadow-border-transition',
   ],
   {
     variants: {

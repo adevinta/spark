@@ -14,7 +14,7 @@ export const radioInputVariants = cva(
     'hover:ring-4',
     'focus-visible:ring-on-surface focus-visible:ring-2',
     'disabled:border-outline/dim-2 disabled:cursor-not-allowed disabled:hover:ring-transparent',
-    '[transition:box-shadow_0.1s_ease-in,_border-color_0.3s_ease-in]',
+    'shadow-border-transition',
   ],
   {
     variants: {

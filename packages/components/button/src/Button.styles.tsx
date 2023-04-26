@@ -11,6 +11,7 @@ import {
 
 export const buttonStyles = cva(
   [
+    'shadow-border-transition',
     'gap-md box-border inline-flex items-center justify-center whitespace-nowrap',
     'px-lg',
     'text-body-1 font-bold',
