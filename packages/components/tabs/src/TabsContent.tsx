@@ -3,7 +3,22 @@ import { forwardRef, type PropsWithChildren } from 'react'
 
 import { contentStyles } from './TabsContent.styles'
 
-export type TabsContentProps = PropsWithChildren<RadixTabs.TabsContentProps>
+export interface TabsContentProps
+  extends PropsWithChildren<Omit<RadixTabs.TabsContentProps, 'forceMount'>> {
+  /**
+   * A unique value that associates the content with a trigger.
+   */
+  value: string
+  /**
+   * Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.
+   * @default false
+   */
+  asChild?: boolean
+  /**
+   * Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.
+   */
+  forceMount?: true
+}
 
 export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
   (

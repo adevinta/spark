@@ -8,7 +8,17 @@ import { useTabsContext } from './TabsContext'
 import { listStyles, navigationArrowStyles, wrapperStyles } from './TabsList.styles'
 import { useResizeObserver } from './useResizeObserver'
 
-export type TabsListProps = Omit<RadixTabs.TabsListProps, 'children'> & {
+export interface TabsListProps extends Omit<RadixTabs.TabsListProps, 'children'> {
+  /**
+   * Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.
+   * @default false
+   */
+  asChild?: boolean
+  /**
+   * When true, keyboard navigation will loop from last tab to first, and vice versa.
+   * @default true
+   */
+  loop?: boolean
   children: ReactElement[]
 }
 

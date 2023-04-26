@@ -16,10 +16,18 @@ export const triggerVariants = cva(
   ],
   {
     variants: {
+      /**
+       * Change the color scheme of the tabs
+       * @default primary
+       */
       intent: {
         primary: ['spark-state-active:text-primary spark-state-active:after:bg-primary'],
         secondary: ['spark-state-active:text-secondary spark-state-active:after:bg-secondary'],
       },
+      /**
+       * Change the size of the tabs
+       * @default md
+       */
       size: {
         xs: ['h-sz-32 min-w-sz-32 text-caption'],
         sm: ['h-sz-36 min-w-sz-36 text-body-2'],
@@ -33,4 +41,4 @@ export const triggerVariants = cva(
   }
 )
 
-export type TabsTriggerVariantsProps = ExcludeNull<VariantProps<typeof triggerVariants>>
+export type TabsTriggerVariantsProps = VariantProps<typeof triggerVariants>

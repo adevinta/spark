@@ -6,9 +6,28 @@ import { useTabsContext } from './TabsContext'
 import { triggerVariants } from './TabsTrigger.styles'
 
 export interface TabsTriggerProps extends Omit<RadixTabs.TabsTriggerProps, 'children'> {
-  label?: string
-  icon?: IconProps['children']
+  /**
+   * A unique value that associates the trigger with a content.
+   */
+  value: string
+  /**
+   * Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.
+   * @default false
+   */
+  asChild?: boolean
+  /**
+   * When true, prevents the user from interacting with the tab.
+   * @default false
+   */
   disabled?: boolean
+  /**
+   * Tab label
+   */
+  label?: string
+  /**
+   * Tab SVG icon. Can be used alone or displayed on the left from label.
+   */
+  icon?: IconProps['children']
 }
 
 export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(

@@ -3,9 +3,17 @@ import { forwardRef, type PropsWithChildren, useState } from 'react'
 
 import { TabsContext, type TabsContextInterface } from './TabsContext'
 import { rootStyles } from './TabsRoot.styles'
+import type { TabsTriggerVariantsProps } from './TabsTrigger.styles'
 
-export type TabsRootProps = PropsWithChildren<Omit<RadixTabs.TabsProps, 'activationMode'>> &
-  Omit<TabsContextInterface, 'selectedTab' | 'setSelectedTab'>
+export interface TabsRootProps
+  extends Omit<RadixTabs.TabsProps, 'activationMode'>,
+    PropsWithChildren<TabsTriggerVariantsProps> {
+  /**
+   * Change the component to the HTML tag or custom component of the only child. This will merge the original component props with the props of the supplied element/component and change the underlying DOM node.
+   * @default false
+   */
+  asChild?: boolean
+}
 
 export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
   (

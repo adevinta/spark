@@ -1,7 +1,7 @@
 import type { TabsProps } from '@radix-ui/react-tabs'
 import { createContext, type Dispatch, useContext } from 'react'
 
-import { TabsTriggerVariantsProps } from './TabsTrigger.styles'
+import type { TabsTriggerVariantsProps } from './TabsTrigger.styles'
 
 export type TabsContextInterface = TabsTriggerVariantsProps &
   Pick<TabsProps, 'orientation'> & {
