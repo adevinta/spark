@@ -9,38 +9,25 @@ import { createTabs, type TabItem } from './Tabs.stories'
 
 const tabs: TabItem[] = [
   {
-    title: 'Yesterday',
+    children: 'Yesterday',
     value: 'tab1',
     content: 'Nothing happened',
   },
   {
-    title: 'Today',
-    value: 'tab2',
-    content: 'Make things happen!',
-  },
-]
-
-const tabsWithIcons = [
-  {
-    icon: <i title="icon-1" />,
-    value: 'tab1',
-    content: 'Nothing happened',
-  },
-  {
-    icon: <i title="icon-2" />,
+    children: 'Today',
     value: 'tab2',
     content: 'Make things happen!',
   },
 ]
 
 const tabsWithOverflow = [
-  { title: 'One', value: 'tab1', content: 'Lorem ipsum dolor sit amet' },
-  { title: 'Two', value: 'tab2', content: 'Lorem ipsum dolor sit amet' },
-  { title: 'Three', value: 'tab3', content: 'Lorem ipsum dolor sit amet' },
-  { title: 'Four', value: 'tab4', content: 'Lorem ipsum dolor sit amet', disabled: true },
-  { title: 'Five', value: 'tab5', content: 'Lorem ipsum dolor sit amet', disabled: true },
-  { title: 'Six', value: 'tab6', content: 'Lorem ipsum dolor sit amet' },
-  { title: 'Seven', value: 'tab7', content: 'Lorem ipsum dolor sit amet' },
+  { children: 'One', value: 'tab1', content: 'Lorem ipsum dolor sit amet' },
+  { children: 'Two', value: 'tab2', content: 'Lorem ipsum dolor sit amet' },
+  { children: 'Three', value: 'tab3', content: 'Lorem ipsum dolor sit amet' },
+  { children: 'Four', value: 'tab4', content: 'Lorem ipsum dolor sit amet', disabled: true },
+  { children: 'Five', value: 'tab5', content: 'Lorem ipsum dolor sit amet', disabled: true },
+  { children: 'Six', value: 'tab6', content: 'Lorem ipsum dolor sit amet' },
+  { children: 'Seven', value: 'tab7', content: 'Lorem ipsum dolor sit amet' },
 ]
 
 describe('Tabs', () => {
@@ -67,7 +54,7 @@ describe('Tabs', () => {
     const rootProps = { defaultValue: 'tab1', onValueChange: vi.fn() }
     const tabsWithDisabled = [
       ...tabs,
-      { title: 'Tomorrow', value: 'tab3', content: 'Things will happen', disabled: true },
+      { children: 'Tomorrow', value: 'tab3', content: 'Things will happen', disabled: true },
     ]
 
     render(createTabs({ tabs: tabsWithDisabled, rootProps }))
@@ -75,13 +62,6 @@ describe('Tabs', () => {
     await user.click(screen.getByText('Tomorrow'))
 
     expect(rootProps.onValueChange).not.toHaveBeenCalled()
-  })
-
-  it('should render tabs with icons only as tab triggers', () => {
-    render(createTabs({ tabs: tabsWithIcons }))
-
-    expect(screen.getByTitle('icon-1')).toBeInTheDocument()
-    expect(screen.getByTitle('icon-2')).toBeInTheDocument()
   })
 
   describe('overflow', () => {

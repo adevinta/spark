@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority'
 export const wrapperStyles = cva(['relative flex'])
 
 export const listStyles = cva([
-  'flex',
+  'flex w-full',
   'spark-orientation-horizontal:flex-row',
   'spark-orientation-vertical:flex-col',
   'no-scrollbar overflow-x-auto overflow-y-hidden',

@@ -13,6 +13,8 @@ export const triggerVariants = cva(
     'focus-visible:ring-outline-high focus-visible:bg-surface-hovered ring-inset focus-visible:border-none focus-visible:ring-2',
     'spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3',
     'duration-300 ease-linear',
+    'gap-md [&>*:first-child]:ml-md [&>*:last-child]:mr-md',
+    '[&>svg:last-child:first-child]:mx-auto',
   ],
   {
     variants: {

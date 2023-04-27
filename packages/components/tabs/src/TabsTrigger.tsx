@@ -1,11 +1,10 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { Icon, type IconProps } from '@spark-ui/icon'
 import { forwardRef, useEffect, useRef } from 'react'
 
 import { useTabsContext } from './TabsContext'
 import { triggerVariants } from './TabsTrigger.styles'
 
-export interface TabsTriggerProps extends Omit<RadixTabs.TabsTriggerProps, 'children'> {
+export interface TabsTriggerProps extends RadixTabs.TabsTriggerProps {
   /**
    * A unique value that associates the trigger with a content.
    */
@@ -20,14 +19,6 @@ export interface TabsTriggerProps extends Omit<RadixTabs.TabsTriggerProps, 'chil
    * @default false
    */
   disabled?: boolean
-  /**
-   * Tab label
-   */
-  label?: string
-  /**
-   * Tab SVG icon. Can be used alone or displayed on the left from label.
-   */
-  icon?: IconProps['children']
 }
 
 export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
@@ -40,8 +31,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
       asChild = false,
       value,
       disabled = false,
-      label,
-      icon,
+      children,
       className,
     },
     ref
@@ -65,13 +55,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         disabled={disabled}
         value={value}
       >
-        {icon && (
-          <Icon size="sm" className="ml-md flex-none last:mx-auto">
-            {icon}
-          </Icon>
-        )}
-
-        {label && <span className="mx-md block">{label}</span>}
+        {children}
       </RadixTabs.Trigger>
     )
   }

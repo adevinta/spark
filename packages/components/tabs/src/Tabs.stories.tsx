@@ -1,10 +1,11 @@
+import { Icon } from '@spark-ui/icon'
 import { ConversationFill, HolidayFill, MailFill } from '@spark-ui/icons'
 import { Meta, StoryFn } from '@storybook/react'
+import type { ReactNode } from 'react'
 
 import { Tabs } from '.'
 import { TabsListProps } from './TabsList'
 import type { TabsRootProps } from './TabsRoot'
-import type { TabsTriggerProps } from './TabsTrigger'
 
 const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
@@ -14,28 +15,27 @@ const meta: Meta<typeof Tabs> = {
 export default meta
 
 export interface TabItem {
-  title?: string
+  children?: ReactNode
   value: string
   disabled?: boolean
-  icon?: TabsTriggerProps['icon']
   content: string
 }
 
 const defaultTabs = [
   {
-    title: 'Inbox',
+    children: <span>Inbox</span>,
     value: 'tab1',
     disabled: false,
     content: 'Your inbox is empty',
   },
   {
-    title: 'Today',
+    children: <span>Today</span>,
     value: 'tab2',
     disabled: false,
     content: 'Make some coffee',
   },
   {
-    title: 'Upcoming',
+    children: <span>Upcoming</span>,
     value: 'tab3',
     disabled: false,
     content: 'Order more coffee',
@@ -54,8 +54,10 @@ export const createTabs = ({
   return (
     <Tabs defaultValue="tab1" {...rootProps}>
       <Tabs.List {...listProps}>
-        {tabs.map(({ title, value, icon, disabled }) => (
-          <Tabs.Trigger key={value} value={value} label={title} icon={icon} disabled={disabled} />
+        {tabs.map(({ value, children, disabled }) => (
+          <Tabs.Trigger key={value} value={value} disabled={disabled}>
+            {children}
+          </Tabs.Trigger>
         ))}
       </Tabs.List>
 
@@ -106,19 +108,19 @@ export const State: StoryFn = _args => (
         rootProps: { defaultValue: 'tab2' },
         tabs: [
           {
-            title: 'Inbox',
+            children: <span>Inbox</span>,
             value: 'tab1',
             content: 'Your inbox is empty',
             disabled: true,
           },
           {
-            title: 'Today',
+            children: <span>Today</span>,
             value: 'tab2',
             content: 'Make some coffee',
             disabled: false,
           },
           {
-            title: 'Upcoming',
+            children: <span>Upcoming</span>,
             value: 'tab3',
             content: 'Order more coffee',
             disabled: false,
@@ -136,23 +138,41 @@ export const Iconed: StoryFn = _args => (
         rootProps: { defaultValue: 'tab2' },
         tabs: [
           {
-            title: 'Inbox',
             value: 'tab1',
-            icon: <MailFill />,
+            children: (
+              <>
+                <Icon size="sm">
+                  <MailFill />
+                </Icon>
+                <span>Inbox</span>
+              </>
+            ),
             content: 'Your inbox is empty',
             disabled: true,
           },
           {
-            title: 'Today',
+            children: (
+              <>
+                <Icon size="sm">
+                  <ConversationFill />
+                </Icon>
+                <span>Today</span>
+              </>
+            ),
             value: 'tab2',
-            icon: <ConversationFill />,
             content: 'Make some coffee',
             disabled: false,
           },
           {
-            title: 'Upcoming',
+            children: (
+              <>
+                <Icon size="sm">
+                  <HolidayFill />
+                </Icon>
+                <span>Upcoming</span>
+              </>
+            ),
             value: 'tab3',
-            icon: <HolidayFill />,
             content: 'Order more coffee',
             disabled: false,
           },
@@ -166,19 +186,31 @@ export const Iconed: StoryFn = _args => (
         tabs: [
           {
             value: 'tab1',
-            icon: <MailFill />,
+            children: (
+              <Icon size="sm">
+                <MailFill />
+              </Icon>
+            ),
             content: 'Your inbox is empty',
             disabled: true,
           },
           {
             value: 'tab2',
-            icon: <ConversationFill />,
+            children: (
+              <Icon size="sm">
+                <ConversationFill />
+              </Icon>
+            ),
             content: 'Make some coffee',
             disabled: false,
           },
           {
             value: 'tab3',
-            icon: <HolidayFill />,
+            children: (
+              <Icon size="sm">
+                <HolidayFill />
+              </Icon>
+            ),
             content: 'Order more coffee',
             disabled: false,
           },
@@ -204,19 +236,19 @@ export const Overflow: StoryFn = _args => {
   const overflowTabs = [
     ...defaultTabs,
     {
-      title: 'Pending',
+      children: <span>Pending</span>,
       value: 'tab4',
       disabled: false,
       content: 'Wait for your coffee',
     },
     {
-      title: 'Blocked',
+      children: <span>Blocked</span>,
       value: 'tab5',
       disabled: false,
       content: 'Something went wrong',
     },
     {
-      title: 'Sandbox',
+      children: <span>Sandbox</span>,
       value: 'tab6',
       disabled: false,
       content: 'Imagine your coffee',
