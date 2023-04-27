@@ -1,8 +1,9 @@
+/* eslint-disable max-lines-per-function */
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
 import { ArrowVerticalLeft, ArrowVerticalRight } from '@spark-ui/icons'
-import React, { forwardRef, type ReactElement, useEffect, useMemo, useRef, useState } from 'react'
+import { forwardRef, type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
 
 import { useTabsContext } from './TabsContext'
 import { listStyles, navigationArrowStyles, wrapperStyles } from './TabsList.styles'
@@ -20,28 +21,6 @@ export interface TabsListProps extends Omit<RadixTabs.TabsListProps, 'children'>
    */
   loop?: boolean
   children: ReactElement[]
-}
-
-const getSelectedTabIndex = (list: ReactElement[], selectedTab?: string) => {
-  return list.findIndex(elm => (elm?.props.value as string) === selectedTab)
-}
-
-const getNextTabIndex = (list: ReactElement[], selectedTabIndex: number) => {
-  if (selectedTabIndex < list.length - 1) {
-    return list.findIndex(elm => list.indexOf(elm) >= selectedTabIndex + 1 && !elm.props.disabled)
-  } else {
-    return 0
-  }
-}
-
-const getPreviousTabIndex = (list: ReactElement[], selectedTabIndex: number) => {
-  if (selectedTabIndex > 0) {
-    const match = list.filter(elm => list.indexOf(elm) < selectedTabIndex && !elm.props.disabled)
-
-    return match ? list.indexOf(match[match.length - 1] as ReactElement) : list.length - 1
-  } else {
-    return list.length - 1
-  }
 }
 
 export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
@@ -62,51 +41,107 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     const wrapperRef = useRef(null)
     const innerRef = useRef(null)
     const listRef = ref || innerRef
-    const { orientation, selectedTab, setSelectedTab } = useTabsContext()
-    const tabs = useRef<ReactElement[]>(children)
+    const { orientation } = useTabsContext()
 
     const { width } = useResizeObserver(wrapperRef)
 
-    const tabPivots = useMemo(() => {
-      const selected = getSelectedTabIndex(tabs.current, selectedTab)
-      const next = getNextTabIndex(tabs.current, selected)
-      const previous = getPreviousTabIndex(tabs.current, selected)
+    const [withArrows, setWithArrows] = useState<
+      Record<'prev' | 'next', 'visible' | 'hidden' | 'disabled'>
+    >({ prev: 'hidden', next: 'hidden' })
 
-      return { previous, selected, next }
-    }, [tabs, selectedTab])
-
-    const [shouldDisplayPrev, setShouldDisplayPrev] = useState(false)
-    const [shouldDisplayNext, setShouldDisplayNext] = useState(false)
-
-    // eslint-disable-next-line complexity
     useEffect(() => {
-      const hasOverflow =
-        listRef && 'current' in listRef && listRef.current
-          ? listRef.current.scrollWidth > listRef.current.clientWidth
-          : false
+      /**
+       * Show/hide arrows
+       */
+      /* istanbul ignore if -- @preserve */
+      if (!('current' in listRef) || !listRef.current) {
+        return
+      }
 
-      setShouldDisplayPrev(
-        orientation === 'horizontal' && hasOverflow && (loop || tabPivots.selected > 0)
-      )
-      setShouldDisplayNext(
-        orientation === 'horizontal' && hasOverflow && (loop || tabPivots.next !== 0)
-      )
-    }, [loop, orientation, tabPivots, listRef, width])
+      if (orientation !== 'horizontal') {
+        setWithArrows({ prev: 'hidden', next: 'hidden' })
+      } else {
+        setWithArrows({
+          prev: listRef.current.scrollWidth > listRef.current.clientWidth ? 'visible' : 'hidden',
+          next: listRef.current.scrollWidth > listRef.current.clientWidth ? 'visible' : 'hidden',
+        })
+      }
+    }, [orientation, listRef, width])
 
-    const handlePrevClick = () => setSelectedTab(tabs.current?.[tabPivots.previous]?.props.value)
-    const handleNextClick = () => setSelectedTab(tabs.current?.[tabPivots.next]?.props.value)
+    useEffect(() => {
+      /**
+       * Enable/disable arrows
+       */
+      /* istanbul ignore if -- @preserve */
+      if (!('current' in listRef) || !listRef.current || withArrows.prev === 'hidden' || loop) {
+        return
+      }
+
+      const toggleArrowsVisibility = (target: HTMLDivElement) => {
+        setWithArrows({
+          prev: target.scrollLeft > 0 ? 'visible' : 'disabled',
+          next:
+            target.scrollLeft + target.clientWidth < target.scrollWidth ? 'visible' : 'disabled',
+        })
+      }
+
+      const currentList = listRef.current
+
+      toggleArrowsVisibility(currentList)
+
+      currentList.addEventListener('scroll', ({ target }) =>
+        toggleArrowsVisibility(target as HTMLDivElement)
+      )
+
+      return () =>
+        currentList.removeEventListener('scroll', ({ target }) =>
+          toggleArrowsVisibility(target as HTMLDivElement)
+        )
+    }, [listRef, withArrows.prev, loop])
+
+    const handlePrevClick = useCallback(() => {
+      /* istanbul ignore if -- @preserve */
+      if (!('current' in listRef) || !listRef.current) {
+        return
+      }
+
+      const shouldLoopForward = loop && listRef.current.scrollLeft <= 0
+
+      listRef.current.scrollTo({
+        left: shouldLoopForward
+          ? listRef.current.scrollLeft + listRef.current.scrollWidth - listRef.current.clientWidth
+          : listRef.current.scrollLeft - listRef.current.clientWidth,
+        behavior: 'smooth',
+      })
+    }, [listRef, loop])
+
+    const handleNextClick = useCallback(() => {
+      /* istanbul ignore if -- @preserve */
+      if (!('current' in listRef) || !listRef.current) {
+        return
+      }
+
+      const shouldLoopBackward =
+        loop &&
+        listRef.current.scrollLeft + listRef.current.clientWidth >= listRef.current.scrollWidth
+
+      listRef.current.scrollTo({
+        left: shouldLoopBackward ? 0 : listRef.current.scrollLeft + listRef.current.clientWidth,
+        behavior: 'smooth',
+      })
+    }, [listRef, loop])
 
     return (
       <div className={wrapperStyles({ className })} ref={wrapperRef}>
-        {shouldDisplayPrev && (
+        {withArrows.prev !== 'hidden' && (
           <Button
             shape="square"
             intent="surface"
             size="sm"
             className={navigationArrowStyles()}
             onClick={handlePrevClick}
-            disabled={tabPivots.previous === undefined}
-            aria-label="Previous"
+            disabled={withArrows.prev === 'disabled'}
+            aria-label="Scroll left"
           >
             <Icon size="sm">
               <ArrowVerticalLeft />
@@ -124,15 +159,15 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
           {children}
         </RadixTabs.List>
 
-        {shouldDisplayNext && (
+        {withArrows.next !== 'hidden' && (
           <Button
             shape="square"
             intent="surface"
             size="sm"
             className={navigationArrowStyles()}
             onClick={handleNextClick}
-            disabled={tabPivots.next === undefined}
-            aria-label="Next"
+            disabled={withArrows.next === 'disabled'}
+            aria-label="Scroll right"
           >
             <Icon size="sm">
               <ArrowVerticalRight />

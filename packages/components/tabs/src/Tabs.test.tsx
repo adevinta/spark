@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 /* eslint-disable max-nested-callbacks */
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -84,6 +85,8 @@ describe('Tabs', () => {
   })
 
   describe('overflow', () => {
+    const scrollSpy = vi.fn()
+
     beforeAll(() => {
       vi.stubGlobal('innerWidth', 100)
 
@@ -96,21 +99,34 @@ describe('Tabs', () => {
         value: 200,
         writable: true,
       })
+
+      Object.defineProperty(HTMLDivElement.prototype, 'scrollTo', {
+        value: scrollSpy,
+      })
     })
 
-    it('should display navigation arrows on overflow and navigate on click', async () => {
+    beforeEach(() => {
+      vi.clearAllMocks()
+
+      Object.defineProperty(HTMLDivElement.prototype, 'scrollLeft', {
+        value: 0,
+        writable: true,
+      })
+    })
+
+    it('should display navigation arrows on overflow and scroll on click', async () => {
+      Object.defineProperty(HTMLDivElement.prototype, 'scrollLeft', {
+        value: 50,
+        writable: true,
+      })
+
       const user = userEvent.setup()
       render(createTabs({ tabs: tabsWithOverflow }))
 
-      await user.click(screen.getByLabelText('Next'))
+      await user.click(screen.getByLabelText('Scroll left'))
+      await user.click(screen.getByLabelText('Scroll right'))
 
-      expect(screen.getByText('One').parentNode).toHaveAttribute('data-state', 'inactive')
-      expect(screen.getByText('Two').parentNode).toHaveAttribute('data-state', 'active')
-
-      await user.click(screen.getByLabelText('Previous'))
-
-      expect(screen.getByText('One').parentNode).toHaveAttribute('data-state', 'active')
-      expect(screen.getByText('Two').parentNode).toHaveAttribute('data-state', 'inactive')
+      expect(scrollSpy).toHaveBeenCalledTimes(2)
     })
 
     it('should not display navigation arrows on vertical orientation', () => {
@@ -121,11 +137,11 @@ describe('Tabs', () => {
         })
       )
 
-      expect(screen.queryByLabelText('Previous')).not.toBeInTheDocument()
-      expect(screen.queryByLabelText('Next')).not.toBeInTheDocument()
+      expect(screen.queryByLabelText('Scroll left')).not.toBeInTheDocument()
+      expect(screen.queryByLabelText('Scroll right')).not.toBeInTheDocument()
     })
 
-    it('should not display "previous" arrow if selected tab is first one on disabled loop navigation', () => {
+    it('should disable left arrow at the beginning of the list with disabled loop option', () => {
       render(
         createTabs({
           tabs: tabsWithOverflow,
@@ -134,23 +150,70 @@ describe('Tabs', () => {
         })
       )
 
-      expect(screen.queryByLabelText('Previous')).not.toBeInTheDocument()
-      expect(screen.getByLabelText('Next')).toBeInTheDocument()
+      expect(screen.getByLabelText('Scroll left')).toBeDisabled()
     })
 
-    it('should not take care of disabled item on arrow click', async () => {
-      const user = userEvent.setup()
+    it('should disable right arrow at the end of the list with disabled loop option', () => {
+      Object.defineProperty(HTMLDivElement.prototype, 'scrollLeft', {
+        value: 100,
+        writable: true,
+      })
+
       render(
         createTabs({
           tabs: tabsWithOverflow,
-          rootProps: { defaultValue: 'tab3' },
+          rootProps: { defaultValue: 'tab1' },
+          listProps: { loop: false },
         })
       )
 
-      await user.click(screen.getByLabelText('Next'))
+      expect(screen.getByLabelText('Scroll right')).toBeDisabled()
+    })
 
-      expect(screen.getByText('Four').parentNode).not.toHaveAttribute('data-state', 'active')
-      expect(screen.getByText('Six').parentNode).toHaveAttribute('data-state', 'active')
+    describe('with loop option', () => {
+      it('should scroll forward on left arrow click, when at the beginning of the list', async () => {
+        const user = userEvent.setup()
+        render(
+          createTabs({
+            tabs: tabsWithOverflow,
+            rootProps: { defaultValue: 'tab1' },
+            listProps: { loop: true },
+          })
+        )
+
+        await user.click(screen.getByLabelText('Scroll left'))
+
+        expect(scrollSpy).toHaveBeenCalledTimes(1)
+        expect(scrollSpy).toHaveBeenCalledWith({
+          left: 100,
+          behavior: 'smooth',
+        })
+      })
+
+      it('should scroll backward on right arrow click, when at the end of the list', async () => {
+        Object.defineProperty(HTMLDivElement.prototype, 'scrollLeft', {
+          value: 100,
+          writable: true,
+        })
+
+        const user = userEvent.setup()
+
+        render(
+          createTabs({
+            tabs: tabsWithOverflow,
+            rootProps: { defaultValue: 'tab1' },
+            listProps: { loop: true },
+          })
+        )
+
+        await user.click(screen.getByLabelText('Scroll right'))
+
+        expect(scrollSpy).toHaveBeenCalledTimes(1)
+        expect(scrollSpy).toHaveBeenCalledWith({
+          left: 0,
+          behavior: 'smooth',
+        })
+      })
     })
   })
 })
