@@ -16,6 +16,9 @@
     "@spark-ui/slot": "^1.4.4",
     "class-variance-authority": "0.5.2"
   },
+  "devDependencies": {
+    "@spark-ui/icons": "^1.7.8"
+  },
   "peerDependencies": {
     "react": "16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
