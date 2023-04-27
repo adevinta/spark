@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.8...@spark-ui/icons@1.8.0) (2023-04-27)
+
+### Features
+
+- **icons:** every icons now accept a ref ([264c7ea](https://github.com/adevinta/spark/commit/264c7eadc4e4903ae4860fb02a3c2138bebfff60))
+
 ## [1.7.8](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.7...@spark-ui/icons@1.7.8) (2023-04-26)
 
 **Note:** Version bump only for package @spark-ui/icons
