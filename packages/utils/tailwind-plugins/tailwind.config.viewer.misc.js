@@ -1,7 +1,7 @@
-const misc = {
+module.exports = {
   'animations fill mode': {
     'spark-anime-fill-forwards': 'animation-fill-mode: forwards;',
-    'spark-anime-fill-forwards': 'animation-fill-mode: backwards;',
+    'spark-anime-fill-backwards': 'animation-fill-mode: backwards;',
     'spark-anime-fill-both': 'animation-fill-mode: both;',
     'spark-anime-fill-none': 'animation-fill-mode: none;',
   },
@@ -49,11 +49,8 @@ const misc = {
     'animate-slide-left': 'slide left animation (element with be translated to the left)',
   },
   utilities: {
-    'u-current-font-size': `width: 1em; height: 1em;`,
-    'u-shadow-border-transition': `transition: box-shadow 100ms ease-in, border-color 300ms ease-in;`,
+    'u-current-font-size': 'width: 1em; height: 1em;',
+    'u-shadow-border-transition':
+      'transition: box-shadow 100ms ease-in, border-color 300ms ease-in;',
   },
-}
-
-module.exports = {
-  misc,
 }
