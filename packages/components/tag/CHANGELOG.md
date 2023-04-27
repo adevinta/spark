@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.4](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.3...@spark-ui/tag@1.6.4) (2023-04-27)
+
+### Bug Fixes
+
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+
 ## [1.6.3](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.2...@spark-ui/tag@1.6.3) (2023-04-24)
 
 ### Bug Fixes
