@@ -12,12 +12,13 @@ const componentize = ({ name = 'componentName', node = '<svg />', tags = [] }) =
   } = parseSync(node)
   const nameTags = [name]
 
-  return `import { IconProps } from '../Types'
+  return `import React, { type Ref } from 'react'
+import { IconProps } from '../Types'
 
 export const ${pascalCase(
     name
-  )} = ({title, fill = '${fill}', stroke = '${stroke}', ...props}: IconProps) => (
-  <svg ${Object.entries(otherAttributes)
+  )} = React.forwardRef(({title, fill = '${fill}', stroke = '${stroke}', ...props}: IconProps, ref: Ref<SVGSVGElement>) => (
+  <svg ref={ref} ${Object.entries(otherAttributes)
     .map(([key, value]) => `${key}="${value}"`)
     .join(' ')}
       {...{ ...(title && {'data-title': title}), fill, stroke, ...props}}
@@ -25,7 +26,7 @@ export const ${pascalCase(
         children
       )}'}}
   />
-)
+))
 
 export const tags = ${JSON.stringify([...nameTags, ...tags.map(tag => noCase(`${tag}`))])}
 `
