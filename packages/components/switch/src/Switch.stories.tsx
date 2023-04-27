@@ -33,7 +33,7 @@ const switchSizes: ComponentProps<typeof Switch>['size'][] = ['sm', 'md']
 export const Sizes: StoryFn = _args => (
   <div className="gap-lg flex flex-col">
     {switchSizes.map(size => (
-      <Switch name="small" size={size}>
+      <Switch key={size} name="small" size={size}>
         {size}
       </Switch>
     ))}
@@ -53,7 +53,7 @@ const switchColors: ComponentProps<typeof Switch>['intent'][] = [
 export const Colors: StoryFn = _args => (
   <div className="gap-lg flex flex-col">
     {switchColors.map(color => (
-      <Switch name="primary" intent={color} defaultChecked>
+      <Switch key={color} name="primary" intent={color} defaultChecked>
         {color}
       </Switch>
     ))}
