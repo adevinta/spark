@@ -78,7 +78,11 @@ const intent = ['primary', 'success', 'alert', 'error'] as const
 export const Intent: StoryFn = _args => (
   <>
     {intent.map(color => {
-      return <Checkbox intent={color}>{color}</Checkbox>
+      return (
+        <Checkbox key={color} intent={color}>
+          {color}
+        </Checkbox>
+      )
     })}
   </>
 )

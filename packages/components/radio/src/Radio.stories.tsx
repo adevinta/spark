@@ -56,7 +56,7 @@ export const Intent: StoryFn = _args => {
   return (
     <div className="gap-lg flex flex-col">
       {intents.map(intent => (
-        <div className="gap-md flex flex-col justify-center">
+        <div key={intent} className="gap-md flex flex-col justify-center">
           <p className="text-headline-2">{intent}</p>
           <RadioGroup key={intent} defaultValue="1" intent={intent} orientation="horizontal">
             <Radio value="1">First</Radio>
@@ -75,7 +75,7 @@ export const Size: StoryFn = _args => {
   return (
     <div className="gap-lg flex flex-col">
       {sizes.map(size => (
-        <div className="gap-lg flex flex-col justify-center">
+        <div key={size} className="gap-lg flex flex-col justify-center">
           <p className="text-headline-2">{size}</p>
           <RadioGroup key={size} defaultValue="1" size={size} orientation="horizontal">
             <Radio value="1">First</Radio>
