@@ -21,4 +21,6 @@ export const FileOffFill = React.forwardRef(
   )
 )
 
+FileOffFill.displayName = 'FileOffFill'
+
 export const tags = ['file-off-fill', 'account']

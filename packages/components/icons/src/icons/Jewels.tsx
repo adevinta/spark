@@ -21,4 +21,6 @@ export const Jewels = React.forwardRef(
   )
 )
 
+Jewels.displayName = 'Jewels'
+
 export const tags = ['jewels', 'criteria', 'mode']

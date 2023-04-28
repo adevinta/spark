@@ -21,4 +21,6 @@ export const License = React.forwardRef(
   )
 )
 
+License.displayName = 'License'
+
 export const tags = ['license', 'criteria', 'automobile']

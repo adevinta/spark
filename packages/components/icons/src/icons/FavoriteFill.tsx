@@ -21,4 +21,6 @@ export const FavoriteFill = React.forwardRef(
   )
 )
 
+FavoriteFill.displayName = 'FavoriteFill'
+
 export const tags = ['favorite-fill', 'account']

@@ -21,4 +21,6 @@ export const ShoeSize = React.forwardRef(
   )
 )
 
+ShoeSize.displayName = 'ShoeSize'
+
 export const tags = ['shoe-size', 'criteria', 'mode']

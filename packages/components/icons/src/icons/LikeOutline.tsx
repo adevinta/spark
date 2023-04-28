@@ -21,4 +21,6 @@ export const LikeOutline = React.forwardRef(
   )
 )
 
+LikeOutline.displayName = 'LikeOutline'
+
 export const tags = ['like-outline', 'actions']

@@ -21,4 +21,6 @@ export const Class = React.forwardRef(
   )
 )
 
+Class.displayName = 'Class'
+
 export const tags = ['class', 'criteria', 'immobilier']

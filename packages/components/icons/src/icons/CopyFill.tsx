@@ -21,4 +21,6 @@ export const CopyFill = React.forwardRef(
   )
 )
 
+CopyFill.displayName = 'CopyFill'
+
 export const tags = ['copy-fill', 'actions']

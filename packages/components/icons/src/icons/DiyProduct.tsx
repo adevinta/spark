@@ -21,4 +21,6 @@ export const DiyProduct = React.forwardRef(
   )
 )
 
+DiyProduct.displayName = 'DiyProduct'
+
 export const tags = ['diy_product', 'criteria', 'house']

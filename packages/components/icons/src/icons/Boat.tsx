@@ -21,4 +21,6 @@ export const Boat = React.forwardRef(
   )
 )
 
+Boat.displayName = 'Boat'
+
 export const tags = ['boat', 'criteria', 'automobile']

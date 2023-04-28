@@ -21,4 +21,6 @@ export const QuestionFill = React.forwardRef(
   )
 )
 
+QuestionFill.displayName = 'QuestionFill'
+
 export const tags = ['question-fill', 'alert']

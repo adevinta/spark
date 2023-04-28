@@ -21,4 +21,6 @@ export const Shower = React.forwardRef(
   )
 )
 
+Shower.displayName = 'Shower'
+
 export const tags = ['shower', 'criteria', 'location']

@@ -21,4 +21,6 @@ export const Multimedia = React.forwardRef(
   )
 )
 
+Multimedia.displayName = 'Multimedia'
+
 export const tags = ['multimedia', 'categories']

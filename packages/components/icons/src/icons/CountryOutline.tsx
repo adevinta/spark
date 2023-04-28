@@ -21,4 +21,6 @@ export const CountryOutline = React.forwardRef(
   )
 )
 
+CountryOutline.displayName = 'CountryOutline'
+
 export const tags = ['country-outline', 'account']
