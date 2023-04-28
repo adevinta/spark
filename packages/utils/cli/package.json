@@ -27,5 +27,10 @@
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
 }
