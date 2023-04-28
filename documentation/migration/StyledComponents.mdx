@@ -105,7 +105,7 @@ interface CardProps {
 const Card = styled.div<CardProps>`
   display: flex;
   position: relative;
-  margin-top: ${({ size, theme }) => {
+  padding-top: ${({ size, theme }) => {
     if (size === 'small') return theme.space.small
     if (size === 'medium') return theme.space.medium
     return theme.space.large
@@ -127,9 +127,9 @@ import { cva, VariantProps } from 'class-variance-authority'
 const styles = cva(['flex relative'], {
   variants: {
     size: {
-      small: ['mt-sm'],
-      medium: ['mt-md'],
-      large: ['mt-lg'],
+      small: ['pt-sm'],
+      medium: ['pt-md'],
+      large: ['pt-lg'],
     },
   },
   defaultVariants: {
@@ -151,8 +151,9 @@ function SomeComponent({ size }: Props) {
 ```
 
 <Callout>
-To handle complex styling scenarios like this ⬆️, we recommend using the [**CVA (Class Variance Authority) package**](https://cva.style/docs).
+To handle complex styling scenarios like the one above, we recommend using the [**CVA (Class Variance Authority) package**](https://cva.style/docs).
 
+<br />
 This is what we are using to style our Spark components.
 
 In a nutshell, CVA is a tool that automates the process of matching classes to props and adding types, making it easier to create variants for traditional CSS.
