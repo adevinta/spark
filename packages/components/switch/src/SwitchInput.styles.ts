@@ -11,14 +11,18 @@ export const styles = cva(
     'spark-disabled:opacity-dim-3 disabled:hover:ring-transparent spark-disabled:cursor-not-allowed',
     'focus-visible:outline-none focus-visible:ring focus-visible:ring-outline-high',
     'spark-state-unchecked:bg-on-surface/dim-4',
+    'u-shadow-border-transition',
   ]),
   {
     variants: {
-      size: makeVariants<'size'>({
+      size: makeVariants<'size', ['sm', 'md']>({
         sm: tw(['h-sz-24', 'w-sz-40', 'border-md']),
         md: tw(['h-sz-32', 'w-sz-56', 'border-[4px]']),
       }),
-      intent: makeVariants<'intent'>({
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+      >({
         primary: ['spark-state-checked:bg-primary', 'hover:ring-primary-container', 'text-primary'],
         secondary: [
           'spark-state-checked:bg-secondary',
@@ -54,7 +58,7 @@ export const thumbStyles = cva(
   ],
   {
     variants: {
-      size: makeVariants<'size'>({
+      size: makeVariants<'size', ['sm', 'md']>({
         sm: ['h-sz-20', 'w-sz-20'],
         md: ['h-sz-24', 'w-sz-24'],
       }),
@@ -71,7 +75,7 @@ export const thumbStyles = cva(
 
 export const thumbCheckSVGStyles = cva(['transition-opacity duration-200'], {
   variants: {
-    size: makeVariants<'size'>({
+    size: makeVariants<'size', ['sm', 'md']>({
       sm: ['h-sz-10 w-sz-10'],
       md: ['h-sz-12 w-sz-12'],
     }),

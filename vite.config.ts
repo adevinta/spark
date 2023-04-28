@@ -9,6 +9,9 @@ const NOT_VALID_COMPONENTS_PATTERN = 'bar'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  optimizeDeps: {
+    include: ['@spark-ui/icons'],
+  },
   plugins: [tsconfigPaths(), react()],
   build: {
     target: browserslistToEsbuild(),
@@ -23,12 +26,9 @@ export default defineConfig({
     css: true,
     coverage: {
       provider: 'istanbul',
+      exclude: ['**/packages/**/*.doc.mdx', '**/packages/**/*.stories.tsx'],
       reportsDirectory: 'dist/coverage',
-      reporter: [
-        ['lcovonly', { }],
-        ['json', { 'file': 'coverage.json' }],
-        ['html']
-      ]
+      reporter: [['lcovonly', {}], ['json', { file: 'coverage.json' }], ['html'], ['text']],
     },
   },
 })

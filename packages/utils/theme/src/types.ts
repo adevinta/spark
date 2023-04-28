@@ -124,9 +124,6 @@ export interface Theme {
     // Background
     background: string
     onBackground: string
-    backgroundHovered: string
-    backgroundDisabled: string
-    backgroundFocused: string
     // Background variant
     backgroundVariant: string
     onBackgroundVariant: string

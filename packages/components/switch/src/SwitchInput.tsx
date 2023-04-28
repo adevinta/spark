@@ -61,6 +61,7 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
       size = 'md',
       value = 'on',
       onCheckedChange,
+      className,
       ...rest
     },
     ref
@@ -75,7 +76,7 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
     return (
       <SwitchPrimitive.Root
         ref={ref}
-        className={styles({ intent, size })}
+        className={styles({ intent, size, className })}
         value={value}
         checked={checked}
         defaultChecked={defaultChecked}

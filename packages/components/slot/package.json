@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/slot",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Merges its props onto its immediate child",
   "publishConfig": {
     "access": "public"
@@ -23,5 +23,10 @@
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/components/slot"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
 }

@@ -1,6 +1,8 @@
 const sparkPlugins = require('@spark-ui/tailwind-plugins')
 const themeUtils = require('@spark-ui/theme-utils')
 
+const { misc } = require('./tailwind.config.viewer.misc.cjs')
+
 const utils = {
   isObject(value) {
     return !!value && value.constructor === Object
@@ -52,12 +54,15 @@ module.exports = {
     configViewer: {
       baseFontSize: 16,
       themeReplacements: toTailwindConfigViewer(themeUtils.defaultTheme),
+      misc,
     },
   },
   plugins: [
-    sparkPlugins.sparkTheme({ themes: { default: themeUtils.defaultTheme } }),
-    sparkPlugins.sizings(),
-    sparkPlugins.animations(),
+    ...sparkPlugins.sparkConfig({
+      themes: {
+        default: themeUtils.defaultTheme,
+      },
+    }),
   ],
   content: [],
 }

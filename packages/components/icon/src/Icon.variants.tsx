@@ -3,7 +3,10 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const iconVariants = cva(['fill-current'], {
   variants: {
-    intent: makeVariants<'intent'>({
+    intent: makeVariants<
+      'intent',
+      ['current', 'primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+    >({
       current: ['text-current'],
       primary: ['text-primary'],
       secondary: ['text-secondary'],
@@ -13,8 +16,8 @@ export const iconVariants = cva(['fill-current'], {
       info: ['text-info'],
       neutral: ['text-neutral'],
     }),
-    size: makeVariants<'size'>({
-      current: ['current-font-size'],
+    size: makeVariants<'size', ['current', 'sm', 'md', 'lg']>({
+      current: ['u-current-font-size'],
       sm: ['w-sz-16', 'h-sz-16'],
       md: ['w-sz-24', 'h-sz-24'],
       lg: ['w-sz-32', 'h-sz-32'],

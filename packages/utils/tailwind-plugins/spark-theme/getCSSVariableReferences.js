@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { DEFAULT_KEY, tailwindCategoryKeys, unassignedColors } = require('./constants')
+const {
+  DEFAULT_KEY,
+  tailwindCategoryKeys,
+  transitionDurationLookup,
+  transitionTimingFunctionLookup,
+  unassignedColors,
+} = require('./constants')
 const {
   doubleHyphensRegex,
   hasNumber,
@@ -105,7 +111,14 @@ function getCSSVariableReferences(_theme) {
 
   traverse(themeCpy)
 
-  return { ...themeCpy, colors: { ...themeCpy.colors, ...unassignedColors } }
+  return {
+    ...themeCpy,
+    colors: { ...themeCpy.colors, ...unassignedColors },
+    transitionDuration: transitionDurationLookup,
+    extend: {
+      transitionTimingFunction: transitionTimingFunctionLookup,
+    },
+  }
 }
 
 module.exports = { getCSSVariableReferences }

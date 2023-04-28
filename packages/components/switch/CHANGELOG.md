@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.4](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.3...@spark-ui/switch@1.10.4) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.10.3](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.2...@spark-ui/switch@1.10.3) (2023-04-27)
+
+### Bug Fixes
+
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+
+## [1.10.2](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.1...@spark-ui/switch@1.10.2) (2023-04-27)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.10.1](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.0...@spark-ui/switch@1.10.1) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+# [1.10.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.9.2...@spark-ui/switch@1.10.0) (2023-04-26)
+
+### Features
+
+- **tailwind-plugins:** add new "shadow-border-transition" utility class ([289ff71](https://github.com/adevinta/spark/commit/289ff71d39e2c064132ed0d8c55e758a1ab21695)), closes [#676](https://github.com/adevinta/spark/issues/676)
+
+## [1.9.2](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.9.1...@spark-ui/switch@1.9.2) (2023-04-25)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.9.1](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.9.0...@spark-ui/switch@1.9.1) (2023-04-25)
+
+### Bug Fixes
+
+- global fix for custom styles and cva ([083e5ec](https://github.com/adevinta/spark/commit/083e5ec890f41b526a040282355757bc5501f040))
+
+# [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.8.4...@spark-ui/switch@1.9.0) (2023-04-25)
+
+### Features
+
+- **switch:** apply motion on hover ([27a9185](https://github.com/adevinta/spark/commit/27a9185c7b4269fd6af5a9c01368aff23786645a))
+
+## [1.8.4](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.8.3...@spark-ui/switch@1.8.4) (2023-04-24)
+
+### Bug Fixes
+
+- **switch:** props table ([8cd5096](https://github.com/adevinta/spark/commit/8cd50960e18324589e799de3f16fd41ab27dedc8))
+
 ## [1.8.3](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.8.2...@spark-ui/switch@1.8.3) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/switch

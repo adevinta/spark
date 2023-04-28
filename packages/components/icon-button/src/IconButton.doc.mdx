@@ -1,0 +1,68 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+
+import { IconButton } from '.'
+
+import * as stories from './IconButton.stories'
+
+<Meta of={stories} />
+
+# IconButton
+
+Icon button renders an icon within in a button
+
+## Install
+
+```sh
+npm install @spark-ui/icon-button
+```
+
+## Import
+
+```tsx
+import { IconButton } from '@spark-ui/icon-button'
+```
+
+## Props
+
+<ArgTypes of={IconButton} />
+
+## Default
+
+<Canvas of={stories.Default} />
+
+## Disabled
+
+Use `disable` prop to disable the element.
+
+<Canvas of={stories.Disabled} />
+
+## Sizes
+
+Use `size` prop to set the size of a button.
+
+<Canvas of={stories.Sizes} />
+
+## Shapes
+
+Use `shape` prop to set the shape of a button.
+
+<Canvas of={stories.Shapes} />
+
+## Design
+
+Use `design` prop to set the different look and feels of a button.
+
+<Canvas of={stories.Design} />
+
+## Intent
+
+Use `intent` prop to set the color intent of a button.
+
+<Canvas of={stories.Intent} />
+
+## Link
+
+Use `intent` prop to set the color intent of a button.
+
+<Canvas of={stories.Link} />

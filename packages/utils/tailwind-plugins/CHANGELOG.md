@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.2](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.10.1...@spark-ui/tailwind-plugins@2.10.2) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/tailwind-plugins
+
+## [2.10.1](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.10.0...@spark-ui/tailwind-plugins@2.10.1) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/tailwind-plugins
+
+# [2.10.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.9.1...@spark-ui/tailwind-plugins@2.10.0) (2023-04-26)
+
+### Features
+
+- **tailwind-plugins:** add new "shadow-border-transition" utility class ([289ff71](https://github.com/adevinta/spark/commit/289ff71d39e2c064132ed0d8c55e758a1ab21695)), closes [#676](https://github.com/adevinta/spark/issues/676)
+
+## [2.9.1](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.9.0...@spark-ui/tailwind-plugins@2.9.1) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/tailwind-plugins
+
+# [2.9.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.8.0...@spark-ui/tailwind-plugins@2.9.0) (2023-04-24)
+
+### Features
+
+- **tailwind-plugins:** update transition theme values to match figma ([92f37c2](https://github.com/adevinta/spark/commit/92f37c23e89d5b491a8feef9cf8764c0dc4c1b66)), closes [#642](https://github.com/adevinta/spark/issues/642)
+
+# [2.8.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.7.1...@spark-ui/tailwind-plugins@2.8.0) (2023-04-21)
+
+### Features
+
+- **tailwind-plugins:** update default prefix in tw animation plugin ([2c147cb](https://github.com/adevinta/spark/commit/2c147cb0342ea801d22f1a69c9cea4ffac74b46f))
+
 ## [2.7.1](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.7.0...@spark-ui/tailwind-plugins@2.7.1) (2023-04-19)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins

@@ -102,9 +102,6 @@ export const defaultThemeDark: Theme = createTheme({
     // Background
     background: '#000000',
     onBackground: '#FFFFFF',
-    backgroundHovered: '#080632',
-    backgroundDisabled: '#252428',
-    backgroundFocused: '#080632',
     // Background variant
     backgroundVariant: '#252428',
     onBackgroundVariant: '#FFFFFF',
