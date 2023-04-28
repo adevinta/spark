@@ -30,7 +30,7 @@ describe('CLI `spark generate` (component package)', () => {
       '/.npmignore',
       '/package.json',
       '/src/index.ts',
-      '/src/Bar.variants.tsx',
+      '/src/Bar.styles.tsx',
       '/src/Bar.tsx',
       '/vite.config.ts',
       '/src/Bar.doc.mdx',
