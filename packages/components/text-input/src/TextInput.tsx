@@ -1,17 +1,23 @@
-import React, { forwardRef } from 'react'
-import { Label } from './InputLabel'
-import { InputElement, type InputElementProps } from './InputElement'
+import React, { forwardRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
-import { textInputStyles } from './TextInput.styles'
+import { Input, type InputProps } from './Input'
+import { InputField } from './InputField'
 
-export type InputProps = InputElementProps
+export interface TextInputProps
+  extends PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'label'>>,
+    InputProps {
+  /**
+   * Change the component to the HTML tag or custom component of the only child.
+   */
+  asChild?: boolean
+}
 
-export const TextInput = forwardRef<HTMLInputElement, Omit<InputProps, 'label'>>(
-  ({ children, ...props }, forwardedRef) => {
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+  ({ asChild, intent, ...props }, forwardedRef) => {
     return (
-      <Label data-spark-component="text-input" disabled={props.disabled} className={textInputStyles()}>
-        <InputElement {...props} label={children} ref={forwardedRef} />
-      </Label>
+      <InputField disabled={props.disabled} intent={intent}>
+        <Input {...props} intent={intent} ref={forwardedRef} />
+      </InputField>
     )
   }
 )
