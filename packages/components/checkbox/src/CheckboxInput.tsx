@@ -1,7 +1,14 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import { Check, Minus } from '@spark-ui/icons'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { ButtonHTMLAttributes, ElementRef, forwardRef, ReactNode, useState } from 'react'
+import {
+  ButtonHTMLAttributes,
+  ElementRef,
+  forwardRef,
+  ReactNode,
+  useCallback,
+  useState,
+} from 'react'
 
 import { inputStyles, type InputStylesProps } from './CheckboxInput.styles'
 
@@ -25,7 +32,7 @@ interface RadixProps {
   /**
    * Event handler called when the checked state of the checkbox changes.
    */
-  onCheckedChange?: (checked: CheckedStatus) => void
+  onCheckedChange?: (checked: boolean, indeterminate?: boolean) => void
   /**
    * When true, prevents the user from interacting with the checkbox.
    */
@@ -60,15 +67,30 @@ export interface InputProps
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'checked' | 'defaultChecked'> {} // Native HTML props
 
 export const Input = forwardRef<ElementRef<typeof CheckboxPrimitive.Root>, InputProps>(
-  ({ intent, icon, className, ...props }, forwardedRef) => {
+  ({ intent, icon, className, onCheckedChange, ...props }, forwardedRef) => {
     const [innerChecked, setInnerChecked] = useState<'true' | 'false' | 'mixed'>()
     const ref = useMergeRefs(forwardedRef, node => {
       setInnerChecked(node?.getAttribute('aria-checked') as AriaCheckedStatus)
     })
     const innerIcon = useIcon({ icon, checked: innerChecked })
 
+    const handleOnCheckedChange = useCallback((value: CheckedStatus) => {
+      if (typeof onCheckedChange === 'function') {
+        const [checked, indeterminate] = [
+          value === 'indeterminate' ? false : value,
+          value === 'indeterminate' ? true : undefined,
+        ]
+        onCheckedChange(checked, indeterminate)
+      }
+    }, [])
+
     return (
-      <CheckboxPrimitive.Root ref={ref} className={inputStyles({ intent, className })} {...props}>
+      <CheckboxPrimitive.Root
+        ref={ref}
+        className={inputStyles({ intent, className })}
+        {...props}
+        onCheckedChange={handleOnCheckedChange}
+      >
         <CheckboxPrimitive.Indicator className="text-surface flex items-center justify-center">
           {innerIcon}
         </CheckboxPrimitive.Indicator>
