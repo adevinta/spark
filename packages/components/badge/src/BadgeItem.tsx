@@ -1,8 +1,7 @@
 import { forwardRef, HTMLAttributes, PropsWithRef } from 'react'
 
 import { styles, type StylesProps } from './BadgeItem.styles'
-
-const DEFAULT_OVERFLOW_COUNT = 99
+import { DEFAULT_INTENT, DEFAULT_OVERFLOW_COUNT, DEFAULT_SIZE, DEFAULT_TYPE } from './config'
 
 export interface BadgeItemProps extends PropsWithRef<HTMLAttributes<HTMLSpanElement>>, StylesProps {
   /**
@@ -13,14 +12,18 @@ export interface BadgeItemProps extends PropsWithRef<HTMLAttributes<HTMLSpanElem
    * Maximum numeric value to be dispayed as a count value.
    */
   overflowCount?: number
+  /**
+   * Describes the way the component is displayed: relative to another element or just standalone.
+   */
+  type?: 'relative' | 'standalone'
 }
 
 export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
   (
     {
-      intent = 'error',
-      size = 'md',
-      type = 'relative',
+      intent = DEFAULT_INTENT,
+      size = DEFAULT_SIZE,
+      type = DEFAULT_TYPE,
       count,
       overflowCount = DEFAULT_OVERFLOW_COUNT,
       className,
@@ -39,7 +42,7 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
         })}
         {...others}
       >
-        {count > overflowCount ? `${overflowCount}+` : count}
+        {count && count > overflowCount ? `${overflowCount}+` : count}
       </span>
     )
   }
