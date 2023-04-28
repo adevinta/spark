@@ -1,0 +1,68 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+
+import { Badge } from '.'
+
+import * as stories from './Badge.stories'
+
+<Meta of={stories} />
+
+# Badge
+
+Badge component is a visual indicator for numeric values such as tallies and scores.
+
+## Install
+
+```sh
+npm install @spark-ui/badge
+```
+
+## Import
+
+```tsx
+import { Badge } from '@spark-ui/badge'
+```
+
+## Props
+
+<ArgTypes of={Badge} />
+
+## Default
+
+<Canvas of={stories.Default} />
+
+## Standalone
+
+<Canvas of={stories.Standalone} />
+
+## Standalone With Count
+
+<Canvas of={stories.StandaloneWithCount} />
+
+## Standalone Within Another Element
+
+<Canvas of={stories.StandaloneWithinAnotherElement} />
+
+## Regular Count
+
+<Canvas of={stories.RegularCount} />
+
+## Large Count
+
+<Canvas of={stories.LargeCount} />
+
+## Large Custom Count
+
+<Canvas of={stories.LargeCustomCount} />
+
+## Intents
+
+Use `intent` prop to set the color intent of the badge.
+
+<Canvas of={stories.Intents} />
+
+## Sizes
+
+Use `size` prop to set the size of the badge.
+
+<Canvas of={stories.Sizes} />

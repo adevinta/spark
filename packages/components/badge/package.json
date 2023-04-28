@@ -1,0 +1,27 @@
+{
+  "name": "@spark-ui/badge",
+  "version": "1.0.0",
+  "description": "Badge component is a visual indicator for numeric values such as tallies and scores.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/badge"
+  },
+  "devDependencies": {
+    "@spark-ui/radio": "1"
+  }
+}
