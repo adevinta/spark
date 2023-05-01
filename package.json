@@ -90,7 +90,7 @@
     "eslint-plugin-standard": "5.0.0",
     "eslint-plugin-storybook": "0.6.11",
     "eslint-plugin-tailwindcss": "3.11.0",
-    "eslint-plugin-testing-library": "5.10.2",
+    "eslint-plugin-testing-library": "5.10.3",
     "husky": "8.0.3",
     "jsdom": "21.1.1",
     "lerna": "6.4.1",
