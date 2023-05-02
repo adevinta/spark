@@ -22,6 +22,8 @@
     "directory": "packages/components/badge"
   },
   "devDependencies": {
+    "@spark-ui/icon": "1",
+    "@spark-ui/icons": "1",
     "@spark-ui/radio": "1"
   }
 }

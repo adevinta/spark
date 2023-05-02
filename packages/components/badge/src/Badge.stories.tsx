@@ -1,3 +1,5 @@
+import { Icon } from '@spark-ui/icon'
+import { LikeFill } from '@spark-ui/icons/dist/icons/LikeFill'
 import { Radio, RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
@@ -24,6 +26,14 @@ export const StandaloneWithinAnotherElement: StoryFn = _args => (
       Foo <Badge size="sm" count={3} />
     </Radio>
   </RadioGroup>
+)
+export const WrappingAnIcon: StoryFn = _args => (
+  <Badge size="sm" count={3}>
+    {/** TODO: Check the real behaviour with icons in order to avoid custom styles on them. **/}
+    <Icon size="lg" className="mx-md">
+      <LikeFill />
+    </Icon>
+  </Badge>
 )
 export const RegularCount: StoryFn = _args => <Badge count={1}>{fakeAvatar}</Badge>
 export const LargeCount: StoryFn = _args => <Badge count={1000}>{fakeAvatar}</Badge>
