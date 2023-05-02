@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.5...@spark-ui/checkbox@1.12.0) (2023-05-02)
+
+### Features
+
+- **checkbox:** add neutral and info intents ([50c5954](https://github.com/adevinta/spark/commit/50c5954c716861e65cc545b0ee876f875d93e7f3))
+
 ## [1.11.5](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.4...@spark-ui/checkbox@1.11.5) (2023-05-02)
 
 ### Bug Fixes
