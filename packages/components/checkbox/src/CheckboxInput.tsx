@@ -1,5 +1,6 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
-import { Check, Minus } from '@spark-ui/icons'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { Minus } from '@spark-ui/icons/dist/icons/Minus'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { ButtonHTMLAttributes, ElementRef, forwardRef, ReactNode, useState } from 'react'
 

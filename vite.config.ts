@@ -9,9 +9,6 @@ const NOT_VALID_COMPONENTS_PATTERN = 'bar'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  optimizeDeps: {
-    include: ['@spark-ui/icons'],
-  },
   plugins: [tsconfigPaths(), react()],
   build: {
     target: browserslistToEsbuild(),
