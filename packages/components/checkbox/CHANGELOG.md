@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.5...@spark-ui/checkbox@1.12.0) (2023-05-02)
+
+### Features
+
+- **checkbox:** add neutral and info intents ([50c5954](https://github.com/adevinta/spark/commit/50c5954c716861e65cc545b0ee876f875d93e7f3))
+
+## [1.11.5](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.4...@spark-ui/checkbox@1.11.5) (2023-05-02)
+
+### Bug Fixes
+
+- **checkbox:** update icon import ([f899aa2](https://github.com/adevinta/spark/commit/f899aa25c461105ced2d521c9a107961845dab36))
+
+## [1.11.4](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.3...@spark-ui/checkbox@1.11.4) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
+## [1.11.3](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.2...@spark-ui/checkbox@1.11.3) (2023-04-27)
+
+### Bug Fixes
+
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+
+## [1.11.2](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.1...@spark-ui/checkbox@1.11.2) (2023-04-27)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
+## [1.11.1](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.0...@spark-ui/checkbox@1.11.1) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
+# [1.11.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.10.2...@spark-ui/checkbox@1.11.0) (2023-04-26)
+
+### Features
+
+- **tailwind-plugins:** add new "shadow-border-transition" utility class ([289ff71](https://github.com/adevinta/spark/commit/289ff71d39e2c064132ed0d8c55e758a1ab21695)), closes [#676](https://github.com/adevinta/spark/issues/676)
+
 ## [1.10.2](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.10.1...@spark-ui/checkbox@1.10.2) (2023-04-25)
 
 **Note:** Version bump only for package @spark-ui/checkbox

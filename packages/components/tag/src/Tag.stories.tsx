@@ -49,7 +49,11 @@ export const Intent: StoryFn = _args => (
 export const Shapes: StoryFn = _args => (
   <div className="gap-md flex items-center">
     {shapes.map(shape => {
-      return <Tag shape={shape}>{shape} tag</Tag>
+      return (
+        <Tag key={shape} shape={shape}>
+          {shape} tag
+        </Tag>
+      )
     })}
   </div>
 )

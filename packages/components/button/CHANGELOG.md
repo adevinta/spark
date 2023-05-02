@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/adevinta/spark/compare/@spark-ui/button@1.9.1...@spark-ui/button@1.9.2) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/button
+
+## [1.9.1](https://github.com/adevinta/spark/compare/@spark-ui/button@1.9.0...@spark-ui/button@1.9.1) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/button
+
+# [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.8.1...@spark-ui/button@1.9.0) (2023-04-27)
+
+### Features
+
+- add module separation ([4c543b7](https://github.com/adevinta/spark/commit/4c543b7b1396ef9032352e6392d93663fc7e0d48))
+
+## [1.8.1](https://github.com/adevinta/spark/compare/@spark-ui/button@1.8.0...@spark-ui/button@1.8.1) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/button
+
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.7.1...@spark-ui/button@1.8.0) (2023-04-26)
+
+### Features
+
+- **tailwind-plugins:** add new "shadow-border-transition" utility class ([289ff71](https://github.com/adevinta/spark/commit/289ff71d39e2c064132ed0d8c55e758a1ab21695)), closes [#676](https://github.com/adevinta/spark/issues/676)
+
 ## [1.7.1](https://github.com/adevinta/spark/compare/@spark-ui/button@1.7.0...@spark-ui/button@1.7.1) (2023-04-25)
 
 ### Bug Fixes

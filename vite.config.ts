@@ -17,26 +17,15 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: 'vitest.setup.ts',
-    exclude: [
-      ...configDefaults.exclude,
-      `**/components/${NOT_VALID_COMPONENTS_PATTERN}/**`
-    ],
+    exclude: [...configDefaults.exclude, `**/components/${NOT_VALID_COMPONENTS_PATTERN}/**`],
     // you might want to disable it, if you don't have tests that rely on CSS
     // since parsing CSS is slow
     css: true,
     coverage: {
       provider: 'istanbul',
-      exclude: [
-        "**/packages/**/*.doc.mdx",
-        "**/packages/**/*.stories.tsx",
-      ],
+      exclude: ['**/packages/**/*.doc.mdx', '**/packages/**/*.stories.tsx'],
       reportsDirectory: 'dist/coverage',
-      reporter: [
-        ['lcovonly', { }],
-        ['json', { 'file': 'coverage.json' }],
-        ['html'],
-        ['text']
-      ]
+      reporter: [['lcovonly', {}], ['json', { file: 'coverage.json' }], ['html'], ['text']],
     },
   },
 })

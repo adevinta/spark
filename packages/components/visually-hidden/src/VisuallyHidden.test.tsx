@@ -1,4 +1,4 @@
-import { Check } from '@spark-ui/icons'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 

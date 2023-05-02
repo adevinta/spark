@@ -11,7 +11,7 @@ export const styles = cva(
     'spark-disabled:opacity-dim-3 disabled:hover:ring-transparent spark-disabled:cursor-not-allowed',
     'focus-visible:outline-none focus-visible:ring focus-visible:ring-outline-high',
     'spark-state-unchecked:bg-on-surface/dim-4',
-    '[transition:box-shadow_0.1s_ease-in,_border-color_0.3s_ease-in]',
+    'u-shadow-border-transition',
   ]),
   {
     variants: {

@@ -49,7 +49,8 @@ const misc = {
     'animate-slide-left': 'slide left animation (element with be translated to the left)',
   },
   utilities: {
-    'current-font-size': `width: 1em; height: 1em;`,
+    'u-current-font-size': `width: 1em; height: 1em;`,
+    'u-shadow-border-transition': `transition: box-shadow 100ms ease-in, border-color 300ms ease-in;`,
   },
 }
 

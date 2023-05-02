@@ -122,9 +122,6 @@ export const defaultTheme: Theme = {
     // Background
     background: '#FFFFFF',
     onBackground: '#000000',
-    backgroundHovered: '#F4F4FC',
-    backgroundDisabled: '#F8F8F9',
-    backgroundFocused: '#F4F4FC',
     // Background variant
     backgroundVariant: '#F8F8F9',
     onBackgroundVariant: '#000000',

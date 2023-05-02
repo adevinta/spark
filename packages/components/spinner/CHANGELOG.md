@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.11...@spark-ui/spinner@0.1.12) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/spinner
+
+## [0.1.11](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.10...@spark-ui/spinner@0.1.11) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/spinner
+
+## [0.1.10](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.9...@spark-ui/spinner@0.1.10) (2023-04-27)
+
+### Bug Fixes
+
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+
+## [0.1.9](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.8...@spark-ui/spinner@0.1.9) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/spinner
+
+## [0.1.8](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.7...@spark-ui/spinner@0.1.8) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/spinner
+
 ## [0.1.7](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.6...@spark-ui/spinner@0.1.7) (2023-04-25)
 
 **Note:** Version bump only for package @spark-ui/spinner
