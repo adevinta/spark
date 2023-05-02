@@ -21,4 +21,6 @@ export const Moulding = React.forwardRef(
   )
 )
 
+Moulding.displayName = 'Moulding'
+
 export const tags = ['moulding', 'criteria', 'location']

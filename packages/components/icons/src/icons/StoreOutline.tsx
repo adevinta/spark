@@ -21,4 +21,6 @@ export const StoreOutline = React.forwardRef(
   )
 )
 
+StoreOutline.displayName = 'StoreOutline'
+
 export const tags = ['store-outline', 'account']

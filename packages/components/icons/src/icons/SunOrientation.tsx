@@ -21,4 +21,6 @@ export const SunOrientation = React.forwardRef(
   )
 )
 
+SunOrientation.displayName = 'SunOrientation'
+
 export const tags = ['sun-orientation', 'criteria', 'immobilierneuf']

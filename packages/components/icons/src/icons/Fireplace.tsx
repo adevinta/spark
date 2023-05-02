@@ -21,4 +21,6 @@ export const Fireplace = React.forwardRef(
   )
 )
 
+Fireplace.displayName = 'Fireplace'
+
 export const tags = ['fireplace', 'criteria', 'location']

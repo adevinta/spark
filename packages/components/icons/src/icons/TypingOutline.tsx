@@ -21,4 +21,6 @@ export const TypingOutline = React.forwardRef(
   )
 )
 
+TypingOutline.displayName = 'TypingOutline'
+
 export const tags = ['typing-outline', 'contact']

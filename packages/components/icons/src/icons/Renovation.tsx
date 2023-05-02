@@ -21,4 +21,6 @@ export const Renovation = React.forwardRef(
   )
 )
 
+Renovation.displayName = 'Renovation'
+
 export const tags = ['renovation', 'criteria', 'location']

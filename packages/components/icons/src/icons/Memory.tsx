@@ -21,4 +21,6 @@ export const Memory = React.forwardRef(
   )
 )
 
+Memory.displayName = 'Memory'
+
 export const tags = ['memory', 'criteria', 'multimedia']

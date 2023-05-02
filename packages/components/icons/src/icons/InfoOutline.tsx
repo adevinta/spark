@@ -21,4 +21,6 @@ export const InfoOutline = React.forwardRef(
   )
 )
 
+InfoOutline.displayName = 'InfoOutline'
+
 export const tags = ['info-outline', 'alert']

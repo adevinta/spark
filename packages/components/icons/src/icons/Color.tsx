@@ -21,4 +21,6 @@ export const Color = React.forwardRef(
   )
 )
 
+Color.displayName = 'Color'
+
 export const tags = ['color', 'criteria', 'automobile']

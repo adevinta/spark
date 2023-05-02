@@ -21,4 +21,6 @@ export const Duplex = React.forwardRef(
   )
 )
 
+Duplex.displayName = 'Duplex'
+
 export const tags = ['duplex', 'criteria', 'immobilierneuf']

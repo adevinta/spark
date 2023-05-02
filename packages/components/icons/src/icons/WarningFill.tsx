@@ -21,4 +21,6 @@ export const WarningFill = React.forwardRef(
   )
 )
 
+WarningFill.displayName = 'WarningFill'
+
 export const tags = ['warning-fill', 'alert']

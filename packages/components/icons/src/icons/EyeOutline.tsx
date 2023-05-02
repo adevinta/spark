@@ -21,4 +21,6 @@ export const EyeOutline = React.forwardRef(
   )
 )
 
+EyeOutline.displayName = 'EyeOutline'
+
 export const tags = ['eye-outline', 'actions']

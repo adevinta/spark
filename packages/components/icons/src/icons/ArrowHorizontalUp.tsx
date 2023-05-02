@@ -21,4 +21,6 @@ export const ArrowHorizontalUp = React.forwardRef(
   )
 )
 
+ArrowHorizontalUp.displayName = 'ArrowHorizontalUp'
+
 export const tags = ['arrow-horizontal-up', 'arrows']

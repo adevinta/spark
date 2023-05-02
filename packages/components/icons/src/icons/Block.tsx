@@ -21,4 +21,6 @@ export const Block = React.forwardRef(
   )
 )
 
+Block.displayName = 'Block'
+
 export const tags = ['block', 'alert']

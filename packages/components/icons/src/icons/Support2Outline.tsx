@@ -21,4 +21,6 @@ export const Support2Outline = React.forwardRef(
   )
 )
 
+Support2Outline.displayName = 'Support2Outline'
+
 export const tags = ['support2-outline', 'contact']

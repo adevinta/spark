@@ -21,4 +21,6 @@ export const Accessories = React.forwardRef(
   )
 )
 
+Accessories.displayName = 'Accessories'
+
 export const tags = ['accessories', 'criteria', 'holidays']

@@ -21,4 +21,6 @@ export const AlertOutline = React.forwardRef(
   )
 )
 
+AlertOutline.displayName = 'AlertOutline'
+
 export const tags = ['alert-outline', 'alert']

@@ -21,4 +21,6 @@ export const AddImageOutline = React.forwardRef(
   )
 )
 
+AddImageOutline.displayName = 'AddImageOutline'
+
 export const tags = ['add-image-outline', 'images']
