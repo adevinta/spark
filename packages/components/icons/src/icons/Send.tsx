@@ -21,4 +21,6 @@ export const Send = React.forwardRef(
   )
 )
 
+Send.displayName = 'Send'
+
 export const tags = ['send', 'contact']

@@ -21,4 +21,6 @@ export const ShopingCartFill = React.forwardRef(
   )
 )
 
+ShopingCartFill.displayName = 'ShopingCartFill'
+
 export const tags = ['shoping-cart-fill', 'account']

@@ -30,7 +30,7 @@ describe('Checkbox', () => {
     // Then
     expect(screen.getByRole('checkbox', { name: 'Accept terms and conditions' })).toBeChecked()
     expect(clickEvent).toHaveBeenCalledTimes(1)
-    expect(clickEvent).toHaveBeenCalledWith(true)
+    expect(clickEvent).toHaveBeenCalledWith(true, undefined)
   })
 
   it('should trigger uncheck event', async () => {
@@ -54,7 +54,7 @@ describe('Checkbox', () => {
     // Then
     expect(screen.getByRole('checkbox')).not.toBeChecked()
     expect(clickEvent).toHaveBeenCalledTimes(1)
-    expect(clickEvent).toHaveBeenCalledWith(false)
+    expect(clickEvent).toHaveBeenCalledWith(false, undefined)
   })
 
   it('should not trigger events', async () => {

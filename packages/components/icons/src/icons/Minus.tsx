@@ -21,4 +21,6 @@ export const Minus = React.forwardRef(
   )
 )
 
+Minus.displayName = 'Minus'
+
 export const tags = ['minus', 'arrows']

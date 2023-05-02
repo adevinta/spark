@@ -21,4 +21,6 @@ export const Balcony = React.forwardRef(
   )
 )
 
+Balcony.displayName = 'Balcony'
+
 export const tags = ['balcony', 'criteria', 'immobilierneuf']

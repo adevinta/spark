@@ -21,4 +21,6 @@ export const Speed = React.forwardRef(
   )
 )
 
+Speed.displayName = 'Speed'
+
 export const tags = ['speed', 'criteria', 'automobile']

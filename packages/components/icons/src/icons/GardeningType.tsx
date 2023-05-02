@@ -21,4 +21,6 @@ export const GardeningType = React.forwardRef(
   )
 )
 
+GardeningType.displayName = 'GardeningType'
+
 export const tags = ['gardening_type', 'criteria', 'house']

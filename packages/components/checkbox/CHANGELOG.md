@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.12.1...@spark-ui/checkbox@1.13.0) (2023-05-02)
+
+### Features
+
+- **checkbox:** separate checkbox checked and indeterminate arguments from onCheckedCahnge handler ([5d430ab](https://github.com/adevinta/spark/commit/5d430ab8d8899e535d00143d5f81d96f89ca726f))
+
+## [1.12.1](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.12.0...@spark-ui/checkbox@1.12.1) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
+# [1.12.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.5...@spark-ui/checkbox@1.12.0) (2023-05-02)
+
+### Features
+
+- **checkbox:** add neutral and info intents ([50c5954](https://github.com/adevinta/spark/commit/50c5954c716861e65cc545b0ee876f875d93e7f3))
+
+## [1.11.5](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.4...@spark-ui/checkbox@1.11.5) (2023-05-02)
+
+### Bug Fixes
+
+- **checkbox:** update icon import ([f899aa2](https://github.com/adevinta/spark/commit/f899aa25c461105ced2d521c9a107961845dab36))
+
 ## [1.11.4](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.11.3...@spark-ui/checkbox@1.11.4) (2023-04-28)
 
 **Note:** Version bump only for package @spark-ui/checkbox

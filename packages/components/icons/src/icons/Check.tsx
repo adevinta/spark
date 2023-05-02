@@ -21,4 +21,6 @@ export const Check = React.forwardRef(
   )
 )
 
+Check.displayName = 'Check'
+
 export const tags = ['check', 'toggle']

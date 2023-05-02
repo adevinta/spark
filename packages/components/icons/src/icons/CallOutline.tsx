@@ -21,4 +21,6 @@ export const CallOutline = React.forwardRef(
   )
 )
 
+CallOutline.displayName = 'CallOutline'
+
 export const tags = ['call-outline', 'contact']

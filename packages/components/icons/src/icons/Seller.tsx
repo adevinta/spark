@@ -21,4 +21,6 @@ export const Seller = React.forwardRef(
   )
 )
 
+Seller.displayName = 'Seller'
+
 export const tags = ['seller', 'criteria', 'generic']

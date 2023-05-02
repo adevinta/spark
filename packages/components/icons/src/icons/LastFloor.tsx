@@ -21,4 +21,6 @@ export const LastFloor = React.forwardRef(
   )
 )
 
+LastFloor.displayName = 'LastFloor'
+
 export const tags = ['last-floor', 'criteria', 'location']

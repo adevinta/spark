@@ -21,4 +21,6 @@ export const Time = React.forwardRef(
   )
 )
 
+Time.displayName = 'Time'
+
 export const tags = ['time', 'criteria', 'job']

@@ -21,4 +21,6 @@ export const ConversationOutline = React.forwardRef(
   )
 )
 
+ConversationOutline.displayName = 'ConversationOutline'
+
 export const tags = ['conversation-outline', 'contact']

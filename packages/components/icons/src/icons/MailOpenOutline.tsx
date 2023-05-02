@@ -21,4 +21,6 @@ export const MailOpenOutline = React.forwardRef(
   )
 )
 
+MailOpenOutline.displayName = 'MailOpenOutline'
+
 export const tags = ['mail-open-outline', 'delivery']

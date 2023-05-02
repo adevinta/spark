@@ -1,9 +1,9 @@
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
-import { spinnerVariants, SpinnerVariantsProps } from './Spinner.variants'
+import { spinnerStyles, SpinnerStylesProps } from './Spinner.styles'
 
-export interface SpinnerProps extends ComponentPropsWithoutRef<'div'>, SpinnerVariantsProps {
+export interface SpinnerProps extends ComponentPropsWithoutRef<'div'>, SpinnerStylesProps {
   label?: string
 }
 
@@ -13,7 +13,7 @@ export const Spinner = forwardRef<HTMLDivElement, PropsWithChildren<SpinnerProps
       <div
         data-spark-component="spinner"
         ref={ref}
-        className={spinnerVariants({ className, size, intent, isBackgroundVisible })}
+        className={spinnerStyles({ className, size, intent, isBackgroundVisible })}
         {...others}
       >
         {label && <VisuallyHidden>{label}</VisuallyHidden>}
