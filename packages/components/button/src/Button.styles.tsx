@@ -11,7 +11,9 @@ import {
 
 export const buttonStyles = cva(
   [
-    'gap-md box-border flex items-center justify-center whitespace-nowrap',
+    'u-shadow-border-transition',
+    'gap-md box-border inline-flex items-center justify-center whitespace-nowrap',
+    'px-lg',
     'text-body-1 font-bold',
     'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
   ],
@@ -55,13 +57,13 @@ export const buttonStyles = cva(
         surface: [],
       }),
 
-      size: makeVariants<'size'>({
-        sm: ['py-sm px-lg'],
-        md: ['py-md px-lg'],
-        lg: ['p-lg'],
+      size: makeVariants<'size', ['sm', 'md', 'lg']>({
+        sm: ['min-w-sz-32', 'h-sz-32'],
+        md: ['min-w-sz-44', 'h-sz-44'],
+        lg: ['min-w-sz-56', 'h-sz-56'],
       }),
 
-      shape: makeVariants<'shape'>({
+      shape: makeVariants<'shape', ['rounded', 'square', 'pill']>({
         rounded: ['rounded-lg'],
         square: ['rounded-none'],
         pill: ['rounded-full'],

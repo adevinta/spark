@@ -12,7 +12,7 @@ const rootPkg = require('../package.json')
 const rootDeps = Object.keys(rootPkg.dependencies || {})
 const rootDevDeps = Object.keys(rootPkg.devDependencies || {})
 
-export function buildComponentConfig(path: string) {
+export function buildComponentConfig(path: string, preserveModules: boolean) {
   const pkg = require(join(path, '/package.json'))
   const deps = Object.keys(pkg.dependencies || {})
   const devDeps = Object.keys(pkg.devDependencies || {})
@@ -23,11 +23,12 @@ export function buildComponentConfig(path: string) {
       lib: {
         entry: 'src/index.ts',
         formats: ['es', 'cjs'],
-        fileName: 'index',
+        fileName: '[name]',
       },
       rollupOptions: {
         external: [...deps, ...rootDeps, ...devDeps, ...rootDevDeps],
         plugins: [terser()],
+        preserveModules,
       },
     },
     plugins: [

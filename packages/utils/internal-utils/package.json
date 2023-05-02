@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/internal-utils",
-  "version": "1.4.0",
+  "version": "1.5.3",
   "description": "package for sharing reusable code and resources across the codebase",
   "publishConfig": {
     "access": "public"
@@ -10,5 +10,15 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/utils/internal-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
 }

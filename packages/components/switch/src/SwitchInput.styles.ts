@@ -1,14 +1,9 @@
 import { makeVariants, tw } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
-const defaultVariants = {
-  intent: 'primary',
-  size: 'sm',
-} as const
-
 export const styles = cva(
   tw([
-    'group relative inline-flex flex-shrink-0 items-center',
+    'group relative inline-flex flex-shrink-0 items-center self-baseline',
     'cursor-pointer',
     'rounded-full border-transparent',
     'hover:ring-4',
@@ -16,6 +11,7 @@ export const styles = cva(
     'spark-disabled:opacity-dim-3 disabled:hover:ring-transparent spark-disabled:cursor-not-allowed',
     'focus-visible:outline-none focus-visible:ring focus-visible:ring-outline-high',
     'spark-state-unchecked:bg-on-surface/dim-4',
+    'u-shadow-border-transition',
   ]),
   {
     variants: {
@@ -40,7 +36,10 @@ export const styles = cva(
         neutral: ['spark-state-checked:bg-neutral', 'hover:ring-neutral-container', 'text-neutral'],
       }),
     },
-    defaultVariants,
+    defaultVariants: {
+      intent: 'primary',
+      size: 'sm',
+    },
   }
 )
 
@@ -63,20 +62,25 @@ export const thumbStyles = cva(
         sm: ['h-sz-20', 'w-sz-20'],
         md: ['h-sz-24', 'w-sz-24'],
       }),
+      checked: {
+        false: 'text-on-surface/dim-4',
+      },
     },
-    defaultVariants,
+    defaultVariants: {
+      size: 'sm',
+      checked: false,
+    },
   }
 )
 
-export const thumbCheckSVGStyles = cva(
-  ['transition-opacity duration-200', 'group-spark-state-unchecked:opacity-0 '],
-  {
-    variants: {
-      size: makeVariants<'size', ['sm', 'md']>({
-        sm: ['h-sz-10 w-sz-10'],
-        md: ['h-sz-12 w-sz-12'],
-      }),
-    },
-    defaultVariants,
-  }
-)
+export const thumbCheckSVGStyles = cva(['transition-opacity duration-200'], {
+  variants: {
+    size: makeVariants<'size', ['sm', 'md']>({
+      sm: ['h-sz-10 w-sz-10'],
+      md: ['h-sz-12 w-sz-12'],
+    }),
+  },
+  defaultVariants: {
+    size: 'sm',
+  },
+})

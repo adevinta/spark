@@ -4,6 +4,7 @@ import { forwardRef } from 'react'
 import { radioIndicatorVariants, RadioIndicatorVariantsProps } from './RadioIndicator.variants'
 
 export interface RadioIndicatorProps extends RadioIndicatorVariantsProps {
+  className?: string
   /**
    * Change the component to the HTML tag or custom component of the only child.
    */
@@ -15,11 +16,11 @@ export interface RadioIndicatorProps extends RadioIndicatorVariantsProps {
 }
 
 export const RadioIndicator = forwardRef<HTMLSpanElement, RadioIndicatorProps>(
-  ({ intent, size, ...others }, ref) => {
+  ({ intent, size, className, ...others }, ref) => {
     return (
       <RadioIndicatorPrimitive
         ref={ref}
-        className={radioIndicatorVariants({ intent, size })}
+        className={radioIndicatorVariants({ intent, size, className })}
         {...others}
       />
     )

@@ -1,5 +1,6 @@
 const turbosnap = require('vite-plugin-turbosnap')
 const { mergeConfig } = require('vite')
+
 module.exports = {
   async viteFinal(config, { configType }) {
     // This is where we can override vite config for storybook
@@ -40,6 +41,26 @@ module.exports = {
   typescript: {
     check: true,
     reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+      propFilter: prop => {
+        const prohibitedPropsRegexes = [/node_modules\/\@types\/react\/index.d.ts/]
+
+        if (prop.declarations?.length > 0) {
+          const isProhibitedProps = prop.declarations.some(declaration =>
+            prohibitedPropsRegexes.some(regex => regex.test(declaration.fileName))
+          )
+
+          return !isProhibitedProps
+        }
+
+        return true
+      },
+      componentNameResolver: expression => {
+        return expression.getName()
+      },
+    },
   },
   docs: {
     autodocs: true,

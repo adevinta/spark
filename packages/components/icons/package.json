@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/icons",
-  "version": "1.6.0",
+  "version": "1.9.3",
   "description": "spark-ui icons",
   "publishConfig": {
     "access": "public"
@@ -19,9 +19,9 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "@spark-ui/button": "1",
-    "@spark-ui/icon": "^1.4.1",
-    "@spark-ui/visually-hidden": "^0.4.1",
+    "@spark-ui/button": "^1.9.3",
+    "@spark-ui/icon": "^1.5.10",
+    "@spark-ui/visually-hidden": "^0.4.16",
     "change-case": "4.1.2",
     "minimatch": "7.4.2",
     "path-that-svg": "1.2.4",
@@ -32,5 +32,10 @@
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
     "tailwindcss": "^3.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
 }

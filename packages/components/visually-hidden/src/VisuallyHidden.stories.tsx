@@ -1,4 +1,4 @@
-import { Check } from '@spark-ui/icons'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { VisuallyHidden } from '.'

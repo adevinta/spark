@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.9.2...@spark-ui/radio@1.9.3) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/radio
+
+## [1.9.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.9.1...@spark-ui/radio@1.9.2) (2023-04-27)
+
+### Bug Fixes
+
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+
+## [1.9.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.9.0...@spark-ui/radio@1.9.1) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/radio
+
+# [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.8.2...@spark-ui/radio@1.9.0) (2023-04-26)
+
+### Features
+
+- **tailwind-plugins:** add new "shadow-border-transition" utility class ([289ff71](https://github.com/adevinta/spark/commit/289ff71d39e2c064132ed0d8c55e758a1ab21695)), closes [#676](https://github.com/adevinta/spark/issues/676)
+
+## [1.8.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.8.1...@spark-ui/radio@1.8.2) (2023-04-25)
+
+### Bug Fixes
+
+- global fix for custom styles and cva ([083e5ec](https://github.com/adevinta/spark/commit/083e5ec890f41b526a040282355757bc5501f040))
+
+## [1.8.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.8.0...@spark-ui/radio@1.8.1) (2023-04-24)
+
+### Bug Fixes
+
+- **radio:** props table ([625c5e3](https://github.com/adevinta/spark/commit/625c5e327c4ad04c5c07b5b4e22cbc6ea21d65dc))
+
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.7.2...@spark-ui/radio@1.8.0) (2023-04-19)
+
+### Features
+
+- **radio:** radioGroup orientation prop ([d8e02c7](https://github.com/adevinta/spark/commit/d8e02c777f564feca16871ae28f14ce6f5606439))
+
+## [1.7.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.7.1...@spark-ui/radio@1.7.2) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/radio
+
+## [1.7.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.7.0...@spark-ui/radio@1.7.1) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/radio
+
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.6.3...@spark-ui/radio@1.7.0) (2023-04-19)
+
+### Features
+
+- **radio:** update make variants function ([79ed4ba](https://github.com/adevinta/spark/commit/79ed4ba089799a75b9fcb77d30c81e6835232bf4))
+
+## [1.6.3](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.6.2...@spark-ui/radio@1.6.3) (2023-04-18)
+
+**Note:** Version bump only for package @spark-ui/radio
+
 ## [1.6.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.6.1...@spark-ui/radio@1.6.2) (2023-04-13)
 
 **Note:** Version bump only for package @spark-ui/radio

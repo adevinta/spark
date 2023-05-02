@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.10](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.9...@spark-ui/icon@1.5.10) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/icon
+
+## [1.5.9](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.8...@spark-ui/icon@1.5.9) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/icon
+
+## [1.5.8](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.7...@spark-ui/icon@1.5.8) (2023-04-27)
+
+### Bug Fixes
+
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+
+## [1.5.7](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.6...@spark-ui/icon@1.5.7) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/icon
+
+## [1.5.6](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.5...@spark-ui/icon@1.5.6) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/icon
+
+## [1.5.5](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.4...@spark-ui/icon@1.5.5) (2023-04-25)
+
+**Note:** Version bump only for package @spark-ui/icon
+
+## [1.5.4](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.3...@spark-ui/icon@1.5.4) (2023-04-24)
+
+### Bug Fixes
+
+- **icon:** add display name ([d2bc33e](https://github.com/adevinta/spark/commit/d2bc33ee27eadbbcd441b127d40cb872b5870e84))
+- **icon:** props table ([ee468cf](https://github.com/adevinta/spark/commit/ee468cf69fc31f1ab01703fa9eb5ef6f8a7a0d1b))
+
+## [1.5.3](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.2...@spark-ui/icon@1.5.3) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/icon
+
+## [1.5.2](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.1...@spark-ui/icon@1.5.2) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/icon
+
+## [1.5.1](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.0...@spark-ui/icon@1.5.1) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/icon
+
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.4.2...@spark-ui/icon@1.5.0) (2023-04-19)
+
+### Features
+
+- **icon:** add intent and current size support ([4e24bd7](https://github.com/adevinta/spark/commit/4e24bd7a90dd1e8fe60a9b86dc0c158f1ad79f11))
+- **icon:** update current size ([332f7fc](https://github.com/adevinta/spark/commit/332f7fca46c33083e6f341c4bd3985a02ef1413e))
+
+## [1.4.2](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.4.1...@spark-ui/icon@1.4.2) (2023-04-18)
+
+**Note:** Version bump only for package @spark-ui/icon
+
 ## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.4.0...@spark-ui/icon@1.4.1) (2023-04-17)
 
 **Note:** Version bump only for package @spark-ui/icon

@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.5](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.4...@spark-ui/tag@1.6.5) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/tag
+
+## [1.6.4](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.3...@spark-ui/tag@1.6.4) (2023-04-27)
+
+### Bug Fixes
+
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+
+## [1.6.3](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.2...@spark-ui/tag@1.6.3) (2023-04-24)
+
+### Bug Fixes
+
+- **tag:** props table ([7308044](https://github.com/adevinta/spark/commit/7308044aa4e660d3154ced0ceccfa3b9ce70c520))
+
+## [1.6.2](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.1...@spark-ui/tag@1.6.2) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/tag
+
+## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.0...@spark-ui/tag@1.6.1) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/tag
+
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.5.4...@spark-ui/tag@1.6.0) (2023-04-19)
+
+### Features
+
+- **tag:** update make variants function ([c8bab4e](https://github.com/adevinta/spark/commit/c8bab4e8ef3d1388e4688d8bce07ead47f142af6))
+
+## [1.5.4](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.5.3...@spark-ui/tag@1.5.4) (2023-04-18)
+
+**Note:** Version bump only for package @spark-ui/tag
+
 ## [1.5.3](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.5.2...@spark-ui/tag@1.5.3) (2023-04-14)
 
 **Note:** Version bump only for package @spark-ui/tag

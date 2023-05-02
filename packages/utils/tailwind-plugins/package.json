@@ -1,13 +1,13 @@
 {
   "name": "@spark-ui/tailwind-plugins",
-  "version": "2.6.0",
+  "version": "2.10.2",
   "description": "Spark Tailwind plugins",
   "publishConfig": {
     "access": "public"
   },
   "main": "index.js",
   "dependencies": {
-    "@spark-ui/theme-utils": "^2.13.0",
+    "@spark-ui/theme-utils": "^2.14.1",
     "tailwindcss-radix": "^2.8.0"
   },
   "peerDependencies": {
@@ -17,5 +17,10 @@
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/utils/tailwind-plugins"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
 }

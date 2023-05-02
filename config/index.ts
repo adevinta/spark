@@ -2,8 +2,8 @@ import merge from 'deepmerge'
 
 import { buildComponentConfig } from './component'
 
-export function getComponentConfiguration(path: string, name: string, options = {}) {
-  return getConfiguration(buildComponentConfig(path), options, name)
+export function getComponentConfiguration(path: string, name: string, options: any = {}) {
+  return getConfiguration(buildComponentConfig(path, options.preserveModules), options, name)
 }
 
 function getConfiguration(configuration: Record<string, unknown>, options = {}, name?: string) {

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/spinner",
-  "version": "0.1.1",
+  "version": "0.1.12",
   "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
   "publishConfig": {
     "access": "public"
@@ -12,6 +12,16 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/visually-hidden": "^0.4.1"
-  }
+    "@spark-ui/visually-hidden": "^0.4.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/spinner"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
 }

@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.9.2...@spark-ui/icons@1.9.3) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.9.2](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.9.1...@spark-ui/icons@1.9.2) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.9.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.9.0...@spark-ui/icons@1.9.1) (2023-04-28)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+# [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.8.0...@spark-ui/icons@1.9.0) (2023-04-27)
+
+### Features
+
+- add module separation ([4c543b7](https://github.com/adevinta/spark/commit/4c543b7b1396ef9032352e6392d93663fc7e0d48))
+
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.8...@spark-ui/icons@1.8.0) (2023-04-27)
+
+### Features
+
+- **icons:** every icons now accept a ref ([264c7ea](https://github.com/adevinta/spark/commit/264c7eadc4e4903ae4860fb02a3c2138bebfff60))
+
+## [1.7.8](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.7...@spark-ui/icons@1.7.8) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.7.7](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.6...@spark-ui/icons@1.7.7) (2023-04-26)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.7.6](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.5...@spark-ui/icons@1.7.6) (2023-04-25)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.7.5](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.4...@spark-ui/icons@1.7.5) (2023-04-24)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.7.4](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.3...@spark-ui/icons@1.7.4) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.7.3](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.2...@spark-ui/icons@1.7.3) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.7.2](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.1...@spark-ui/icons@1.7.2) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.7.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.7.0...@spark-ui/icons@1.7.1) (2023-04-19)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.6.1...@spark-ui/icons@1.7.0) (2023-04-19)
+
+### Features
+
+- **icons:** add minus icon ([bf83d6b](https://github.com/adevinta/spark/commit/bf83d6bcc30e1b94fc21174181c06162bd104bf1))
+- **icons:** add minus icon ([593493c](https://github.com/adevinta/spark/commit/593493c79412f6f42eabaa4962de04138bbab09a))
+
+## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.6.0...@spark-ui/icons@1.6.1) (2023-04-18)
+
+**Note:** Version bump only for package @spark-ui/icons
+
 # [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.5.4...@spark-ui/icons@1.6.0) (2023-04-17)
 
 ### Bug Fixes
