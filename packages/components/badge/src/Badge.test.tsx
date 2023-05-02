@@ -1,4 +1,4 @@
-import { getByLabelText, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { Badge } from './Badge'
@@ -19,8 +19,8 @@ describe('Badge', () => {
   it('should has DOM content when passing a children', () => {
     render(<Badge>Hello World!</Badge>)
 
-    const helloWorldContent = (content, element) => {
-      return element.tagName.toLowerCase() === 'div' && content.startsWith('Hello World!')
+    const helloWorldContent = (content: string, element: Element | null) => {
+      return element?.tagName.toLowerCase() === 'div' && content.startsWith('Hello World!')
     }
     const childrenWithText = screen.getByText(helloWorldContent)
 

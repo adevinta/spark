@@ -51,9 +51,9 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
   ) => {
     const hasOverflow = count && count > overflowCount
     const regularCountLabel =
-      count && count > 1 ? labels.pluralCount.replace('%COUNT%', count) : labels.singleCount
+      count && count > 1 ? labels.pluralCount?.replace('%COUNT%', `${count}`) : labels.singleCount
     const countLabel = hasOverflow
-      ? labels.moreThanOverflowCount.replace('%OVERFLOW_COUNT%', overflowCount)
+      ? labels.moreThanOverflowCount?.replace('%OVERFLOW_COUNT%', `${overflowCount}`)
       : regularCountLabel
     const label = count ? countLabel : labels.noCount
 
