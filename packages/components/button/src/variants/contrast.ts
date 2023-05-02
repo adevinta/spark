@@ -52,6 +52,16 @@ export const contrastVariants = [
     ]),
   },
   {
+    intent: 'info',
+    design: 'contrast',
+    class: tw([
+      'text-info',
+      'enabled:hover:bg-info-container-hovered',
+      'enabled:active:bg-info-container-hovered',
+      'focus-visible:bg-info-container-focused',
+    ]),
+  },
+  {
     intent: 'neutral',
     design: 'contrast',
     class: tw([
