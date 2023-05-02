@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 
 import { Badge } from './Badge'
 
-describe.only('Badge', () => {
+describe('Badge', () => {
   it('should render', () => {
     render(<Badge />)
 
