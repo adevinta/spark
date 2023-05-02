@@ -1,5 +1,6 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import { Check, Close } from '@spark-ui/icons'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { Close } from '@spark-ui/icons/dist/icons/Close'
 import { Slot } from '@spark-ui/slot'
 import { useCombinedState } from '@spark-ui/use-combined-state'
 import React, { ReactNode } from 'react'
