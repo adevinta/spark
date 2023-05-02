@@ -73,7 +73,7 @@ export const ControlledState: StoryFn = _args => {
   )
 }
 
-const intent = ['primary', 'success', 'alert', 'error'] as const
+const intent = ['primary', 'success', 'alert', 'error', 'info', 'neutral'] as const
 
 export const Intent: StoryFn = _args => (
   <>
