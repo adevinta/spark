@@ -24,3 +24,7 @@ Browser support is declared within `package.json` file, and can be found in huma
 ## LICENSE
 
 [MIT](LICENSE)
+
+## Note
+
+I'm **BATMAN**!!!
