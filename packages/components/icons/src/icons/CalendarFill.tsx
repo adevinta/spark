@@ -21,4 +21,6 @@ export const CalendarFill = React.forwardRef(
   )
 )
 
+CalendarFill.displayName = 'CalendarFill'
+
 export const tags = ['calendar-fill', 'calendar']

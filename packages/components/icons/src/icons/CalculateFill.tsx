@@ -21,4 +21,6 @@ export const CalculateFill = React.forwardRef(
   )
 )
 
+CalculateFill.displayName = 'CalculateFill'
+
 export const tags = ['calculate-fill', 'actions']

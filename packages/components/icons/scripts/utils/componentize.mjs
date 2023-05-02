@@ -28,6 +28,8 @@ export const ${pascalCase(
   />
 ))
 
+${pascalCase(name)}.displayName = '${pascalCase(name)}'
+
 export const tags = ${JSON.stringify([...nameTags, ...tags.map(tag => noCase(`${tag}`))])}
 `
 }

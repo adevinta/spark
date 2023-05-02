@@ -21,4 +21,6 @@ export const Activity = React.forwardRef(
   )
 )
 
+Activity.displayName = 'Activity'
+
 export const tags = ['activity', 'account']

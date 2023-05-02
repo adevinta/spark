@@ -4,7 +4,7 @@ const defaultVariants = {
   disabled: false,
 }
 
-export const radioLabelVariants = cva(['flex', 'items-center', 'gap-md', 'text-body-1'], {
+export const radioLabelStyles = cva(['flex', 'items-center', 'gap-md', 'text-body-1'], {
   variants: {
     disabled: {
       true: ['text-neutral/dim-2', 'cursor-not-allowed'],
@@ -14,4 +14,4 @@ export const radioLabelVariants = cva(['flex', 'items-center', 'gap-md', 'text-b
   defaultVariants,
 })
 
-export type RadioLabelVariantsProps = VariantProps<typeof radioLabelVariants>
+export type RadioLabelStylesProps = VariantProps<typeof radioLabelStyles>

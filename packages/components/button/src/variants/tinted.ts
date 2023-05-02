@@ -57,6 +57,17 @@ export const tintedVariants = [
     ]),
   },
   {
+    intent: 'info',
+    design: 'tinted',
+    class: tw([
+      'bg-info-container',
+      'text-on-info-container',
+      'enabled:hover:bg-info-container-hovered',
+      'enabled:active:bg-info-container-hovered',
+      'focus-visible:bg-info-container-focused',
+    ]),
+  },
+  {
     intent: 'neutral',
     design: 'tinted',
     class: tw([

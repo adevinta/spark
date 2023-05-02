@@ -21,4 +21,6 @@ export const DeliveryFastFill = React.forwardRef(
   )
 )
 
+DeliveryFastFill.displayName = 'DeliveryFastFill'
+
 export const tags = ['delivery-fast-fill', 'delivery']

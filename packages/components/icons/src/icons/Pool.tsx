@@ -21,4 +21,6 @@ export const Pool = React.forwardRef(
   )
 )
 
+Pool.displayName = 'Pool'
+
 export const tags = ['pool', 'criteria', 'holidays']

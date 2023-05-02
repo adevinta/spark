@@ -21,4 +21,6 @@ export const ArrowHorizontalDown = React.forwardRef(
   )
 )
 
+ArrowHorizontalDown.displayName = 'ArrowHorizontalDown'
+
 export const tags = ['arrow-horizontal-down', 'arrows']

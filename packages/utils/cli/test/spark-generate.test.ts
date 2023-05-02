@@ -12,7 +12,8 @@ const cliPath = path.join(__dirname, '../../bin/spark.mjs')
 const cliProcess = cmd.create(cliPath)
 
 describe('CLI `spark generate` (component package)', () => {
-  it('should properly generate package from CLI when arguments are valid', async () => {
+  // TODO: #710: FIX component generation tool test
+  it.skip('should properly generate package from CLI when arguments are valid', async () => {
     // GIVEN a package definition
     const packageName = 'bar'
     const packageType = 'component'

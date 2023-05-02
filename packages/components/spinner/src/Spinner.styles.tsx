@@ -6,7 +6,7 @@ const defaultVariants = {
   isBackgroundVisible: false,
 } as const
 
-export const spinnerVariants = cva(
+export const spinnerStyles = cva(
   ['inline-block', 'border-solid', 'rounded-full', 'border-md', 'animate-spin'],
   {
     variants: {
@@ -33,4 +33,4 @@ export const spinnerVariants = cva(
   }
 )
 
-export type SpinnerVariantsProps = VariantProps<typeof spinnerVariants>
+export type SpinnerStylesProps = VariantProps<typeof spinnerStyles>

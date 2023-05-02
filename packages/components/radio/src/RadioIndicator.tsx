@@ -1,9 +1,9 @@
 import { RadioGroupIndicator as RadioIndicatorPrimitive } from '@radix-ui/react-radio-group'
 import { forwardRef } from 'react'
 
-import { radioIndicatorVariants, RadioIndicatorVariantsProps } from './RadioIndicator.variants'
+import { radioIndicatorStyles, RadioIndicatorStylesProps } from './RadioIndicator.styles'
 
-export interface RadioIndicatorProps extends RadioIndicatorVariantsProps {
+export interface RadioIndicatorProps extends RadioIndicatorStylesProps {
   className?: string
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -20,7 +20,7 @@ export const RadioIndicator = forwardRef<HTMLSpanElement, RadioIndicatorProps>(
     return (
       <RadioIndicatorPrimitive
         ref={ref}
-        className={radioIndicatorVariants({ intent, size, className })}
+        className={radioIndicatorStyles({ intent, size, className })}
         {...others}
       />
     )

@@ -21,4 +21,6 @@ export const GlassWindows = React.forwardRef(
   )
 )
 
+GlassWindows.displayName = 'GlassWindows'
+
 export const tags = ['glass-windows', 'criteria', 'location']

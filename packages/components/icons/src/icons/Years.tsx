@@ -21,4 +21,6 @@ export const Years = React.forwardRef(
   )
 )
 
+Years.displayName = 'Years'
+
 export const tags = ['years', 'criteria', 'automobile']

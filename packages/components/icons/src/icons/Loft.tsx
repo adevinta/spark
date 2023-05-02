@@ -21,4 +21,6 @@ export const Loft = React.forwardRef(
   )
 )
 
+Loft.displayName = 'Loft'
+
 export const tags = ['loft', 'criteria', 'location']

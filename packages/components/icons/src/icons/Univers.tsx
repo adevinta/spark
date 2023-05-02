@@ -21,4 +21,6 @@ export const Univers = React.forwardRef(
   )
 )
 
+Univers.displayName = 'Univers'
+
 export const tags = ['univers', 'criteria', 'mode']

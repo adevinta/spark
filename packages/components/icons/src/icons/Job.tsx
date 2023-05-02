@@ -21,4 +21,6 @@ export const Job = React.forwardRef(
   )
 )
 
+Job.displayName = 'Job'
+
 export const tags = ['job', 'categories']

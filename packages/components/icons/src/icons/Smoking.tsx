@@ -21,4 +21,6 @@ export const Smoking = React.forwardRef(
   )
 )
 
+Smoking.displayName = 'Smoking'
+
 export const tags = ['smoking', 'criteria', 'generic']

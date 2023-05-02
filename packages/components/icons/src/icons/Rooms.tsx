@@ -21,4 +21,6 @@ export const Rooms = React.forwardRef(
   )
 )
 
+Rooms.displayName = 'Rooms'
+
 export const tags = ['rooms', 'criteria', 'holidays']

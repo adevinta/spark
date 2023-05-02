@@ -1,7 +1,7 @@
 import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const iconVariants = cva(['fill-current'], {
+export const iconStyles = cva(['fill-current'], {
   variants: {
     intent: makeVariants<
       'intent',
@@ -25,4 +25,4 @@ export const iconVariants = cva(['fill-current'], {
   },
 })
 
-export type IconVariantsProps = VariantProps<typeof iconVariants>
+export type IconVariantsProps = VariantProps<typeof iconStyles>
