@@ -7,7 +7,7 @@ export const contrastVariants = [
     class: tw([
       'text-primary',
       'enabled:hover:bg-primary-container-hovered',
-      'enabled:active:bg-primary-container-hovered',
+      'enabled:active:bg-primary-container-pressed',
       'focus-visible:bg-primary-container-focused',
     ]),
   },
@@ -17,7 +17,7 @@ export const contrastVariants = [
     class: tw([
       'text-secondary',
       'enabled:hover:bg-secondary-container-hovered',
-      'enabled:active:bg-secondary-container-hovered',
+      'enabled:active:bg-secondary-container-pressed',
       'focus-visible:bg-secondary-container-focused',
     ]),
   },
@@ -27,7 +27,7 @@ export const contrastVariants = [
     class: tw([
       'text-success',
       'enabled:hover:bg-success-container-hovered',
-      'enabled:active:bg-success-container-hovered',
+      'enabled:active:bg-success-container-pressed',
       'focus-visible:bg-success-container-focused',
     ]),
   },
@@ -37,7 +37,7 @@ export const contrastVariants = [
     class: tw([
       'text-alert',
       'enabled:hover:bg-alert-container-hovered',
-      'enabled:active:bg-alert-container-hovered',
+      'enabled:active:bg-alert-container-pressed',
       'focus-visible:bg-alert-container-focused',
     ]),
   },
@@ -47,7 +47,7 @@ export const contrastVariants = [
     class: tw([
       'text-error',
       'enabled:hover:bg-error-container-hovered',
-      'enabled:active:bg-error-container-hovered',
+      'enabled:active:bg-error-container-pressed',
       'focus-visible:bg-error-container-focused',
     ]),
   },
@@ -57,7 +57,7 @@ export const contrastVariants = [
     class: tw([
       'text-info',
       'enabled:hover:bg-info-container-hovered',
-      'enabled:active:bg-info-container-hovered',
+      'enabled:active:bg-info-container-pressed',
       'focus-visible:bg-info-container-focused',
     ]),
   },
@@ -67,7 +67,7 @@ export const contrastVariants = [
     class: tw([
       'text-neutral',
       'enabled:hover:bg-neutral-container-hovered',
-      'enabled:active:bg-neutral-container-hovered',
+      'enabled:active:bg-neutral-container-pressed',
       'focus-visible:bg-neutral-container-focused',
     ]),
   },
@@ -77,7 +77,7 @@ export const contrastVariants = [
     class: tw([
       'text-on-surface',
       'enabled:hover:bg-surface-hovered',
-      'enabled:active:bg-surface-hovered',
+      'enabled:active:bg-surface-pressed',
       'focus-visible:bg-surface-focused',
     ]),
   },
