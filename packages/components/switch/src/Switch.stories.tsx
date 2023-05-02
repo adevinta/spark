@@ -1,5 +1,6 @@
 import { Button } from '@spark-ui/button'
-import { EyeFill, EyeOffFill } from '@spark-ui/icons'
+import { EyeFill } from '@spark-ui/icons/dist/icons/EyeFill'
+import { EyeOffFill } from '@spark-ui/icons/dist/icons/EyeOffFill'
 import { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps, useState } from 'react'
 
