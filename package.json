@@ -110,7 +110,7 @@
     "vite": "4.3.1",
     "vite-plugin-dts": "1.7.2",
     "vite-plugin-turbosnap": "1.0.1",
-    "vite-tsconfig-paths": "4.0.5",
+    "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.29.2"
   },
   "workspaces": [
