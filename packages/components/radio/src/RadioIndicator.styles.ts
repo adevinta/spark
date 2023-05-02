@@ -1,7 +1,7 @@
 import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const radioIndicatorVariants = cva(
+export const radioIndicatorStyles = cva(
   [
     'block',
     'relative',
@@ -42,4 +42,4 @@ export const radioIndicatorVariants = cva(
   }
 )
 
-export type RadioIndicatorVariantsProps = VariantProps<typeof radioIndicatorVariants>
+export type RadioIndicatorStylesProps = VariantProps<typeof radioIndicatorStyles>
