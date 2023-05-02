@@ -21,4 +21,6 @@ export const KeyFill = React.forwardRef(
   )
 )
 
+KeyFill.displayName = 'KeyFill'
+
 export const tags = ['key-fill', 'account']

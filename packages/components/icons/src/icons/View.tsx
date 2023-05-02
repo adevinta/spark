@@ -21,4 +21,6 @@ export const View = React.forwardRef(
   )
 )
 
+View.displayName = 'View'
+
 export const tags = ['view', 'criteria', 'location']

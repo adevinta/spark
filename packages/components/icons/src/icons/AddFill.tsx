@@ -21,4 +21,6 @@ export const AddFill = React.forwardRef(
   )
 )
 
+AddFill.displayName = 'AddFill'
+
 export const tags = ['add-fill', 'images']

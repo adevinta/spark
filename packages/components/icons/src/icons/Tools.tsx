@@ -21,4 +21,6 @@ export const Tools = React.forwardRef(
   )
 )
 
+Tools.displayName = 'Tools'
+
 export const tags = ['tools', 'criteria', 'materiel pro']

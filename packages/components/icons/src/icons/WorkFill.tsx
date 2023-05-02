@@ -21,4 +21,6 @@ export const WorkFill = React.forwardRef(
   )
 )
 
+WorkFill.displayName = 'WorkFill'
+
 export const tags = ['work-fill', 'account']

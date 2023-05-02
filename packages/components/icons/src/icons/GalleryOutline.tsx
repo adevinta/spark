@@ -21,4 +21,6 @@ export const GalleryOutline = React.forwardRef(
   )
 )
 
+GalleryOutline.displayName = 'GalleryOutline'
+
 export const tags = ['gallery-outline', 'images']

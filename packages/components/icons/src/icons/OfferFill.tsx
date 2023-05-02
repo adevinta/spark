@@ -21,4 +21,6 @@ export const OfferFill = React.forwardRef(
   )
 )
 
+OfferFill.displayName = 'OfferFill'
+
 export const tags = ['offer-fill', 'account']

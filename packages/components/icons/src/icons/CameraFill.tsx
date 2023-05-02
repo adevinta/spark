@@ -21,4 +21,6 @@ export const CameraFill = React.forwardRef(
   )
 )
 
+CameraFill.displayName = 'CameraFill'
+
 export const tags = ['camera-fill', 'images']

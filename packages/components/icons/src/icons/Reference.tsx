@@ -21,4 +21,6 @@ export const Reference = React.forwardRef(
   )
 )
 
+Reference.displayName = 'Reference'
+
 export const tags = ['reference', 'criteria', 'immobilier']

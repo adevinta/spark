@@ -21,4 +21,6 @@ export const Calm = React.forwardRef(
   )
 )
 
+Calm.displayName = 'Calm'
+
 export const tags = ['calm', 'criteria', 'location']

@@ -21,4 +21,6 @@ export const Cylindrical = React.forwardRef(
   )
 )
 
+Cylindrical.displayName = 'Cylindrical'
+
 export const tags = ['cylindrical', 'criteria', 'automobile']

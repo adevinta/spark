@@ -21,4 +21,6 @@ export const FileOffOutline = React.forwardRef(
   )
 )
 
+FileOffOutline.displayName = 'FileOffOutline'
+
 export const tags = ['file-off-outline', 'account']

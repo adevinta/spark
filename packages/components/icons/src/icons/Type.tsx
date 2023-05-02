@@ -21,4 +21,6 @@ export const Type = React.forwardRef(
   )
 )
 
+Type.displayName = 'Type'
+
 export const tags = ['type', 'criteria', 'multimedia']

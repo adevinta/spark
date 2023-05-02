@@ -21,4 +21,6 @@ export const StoreFill = React.forwardRef(
   )
 )
 
+StoreFill.displayName = 'StoreFill'
+
 export const tags = ['store-fill', 'account']

@@ -21,4 +21,6 @@ export const AirConditioning = React.forwardRef(
   )
 )
 
+AirConditioning.displayName = 'AirConditioning'
+
 export const tags = ['air-conditioning', 'criteria', 'holidays']

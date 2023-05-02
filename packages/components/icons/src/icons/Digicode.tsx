@@ -21,4 +21,6 @@ export const Digicode = React.forwardRef(
   )
 )
 
+Digicode.displayName = 'Digicode'
+
 export const tags = ['digicode', 'criteria', 'location']

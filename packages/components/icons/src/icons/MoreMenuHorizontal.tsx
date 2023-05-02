@@ -21,4 +21,6 @@ export const MoreMenuHorizontal = React.forwardRef(
   )
 )
 
+MoreMenuHorizontal.displayName = 'MoreMenuHorizontal'
+
 export const tags = ['more-menu-horizontal', 'actions']
