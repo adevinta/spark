@@ -1,7 +1,7 @@
 import { Button, ButtonProps } from '@spark-ui/button'
 import React from 'react'
 
-import { iconButtonVariants } from './IconButton.variants'
+import { iconButtonStyles } from './IconButton.styles'
 
 export interface IconButtonProps extends ButtonProps {
   'aria-label': string
@@ -23,7 +23,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <Button
         ref={ref}
-        className={iconButtonVariants({ size, className })}
+        className={iconButtonStyles({ size, className })}
         design={design}
         disabled={disabled}
         intent={intent}

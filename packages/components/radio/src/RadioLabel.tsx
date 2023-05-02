@@ -1,10 +1,10 @@
 import { Label } from '@radix-ui/react-label'
 import { PropsWithChildren } from 'react'
 
-import { radioLabelVariants, RadioLabelVariantsProps } from './RadioLabel.variants'
+import { radioLabelStyles, RadioLabelStylesProps } from './RadioLabel.styles'
 
 export interface RadioLabelProps
-  extends RadioLabelVariantsProps,
+  extends RadioLabelStylesProps,
     PropsWithChildren<React.HTMLAttributes<HTMLLabelElement>> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -21,5 +21,5 @@ export interface RadioLabelProps
 }
 
 export const RadioLabel = ({ className, disabled, ...others }: RadioLabelProps) => {
-  return <Label className={radioLabelVariants({ className, disabled })} {...others} />
+  return <Label className={radioLabelStyles({ className, disabled })} {...others} />
 }
