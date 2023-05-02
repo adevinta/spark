@@ -1,7 +1,7 @@
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import React from 'react'
 
-import { iconVariants, IconVariantsProps } from './Icon.variants'
+import { iconStyles, IconVariantsProps } from './Icon.styles'
 
 export interface IconProps extends IconVariantsProps, React.SVGProps<SVGElement> {
   /**
@@ -28,7 +28,7 @@ export function Icon({
   return (
     <>
       {React.cloneElement(child as React.ReactElement, {
-        className: iconVariants({ className, size, intent }),
+        className: iconStyles({ className, size, intent }),
         'data-spark-component': 'icon',
         'aria-hidden': 'true',
         focusable: 'false',
