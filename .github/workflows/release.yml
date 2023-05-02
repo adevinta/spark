@@ -53,6 +53,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
         # pulls all tags (needed for lerna / semantic release to correctly version)
+      - name: pull all lerna tags
         run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - name: Identity
         run: |
