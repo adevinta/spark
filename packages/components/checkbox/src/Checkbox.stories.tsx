@@ -66,14 +66,20 @@ export const ControlledState: StoryFn = _args => {
           <Radio value="false">unchecked</Radio>
         </RadioGroup>
       </div>
-      <Checkbox key={index} checked={checked} onCheckedChange={checked => setChecked(checked)}>
+      <Checkbox
+        key={index}
+        checked={checked}
+        onCheckedChange={(checked, indeterminate) =>
+          setChecked(indeterminate ? 'indeterminate' : checked)
+        }
+      >
         Accept terms and conditions.
       </Checkbox>
     </div>
   )
 }
 
-const intent = ['primary', 'success', 'alert', 'error'] as const
+const intent = ['primary', 'success', 'alert', 'error', 'info', 'neutral'] as const
 
 export const Intent: StoryFn = _args => (
   <>

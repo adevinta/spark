@@ -21,4 +21,6 @@ export const Sector = React.forwardRef(
   )
 )
 
+Sector.displayName = 'Sector'
+
 export const tags = ['sector', 'criteria', 'job']

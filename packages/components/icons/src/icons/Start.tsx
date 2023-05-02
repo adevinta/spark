@@ -21,4 +21,6 @@ export const Start = React.forwardRef(
   )
 )
 
+Start.displayName = 'Start'
+
 export const tags = ['start', 'criteria', 'holidays']

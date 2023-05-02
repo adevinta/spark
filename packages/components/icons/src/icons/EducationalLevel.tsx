@@ -21,4 +21,6 @@ export const EducationalLevel = React.forwardRef(
   )
 )
 
+EducationalLevel.displayName = 'EducationalLevel'
+
 export const tags = ['educational-level', 'criteria', 'job']

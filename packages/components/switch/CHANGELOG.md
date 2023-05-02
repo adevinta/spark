@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.6](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.5...@spark-ui/switch@1.10.6) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.10.5](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.4...@spark-ui/switch@1.10.5) (2023-05-02)
+
+### Bug Fixes
+
+- **switch:** icons import ([cca1aa4](https://github.com/adevinta/spark/commit/cca1aa43a44e91d7fc6095ddb54436286025e66e))
+
 ## [1.10.4](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.3...@spark-ui/switch@1.10.4) (2023-04-28)
 
 **Note:** Version bump only for package @spark-ui/switch

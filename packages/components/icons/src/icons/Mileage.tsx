@@ -21,4 +21,6 @@ export const Mileage = React.forwardRef(
   )
 )
 
+Mileage.displayName = 'Mileage'
+
 export const tags = ['mileage', 'criteria', 'automobile']

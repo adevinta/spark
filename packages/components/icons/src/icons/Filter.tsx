@@ -21,4 +21,6 @@ export const Filter = React.forwardRef(
   )
 )
 
+Filter.displayName = 'Filter'
+
 export const tags = ['filter', 'actions']

@@ -21,4 +21,6 @@ export const Janitor = React.forwardRef(
   )
 )
 
+Janitor.displayName = 'Janitor'
+
 export const tags = ['janitor', 'criteria', 'location']

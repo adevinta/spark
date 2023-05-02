@@ -21,4 +21,6 @@ export const Loggia = React.forwardRef(
   )
 )
 
+Loggia.displayName = 'Loggia'
+
 export const tags = ['loggia', 'criteria', 'immobilierneuf']

@@ -59,6 +59,16 @@ export const filledVariants = [
       'focus-visible:bg-error-focused',
     ]),
   },
+  // Info
+  {
+    intent: 'info',
+    design: 'filled',
+    class: tw([
+      'text-on-error bg-info',
+      'enabled:hover:bg-info-hovered enabled:active:bg-info-hovered',
+      'focus-visible:bg-info-focused',
+    ]),
+  },
   // Neutral
   {
     intent: 'neutral',

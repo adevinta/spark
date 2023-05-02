@@ -21,4 +21,6 @@ export const LinensType = React.forwardRef(
   )
 )
 
+LinensType.displayName = 'LinensType'
+
 export const tags = ['linens_type', 'criteria', 'house']

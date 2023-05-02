@@ -21,4 +21,6 @@ export const DeliveryHandsOutline = React.forwardRef(
   )
 )
 
+DeliveryHandsOutline.displayName = 'DeliveryHandsOutline'
+
 export const tags = ['delivery-hands-outline', 'delivery']

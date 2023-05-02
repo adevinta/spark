@@ -21,4 +21,6 @@ export const Calendar = React.forwardRef(
   )
 )
 
+Calendar.displayName = 'Calendar'
+
 export const tags = ['calendar', 'criteria', 'holidays']

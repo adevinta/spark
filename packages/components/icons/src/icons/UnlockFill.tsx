@@ -21,4 +21,6 @@ export const UnlockFill = React.forwardRef(
   )
 )
 
+UnlockFill.displayName = 'UnlockFill'
+
 export const tags = ['unlock-fill', 'security']

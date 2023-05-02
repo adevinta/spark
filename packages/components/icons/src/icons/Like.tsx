@@ -21,4 +21,6 @@ export const Like = React.forwardRef(
   )
 )
 
+Like.displayName = 'Like'
+
 export const tags = ['like', 'criteria', 'generic']

@@ -1,5 +1,6 @@
 import { Icon } from '@spark-ui/icon'
-import { Check, FavoriteOutline } from '@spark-ui/icons'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { FavoriteOutline } from '@spark-ui/icons/dist/icons/FavoriteOutline'
 import { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
 
@@ -21,6 +22,7 @@ const intents: ButtonProps['intent'][] = [
   'success',
   'alert',
   'danger',
+  'info',
   'neutral',
   'surface',
 ]

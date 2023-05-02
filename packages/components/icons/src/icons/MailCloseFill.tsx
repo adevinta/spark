@@ -21,4 +21,6 @@ export const MailCloseFill = React.forwardRef(
   )
 )
 
+MailCloseFill.displayName = 'MailCloseFill'
+
 export const tags = ['mail-close-fill', 'delivery']

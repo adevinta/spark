@@ -21,4 +21,6 @@ export const Parquet = React.forwardRef(
   )
 )
 
+Parquet.displayName = 'Parquet'
+
 export const tags = ['parquet', 'criteria', 'location']

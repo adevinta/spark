@@ -21,4 +21,6 @@ export const Tv = React.forwardRef(
   )
 )
 
+Tv.displayName = 'Tv'
+
 export const tags = ['tv', 'criteria', 'holidays']
