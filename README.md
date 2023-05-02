@@ -20,3 +20,7 @@ Adevinta has adopted a [Code of Conduct](documentation/contributing/CodeOfConduc
 ## LICENSE
 
 [MIT](LICENSE)
+
+## Note
+
+I'm **BATMAN**!!!
