@@ -4,7 +4,7 @@ import { BadgeItem, BadgeItemProps } from './BadgeItem'
 
 export type BadgeProps = PropsWithChildren<Omit<BadgeItemProps, 'type'>>
 
-export const Badge = forwardRef<HTMLElement, BadgeProps>(({ children, className, ...props }) => {
+export const Badge = forwardRef<HTMLElement, BadgeProps>(({ children, ...props }) => {
   const isStandalone = !children
 
   return isStandalone ? (
