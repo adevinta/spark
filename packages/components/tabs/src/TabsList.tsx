@@ -2,7 +2,8 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
-import { ArrowVerticalLeft, ArrowVerticalRight } from '@spark-ui/icons'
+import { ArrowVerticalLeft } from '@spark-ui/icons/dist/icons/ArrowVerticalLeft'
+import { ArrowVerticalRight } from '@spark-ui/icons/dist/icons/ArrowVerticalRight'
 import { forwardRef, type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
 
 import { useTabsContext } from './TabsContext'
@@ -17,7 +18,7 @@ export interface TabsListProps extends Omit<RadixTabs.TabsListProps, 'children'>
   asChild?: boolean
   /**
    * When true, keyboard navigation will loop from last tab to first, and vice versa.
-   * @default true
+   * @default false
    */
   loop?: boolean
   children: ReactElement[]
@@ -31,7 +32,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
        * see https://www.radix-ui.com/docs/primitives/components/tabs#list
        */
       asChild = false,
-      loop = true,
+      loop = false,
       children,
       className,
       ...rest
