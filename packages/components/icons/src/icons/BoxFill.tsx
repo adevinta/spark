@@ -21,4 +21,6 @@ export const BoxFill = React.forwardRef(
   )
 )
 
+BoxFill.displayName = 'BoxFill'
+
 export const tags = ['box-fill', 'delivery']

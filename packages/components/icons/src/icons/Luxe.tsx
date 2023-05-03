@@ -21,4 +21,6 @@ export const Luxe = React.forwardRef(
   )
 )
 
+Luxe.displayName = 'Luxe'
+
 export const tags = ['luxe', 'criteria', 'mode']

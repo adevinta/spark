@@ -21,4 +21,6 @@ export const ArrowRight = React.forwardRef(
   )
 )
 
+ArrowRight.displayName = 'ArrowRight'
+
 export const tags = ['arrow-right', 'arrows']

@@ -21,4 +21,6 @@ export const VoiceFill = React.forwardRef(
   )
 )
 
+VoiceFill.displayName = 'VoiceFill'
+
 export const tags = ['voice-fill', 'contact']

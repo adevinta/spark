@@ -21,4 +21,6 @@ export const IdeaOutline = React.forwardRef(
   )
 )
 
+IdeaOutline.displayName = 'IdeaOutline'
+
 export const tags = ['idea-outline', 'security']

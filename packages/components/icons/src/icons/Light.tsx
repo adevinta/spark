@@ -21,4 +21,6 @@ export const Light = React.forwardRef(
   )
 )
 
+Light.displayName = 'Light'
+
 export const tags = ['light', 'criteria', 'location']

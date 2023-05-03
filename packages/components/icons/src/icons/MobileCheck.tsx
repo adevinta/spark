@@ -21,4 +21,6 @@ export const MobileCheck = React.forwardRef(
   )
 )
 
+MobileCheck.displayName = 'MobileCheck'
+
 export const tags = ['mobile-check', 'account']

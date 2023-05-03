@@ -21,4 +21,6 @@ export const Sort = React.forwardRef(
   )
 )
 
+Sort.displayName = 'Sort'
+
 export const tags = ['sort', 'criteria', 'generic']

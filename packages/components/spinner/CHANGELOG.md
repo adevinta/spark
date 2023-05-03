@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.12...@spark-ui/spinner@0.2.0) (2023-05-03)
+
+### Features
+
+- **icon-button:** unify style files criteria ([386846f](https://github.com/adevinta/spark/commit/386846f89b8c7d7a009bb2274f878553e1c210ec))
+- **spinner:** unify styles file criteria ([2d1b539](https://github.com/adevinta/spark/commit/2d1b53906398a56ce4b6d267c4c5d2e057450d5e))
+
+## [0.1.12](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.11...@spark-ui/spinner@0.1.12) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/spinner
+
 ## [0.1.11](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.1.10...@spark-ui/spinner@0.1.11) (2023-04-28)
 
 **Note:** Version bump only for package @spark-ui/spinner

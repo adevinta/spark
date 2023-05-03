@@ -21,4 +21,6 @@ export const MailCloseOutline = React.forwardRef(
   )
 )
 
+MailCloseOutline.displayName = 'MailCloseOutline'
+
 export const tags = ['mail-close-outline', 'delivery']

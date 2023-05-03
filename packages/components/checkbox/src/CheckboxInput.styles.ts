@@ -11,7 +11,7 @@ export const inputStyles = cva(
   ],
   {
     variants: {
-      intent: makeVariants<'intent', ['primary', 'success', 'alert', 'error']>({
+      intent: makeVariants<'intent', ['primary', 'success', 'alert', 'error', 'info', 'neutral']>({
         primary: [
           'spark-state-unchecked:border-outline',
           'spark-state-indeterminate:border-primary spark-state-indeterminate:bg-primary',
@@ -31,6 +31,16 @@ export const inputStyles = cva(
           'spark-state-unchecked:border-error',
           'spark-state-indeterminate:border-error spark-state-indeterminate:bg-error',
           'spark-state-checked:border-error spark-state-checked:bg-error',
+        ],
+        info: [
+          'spark-state-unchecked:border-info',
+          'spark-state-indeterminate:border-info spark-state-indeterminate:bg-info',
+          'spark-state-checked:border-info spark-state-checked:bg-info',
+        ],
+        neutral: [
+          'spark-state-unchecked:border-neutral',
+          'spark-state-indeterminate:border-neutral spark-state-indeterminate:bg-neutral',
+          'spark-state-checked:border-neutral spark-state-checked:bg-neutral',
         ],
       }),
     },

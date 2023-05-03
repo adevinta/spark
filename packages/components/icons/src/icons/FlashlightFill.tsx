@@ -21,4 +21,6 @@ export const FlashlightFill = React.forwardRef(
   )
 )
 
+FlashlightFill.displayName = 'FlashlightFill'
+
 export const tags = ['flashlight-fill', 'actions']

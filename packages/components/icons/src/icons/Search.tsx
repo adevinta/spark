@@ -21,4 +21,6 @@ export const Search = React.forwardRef(
   )
 )
 
+Search.displayName = 'Search'
+
 export const tags = ['search', 'actions']

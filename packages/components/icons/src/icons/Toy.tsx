@@ -21,4 +21,6 @@ export const Toy = React.forwardRef(
   )
 )
 
+Toy.displayName = 'Toy'
+
 export const tags = ['toy', 'criteria', 'hobbies']

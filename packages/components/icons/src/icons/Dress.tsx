@@ -21,4 +21,6 @@ export const Dress = React.forwardRef(
   )
 )
 
+Dress.displayName = 'Dress'
+
 export const tags = ['dress', 'categories']

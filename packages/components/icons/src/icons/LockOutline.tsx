@@ -21,4 +21,6 @@ export const LockOutline = React.forwardRef(
   )
 )
 
+LockOutline.displayName = 'LockOutline'
+
 export const tags = ['lock-outline', 'security']

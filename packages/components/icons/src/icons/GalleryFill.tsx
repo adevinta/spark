@@ -21,4 +21,6 @@ export const GalleryFill = React.forwardRef(
   )
 )
 
+GalleryFill.displayName = 'GalleryFill'
+
 export const tags = ['gallery-fill', 'images']

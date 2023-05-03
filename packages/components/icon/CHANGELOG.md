@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.10...@spark-ui/icon@1.6.0) (2023-05-03)
+
+### Features
+
+- **icon-button:** unify style files criteria ([386846f](https://github.com/adevinta/spark/commit/386846f89b8c7d7a009bb2274f878553e1c210ec))
+- **icon:** ci process ready ([4e43d1a](https://github.com/adevinta/spark/commit/4e43d1acc63047ee064ad7bda5d30affbbe19cde))
+- **icon:** unify style files criteria ([9573246](https://github.com/adevinta/spark/commit/957324644b2e6d2570a81a036ece6e07c75ef5cd))
+
+## [1.5.10](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.9...@spark-ui/icon@1.5.10) (2023-05-02)
+
+**Note:** Version bump only for package @spark-ui/icon
+
 ## [1.5.9](https://github.com/adevinta/spark/compare/@spark-ui/icon@1.5.8...@spark-ui/icon@1.5.9) (2023-04-28)
 
 **Note:** Version bump only for package @spark-ui/icon
