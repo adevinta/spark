@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.9.3...@spark-ui/radio@1.10.0) (2023-05-03)
+
+### Features
+
+- **icon-button:** unify style files criteria ([386846f](https://github.com/adevinta/spark/commit/386846f89b8c7d7a009bb2274f878553e1c210ec))
+- **radio:** unify styles files criteria ([6db006b](https://github.com/adevinta/spark/commit/6db006bbd7e375968a730a579f09efa2f2e076d4))
+
 ## [1.9.3](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.9.2...@spark-ui/radio@1.9.3) (2023-04-28)
 
 **Note:** Version bump only for package @spark-ui/radio
