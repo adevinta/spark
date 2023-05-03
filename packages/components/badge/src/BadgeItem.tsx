@@ -9,7 +9,7 @@ import {
   DEFAULT_TYPE,
 } from './config'
 
-interface ACCESSIBILITY_LABELS {
+interface AccessibilityLabel {
   noCount?: string
   singleCount?: string
   pluralCount?: string
@@ -26,9 +26,9 @@ export interface BadgeItemProps extends PropsWithRef<HTMLAttributes<HTMLSpanElem
    */
   overflowCount?: number
   /**
-   * Custom labels for accessibility purposes than can be set for each count case.
+   * Object containing custom labels for accessibility purposes than can be set for each count case.
    */
-  labels?: ACCESSIBILITY_LABELS
+  label?: AccessibilityLabel
   /**
    * Describes the way the component is displayed: relative to another element or just standalone.
    */
@@ -43,7 +43,7 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
       type = DEFAULT_TYPE,
       count,
       overflowCount = DEFAULT_OVERFLOW_COUNT,
-      labels = DEFAULT_LABELS,
+      label = DEFAULT_LABELS,
       className,
       ...others
     },
@@ -51,17 +51,17 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
   ) => {
     const hasOverflow = count && count > overflowCount
     const regularCountLabel =
-      count && count > 1 ? labels.pluralCount?.replace('%COUNT%', `${count}`) : labels.singleCount
+      count && count > 1 ? label.pluralCount?.replace('%COUNT%', `${count}`) : label.singleCount
     const countLabel = hasOverflow
-      ? labels.moreThanOverflowCount?.replace('%OVERFLOW_COUNT%', `${overflowCount}`)
+      ? label.moreThanOverflowCount?.replace('%OVERFLOW_COUNT%', `${overflowCount}`)
       : regularCountLabel
-    const label = count ? countLabel : labels.noCount
 
     return (
       <span
         ref={ref}
         data-spark-component="badge"
-        aria-label={label}
+        aria-label={count ? countLabel : label.noCount}
+        role="status"
         className={styles({
           intent,
           size,
