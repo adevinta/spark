@@ -19,12 +19,16 @@ export const labelStyles = cva(
       /**
        * Color scheme of the input.
        */
-      intent: makeVariants<'intent'>({
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'danger', 'info', 'neutral', 'surface']
+      >({
         primary: [],
         secondary: [],
         success: [],
         alert: [],
         danger: [],
+        info: [],
         neutral: [],
         surface: [],
       }),
@@ -61,7 +65,10 @@ export const labelTextStyles = cva(
       /**
        * Color scheme of the inputField.
        */
-      intent: makeVariants<'intent'>({
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'danger', 'info', 'neutral', 'surface']
+      >({
         primary: [],
         secondary: [],
         success: [],

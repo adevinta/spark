@@ -17,7 +17,10 @@ export const inputFieldStyles = cva(
       /**
        * Color scheme of the inputField.
        */
-      intent: makeVariants<'intent'>({
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'danger', 'info', 'neutral', 'surface']
+      >({
         primary: ['text-primary'],
         secondary: ['text-secondary'],
         success: ['text-success'],

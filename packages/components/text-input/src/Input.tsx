@@ -1,6 +1,13 @@
 import { Label } from '@radix-ui/react-label'
 import { useCombinedState } from '@spark-ui/use-combined-state'
-import React, { forwardRef, InputHTMLAttributes, PropsWithChildren, useState } from 'react'
+import React, {
+  ChangeEvent,
+  FocusEvent,
+  forwardRef,
+  InputHTMLAttributes,
+  PropsWithChildren,
+  useState,
+} from 'react'
 
 import {
   inputStyles,
@@ -42,27 +49,29 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     forwardedRef
   ) => {
     const [value, setValue] = useCombinedState(props.value, props.defaultValue)
-    const onChangeHandler = event => {
-      const value = event.target.value.slice(0, htmlSize)
+    const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+      const value = event.target?.value?.slice(0, htmlSize)
       setValue(value)
       typeof onValueChange === 'function' && onValueChange(value)
     }
     const [focus, setFocus] = useState(false)
-    const handleFocus = (value, callback) => event => {
-      setFocus(value)
-      typeof callback === 'function' && callback(event)
-    }
+    const handleEvent =
+      (value: boolean, callback?: (event: FocusEvent<HTMLInputElement>) => void) =>
+      (event: FocusEvent<HTMLInputElement>) => {
+        setFocus(value)
+        typeof callback === 'function' && callback(event)
+      }
     const isExpanded = useIsExpanded({ label: children, mandatory, placeholder, value, focus })
 
     return (
       <Label
         data-spark-component="text-input"
-        className={labelStyles({ intent, size: htmlSize, disabled: props.disabled })}
+        className={labelStyles({ intent, size: `${htmlSize}` as string, disabled: props.disabled })}
       >
         <input
           {...props}
-          onFocus={handleFocus(true, props.onFocus)}
-          onBlur={handleFocus(false, props.onBlur)}
+          onFocus={handleEvent(true, props.onFocus)}
+          onBlur={handleEvent(false, props.onBlur)}
           onChange={onChangeHandler}
           ref={forwardedRef}
           className={inputStyles()}
