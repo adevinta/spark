@@ -15,6 +15,7 @@ export const inputFieldsetLegendStyles = cva(
     'absolute',
     'text-body-2',
     'transition-all',
+    'duration-100',
     'top-[-.75em]',
     'left-[-4px]',
     'pl-[4px]',
