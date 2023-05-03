@@ -1,5 +1,5 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { forwardRef, useEffect, useRef } from 'react'
+import { forwardRef } from 'react'
 
 import { useTabsContext } from './TabsContext'
 import { triggerVariants } from './TabsTrigger.styles'
@@ -36,20 +36,11 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
     },
     ref
   ) => {
-    const { intent, size, selectedTab } = useTabsContext()
-    const innerRef = useRef(null)
-
-    const triggerRef = ref || innerRef
-
-    useEffect(() => {
-      if (triggerRef && 'current' in triggerRef && triggerRef.current && selectedTab === value) {
-        triggerRef.current.focus()
-      }
-    }, [selectedTab, value, triggerRef])
+    const { intent, size } = useTabsContext()
 
     return (
       <RadixTabs.Trigger
-        ref={triggerRef}
+        ref={ref}
         className={triggerVariants({ intent, size, className })}
         asChild={asChild}
         disabled={disabled}

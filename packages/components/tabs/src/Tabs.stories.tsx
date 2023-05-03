@@ -270,15 +270,15 @@ export const Overflow: StoryFn = _args => {
     <div className="gap-lg flex flex-row">
       <div className="shrink basis-auto overflow-auto">
         <Subtitle>with loop</Subtitle>
-        {createTabs({ tabs: overflowTabs })}
+        {createTabs({
+          listProps: { loop: true },
+          tabs: overflowTabs,
+        })}
       </div>
 
       <div className="shrink basis-auto overflow-auto">
         <Subtitle>without loop (default)</Subtitle>
-        {createTabs({
-          listProps: { loop: false },
-          tabs: overflowTabs,
-        })}
+        {createTabs({ tabs: overflowTabs })}
       </div>
     </div>
   )

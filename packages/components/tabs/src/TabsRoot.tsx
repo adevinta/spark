@@ -1,7 +1,7 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { forwardRef, type PropsWithChildren, useState } from 'react'
+import { forwardRef, type PropsWithChildren } from 'react'
 
-import { TabsContext, type TabsContextInterface } from './TabsContext'
+import { TabsContext } from './TabsContext'
 import { rootStyles } from './TabsRoot.styles'
 import type { TabsTriggerVariantsProps } from './TabsTrigger.styles'
 
@@ -28,32 +28,25 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
       orientation = 'horizontal',
       children,
       className,
-      defaultValue,
-      value,
-      onValueChange,
+      ...rest
     },
     ref
   ) => {
-    const [selectedTab, setSelectedTab] = useState<TabsContextInterface['selectedTab']>(
-      value || defaultValue
-    )
-
-    const handleChange = (newValue: string) => {
-      onValueChange?.(newValue)
-      setSelectedTab(newValue)
-    }
-
     return (
-      <TabsContext.Provider value={{ intent, size, orientation, selectedTab, setSelectedTab }}>
+      <TabsContext.Provider
+        value={{
+          intent,
+          size,
+          orientation,
+        }}
+      >
         <RadixTabs.Root
           ref={ref}
           asChild={asChild}
           className={rootStyles({ className })}
-          orientation={orientation}
-          activationMode="automatic"
-          onValueChange={handleChange}
-          value={selectedTab}
           data-spark-component="tabs"
+          activationMode="automatic"
+          {...rest}
         >
           {children}
         </RadixTabs.Root>
