@@ -39,7 +39,21 @@ import { Popover } from '@spark-ui/popover'
 
 ## Default
 
+A basic popover should have a trigger element and a content element.
+
+The trigger is the element that should toggle the popover.
+The content is the popover itself.
+
 <Canvas of={stories.Default} />
+
+## Controlled
+
+You can use state to have better control over the behaviour of the Popover.
+It allows you to open/close it from the outside.
+
+Please note that is example is using `Popover.Anchor` to attach the Popover to a specific element.
+
+<Canvas of={stories.Controlled} />
 
 ## Positionning
 
