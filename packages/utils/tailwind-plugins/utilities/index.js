@@ -12,5 +12,9 @@ module.exports = plugin.withOptions(options => ({ addUtilities, theme }) => {
         'transitionTimingFunction.in'
       )}, border-color ${theme('transitionDuration.300')} ${theme('transitionTimingFunction.in')}`,
     },
+    '.u-no-scrollbar': {
+      scrollbarWidth: 'none',
+      '&::-webkit-scrollbar': { display: 'none' },
+    },
   })
 })

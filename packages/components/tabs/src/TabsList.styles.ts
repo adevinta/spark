@@ -6,7 +6,7 @@ export const listStyles = cva([
   'flex w-full',
   'spark-orientation-horizontal:flex-row',
   'spark-orientation-vertical:flex-col',
-  'no-scrollbar overflow-x-auto overflow-y-hidden',
+  'u-no-scrollbar spark-orientation-vertical:overflow-x-hidden overflow-y-hidden',
   'after:border-outline after:flex after:shrink after:grow',
   'spark-orientation-horizontal:after:border-b-sm',
   'spark-orientation-vertical:after:border-r-sm',

@@ -54,7 +54,6 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       /**
        * Show/hide arrows
        */
-      /* istanbul ignore if -- @preserve */
       if (!('current' in listRef) || !listRef.current) {
         return
       }
@@ -73,7 +72,6 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       /**
        * Enable/disable arrows
        */
-      /* istanbul ignore if -- @preserve */
       if (!('current' in listRef) || !listRef.current || withArrows.prev === 'hidden' || loop) {
         return
       }
@@ -101,7 +99,6 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     }, [listRef, withArrows.prev, loop])
 
     const handlePrevClick = useCallback(() => {
-      /* istanbul ignore if -- @preserve */
       if (!('current' in listRef) || !listRef.current) {
         return
       }
@@ -117,7 +114,6 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     }, [listRef, loop])
 
     const handleNextClick = useCallback(() => {
-      /* istanbul ignore if -- @preserve */
       if (!('current' in listRef) || !listRef.current) {
         return
       }

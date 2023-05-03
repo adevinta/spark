@@ -38,9 +38,9 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
       value || defaultValue
     )
 
-    const handleChange = (v: string) => {
-      onValueChange?.(v)
-      setSelectedTab(v)
+    const handleChange = (newValue: string) => {
+      onValueChange?.(newValue)
+      setSelectedTab(newValue)
     }
 
     return (
