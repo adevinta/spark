@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.9.3...@spark-ui/button@1.11.0) (2023-05-03)
+
+### Features
+
+- **button:** add info intent to all designs ([3111709](https://github.com/adevinta/spark/commit/3111709785924c9259a4aaffbb0df1ce9a3d8900))
+- **button:** ci process ready ([48c9ad9](https://github.com/adevinta/spark/commit/48c9ad9d6f5cca53a2e9fcd09986fa30a3454187))
+
 # [1.10.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.9.3...@spark-ui/button@1.10.0) (2023-05-03)
 
 ### Features

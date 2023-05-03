@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.14.1...@spark-ui/theme-utils@2.15.0) (2023-05-03)
+
+### Features
+
+- **theme-utils:** separated hovered colors from pressed colors ([d3a78ce](https://github.com/adevinta/spark/commit/d3a78cecd11e4722bffb6bb83932711833e888de))
+
 ## [2.14.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.14.0...@spark-ui/theme-utils@2.14.1) (2023-04-28)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
