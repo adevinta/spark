@@ -21,4 +21,6 @@ export const TrashCloseOutline = React.forwardRef(
   )
 )
 
+TrashCloseOutline.displayName = 'TrashCloseOutline'
+
 export const tags = ['trash-close-outline', 'actions']

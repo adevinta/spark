@@ -21,4 +21,6 @@ export const Age = React.forwardRef(
   )
 )
 
+Age.displayName = 'Age'
+
 export const tags = ['age', 'criteria', 'animals']

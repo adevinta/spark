@@ -21,4 +21,6 @@ export const CvFill = React.forwardRef(
   )
 )
 
+CvFill.displayName = 'CvFill'
+
 export const tags = ['cv-fill', 'account']

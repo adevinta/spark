@@ -21,4 +21,6 @@ export const RotateImage = React.forwardRef(
   )
 )
 
+RotateImage.displayName = 'RotateImage'
+
 export const tags = ['rotate-image', 'images']

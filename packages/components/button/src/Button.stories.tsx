@@ -22,6 +22,7 @@ const intents: ButtonProps['intent'][] = [
   'success',
   'alert',
   'danger',
+  'info',
   'neutral',
   'surface',
 ]

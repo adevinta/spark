@@ -21,4 +21,6 @@ export const Cave2 = React.forwardRef(
   )
 )
 
+Cave2.displayName = 'Cave2'
+
 export const tags = ['cave2', 'criteria', 'location']

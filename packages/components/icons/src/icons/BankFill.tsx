@@ -21,4 +21,6 @@ export const BankFill = React.forwardRef(
   )
 )
 
+BankFill.displayName = 'BankFill'
+
 export const tags = ['bank-fill', 'account']

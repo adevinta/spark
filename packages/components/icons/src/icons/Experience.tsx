@@ -21,4 +21,6 @@ export const Experience = React.forwardRef(
   )
 )
 
+Experience.displayName = 'Experience'
+
 export const tags = ['experience', 'criteria', 'job']

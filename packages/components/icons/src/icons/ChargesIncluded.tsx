@@ -21,4 +21,6 @@ export const ChargesIncluded = React.forwardRef(
   )
 )
 
+ChargesIncluded.displayName = 'ChargesIncluded'
+
 export const tags = ['charges-included', 'criteria', 'location']

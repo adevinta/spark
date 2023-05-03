@@ -21,4 +21,6 @@ export const KeyOutline = React.forwardRef(
   )
 )
 
+KeyOutline.displayName = 'KeyOutline'
+
 export const tags = ['key-outline', 'account']

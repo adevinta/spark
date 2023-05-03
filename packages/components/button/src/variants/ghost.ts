@@ -52,6 +52,16 @@ export const ghostVariants = [
     ]),
   },
   {
+    intent: 'info',
+    design: 'ghost',
+    class: tw([
+      'text-info',
+      'enabled:hover:bg-info/dim-5',
+      'enabled:active:bg-info/dim-5',
+      'focus-visible:bg-info/dim-5',
+    ]),
+  },
+  {
     intent: 'neutral',
     design: 'ghost',
     class: tw([

@@ -46,13 +46,14 @@ export const buttonStyles = cva(
        */
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'danger', 'neutral', 'surface']
+        ['primary', 'secondary', 'success', 'alert', 'danger', 'info', 'neutral', 'surface']
       >({
         primary: [],
         secondary: [],
         success: [],
         alert: [],
         danger: [],
+        info: [],
         neutral: [],
         surface: [],
       }),

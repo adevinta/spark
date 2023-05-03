@@ -21,4 +21,6 @@ export const Support2Fill = React.forwardRef(
   )
 )
 
+Support2Fill.displayName = 'Support2Fill'
+
 export const tags = ['support2-fill', 'contact']

@@ -21,4 +21,6 @@ export const Localisation = React.forwardRef(
   )
 )
 
+Localisation.displayName = 'Localisation'
+
 export const tags = ['localisation', 'criteria', 'generic']

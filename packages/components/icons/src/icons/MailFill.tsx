@@ -21,4 +21,6 @@ export const MailFill = React.forwardRef(
   )
 )
 
+MailFill.displayName = 'MailFill'
+
 export const tags = ['mail-fill', 'contact']

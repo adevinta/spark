@@ -1,7 +1,7 @@
 import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const iconButtonVariants = cva(['px-none'], {
+export const iconButtonStyles = cva(['px-none'], {
   variants: {
     size: makeVariants<'size', ['sm', 'md', 'lg']>({
       sm: ['text-caption'],
@@ -11,4 +11,4 @@ export const iconButtonVariants = cva(['px-none'], {
   },
 })
 
-export type IconButtonVariantsProps = VariantProps<typeof iconButtonVariants>
+export type IconButtonStylesProps = VariantProps<typeof iconButtonStyles>

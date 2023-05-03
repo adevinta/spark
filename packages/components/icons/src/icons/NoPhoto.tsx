@@ -21,4 +21,6 @@ export const NoPhoto = React.forwardRef(
   )
 )
 
+NoPhoto.displayName = 'NoPhoto'
+
 export const tags = ['no-photo', 'images']

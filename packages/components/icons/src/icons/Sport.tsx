@@ -21,4 +21,6 @@ export const Sport = React.forwardRef(
   )
 )
 
+Sport.displayName = 'Sport'
+
 export const tags = ['sport', 'criteria', 'holidays']

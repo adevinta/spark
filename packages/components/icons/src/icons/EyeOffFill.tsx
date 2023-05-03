@@ -21,4 +21,6 @@ export const EyeOffFill = React.forwardRef(
   )
 )
 
+EyeOffFill.displayName = 'EyeOffFill'
+
 export const tags = ['eye-off-fill', 'actions']

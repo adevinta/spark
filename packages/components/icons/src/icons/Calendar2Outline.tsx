@@ -21,4 +21,6 @@ export const Calendar2Outline = React.forwardRef(
   )
 )
 
+Calendar2Outline.displayName = 'Calendar2Outline'
+
 export const tags = ['calendar2-outline', 'calendar']

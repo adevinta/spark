@@ -21,4 +21,6 @@ export const OfferType = React.forwardRef(
   )
 )
 
+OfferType.displayName = 'OfferType'
+
 export const tags = ['offer-type', 'criteria', 'animals']
