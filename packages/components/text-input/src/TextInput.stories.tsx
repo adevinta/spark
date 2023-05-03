@@ -1,6 +1,7 @@
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
-import { PenOutline, Search } from '@spark-ui/icons'
+import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
+import { Search } from '@spark-ui/icons/dist/icons/Search'
 import { Meta, StoryFn } from '@storybook/react'
 import { ComponentProps } from 'react'
 
@@ -86,7 +87,7 @@ export const Compose: StoryFn = _args => (
 
 export const Examples: StoryFn = _args => (
   <InputField>
-    <Input htmlSize={4}>0000</Input> - <Input htmlSize={4}>1111</Input> - <Input htmlSize={4}>2222</Input> -{' '}
-    <Input htmlSize={4}>3333</Input>
+    <Input htmlSize={4}>0000</Input> - <Input htmlSize={4}>1111</Input> -{' '}
+    <Input htmlSize={4}>2222</Input> - <Input htmlSize={4}>3333</Input>
   </InputField>
 )
