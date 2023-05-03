@@ -50,7 +50,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
-      - name: pull all lerna tags
+      - name: Fetch with all tags
         run: git fetch --prune --unshallow --tags
       - name: Identity
         run: |
