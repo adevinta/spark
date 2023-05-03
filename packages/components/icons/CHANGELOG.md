@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.9.3...@spark-ui/icons@1.10.0) (2023-05-03)
+
+### Features
+
+- **icons:** ci workflow ([53c06f3](https://github.com/adevinta/spark/commit/53c06f3325739fa9b90c0a5a28e6627f78ce820e))
+
 ## [1.9.3](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.9.2...@spark-ui/icons@1.9.3) (2023-05-02)
 
 **Note:** Version bump only for package @spark-ui/icons
