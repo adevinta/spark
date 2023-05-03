@@ -17,6 +17,7 @@ const intents: IconButtonProps['intent'][] = [
   'success',
   'alert',
   'danger',
+  'info',
   'neutral',
   'surface',
 ]
