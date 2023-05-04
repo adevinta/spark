@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 
+import { type InputProps } from './Input'
 import {
   inputFieldsetLegendMandatoryStyles,
   inputFieldsetLegendStyles,
@@ -11,8 +12,8 @@ export interface InputFieldsetProps extends InputFieldsetStylesProps {
   mandatory?: boolean | string
   placeholder?: string
   label: ReactNode
-  value?: string | number
   isExpanded?: boolean
+  value: InputProps['value']
 }
 
 export const InputFieldset = ({ label, mandatory, isExpanded = true }: InputFieldsetProps) => {

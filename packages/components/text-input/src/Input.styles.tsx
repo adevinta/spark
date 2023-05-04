@@ -32,15 +32,15 @@ export const labelStyles = cva(
         neutral: [],
         surface: [],
       }),
-      size: {
-        undefined: ['w-[25ch]'],
+      applyDefaultSize: {
+        true: ['w-[25ch]'],
       },
       disabled: {
         true: ['cursor-not-allowed'],
       },
     },
     defaultVariants: {
-      size: 'undefined',
+      applyDefaultSize: true,
     },
   }
 )

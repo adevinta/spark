@@ -19,23 +19,23 @@ import {
 import { InputFieldset } from './InputFieldset'
 
 export interface InputProps
-  extends PropsWithChildren<
-      Omit<
-        InputHTMLAttributes<HTMLInputElement>,
-        'disabled' | 'placeholder' | 'label' | 'value' | 'defaultValue'
-      >
-    >,
-    InputStylesProps {
+  extends PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'label'>>,
+    Omit<InputStylesProps, 'disabled'> {
   mandatory?: boolean | string
-  disabled?: boolean
-  placeholder?: string
   htmlSize?: number
-  value?: string | number
-  defaultValue?: string | number
   onValueChange?: (value: string) => void
 }
 
-const useIsExpanded = ({ label, mandatory, placeholder, value, focus }) => {
+const useIsExpanded = ({
+  // label,
+  // mandatory,
+  placeholder,
+  value,
+  focus,
+}: Pick<InputProps, 'mandatory' | 'placeholder' | 'value'> & {
+  label: React.ReactNode
+  focus: boolean
+}) => {
   if (value || focus || placeholder) {
     return false
   }
@@ -66,7 +66,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <Label
         data-spark-component="text-input"
-        className={labelStyles({ intent, size: `${htmlSize}` as string, disabled: props.disabled })}
+        className={labelStyles({
+          intent,
+          applyDefaultSize: htmlSize === undefined,
+          disabled: props.disabled,
+        })}
       >
         <input
           {...props}
