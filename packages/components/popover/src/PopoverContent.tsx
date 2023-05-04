@@ -1,11 +1,9 @@
 import * as RadixPopover from '@radix-ui/react-popover'
-import { forwardRef, type PropsWithChildren } from 'react'
+import { forwardRef, useState } from 'react'
 
 import { styles } from './PopoverContent.styles'
 
-export type ContentProps = PropsWithChildren<RadixPopover.PopoverContentProps>
-
-export const Content = forwardRef<HTMLDivElement, ContentProps>(
+export const Content = forwardRef<HTMLDivElement, RadixPopover.PopoverContentProps>(
   (
     {
       // Spark props
@@ -16,24 +14,32 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
       arrowPadding = 0,
       asChild = false,
       avoidCollisions = true,
-      collisionPadding = 0,
+      collisionBoundary,
+      collisionPadding = 10,
       hideWhenDetached = false,
       side = 'bottom',
-      sideOffset = 0,
+      sideOffset = 8,
       sticky = 'partial',
       ...rest
     },
     ref
   ) => {
+    // const [collisionBoundary, setBoundaryContainer] = useState<HTMLDivElement | null>(null)
+
     return (
+      // <div
+      //   ref={setBoundaryContainer}
+      //   className="relative block p-md w-sz-256 h-sz-240 bg-primary-container border-md border-primary rounded-sm border-dashed"
+      // >
       <RadixPopover.Content
-        className={styles({ className })}
+        className={styles({ enforceBoundaries: !!collisionBoundary, className })}
         data-spark-component="popover-content"
         ref={ref}
         {...{
           align,
           asChild,
           avoidCollisions,
+          collisionBoundary,
           collisionPadding,
           hideWhenDetached,
           side,
@@ -44,6 +50,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
       >
         {children}
       </RadixPopover.Content>
+      // </div>
     )
   }
 )

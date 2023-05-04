@@ -1,7 +1,7 @@
 import { Button } from '@spark-ui/button'
 import { Radio, RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { Popover } from '.'
 import { type ContentProps } from './PopoverContent'
@@ -20,7 +20,7 @@ export const Default: StoryFn = _args => {
         <Popover.Trigger asChild>
           <Button>Trigger popover</Button>
         </Popover.Trigger>
-        <Popover.Content sideOffset={5}>some text</Popover.Content>
+        <Popover.Content>some text</Popover.Content>
       </Popover>
     </div>
   )
@@ -44,6 +44,29 @@ export const Controlled: StoryFn = () => {
         </Popover>
       </div>
     </>
+  )
+}
+
+export const Boundaries: StoryFn = () => {
+  const [boundaryContainer, setBoundaryContainer] = useState<HTMLDivElement | null>(null)
+
+  console.log('HEY', { boundaryContainer, rect: boundaryContainer?.getBoundingClientRect() })
+
+  return (
+    <div
+      ref={setBoundaryContainer}
+      className="p-md w-sz-256 h-sz-240 bg-primary-container border-md border-primary relative block rounded-sm border-dashed"
+    >
+      <Popover>
+        <Popover.Trigger asChild>
+          <Button>Trigger popover</Button>
+        </Popover.Trigger>
+        <Popover.Content collisionBoundary={[boundaryContainer]}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua.
+        </Popover.Content>
+      </Popover>
+    </div>
   )
 }
 
@@ -76,7 +99,9 @@ export const Positionning: StoryFn = _args => {
         <p className="text-headline-2">Align:</p>
         <RadioGroup value={currentAlign} onValueChange={handleChangeAlign} orientation="horizontal">
           {['start', 'center', 'end'].map(align => (
-            <Radio value={align}>{align}</Radio>
+            <Radio key={align} value={align}>
+              {align}
+            </Radio>
           ))}
         </RadioGroup>
       </div>
@@ -87,7 +112,7 @@ export const Positionning: StoryFn = _args => {
             <Button>Trigger popover</Button>
           </Popover.Trigger>
           {/* <Popover.Portal> */}
-          <Popover.Content sideOffset={5} side={currentSide} align={currentAlign}>
+          <Popover.Content side={currentSide} align={currentAlign}>
             some text
             {/* <Popover.Close
           className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute right-[5px] top-[5px] inline-flex h-[25px] w-[25px] cursor-default items-center justify-center rounded-full outline-none focus:shadow-[0_0_0_2px]"
