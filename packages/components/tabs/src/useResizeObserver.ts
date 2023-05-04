@@ -36,7 +36,7 @@ export const useResizeObserver = <T extends HTMLElement>(
       resizeObserverRef.current &&
         resizeObserverRef.current.unobserve(targetElm as unknown as HTMLElement)
     }
-  }, [target, resizeCallbackRef])
+  }, [target, resizeObserverRef, resizeCallbackRef])
 
   return size
 }

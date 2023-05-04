@@ -4,7 +4,7 @@ import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
 import { ArrowVerticalLeft } from '@spark-ui/icons/dist/icons/ArrowVerticalLeft'
 import { ArrowVerticalRight } from '@spark-ui/icons/dist/icons/ArrowVerticalRight'
-import { forwardRef, type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
+import { forwardRef, type ReactElement, useEffect, useRef, useState } from 'react'
 
 import { useTabsContext } from './TabsContext'
 import { listStyles, navigationArrowStyles, wrapperStyles } from './TabsList.styles'
@@ -98,7 +98,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         )
     }, [listRef, withArrows.prev, loop])
 
-    const handlePrevClick = useCallback(() => {
+    const handlePrevClick = () => {
       if (!('current' in listRef) || !listRef.current) {
         return
       }
@@ -111,9 +111,9 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
           : listRef.current.scrollLeft - listRef.current.clientWidth,
         behavior: 'smooth',
       })
-    }, [listRef, loop])
+    }
 
-    const handleNextClick = useCallback(() => {
+    const handleNextClick = () => {
       if (!('current' in listRef) || !listRef.current) {
         return
       }
@@ -126,7 +126,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         left: shouldLoopBackward ? 0 : listRef.current.scrollLeft + listRef.current.clientWidth,
         behavior: 'smooth',
       })
-    }, [listRef, loop])
+    }
 
     return (
       <div className={wrapperStyles({ className })} ref={wrapperRef}>
