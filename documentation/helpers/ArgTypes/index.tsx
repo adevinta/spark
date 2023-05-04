@@ -8,7 +8,7 @@ interface Props<T> {
 }
 
 export const ArgTypes = <T extends FC>({ of, subcomponents = {} }: Props<T>) => {
-  const componentsList = {
+  const components = {
     [of?.displayName as string]: of,
     ...subcomponents,
   }
@@ -16,14 +16,14 @@ export const ArgTypes = <T extends FC>({ of, subcomponents = {} }: Props<T>) => 
   return (
     <Tabs defaultValue={of?.displayName} orientation="vertical" className="mt-xl sb-unstyled">
       <Tabs.List>
-        {Object.keys(componentsList).map(name => (
+        {Object.keys(components).map(name => (
           <Tabs.Trigger key={name} value={name}>
             {name}
           </Tabs.Trigger>
         ))}
       </Tabs.List>
 
-      {Object.entries(componentsList).map(([name, component]) => (
+      {Object.entries(components).map(([name, component]) => (
         <Tabs.Content key={name} value={name} className="py-none">
           <StorybookArgTypes of={component} />
         </Tabs.Content>

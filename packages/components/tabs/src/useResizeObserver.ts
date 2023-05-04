@@ -16,19 +16,21 @@ export const useResizeObserver = <T extends HTMLElement>(
   const resizeCallbackRef = useRef<ResizeCallback | undefined>(onResize)
 
   useEffect(() => {
+    resizeCallbackRef.current = onResize
+  }, [onResize])
+
+  useEffect(() => {
     const targetElm = target && 'current' in target ? target.current : target
-    if (!targetElm) {
+    if (!targetElm || resizeObserverRef.current) {
       return
     }
 
-    if (!resizeObserverRef.current) {
-      resizeObserverRef.current = new ResizeObserver(([entry]) => {
-        const { inlineSize: width, blockSize: height } = entry?.borderBoxSize[0] ?? {}
-        resizeCallbackRef.current?.(entry)
+    resizeObserverRef.current = new ResizeObserver(([entry]) => {
+      const { inlineSize: width, blockSize: height } = entry?.borderBoxSize[0] ?? {}
+      resizeCallbackRef.current?.(entry)
 
-        setSize({ width, height })
-      })
-    }
+      setSize({ width, height })
+    })
 
     resizeObserverRef.current.observe(targetElm as unknown as HTMLElement)
 

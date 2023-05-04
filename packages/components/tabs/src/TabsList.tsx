@@ -24,6 +24,8 @@ export interface TabsListProps extends Omit<RadixTabs.TabsListProps, 'children'>
   children: ReactElement[]
 }
 
+type ArrowState = 'visible' | 'hidden' | 'disabled'
+
 export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
   (
     {
@@ -46,22 +48,23 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
 
     const { width } = useResizeObserver(wrapperRef)
 
-    const [withArrows, setWithArrows] = useState<
-      Record<'prev' | 'next', 'visible' | 'hidden' | 'disabled'>
-    >({ prev: 'hidden', next: 'hidden' })
+    const [arrows, setArrows] = useState<Record<'prev' | 'next', ArrowState>>({
+      prev: 'hidden',
+      next: 'hidden',
+    })
 
     useEffect(() => {
       /**
        * Show/hide arrows
        */
-      if (!('current' in listRef) || !listRef.current) {
+      if (typeof listRef === 'function' || !listRef.current) {
         return
       }
 
       if (orientation !== 'horizontal') {
-        setWithArrows({ prev: 'hidden', next: 'hidden' })
+        setArrows({ prev: 'hidden', next: 'hidden' })
       } else {
-        setWithArrows({
+        setArrows({
           prev: listRef.current.scrollWidth > listRef.current.clientWidth ? 'visible' : 'hidden',
           next: listRef.current.scrollWidth > listRef.current.clientWidth ? 'visible' : 'hidden',
         })
@@ -72,12 +75,12 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       /**
        * Enable/disable arrows
        */
-      if (!('current' in listRef) || !listRef.current || withArrows.prev === 'hidden' || loop) {
+      if (typeof listRef === 'function' || !listRef.current || arrows.prev === 'hidden' || loop) {
         return
       }
 
       const toggleArrowsVisibility = (target: HTMLDivElement) => {
-        setWithArrows({
+        setArrows({
           prev: target.scrollLeft > 0 ? 'visible' : 'disabled',
           next:
             target.scrollLeft + target.clientWidth < target.scrollWidth ? 'visible' : 'disabled',
@@ -96,10 +99,10 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         currentList.removeEventListener('scroll', ({ target }) =>
           toggleArrowsVisibility(target as HTMLDivElement)
         )
-    }, [listRef, withArrows.prev, loop])
+    }, [listRef, arrows.prev, loop])
 
     const handlePrevClick = () => {
-      if (!('current' in listRef) || !listRef.current) {
+      if (typeof listRef === 'function' || !listRef.current) {
         return
       }
 
@@ -114,7 +117,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     }
 
     const handleNextClick = () => {
-      if (!('current' in listRef) || !listRef.current) {
+      if (typeof listRef === 'function' || !listRef.current) {
         return
       }
 
@@ -130,17 +133,17 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
 
     return (
       <div className={wrapperStyles({ className })} ref={wrapperRef}>
-        {withArrows.prev !== 'hidden' && (
+        {arrows.prev !== 'hidden' && (
           <Button
             shape="square"
             intent="surface"
             size="sm"
             className={navigationArrowStyles()}
             onClick={handlePrevClick}
-            disabled={withArrows.prev === 'disabled'}
+            disabled={arrows.prev === 'disabled'}
             aria-label="Scroll left"
           >
-            <Icon size="sm">
+            <Icon>
               <ArrowVerticalLeft />
             </Icon>
           </Button>
@@ -156,17 +159,17 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
           {children}
         </RadixTabs.List>
 
-        {withArrows.next !== 'hidden' && (
+        {arrows.next !== 'hidden' && (
           <Button
             shape="square"
             intent="surface"
             size="sm"
             className={navigationArrowStyles()}
             onClick={handleNextClick}
-            disabled={withArrows.next === 'disabled'}
+            disabled={arrows.next === 'disabled'}
             aria-label="Scroll right"
           >
-            <Icon size="sm">
+            <Icon>
               <ArrowVerticalRight />
             </Icon>
           </Button>

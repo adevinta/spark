@@ -1,4 +1,4 @@
-import { Subtitle } from '@docs/helpers/Subtitle'
+import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Icon } from '@spark-ui/icon'
 import { ConversationFill } from '@spark-ui/icons/dist/icons/ConversationFill'
 import { HolidayFill } from '@spark-ui/icons/dist/icons/HolidayFill'
@@ -151,17 +151,17 @@ export const createTabs = ({
 export const Default: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>basic</Subtitle>
+      <StoryLabel>basic</StoryLabel>
       {createTabs()}
     </div>
 
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>with icons</Subtitle>
+      <StoryLabel>with icons</StoryLabel>
       {createTabs({ tabs: withIconTabs, rootProps: { defaultValue: 'tab2' } })}
     </div>
 
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>with icons only</Subtitle>
+      <StoryLabel>with icons only</StoryLabel>
       {createTabs({ tabs: withIconOnlyTabs, rootProps: { defaultValue: 'tab3' } })}
     </div>
   </div>
@@ -170,11 +170,11 @@ export const Default: StoryFn = _args => (
 export const Intent: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>primary (default)</Subtitle>
+      <StoryLabel>primary (default)</StoryLabel>
       {createTabs()}
     </div>
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>secondary</Subtitle>
+      <StoryLabel>secondary</StoryLabel>
       {createTabs({ rootProps: { intent: 'secondary' } })}
     </div>
   </div>
@@ -183,17 +183,17 @@ export const Intent: StoryFn = _args => (
 export const Size: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>xs</Subtitle>
+      <StoryLabel>xs</StoryLabel>
       {createTabs({ rootProps: { size: 'xs' } })}
     </div>
 
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>sm</Subtitle>
+      <StoryLabel>sm</StoryLabel>
       {createTabs({ rootProps: { size: 'sm' } })}
     </div>
 
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>md (default)</Subtitle>
+      <StoryLabel>md (default)</StoryLabel>
       {createTabs({ rootProps: { size: 'md' } })}
     </div>
   </div>
@@ -232,12 +232,12 @@ export const State: StoryFn = _args => (
 export const Orientation: StoryFn = _args => (
   <div className="gap-lg flex flex-row">
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>horizontal (default)</Subtitle>
+      <StoryLabel>horizontal (default)</StoryLabel>
       {createTabs({ rootProps: { orientation: 'horizontal' } })}
     </div>
 
     <div className="shrink basis-auto overflow-auto">
-      <Subtitle>vertical</Subtitle>
+      <StoryLabel>vertical</StoryLabel>
       {createTabs({ rootProps: { orientation: 'vertical' } })}
     </div>
   </div>
@@ -269,7 +269,7 @@ export const Overflow: StoryFn = _args => {
   return (
     <div className="gap-lg flex flex-row">
       <div className="shrink basis-auto overflow-auto">
-        <Subtitle>with loop</Subtitle>
+        <StoryLabel>with loop</StoryLabel>
         {createTabs({
           listProps: { loop: true },
           tabs: overflowTabs,
@@ -277,7 +277,7 @@ export const Overflow: StoryFn = _args => {
       </div>
 
       <div className="shrink basis-auto overflow-auto">
-        <Subtitle>without loop (default)</Subtitle>
+        <StoryLabel>without loop (default)</StoryLabel>
         {createTabs({ tabs: overflowTabs })}
       </div>
     </div>
