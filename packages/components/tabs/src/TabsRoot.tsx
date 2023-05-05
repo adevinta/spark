@@ -43,6 +43,7 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
         <RadixTabs.Root
           ref={ref}
           asChild={asChild}
+          orientation={orientation}
           className={rootStyles({ className })}
           data-spark-component="tabs"
           activationMode="automatic"
