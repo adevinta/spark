@@ -1,3 +1,4 @@
+import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Meta, StoryFn } from '@storybook/react'
 import { ComponentProps } from 'react'
 
@@ -23,11 +24,12 @@ const intents: ComponentProps<typeof Spinner>['intent'][] = [
 ]
 
 export const Intents: StoryFn = _args => (
-  <div className="flex items-center gap-md">
-    <Spinner className="text-secondary" />
-
+  <div className="gap-lg flex">
     {intents.map(intent => (
-      <Spinner key={intent} intent={intent} />
+      <div key={intent} className="text-center">
+        <StoryLabel>{intent}</StoryLabel>
+        <Spinner intent={intent} />
+      </div>
     ))}
   </div>
 )
@@ -35,9 +37,12 @@ export const Intents: StoryFn = _args => (
 const sizes: ComponentProps<typeof Spinner>['size'][] = ['sm', 'md']
 
 export const Sizes: StoryFn = _args => (
-  <div className="flex items-center gap-md">
+  <div className="gap-lg flex">
     {sizes.map(size => (
-      <Spinner key={size} size={size} />
+      <div key={size} className="text-center">
+        <StoryLabel>{size}</StoryLabel>
+        <Spinner size={size} />
+      </div>
     ))}
   </div>
 )

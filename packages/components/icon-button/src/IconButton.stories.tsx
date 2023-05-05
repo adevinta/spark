@@ -1,3 +1,4 @@
+import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Icon } from '@spark-ui/icon'
 import { Meta, StoryFn } from '@storybook/react'
 
@@ -35,24 +36,30 @@ const icon = (
 export const Default: StoryFn = _args => <IconButton aria-label="Button">{icon}</IconButton>
 
 export const Sizes: StoryFn = _args => (
-  <div className="gap-md flex items-center">
+  <div className="gap-lg flex">
     {sizes.map(size => {
       return (
-        <IconButton key={size} size={size} aria-label={`${size} button`}>
-          {icon}
-        </IconButton>
+        <div key={size} className="text-center">
+          <StoryLabel className="mx-auto">{size}</StoryLabel>
+          <IconButton size={size} aria-label={`${size} button`}>
+            {icon}
+          </IconButton>
+        </div>
       )
     })}
   </div>
 )
 
 export const Shapes: StoryFn = _args => (
-  <div className="gap-md flex items-center">
+  <div className="gap-lg flex">
     {shapes.map(shape => {
       return (
-        <IconButton key={shape} shape={shape} aria-label={`${shape} button`}>
-          {icon}
-        </IconButton>
+        <div key={shape} className="text-center">
+          <StoryLabel className="mx-auto">{shape}</StoryLabel>
+          <IconButton shape={shape} aria-label={`${shape} button`}>
+            {icon}
+          </IconButton>
+        </div>
       )
     })}
   </div>
@@ -65,21 +72,27 @@ export const Disabled: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-md flex">
+  <div className="gap-lg flex">
     {intents.map(intent => (
-      <IconButton key={intent} intent={intent} aria-label={`${intent} button`}>
-        {icon}
-      </IconButton>
+      <div key={intent} className="text-center">
+        <StoryLabel className="mx-auto">{intent}</StoryLabel>
+        <IconButton intent={intent} aria-label={`${intent} button`}>
+          {icon}
+        </IconButton>
+      </div>
     ))}
   </div>
 )
 
 export const Design: StoryFn = _args => (
-  <div className="gap-md flex">
+  <div className="gap-lg flex">
     {designs.map(design => (
-      <IconButton key={design} design={design} aria-label={`${design} button`}>
-        {icon}
-      </IconButton>
+      <div key={design} className="text-center">
+        <StoryLabel className="mx-auto">{design}</StoryLabel>
+        <IconButton design={design} aria-label={`${design} button`}>
+          {icon}
+        </IconButton>
+      </div>
     ))}
   </div>
 )
