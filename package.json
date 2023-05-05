@@ -34,7 +34,8 @@
     "url": "git@github.com:adevinta/spark.git"
   },
   "dependencies": {
-    "@spark-ui/theme-utils": "*"
+    "@spark-ui/theme-utils": "*",
+    "@spark-ui/tabs": "*"
   },
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "1.7.4",
