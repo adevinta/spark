@@ -14,6 +14,7 @@ export const FormControlProvider = ({
   children,
 }: FormControlProviderProps) => {
   const [messageIds, setMessageIds] = useState<string[]>([])
+  const description = messageIds.join(' ')
 
   const handleMessageIdAdd = useCallback((id: string) => {
     setMessageIds(ids => [...ids, id])
@@ -24,8 +25,6 @@ export const FormControlProvider = ({
   }, [])
 
   const value = useMemo(() => {
-    const description = messageIds.join(' ')
-
     return {
       id,
       name,
@@ -34,7 +33,7 @@ export const FormControlProvider = ({
       onMessageIdAdd: handleMessageIdAdd,
       onMessageIdRemove: handleMessageIdRemove,
     }
-  }, [id, name, messageIds, isInvalid, handleMessageIdAdd, handleMessageIdRemove])
+  }, [id, name, description, isInvalid, handleMessageIdAdd, handleMessageIdRemove])
 
   return <FormControlContext.Provider value={value}>{children}</FormControlContext.Provider>
 }

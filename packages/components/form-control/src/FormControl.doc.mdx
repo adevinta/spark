@@ -7,14 +7,15 @@ import * as stories from './FormControl.stories'
 
 <Meta of={stories} />
 
-# Form
+# FormControl
 
 Provide context to your form elements
 
 - `FormControl` the wrapper that provides context and functionality for all children.
-- `FormLabel` the label of a form section. The usage is similar to html label. htmlFor is set by default for children input.
+- `FormLabel` the label of a form section. The usage is similar to html label. `htmlFor` is set by default for children input.
 - `FormHelperText` the message that tells users more details about the form section.
 - `FormErrorMessage` the message that shows up when an error occurs.
+- `FormControlState` provides input props using render props.
 
 ## Install
 
@@ -32,7 +33,9 @@ import { FormControl } from '@spark-ui/form-control'
 
 <ArgTypes of={FormControl} />
 
-## Default
+## Usage
+
+By default, all Spark input components use `FormControlState` behind the scenes, so you do not need to use it explicitly. However, if you want to use a custom input component, or if you need more fine-grained control over the state of a form control, you can use it.
 
 <Canvas of={stories.Default} />
 
