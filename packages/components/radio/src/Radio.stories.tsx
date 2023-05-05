@@ -1,3 +1,4 @@
+import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
@@ -54,11 +55,11 @@ const intents: RadioGroupProps['intent'][] = [
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="gap-lg flex flex-col">
+    <div className="gap-xl flex">
       {intents.map(intent => (
-        <div key={intent} className="gap-md flex flex-col justify-center">
-          <p className="text-headline-2">{intent}</p>
-          <RadioGroup key={intent} defaultValue="1" intent={intent} orientation="horizontal">
+        <div key={intent}>
+          <StoryLabel>{intent}</StoryLabel>
+          <RadioGroup defaultValue="1" intent={intent}>
             <Radio value="1">First</Radio>
             <Radio value="2">Second</Radio>
             <Radio value="3">Third</Radio>
@@ -73,11 +74,11 @@ const sizes: RadioGroupProps['size'][] = ['sm', 'md']
 
 export const Size: StoryFn = _args => {
   return (
-    <div className="gap-lg flex flex-col">
+    <div className="gap-xl flex">
       {sizes.map(size => (
-        <div key={size} className="gap-lg flex flex-col justify-center">
-          <p className="text-headline-2">{size}</p>
-          <RadioGroup key={size} defaultValue="1" size={size} orientation="horizontal">
+        <div key={size}>
+          <StoryLabel>{size}</StoryLabel>
+          <RadioGroup defaultValue="1" size={size}>
             <Radio value="1">First</Radio>
             <Radio value="2">Second</Radio>
             <Radio value="3">Third</Radio>
