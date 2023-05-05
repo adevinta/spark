@@ -27,26 +27,37 @@ describe('Badge', () => {
     expect(childrenWithText).toBeInTheDocument()
   })
 
-  it('should print properly the label when there is no count', () => {
-    render(<Badge />)
+  it('should print properly the content when there is no count', () => {
+    const renderedComponent = render(<Badge />)
 
-    expect(screen.getByLabelText('New notification')).toBeInTheDocument()
+    expect(renderedComponent.container.firstChild).toBeEmptyDOMElement()
   })
 
-  it('should print properly the label when count is 1', () => {
+  it('should print properly the content when count is 1', () => {
     render(<Badge count={1} />)
 
-    expect(screen.getByLabelText('1 notification')).toBeInTheDocument()
+    expect(screen.getByText('1')).toBeInTheDocument()
   })
 
-  it('should print properly the label when count is 99', () => {
+  it('should print properly the content when count is 99', () => {
     render(<Badge count={99} />)
 
-    expect(screen.getByLabelText('99 notifications')).toBeInTheDocument()
+    expect(screen.getByText('99')).toBeInTheDocument()
   })
 
-  it('should print properly the label when count is 100', () => {
+  it('should print properly the content when count is 100', () => {
     render(<Badge count={100} />)
+
+    expect(screen.getByText('99+')).toBeInTheDocument()
+  })
+
+  it('should print properly the aria-label when count is 100', () => {
+    render(
+      <Badge
+        count={100}
+        aria-label={({ overflowCount }) => `More than ${overflowCount} notifications`}
+      />
+    )
 
     expect(screen.getByLabelText('More than 99 notifications')).toBeInTheDocument()
   })

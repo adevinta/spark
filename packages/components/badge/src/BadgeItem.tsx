@@ -1,22 +1,11 @@
 import { forwardRef, HTMLAttributes, PropsWithRef } from 'react'
 
 import { styles, type StylesProps } from './BadgeItem.styles'
-import {
-  DEFAULT_INTENT,
-  DEFAULT_LABELS,
-  DEFAULT_OVERFLOW_COUNT,
-  DEFAULT_SIZE,
-  DEFAULT_TYPE,
-} from './config'
+import { DEFAULT_INTENT, DEFAULT_OVERFLOW_COUNT, DEFAULT_SIZE, DEFAULT_TYPE } from './config'
 
-interface AccessibilityLabel {
-  noCount?: string
-  singleCount?: string
-  pluralCount?: string
-  moreThanOverflowCount?: string
-}
-
-export interface BadgeItemProps extends PropsWithRef<HTMLAttributes<HTMLSpanElement>>, StylesProps {
+export interface BadgeItemProps
+  extends PropsWithRef<Omit<HTMLAttributes<HTMLSpanElement>, 'aria-label'>>,
+    StylesProps {
   /**
    * Numeric value used as indicator inside the component.
    */
@@ -26,9 +15,12 @@ export interface BadgeItemProps extends PropsWithRef<HTMLAttributes<HTMLSpanElem
    */
   overflowCount?: number
   /**
-   * Object containing custom labels for accessibility purposes than can be set for each count case.
+   * A custom label for accessibility purposes. It can also be defined as a builder function
+   * to handle dynamic inner data to create a custom label.
    */
-  label?: AccessibilityLabel
+  'aria-label'?:
+    | string
+    | (({ count, overflowCount }: { count?: number; overflowCount?: number }) => void)
   /**
    * Describes the way the component is displayed: relative to another element or just standalone.
    */
@@ -43,24 +35,20 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
       type = DEFAULT_TYPE,
       count,
       overflowCount = DEFAULT_OVERFLOW_COUNT,
-      label = DEFAULT_LABELS,
+      'aria-label': label,
       className,
       ...others
     },
     ref
   ) => {
     const hasOverflow = count && count > overflowCount
-    const regularCountLabel =
-      count && count > 1 ? label.pluralCount?.replace('%COUNT%', `${count}`) : label.singleCount
-    const countLabel = hasOverflow
-      ? label.moreThanOverflowCount?.replace('%OVERFLOW_COUNT%', `${overflowCount}`)
-      : regularCountLabel
+    const ariaLabel = typeof label === 'function' ? label({ count, overflowCount }) : label
+    const props = { ...others, ...(ariaLabel && { 'aria-label': ariaLabel }) }
 
     return (
       <span
         ref={ref}
         data-spark-component="badge"
-        aria-label={count ? countLabel : label.noCount}
         role="status"
         className={styles({
           intent,
@@ -68,7 +56,7 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
           type,
           className,
         })}
-        {...others}
+        {...props}
       >
         {hasOverflow ? `${overflowCount}+` : count}
       </span>

@@ -18,12 +18,12 @@ const intents: BadgeProps['intent'][] = ['error', 'info']
 const fakeAvatar = <div className="w-sz-40 h-sz-40 bg-outline rounded-lg" />
 
 export const Default: StoryFn = _args => <Badge>{fakeAvatar}</Badge>
-export const Standalone: StoryFn = _args => <Badge />
+export const Standalone: StoryFn = _args => <Badge aria-label="New notification" />
 export const StandaloneWithCount: StoryFn = _args => <Badge count={1} />
 export const StandaloneWithinAnotherElement: StoryFn = _args => (
   <RadioGroup>
     <Radio value="foo">
-      Foo <Badge size="sm" count={3} />
+      Foo <Badge size="sm" count={3} aria-label={({ count }) => `${count} notifications`} />
     </Radio>
   </RadioGroup>
 )
@@ -36,7 +36,14 @@ export const WrappingAnIcon: StoryFn = _args => (
   </Badge>
 )
 export const RegularCount: StoryFn = _args => <Badge count={1}>{fakeAvatar}</Badge>
-export const LargeCount: StoryFn = _args => <Badge count={1000}>{fakeAvatar}</Badge>
+export const LargeCount: StoryFn = _args => (
+  <Badge
+    count={1000}
+    aria-label={({ overflowCount }) => `More than ${overflowCount} notifications`}
+  >
+    {fakeAvatar}
+  </Badge>
+)
 export const LargeCustomCount: StoryFn = _args => (
   <Badge count={1000} overflowCount={999}>
     {fakeAvatar}

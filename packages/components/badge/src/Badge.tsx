@@ -2,29 +2,19 @@ import { forwardRef, PropsWithChildren } from 'react'
 
 import { BadgeItem, BadgeItemProps } from './BadgeItem'
 
-export interface BadgeProps extends PropsWithChildren<Omit<BadgeItemProps, 'type'>> {
-  /**
-   * Classname definition for the component wrapper. Not applying for standalone badges,
-   * only for those that have children.
-   */
-  wrapperClassName?: string
-}
+export type BadgeProps = PropsWithChildren<Omit<BadgeItemProps, 'type'>>
 
-export const Badge = forwardRef<HTMLElement, BadgeProps>(
-  ({ children, wrapperClassName, ...props }, ref) => {
-    const isStandalone = !children
-    const baseClassName = 'relative flex'
-    const className = wrapperClassName ? `${baseClassName} ${wrapperClassName}` : baseClassName
+export const Badge = forwardRef<HTMLElement, BadgeProps>(({ children, ...props }, ref) => {
+  const isStandalone = !children
 
-    return isStandalone ? (
-      <BadgeItem ref={ref} type="standalone" {...props} />
-    ) : (
-      <div className={className}>
-        {children}
-        <BadgeItem ref={ref} {...props} />
-      </div>
-    )
-  }
-)
+  return isStandalone ? (
+    <BadgeItem ref={ref} type="standalone" {...props} />
+  ) : (
+    <div className="relative flex">
+      {children}
+      <BadgeItem ref={ref} {...props} />
+    </div>
+  )
+})
 
 Badge.displayName = 'Badge'
