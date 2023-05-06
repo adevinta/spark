@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
 
 import { FormControl, FormControlState, FormErrorMessage, FormHelperMessage, FormLabel } from '.'
+import { FormRequiredIndicator } from './FormRequiredIndicator'
 
 const meta: Meta<typeof FormControl> = {
   title: 'Components/FormControl',
@@ -32,6 +33,58 @@ export const Default: StoryFn = () => (
   </FormControl>
 )
 
+export const Required: StoryFn = () => (
+  <FormControl name="password" isRequired>
+    <FormLabel>Password</FormLabel>
+
+    <FormControlState>
+      {({ id, name, description, isRequired }) => (
+        <input
+          type="password"
+          id={id}
+          name={name}
+          aria-describedby={description}
+          aria-required={isRequired}
+          required={isRequired}
+          className="p-md border-neutral active:border-primary border-md rounded-sm"
+        />
+      )}
+    </FormControlState>
+
+    <FormErrorMessage>Password is required</FormErrorMessage>
+  </FormControl>
+)
+
+export const CustomRequired: StoryFn = () => (
+  <FormControl name="password" isRequired>
+    <FormLabel
+      requiredIndicator={
+        <FormRequiredIndicator className="text-caption text-neutral">
+          Required
+        </FormRequiredIndicator>
+      }
+    >
+      Password
+    </FormLabel>
+
+    <FormControlState>
+      {({ id, name, description, isRequired }) => (
+        <input
+          type="password"
+          id={id}
+          name={name}
+          aria-describedby={description}
+          aria-required={isRequired}
+          required={isRequired}
+          className="p-md border-neutral active:border-primary border-md rounded-sm"
+        />
+      )}
+    </FormControlState>
+
+    <FormErrorMessage>Password is required</FormErrorMessage>
+  </FormControl>
+)
+
 export const Invalid: StoryFn = () => (
   <FormControl name="email" isInvalid>
     <FormLabel>Name</FormLabel>
@@ -51,6 +104,6 @@ export const Invalid: StoryFn = () => (
       )}
     </FormControlState>
 
-    <FormErrorMessage>Name is required</FormErrorMessage>
+    <FormErrorMessage>Name is invalid</FormErrorMessage>
   </FormControl>
 )

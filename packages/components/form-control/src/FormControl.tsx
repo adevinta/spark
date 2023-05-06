@@ -3,21 +3,22 @@ import { Slot } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
+import { FormControlContextState } from './FormControlContext'
 import { FormControlProvider } from './FormControlProvider'
 
-export interface FormControlProps extends ComponentPropsWithoutRef<'div'> {
-  name?: string
-  isInvalid?: boolean
+export interface FormControlProps
+  extends ComponentPropsWithoutRef<'div'>,
+    Pick<FormControlContextState, 'name' | 'isRequired' | 'isInvalid'> {
   asChild?: boolean
 }
 
 export const FormControl = forwardRef<HTMLDivElement, FormControlProps>(
-  ({ className, name, isInvalid = false, asChild = false, ...others }, ref) => {
+  ({ className, name, isInvalid = false, isRequired = false, asChild = false, ...others }, ref) => {
     const id = useId()
     const Component = asChild ? Slot : 'div'
 
     return (
-      <FormControlProvider id={id} name={name} isInvalid={isInvalid}>
+      <FormControlProvider id={id} name={name} isRequired={isRequired} isInvalid={isInvalid}>
         <Component
           ref={ref}
           data-spark-component="form-control"

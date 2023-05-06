@@ -3,14 +3,16 @@ import { createContext, useContext } from 'react'
 export interface FormControlContextState {
   id: string
   name?: string
-  description: string
+  description?: string
   isInvalid?: boolean
+  isRequired?: boolean
   onMessageIdAdd: (id: string) => void
   onMessageIdRemove: (id: string) => void
 }
 
 export const FormControlContext = createContext<FormControlContextState>({
   isInvalid: false,
+  isRequired: false,
 } as FormControlContextState)
 
 export const useFormControl = () => {

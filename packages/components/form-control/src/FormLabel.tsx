@@ -1,17 +1,44 @@
 import { Label, LabelProps } from '@radix-ui/react-label'
-import { forwardRef } from 'react'
+import { cx } from 'class-variance-authority'
+import { forwardRef, ReactNode } from 'react'
 
 import { useFormControl } from './FormControlContext'
+import { FormRequiredIndicator } from './FormRequiredIndicator'
 
-export type FormLabelProps = LabelProps
+export interface FormLabelProps extends LabelProps {
+  requiredIndicator?: ReactNode
+}
 
 export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
-  ({ htmlFor: htmlForProp, ...others }, ref) => {
-    const field = useFormControl()
+  (
+    {
+      htmlFor: htmlForProp,
+      className,
+      children,
+      requiredIndicator = <FormRequiredIndicator />,
+      ...others
+    },
+    ref
+  ) => {
+    const { id, isRequired } = useFormControl()
 
-    const htmlFor = htmlForProp || field.id
+    const htmlFor = htmlForProp || id
 
-    return <Label ref={ref} data-spark-component="form-label" htmlFor={htmlFor} {...others} />
+    return (
+      <Label
+        ref={ref}
+        data-spark-component="form-label"
+        htmlFor={htmlFor}
+        className={cx(className, 'flex items-center gap-sm text-body-1')}
+        {...others}
+      >
+        <>
+          {children}
+
+          {isRequired && requiredIndicator}
+        </>
+      </Label>
+    )
   }
 )
 

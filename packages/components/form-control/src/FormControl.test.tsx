@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { FormControl, FormControlState, FormErrorMessage, FormHelperMessage, FormLabel } from '.'
+import { FormRequiredIndicator } from './FormRequiredIndicator'
 
 describe('FormControl', () => {
   it('should render', () => {
@@ -18,6 +19,46 @@ describe('FormControl', () => {
     )
 
     expect(screen.getByLabelText('Email')).toHaveAttribute('name', 'email')
+  })
+
+  it('should render default required indicator', () => {
+    render(
+      <FormControl name="email" isRequired>
+        <FormLabel>Email</FormLabel>
+
+        <FormControlState>
+          {({ id, name, description }) => (
+            <input type="email" id={id} name={name} aria-describedby={description} />
+          )}
+        </FormControlState>
+      </FormControl>
+    )
+
+    const requiredEl = screen.getByText('*')
+
+    expect(requiredEl).toHaveAttribute('role', 'presentation')
+    expect(requiredEl).toHaveAttribute('aria-hidden', 'true')
+  })
+
+  it('should render custom required indicator', () => {
+    render(
+      <FormControl name="email" isRequired>
+        <FormLabel requiredIndicator={<FormRequiredIndicator>Required</FormRequiredIndicator>}>
+          Email
+        </FormLabel>
+
+        <FormControlState>
+          {({ id, name, description }) => (
+            <input type="email" id={id} name={name} aria-describedby={description} />
+          )}
+        </FormControlState>
+      </FormControl>
+    )
+
+    const requiredEl = screen.getByText('Required')
+
+    expect(requiredEl).toHaveAttribute('role', 'presentation')
+    expect(requiredEl).toHaveAttribute('aria-hidden', 'true')
   })
 
   it('should render helper message', () => {
