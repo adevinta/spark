@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/form-control",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Provide context to your form elements",
   "publishConfig": {
     "access": "public"
