@@ -25,5 +25,10 @@
     "@spark-ui/icon": "1",
     "@spark-ui/icons": "1",
     "@spark-ui/radio": "1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
 }
