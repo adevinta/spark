@@ -1,11 +1,7 @@
-import { Button } from '@spark-ui/button'
-import { Icon } from '@spark-ui/icon'
-import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
-import { Search } from '@spark-ui/icons/dist/icons/Search'
 import { Meta, StoryFn } from '@storybook/react'
 import { ComponentProps } from 'react'
 
-import { Input, InputField, TextInput } from '.'
+import { TextInput } from '.'
 
 const meta: Meta<typeof TextInput> = {
   title: 'Components/TextInput',
