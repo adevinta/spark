@@ -2,26 +2,27 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 
-import { TextInput } from './TextInput'
+import { TextInput } from '.'
 
-describe('Input', () => {
+describe('TextInput', () => {
   it('should render', () => {
     render(<TextInput>Hello World!</TextInput>)
 
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
+    expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
 
-  it('should trigger click event', async () => {
+  it('should trigger onChange event', async () => {
     const user = userEvent.setup()
-    const clickEvent = vi.fn()
+    const changeEvent = vi.fn()
+    const value = 'value'
 
     // Given
-    render(<div onClick={clickEvent}>Hello World!</div>)
+    render(<TextInput onValueChange={changeEvent}>Hello World!</TextInput>)
 
     // When
-    await user.click(screen.getByText('Hello World!'))
+    await user.type(screen.getByRole('textbox'), value)
 
     // Then
-    expect(clickEvent).toHaveBeenCalledTimes(1)
+    expect(changeEvent).toHaveBeenCalledTimes(value.length)
   })
 })
