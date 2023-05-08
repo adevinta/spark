@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/text-input",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Text fields that users fill in with different types of information through alphanumeric text.",
   "publishConfig": {
     "access": "public"
