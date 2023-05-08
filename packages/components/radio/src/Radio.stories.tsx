@@ -121,9 +121,9 @@ export const Control: StoryFn = _args => (
   </form>
 )
 
-export const Invalid: StoryFn = _args => (
+export const Required: StoryFn = _args => (
   <form>
-    <FormControl name="condition" isRequired isInvalid asChild>
+    <FormControl name="condition" isRequired asChild>
       <fieldset>
         <FormLabel asChild>
           <legend className="float-left">Apparel condition</legend>
@@ -136,7 +136,26 @@ export const Invalid: StoryFn = _args => (
           <Radio value="4">Satisfactory</Radio>
         </RadioGroup>
 
-        <FormHelperMessage>The condition that best matches your product</FormHelperMessage>
+        <FormErrorMessage>The condition is required</FormErrorMessage>
+      </fieldset>
+    </FormControl>
+  </form>
+)
+
+export const Invalid: StoryFn = _args => (
+  <form>
+    <FormControl name="condition" isInvalid asChild>
+      <fieldset>
+        <FormLabel asChild>
+          <legend className="float-left">Apparel condition</legend>
+        </FormLabel>
+
+        <RadioGroup>
+          <Radio value="1">New</Radio>
+          <Radio value="2">Very good</Radio>
+          <Radio value="3">Good</Radio>
+          <Radio value="4">Satisfactory</Radio>
+        </RadioGroup>
 
         <FormErrorMessage>The condition is required</FormErrorMessage>
       </fieldset>

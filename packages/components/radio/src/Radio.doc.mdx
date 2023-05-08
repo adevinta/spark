@@ -72,12 +72,18 @@ Use `size` prop to set the size of every radio inside the group. Optinally, you 
 
 ## Control
 
-Use `FormControl`, `FormHelperMessage` and `FormHelperText` to provide context to the radio group
+Use `FormControl`, `FormLabel`, `FormHelperMessage` and `FormErrorMessage` to provide context to the radio group.
 
 <Canvas of={RadioStories.Control} />
 
+### Required
+
+Use the `isRequired` prop to indicate that the radio group is required.
+
+<Canvas of={RadioStories.Invalid} />
+
 ### Invalid
 
-Use `FormControl`, `FormHelperMessage` and `FormHelperText` to provide context to the radio group
+Use the `isInvalid` prop to indicate that the radio group is invalid and show the error message.
 
 <Canvas of={RadioStories.Invalid} />
