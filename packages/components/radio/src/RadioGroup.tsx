@@ -1,9 +1,10 @@
 import { RadioGroup as RadioGroupPrimitive } from '@radix-ui/react-radio-group'
+import { useFormControl } from '@spark-ui/form-control'
 import { cva } from 'class-variance-authority'
 import { forwardRef, HTMLAttributes } from 'react'
 
 import { RadioGroupProvider } from './RadioGroupProvider'
-import { RadioInputVariantsProps } from './RadioInput.variants'
+import { RadioInputVariantsProps } from './RadioInput.styles'
 
 export const radioGroupStyles = cva(['gap-xl flex'], {
   variants: {
@@ -64,20 +65,40 @@ export interface RadioGroupProps
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   (
-    { orientation = 'vertical', loop = true, intent, size, disabled, className, ...others },
+    {
+      orientation = 'vertical',
+      loop = true,
+      intent,
+      size,
+      disabled,
+      className,
+      name: nameProp,
+      required: requiredProp,
+      ...others
+    },
     ref
   ) => {
+    const control = useFormControl()
+    const { isRequired } = control
+
+    const name = nameProp !== undefined ? nameProp : control.name
+    const required = requiredProp !== undefined ? isRequired : requiredProp
+
     return (
       <RadioGroupProvider intent={intent} size={size} disabled={disabled}>
         <RadioGroupPrimitive
           data-spark-component="radio-group"
-          className={radioGroupStyles({ orientation, className })}
           ref={ref}
+          className={radioGroupStyles({ orientation, className })}
+          name={name}
           disabled={disabled}
           orientation={orientation}
+          required={required}
           {...others}
         />
       </RadioGroupProvider>
     )
   }
 )
+
+RadioGroup.displayName = 'RadioGroup'

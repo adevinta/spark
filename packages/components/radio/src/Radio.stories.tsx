@@ -1,4 +1,6 @@
+import { FormControl, FormHelperMessage, FormLabel } from '@spark-ui/form-control'
 import { Meta, StoryFn } from '@storybook/react'
+import { FormErrorMessage } from 'packages/components/form-control/dist'
 import { useState } from 'react'
 
 import { Radio, RadioGroup, RadioGroupProps } from '.'
@@ -45,11 +47,11 @@ export const Controlled: StoryFn = () => {
 const intents: RadioGroupProps['intent'][] = [
   'primary',
   'secondary',
+  'neutral',
   'success',
   'alert',
   'error',
   'info',
-  'neutral',
 ]
 
 export const Intent: StoryFn = _args => {
@@ -94,4 +96,50 @@ export const Disabled: StoryFn = _args => (
     <Radio value="2">Second</Radio>
     <Radio value="3">Third</Radio>
   </RadioGroup>
+)
+
+export const Control: StoryFn = _args => (
+  <form>
+    <FormControl name="condition" asChild>
+      <fieldset>
+        <FormLabel asChild>
+          <legend className="float-left">Apparel condition</legend>
+        </FormLabel>
+
+        <RadioGroup>
+          <Radio value="1">New</Radio>
+          <Radio value="2">Very good</Radio>
+          <Radio value="3">Good</Radio>
+          <Radio value="4">Satisfactory</Radio>
+        </RadioGroup>
+
+        <FormHelperMessage>The condition that best matches your product</FormHelperMessage>
+
+        <FormErrorMessage>The condition is required</FormErrorMessage>
+      </fieldset>
+    </FormControl>
+  </form>
+)
+
+export const Invalid: StoryFn = _args => (
+  <form>
+    <FormControl name="condition" isRequired isInvalid asChild>
+      <fieldset>
+        <FormLabel asChild>
+          <legend className="float-left">Apparel condition</legend>
+        </FormLabel>
+
+        <RadioGroup>
+          <Radio value="1">New</Radio>
+          <Radio value="2">Very good</Radio>
+          <Radio value="3">Good</Radio>
+          <Radio value="4">Satisfactory</Radio>
+        </RadioGroup>
+
+        <FormHelperMessage>The condition that best matches your product</FormHelperMessage>
+
+        <FormErrorMessage>The condition is required</FormErrorMessage>
+      </fieldset>
+    </FormControl>
+  </form>
 )

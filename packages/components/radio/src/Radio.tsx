@@ -24,3 +24,5 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
     )
   }
 )
+
+Radio.displayName = 'Radio'
