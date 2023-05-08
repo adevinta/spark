@@ -55,11 +55,11 @@ export const inputStyles = cva([
 ])
 
 export const labelTextStyles = cva(
-  ['absolute', 'flex', 'items-center', 'h-full', 'opacity-dim-1', 'transition-all', 'duration-100'],
+  ['absolute', 'flex', 'items-center', 'h-full', 'transition-all', 'duration-100'],
   {
     variants: {
       isExpanded: {
-        true: ['text-body-1', 'top-[0%]'],
+        true: ['text-body-1', 'top-[0%]', 'opacity-dim-1'],
         false: ['text-body-2', 'top-[-50%]'],
       },
       /**
@@ -124,10 +124,10 @@ export const labelTextStyles = cva(
   }
 )
 
-export const labelTextMandatoryStyles = cva(['opacity-dim-3', 'transition-all', 'duration-100'], {
+export const labelTextMandatoryStyles = cva(['transition-all', 'duration-100'], {
   variants: {
     isExpanded: {
-      true: ['text-body-2'],
+      true: ['text-body-2', 'opacity-dim-3'],
       false: ['text-caption'],
     },
   },
