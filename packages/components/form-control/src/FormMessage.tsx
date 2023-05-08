@@ -1,5 +1,6 @@
+import { useId } from '@radix-ui/react-id'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, forwardRef, useEffect, useId } from 'react'
+import { ComponentPropsWithoutRef, forwardRef, useEffect } from 'react'
 
 import { useFormControl } from './FormControlContext'
 

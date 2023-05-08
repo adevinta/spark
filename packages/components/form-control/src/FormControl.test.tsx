@@ -27,14 +27,25 @@ describe('FormControl', () => {
         <FormLabel>Email</FormLabel>
 
         <FormControlState>
-          {({ id, name, description }) => (
-            <input type="email" id={id} name={name} aria-describedby={description} />
+          {({ id, name, description, isRequired }) => (
+            <input
+              type="email"
+              id={id}
+              name={name}
+              aria-required={isRequired}
+              required={isRequired}
+              aria-describedby={description}
+            />
           )}
         </FormControlState>
       </FormControl>
     )
 
+    const inputEl = screen.getByLabelText(/Email/)
     const requiredEl = screen.getByText('*')
+
+    expect(inputEl).toHaveAttribute('required')
+    expect(inputEl).toHaveAttribute('aria-required', 'true')
 
     expect(requiredEl).toHaveAttribute('role', 'presentation')
     expect(requiredEl).toHaveAttribute('aria-hidden', 'true')
@@ -88,8 +99,14 @@ describe('FormControl', () => {
         <FormLabel>Email</FormLabel>
 
         <FormControlState>
-          {({ id, name, description }) => (
-            <input type="email" id={id} name={name} aria-describedby={description} />
+          {({ id, name, isInvalid, description }) => (
+            <input
+              type="email"
+              id={id}
+              name={name}
+              aria-invalid={isInvalid}
+              aria-describedby={description}
+            />
           )}
         </FormControlState>
 
@@ -97,6 +114,10 @@ describe('FormControl', () => {
       </FormControl>
     )
 
+    const inputEl = screen.getByLabelText('Email')
+
+    expect(inputEl).toHaveAttribute('aria-invalid', 'false')
+    expect(inputEl).not.toHaveAttribute('aria-describedby')
     expect(screen.queryByText('We will never share your email')).toBeNull()
   })
 
@@ -106,8 +127,14 @@ describe('FormControl', () => {
         <FormLabel>Email</FormLabel>
 
         <FormControlState>
-          {({ id, name, description }) => (
-            <input type="email" id={id} name={name} aria-describedby={description} />
+          {({ id, name, isInvalid, description }) => (
+            <input
+              type="email"
+              id={id}
+              name={name}
+              aria-invalid={isInvalid}
+              aria-describedby={description}
+            />
           )}
         </FormControlState>
 
@@ -118,7 +145,8 @@ describe('FormControl', () => {
     const inputEl = screen.getByLabelText('Email')
     const errorTextEl = screen.getByText('Email is required')
 
-    expect(inputEl.getAttribute('aria-describedby')).toEqual(errorTextEl.getAttribute('id'))
+    expect(inputEl).toHaveAttribute('aria-invalid', 'true')
+    expect(inputEl).toHaveAttribute('aria-describedby', errorTextEl.getAttribute('id'))
     expect(errorTextEl).toHaveAttribute('aria-live', 'polite')
   })
 
