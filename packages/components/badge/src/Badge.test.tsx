@@ -51,6 +51,12 @@ describe('Badge', () => {
     expect(screen.getByText('99+')).toBeInTheDocument()
   })
 
+  it('should print properly the aria-label when there is no count', () => {
+    render(<Badge aria-label="New notification" />)
+
+    expect(screen.getByLabelText('New notification')).toBeInTheDocument()
+  })
+
   it('should print properly the aria-label when count is 100', () => {
     render(
       <Badge

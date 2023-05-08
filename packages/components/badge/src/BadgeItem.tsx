@@ -20,7 +20,7 @@ export interface BadgeItemProps
    */
   'aria-label'?:
     | string
-    | (({ count, overflowCount }: { count?: number; overflowCount?: number }) => void)
+    | (({ count, overflowCount }: { count?: number; overflowCount?: number }) => string)
   /**
    * Describes the way the component is displayed: relative to another element or just standalone.
    */
@@ -43,7 +43,7 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
   ) => {
     const hasOverflow = count && count > overflowCount
     const ariaLabel = typeof label === 'function' ? label({ count, overflowCount }) : label
-    const props = { ...others, ...(ariaLabel && { 'aria-label': ariaLabel }) }
+    const props = { ...others, 'aria-label': ariaLabel }
 
     return (
       <span
