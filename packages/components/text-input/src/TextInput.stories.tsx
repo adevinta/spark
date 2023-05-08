@@ -58,36 +58,3 @@ export const Intent: StoryFn = _args => (
     ))}
   </div>
 )
-
-export const Icons: StoryFn = _args => (
-  <InputField>
-    <Icon>
-      <PenOutline />
-    </Icon>
-    <Input>Label</Input>
-    <Icon>
-      <Search />
-    </Icon>
-  </InputField>
-)
-
-export const Compose: StoryFn = _args => (
-  <InputField>
-    <Input>Label1</Input>
-    <Icon>
-      <Search />
-    </Icon>
-    <Input>Label2</Input>
-    <Icon>
-      <PenOutline />
-    </Icon>
-    <Button shape="square">click</Button>
-  </InputField>
-)
-
-export const Examples: StoryFn = _args => (
-  <InputField>
-    <Input htmlSize={4}>0000</Input> - <Input htmlSize={4}>1111</Input> -{' '}
-    <Input htmlSize={4}>2222</Input> - <Input htmlSize={4}>3333</Input>
-  </InputField>
-)
