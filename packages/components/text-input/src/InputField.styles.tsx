@@ -28,7 +28,7 @@ export const inputFieldStyles = cva(
         surface: ['text-surface'],
       }),
       disabled: {
-        true: ['cursor-not-allowed'],
+        true: ['cursor-not-allowed', 'opacity-dim-3'],
       },
     },
   }
