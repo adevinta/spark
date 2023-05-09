@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "1",
-    "@radix-ui/react-label": "^2.0.1",
-    "@spark-ui/icons": "^1.10.2",
-    "@spark-ui/internal-utils": "^1.5.3",
-    "@spark-ui/use-merge-refs": "^0.3.2",
+    "@radix-ui/react-label": "2",
+    "@spark-ui/icons": "1",
+    "@spark-ui/internal-utils": "1",
+    "@spark-ui/use-merge-refs": "0",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
