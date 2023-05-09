@@ -12,14 +12,13 @@ export interface InputFieldProps extends PropsWithChildren, Omit<InputProps, 'la
 }
 
 export const InputField = forwardRef<HTMLElement, InputFieldProps>(
-  ({ asChild, intent, disabled, className, children, ...props }, forwardedRef) => {
+  ({ asChild, intent, className, children, ...props }, forwardedRef) => {
     const Element = asChild ? Slot : 'span'
 
     return (
       <Element
         ref={forwardedRef}
-        aria-disabled={disabled}
-        className={inputFieldStyles({ className, intent, disabled })}
+        className={inputFieldStyles({ className, intent, disabled: props.disabled })}
         {...props}
       >
         {children}
