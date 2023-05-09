@@ -12,8 +12,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "deepmerge": "^4.3.0",
-    "type-fest": "^3.6.1"
+    "deepmerge": "4.3.0",
+    "type-fest": "3.6.1"
   },
   "repository": {
     "type": "git",
