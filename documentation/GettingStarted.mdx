@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/blocks'
+import { Callout } from '@docs/helpers/Callout'
+import { Card } from '@docs/helpers/Card'
+import { cva, cx } from 'class-variance-authority'
+
+<Meta title="Getting Started" />
+
+<div className="flex flex-col gap-xl pb-3xl">
+<p className="text-center text-on-background sb-unstyled text-display-1-expanded">
+  Create <span className="text-primary">accessible</span> React apps
+  <span className="text-secondary">with ease</span>.
+</p>
+<p className="text-center text-on-neutral-container sb-unstyled text-headline-1">
+  **Spark UI** is a React based design system focused on modularity and accessibility, using
+  TailwindCSS and Radix UI.
+</p>
+
+</div>
+
+# Getting started
+
+## What is Spark ?
+
+**Spark offers you two things:**
+
+- A full set of React components, with an emphasis on modularity and accessibility
+- A theming/styling system based on TailwindCSS, which allows you to theme your apps and style your own components
+
+## Using Spark
+
+New to Spark or looking for information ? The following sections should help you find what you need
+
+<div className="sb-unstyled flex flex-row flex-wrap gap-lg my-xl">
+  <Card href="/?path=/docs/using-spark-setup--docs" description="Enable Spark on your project">
+    Setup
+  </Card>
+  <Card
+    href="/?path=/docs/using-spark-styling-overview--docs"
+    description="Apply styles to your components and markup"
+  >
+    Styling
+  </Card>
+  <Card
+    isExternalLink
+    href="https://sparkui.vercel.app/viewer/"
+    description="Visualize colors, spacing, typography, etc."
+  >
+    Spark Tokens
+  </Card>
+  <Card href="/?path=/docs/utils-theme--docs" description="Customize as many as you want">
+    Create your own themes
+  </Card>
+  <Card href="/?path=/docs/using-spark-guide-migrating-from-styled-components--docs">
+    Guide - Migrating from styled-components
+  </Card>
+  <Card disabled description="¯\_(ツ)_/¯">
+    F.A.Q (TODO)
+  </Card>
+</div>
+
+## Contribute to Spark
+
+You want to contribute to Spark ? First you should get familiar with our global guidelines and Code of Conduct.
+
+<div className="sb-unstyled flex flex-row flex-wrap gap-lg my-xl">
+  <Card href="/?path=/docs/contributing-code-of-conduct-index--docs">Code of Conduct</Card>
+  <Card href="/?path=/docs/contributing-guidelines-commit--docs">Guidelines</Card>
+  <Card href="/?path=/docs/contributing-writing-packages-structure--docs">Writing packages</Card>
+</div>
+
+## Resources
+
+- [Spark - Issues](https://github.com/adevinta/spark/issues)
+- [Spark - Discussions](https://github.com/adevinta/spark/discussions)

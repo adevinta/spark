@@ -219,6 +219,7 @@ export interface Theme {
   }
   opacity: {
     0: string
+    none: string
     dim1: string
     dim2: string
     dim3: string
