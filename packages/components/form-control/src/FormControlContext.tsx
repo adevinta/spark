@@ -18,9 +18,5 @@ export const FormControlContext = createContext<FormControlContextState>({
 export const useFormControl = () => {
   const context = useContext(FormControlContext)
 
-  if (!context) {
-    throw Error('useFormControl must be used within a FormControlContext Provider')
-  }
-
   return context
 }
