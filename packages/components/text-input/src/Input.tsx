@@ -27,16 +27,14 @@ export interface InputProps
 }
 
 const useIsExpanded = ({
-  // label,
-  // mandatory,
   placeholder,
   value,
-  focus,
+  isFocused,
 }: Pick<InputProps, 'mandatory' | 'placeholder' | 'value'> & {
   label: React.ReactNode
-  focus: boolean
+  isFocused: boolean
 }) => {
-  if (value || focus || placeholder) {
+  if (value || isFocused || placeholder) {
     return false
   }
 
@@ -54,14 +52,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       setValue(value)
       typeof onValueChange === 'function' && onValueChange(value)
     }
-    const [focus, setFocus] = useState(false)
+    const [isFocused, setIsFocused] = useState(false)
     const handleEvent =
       (value: boolean, callback?: (event: FocusEvent<HTMLInputElement>) => void) =>
       (event: FocusEvent<HTMLInputElement>) => {
-        setFocus(value)
+        setIsFocused(value)
         typeof callback === 'function' && callback(event)
       }
-    const isExpanded = useIsExpanded({ label: children, mandatory, placeholder, value, focus })
+    const isExpanded = useIsExpanded({ label: children, mandatory, placeholder, value, isFocused })
 
     return (
       <Label
