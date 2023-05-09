@@ -1,5 +1,5 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { forwardRef } from 'react'
+import { type FocusEvent, forwardRef } from 'react'
 
 import { useTabsContext } from './TabsContext'
 import { triggerVariants } from './TabsTrigger.styles'
@@ -38,6 +38,13 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
   ) => {
     const { intent, size } = useTabsContext()
 
+    const scrollToFocusedElement = ({ target }: FocusEvent<HTMLButtonElement>) =>
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest',
+      })
+
     return (
       <RadixTabs.Trigger
         ref={ref}
@@ -45,6 +52,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         asChild={asChild}
         disabled={disabled}
         value={value}
+        onFocus={scrollToFocusedElement}
       >
         {children}
       </RadixTabs.Trigger>
