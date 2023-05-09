@@ -18,8 +18,8 @@ module.exports = {
   },
 
   stories: [
-    '../documentation/getting-started/GettingStarted.mdx',
-    '../documentation/**/!(getting-started)/*.mdx',
+    '../documentation/*.mdx',
+    '../documentation/**/*.mdx',
     '../packages/**/*.doc.mdx',
     '../packages/**/*.stories.tsx',
   ],

@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/blocks'
 import { Callout } from '@docs/helpers/Callout'
 
-<Meta title="Styling overview" />
+<Meta title="Using Spark/Styling overview" />
 
 # Overview of Spark styling solution
 
@@ -17,34 +17,45 @@ At its core, the Spark styling solution is a **set** of Tailwind plugins that cu
 
 ## Tokens
 
-Tailwind's default theme tends to favor numerical scales to manage its tokens.
+It is important to note that although Spark is using TailwindCSS class prefixed, most of the class suffixes does not follow the same naming/semantics.
 
-For instance, **margins** are declared as follows:
+<div className="flex gap-lg">
+  <div className=" bg-error-container text-on-error-container rounded-md flex-1 p-lg">
+    <h3>❌ With Tailwind (arbitrary values)</h3>
+    Tailwind's default theme tends to favor numerical scales to manage its tokens.
 
-- `m-1` // 4px
-- `m-1.5` // 6px
-- `m-2` // 8px
-- and so on
+    For instance, **margins** are declared as follows:
+    - `m-1` // 4px
+    - `m-1.5` // 6px
+    - `m-2` // 8px
+    - and so on
 
-A similar approach is used for **colors**:
+    A similar approach is used for **colors**:
 
-- `bg-blue-100`
-- `bg-blue-200`
-- and so on
+    - `bg-blue-100`
+    - `bg-blue-200`
+    - and so on
 
-In contrast, our Spark design system adopts a semantic approach. For **margins**, we use:
+  </div>
 
-- `m-sm` // 4px
-- `m-md` // 8px
-- `m-lg` // 16px
-- and so on
+  <div className="bg-success-container text-on-success-container rounded-md flex-1 p-lg">
+    <h3>✅ With Spark (semantic values)</h3>
+    In contrast, our Spark design system adopts a semantic approach. For **margins**, we use:
 
-For colors, we use:
+    - `m-sm` // 4px
+    - `m-md` // 8px
+    - `m-lg` // 16px
+    - and so on
 
-- `bg-primary`
-- `bg-secondary`
-- `bg-success`
-- and so on
+    For colors, we use:
+
+    - `bg-primary`
+    - `bg-secondary`
+    - `bg-success`
+    - and so on
+
+  </div>
+</div>
 
 ## Anatomy of a Tailwind token-related class:
 
@@ -52,7 +63,7 @@ If we step back and take a closer look at how a typical Tailwind token-related c
 
 The first part, is the **prefix** (appearing before the `*` in the examples below):
 
-- `m-*` for margin, `m-b-*` for margin-bottom, `p-*` for padding, `p-l-*` for padding-left, etc.
+- `m-*` for margin, `mb-*` for margin-bottom, `p-*` for padding, `pl-*` for padding-left, etc.
 - `text-*` for text colors
 - `bg-*` for background colors
 - …
@@ -92,4 +103,4 @@ In essence, **every class not related to tokens is kept untouched**.
 
 So, if you don't find the class you're seeking within our [dedicated page](https://sparkui.vercel.app/viewer/), the answer is probably on the [Tailwind website](https://tailwindcss.com).
 
-**Next: [Check out our migration guide for transitioning from styled components to Spark's styling solution](?path=/docs/developer-migration-styled-components--docs#migrating-from-styled-components)**
+**Next: [Check out our migration guide for transitioning from styled components to Spark's styling solution](?path=/docs/using-spark-guide-migrating-from-styled-components--docs#migrating-from-styled-components)**
