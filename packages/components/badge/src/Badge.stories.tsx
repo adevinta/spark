@@ -39,7 +39,7 @@ export const StandaloneWithinAnotherElement: StoryFn = _args => (
 export const WrappingAnIcon: StoryFn = _args => (
   <Badge size="sm" count={3}>
     {/** TODO: Check the real behaviour with icons in order to avoid custom styles on them. **/}
-    <Icon size="lg" className="mx-md">
+    <Icon size="lg">
       <LikeFill />
     </Icon>
   </Badge>
