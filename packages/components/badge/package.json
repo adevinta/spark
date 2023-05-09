@@ -11,6 +11,10 @@
   "scripts": {
     "build": "vite build"
   },
+  "dependencies": {
+    "@spark-ui/internal-utils": "^1.5.3",
+    "class-variance-authority": "0.4.0"
+  },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
@@ -20,11 +24,6 @@
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/components/badge"
-  },
-  "devDependencies": {
-    "@spark-ui/icon": "1",
-    "@spark-ui/icons": "1",
-    "@spark-ui/radio": "1"
   },
   "bugs": {
     "url": "https://github.com/adevinta/spark/issues"
