@@ -7,7 +7,10 @@ export const styles = cva(
   ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full ring-2'],
   {
     variants: {
-      intent: makeVariants<'intent', ['error', 'info']>({
+      intent: makeVariants<
+        'intent',
+        ['primary', 'secondary', 'success', 'alert', 'danger', 'info', 'neutral', 'surface']
+      >({
         primary: ['bg-primary', 'text-on-primary', 'ring-on-primary'],
         secondary: ['bg-secondary', 'text-on-secondary', 'ring-on-secondary'],
         success: ['bg-success', 'text-on-success', 'ring-on-success'],
