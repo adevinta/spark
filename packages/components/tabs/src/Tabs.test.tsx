@@ -31,9 +31,16 @@ const tabsWithOverflow = [
 ]
 
 describe('Tabs', () => {
+  const scrollIntoViewSpy = vi.fn()
+
   beforeAll(() => {
+    Object.defineProperty(HTMLButtonElement.prototype, 'scrollIntoView', {
+      value: scrollIntoViewSpy,
+    })
     mockResizeObserver()
   })
+
+  beforeEach(() => vi.clearAllMocks())
 
   it('should render tabs and handle callback on value change', async () => {
     const user = userEvent.setup()
@@ -47,6 +54,16 @@ describe('Tabs', () => {
 
     expect(rootProps.onValueChange).toHaveBeenCalledTimes(1)
     expect(rootProps.onValueChange).toHaveBeenCalledWith('tab2')
+  })
+
+  it('should scroll into focused tab item', async () => {
+    const user = userEvent.setup()
+
+    render(createTabs({ tabs }))
+
+    await user.click(screen.getByText('Today'))
+
+    expect(scrollIntoViewSpy).toHaveBeenCalledTimes(1)
   })
 
   it('should not trigger any event on disabled tab item click', async () => {
