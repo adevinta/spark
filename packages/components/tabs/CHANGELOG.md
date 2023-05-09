@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.1.1...@spark-ui/tabs@1.1.2) (2023-05-09)
+
+### Bug Fixes
+
+- **tabs:** add scroll to focused tab element ([2d59794](https://github.com/adevinta/spark/commit/2d59794a42d1a5f9bcd37363df7235701b275dca))
+
 ## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.1.0...@spark-ui/tabs@1.1.1) (2023-05-08)
 
 ### Bug Fixes
