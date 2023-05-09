@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.19](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.4.18...@spark-ui/visually-hidden@0.4.19) (2023-05-09)
+
+### Bug Fixes
+
+- **visually-hidden:** fix deps ([8365b6d](https://github.com/adevinta/spark/commit/8365b6ddb9a970a9449ca6ddbbe3e5e21995f63f))
+
 ## [0.4.18](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.4.17...@spark-ui/visually-hidden@0.4.18) (2023-05-05)
 
 **Note:** Version bump only for package @spark-ui/visually-hidden

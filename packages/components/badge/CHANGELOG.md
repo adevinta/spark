@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/adevinta/spark/compare/@spark-ui/badge@0.1.0...@spark-ui/badge@0.1.1) (2023-05-09)
+
+### Bug Fixes
+
+- **badge:** fix deps ([824d1ce](https://github.com/adevinta/spark/commit/824d1ce33ce7519c7c1dd5b49f5c55e18d58b896))
+
 # 0.1.0 (2023-05-09)
 
 ### Bug Fixes
