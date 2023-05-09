@@ -13,7 +13,16 @@ const meta: Meta<typeof Badge> = {
   component: Badge,
 }
 const sizes: BadgeProps['size'][] = ['sm', 'md']
-const intents: BadgeProps['intent'][] = ['error', 'info']
+const intents: BadgeProps['intent'][] = [
+  'primary',
+  'secondary',
+  'success',
+  'alert',
+  'danger',
+  'info',
+  'neutral',
+  'surface',
+]
 
 const fakeAvatar = <div className="w-sz-40 h-sz-40 bg-outline rounded-lg" />
 

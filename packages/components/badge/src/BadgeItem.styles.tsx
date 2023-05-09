@@ -4,12 +4,18 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { DEFAULT_INTENT, DEFAULT_SIZE, DEFAULT_TYPE } from './config'
 
 export const styles = cva(
-  ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full outline outline-2'],
+  ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full ring-2'],
   {
     variants: {
       intent: makeVariants<'intent', ['error', 'info']>({
-        error: ['bg-error', 'text-on-error'],
-        info: ['bg-info', 'text-on-info'],
+        primary: ['bg-primary', 'text-on-primary', 'ring-on-primary'],
+        secondary: ['bg-secondary', 'text-on-secondary', 'ring-on-secondary'],
+        success: ['bg-success', 'text-on-success', 'ring-on-success'],
+        alert: ['bg-alert', 'text-on-alert', 'ring-on-alert'],
+        danger: ['bg-error', 'text-on-error', 'ring-on-error'],
+        info: ['bg-info', 'text-on-info', 'ring-on-info'],
+        neutral: ['bg-neutral', 'text-on-neutral', 'ring-on-neutral'],
+        surface: ['bg-surface', 'text-on-surface', 'ring-on-surface'],
       }),
       size: makeVariants<'size', ['sm', 'md']>({
         sm: ['text-small', 'px-[var(--sz-6)] py-[var(--sz-2)]', 'empty:h-sz-12 empty:w-sz-12'],
