@@ -16,11 +16,12 @@ export const iconStyles = cva(['fill-current'], {
       info: ['text-info'],
       neutral: ['text-neutral'],
     }),
-    size: makeVariants<'size', ['current', 'sm', 'md', 'lg']>({
+    size: makeVariants<'size', ['current', 'sm', 'md', 'lg', 'xl']>({
       current: ['u-current-font-size'],
       sm: ['w-sz-16', 'h-sz-16'],
       md: ['w-sz-24', 'h-sz-24'],
       lg: ['w-sz-32', 'h-sz-32'],
+      xl: ['w-sz-40', 'h-sz-40'],
     }),
   },
 })

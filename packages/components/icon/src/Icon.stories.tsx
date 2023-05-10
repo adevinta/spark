@@ -19,7 +19,7 @@ export const Default: StoryFn = _args => (
   </Icon>
 )
 
-const sizes: ComponentProps<typeof Icon>['size'][] = ['sm', 'md', 'lg']
+const sizes: ComponentProps<typeof Icon>['size'][] = ['sm', 'md', 'lg', 'xl']
 
 export const Sizes: StoryFn = _args => (
   <>
