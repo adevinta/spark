@@ -12,9 +12,9 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "1",
+    "@spark-ui/internal-utils": "^1.5.3",
     "@spark-ui/slot": "^1.4.6",
-    "class-variance-authority": "0"
+    "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
