@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.8](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.7...@spark-ui/tag@1.6.8) (2023-05-10)
+
+**Note:** Version bump only for package @spark-ui/tag
+
 ## [1.6.7](https://github.com/adevinta/spark/compare/@spark-ui/tag@1.6.6...@spark-ui/tag@1.6.7) (2023-05-10)
 
 ### Bug Fixes
