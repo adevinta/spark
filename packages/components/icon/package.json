@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/icon",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Accessible icon wrapper",
   "publishConfig": {
     "access": "public"
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@spark-ui/internal-utils": "^1.5.3",
-    "@spark-ui/visually-hidden": "^0.4.19"
+    "@spark-ui/visually-hidden": "^0.4.20"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
