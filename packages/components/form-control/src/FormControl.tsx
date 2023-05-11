@@ -22,7 +22,6 @@ export const FormControl = forwardRef<HTMLDivElement, FormControlProps>(
         <Component
           ref={ref}
           data-spark-component="form-control"
-          role="group"
           className={cx(className, 'flex flex-col gap-xl')}
           {...others}
         />

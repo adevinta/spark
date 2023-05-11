@@ -7,9 +7,10 @@ import { useFormControl } from './FormControlContext'
 export type FormMessageProps = ComponentPropsWithoutRef<'span'>
 
 export const FormMessage = forwardRef<HTMLSpanElement, FormMessageProps>(
-  ({ className, ...others }, ref) => {
+  ({ id: idProp, className, ...others }, ref) => {
     const { onMessageIdAdd, onMessageIdRemove } = useFormControl()
-    const id = useId()
+    const currentId = useId()
+    const id = idProp || currentId
 
     useEffect(() => {
       onMessageIdAdd(id)

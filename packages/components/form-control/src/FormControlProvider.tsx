@@ -14,6 +14,7 @@ export const FormControlProvider = ({
   isRequired,
   children,
 }: FormControlProviderProps) => {
+  const [labelId, setLabelId] = useState<string>('')
   const [messageIds, setMessageIds] = useState<string[]>([])
   const description = messageIds.length > 0 ? messageIds.join(' ') : undefined
 
@@ -25,17 +26,39 @@ export const FormControlProvider = ({
     setMessageIds(ids => ids.filter(current => current !== id))
   }, [])
 
+  const handleLabelIdAdd = useCallback((id: string) => {
+    setLabelId(id)
+  }, [])
+
+  const handleLabelIdRemove = useCallback(() => {
+    setLabelId('')
+  }, [])
+
   const value = useMemo(() => {
     return {
       id,
+      labelId,
       name,
       isInvalid,
       isRequired,
       description,
       onMessageIdAdd: handleMessageIdAdd,
       onMessageIdRemove: handleMessageIdRemove,
+      onLabelIdAdd: handleLabelIdAdd,
+      onLabelIdRemove: handleLabelIdRemove,
     }
-  }, [id, name, description, isInvalid, isRequired, handleMessageIdAdd, handleMessageIdRemove])
+  }, [
+    id,
+    labelId,
+    name,
+    description,
+    isInvalid,
+    isRequired,
+    handleMessageIdAdd,
+    handleMessageIdRemove,
+    handleLabelIdAdd,
+    handleLabelIdRemove,
+  ])
 
   return <FormControlContext.Provider value={value}>{children}</FormControlContext.Provider>
 }
