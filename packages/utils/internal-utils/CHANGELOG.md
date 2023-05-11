@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@1.5.4...@spark-ui/internal-utils@1.6.0) (2023-05-11)
+
+### Features
+
+- **icon:** added xl size for icon package ([5fb352a](https://github.com/adevinta/spark/commit/5fb352aae839a4d9e0c642624fcf05126d4ac7e5))
+
 ## [1.5.4](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@1.5.3...@spark-ui/internal-utils@1.5.4) (2023-05-10)
 
 ### Bug Fixes

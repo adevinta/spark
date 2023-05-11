@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/icon-button",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Icon button renders an icon within in a button",
   "publishConfig": {
     "access": "public"
@@ -12,7 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/button": "^1.11.5",
+    "@spark-ui/button": "^1.11.6",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
