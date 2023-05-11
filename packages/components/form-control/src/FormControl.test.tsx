@@ -179,34 +179,32 @@ describe('FormControl', () => {
     expect(ids).toContain(errorTextEl.getAttribute('id'))
   })
 
-  it('should render using custom elements', () => {
+  it('should render using custom label', () => {
     render(
-      <FormControl name="category" asChild>
-        <fieldset>
-          <FormLabel asChild>
-            <legend>Category</legend>
-          </FormLabel>
+      <FormControl name="category">
+        <FormLabel asChild>
+          <p>Category</p>
+        </FormLabel>
 
-          <div role="radiogroup">
-            <label>
-              <FormControlState>
-                {({ name }) => <input name={name} type="radio" value="electronics" />}
-              </FormControlState>
-              Electronics
-            </label>
+        <FormControlState>
+          {({ labelId, name }) => (
+            <div role="radiogroup" aria-labelledby={labelId}>
+              <label>
+                <input name={name} type="radio" value="electronics" />
+                Electronics
+              </label>
 
-            <label>
-              <FormControlState>
-                {({ name }) => <input name={name} type="radio" value="furnitures" />}
-              </FormControlState>
-              Furnitures
-            </label>
-          </div>
-        </fieldset>
+              <label>
+                <input name={name} type="radio" value="furnitures" />
+                Furnitures
+              </label>
+            </div>
+          )}
+        </FormControlState>
       </FormControl>
     )
 
-    expect(screen.getByRole('group', { name: 'Category' })).toBeInTheDocument()
+    expect(screen.getByRole('radiogroup', { name: 'Category' })).toBeInTheDocument()
     expect(screen.getByLabelText('Electronics')).toHaveAttribute('name', 'category')
     expect(screen.getByLabelText('Electronics')).toHaveAttribute('name', 'category')
   })

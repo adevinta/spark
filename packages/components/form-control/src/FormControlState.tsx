@@ -2,7 +2,7 @@ import { FormControlContextState, useFormControl } from './FormControlContext'
 
 type State = Pick<
   FormControlContextState,
-  'id' | 'name' | 'description' | 'isRequired' | 'isInvalid'
+  'id' | 'name' | 'description' | 'labelId' | 'isRequired' | 'isInvalid'
 >
 
 export interface FormControlState {
@@ -10,9 +10,9 @@ export interface FormControlState {
 }
 
 export const FormControlState = ({ children }: FormControlState) => {
-  const { id, name, isInvalid, isRequired, description } = useFormControl()
+  const { id, name, isInvalid, labelId, isRequired, description } = useFormControl()
 
-  return children({ id, name, isRequired, isInvalid, description })
+  return children({ id, labelId, name, isRequired, isInvalid, description })
 }
 
 FormControlState.displayName = 'FormControlState'
