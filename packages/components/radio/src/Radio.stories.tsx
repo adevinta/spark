@@ -100,65 +100,59 @@ export const Disabled: StoryFn = _args => (
 
 export const Control: StoryFn = _args => (
   <form>
-    <FormControl name="condition" asChild>
-      <fieldset>
-        <FormLabel asChild>
-          <legend className="float-left">Apparel condition</legend>
-        </FormLabel>
+    <FormControl name="condition">
+      <FormLabel asChild>
+        <p>Apparel condition</p>
+      </FormLabel>
 
-        <RadioGroup>
-          <Radio value="1">New</Radio>
-          <Radio value="2">Very good</Radio>
-          <Radio value="3">Good</Radio>
-          <Radio value="4">Satisfactory</Radio>
-        </RadioGroup>
+      <RadioGroup>
+        <Radio value="1">New</Radio>
+        <Radio value="2">Very good</Radio>
+        <Radio value="3">Good</Radio>
+        <Radio value="4">Satisfactory</Radio>
+      </RadioGroup>
 
-        <FormHelperMessage>The condition that best matches your product</FormHelperMessage>
+      <FormHelperMessage>The condition that best matches your product</FormHelperMessage>
 
-        <FormErrorMessage>The condition is required</FormErrorMessage>
-      </fieldset>
+      <FormErrorMessage>The condition is required</FormErrorMessage>
     </FormControl>
   </form>
 )
 
 export const Required: StoryFn = _args => (
   <form>
-    <FormControl name="condition" isRequired asChild>
-      <fieldset>
-        <FormLabel asChild>
-          <legend className="float-left">Apparel condition</legend>
-        </FormLabel>
+    <FormControl name="condition" isRequired>
+      <FormLabel asChild>
+        <p>Apparel condition</p>
+      </FormLabel>
 
-        <RadioGroup>
-          <Radio value="1">New</Radio>
-          <Radio value="2">Very good</Radio>
-          <Radio value="3">Good</Radio>
-          <Radio value="4">Satisfactory</Radio>
-        </RadioGroup>
+      <RadioGroup>
+        <Radio value="1">New</Radio>
+        <Radio value="2">Very good</Radio>
+        <Radio value="3">Good</Radio>
+        <Radio value="4">Satisfactory</Radio>
+      </RadioGroup>
 
-        <FormErrorMessage>The condition is required</FormErrorMessage>
-      </fieldset>
+      <FormErrorMessage>The condition is required</FormErrorMessage>
     </FormControl>
   </form>
 )
 
 export const Invalid: StoryFn = _args => (
   <form>
-    <FormControl name="condition" isInvalid asChild>
-      <fieldset>
-        <FormLabel asChild>
-          <legend className="float-left">Apparel condition</legend>
-        </FormLabel>
+    <FormControl name="condition" isRequired isInvalid>
+      <FormLabel asChild>
+        <p>Apparel condition</p>
+      </FormLabel>
 
-        <RadioGroup>
-          <Radio value="1">New</Radio>
-          <Radio value="2">Very good</Radio>
-          <Radio value="3">Good</Radio>
-          <Radio value="4">Satisfactory</Radio>
-        </RadioGroup>
+      <RadioGroup>
+        <Radio value="1">New</Radio>
+        <Radio value="2">Very good</Radio>
+        <Radio value="3">Good</Radio>
+        <Radio value="4">Satisfactory</Radio>
+      </RadioGroup>
 
-        <FormErrorMessage>The condition is required</FormErrorMessage>
-      </fieldset>
+      <FormErrorMessage>The condition is required</FormErrorMessage>
     </FormControl>
   </form>
 )

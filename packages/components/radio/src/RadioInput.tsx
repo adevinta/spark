@@ -28,7 +28,7 @@ export interface RadioInputProps
 
 export const RadioInput = forwardRef<HTMLButtonElement, RadioInputProps>(
   ({ intent: intentProp, size, className, ...others }, ref) => {
-    const { isInvalid, description } = useFormControl()
+    const { isInvalid } = useFormControl()
 
     const intent = isInvalid ? 'error' : intentProp
 
@@ -36,8 +36,6 @@ export const RadioInput = forwardRef<HTMLButtonElement, RadioInputProps>(
       <RadioPrimitive
         ref={ref}
         className={radioInputVariants({ size, intent, className })}
-        aria-invalid={isInvalid}
-        aria-describedby={description}
         {...others}
       >
         <RadioIndicator intent={intent} size={size} forceMount />

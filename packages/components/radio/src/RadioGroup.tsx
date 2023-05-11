@@ -79,10 +79,10 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
     ref
   ) => {
     const control = useFormControl()
-    const { isRequired } = control
+    const { labelId, description, isRequired, isInvalid } = control
 
     const name = nameProp !== undefined ? nameProp : control.name
-    const required = requiredProp !== undefined ? isRequired : requiredProp
+    const required = requiredProp !== undefined ? requiredProp : isRequired
 
     return (
       <RadioGroupProvider intent={intent} size={size} disabled={disabled}>
@@ -94,6 +94,9 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
           disabled={disabled}
           orientation={orientation}
           required={required}
+          aria-labelledby={labelId}
+          aria-describedby={description}
+          aria-invalid={isInvalid}
           {...others}
         />
       </RadioGroupProvider>
