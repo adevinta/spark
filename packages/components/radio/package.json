@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/radio",
-  "version": "1.10.0",
+  "version": "1.10.6",
   "description": "Component used when only one choice may be selected in a series of options",
   "publishConfig": {
     "access": "public"
@@ -12,9 +12,9 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-label": "^2.0.1",
-    "@radix-ui/react-radio-group": "^1.1.2",
-    "@spark-ui/internal-utils": "^1.5.3",
+    "@radix-ui/react-label": "2.0.1",
+    "@radix-ui/react-radio-group": "1.1.2",
+    "@spark-ui/internal-utils": "^1.6.0",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {

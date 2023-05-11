@@ -1,0 +1,34 @@
+{
+  "name": "@spark-ui/tabs",
+  "version": "1.1.7",
+  "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/tabs"
+  },
+  "dependencies": {
+    "@radix-ui/react-tabs": "1.0.3",
+    "@spark-ui/button": "^1.11.6",
+    "@spark-ui/icon": "^1.7.0",
+    "@spark-ui/icons": "^1.10.6",
+    "class-variance-authority": "0.4.0"
+  },
+  "devDependencies": {
+    "jsdom-testing-mocks": "1.8.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "tailwindcss": "^3.0.0"
+  }
+}

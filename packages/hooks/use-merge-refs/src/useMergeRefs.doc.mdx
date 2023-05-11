@@ -26,7 +26,6 @@ import { useMergeRefs } from '@spark-ui/use-merge-refs'
 
 const Demo = React.forwardRef((props, forwardedRef) => {
   const innerRef = useRef()
-
   const inputRef = useMergeRefs(innerRef, forwardedRef)
 
   const handleFocus = () => {

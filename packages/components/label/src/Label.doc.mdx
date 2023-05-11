@@ -1,0 +1,32 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+import { Label } from '.'
+import * as stories from './Label.stories'
+
+<Meta of={stories} />
+
+# Label
+
+Renders an accessible label associated with controls.
+
+## Install
+
+```sh
+npm install @spark-ui/label
+```
+
+## Import
+
+```tsx
+import { Label } from '@spark-ui/label'
+```
+
+## Props
+
+<ArgTypes of={Label} />
+
+## Usage
+
+This component is based on the native label element, it will automatically apply the correct labelling when wrapping controls or using the `htmlFor` attribute.
+
+<Canvas of={stories.Default} />

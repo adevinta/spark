@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.4...@spark-ui/portal@1.2.5) (2023-05-10)
+
+### Bug Fixes
+
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+
+## [1.2.4](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.3...@spark-ui/portal@1.2.4) (2023-05-10)
+
+**Note:** Version bump only for package @spark-ui/portal
+
+## [1.2.3](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.2...@spark-ui/portal@1.2.3) (2023-05-10)
+
+### Bug Fixes
+
+- packages deps ([3543766](https://github.com/adevinta/spark/commit/354376668ebb773d8efa553ce7f5ef1ecad42416))
+
 ## [1.2.2](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.1...@spark-ui/portal@1.2.2) (2023-04-28)
 
 **Note:** Version bump only for package @spark-ui/portal

@@ -1,0 +1,67 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Tabs } from '.'
+import * as stories from './Tabs.stories'
+
+<Meta of={stories} />
+
+# Tabs
+
+A set of layered sections of content—known as tab panels—that are displayed one at a time.
+
+## Install
+
+```
+npm install @spark-ui/tabs
+```
+
+## Import
+
+```
+import { Tabs } from "@spark-ui/tabs"
+```
+
+## Props
+
+<ArgTypes
+  of={Tabs}
+  subcomponents={{
+    'Tabs.List': Tabs.List,
+    'Tabs.Trigger': Tabs.Trigger,
+    'Tabs.Content': Tabs.Content,
+  }}
+/>
+
+## Usage
+
+<Canvas of={stories.Default} />
+
+## Intent
+
+Use `intent` prop to set the color of active tab item.
+
+<Canvas of={stories.Intent} />
+
+## Size
+
+Use `size` prop to set the size of items.
+
+<Canvas of={stories.Size} />
+
+## Disabled
+
+Use `disabled` prop on item to set related state to it. Other states (`:hover|:focus|...`) are automatically managed.
+
+<Canvas of={stories.State} />
+
+## Orientation
+
+Use `orientation` prop to set `horizontal|vertical` orientation.
+
+<Canvas of={stories.Orientation} />
+
+## Overflow
+
+For `horizontal` orientation only, navigation arrows are automatically displayed to help user browse tabs on content overflow. Use then `loop` prop on list to allow navigation loop from last tab to first, and vice versa.
+
+<Canvas of={stories.Overflow} />

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.3](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.15.2...@spark-ui/theme-utils@2.15.3) (2023-05-10)
+
+### Bug Fixes
+
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+
+## [2.15.2](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.15.1...@spark-ui/theme-utils@2.15.2) (2023-05-09)
+
+### Bug Fixes
+
+- **theme-utils:** fix deps ([2393ce6](https://github.com/adevinta/spark/commit/2393ce6dda743255af020e9109e77df5ad27fc67))
+
+## [2.15.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.15.0...@spark-ui/theme-utils@2.15.1) (2023-05-09)
+
+**Note:** Version bump only for package @spark-ui/theme-utils
+
 # [2.15.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.14.1...@spark-ui/theme-utils@2.15.0) (2023-05-03)
 
 ### Features

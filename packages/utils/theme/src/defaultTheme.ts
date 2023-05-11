@@ -201,6 +201,7 @@ export const defaultTheme: Theme = {
   },
   opacity: {
     0: '0',
+    none: '1',
     dim1: '0.72',
     dim2: '0.56',
     dim3: '0.40',

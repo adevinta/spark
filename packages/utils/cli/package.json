@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/cli-utils",
-  "version": "2.11.6",
+  "version": "2.11.8",
   "description": "Spark CLI utils",
   "publishConfig": {
     "access": "public"
@@ -15,6 +15,11 @@
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/utils/cli"
   },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT",
   "dependencies": {
     "@clack/prompts": "0.6.2",
     "camel-case": "4.1.2",
@@ -27,10 +32,5 @@
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.1"
-  },
-  "bugs": {
-    "url": "https://github.com/adevinta/spark/issues"
-  },
-  "homepage": "https://sparkui.vercel.app",
-  "license": "MIT"
+  }
 }

@@ -1,8 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@storybook/blocks'
-
 import { Checkbox } from '.'
-
 import * as CheckboxStories from './Checkbox.stories'
 
 <Meta of={CheckboxStories} />
@@ -37,6 +35,7 @@ It will also be focused when the user navigates using the keyboard and changes i
 <Canvas of={CheckboxStories.Default} />
 
 ## Disabled
+
 The element will not change its status when clicking on it and it will never be focused using keyboard navigation.
 
 <Canvas of={CheckboxStories.Disabled} />

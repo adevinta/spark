@@ -1,4 +1,4 @@
-import { Meta} from '@storybook/addon-docs'
+import { Meta } from '@storybook/addon-docs'
 
 <Meta title="Hooks/useCombinedState" />
 
@@ -29,16 +29,15 @@ const Demo = ({ value, defaultValue, onHandler }) => {
     innerValue, // state
     setInnerValue, // state setter
     isControlledValue, // using controlled behavior or not
-    initialInnerValue // first inner value state
-  ] = useCombinedState(
-    value,
-    defaultValue
-  )
+    initialInnerValue, // first inner value state
+  ] = useCombinedState(value, defaultValue)
 
   const handler = event => {
-    const {target: {value}} = event
+    const {
+      target: { value },
+    } = event
     setInnerValue(value) // you dnt have to take care if its controlled or not
-    typeof onHandler === 'function' && onHandler(event, {value})
+    typeof onHandler === 'function' && onHandler(event, { value })
   }
 
   return <element value={innerValue} onHandler={handler} />
