@@ -32,7 +32,16 @@ import { FormField } from '@spark-ui/form-control'
 
 ## Props
 
-<ArgTypes of={FormField} />
+<ArgTypes
+  of={FormField}
+  subcomponents={{
+    'FormField.Label': FormField.Label,
+    'FormField.HelperMessage': FormField.HelperMessage,
+    'FormField.ErrorMessage': FormField.ErrorMessage,
+    'FormField.State': FormField.State,
+    'FormField.RequiredIndicator': FormField.RequiredIndicator,
+  }}
+/>
 
 ## Usage
 

@@ -4,9 +4,9 @@ import { ComponentPropsWithoutRef, forwardRef, useEffect } from 'react'
 
 import { useFormField } from './FormFieldContext'
 
-export type FormMessageProps = ComponentPropsWithoutRef<'span'>
+export type FormFieldMessageProps = ComponentPropsWithoutRef<'span'>
 
-export const FormMessage = forwardRef<HTMLSpanElement, FormMessageProps>(
+export const FormFieldMessage = forwardRef<HTMLSpanElement, FormFieldMessageProps>(
   ({ id: idProp, className, ...others }, ref) => {
     const { onMessageIdAdd, onMessageIdRemove } = useFormField()
     const currentId = useId()
@@ -24,4 +24,4 @@ export const FormMessage = forwardRef<HTMLSpanElement, FormMessageProps>(
   }
 )
 
-FormMessage.displayName = 'FormMessage'
+FormFieldMessage.displayName = 'FormField.Message'

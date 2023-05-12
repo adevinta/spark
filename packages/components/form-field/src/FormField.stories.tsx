@@ -2,7 +2,6 @@ import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
 
 import { FormField } from '.'
-import { FormRequiredIndicator } from './FormRequiredIndicator'
 
 const meta: Meta<typeof FormField> = {
   title: 'Experimental/FormField',
@@ -59,9 +58,9 @@ export const CustomRequired: StoryFn = () => (
   <FormField name="password" isRequired>
     <FormField.Label
       requiredIndicator={
-        <FormRequiredIndicator className="text-caption text-neutral">
+        <FormField.RequiredIndicator className="text-caption text-neutral">
           Required
-        </FormRequiredIndicator>
+        </FormField.RequiredIndicator>
       }
     >
       Password

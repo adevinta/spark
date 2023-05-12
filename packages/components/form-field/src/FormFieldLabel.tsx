@@ -4,19 +4,22 @@ import { cx } from 'class-variance-authority'
 import { forwardRef, ReactNode } from 'react'
 
 import { useFormField } from './FormFieldContext'
-import { FormRequiredIndicator } from './FormRequiredIndicator'
+import { FormFieldRequiredIndicator } from './FormFieldRequiredIndicator'
 
-export interface FormLabelProps extends LabelProps {
+export interface FormFieldLabelProps extends LabelProps {
+  /**
+   * Element shown when the input is required inside the label.
+   */
   requiredIndicator?: ReactNode
 }
 
-export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
+export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
   (
     {
       htmlFor: htmlForProp,
       className,
       children,
-      requiredIndicator = <FormRequiredIndicator />,
+      requiredIndicator = <FormFieldRequiredIndicator />,
       asChild,
       ...others
     },
@@ -45,4 +48,4 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
   }
 )
 
-FormLabel.displayName = 'FormField.Label'
+FormFieldLabel.displayName = 'FormField.Label'

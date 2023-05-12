@@ -23,7 +23,7 @@ export const useFormFieldState = () => {
 export const FormFieldState = ({ children }: FormFieldStateProps) => {
   const { id, name, isInvalid, labelId, isRequired, description } = useFormFieldState()
 
-  return children({ id, labelId, name, isRequired, isInvalid, description })
+  return <>{children({ id, labelId, name, isRequired, isInvalid, description })}</>
 }
 
-FormFieldState.displayName = 'FormFieldState'
+FormFieldState.displayName = 'FormField.State'

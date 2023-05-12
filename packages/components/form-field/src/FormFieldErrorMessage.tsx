@@ -2,11 +2,11 @@ import { cx } from 'class-variance-authority'
 import { forwardRef } from 'react'
 
 import { useFormField } from './FormFieldContext'
-import { FormMessage, FormMessageProps } from './FormMessage'
+import { FormFieldMessage, FormFieldMessageProps } from './FormFieldMessage'
 
-export type FormErrorMessageProps = FormMessageProps
+export type FormFieldErrorMessageProps = FormFieldMessageProps
 
-export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProps>(
+export const FormFieldErrorMessage = forwardRef<HTMLSpanElement, FormFieldErrorMessageProps>(
   ({ className, ...others }, ref) => {
     const { isInvalid } = useFormField()
 
@@ -15,7 +15,7 @@ export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProp
     }
 
     return (
-      <FormMessage
+      <FormFieldMessage
         ref={ref}
         data-spark-component="form-error-message"
         aria-live="polite"
@@ -26,4 +26,4 @@ export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProp
   }
 )
 
-FormErrorMessage.displayName = 'FormErrorMessage'
+FormFieldErrorMessage.displayName = 'FormField.ErrorMessage'

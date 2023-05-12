@@ -4,7 +4,6 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { FormField } from '.'
-import { FormRequiredIndicator } from './FormRequiredIndicator'
 
 describe('FormField', () => {
   it('should render', () => {
@@ -57,7 +56,7 @@ describe('FormField', () => {
     render(
       <FormField name="email" isRequired>
         <FormField.Label
-          requiredIndicator={<FormRequiredIndicator>Required</FormRequiredIndicator>}
+          requiredIndicator={<FormField.RequiredIndicator>Required</FormField.RequiredIndicator>}
         >
           Email
         </FormField.Label>
