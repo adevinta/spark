@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.4.7...@spark-ui/slot@1.5.0) (2023-05-12)
+
+### Features
+
+- **slot:** add slottable component ([c2e6d7b](https://github.com/adevinta/spark/commit/c2e6d7b800317a23b474023ddffd69d61830f72c))
+
 ## [1.4.7](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.4.6...@spark-ui/slot@1.4.7) (2023-05-10)
 
 ### Bug Fixes
