@@ -1,5 +1,5 @@
 import { Button } from '@spark-ui/button'
-import { Radio, RadioGroup } from '@spark-ui/radio'
+import { RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
@@ -60,10 +60,12 @@ export const ControlledState: StoryFn = _args => {
           reset
         </Button>
         <RadioGroup onValueChange={handleChange} value={`${checked}`}>
-          <Radio value="undefined">undefined (uncontrolled – state-full)</Radio>
-          <Radio value="true">checked</Radio>
-          <Radio value="indeterminate">indeterminate</Radio>
-          <Radio value="false">unchecked</Radio>
+          <RadioGroup.Radio value="undefined">
+            undefined (uncontrolled – state-full)
+          </RadioGroup.Radio>
+          <RadioGroup.Radio value="true">checked</RadioGroup.Radio>
+          <RadioGroup.Radio value="indeterminate">indeterminate</RadioGroup.Radio>
+          <RadioGroup.Radio value="false">unchecked</RadioGroup.Radio>
         </RadioGroup>
       </div>
       <Checkbox
