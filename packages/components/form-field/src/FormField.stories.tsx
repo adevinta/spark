@@ -5,7 +5,7 @@ import { FormField } from '.'
 import { FormRequiredIndicator } from './FormRequiredIndicator'
 
 const meta: Meta<typeof FormField> = {
-  title: 'Components/FormField',
+  title: 'Experimental/FormField',
   component: FormField,
 }
 

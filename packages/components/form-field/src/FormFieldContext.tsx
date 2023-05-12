@@ -9,8 +9,6 @@ export interface FormFieldContextState {
   isRequired?: boolean
   onMessageIdAdd: (id: string) => void
   onMessageIdRemove: (id: string) => void
-  onLabelIdAdd: (id: string) => void
-  onLabelIdRemove: () => void
 }
 
 export const FormFieldContext = createContext<FormFieldContextState | null>(null)
@@ -19,7 +17,7 @@ export const useFormField = () => {
   const context = useContext(FormFieldContext)
 
   if (!context) {
-    throw new Error('')
+    throw Error('useFormField must be used within a TabsContext Provider')
   }
 
   return context

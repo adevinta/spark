@@ -1,3 +1,4 @@
+import { useId } from '@radix-ui/react-id'
 import { ReactNode, useCallback, useMemo, useState } from 'react'
 
 import { FormFieldContext, FormFieldContextState } from './FormFieldContext'
@@ -14,7 +15,7 @@ export const FormFieldProvider = ({
   isRequired,
   children,
 }: FormFieldProviderProps) => {
-  const [labelId, setLabelId] = useState<string>('')
+  const labelId = useId()
   const [messageIds, setMessageIds] = useState<string[]>([])
   const description = messageIds.length > 0 ? messageIds.join(' ') : undefined
 
@@ -24,14 +25,6 @@ export const FormFieldProvider = ({
 
   const handleMessageIdRemove = useCallback((id: string) => {
     setMessageIds(ids => ids.filter(current => current !== id))
-  }, [])
-
-  const handleLabelIdAdd = useCallback((id: string) => {
-    setLabelId(id)
-  }, [])
-
-  const handleLabelIdRemove = useCallback(() => {
-    setLabelId('')
   }, [])
 
   const value = useMemo(() => {
@@ -44,8 +37,6 @@ export const FormFieldProvider = ({
       description,
       onMessageIdAdd: handleMessageIdAdd,
       onMessageIdRemove: handleMessageIdRemove,
-      onLabelIdAdd: handleLabelIdAdd,
-      onLabelIdRemove: handleLabelIdRemove,
     }
   }, [
     id,
@@ -56,8 +47,6 @@ export const FormFieldProvider = ({
     isRequired,
     handleMessageIdAdd,
     handleMessageIdRemove,
-    handleLabelIdAdd,
-    handleLabelIdRemove,
   ])
 
   return <FormFieldContext.Provider value={value}>{children}</FormFieldContext.Provider>
