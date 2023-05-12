@@ -1,24 +1,14 @@
 import { RadioGroup as RadioGroupPrimitive } from '@radix-ui/react-radio-group'
-import { cva } from 'class-variance-authority'
+import { useFormFieldState } from '@spark-ui/form-field'
 import { forwardRef, HTMLAttributes } from 'react'
 
+import { radioGroupStyles, RadioGroupVariantsProps } from './RadioGroup.styles'
 import { RadioGroupProvider } from './RadioGroupProvider'
-import { RadioInputVariantsProps } from './RadioInput.variants'
-
-export const radioGroupStyles = cva(['gap-xl flex'], {
-  variants: {
-    orientation: {
-      horizontal: 'flex-row',
-      vertical: 'flex-col',
-    },
-  },
-  defaultVariants: {
-    orientation: 'vertical',
-  },
-})
+import { RadioInputVariantsProps } from './RadioInput.styles'
 
 export interface RadioGroupProps
-  extends Pick<RadioInputVariantsProps, 'intent' | 'size'>,
+  extends RadioGroupVariantsProps,
+    Pick<RadioInputVariantsProps, 'intent' | 'size'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'value' | 'defaultValue' | 'dir'> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -64,20 +54,40 @@ export interface RadioGroupProps
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   (
-    { orientation = 'vertical', loop = true, intent, size, disabled, className, ...others },
+    {
+      orientation = 'vertical',
+      loop = true,
+      intent,
+      size,
+      disabled,
+      className,
+      required: requiredProp,
+      ...others
+    },
     ref
   ) => {
+    const { labelId, isInvalid, isRequired, description, name } = useFormFieldState()
+    const required = requiredProp !== undefined ? requiredProp : isRequired
+
     return (
       <RadioGroupProvider intent={intent} size={size} disabled={disabled}>
         <RadioGroupPrimitive
           data-spark-component="radio-group"
           className={radioGroupStyles({ orientation, className })}
+          name={name}
           ref={ref}
           disabled={disabled}
           orientation={orientation}
+          required={required}
+          aria-labelledby={labelId}
+          aria-invalid={isInvalid}
+          aria-required={required}
+          aria-describedby={description}
           {...others}
         />
       </RadioGroupProvider>
     )
   }
 )
+
+RadioGroup.displayName = 'RadioGroup'

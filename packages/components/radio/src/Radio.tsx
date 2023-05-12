@@ -1,8 +1,8 @@
 import { forwardRef } from 'react'
 
+import { useRadioGroup } from './RadioGroupContext'
 import { RadioInput, RadioInputProps } from './RadioInput'
 import { RadioLabel } from './RadioLabel'
-import { useRadioGroup } from './useRadioGroup'
 
 export type RadioProps = RadioInputProps
 
@@ -24,3 +24,5 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
     )
   }
 )
+
+Radio.displayName = 'RadioGroup.Radio'
