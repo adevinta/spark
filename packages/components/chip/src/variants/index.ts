@@ -1,0 +1,1 @@
+export { outlinedVariants } from './outlined'
