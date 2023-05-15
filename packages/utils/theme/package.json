@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "deepmerge": "4.3.0",
-    "type-fest": "3.6.1"
+    "type-fest": "3.10.0"
   },
   "repository": {
     "type": "git",
