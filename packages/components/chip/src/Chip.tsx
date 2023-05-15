@@ -26,6 +26,10 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
     const { toogleButtonProps, isPressed } = useToggleButton(props, pressedState, innerRef)
     const { buttonProps } = useButton(props, ref)
     const { className, disabled } = buttonProps
+    const handleOnClick = event => {
+      setPressedState(!pressedState)
+      props.onClick && props.onClick(event, { pressed: pressedState })
+    }
 
     return (
       <Component
@@ -39,6 +43,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
           pressed: isPressed,
         })}
         {...(pressedState === undefined ? buttonProps : toogleButtonProps)}
+        onClick={handleOnClick}
       />
     )
   }
