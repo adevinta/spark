@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@storybook/blocks';
 
 import { Chip } from '.'
 
@@ -20,45 +20,12 @@ npm install @spark-ui/chip
 ## Import
 
 ```tsx
-import { Chip } from '@spark-ui/chip'
+import { Chip } from "@spark-ui/chip"
 ```
 
 ## Props
 
 <ArgTypes of={Chip} />
 
-## Default
-
-By default, the chip is a visible div element to labeling information. It has no action declared and its not focused using keyboard navigation.
-
-<Canvas of={stories.Default} />
-
-## Max Length
-
-Chip element has 240px width max length including the trailing icon and the closing button. Extra content is collapsed.
-
-<Canvas of={stories.MaxLength} />
-
-## Disabled
-When disabled, no action is handled.
-<Canvas of={stories.Disabled} />
-
-## Trailing icon
-An
-<Canvas of={stories.Icon} />
-
-## Interactions
-
-<Canvas of={stories.Interactions} />
-
-## Behaviors
-
-<Canvas of={stories.Behavior} />
-
-## Designs
-
-<Canvas of={stories.Design} />
-
 ## Variants
-
-<Canvas of={stories.Intent} />
+<Canvas of={stories.Default} />
