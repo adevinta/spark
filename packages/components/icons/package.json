@@ -20,7 +20,7 @@
   "sideEffects": false,
   "devDependencies": {
     "change-case": "4.1.2",
-    "minimatch": "7.4.2",
+    "minimatch": "7.4.6",
     "path-that-svg": "1.2.4",
     "svgo": "3.0.2",
     "svgson": "5.2.1"
