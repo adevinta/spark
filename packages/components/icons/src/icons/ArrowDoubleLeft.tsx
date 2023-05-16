@@ -23,4 +23,4 @@ export const ArrowDoubleLeft = React.forwardRef(
 
 ArrowDoubleLeft.displayName = 'ArrowDoubleLeft'
 
-export const tags = ['arrow-double-left', 'arrows']
+export const tags = ['ArrowDoubleLeft', '']

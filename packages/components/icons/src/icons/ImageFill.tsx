@@ -23,4 +23,4 @@ export const ImageFill = React.forwardRef(
 
 ImageFill.displayName = 'ImageFill'
 
-export const tags = ['image-fill', 'images']
+export const tags = ['ImageFill', '']

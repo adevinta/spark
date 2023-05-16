@@ -23,4 +23,4 @@ export const BurgerMenu = React.forwardRef(
 
 BurgerMenu.displayName = 'BurgerMenu'
 
-export const tags = ['burger-menu', 'account']
+export const tags = ['BurgerMenu', '']

@@ -23,4 +23,4 @@ export const Brand = React.forwardRef(
 
 Brand.displayName = 'Brand'
 
-export const tags = ['brand', 'criteria', 'multimedia']
+export const tags = ['Brand', '']

@@ -23,4 +23,4 @@ export const Attic = React.forwardRef(
 
 Attic.displayName = 'Attic'
 
-export const tags = ['attic', 'criteria', 'location']
+export const tags = ['Attic', '']

@@ -23,4 +23,4 @@ export const MailOpenFill = React.forwardRef(
 
 MailOpenFill.displayName = 'MailOpenFill'
 
-export const tags = ['mail-open-fill', 'delivery']
+export const tags = ['MailOpenFill', '']

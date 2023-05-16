@@ -23,4 +23,4 @@ export const Clean = React.forwardRef(
 
 Clean.displayName = 'Clean'
 
-export const tags = ['clean', 'criteria', 'holidays']
+export const tags = ['Clean', '']

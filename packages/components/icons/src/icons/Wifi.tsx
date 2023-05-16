@@ -23,4 +23,4 @@ export const Wifi = React.forwardRef(
 
 Wifi.displayName = 'Wifi'
 
-export const tags = ['wifi', 'criteria', 'holidays']
+export const tags = ['Wifi', '']

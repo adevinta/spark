@@ -23,4 +23,4 @@ export const Close = React.forwardRef(
 
 Close.displayName = 'Close'
 
-export const tags = ['close', 'arrows']
+export const tags = ['Close', '']

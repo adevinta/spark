@@ -23,4 +23,4 @@ export const Store = React.forwardRef(
 
 Store.displayName = 'Store'
 
-export const tags = ['store', 'criteria', 'location']
+export const tags = ['Store', '']

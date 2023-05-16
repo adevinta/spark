@@ -23,4 +23,4 @@ export const EyeOffOutline = React.forwardRef(
 
 EyeOffOutline.displayName = 'EyeOffOutline'
 
-export const tags = ['eye-off-outline', 'actions']
+export const tags = ['EyeOffOutline', '']

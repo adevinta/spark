@@ -23,4 +23,4 @@ export const FlashlightOutline = React.forwardRef(
 
 FlashlightOutline.displayName = 'FlashlightOutline'
 
-export const tags = ['flashlight-outline', 'actions']
+export const tags = ['FlashlightOutline', '']

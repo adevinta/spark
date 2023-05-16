@@ -23,4 +23,4 @@ export const HousingType = React.forwardRef(
 
 HousingType.displayName = 'HousingType'
 
-export const tags = ['housing-type', 'criteria', 'holidays']
+export const tags = ['HousingType', '']

@@ -23,4 +23,4 @@ export const Welcome = React.forwardRef(
 
 Welcome.displayName = 'Welcome'
 
-export const tags = ['welcome', 'criteria', 'holidays']
+export const tags = ['Welcome', '']

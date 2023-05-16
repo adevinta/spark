@@ -23,4 +23,4 @@ export const Equipment = React.forwardRef(
 
 Equipment.displayName = 'Equipment'
 
-export const tags = ['equipment', 'categories']
+export const tags = ['Equipment', '']

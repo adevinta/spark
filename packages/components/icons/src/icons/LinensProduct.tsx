@@ -23,4 +23,4 @@ export const LinensProduct = React.forwardRef(
 
 LinensProduct.displayName = 'LinensProduct'
 
-export const tags = ['linens_product', 'criteria', 'house']
+export const tags = ['LinensProduct', '']

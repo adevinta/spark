@@ -23,4 +23,4 @@ export const CardFill = React.forwardRef(
 
 CardFill.displayName = 'CardFill'
 
-export const tags = ['card-fill', 'account']
+export const tags = ['CardFill', '']

@@ -23,4 +23,4 @@ export const CardOutline = React.forwardRef(
 
 CardOutline.displayName = 'CardOutline'
 
-export const tags = ['card-outline', 'account']
+export const tags = ['CardOutline', '']

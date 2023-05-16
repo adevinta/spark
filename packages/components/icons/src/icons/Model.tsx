@@ -23,4 +23,4 @@ export const Model = React.forwardRef(
 
 Model.displayName = 'Model'
 
-export const tags = ['model', 'criteria', 'multimedia']
+export const tags = ['Model', '']

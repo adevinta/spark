@@ -23,4 +23,4 @@ export const BankOutline = React.forwardRef(
 
 BankOutline.displayName = 'BankOutline'
 
-export const tags = ['bank-outline', 'account']
+export const tags = ['BankOutline', '']

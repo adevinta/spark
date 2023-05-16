@@ -23,4 +23,4 @@ export const HomeOutline = React.forwardRef(
 
 HomeOutline.displayName = 'HomeOutline'
 
-export const tags = ['home-outline', 'account']
+export const tags = ['HomeOutline', '']

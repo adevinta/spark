@@ -23,4 +23,4 @@ export const PenOutline = React.forwardRef(
 
 PenOutline.displayName = 'PenOutline'
 
-export const tags = ['pen-outline', 'actions']
+export const tags = ['PenOutline', '']

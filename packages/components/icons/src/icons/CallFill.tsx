@@ -23,4 +23,4 @@ export const CallFill = React.forwardRef(
 
 CallFill.displayName = 'CallFill'
 
-export const tags = ['call-fill', 'contact']
+export const tags = ['CallFill', '']

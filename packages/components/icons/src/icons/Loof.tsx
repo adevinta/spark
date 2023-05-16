@@ -23,4 +23,4 @@ export const Loof = React.forwardRef(
 
 Loof.displayName = 'Loof'
 
-export const tags = ['loof', 'criteria', 'animals']
+export const tags = ['Loof', '']
