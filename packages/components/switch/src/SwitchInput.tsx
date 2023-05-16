@@ -1,4 +1,6 @@
+/* eslint-disable complexity */
 import * as SwitchPrimitive from '@radix-ui/react-switch'
+import { useFormFieldState } from '@spark-ui/form-field'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
 import { Slot } from '@spark-ui/slot'
@@ -63,11 +65,22 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
       value = 'on',
       onCheckedChange,
       className,
+      id,
+      name,
+      required,
       ...rest
     },
     ref
   ) => {
     const [isChecked, setIsChecked] = useCombinedState(checked, defaultChecked)
+    const {
+      id: controlledId,
+      name: controlledName,
+      labelId,
+      description,
+      isRequired,
+      isInvalid,
+    } = useFormFieldState()
 
     const handleCheckedChange = (updatedValue: boolean): void => {
       setIsChecked(updatedValue)
@@ -82,6 +95,13 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
         checked={checked}
         defaultChecked={defaultChecked}
         onCheckedChange={handleCheckedChange}
+        id={id || controlledId}
+        name={name || controlledName}
+        required={required || isRequired}
+        aria-required={required || isRequired}
+        aria-invalid={isInvalid}
+        aria-labelledby={labelId}
+        aria-describedby={description}
         {...rest}
       >
         <SwitchPrimitive.Thumb className={thumbStyles({ size, checked: isChecked })}>
