@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.10.7...@spark-ui/icons@1.11.0) (2023-05-17)
+
+### Features
+
+- **icons:** add missing icons ([ea047e8](https://github.com/adevinta/spark/commit/ea047e8c053814cff13f88b01722eed3a492a1cd))
+
 ## [1.10.7](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.10.6...@spark-ui/icons@1.10.7) (2023-05-17)
 
 **Note:** Version bump only for package @spark-ui/icons
