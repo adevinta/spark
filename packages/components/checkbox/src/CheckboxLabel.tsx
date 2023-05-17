@@ -1,9 +1,9 @@
-import { Label as RadixLabel } from '@radix-ui/react-label'
+import { Label } from '@spark-ui/label'
 import { PropsWithChildren } from 'react'
 
 import { labelStyles, type LabelStylesProps } from './CheckboxLabel.styles'
 
-export interface LabelProps
+export interface CheckboxLabelProps
   extends LabelStylesProps,
     PropsWithChildren<React.HTMLAttributes<HTMLLabelElement>> {
   /**
@@ -20,6 +20,8 @@ export interface LabelProps
   disabled?: boolean
 }
 
-export const Label = ({ className, disabled, ...others }: LabelProps) => {
-  return <RadixLabel className={labelStyles({ className, disabled })} {...others} />
+export const CheckboxLabel = ({ className, disabled, ...others }: CheckboxLabelProps) => {
+  return <Label className={labelStyles({ className, disabled })} {...others} />
 }
+
+CheckboxLabel.displayName = 'CheckboxLabel'

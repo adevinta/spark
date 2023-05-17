@@ -1,17 +1,19 @@
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import React from 'react'
 
-import { Input, type InputProps } from './CheckboxInput'
-import { Label } from './CheckboxLabel'
+import { CheckboxInput, CheckboxInputProps } from './CheckboxInput'
+import { CheckboxLabel } from './CheckboxLabel'
 
-export type CheckboxProps = InputProps
+export type CheckboxProps = CheckboxInputProps
 
-export const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  CheckboxProps
->(({ children, className, ...props }, ref) => (
-  <Label data-spark-component="checkbox" className={className} disabled={props.disabled}>
-    <Input ref={ref} {...props} />
-    {children}
-  </Label>
-))
+export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
+  ({ children, className, disabled, ...others }, ref) => {
+    return (
+      <CheckboxLabel data-spark-component="checkbox" className={className} disabled={disabled}>
+        <CheckboxInput ref={ref} disabled={disabled} {...others} />
+        {children}
+      </CheckboxLabel>
+    )
+  }
+)
+
+Checkbox.displayName = 'Checkbox'
