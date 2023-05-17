@@ -23,4 +23,4 @@ export const CalendarValidOutline = React.forwardRef(
 
 CalendarValidOutline.displayName = 'CalendarValidOutline'
 
-export const tags = ['calendar-valid-outline', 'calendar']
+export const tags = ['CalendarValidOutline', '']

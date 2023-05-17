@@ -23,4 +23,4 @@ export const CvOutline = React.forwardRef(
 
 CvOutline.displayName = 'CvOutline'
 
-export const tags = ['cv-outline', 'account']
+export const tags = ['CvOutline', '']

@@ -23,4 +23,4 @@ export const Hobby = React.forwardRef(
 
 Hobby.displayName = 'Hobby'
 
-export const tags = ['hobby', 'categories']
+export const tags = ['Hobby', '']

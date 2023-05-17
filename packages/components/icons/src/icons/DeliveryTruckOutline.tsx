@@ -23,4 +23,4 @@ export const DeliveryTruckOutline = React.forwardRef(
 
 DeliveryTruckOutline.displayName = 'DeliveryTruckOutline'
 
-export const tags = ['delivery-truck-outline', 'delivery']
+export const tags = ['DeliveryTruckOutline', '']

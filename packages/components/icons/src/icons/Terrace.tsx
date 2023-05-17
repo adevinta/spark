@@ -23,4 +23,4 @@ export const Terrace = React.forwardRef(
 
 Terrace.displayName = 'Terrace'
 
-export const tags = ['terrace', 'criteria', 'immobilierneuf']
+export const tags = ['Terrace', '']

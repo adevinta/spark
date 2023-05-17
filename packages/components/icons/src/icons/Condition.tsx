@@ -23,4 +23,4 @@ export const Condition = React.forwardRef(
 
 Condition.displayName = 'Condition'
 
-export const tags = ['condition', 'criteria', 'multimedia']
+export const tags = ['Condition', '']

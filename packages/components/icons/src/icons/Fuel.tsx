@@ -23,4 +23,4 @@ export const Fuel = React.forwardRef(
 
 Fuel.displayName = 'Fuel'
 
-export const tags = ['fuel', 'criteria', 'automobile']
+export const tags = ['Fuel', '']

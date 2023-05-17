@@ -23,4 +23,4 @@ export const LockFill = React.forwardRef(
 
 LockFill.displayName = 'LockFill'
 
-export const tags = ['lock-fill', 'security']
+export const tags = ['LockFill', '']

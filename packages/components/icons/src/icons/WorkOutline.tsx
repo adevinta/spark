@@ -23,4 +23,4 @@ export const WorkOutline = React.forwardRef(
 
 WorkOutline.displayName = 'WorkOutline'
 
-export const tags = ['work-outline', 'account']
+export const tags = ['WorkOutline', '']

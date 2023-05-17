@@ -23,4 +23,4 @@ export const VoiceOffOutline = React.forwardRef(
 
 VoiceOffOutline.displayName = 'VoiceOffOutline'
 
-export const tags = ['voice-off-outline', 'contact']
+export const tags = ['VoiceOffOutline', '']

@@ -23,4 +23,4 @@ export const ConversationFill = React.forwardRef(
 
 ConversationFill.displayName = 'ConversationFill'
 
-export const tags = ['conversation-fill', 'contact']
+export const tags = ['ConversationFill', '']

@@ -23,4 +23,4 @@ export const Rating = React.forwardRef(
 
 Rating.displayName = 'Rating'
 
-export const tags = ['rating', 'criteria', 'holidays']
+export const tags = ['Rating', '']

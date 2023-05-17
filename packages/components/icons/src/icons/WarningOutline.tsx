@@ -23,4 +23,4 @@ export const WarningOutline = React.forwardRef(
 
 WarningOutline.displayName = 'WarningOutline'
 
-export const tags = ['warning-outline', 'alert']
+export const tags = ['WarningOutline', '']

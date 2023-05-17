@@ -23,4 +23,4 @@ export const PhoneOutline = React.forwardRef(
 
 PhoneOutline.displayName = 'PhoneOutline'
 
-export const tags = ['phone-outline', 'contact']
+export const tags = ['PhoneOutline', '']

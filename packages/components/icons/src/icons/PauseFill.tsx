@@ -23,4 +23,4 @@ export const PauseFill = React.forwardRef(
 
 PauseFill.displayName = 'PauseFill'
 
-export const tags = ['pause-fill', 'actions']
+export const tags = ['PauseFill', '']

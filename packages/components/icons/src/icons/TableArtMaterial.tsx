@@ -23,4 +23,4 @@ export const TableArtMaterial = React.forwardRef(
 
 TableArtMaterial.displayName = 'TableArtMaterial'
 
-export const tags = ['table_art_material', 'criteria', 'house']
+export const tags = ['TableArtMaterial', '']

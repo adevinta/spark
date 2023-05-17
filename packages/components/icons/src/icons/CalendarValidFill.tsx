@@ -23,4 +23,4 @@ export const CalendarValidFill = React.forwardRef(
 
 CalendarValidFill.displayName = 'CalendarValidFill'
 
-export const tags = ['calendar-valid-fill', 'calendar']
+export const tags = ['CalendarValidFill', '']

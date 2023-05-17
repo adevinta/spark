@@ -23,4 +23,4 @@ export const Delivery = React.forwardRef(
 
 Delivery.displayName = 'Delivery'
 
-export const tags = ['delivery', 'criteria', 'generic']
+export const tags = ['Delivery', '']

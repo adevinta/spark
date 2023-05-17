@@ -23,4 +23,4 @@ export const CalculateOutline = React.forwardRef(
 
 CalculateOutline.displayName = 'CalculateOutline'
 
-export const tags = ['calculate-outline', 'actions']
+export const tags = ['CalculateOutline', '']

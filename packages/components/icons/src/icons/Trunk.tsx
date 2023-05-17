@@ -23,4 +23,4 @@ export const Trunk = React.forwardRef(
 
 Trunk.displayName = 'Trunk'
 
-export const tags = ['trunk', 'criteria', 'automobile']
+export const tags = ['Trunk', '']
