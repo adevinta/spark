@@ -23,4 +23,4 @@ export const IdentityFill = React.forwardRef(
 
 IdentityFill.displayName = 'IdentityFill'
 
-export const tags = ['identity-fill', 'account']
+export const tags = ['IdentityFill', '']

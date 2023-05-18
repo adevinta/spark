@@ -23,4 +23,4 @@ export const Computer = React.forwardRef(
 
 Computer.displayName = 'Computer'
 
-export const tags = ['computer', 'categories']
+export const tags = ['Computer', '']

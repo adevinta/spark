@@ -23,4 +23,4 @@ export const Function = React.forwardRef(
 
 Function.displayName = 'Function'
 
-export const tags = ['function', 'criteria', 'job']
+export const tags = ['Function', '']

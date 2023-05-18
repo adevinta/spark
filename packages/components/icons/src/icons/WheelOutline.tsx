@@ -23,4 +23,4 @@ export const WheelOutline = React.forwardRef(
 
 WheelOutline.displayName = 'WheelOutline'
 
-export const tags = ['wheel-outline', 'actions']
+export const tags = ['WheelOutline', '']

@@ -23,4 +23,4 @@ export const HandDelivered = React.forwardRef(
 
 HandDelivered.displayName = 'HandDelivered'
 
-export const tags = ['hand-delivered', 'criteria', 'generic']
+export const tags = ['HandDelivered', '']

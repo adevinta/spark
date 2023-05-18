@@ -23,4 +23,4 @@ export const PenFill = React.forwardRef(
 
 PenFill.displayName = 'PenFill'
 
-export const tags = ['pen-fill', 'actions']
+export const tags = ['PenFill', '']

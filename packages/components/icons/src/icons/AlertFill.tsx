@@ -23,4 +23,4 @@ export const AlertFill = React.forwardRef(
 
 AlertFill.displayName = 'AlertFill'
 
-export const tags = ['alert-fill', 'alert']
+export const tags = ['AlertFill', '']

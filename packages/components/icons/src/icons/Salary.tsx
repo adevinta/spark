@@ -23,4 +23,4 @@ export const Salary = React.forwardRef(
 
 Salary.displayName = 'Salary'
 
-export const tags = ['salary', 'criteria', 'job']
+export const tags = ['Salary', '']

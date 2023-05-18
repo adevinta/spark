@@ -23,4 +23,4 @@ export const TrashOutline = React.forwardRef(
 
 TrashOutline.displayName = 'TrashOutline'
 
-export const tags = ['trash-outline', 'actions']
+export const tags = ['TrashOutline', '']

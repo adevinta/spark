@@ -23,4 +23,4 @@ export const GraphArrowDown = React.forwardRef(
 
 GraphArrowDown.displayName = 'GraphArrowDown'
 
-export const tags = ['graph-arrow-down', 'arrows']
+export const tags = ['GraphArrowDown', '']

@@ -23,4 +23,4 @@ export const Minus = React.forwardRef(
 
 Minus.displayName = 'Minus'
 
-export const tags = ['minus', 'arrows']
+export const tags = ['Minus', '']

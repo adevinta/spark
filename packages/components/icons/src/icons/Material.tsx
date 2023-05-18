@@ -23,4 +23,4 @@ export const Material = React.forwardRef(
 
 Material.displayName = 'Material'
 
-export const tags = ['material', 'criteria', 'mode']
+export const tags = ['Material', '']

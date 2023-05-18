@@ -23,4 +23,4 @@ export const HolidayFill = React.forwardRef(
 
 HolidayFill.displayName = 'HolidayFill'
 
-export const tags = ['holiday-fill', 'account']
+export const tags = ['HolidayFill', '']

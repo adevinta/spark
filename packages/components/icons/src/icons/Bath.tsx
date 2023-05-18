@@ -23,4 +23,4 @@ export const Bath = React.forwardRef(
 
 Bath.displayName = 'Bath'
 
-export const tags = ['bath', 'criteria', 'location']
+export const tags = ['Bath', '']

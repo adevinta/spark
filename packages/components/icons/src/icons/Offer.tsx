@@ -23,4 +23,4 @@ export const Offer = React.forwardRef(
 
 Offer.displayName = 'Offer'
 
-export const tags = ['offer', 'criteria', 'animals']
+export const tags = ['Offer', '']

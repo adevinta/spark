@@ -23,4 +23,4 @@ export const Donate = React.forwardRef(
 
 Donate.displayName = 'Donate'
 
-export const tags = ['donate', 'criteria', 'generic']
+export const tags = ['Donate', '']

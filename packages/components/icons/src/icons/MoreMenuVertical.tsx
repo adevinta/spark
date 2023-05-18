@@ -23,4 +23,4 @@ export const MoreMenuVertical = React.forwardRef(
 
 MoreMenuVertical.displayName = 'MoreMenuVertical'
 
-export const tags = ['more-menu-vertical', 'actions']
+export const tags = ['MoreMenuVertical', '']

@@ -23,4 +23,4 @@ export const TypingFill = React.forwardRef(
 
 TypingFill.displayName = 'TypingFill'
 
-export const tags = ['typing-fill', 'contact']
+export const tags = ['TypingFill', '']

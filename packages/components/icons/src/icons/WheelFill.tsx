@@ -23,4 +23,4 @@ export const WheelFill = React.forwardRef(
 
 WheelFill.displayName = 'WheelFill'
 
-export const tags = ['wheel-fill', 'actions']
+export const tags = ['WheelFill', '']

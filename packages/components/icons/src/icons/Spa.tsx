@@ -23,4 +23,4 @@ export const Spa = React.forwardRef(
 
 Spa.displayName = 'Spa'
 
-export const tags = ['spa', 'criteria', 'holidays']
+export const tags = ['Spa', '']

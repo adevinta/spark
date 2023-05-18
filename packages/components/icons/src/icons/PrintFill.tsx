@@ -23,4 +23,4 @@ export const PrintFill = React.forwardRef(
 
 PrintFill.displayName = 'PrintFill'
 
-export const tags = ['print-fill', 'actions']
+export const tags = ['PrintFill', '']
