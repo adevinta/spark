@@ -23,4 +23,4 @@ export const HolidayOutline = React.forwardRef(
 
 HolidayOutline.displayName = 'HolidayOutline'
 
-export const tags = ['holiday-outline', 'account']
+export const tags = ['HolidayOutline', '']

@@ -23,4 +23,4 @@ export const QuestionOutline = React.forwardRef(
 
 QuestionOutline.displayName = 'QuestionOutline'
 
-export const tags = ['question-outline', 'alert']
+export const tags = ['QuestionOutline', '']

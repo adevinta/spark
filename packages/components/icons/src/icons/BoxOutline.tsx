@@ -23,4 +23,4 @@ export const BoxOutline = React.forwardRef(
 
 BoxOutline.displayName = 'BoxOutline'
 
-export const tags = ['box-outline', 'delivery']
+export const tags = ['BoxOutline', '']

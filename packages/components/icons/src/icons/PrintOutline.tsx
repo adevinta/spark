@@ -23,4 +23,4 @@ export const PrintOutline = React.forwardRef(
 
 PrintOutline.displayName = 'PrintOutline'
 
-export const tags = ['print-outline', 'actions']
+export const tags = ['PrintOutline', '']

@@ -23,4 +23,4 @@ export const Animals = React.forwardRef(
 
 Animals.displayName = 'Animals'
 
-export const tags = ['animals', 'criteria', 'holidays']
+export const tags = ['Animals', '']

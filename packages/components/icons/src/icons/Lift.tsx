@@ -23,4 +23,4 @@ export const Lift = React.forwardRef(
 
 Lift.displayName = 'Lift'
 
-export const tags = ['lift', 'criteria', 'location']
+export const tags = ['Lift', '']

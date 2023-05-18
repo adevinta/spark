@@ -23,4 +23,4 @@ export const Common = React.forwardRef(
 
 Common.displayName = 'Common'
 
-export const tags = ['common', 'criteria', 'location']
+export const tags = ['Common', '']

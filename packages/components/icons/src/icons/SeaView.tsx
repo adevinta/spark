@@ -23,4 +23,4 @@ export const SeaView = React.forwardRef(
 
 SeaView.displayName = 'SeaView'
 
-export const tags = ['sea-view', 'criteria', 'location']
+export const tags = ['SeaView', '']

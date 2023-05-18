@@ -23,4 +23,4 @@ export const OfferOutline = React.forwardRef(
 
 OfferOutline.displayName = 'OfferOutline'
 
-export const tags = ['offer-outline', 'account']
+export const tags = ['OfferOutline', '']

@@ -23,4 +23,4 @@ export const VoiceOutline = React.forwardRef(
 
 VoiceOutline.displayName = 'VoiceOutline'
 
-export const tags = ['voice-outline', 'contact']
+export const tags = ['VoiceOutline', '']

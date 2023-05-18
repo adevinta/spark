@@ -23,4 +23,4 @@ export const PlayFill = React.forwardRef(
 
 PlayFill.displayName = 'PlayFill'
 
-export const tags = ['play-fill', 'actions']
+export const tags = ['PlayFill', '']

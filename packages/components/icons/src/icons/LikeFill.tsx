@@ -23,4 +23,4 @@ export const LikeFill = React.forwardRef(
 
 LikeFill.displayName = 'LikeFill'
 
-export const tags = ['like-fill', 'actions']
+export const tags = ['LikeFill', '']

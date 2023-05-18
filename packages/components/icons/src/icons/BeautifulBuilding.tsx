@@ -23,4 +23,4 @@ export const BeautifulBuilding = React.forwardRef(
 
 BeautifulBuilding.displayName = 'BeautifulBuilding'
 
-export const tags = ['beautiful-building', 'criteria', 'location']
+export const tags = ['BeautifulBuilding', '']

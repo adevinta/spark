@@ -23,4 +23,4 @@ export const HomeappliancesType = React.forwardRef(
 
 HomeappliancesType.displayName = 'HomeappliancesType'
 
-export const tags = ['homeappliances_type', 'criteria', 'house']
+export const tags = ['HomeappliancesType', '']

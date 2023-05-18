@@ -23,4 +23,4 @@ export const Baby = React.forwardRef(
 
 Baby.displayName = 'Baby'
 
-export const tags = ['baby', 'categories']
+export const tags = ['Baby', '']

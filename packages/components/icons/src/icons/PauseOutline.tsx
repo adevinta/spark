@@ -23,4 +23,4 @@ export const PauseOutline = React.forwardRef(
 
 PauseOutline.displayName = 'PauseOutline'
 
-export const tags = ['pause-outline', 'actions']
+export const tags = ['PauseOutline', '']

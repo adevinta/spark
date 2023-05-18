@@ -23,4 +23,4 @@ export const Basement = React.forwardRef(
 
 Basement.displayName = 'Basement'
 
-export const tags = ['basement', 'criteria', 'location']
+export const tags = ['Basement', '']

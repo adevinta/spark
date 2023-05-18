@@ -23,4 +23,4 @@ export const TableArtProduct = React.forwardRef(
 
 TableArtProduct.displayName = 'TableArtProduct'
 
-export const tags = ['table_art_product', 'criteria', 'house']
+export const tags = ['TableArtProduct', '']

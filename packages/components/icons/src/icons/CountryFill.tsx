@@ -23,4 +23,4 @@ export const CountryFill = React.forwardRef(
 
 CountryFill.displayName = 'CountryFill'
 
-export const tags = ['country-fill', 'account']
+export const tags = ['CountryFill', '']

@@ -23,4 +23,4 @@ export const TrashCloseFill = React.forwardRef(
 
 TrashCloseFill.displayName = 'TrashCloseFill'
 
-export const tags = ['trash-close-fill', 'actions']
+export const tags = ['TrashCloseFill', '']

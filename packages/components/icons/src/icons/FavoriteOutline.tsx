@@ -23,4 +23,4 @@ export const FavoriteOutline = React.forwardRef(
 
 FavoriteOutline.displayName = 'FavoriteOutline'
 
-export const tags = ['favorite-outline', 'account']
+export const tags = ['FavoriteOutline', '']

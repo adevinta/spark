@@ -23,4 +23,4 @@ export const VoiceOffFill = React.forwardRef(
 
 VoiceOffFill.displayName = 'VoiceOffFill'
 
-export const tags = ['voice-off-fill', 'contact']
+export const tags = ['VoiceOffFill', '']

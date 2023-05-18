@@ -23,4 +23,4 @@ export const DiyType = React.forwardRef(
 
 DiyType.displayName = 'DiyType'
 
-export const tags = ['diy_type', 'criteria', 'house']
+export const tags = ['DiyType', '']

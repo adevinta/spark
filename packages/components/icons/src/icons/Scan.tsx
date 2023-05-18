@@ -23,4 +23,4 @@ export const Scan = React.forwardRef(
 
 Scan.displayName = 'Scan'
 
-export const tags = ['scan', 'actions']
+export const tags = ['Scan', '']

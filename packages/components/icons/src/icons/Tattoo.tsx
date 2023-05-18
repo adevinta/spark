@@ -23,4 +23,4 @@ export const Tattoo = React.forwardRef(
 
 Tattoo.displayName = 'Tattoo'
 
-export const tags = ['tattoo', 'criteria', 'animals']
+export const tags = ['Tattoo', '']

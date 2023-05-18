@@ -23,4 +23,4 @@ export const Listing = React.forwardRef(
 
 Listing.displayName = 'Listing'
 
-export const tags = ['listing', 'criteria', 'generic']
+export const tags = ['Listing', '']

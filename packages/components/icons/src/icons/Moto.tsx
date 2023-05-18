@@ -23,4 +23,4 @@ export const Moto = React.forwardRef(
 
 Moto.displayName = 'Moto'
 
-export const tags = ['moto', 'criteria', 'automobile']
+export const tags = ['Moto', '']

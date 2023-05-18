@@ -23,4 +23,4 @@ export const CameraOutline = React.forwardRef(
 
 CameraOutline.displayName = 'CameraOutline'
 
-export const tags = ['camera-outline', 'images']
+export const tags = ['CameraOutline', '']

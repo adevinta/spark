@@ -23,4 +23,4 @@ export const SaleType = React.forwardRef(
 
 SaleType.displayName = 'SaleType'
 
-export const tags = ['sale-type', 'criteria', 'immobilier']
+export const tags = ['SaleType', '']

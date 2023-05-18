@@ -23,4 +23,4 @@ export const Honoraria = React.forwardRef(
 
 Honoraria.displayName = 'Honoraria'
 
-export const tags = ['honoraria', 'criteria', 'immobilier']
+export const tags = ['Honoraria', '']
