@@ -46,37 +46,19 @@ export interface CheckboxInputProps
   /**
    * Event handler called when the checked state of the checkbox changes.
    */
-  onCheckedChange?: (checked: boolean, indeterminate?: boolean) => void
+  onCheckedChange?: (checked: boolean) => void
 }
 
 export const CheckboxInput = forwardRef<HTMLButtonElement, CheckboxInputProps>(
   (
-    {
-      className,
-      icon = <Check />,
-      inderteminateIcon = <Minus />,
-      intent,
-      checked,
-      onCheckedChange,
-      ...others
-    },
+    { className, icon = <Check />, inderteminateIcon = <Minus />, intent, checked, ...others },
     ref
   ) => {
-    const handleCheckedChange = (status: CheckedStatus) => {
-      const isChecked = status === 'indeterminate' ? false : status
-      const isIndeterminate = status === 'indeterminate' ? true : undefined
-
-      if (onCheckedChange) {
-        onCheckedChange(isChecked, isIndeterminate)
-      }
-    }
-
     return (
       <CheckboxPrimitive
         ref={ref}
         className={checkboxInputStyles({ intent, className })}
         checked={checked}
-        onCheckedChange={handleCheckedChange}
         {...others}
       >
         <CheckboxIndicator>

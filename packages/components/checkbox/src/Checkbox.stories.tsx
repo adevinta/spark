@@ -84,7 +84,7 @@ export const Icon: StoryFn = _args => (
 
 export const Group: StoryFn = _args => {
   return (
-    <CheckboxGroup>
+    <CheckboxGroup name="sport">
       <Checkbox value="soccer">Soccer</Checkbox>
       <Checkbox value="tennis">Tennis</Checkbox>
       <Checkbox value="baseball">Baseball</Checkbox>
@@ -94,7 +94,7 @@ export const Group: StoryFn = _args => {
 
 export const GroupLabel: StoryFn = _args => {
   return (
-    <FormField>
+    <FormField name="sport">
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
@@ -110,7 +110,7 @@ export const GroupLabel: StoryFn = _args => {
 
 export const GroupHiddenLabel: StoryFn = _args => {
   return (
-    <FormField>
+    <FormField name="sport">
       <FormField.Label asChild>
         <VisuallyHidden>
           <span>Sports</span>
@@ -134,7 +134,7 @@ export const GroupControlled: StoryFn = () => {
   }
 
   return (
-    <FormField>
+    <FormField name="sport">
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
@@ -154,7 +154,7 @@ export const GroupUncontrolled: StoryFn = () => {
   }
 
   return (
-    <FormField>
+    <FormField name="sport">
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
@@ -170,7 +170,7 @@ export const GroupUncontrolled: StoryFn = () => {
 
 export const GroupOrientation: StoryFn = _args => {
   return (
-    <FormField>
+    <FormField name="sport">
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
@@ -186,7 +186,7 @@ export const GroupOrientation: StoryFn = _args => {
 
 export const GroupIntent: StoryFn = _args => {
   return (
-    <FormField>
+    <FormField name="sport">
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
@@ -202,21 +202,19 @@ export const GroupIntent: StoryFn = _args => {
 
 export const GroupRequired: StoryFn = () => {
   return (
-    <form>
-      <FormField isRequired>
-        <FormField.Label asChild>
-          <span>Sports</span>
-        </FormField.Label>
+    <FormField name="sport" isRequired>
+      <FormField.Label asChild>
+        <span>Sports</span>
+      </FormField.Label>
 
-        <CheckboxGroup>
-          <Checkbox value="soccer">Soccer</Checkbox>
-          <Checkbox value="tennis">Tennis</Checkbox>
-          <Checkbox value="baseball">Baseball</Checkbox>
-        </CheckboxGroup>
+      <CheckboxGroup>
+        <Checkbox value="soccer">Soccer</Checkbox>
+        <Checkbox value="tennis">Tennis</Checkbox>
+        <Checkbox value="baseball">Baseball</Checkbox>
+      </CheckboxGroup>
 
-        <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
-      </FormField>
-    </form>
+      <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
+    </FormField>
   )
 }
 
@@ -228,7 +226,7 @@ export const GroupValidation: StoryFn = () => {
   }
 
   return (
-    <FormField isInvalid={value.length === 0} isRequired>
+    <FormField name="sport" isInvalid={value.length === 0} isRequired>
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
@@ -240,6 +238,8 @@ export const GroupValidation: StoryFn = () => {
 
         <Checkbox value="baseball">Baseball</Checkbox>
       </CheckboxGroup>
+
+      <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
     </FormField>
   )
 }
@@ -252,7 +252,7 @@ export const GroupIndividualValidation: StoryFn = () => {
   }
 
   return (
-    <FormField>
+    <FormField name="sport">
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
