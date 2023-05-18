@@ -1,6 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@storybook/blocks'
-import { Checkbox } from '.'
+import { Checkbox, CheckboxGroup } from '.'
 import * as CheckboxStories from './Checkbox.stories'
 
 <Meta of={CheckboxStories} />
@@ -19,7 +19,7 @@ npm install @spark-ui/checkbox
 ## Import
 
 ```tsx
-import { Checkbox } from '@spark-ui/checkbox'
+import { Checkbox, CheckboxGroup } from '@spark-ui/checkbox'
 ```
 
 ## Props
@@ -28,7 +28,7 @@ import { Checkbox } from '@spark-ui/checkbox'
 
 ## Usage
 
-Checkboxes accept children, which are rendered as the label. Checkboxes should **always have a label**.
+The checkbox component accepts `children`, which are rendered as the label. Checkboxes should **always have a label**.
 
 <Canvas of={CheckboxStories.Default} />
 
@@ -46,15 +46,21 @@ Use `disabled` prop to indicate the switch is disabled.
 
 ## Uncontrolled
 
-Checkboxes are not selected by default. The `defaultChecked` prop can be used to set the default state. Optionally `onCheckedChange` prop can be used to get the current state of the checkbox.
+Use `defaultChecked` prop to set the default state of the checkbox. Optionally `onCheckedChange` prop can be used to know when the state of the checkbox changes.
 
-<Canvas of={CheckboxStories.UncontrolledState} />
+<Canvas of={CheckboxStories.Uncontrolled} />
 
 ## Controlled
 
 Use `checked` and `onCheckedChange` props to control the state of the checkbox.
 
-<Canvas of={CheckboxStories.ControlledState} />
+<Canvas of={CheckboxStories.Controlled} />
+
+## Inderterminate
+
+Use `checked` prop to set the state of the checkbox to indeterminate.
+
+<Canvas of={CheckboxStories.Indeterminate} />
 
 ## Intent
 
@@ -68,9 +74,13 @@ Use `icon` prop to change the default checked icon.
 
 <Canvas of={CheckboxStories.Icon} />
 
-## Group
+## CheckboxGroup
 
 A checkbox group allows users to select one or more items from a list of choices.
+
+### Props
+
+<ArgTypes of={CheckboxGroup} />
 
 ### Usage
 
@@ -78,7 +88,7 @@ A checkbox group allows users to select one or more items from a list of choices
 
 ### Label
 
-Checkbox groups should always have a label.
+Checkbox groups should **always have a label**.
 
 <Canvas of={CheckboxStories.GroupLabel} />
 
@@ -94,11 +104,23 @@ The `defaultValue` prop can be used to set the default state of the group. Optio
 
 <Canvas of={CheckboxStories.GroupControlled} />
 
+### Orientation
+
+Use `orientation` prop to set the orientation of the checkbox group which could be `vertical` or `horizontal`.
+
+<Canvas of={CheckboxStories.GroupOrientation} />
+
 ### Controlled
 
 Use `value` and `onChange` props to control the state of the checkbox.
 
 <Canvas of={CheckboxStories.GroupControlled} />
+
+### Intent
+
+Use `intent` prop to change the color of all the checkboxes within the group.
+
+<Canvas of={CheckboxStories.GroupIntent} />
 
 ### Required
 

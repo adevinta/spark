@@ -1,10 +1,18 @@
 import { createContext, useContext } from 'react'
 
-import { CheckboxProps } from './Checkbox'
+import { CheckboxInputStylesProps } from './CheckboxInput.styles'
 
-export interface CheckboxGroupContextState extends Pick<CheckboxProps, 'intent'> {
+export interface CheckboxGroupContextState extends Pick<CheckboxInputStylesProps, 'intent'> {
   /**
-   * The value of the checkbox group
+   * The name of the group. Submitted with its owning form as part of a name/value pair.
+   */
+  id: string
+  /**
+   * The id of the checkbox group.
+   */
+  name?: string
+  /**
+   * The value of the checkbox group.
    */
   value?: string[]
   /**
@@ -20,14 +28,12 @@ export interface CheckboxGroupContextState extends Pick<CheckboxProps, 'intent'>
    */
   isRequired?: boolean
   /**
-   * Callback used to update or notify the value of the checkbox group
+   * Callback used to update or notify the value of the checkbox group.
    */
   onChange?: (checked: boolean, changed: string) => void
 }
 
-export const CheckboxGroupContext = createContext<CheckboxGroupContextState>(
-  {} as CheckboxGroupContextState
-)
+export const CheckboxGroupContext = createContext<Partial<CheckboxGroupContextState>>({})
 
 export const useCheckboxGroup = () => {
   const context = useContext(CheckboxGroupContext)

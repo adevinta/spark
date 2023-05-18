@@ -1,4 +1,5 @@
 import { FormField } from '@spark-ui/form-field'
+import { Close } from '@spark-ui/icons/dist/icons/Close'
 import { Plus } from '@spark-ui/icons/dist/icons/Plus'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
@@ -14,17 +15,17 @@ const meta: Meta<typeof Checkbox> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Checkbox>Accept terms and conditions.</Checkbox>
+export const Default: StoryFn = _args => <Checkbox>Accept terms and conditions</Checkbox>
 
 export const HiddenLabel: StoryFn = _args => (
   <Checkbox>
-    <VisuallyHidden>Toggle property</VisuallyHidden>
+    <VisuallyHidden>Accept terms and conditions</VisuallyHidden>
   </Checkbox>
 )
 
-export const Disabled: StoryFn = _args => <Checkbox disabled>Accept terms and conditions.</Checkbox>
+export const Disabled: StoryFn = _args => <Checkbox disabled>Accept terms and conditions</Checkbox>
 
-export const UncontrolledState: StoryFn = _args => {
+export const Uncontrolled: StoryFn = () => {
   const handleCheckedChange = (current: boolean, indeterminate?: boolean) => {
     console.log(current, indeterminate)
   }
@@ -32,41 +33,34 @@ export const UncontrolledState: StoryFn = _args => {
   return (
     <div className="gap-lg flex flex-col">
       <Checkbox defaultChecked onCheckedChange={handleCheckedChange}>
-        Soccer
-      </Checkbox>
-
-      <Checkbox defaultChecked="indeterminate" onCheckedChange={handleCheckedChange}>
-        Tennis
-      </Checkbox>
-
-      <Checkbox defaultChecked={false} onCheckedChange={handleCheckedChange}>
-        Baseball
+        Accept terms and conditions
       </Checkbox>
     </div>
   )
 }
 
-export const ControlledState: StoryFn = _args => {
-  const [checked, setChecked] = useState<boolean | 'indeterminate'>('indeterminate')
+export const Controlled: StoryFn = () => {
+  const [checked, setChecked] = useState<boolean>(true)
 
-  const handleCheckedChange = (current: boolean, indeterminate?: boolean) => {
-    console.log(indeterminate)
+  const handleCheckedChange = (current: boolean) => {
     setChecked(current)
   }
 
   return (
-    <div className="gap-lg flex flex-col">
-      <Checkbox checked={checked} onCheckedChange={handleCheckedChange}>
-        Accept terms and conditions.
-      </Checkbox>
-    </div>
+    <Checkbox checked={checked} onCheckedChange={handleCheckedChange}>
+      Accept terms and conditions
+    </Checkbox>
   )
+}
+
+export const Indeterminate: StoryFn = () => {
+  return <Checkbox checked="indeterminate">Accept terms and conditions</Checkbox>
 }
 
 const intent = ['primary', 'success', 'alert', 'error', 'info', 'neutral'] as const
 
 export const Intent: StoryFn = _args => (
-  <>
+  <div className="gap-lg flex flex-col">
     {intent.map(color => {
       return (
         <Checkbox className="capitalize" key={color} intent={color}>
@@ -74,13 +68,18 @@ export const Intent: StoryFn = _args => (
         </Checkbox>
       )
     })}
-  </>
+  </div>
 )
 
 export const Icon: StoryFn = _args => (
-  <Checkbox defaultChecked icon={<Plus />}>
-    Accept terms and conditions.
-  </Checkbox>
+  <div className="gap-lg flex flex-col">
+    <Checkbox defaultChecked icon={<Close />}>
+      Accept terms and conditions
+    </Checkbox>
+    <Checkbox checked="indeterminate" inderteminateIcon={<Plus />}>
+      Accept terms and conditions
+    </Checkbox>
+  </div>
 )
 
 export const Group: StoryFn = _args => {
@@ -169,21 +168,55 @@ export const GroupUncontrolled: StoryFn = () => {
   )
 }
 
-export const GroupRequired: StoryFn = () => {
+export const GroupOrientation: StoryFn = _args => {
   return (
-    <FormField isRequired>
+    <FormField>
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
 
-      <CheckboxGroup>
+      <CheckboxGroup orientation="horizontal" intent="neutral">
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="tennis">Tennis</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
       </CheckboxGroup>
-
-      <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
     </FormField>
+  )
+}
+
+export const GroupIntent: StoryFn = _args => {
+  return (
+    <FormField>
+      <FormField.Label asChild>
+        <span>Sports</span>
+      </FormField.Label>
+
+      <CheckboxGroup intent="neutral">
+        <Checkbox value="soccer">Soccer</Checkbox>
+        <Checkbox value="tennis">Tennis</Checkbox>
+        <Checkbox value="baseball">Baseball</Checkbox>
+      </CheckboxGroup>
+    </FormField>
+  )
+}
+
+export const GroupRequired: StoryFn = () => {
+  return (
+    <form>
+      <FormField isRequired>
+        <FormField.Label asChild>
+          <span>Sports</span>
+        </FormField.Label>
+
+        <CheckboxGroup>
+          <Checkbox value="soccer">Soccer</Checkbox>
+          <Checkbox value="tennis">Tennis</Checkbox>
+          <Checkbox value="baseball">Baseball</Checkbox>
+        </CheckboxGroup>
+
+        <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
+      </FormField>
+    </form>
   )
 }
 

@@ -6,13 +6,9 @@ import { checkboxGroupStyles, CheckboxGroupStylesProps } from './CheckboxGroup.s
 import { CheckboxGroupContext, CheckboxGroupContextState } from './CheckboxGroupContext'
 
 export interface CheckboxGroupProps
-  extends Pick<CheckboxGroupContextState, 'intent'>,
+  extends Omit<ComponentPropsWithoutRef<'div'>, 'value' | 'defaultValue' | 'onChange'>,
     CheckboxGroupStylesProps,
-    Omit<ComponentPropsWithoutRef<'div'>, 'value' | 'defaultValue' | 'onChange'> {
-  /**
-   * The value of the checkbox group
-   */
-  value?: string[]
+    Pick<CheckboxGroupContextState, 'intent' | 'name' | 'value'> {
   /**
    * The initial value of the checkbox group
    */
@@ -26,6 +22,7 @@ export interface CheckboxGroupProps
 export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
   (
     {
+      name: nameProp,
       value: valueProp,
       defaultValue,
       className,
@@ -38,8 +35,11 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
     ref
   ) => {
     const [value, setValue] = useCombinedState(valueProp, defaultValue)
-    const { labelId, description, isInvalid, isRequired } = useFormFieldState()
+    const field = useFormFieldState()
     const onChangeRef = useRef(onChangeProp)
+
+    const { id, labelId, description, isInvalid, isRequired } = field
+    const name = nameProp ?? field.name
 
     const current = useMemo(() => {
       const handleChange = (checked: boolean, changed: string) => {
@@ -53,8 +53,8 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
         }
       }
 
-      return { value, intent, isInvalid, description, isRequired, onChange: handleChange }
-    }, [value, intent, isInvalid, description, isRequired, setValue])
+      return { id, name, value, intent, isInvalid, description, isRequired, onChange: handleChange }
+    }, [id, name, value, intent, isInvalid, description, isRequired, setValue])
 
     useEffect(() => {
       onChangeRef.current = onChangeProp
