@@ -6,3 +6,5 @@ export type SlotProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 export const VisuallyHidden = forwardRef<HTMLElement, SlotProps>((props, ref) => {
   return <VisuallyHiddenRoot ref={ref} {...props} />
 })
+
+VisuallyHidden.displayName = 'VisuallyHidden'
