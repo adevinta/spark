@@ -29,7 +29,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     const rootRef = useRef<HTMLButtonElement | undefined>()
     const ref = useMergeRefs(forwardedRef, rootRef)
 
-    const { name } = field
+    const name = field.name ?? group.name
     const isRequired = field.isRequired ?? group.isRequired
     const isInvalid = field.isInvalid ?? group.isInvalid
     const isField = field.id !== group.id

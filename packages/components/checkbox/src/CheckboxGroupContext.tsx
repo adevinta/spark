@@ -4,11 +4,11 @@ import { CheckboxInputStylesProps } from './CheckboxInput.styles'
 
 export interface CheckboxGroupContextState extends Pick<CheckboxInputStylesProps, 'intent'> {
   /**
-   * The name of the group. Submitted with its owning form as part of a name/value pair.
+   * The id of the checkbox group.
    */
   id: string
   /**
-   * The id of the checkbox group.
+   * The name of the group. Submitted with its owning form as part of a name/value pair.
    */
   name?: string
   /**
