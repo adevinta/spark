@@ -226,23 +226,21 @@ export const GroupValidation: StoryFn = () => {
   }
 
   return (
-    <form>
-      <FormField name="sport" isInvalid={value.length === 0} isRequired>
-        <FormField.Label asChild>
-          <span>Sports</span>
-        </FormField.Label>
+    <FormField name="sport" isInvalid={value.length === 0} isRequired>
+      <FormField.Label asChild>
+        <span>Sports</span>
+      </FormField.Label>
 
-        <CheckboxGroup value={value} onChange={handleChange}>
-          <Checkbox value="soccer">Soccer</Checkbox>
+      <CheckboxGroup value={value} onChange={handleChange}>
+        <Checkbox value="soccer">Soccer</Checkbox>
 
-          <Checkbox value="tennis">Tennis</Checkbox>
+        <Checkbox value="tennis">Tennis</Checkbox>
 
-          <Checkbox value="baseball">Baseball</Checkbox>
-        </CheckboxGroup>
+        <Checkbox value="baseball">Baseball</Checkbox>
+      </CheckboxGroup>
 
-        <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
-      </FormField>
-    </form>
+      <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
+    </FormField>
   )
 }
 
