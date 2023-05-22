@@ -1,5 +1,5 @@
-import { Label as RadixLabel } from '@radix-ui/react-label'
 import { useFormFieldState } from '@spark-ui/form-field'
+import { Label as SparkLabel } from '@spark-ui/label'
 import type { PropsWithChildren } from 'react'
 
 import { labelStyles, LabelStylesProps } from './SwitchLabel.styles'
@@ -25,7 +25,7 @@ export const Label = ({ className, disabled, htmlFor, ...others }: LabelProps) =
   const { labelId } = useFormFieldState()
 
   return (
-    <RadixLabel
+    <SparkLabel
       className={labelStyles({ className, disabled })}
       htmlFor={htmlFor || labelId}
       {...others}

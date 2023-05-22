@@ -98,7 +98,6 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
         id={id || controlledId}
         name={name || controlledName}
         required={required || isRequired}
-        aria-required={required || isRequired}
         aria-invalid={isInvalid}
         aria-labelledby={labelId}
         aria-describedby={description}
