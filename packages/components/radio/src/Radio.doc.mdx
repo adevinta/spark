@@ -1,14 +1,14 @@
 import { Canvas, Meta } from '@storybook/addon-docs'
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
-import { ArgTypes } from '@storybook/blocks'
-import { Radio, RadioGroup } from '.'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { RadioGroup } from '.'
 import * as RadioStories from './Radio.stories'
 
 <Meta of={RadioStories} />
 
 # Radio
 
-Component used when only one choice may be selected in a series of options
+Component used when only one choice may be selected in a series of options.
 
 ## Install
 
@@ -24,15 +24,14 @@ import { RadioGroup, Radio } from '@spark-ui/radio'
 
 ## Props
 
-### RadioGroup
+<ArgTypes
+  of={RadioGroup}
+  subcomponents={{
+    'RadioGroup.Radio': RadioGroup.Radio,
+  }}
+/>
 
-<ArgTypes of={RadioGroup} />
-
-### Radio
-
-<ArgTypes of={Radio} />
-
-## Default
+## Usage
 
 Compound `RadioGroup` and `Radio` components to create a radio group.
 
@@ -62,8 +61,40 @@ Use `intent` prop to set the color of every radio inside the group. Optionally, 
 
 <Canvas of={RadioStories.Intent} />
 
+## Orientation
+
+Use `orientation` prop to set the orientation of the component which could be `vertical` or `horizontal`.
+
+<Canvas of={RadioStories.Orientation} />
+
 ## Size
 
 Use `size` prop to set the size of every radio inside the group. Optionally, you can set the `size` in each radio component.
 
 <Canvas of={RadioStories.Size} />
+
+## Form field
+
+### Usage
+
+Use `FormField`, `FormField.Label`, `FormField.HelperMessage` and `FormField.ErrorMessage` to provide context to the radio group.
+
+<Canvas of={RadioStories.Control} />
+
+### Hidden label
+
+Use `VisuallyHidden` component to hide the label of the radio group.
+
+<Canvas of={RadioStories.HiddenLabel} />
+
+### Required
+
+Use the `isRequired` prop to indicate that the radio group is required.
+
+<Canvas of={RadioStories.Required} />
+
+### Invalid
+
+Use the `isInvalid` prop to indicate that the radio group is invalid and show the error message.
+
+<Canvas of={RadioStories.Invalid} />

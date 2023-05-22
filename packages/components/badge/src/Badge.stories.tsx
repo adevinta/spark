@@ -1,6 +1,6 @@
 import { Icon } from '@spark-ui/icon'
 import { LikeFill } from '@spark-ui/icons/dist/icons/LikeFill'
-import { Radio, RadioGroup } from '@spark-ui/radio'
+import { RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
 
@@ -31,9 +31,9 @@ export const Standalone: StoryFn = _args => <Badge aria-label="New notification"
 export const StandaloneWithCount: StoryFn = _args => <Badge count={1} />
 export const StandaloneWithinAnotherElement: StoryFn = _args => (
   <RadioGroup>
-    <Radio value="foo">
+    <RadioGroup.Radio value="foo">
       Foo <Badge size="sm" count={3} aria-label={({ count }) => `${count} notifications`} />
-    </Radio>
+    </RadioGroup.Radio>
   </RadioGroup>
 )
 export const WrappingAnIcon: StoryFn = _args => (

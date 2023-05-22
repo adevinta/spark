@@ -26,3 +26,5 @@ export const RadioIndicator = forwardRef<HTMLSpanElement, RadioIndicatorProps>(
     )
   }
 )
+
+RadioIndicator.displayName = 'RadioGroup.RadioIndicator'
