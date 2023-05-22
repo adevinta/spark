@@ -23,4 +23,4 @@ export const HomeFill = React.forwardRef(
 
 HomeFill.displayName = 'HomeFill'
 
-export const tags = ['home-fill', 'account']
+export const tags = ['HomeFill', '']

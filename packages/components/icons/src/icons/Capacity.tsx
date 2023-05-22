@@ -23,4 +23,4 @@ export const Capacity = React.forwardRef(
 
 Capacity.displayName = 'Capacity'
 
-export const tags = ['capacity', 'criteria', 'holidays']
+export const tags = ['Capacity', '']

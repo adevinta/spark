@@ -23,4 +23,4 @@ export const DeleteFill = React.forwardRef(
 
 DeleteFill.displayName = 'DeleteFill'
 
-export const tags = ['delete-fill', 'arrows']
+export const tags = ['DeleteFill', '']

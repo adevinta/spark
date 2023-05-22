@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/blocks'
+import { Card } from '@docs/helpers/Card'
 import { Callout } from '@docs/helpers/Callout'
 
 <Meta title="Using Spark/Setup" />
@@ -88,7 +89,7 @@ However, if your application uses a different base font size, such as **10 pixel
 
 <Callout>
   See the documentation for the rest of our [**Tailwind plugins**
-  ](?path=/docs/utils-tailwind-plugins--docs) for more information.
+  ](?path=/docs/utils-tailwind-plugins-index--docs) for more information.
 </Callout>
 
 ## Extending Spark config
@@ -114,10 +115,17 @@ module.exports = {
 
 That's all there is to it! 🎉
 
-<Callout>
+<Callout marginBottom="large">
   If you want to know more about the custom token class names used in Spark, please check out our
   [**dedicated page**](https://sparkui.vercel.app/viewer/) where you can find a comprehensive list
   of these class names.
 </Callout>
 
-**Next: [Spark styling solution overview](?path=/docs/using-spark-styling-overview--docs#overview-of-spark-styling-solution)**
+<div className="flex justify-end mt-md">
+  <Card
+    href="/?path=/docs/using-spark-styling-overview--docs#overview-of-spark-styling-solution"
+    description="Spark styling solution overview"
+  >
+    Next
+  </Card>
+</div>

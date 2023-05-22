@@ -23,4 +23,4 @@ export const DeleteOutline = React.forwardRef(
 
 DeleteOutline.displayName = 'DeleteOutline'
 
-export const tags = ['delete-outline', 'arrows']
+export const tags = ['DeleteOutline', '']

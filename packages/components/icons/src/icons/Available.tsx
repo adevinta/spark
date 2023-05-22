@@ -23,4 +23,4 @@ export const Available = React.forwardRef(
 
 Available.displayName = 'Available'
 
-export const tags = ['available', 'criteria', 'generic']
+export const tags = ['Available', '']

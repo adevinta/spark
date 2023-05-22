@@ -23,4 +23,4 @@ export const BicycleType = React.forwardRef(
 
 BicycleType.displayName = 'BicycleType'
 
-export const tags = ['bicycle-type', 'criteria', 'hobbies']
+export const tags = ['BicycleType', '']

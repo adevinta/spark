@@ -23,4 +23,4 @@ export const Surface = React.forwardRef(
 
 Surface.displayName = 'Surface'
 
-export const tags = ['surface', 'criteria', 'immobilier']
+export const tags = ['Surface', '']

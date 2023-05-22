@@ -23,4 +23,4 @@ export const MessageOutline = React.forwardRef(
 
 MessageOutline.displayName = 'MessageOutline'
 
-export const tags = ['message-outline', 'contact']
+export const tags = ['MessageOutline', '']

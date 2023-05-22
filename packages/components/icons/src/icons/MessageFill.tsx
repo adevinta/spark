@@ -23,4 +23,4 @@ export const MessageFill = React.forwardRef(
 
 MessageFill.displayName = 'MessageFill'
 
-export const tags = ['message-fill', 'contact']
+export const tags = ['MessageFill', '']

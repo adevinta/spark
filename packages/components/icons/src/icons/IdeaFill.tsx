@@ -23,4 +23,4 @@ export const IdeaFill = React.forwardRef(
 
 IdeaFill.displayName = 'IdeaFill'
 
-export const tags = ['idea-fill', 'security']
+export const tags = ['IdeaFill', '']

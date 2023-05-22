@@ -23,4 +23,4 @@ export const Vaccine = React.forwardRef(
 
 Vaccine.displayName = 'Vaccine'
 
-export const tags = ['vaccine', 'criteria', 'animals']
+export const tags = ['Vaccine', '']

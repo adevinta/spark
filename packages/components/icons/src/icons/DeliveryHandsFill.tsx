@@ -23,4 +23,4 @@ export const DeliveryHandsFill = React.forwardRef(
 
 DeliveryHandsFill.displayName = 'DeliveryHandsFill'
 
-export const tags = ['delivery-hands-fill', 'delivery']
+export const tags = ['DeliveryHandsFill', '']

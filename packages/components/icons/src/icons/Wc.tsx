@@ -23,4 +23,4 @@ export const Wc = React.forwardRef(
 
 Wc.displayName = 'Wc'
 
-export const tags = ['wc', 'criteria', 'location']
+export const tags = ['Wc', '']

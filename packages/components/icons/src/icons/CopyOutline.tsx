@@ -23,4 +23,4 @@ export const CopyOutline = React.forwardRef(
 
 CopyOutline.displayName = 'CopyOutline'
 
-export const tags = ['copy-outline', 'actions']
+export const tags = ['CopyOutline', '']

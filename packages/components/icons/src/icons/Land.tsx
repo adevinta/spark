@@ -23,4 +23,4 @@ export const Land = React.forwardRef(
 
 Land.displayName = 'Land'
 
-export const tags = ['land', 'categories']
+export const tags = ['Land', '']

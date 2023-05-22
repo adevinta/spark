@@ -23,4 +23,4 @@ export const Ground = React.forwardRef(
 
 Ground.displayName = 'Ground'
 
-export const tags = ['ground', 'categories']
+export const tags = ['Ground', '']

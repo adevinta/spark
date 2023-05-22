@@ -23,4 +23,4 @@ export const Plus = React.forwardRef(
 
 Plus.displayName = 'Plus'
 
-export const tags = ['plus', 'arrows']
+export const tags = ['Plus', '']

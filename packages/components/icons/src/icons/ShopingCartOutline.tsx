@@ -23,4 +23,4 @@ export const ShopingCartOutline = React.forwardRef(
 
 ShopingCartOutline.displayName = 'ShopingCartOutline'
 
-export const tags = ['shoping-cart-outline', 'account']
+export const tags = ['ShopingCartOutline', '']

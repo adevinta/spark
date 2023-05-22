@@ -23,4 +23,4 @@ export const PlayOutline = React.forwardRef(
 
 PlayOutline.displayName = 'PlayOutline'
 
-export const tags = ['play-outline', 'actions']
+export const tags = ['PlayOutline', '']

@@ -23,4 +23,4 @@ export const Floor = React.forwardRef(
 
 Floor.displayName = 'Floor'
 
-export const tags = ['floor', 'criteria', 'immobilierneuf']
+export const tags = ['Floor', '']

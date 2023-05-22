@@ -23,4 +23,4 @@ export const UnlockOutline = React.forwardRef(
 
 UnlockOutline.displayName = 'UnlockOutline'
 
-export const tags = ['unlock-outline', 'security']
+export const tags = ['UnlockOutline', '']

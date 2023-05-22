@@ -23,4 +23,4 @@ export const Size = React.forwardRef(
 
 Size.displayName = 'Size'
 
-export const tags = ['size', 'criteria', 'mode']
+export const tags = ['Size', '']

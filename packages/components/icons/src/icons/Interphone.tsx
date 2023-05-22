@@ -23,4 +23,4 @@ export const Interphone = React.forwardRef(
 
 Interphone.displayName = 'Interphone'
 
-export const tags = ['interphone', 'criteria', 'location']
+export const tags = ['Interphone', '']

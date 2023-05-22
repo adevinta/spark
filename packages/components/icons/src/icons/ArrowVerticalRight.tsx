@@ -23,4 +23,4 @@ export const ArrowVerticalRight = React.forwardRef(
 
 ArrowVerticalRight.displayName = 'ArrowVerticalRight'
 
-export const tags = ['arrow-vertical-right', 'arrows']
+export const tags = ['ArrowVerticalRight', '']

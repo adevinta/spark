@@ -23,4 +23,4 @@ export const Refresh = React.forwardRef(
 
 Refresh.displayName = 'Refresh'
 
-export const tags = ['refresh', 'actions']
+export const tags = ['Refresh', '']

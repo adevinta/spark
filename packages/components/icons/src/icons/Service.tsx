@@ -23,4 +23,4 @@ export const Service = React.forwardRef(
 
 Service.displayName = 'Service'
 
-export const tags = ['service', 'categories']
+export const tags = ['Service', '']

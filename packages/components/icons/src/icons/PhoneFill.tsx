@@ -23,4 +23,4 @@ export const PhoneFill = React.forwardRef(
 
 PhoneFill.displayName = 'PhoneFill'
 
-export const tags = ['phone-fill', 'contact']
+export const tags = ['PhoneFill', '']

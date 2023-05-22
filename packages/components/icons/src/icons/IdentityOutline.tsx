@@ -23,4 +23,4 @@ export const IdentityOutline = React.forwardRef(
 
 IdentityOutline.displayName = 'IdentityOutline'
 
-export const tags = ['identity-outline', 'account']
+export const tags = ['IdentityOutline', '']

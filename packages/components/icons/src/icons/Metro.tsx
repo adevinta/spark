@@ -23,4 +23,4 @@ export const Metro = React.forwardRef(
 
 Metro.displayName = 'Metro'
 
-export const tags = ['metro', 'criteria', 'location']
+export const tags = ['Metro', '']

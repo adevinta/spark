@@ -23,4 +23,4 @@ export const Energy = React.forwardRef(
 
 Energy.displayName = 'Energy'
 
-export const tags = ['energy', 'criteria', 'automobile']
+export const tags = ['Energy', '']
