@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Input } from '.'
+
+import * as stories from './Input.stories'
+
+<Meta of={stories} />
+
+# Input
+
+Component used to get user input in a text field
+
+## Install
+
+```sh
+npm install @spark-ui/input
+```
+
+## Import
+
+```tsx
+import { Input } from "@spark-ui/input"
+```
+
+## Props
+
+<ArgTypes of={Input} />
+
+## Variants
+<Canvas of={stories.Default} />
