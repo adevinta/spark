@@ -1,7 +1,8 @@
 import { Button } from '@spark-ui/button'
 import { Radio, RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
-import { useState } from 'react'
+import { cx } from 'class-variance-authority'
+import { FC, forwardRef, PropsWithChildren, useState } from 'react'
 
 import { Popover } from '.'
 import { type ContentProps } from './PopoverContent'
@@ -13,16 +14,33 @@ const meta: Meta<typeof Popover> = {
 
 export default meta
 
+const ShowcaseContainer = forwardRef<
+  HTMLDivElement,
+  PropsWithChildren<{
+    className?: string
+  }>
+>(({ children, className }, ref) => (
+  <div
+    ref={ref}
+    className={cx(
+      'h-sz-240 bg-primary-container border-md border-primary flex items-center justify-center rounded-sm border-dashed p-lg',
+      className
+    )}
+  >
+    {children}
+  </div>
+))
+
 export const Default: StoryFn = _args => {
   return (
-    <div className="h-sz-240 bg-primary-container border-md border-primary flex items-center justify-center rounded-sm border-dashed">
+    <ShowcaseContainer>
       <Popover>
         <Popover.Trigger asChild>
           <Button>Trigger popover</Button>
         </Popover.Trigger>
         <Popover.Content>some text</Popover.Content>
       </Popover>
-    </div>
+    </ShowcaseContainer>
   )
 }
 
@@ -35,21 +53,21 @@ export const Controlled: StoryFn = () => {
         <Button onClick={() => setOpen(true)}>Open popover</Button>
         <Button onClick={() => setOpen(false)}>Close popover</Button>
       </div>
-      <div className="h-sz-240 bg-primary-container border-md border-primary flex items-center justify-center rounded-sm border-dashed">
+      <ShowcaseContainer>
         <Popover open={open}>
           <Popover.Anchor asChild>
             <p>Popover is attached to this text (anchor)</p>
           </Popover.Anchor>
           <Popover.Content onInteractOutside={() => setOpen(false)}>some text</Popover.Content>
         </Popover>
-      </div>
+      </ShowcaseContainer>
     </>
   )
 }
 
 export const Anchored: StoryFn = _args => {
   return (
-    <div className="h-sz-240 bg-primary-container border-md border-primary p-lg flex items-center justify-between rounded-sm border-dashed">
+    <ShowcaseContainer className="!justify-between">
       <Popover>
         <div className="gap-md flex flex-col">
           <Popover.Trigger asChild>
@@ -68,7 +86,23 @@ export const Anchored: StoryFn = _args => {
         </Popover.Trigger>
         <Popover.Content>some text</Popover.Content>
       </Popover>
-    </div>
+    </ShowcaseContainer>
+  )
+}
+
+export const MatchTriggerWidth: StoryFn = _args => {
+  return (
+    <ShowcaseContainer>
+      <Popover open>
+        <Popover.Trigger asChild>
+          <Button>Check the width of this popover</Button>
+        </Popover.Trigger>
+        <Popover.Content matchTriggerWidth>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua.
+        </Popover.Content>
+      </Popover>
+    </ShowcaseContainer>
   )
 }
 
@@ -76,10 +110,7 @@ export const Boundaries: StoryFn = () => {
   const [boundaryContainer, setBoundaryContainer] = useState<HTMLDivElement | null>(null)
 
   return (
-    <div
-      ref={setBoundaryContainer}
-      className="p-md w-sz-256 h-sz-240 bg-primary-container border-md border-primary relative block rounded-sm border-dashed"
-    >
+    <ShowcaseContainer ref={setBoundaryContainer} className="!w-sz-256 !h-sz-240">
       <Popover>
         <Popover.Trigger asChild>
           <Button>Trigger popover</Button>
@@ -89,7 +120,7 @@ export const Boundaries: StoryFn = () => {
           ut labore et dolore magna aliqua.
         </Popover.Content>
       </Popover>
-    </div>
+    </ShowcaseContainer>
   )
 }
 
@@ -129,7 +160,7 @@ export const Positionning: StoryFn = _args => {
         </RadioGroup>
       </div>
 
-      <div className="h-sz-240 bg-primary-container border-md border-primary flex items-center justify-center rounded-sm border-dashed">
+      <ShowcaseContainer>
         <Popover open>
           <Popover.Trigger asChild>
             <Button>Trigger popover</Button>
@@ -138,7 +169,7 @@ export const Positionning: StoryFn = _args => {
             some text
           </Popover.Content>
         </Popover>
-      </div>
+      </ShowcaseContainer>
     </div>
   )
 }

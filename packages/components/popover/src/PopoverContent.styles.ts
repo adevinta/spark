@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority'
+import { cva, type VariantProps } from 'class-variance-authority'
 
 // eslint-disable-next-line tailwindcss/no-custom-classname
 export const styles = cva(
@@ -6,7 +6,6 @@ export const styles = cva(
     'rounded-md',
     'p-lg',
     'bg-surface text-on-surface',
-    // 'w-sz-256',
     'shadow',
     'focus:shadow-lg',
     // directions styles
@@ -19,10 +18,10 @@ export const styles = cva(
   {
     variants: {
       matchTriggerWidth: {
-        true: 'max-w-[--radix-popover-trigger-width]',
+        true: 'w-[--radix-popper-anchor-width]',
       },
       enforceBoundaries: {
-        true: ['w-[--radix-popper-available-width]', 'h-[--radix-popper-available-height]'],
+        true: ['max-w-[--radix-popper-available-width]'],
       },
     },
     defaultVariants: {
@@ -31,3 +30,5 @@ export const styles = cva(
     },
   }
 )
+
+export type StylesProps = VariantProps<typeof styles>

@@ -1,9 +1,9 @@
 import * as RadixPopover from '@radix-ui/react-popover'
 import { forwardRef } from 'react'
 
-import { styles } from './PopoverContent.styles'
+import { styles, type StylesProps } from './PopoverContent.styles'
 
-export type ContentProps = RadixPopover.PopoverContentProps
+export type ContentProps = RadixPopover.PopoverContentProps & StylesProps
 
 export const Content = forwardRef<HTMLDivElement, ContentProps>(
   (
@@ -11,6 +11,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
       // Spark props
       className,
       children,
+      matchTriggerWidth = false,
       // Radix props
       align = 'center',
       arrowPadding = 0,
@@ -28,7 +29,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
   ) => {
     return (
       <RadixPopover.Content
-        className={styles({ enforceBoundaries: !!collisionBoundary, className })}
+        className={styles({ enforceBoundaries: !!collisionBoundary, matchTriggerWidth, className })}
         data-spark-component="popover-content"
         ref={ref}
         {...{
