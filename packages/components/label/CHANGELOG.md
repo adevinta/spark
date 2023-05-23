@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/label@1.1.1...@spark-ui/label@1.2.0) (2023-05-23)
+
+### Features
+
+- **label:** export props ([7578626](https://github.com/adevinta/spark/commit/7578626138086897557ca1266a9599ac49260b38))
+
 ## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/label@1.1.0...@spark-ui/label@1.1.1) (2023-05-10)
 
 ### Bug Fixes
