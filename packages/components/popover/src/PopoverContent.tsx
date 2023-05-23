@@ -3,7 +3,9 @@ import { forwardRef } from 'react'
 
 import { styles } from './PopoverContent.styles'
 
-export const Content = forwardRef<HTMLDivElement, RadixPopover.PopoverContentProps>(
+export type ContentProps = RadixPopover.PopoverContentProps
+
+export const Content = forwardRef<HTMLDivElement, ContentProps>(
   (
     {
       // Spark props

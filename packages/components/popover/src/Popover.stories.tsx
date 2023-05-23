@@ -4,6 +4,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
 import { Popover } from '.'
+import { type ContentProps } from './PopoverContent'
 
 const meta: Meta<typeof Popover> = {
   title: 'Experimental/Popover',
@@ -74,8 +75,6 @@ export const Anchored: StoryFn = _args => {
 export const Boundaries: StoryFn = () => {
   const [boundaryContainer, setBoundaryContainer] = useState<HTMLDivElement | null>(null)
 
-  console.log('HEY', { boundaryContainer, rect: boundaryContainer?.getBoundingClientRect() })
-
   return (
     <div
       ref={setBoundaryContainer}
@@ -135,39 +134,11 @@ export const Positionning: StoryFn = _args => {
           <Popover.Trigger asChild>
             <Button>Trigger popover</Button>
           </Popover.Trigger>
-          {/* <Popover.Portal> */}
           <Popover.Content side={currentSide} align={currentAlign}>
             some text
-            {/* <Popover.Close
-          className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute right-[5px] top-[5px] inline-flex h-[25px] w-[25px] cursor-default items-center justify-center rounded-full outline-none focus:shadow-[0_0_0_2px]"
-          aria-label="Close"
-        >
-          <Cross2Icon />
-        </Popover.Close> */}
-            {/* <Popover.Arrow className="fill-white" /> */}
           </Popover.Content>
-          {/* </Popover.Portal> */}
         </Popover>
       </div>
     </div>
   )
 }
-
-/**
- * - Controlled
- * - Modal behaviour
- * - Showcase event handlers
- * - Side + sideOffset + align + alignOffset (using radios or dropdowns)
- * - custom container + collision behaviour
- * - Arrow story
- * - Close button story
- *
- * Anchor story
- *
- * TODO LIST:
- * - Implement Popover.Close
- * - Implement Popover.Anchor
- * - Implement Popover.Arrow
- * - Implement Popover.Overlay (not in radix ? v2 ?)
- * - couple Popover.Content with Portal (implement `forceMount`)
- */
