@@ -146,7 +146,7 @@ describe('Checkbox', () => {
         defaultValue={['baseball']}
         name="sports"
         aria-label="Sports"
-        onChange={onCheckedChange}
+        onCheckedChange={onCheckedChange}
       >
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
@@ -175,7 +175,7 @@ describe('Checkbox', () => {
         value={['baseball']}
         name="sports"
         aria-label="Sports"
-        onChange={onCheckedChange}
+        onCheckedChange={onCheckedChange}
       >
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>

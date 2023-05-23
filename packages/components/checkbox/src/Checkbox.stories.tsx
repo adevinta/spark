@@ -129,7 +129,7 @@ export const GroupHiddenLabel: StoryFn = _args => {
 export const GroupControlled: StoryFn = () => {
   const [value, setValue] = useState<string[]>([])
 
-  const handleChange = (current: string[]) => {
+  const handleCheckedChange = (current: string[]) => {
     setValue(current)
   }
 
@@ -139,7 +139,7 @@ export const GroupControlled: StoryFn = () => {
         <span>Sports</span>
       </FormField.Label>
 
-      <CheckboxGroup value={value} onChange={handleChange}>
+      <CheckboxGroup value={value} onCheckedChange={handleCheckedChange}>
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="tennis">Tennis</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
@@ -149,7 +149,7 @@ export const GroupControlled: StoryFn = () => {
 }
 
 export const GroupUncontrolled: StoryFn = () => {
-  const handleChange = (value: string[]) => {
+  const handleCheckedChange = (value: string[]) => {
     console.log(value)
   }
 
@@ -159,7 +159,7 @@ export const GroupUncontrolled: StoryFn = () => {
         <span>Sports</span>
       </FormField.Label>
 
-      <CheckboxGroup defaultValue={['soccer', 'tennis']} onChange={handleChange}>
+      <CheckboxGroup defaultValue={['soccer', 'tennis']} onCheckedChange={handleCheckedChange}>
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="tennis">Tennis</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
@@ -221,7 +221,7 @@ export const GroupRequired: StoryFn = () => {
 export const GroupValidation: StoryFn = () => {
   const [value, setValue] = useState<string[]>([])
 
-  const handleChange = (current: string[]) => {
+  const handleCheckedChange = (current: string[]) => {
     setValue(current)
   }
 
@@ -231,7 +231,7 @@ export const GroupValidation: StoryFn = () => {
         <span>Sports</span>
       </FormField.Label>
 
-      <CheckboxGroup value={value} onChange={handleChange}>
+      <CheckboxGroup value={value} onCheckedChange={handleCheckedChange}>
         <Checkbox value="soccer">Soccer</Checkbox>
 
         <Checkbox value="tennis">Tennis</Checkbox>
@@ -247,7 +247,7 @@ export const GroupValidation: StoryFn = () => {
 export const GroupIndividualValidation: StoryFn = () => {
   const [value, setValue] = useState<string[]>([])
 
-  const handleChange = (current: string[]) => {
+  const handleCheckedChange = (current: string[]) => {
     setValue(current)
   }
 
@@ -257,7 +257,7 @@ export const GroupIndividualValidation: StoryFn = () => {
         <span>Sports</span>
       </FormField.Label>
 
-      <CheckboxGroup value={value} onChange={handleChange}>
+      <CheckboxGroup value={value} onCheckedChange={handleCheckedChange}>
         <FormField isInvalid={!value.includes('soccer')}>
           <Checkbox value="soccer">Soccer</Checkbox>
         </FormField>

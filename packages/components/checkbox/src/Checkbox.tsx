@@ -45,8 +45,8 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
 
       const element = rootRef.current
 
-      if (group.onChange && element?.value) {
-        group.onChange(checked, element.value)
+      if (group.onCheckedChange && element?.value) {
+        group.onCheckedChange(checked, element.value)
       }
     }
 
