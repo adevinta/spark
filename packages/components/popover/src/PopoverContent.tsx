@@ -1,5 +1,5 @@
 import * as RadixPopover from '@radix-ui/react-popover'
-import { forwardRef, useState } from 'react'
+import { forwardRef } from 'react'
 
 import { styles } from './PopoverContent.styles'
 
@@ -24,13 +24,7 @@ export const Content = forwardRef<HTMLDivElement, RadixPopover.PopoverContentPro
     },
     ref
   ) => {
-    // const [collisionBoundary, setBoundaryContainer] = useState<HTMLDivElement | null>(null)
-
     return (
-      // <div
-      //   ref={setBoundaryContainer}
-      //   className="relative block p-md w-sz-256 h-sz-240 bg-primary-container border-md border-primary rounded-sm border-dashed"
-      // >
       <RadixPopover.Content
         className={styles({ enforceBoundaries: !!collisionBoundary, className })}
         data-spark-component="popover-content"
@@ -50,7 +44,6 @@ export const Content = forwardRef<HTMLDivElement, RadixPopover.PopoverContentPro
       >
         {children}
       </RadixPopover.Content>
-      // </div>
     )
   }
 )

@@ -52,6 +52,16 @@ Please note that is example is using `Popover.Anchor` to attach the Popover to a
 
 <Canvas of={stories.Controlled} />
 
+## Anchored
+
+When you need to attach the popover to a different element than its `Popover.Trigger`, you must use `Popover.Anchor`.
+
+If not used, then `Popover.Trigger` will be both the trigger element and the anchor for the popover.
+
+When using `Popover.Anchor`, you can have multiple `Popover.Trigger` to trigger the same `Popover` in different ways
+
+<Canvas of={stories.Anchored} />
+
 ## Boundaries
 
 You can restrict the popover to stay inside a container (ref).

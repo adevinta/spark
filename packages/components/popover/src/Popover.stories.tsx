@@ -46,6 +46,31 @@ export const Controlled: StoryFn = () => {
   )
 }
 
+export const Anchored: StoryFn = _args => {
+  return (
+    <div className="h-sz-240 bg-primary-container border-md border-primary p-lg flex items-center justify-between rounded-sm border-dashed">
+      <Popover>
+        <div className="gap-md flex flex-col">
+          <Popover.Trigger asChild>
+            <Button>Trigger 1</Button>
+          </Popover.Trigger>
+          <Popover.Trigger asChild>
+            <Button>Trigger 2</Button>
+          </Popover.Trigger>
+          <Popover.Trigger asChild>
+            <Button>Trigger 3</Button>
+          </Popover.Trigger>
+        </div>
+
+        <Popover.Trigger asChild>
+          <Button intent="secondary">Anchor element</Button>
+        </Popover.Trigger>
+        <Popover.Content>some text</Popover.Content>
+      </Popover>
+    </div>
+  )
+}
+
 export const Boundaries: StoryFn = () => {
   const [boundaryContainer, setBoundaryContainer] = useState<HTMLDivElement | null>(null)
 
