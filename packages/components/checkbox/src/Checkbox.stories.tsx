@@ -40,7 +40,7 @@ export const Uncontrolled: StoryFn = () => {
 }
 
 export const Controlled: StoryFn = () => {
-  const [checked, setChecked] = useState<boolean>(true)
+  const [checked, setChecked] = useState(true)
 
   const handleCheckedChange = (current: boolean) => {
     setChecked(current)
@@ -76,7 +76,7 @@ export const Icon: StoryFn = _args => (
     <Checkbox defaultChecked icon={<Close />}>
       Accept terms and conditions
     </Checkbox>
-    <Checkbox checked="indeterminate" inderteminateIcon={<Plus />}>
+    <Checkbox checked="indeterminate" indeterminateIcon={<Plus />}>
       Accept terms and conditions
     </Checkbox>
   </div>

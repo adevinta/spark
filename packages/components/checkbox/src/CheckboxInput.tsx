@@ -16,9 +16,9 @@ export interface CheckboxInputProps
    */
   icon?: ReactNode
   /**
-   * The inderteminate icon to use.
+   * The indeterminate icon to use.
    */
-  inderteminateIcon?: ReactNode
+  indeterminateIcon?: ReactNode
   /**
    * The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.
    */
@@ -51,7 +51,7 @@ export interface CheckboxInputProps
 
 export const CheckboxInput = forwardRef<HTMLButtonElement, CheckboxInputProps>(
   (
-    { className, icon = <Check />, inderteminateIcon = <Minus />, intent, checked, ...others },
+    { className, icon = <Check />, indeterminateIcon = <Minus />, intent, checked, ...others },
     ref
   ) => {
     return (
@@ -62,7 +62,7 @@ export const CheckboxInput = forwardRef<HTMLButtonElement, CheckboxInputProps>(
         {...others}
       >
         <CheckboxIndicator>
-          {checked === 'indeterminate' ? inderteminateIcon : icon}
+          {checked === 'indeterminate' ? indeterminateIcon : icon}
         </CheckboxIndicator>
       </CheckboxPrimitive>
     )

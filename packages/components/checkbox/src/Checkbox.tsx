@@ -32,9 +32,9 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     const name = field.name ?? group.name
     const isRequired = field.isRequired ?? group.isRequired
     const isInvalid = field.isInvalid ?? group.isInvalid
-    const isField = field.id !== group.id
-    const id = isField ? field.id : undefined
-    const description = isField ? field.description : undefined
+    const isFieldEnclosed = field.id !== group.id
+    const id = isFieldEnclosed ? field.id : undefined
+    const description = isFieldEnclosed ? field.description : undefined
     const intent = isInvalid ? 'error' : intentProp ?? group.intent
     const checked = group.value && value ? group.value.includes(value) : checkedProp
 
