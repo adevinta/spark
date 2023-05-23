@@ -4,7 +4,7 @@ const defaultCheckboxVariants = {
   disabled: false,
 }
 
-export const labelStyles = cva(['flex', 'items-center', 'gap-md', 'text-body-1'], {
+export const labelStyles = cva(['inline-flex', 'items-center', 'gap-md', 'text-body-1'], {
   variants: {
     disabled: {
       true: ['text-neutral/dim-2', 'cursor-not-allowed'],

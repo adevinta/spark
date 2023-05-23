@@ -1,39 +1,32 @@
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
+import { Checkbox as CheckboxPrimitive } from '@radix-ui/react-checkbox'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Minus } from '@spark-ui/icons/dist/icons/Minus'
-import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import {
-  ButtonHTMLAttributes,
-  ElementRef,
-  forwardRef,
-  ReactNode,
-  useCallback,
-  useState,
-} from 'react'
+import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
 
-import { inputStyles, type InputStylesProps } from './CheckboxInput.styles'
+import { CheckboxIndicator } from './CheckboxIndicator'
+import { checkboxInputStyles, type CheckboxInputStylesProps } from './CheckboxInput.styles'
 
 type CheckedStatus = boolean | 'indeterminate'
 
-type AriaCheckedStatus = 'true' | 'false' | 'mixed' | undefined
-
-interface RadixProps {
+export interface CheckboxInputProps
+  extends CheckboxInputStylesProps,
+    Omit<ComponentPropsWithoutRef<'button'>, 'value' | 'checked' | 'defaultChecked'> {
   /**
-   * The checked icon to use
+   * The checked icon to use.
    */
   icon?: ReactNode
   /**
+   * The indeterminate icon to use.
+   */
+  indeterminateIcon?: ReactNode
+  /**
    * The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.
    */
-  defaultChecked?: CheckedStatus
+  defaultChecked?: boolean
   /**
    * The controlled checked state of the checkbox. Must be used in conjunction with onCheckedChange.
    */
   checked?: CheckedStatus
-  /**
-   * Event handler called when the checked state of the checkbox changes.
-   */
-  onCheckedChange?: (checked: boolean, indeterminate?: boolean) => void
   /**
    * When true, prevents the user from interacting with the checkbox.
    */
@@ -46,56 +39,34 @@ interface RadixProps {
    * The name of the checkbox. Submitted with its owning form as part of a name/value pair.
    */
   name?: string
+  /**
+   * The value given as data when submitted with a name.
+   */
+  value?: string
+  /**
+   * Event handler called when the checked state of the checkbox changes.
+   */
+  onCheckedChange?: (checked: boolean) => void
 }
 
-const useIcon = ({ icon, checked }: { icon: ReactNode; checked: AriaCheckedStatus }) => {
-  if (icon) {
-    return icon
-  }
-  switch (checked) {
-    case 'true':
-      return <Check />
-    case 'mixed':
-      return <Minus />
-    default:
-      return null
-  }
-}
-
-export interface InputProps
-  extends RadixProps, // Radix props
-    InputStylesProps, // CVA props (variants)
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'checked' | 'defaultChecked'> {} // Native HTML props
-
-export const Input = forwardRef<ElementRef<typeof CheckboxPrimitive.Root>, InputProps>(
-  ({ intent, icon, className, onCheckedChange, ...props }, forwardedRef) => {
-    const [innerChecked, setInnerChecked] = useState<'true' | 'false' | 'mixed'>()
-    const ref = useMergeRefs(forwardedRef, node => {
-      setInnerChecked(node?.getAttribute('aria-checked') as AriaCheckedStatus)
-    })
-    const innerIcon = useIcon({ icon, checked: innerChecked })
-
-    const handleOnCheckedChange = useCallback((value: CheckedStatus) => {
-      if (typeof onCheckedChange === 'function') {
-        const [checked, indeterminate] = [
-          value === 'indeterminate' ? false : value,
-          value === 'indeterminate' ? true : undefined,
-        ]
-        onCheckedChange(checked, indeterminate)
-      }
-    }, [])
-
+export const CheckboxInput = forwardRef<HTMLButtonElement, CheckboxInputProps>(
+  (
+    { className, icon = <Check />, indeterminateIcon = <Minus />, intent, checked, ...others },
+    ref
+  ) => {
     return (
-      <CheckboxPrimitive.Root
+      <CheckboxPrimitive
         ref={ref}
-        className={inputStyles({ intent, className })}
-        {...props}
-        onCheckedChange={handleOnCheckedChange}
+        className={checkboxInputStyles({ intent, className })}
+        checked={checked}
+        {...others}
       >
-        <CheckboxPrimitive.Indicator className="text-surface flex items-center justify-center">
-          {innerIcon}
-        </CheckboxPrimitive.Indicator>
-      </CheckboxPrimitive.Root>
+        <CheckboxIndicator>
+          {checked === 'indeterminate' ? indeterminateIcon : icon}
+        </CheckboxIndicator>
+      </CheckboxPrimitive>
     )
   }
 )
+
+CheckboxInput.displayName = 'CheckboxInput'

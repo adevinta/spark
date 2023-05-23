@@ -1,17 +1,75 @@
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
-import React from 'react'
+/* eslint-disable complexity */
 
-import { Input, type InputProps } from './CheckboxInput'
-import { Label } from './CheckboxLabel'
+import { useFormFieldState } from '@spark-ui/form-field'
+import { useMergeRefs } from '@spark-ui/use-merge-refs'
+import { forwardRef, useRef } from 'react'
 
-export type CheckboxProps = InputProps
+import { useCheckboxGroup } from './CheckboxGroupContext'
+import { CheckboxInput, CheckboxInputProps } from './CheckboxInput'
+import { CheckboxLabel } from './CheckboxLabel'
 
-export const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  CheckboxProps
->(({ children, className, ...props }, ref) => (
-  <Label data-spark-component="checkbox" className={className} disabled={props.disabled}>
-    <Input ref={ref} {...props} />
-    {children}
-  </Label>
-))
+export type CheckboxProps = CheckboxInputProps
+
+export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
+  (
+    {
+      className,
+      intent: intentProp,
+      checked: checkedProp,
+      value,
+      disabled,
+      onCheckedChange,
+      children,
+      ...others
+    },
+    forwardedRef
+  ) => {
+    const field = useFormFieldState()
+    const group = useCheckboxGroup()
+    const rootRef = useRef<HTMLButtonElement | undefined>()
+    const ref = useMergeRefs(forwardedRef, rootRef)
+
+    const name = field.name ?? group.name
+    const isRequired = field.isRequired ?? group.isRequired
+    const isInvalid = field.isInvalid ?? group.isInvalid
+    const isFieldEnclosed = field.id !== group.id
+    const id = isFieldEnclosed ? field.id : undefined
+    const description = isFieldEnclosed ? field.description : undefined
+    const intent = isInvalid ? 'error' : intentProp ?? group.intent
+    const checked = group.value && value ? group.value.includes(value) : checkedProp
+
+    const handleCheckedChange = (checked: boolean) => {
+      if (onCheckedChange) {
+        onCheckedChange(checked)
+      }
+
+      const element = rootRef.current
+
+      if (group.onCheckedChange && element?.value) {
+        group.onCheckedChange(checked, element.value)
+      }
+    }
+
+    return (
+      <CheckboxLabel data-spark-component="checkbox" className={className} disabled={disabled}>
+        <CheckboxInput
+          ref={ref}
+          id={id}
+          name={name}
+          value={value}
+          intent={intent}
+          checked={checked}
+          disabled={disabled}
+          required={isRequired}
+          aria-describedby={description}
+          aria-invalid={isInvalid}
+          onCheckedChange={handleCheckedChange}
+          {...others}
+        />
+        {children}
+      </CheckboxLabel>
+    )
+  }
+)
+
+Checkbox.displayName = 'Checkbox'
