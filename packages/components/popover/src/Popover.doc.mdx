@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Popover } from '.'
 
@@ -25,17 +25,14 @@ import { Popover } from '@spark-ui/popover'
 
 ## Props
 
-### Popover
-
-<ArgTypes of={Popover} />
-
-### Popover.Trigger
-
-<ArgTypes of={Popover.Trigger} />
-
-### Popover.Content
-
-<ArgTypes of={Popover.Content} />
+<ArgTypes
+  of={Popover}
+  subcomponents={{
+    'Popover.Trigger': Popover.Trigger,
+    'Popover.Content': Popover.Content,
+    'Popover.Anchor': Popover.Anchor,
+  }}
+/>
 
 ## Default
 

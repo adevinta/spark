@@ -1,13 +1,12 @@
 import { Button } from '@spark-ui/button'
 import { Radio, RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 import { Popover } from '.'
-import { type ContentProps } from './PopoverContent'
 
 const meta: Meta<typeof Popover> = {
-  title: 'Components/Popover',
+  title: 'Experimental/Popover',
   component: Popover,
 }
 
