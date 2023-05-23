@@ -50,12 +50,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
-      - name: Fetch with all tags
-        run: git fetch --prune --unshallow --tags
+          fetch-depth: 0
       - name: Identity
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'spark-ui-bot'
+          git config --global user.email 'gp.gt.ft.ade.spark@adevinta.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
       - name: Install
         uses: ./.github/composite-actions/install
