@@ -14,11 +14,11 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
       matchTriggerWidth = false,
       // Radix props
       align = 'center',
-      arrowPadding = 0,
+      arrowPadding = 16, // In order not to overlap the arrow on the rounded corners of the popover.
       asChild = false,
       avoidCollisions = true,
       collisionBoundary,
-      collisionPadding = 10,
+      collisionPadding = 0,
       hideWhenDetached = false,
       side = 'bottom',
       sideOffset = 8,
@@ -34,6 +34,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
         ref={ref}
         {...{
           align,
+          arrowPadding,
           asChild,
           avoidCollisions,
           collisionBoundary,

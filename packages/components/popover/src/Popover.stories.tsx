@@ -2,7 +2,7 @@ import { Button } from '@spark-ui/button'
 import { Radio, RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
-import { FC, forwardRef, PropsWithChildren, useState } from 'react'
+import { forwardRef, PropsWithChildren, useState } from 'react'
 
 import { Popover } from '.'
 import { type ContentProps } from './PopoverContent'
@@ -38,7 +38,10 @@ export const Default: StoryFn = _args => {
         <Popover.Trigger asChild>
           <Button>Trigger popover</Button>
         </Popover.Trigger>
-        <Popover.Content>some text</Popover.Content>
+        <Popover.Content>
+          some text
+          <Popover.Arrow />
+        </Popover.Content>
       </Popover>
     </ShowcaseContainer>
   )
@@ -58,7 +61,10 @@ export const Controlled: StoryFn = () => {
           <Popover.Anchor asChild>
             <p>Popover is attached to this text (anchor)</p>
           </Popover.Anchor>
-          <Popover.Content onInteractOutside={() => setOpen(false)}>some text</Popover.Content>
+          <Popover.Content onInteractOutside={() => setOpen(false)}>
+            some text
+            <Popover.Arrow />
+          </Popover.Content>
         </Popover>
       </ShowcaseContainer>
     </>
@@ -84,7 +90,10 @@ export const Anchored: StoryFn = _args => {
         <Popover.Trigger asChild>
           <Button intent="secondary">Anchor element</Button>
         </Popover.Trigger>
-        <Popover.Content>some text</Popover.Content>
+        <Popover.Content>
+          some text
+          <Popover.Arrow />
+        </Popover.Content>
       </Popover>
     </ShowcaseContainer>
   )
@@ -100,6 +109,7 @@ export const MatchTriggerWidth: StoryFn = _args => {
         <Popover.Content matchTriggerWidth>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua.
+          <Popover.Arrow />
         </Popover.Content>
       </Popover>
     </ShowcaseContainer>
@@ -118,6 +128,7 @@ export const Boundaries: StoryFn = () => {
         <Popover.Content collisionBoundary={[boundaryContainer]}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua.
+          <Popover.Arrow />
         </Popover.Content>
       </Popover>
     </ShowcaseContainer>
@@ -167,6 +178,7 @@ export const Positionning: StoryFn = _args => {
           </Popover.Trigger>
           <Popover.Content side={currentSide} align={currentAlign}>
             some text
+            <Popover.Arrow />
           </Popover.Content>
         </Popover>
       </ShowcaseContainer>
