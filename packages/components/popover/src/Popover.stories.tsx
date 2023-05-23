@@ -1,5 +1,5 @@
 import { Button } from '@spark-ui/button'
-import { Radio, RadioGroup } from '@spark-ui/radio'
+import { RadioGroup } from '@spark-ui/radio'
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
 import { forwardRef, PropsWithChildren, useState } from 'react'
@@ -153,9 +153,9 @@ export const Positionning: StoryFn = _args => {
         <p className="text-headline-2">Side:</p>
         <RadioGroup value={currentSide} onValueChange={handleChangeSide} orientation="horizontal">
           {['bottom', 'top', 'left', 'right'].map(side => (
-            <Radio key={side} value={side}>
+            <RadioGroup.Radio key={side} value={side}>
               {side}
-            </Radio>
+            </RadioGroup.Radio>
           ))}
         </RadioGroup>
       </div>
@@ -164,9 +164,9 @@ export const Positionning: StoryFn = _args => {
         <p className="text-headline-2">Align:</p>
         <RadioGroup value={currentAlign} onValueChange={handleChangeAlign} orientation="horizontal">
           {['start', 'center', 'end'].map(align => (
-            <Radio key={align} value={align}>
+            <RadioGroup.Radio key={align} value={align}>
               {align}
-            </Radio>
+            </RadioGroup.Radio>
           ))}
         </RadioGroup>
       </div>
