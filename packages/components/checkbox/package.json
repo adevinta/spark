@@ -17,7 +17,8 @@
     "@spark-ui/icons": "^1.11.0",
     "@spark-ui/internal-utils": "^1.6.0",
     "@spark-ui/use-merge-refs": "^0.3.3",
-    "@spark-ui/label": "^1.1.1"
+    "@spark-ui/label": "^1.1.1",
+    "@spark-ui/icon": "^1.7.1"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",

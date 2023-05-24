@@ -1,4 +1,5 @@
 import { Checkbox as CheckboxPrimitive } from '@radix-ui/react-checkbox'
+import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Minus } from '@spark-ui/icons/dist/icons/Minus'
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
@@ -62,7 +63,7 @@ export const CheckboxInput = forwardRef<HTMLButtonElement, CheckboxInputProps>(
         {...others}
       >
         <CheckboxIndicator>
-          {checked === 'indeterminate' ? indeterminateIcon : icon}
+          <Icon size="sm">{checked === 'indeterminate' ? indeterminateIcon : icon}</Icon>
         </CheckboxIndicator>
       </CheckboxPrimitive>
     )
