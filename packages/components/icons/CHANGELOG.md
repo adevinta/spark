@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.11.0...@spark-ui/icons@1.12.0) (2023-05-24)
+
+### Features
+
+- **icons:** add AddSquareFill and AddSquareOutline ([416e057](https://github.com/adevinta/spark/commit/416e057977a2cdda7a3ef28ba3ff773c5d30c8e7))
+
 # [1.11.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.10.7...@spark-ui/icons@1.11.0) (2023-05-17)
 
 ### Features
