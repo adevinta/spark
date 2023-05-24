@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.13.11...@spark-ui/checkbox@1.14.0) (2023-05-23)
+
+### Features
+
+- **checkbox:** add checkbox group and integrate form field ([e65df62](https://github.com/adevinta/spark/commit/e65df6283b708611d8ba213d93fe011fe7080291))
+- **checkbox:** improve api and doc ([bc7c0fc](https://github.com/adevinta/spark/commit/bc7c0fcf54334fcedec2279a5c71ebf2aaba4f20))
+- **checkbox:** minor update ([a9e7ca6](https://github.com/adevinta/spark/commit/a9e7ca68bb9c2bfd3d572fdc9dd6516ac3801ce5))
+- **checkbox:** minor updates and tests ([8ffd0c5](https://github.com/adevinta/spark/commit/8ffd0c51e3b2a843d31ad0438149d19fee67f384))
+- **checkbox:** renamed onChange to onCheckedChange ([2460a10](https://github.com/adevinta/spark/commit/2460a1010f1f124986a5088aba5642806db8b4f6))
+- **checkbox:** update typos and rename variables ([da21719](https://github.com/adevinta/spark/commit/da217196615f0df10aeebb9e44c36dc18339613a))
+
 ## [1.13.11](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.13.10...@spark-ui/checkbox@1.13.11) (2023-05-22)
 
 **Note:** Version bump only for package @spark-ui/checkbox
