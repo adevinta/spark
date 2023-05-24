@@ -3,10 +3,10 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const checkboxInputStyles = cva(
   [
-    'h-sz-20 w-sz-20 border-md peer my-[var(--sz-1)] shrink-0 items-center justify-center self-baseline rounded-sm bg-transparent',
+    'h-sz-16 w-sz-16 border-md box-content items-center justify-center rounded-sm bg-transparent outline-none',
     'spark-disabled:opacity-dim-3 spark-disabled:cursor-not-allowed spark-disabled:hover:ring-0',
-    'focus-visible:ring-outline-high focus-visible:outline-none focus-visible:ring-2',
-    'hover:border-primary-container hover:outline-none hover:ring-2',
+    'focus-visible:ring-outline-high focus-visible:ring-2',
+    'hover:border-primary-container hover:ring-2',
     'u-shadow-border-transition',
   ],
   {
