@@ -10,9 +10,11 @@ import { Switch } from './Switch'
 
 describe('Switch', () => {
   it('should render', () => {
-    render(<Switch />)
+    render(<Switch>My agreement</Switch>)
 
     expect(document.querySelector('[data-spark-component="switch"]')).toBeInTheDocument()
+
+    expect(screen.getByRole('switch', { name: 'My agreement' })).toBeInTheDocument()
   })
 
   it('should be unchecked by default', () => {
