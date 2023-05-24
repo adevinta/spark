@@ -12,7 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "deepmerge": "4.3.0",
+    "deepmerge": "4.3.1",
     "type-fest": "3.10.0"
   },
   "repository": {
