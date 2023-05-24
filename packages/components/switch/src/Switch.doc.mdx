@@ -62,6 +62,8 @@ It is then up to you to trigger update to its `checked` state to toggle it.
 
 ## Accessibility
 
+This component should always have a label, directly declared through the `children` prop or inherited from the `FormField` wrapper. If none of those are available it is strongly recommended to define an `aria-label` attribute, to comply to accessibility requirements.
+
 This component adheres to the [`switch` role requirements](https://www.w3.org/WAI/ARIA/apg/patterns/switch).
 
 ### Keyboard Interactions

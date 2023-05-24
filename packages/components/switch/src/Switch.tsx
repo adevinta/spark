@@ -9,39 +9,33 @@ export type SwitchProps = InputProps
 
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
   ({ value = 'on', size = 'md', children, className, id, disabled, ...rest }, ref) => {
-    const { id: controlledInputId, labelId: controlledLabelId } = useFormFieldState()
+    const field = useFormFieldState()
 
-    const switchId = useId(id)
-    const switchLabelId = useId()
+    const innerId = useId(id)
+    const innerLabelId = useId()
 
     return (
       <div data-spark-component="switch" className="gap-md text-body-1 flex items-center">
         <Input
           ref={ref}
           size={size}
-          id={controlledInputId || switchId}
+          id={field.id || innerId}
           disabled={disabled}
           /**
            * If the switch doesn't have any direct label (children) then we should try to
            * get an eventual alternative label from FormField.
            * On last resort, we shouldn't forget to define an aria-label attribute.
            */
-          {...(children
-            ? {
-                'aria-labelledby': switchLabelId,
-              }
-            : {
-                'aria-labelledby': controlledLabelId,
-              })}
+          aria-labelledby={children ? innerLabelId : field.labelId}
           {...rest}
         />
 
         {children && (
           <Label
             disabled={disabled}
-            htmlFor={controlledInputId || switchId}
+            htmlFor={field.id || innerId}
             className={className}
-            id={switchLabelId}
+            id={innerLabelId}
           >
             {children}
           </Label>
