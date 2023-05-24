@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.1](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.14.0...@spark-ui/checkbox@1.14.1) (2023-05-24)
+
+### Bug Fixes
+
+- **checkbox:** checked icon not being displayed in safari ([0ea59cf](https://github.com/adevinta/spark/commit/0ea59cffe5a86b11c03611eb5e1c600d9ec78966))
+
 # [1.14.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.13.11...@spark-ui/checkbox@1.14.0) (2023-05-23)
 
 ### Features
