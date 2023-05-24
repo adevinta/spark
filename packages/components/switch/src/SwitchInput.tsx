@@ -65,7 +65,6 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
       value = 'on',
       onCheckedChange,
       className,
-      id,
       name,
       required,
       ...rest
@@ -73,14 +72,7 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
     ref
   ) => {
     const [isChecked, setIsChecked] = useCombinedState(checked, defaultChecked)
-    const {
-      id: controlledId,
-      name: controlledName,
-      labelId,
-      description,
-      isRequired,
-      isInvalid,
-    } = useFormFieldState()
+    const { name: controlledName, description, isRequired, isInvalid } = useFormFieldState()
 
     const handleCheckedChange = (updatedValue: boolean): void => {
       setIsChecked(updatedValue)
@@ -95,11 +87,9 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
         checked={checked}
         defaultChecked={defaultChecked}
         onCheckedChange={handleCheckedChange}
-        id={id || controlledId}
         name={name || controlledName}
         required={required || isRequired}
         aria-invalid={isInvalid}
-        aria-labelledby={labelId}
         aria-describedby={description}
         {...rest}
       >
