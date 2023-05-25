@@ -33,7 +33,7 @@ export const buttonStyles = cva(
        * - `contrast`: Button will be surface filled. No borders, plain text.
        *
        */
-      design: makeVariants<'design'>({
+      design: makeVariants<'design', ['filled', 'outlined', 'tinted', 'ghost', 'contrast']>({
         filled: [],
         outlined: ['bg-transparent', 'ring-2', 'ring-current'],
         tinted: [],

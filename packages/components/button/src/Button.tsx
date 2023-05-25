@@ -1,5 +1,5 @@
 import { Slot } from '@spark-ui/slot'
-import React, { PropsWithChildren } from 'react'
+import React, { forwardRef, PropsWithChildren } from 'react'
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
@@ -12,7 +12,7 @@ export interface ButtonProps
   asChild?: boolean
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       design = 'filled',
