@@ -35,7 +35,7 @@ import { Popover } from '@spark-ui/popover'
   }}
 />
 
-## Default
+## Usage
 
 A basic popover should have a trigger element and a content element.
 
@@ -80,4 +80,21 @@ In this example, the Popover remains inside the grey container.
 
 ## Positionning
 
+By combining `side` and `align` you can achieve many positions for the popover.
+
+- `side`: The preferred side of the anchor to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled.
+- `align`: The preferred alignment against the anchor. May change when collisions occur.
+
 <Canvas of={stories.Positionning} />
+
+## Accessibility
+
+Adheres to the [`Dialog WAI-ARIA design pattern`](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal).
+
+### Keyboard Interactions
+
+- `Space`: Open/Closes the popover.
+- `Enter`: Open/Closes the popover.
+- `Tab`: Moves focus to the next focusable element.
+- `Shift + Tab`: Moves focus to the previous focusable element.
+- `Esc`: Closes the popover and moves focus back to `Popover.Trigger`.
