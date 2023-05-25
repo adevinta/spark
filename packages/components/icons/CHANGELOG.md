@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.12.0...@spark-ui/icons@1.13.0) (2023-05-25)
+
+### Features
+
+- **icons:** add CategoriesClothesOutline ([3130528](https://github.com/adevinta/spark/commit/31305280365d64a5ca7240d353e5018aac2a83f1))
+
 # [1.12.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.11.0...@spark-ui/icons@1.12.0) (2023-05-24)
 
 ### Features
