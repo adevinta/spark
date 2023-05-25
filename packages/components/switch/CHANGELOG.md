@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.19...@spark-ui/switch@1.11.0) (2023-05-25)
+
+### Features
+
+- **switch:** allowing formfield usage for switch component ([b248302](https://github.com/adevinta/spark/commit/b248302f3882790ff9e75123ca9363f14f6838c3))
+
 ## [1.10.19](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.18...@spark-ui/switch@1.10.19) (2023-05-25)
 
 **Note:** Version bump only for package @spark-ui/switch
