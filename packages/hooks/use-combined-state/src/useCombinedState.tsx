@@ -26,10 +26,8 @@ export function useCombinedState<T>(
       shouldUpdateProp = (prevValue: T, nextValue: T) => !isEqual(prevValue, nextValue)
     ) => {
       const nextValue = typeof next !== 'function' ? next : (next as (value: T) => T)(value)
-      if (!shouldUpdateProp(value, nextValue)) {
-        return
-      }
-      if (!isControlled && shouldUpdateProp(value, nextValue)) {
+      const shouldUpdate = shouldUpdateProp(value, nextValue)
+      if (shouldUpdate && !isControlled) {
         setInnerValue(nextValue)
       }
     },
