@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.23](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.4.22...@spark-ui/visually-hidden@0.4.23) (2023-05-22)
+
+### Bug Fixes
+
+- **visually-hidden:** add missing display name ([80fd5d2](https://github.com/adevinta/spark/commit/80fd5d2a639d4540c5180a8438d1a17a8074309e))
+- **visually-hidden:** props export name ([ec58953](https://github.com/adevinta/spark/commit/ec589538b21f11e5fa2c5e34a02bcbaabe0815f5))
+
 ## [0.4.22](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.4.21...@spark-ui/visually-hidden@0.4.22) (2023-05-10)
 
 ### Bug Fixes

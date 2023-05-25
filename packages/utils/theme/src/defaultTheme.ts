@@ -167,9 +167,7 @@ export const defaultTheme: Theme = {
     onOverlay: '#FFFFFF',
   },
   fontFamily: {
-    nunitoSans: '"Nunito Sans", sans-serif',
-    openSans:
-      'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"',
+    sans: '"Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
   },
   fontSize: {
     display1: { fontSize: '2.5rem', lineHeight: '3.5rem', fontWeight: '700' },

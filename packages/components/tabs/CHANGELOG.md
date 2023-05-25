@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.14](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.1.13...@spark-ui/tabs@1.1.14) (2023-05-24)
+
+**Note:** Version bump only for package @spark-ui/tabs
+
+## [1.1.13](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.1.12...@spark-ui/tabs@1.1.13) (2023-05-24)
+
+**Note:** Version bump only for package @spark-ui/tabs
+
+## [1.1.12](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.1.11...@spark-ui/tabs@1.1.12) (2023-05-22)
+
+**Note:** Version bump only for package @spark-ui/tabs
+
 ## [1.1.11](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.1.10...@spark-ui/tabs@1.1.11) (2023-05-17)
 
 **Note:** Version bump only for package @spark-ui/tabs

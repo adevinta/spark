@@ -21,12 +21,12 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@clack/prompts": "0.6.2",
+    "@clack/prompts": "0.6.3",
     "camel-case": "4.1.2",
     "chalk": "5.2.0",
     "commander": "10.0.1",
-    "esbuild": "0.17.18",
-    "fs-extra": "11.1.0",
+    "esbuild": "0.17.19",
+    "fs-extra": "11.1.1",
     "glob": "8.1.0",
     "pascal-case": "3.1.2"
   },

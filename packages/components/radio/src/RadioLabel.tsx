@@ -23,3 +23,5 @@ export interface RadioLabelProps
 export const RadioLabel = ({ className, disabled, ...others }: RadioLabelProps) => {
   return <Label className={radioLabelStyles({ className, disabled })} {...others} />
 }
+
+RadioLabel.displayName = 'RadioGroup.RadioLabel'
