@@ -1,36 +1,61 @@
-import { useButton, useToggleButton } from '@react-aria/button'
 import { Slot } from '@spark-ui/slot'
 import { useCombinedState } from '@spark-ui/use-combined-state'
-import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import React, { forwardRef, PropsWithChildren, useRef } from 'react'
+import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
 
 export interface ChipProps
-  extends PropsWithChildren<Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>>,
+  extends PropsWithChildren<
+      Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick' | 'disabled'>
+    >,
     ChipStylesProps {
+  /**
+   * Configures a toggleButton aria-pressed initial value
+   */
   defaultPressed?: boolean
+  /**
+   * Configures a toggleButton aria-pressed value
+   */
   pressed?: boolean
   /**
    * Change the component to the HTML tag or custom component of the only child.
    */
   asChild?: boolean
+  /**
+   * event handler fired each clicking event
+   */
+  onClick?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    args: { pressed: boolean }
+  ) => void
 }
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
-  ({ asChild, design, intent, defaultPressed, pressed, ...props }, forwardedRef) => {
-    const Component = asChild ? Slot : 'div'
-    const innerRef = useRef()
-    const ref = useMergeRefs(forwardedRef, innerRef)
-    const [pressedState, setPressedState] = useCombinedState(pressed, defaultPressed)
-    const { toogleButtonProps, isPressed } = useToggleButton(props, pressedState, innerRef)
-    const { buttonProps } = useButton(props, ref)
-    const { className, disabled } = buttonProps
+  (
+    {
+      design = 'outlined',
+      disabled = false,
+      children,
+      intent = 'primary',
+      defaultPressed,
+      pressed,
+      asChild,
+      className,
+      ...otherProps
+    },
+    forwardedRef
+  ) => {
+    const Component = asChild ? Slot : 'button'
+    const [isPressed, setIsPressed] = useCombinedState(pressed, defaultPressed)
+    const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setIsPressed(!isPressed)
+      otherProps.onClick && otherProps.onClick(event, { pressed: isPressed as boolean })
+    }
 
     return (
       <Component
-        data-spark-component="chip"
-        ref={ref}
+        type="button"
+        ref={forwardedRef}
         className={chipStyles({
           className,
           design,
@@ -38,8 +63,20 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
           intent,
           pressed: isPressed,
         })}
-        {...(pressedState === undefined ? buttonProps : toogleButtonProps)}
-      />
+        disabled={!!disabled}
+        {...{
+          ...(isPressed !== undefined && {
+            'aria-pressed': isPressed,
+            'data-state': isPressed ? 'on' : 'off',
+          }),
+          ...(disabled && { 'data-disabled': true }),
+          ...otherProps,
+        }}
+        data-spark-component="chip"
+        onClick={handleOnClick}
+      >
+        {children}
+      </Component>
     )
   }
 )
