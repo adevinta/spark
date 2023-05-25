@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/label",
-  "version": "1.2.1",
-  "description": "Renders an accessible label associated with controls",
+  "name": "@spark-ui/popover",
+  "version": "0.1.0",
+  "description": "Displays rich content in a portal, triggered by a button.",
   "publishConfig": {
     "access": "public"
   },
@@ -16,17 +16,12 @@
     "react-dom": "^16.8 || ^17.0 || ^18.0",
     "tailwindcss": "^3.0.0"
   },
-  "dependencies": {
-    "@radix-ui/react-label": "2.0.1"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
-    "directory": "packages/components/label"
+    "directory": "packages/components/popover"
   },
-  "bugs": {
-    "url": "https://github.com/adevinta/spark/issues"
-  },
-  "homepage": "https://sparkui.vercel.app",
-  "license": "MIT"
+  "dependencies": {
+    "@radix-ui/react-popover": "^1.0.6-rc.13"
+  }
 }

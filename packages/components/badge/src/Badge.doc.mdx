@@ -68,3 +68,11 @@ Use `intent` prop to set the color intent of the badge.
 Use `size` prop to set the size of the badge.
 
 <Canvas of={stories.Sizes} />
+
+## Accessibility
+
+It is recommended to use the `aria-label` attribute to improve the component's readability by assistive technologies. There is no automatic addition as this attribute should be explicit (human readable) and be independent from any internationalization constraint.
+
+- Basic usecase: `[n] notifications`
+- Large numbers usecase: `More than [n] notifications`
+- Non-counting usecase: `New notification`

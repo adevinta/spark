@@ -65,3 +65,17 @@ Use `orientation` prop to set `horizontal|vertical` orientation.
 For `horizontal` orientation only, navigation arrows are automatically displayed to help user browse tabs on content overflow. Use then `loop` prop on list to allow navigation loop from last tab to first, and vice versa.
 
 <Canvas of={stories.Overflow} />
+
+## Accessibility
+
+Adheres to the [Tabs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel).
+
+### Keyboard Interactions
+
+- `Tab`: When focus moves onto the tabs, focuses the active trigger. When a trigger is focused, moves focus to the active content.
+- `ArrowDown`: Moves focus to the next trigger depending on `orientation` and activates its associated content.
+- `ArrowRight`: Moves focus to the next trigger depending on `orientation` and activates its associated content.
+- `ArrowUp`: Moves focus to the previous trigger depending on `orientation` and activates its associated content.
+- `ArrowLeft`: Moves focus to the previous trigger depending on `orientation` and activates its associated content.
+- `Home`: Moves focus to the first trigger and activates its associated content.
+- `End`: Moves focus to the last trigger and activates its associated content.
