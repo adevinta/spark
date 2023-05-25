@@ -61,7 +61,6 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
           design,
           disabled,
           intent,
-          pressed: isPressed,
         })}
         disabled={!!disabled}
         {...{
