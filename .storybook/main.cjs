@@ -29,6 +29,7 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-styling',
     '@storybook/addon-mdx-gfm',
+    '@storybook/addon-a11y',
   ],
   staticDirs: ['../public'],
   framework: {

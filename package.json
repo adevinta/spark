@@ -34,8 +34,8 @@
     "url": "git@github.com:adevinta/spark.git"
   },
   "dependencies": {
-    "@spark-ui/theme-utils": "*",
-    "@spark-ui/tabs": "*"
+    "@spark-ui/tabs": "*",
+    "@spark-ui/theme-utils": "*"
   },
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "1.7.4",
@@ -47,6 +47,7 @@
     "@commitlint/prompt-cli": "17.6.3",
     "@radix-ui/react-switch": "*",
     "@spark-ui/cli-utils": "*",
+    "@storybook/addon-a11y": "^7.0.17",
     "@storybook/addon-actions": "^7.0.17",
     "@storybook/addon-essentials": "^7.0.17",
     "@storybook/addon-interactions": "^7.0.17",
