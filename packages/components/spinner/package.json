@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/spinner",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
   "publishConfig": {
     "access": "public"
@@ -12,7 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/visually-hidden": "^0.4.22"
+    "@spark-ui/visually-hidden": "^0.4.24"
   },
   "repository": {
     "type": "git",

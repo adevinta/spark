@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/adevinta/spark/compare/@spark-ui/radio@2.0.1...@spark-ui/radio@2.0.2) (2023-05-25)
+
+**Note:** Version bump only for package @spark-ui/radio
+
+## [2.0.1](https://github.com/adevinta/spark/compare/@spark-ui/radio@2.0.0...@spark-ui/radio@2.0.1) (2023-05-25)
+
+**Note:** Version bump only for package @spark-ui/radio
+
+# [2.0.0](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.10.6...@spark-ui/radio@2.0.0) (2023-05-22)
+
+### Bug Fixes
+
+- **radio:** form field version ([44d3138](https://github.com/adevinta/spark/commit/44d3138b8bae572587a91ba2bb7a8251d60ca366))
+
+### Features
+
+- **radio:** minor updates in documentation and component ([00bf3aa](https://github.com/adevinta/spark/commit/00bf3aafa332d54b11735195c9547999beefe1f6))
+- **radio:** update api and integrate form field ([0eb5996](https://github.com/adevinta/spark/commit/0eb5996850323b223cc2123d52c8375dccfae083))
+- **radio:** update document with breaking changes ([2dca8c7](https://github.com/adevinta/spark/commit/2dca8c7779e3f9afd94dcdb4f8a21856af12b7f0))
+
+### BREAKING CHANGES
+
+- **radio:** radio is no longer exported radiogroup.radio should be use instead
+
 ## [1.10.6](https://github.com/adevinta/spark/compare/@spark-ui/radio@1.10.5...@spark-ui/radio@1.10.6) (2023-05-11)
 
 **Note:** Version bump only for package @spark-ui/radio

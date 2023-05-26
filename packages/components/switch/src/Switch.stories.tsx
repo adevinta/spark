@@ -1,5 +1,6 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Button } from '@spark-ui/button'
+import { FormField } from '@spark-ui/form-field'
 import { EyeFill } from '@spark-ui/icons/dist/icons/EyeFill'
 import { EyeOffFill } from '@spark-ui/icons/dist/icons/EyeOffFill'
 import { Meta, StoryFn } from '@storybook/react'
@@ -26,6 +27,18 @@ export const Default: StoryFn = _args => (
       <Switch defaultChecked>Agreed</Switch>
     </div>
   </div>
+)
+
+export const ImprovedField: StoryFn = _args => (
+  <FormField name="agreement" isRequired>
+    <FormField.Label asChild>
+      <p>Agreement</p>
+    </FormField.Label>
+
+    <Switch>I agree</Switch>
+
+    <FormField.HelperMessage>Your agreement is important to us.</FormField.HelperMessage>
+  </FormField>
 )
 
 export const Disabled: StoryFn = _args => (

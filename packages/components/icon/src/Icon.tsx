@@ -1,5 +1,5 @@
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
-import React from 'react'
+import { Children, cloneElement, ReactNode } from 'react'
 
 import { iconStyles, IconVariantsProps } from './Icon.styles'
 
@@ -7,7 +7,7 @@ export interface IconProps extends IconVariantsProps, React.SVGProps<SVGElement>
   /**
    * The svg icon that will be wrapped
    */
-  children: React.ReactElement
+  children: ReactNode
   /**
    * The accessible label for the icon. This label will be visually hidden but announced to screen
    * reader users, similar to `alt` text for `img` tags.
@@ -23,11 +23,11 @@ export function Icon({
   children,
   ...others
 }: IconProps) {
-  const child = React.Children.only(children)
+  const child = Children.only(children)
 
   return (
     <>
-      {React.cloneElement(child as React.ReactElement, {
+      {cloneElement(child as React.ReactElement, {
         className: iconStyles({ className, size, intent }),
         'data-spark-component': 'icon',
         'aria-hidden': 'true',

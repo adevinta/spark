@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.15.4...@spark-ui/theme-utils@2.16.0) (2023-05-24)
+
+### Features
+
+- **theme-utils:** updated default font name and fallbacks ([2550a60](https://github.com/adevinta/spark/commit/2550a6038827944b0db9b7c6791c2326853fe851))
+
 ## [2.15.4](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.15.3...@spark-ui/theme-utils@2.15.4) (2023-05-17)
 
 **Note:** Version bump only for package @spark-ui/theme-utils

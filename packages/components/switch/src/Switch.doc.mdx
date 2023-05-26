@@ -29,6 +29,12 @@ import { Switch } from "@spark-ui/switch"
 
 <Canvas of={stories.Default} />
 
+## Using a FormField
+
+If you need to provide more context about the Switch (for example, a helper message or an error message) the FormField component could be used. See [documentation](./?path=/docs/experimental-formfield--docs) for more details.
+
+<Canvas of={stories.ImprovedField} />
+
 ## Disabled
 
 <Canvas of={stories.Disabled} />
@@ -53,3 +59,12 @@ This can be useful to trigger the switch to toggle when interacting with outside
 It is then up to you to trigger update to its `checked` state to toggle it.
 
 <Canvas of={stories.ControlledMode} />
+
+## Accessibility
+
+This component adheres to the [`switch` role requirements](https://www.w3.org/WAI/ARIA/apg/patterns/switch).
+
+### Keyboard Interactions
+
+- `Space`: Toggles the component's state.
+- `Enter`: Toggles the component's state.

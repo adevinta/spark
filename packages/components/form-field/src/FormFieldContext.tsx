@@ -41,7 +41,7 @@ export const useFormField = () => {
   const context = useContext(FormFieldContext)
 
   if (!context) {
-    throw Error('useFormField must be used within a TabsContext Provider')
+    throw Error('useFormField must be used within a FormField provider')
   }
 
   return context

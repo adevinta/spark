@@ -64,3 +64,12 @@ Use `intent` prop to set the color intent of a button.
 Use `intent` prop to set the color intent of a button.
 
 <Canvas of={stories.Link} />
+
+## Accessibility
+
+This component adheres to the [`button` role requirements](https://www.w3.org/WAI/ARIA/apg/patterns/button). In this specific usecase it is strongly recommended to define an accessible name through `aria-label` or `aria-labelledby` attributes.
+
+### Keyboard Interactions
+
+- `Space`: Activates the button
+- `Enter`: Activates the button
