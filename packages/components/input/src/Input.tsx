@@ -1,76 +1,51 @@
-import { useId } from '@radix-ui/react-id'
-import { useCombinedState } from '@spark-ui/use-combined-state'
-import { cx } from 'class-variance-authority'
-import {
-  ChangeEvent,
-  ComponentPropsWithoutRef,
-  forwardRef,
-  PropsWithChildren,
-  ReactNode,
-  useState,
-} from 'react'
+import { ComponentPropsWithoutRef, FocusEvent, forwardRef, PropsWithChildren } from 'react'
 
-import { inputStyles, labelTextStyles } from './Input.styles'
-import { InputFieldset } from './InputFieldset'
+import { inputStyles, InputStylesProps } from './Input.styles'
+import { useInputGroup } from './InputGroupContext'
 
-export interface InputProps extends ComponentPropsWithoutRef<'input'> {
-  leftAddon?: ReactNode
-  rightAddon?: ReactNode
-}
+export interface InputProps extends ComponentPropsWithoutRef<'input'>, InputStylesProps {}
 
 export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
-  (
-    {
-      className,
-      value: valueProp,
-      defaultValue,
-      placeholder,
-      leftAddon,
-      rightAddon,
-      children,
-      ...others
-    },
-    ref
-  ) => {
-    const id = useId()
-    const [value, setValue] = useCombinedState(valueProp, defaultValue)
-    const [isFocused, setIsFocused] = useState(false)
-    const isExpanded = isFocused || !!value || !!placeholder || !!leftAddon
+  ({ className, intent = 'neutral', onFocus, onBlur, ...others }, ref) => {
+    const group = useInputGroup()
+    const { isLeftAddonVisible, isRightAddonVisible, isHovered } = group
 
-    const handleFocus = () => {
-      setIsFocused(true)
+    const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
+      if (onFocus) {
+        onFocus(event)
+      }
+
+      if (group.onFocus) {
+        group.onFocus()
+      }
     }
 
-    const handleBlur = () => {
-      setIsFocused(false)
-    }
+    const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+      if (onBlur) {
+        onBlur(event)
+      }
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setValue(event.target.value)
+      if (group.onBlur) {
+        group.onBlur()
+      }
     }
 
     return (
-      <div className={cx(inputStyles({ isFocused }), className)}>
-        {leftAddon}
-        <input
-          id={id}
-          ref={ref}
-          value={value}
-          placeholder={placeholder}
-          className="box-content h-full w-full text-ellipsis bg-transparent outline-0"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          {...others}
-        />
-        <InputFieldset label={children} isExpanded={isExpanded} />
-
-        <label htmlFor={id} className={labelTextStyles({ isExpanded })}>
-          {children}
-        </label>
-
-        {rightAddon}
-      </div>
+      <input
+        ref={ref}
+        className={inputStyles({
+          className,
+          intent,
+          isHovered: !!isHovered,
+          isLeftAddonVisible: !!isLeftAddonVisible,
+          isRightAddonVisible: !!isRightAddonVisible,
+        })}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        {...others}
+      />
     )
   }
 )
+
+Input.displayName = 'Input'
