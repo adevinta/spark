@@ -3,12 +3,20 @@ import { ComponentPropsWithoutRef, FocusEvent, forwardRef, PropsWithChildren } f
 import { inputStyles, InputStylesProps } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
 
-export interface InputProps extends ComponentPropsWithoutRef<'input'>, InputStylesProps {}
+export interface InputProps
+  extends ComponentPropsWithoutRef<'input'>,
+    Omit<InputStylesProps, 'isHovered' | 'isLeftAddonVisible' | 'isRightAddonVisible'> {}
 
 export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
   ({ className, intent = 'neutral', onFocus, onBlur, ...others }, ref) => {
-    const group = useInputGroup()
-    const { isLeftAddonVisible, isRightAddonVisible, isHovered } = group
+    const group = useInputGroup() || {}
+    const {
+      isLeftAddonVisible,
+      isRightAddonVisible,
+      isLeftElementVisible,
+      isRightElementVisible,
+      isHovered,
+    } = group
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
@@ -39,6 +47,8 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
           isHovered: !!isHovered,
           isLeftAddonVisible: !!isLeftAddonVisible,
           isRightAddonVisible: !!isRightAddonVisible,
+          isLeftElementVisible: !!isLeftElementVisible,
+          isRightElementVisible: !!isRightElementVisible,
         })}
         onFocus={handleFocus}
         onBlur={handleBlur}
