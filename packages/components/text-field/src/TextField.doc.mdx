@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { TextField } from '.'
+
+import * as stories from './TextField.stories'
+
+<Meta of={stories} />
+
+# TextField
+
+Input with a floating label
+
+## Install
+
+```sh
+npm install @spark-ui/text-field
+```
+
+## Import
+
+```tsx
+import { TextField } from "@spark-ui/text-field"
+```
+
+## Props
+
+<ArgTypes of={TextField} />
+
+## Variants
+<Canvas of={stories.Default} />
