@@ -12,6 +12,8 @@ export interface InputGroupContext extends Pick<InputGroupProps, 'intent'> {
   isRightAddonVisible: boolean
   onFocus: () => void
   onBlur: () => void
+  onMouseEnter: () => void
+  onMouseLeave: () => void
 }
 
 export const InputGroupContext = createContext<Partial<InputGroupContext> | null>(null)

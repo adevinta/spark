@@ -3,7 +3,6 @@ import {
   ComponentPropsWithoutRef,
   forwardRef,
   isValidElement,
-  MouseEvent,
   PropsWithChildren,
   ReactElement,
   useMemo,
@@ -17,8 +16,6 @@ import { InputLeftAddon } from './InputLeftAddon'
 import { InputLeftElement } from './InputLeftElement'
 import { InputRightAddon } from './InputRightAddon'
 import { InputRightElement } from './InputRightElement'
-import { TextField } from './TextField'
-
 export interface InputGroupProps
   extends ComponentPropsWithoutRef<'div'>,
     Omit<InputGroupStylesProps, 'isFocused'> {
@@ -26,25 +23,12 @@ export interface InputGroupProps
 }
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  (
-    {
-      className,
-      children: childrenProp,
-      intent = 'neutral',
-      isDisabled,
-      onMouseEnter,
-      onMouseLeave,
-      ...others
-    },
-    ref
-  ) => {
+  ({ className, children: childrenProp, intent = 'neutral', isDisabled, ...others }, ref) => {
     const [isFocused, setIsFocused] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
 
     const children = Children.toArray(childrenProp).filter(isValidElement)
-    const input = children.find(
-      (child: ReactElement) => child.type === Input || child.type === TextField
-    )
+    const input = children.find((child: ReactElement) => child.type === Input)
     const left = children.find(
       (child: ReactElement) => child.type === InputLeftAddon || child.type === InputLeftElement
     )
@@ -65,6 +49,14 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         setIsFocused(false)
       }
 
+      const handleMouseEnter = () => {
+        setIsHovered(true)
+      }
+
+      const handleMouseLeave = () => {
+        setIsHovered(false)
+      }
+
       return {
         intent,
         isDisabled: !!isDisabled,
@@ -76,6 +68,8 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         isRightAddonVisible,
         onFocus: handleFocus,
         onBlur: handleBlur,
+        onMouseEnter: handleMouseEnter,
+        onMouseLeave: handleMouseLeave,
       }
     }, [
       intent,
@@ -88,22 +82,6 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       isRightAddonVisible,
     ])
 
-    const handleMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
-      setIsHovered(true)
-
-      if (onMouseEnter) {
-        onMouseEnter(event)
-      }
-    }
-
-    const handleMouseLeave = (event: MouseEvent<HTMLDivElement>) => {
-      setIsHovered(false)
-
-      if (onMouseLeave) {
-        onMouseLeave(event)
-      }
-    }
-
     return (
       <InputGroupContext.Provider value={value}>
         <div
@@ -113,8 +91,6 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
             intent,
             isFocused,
           })}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
           {...others}
         >
           {left}

@@ -1,5 +1,11 @@
-import { useFormFieldState } from 'packages/components/form-field/dist'
-import { ComponentPropsWithoutRef, FocusEvent, forwardRef, PropsWithChildren } from 'react'
+import { useFormFieldState } from '@spark-ui/form-field'
+import {
+  ComponentPropsWithoutRef,
+  FocusEvent,
+  forwardRef,
+  MouseEvent,
+  PropsWithChildren,
+} from 'react'
 
 import { inputStyles, InputStylesProps } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
@@ -8,7 +14,7 @@ export interface InputProps
   extends ComponentPropsWithoutRef<'input'>,
     Omit<
       InputStylesProps,
-      | 'isHovered'
+      | 'isDisabled'
       | 'isLeftAddonVisible'
       | 'isRightAddonVisible'
       | 'isLeftElementVisible'
@@ -18,12 +24,13 @@ export interface InputProps
 export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
   (
     {
-      id: idProp,
       className,
       intent: intentProp,
-      onFocus,
       disabled: disabledProp,
+      onFocus,
       onBlur,
+      onMouseEnter,
+      onMouseLeave,
       ...others
     },
     ref
@@ -31,16 +38,10 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
     const field = useFormFieldState()
     const group = useInputGroup() || {}
 
-    const {
-      isHovered,
-      isLeftAddonVisible,
-      isRightAddonVisible,
-      isLeftElementVisible,
-      isRightElementVisible,
-    } = group
-    const { isInvalid, isRequired, description } = field
+    const { isLeftAddonVisible, isRightAddonVisible, isLeftElementVisible, isRightElementVisible } =
+      group
+    const { id, name, isInvalid, isRequired, description } = field
     const intent = isInvalid ? 'error' : intentProp || group.intent || 'neutral'
-    const id = idProp ?? field.id
     const isDisabled = disabledProp ?? group.isDisabled
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
@@ -63,15 +64,35 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
       }
     }
 
+    const handleMouseEnter = (event: MouseEvent<HTMLInputElement>) => {
+      if (onMouseEnter) {
+        onMouseEnter(event)
+      }
+
+      if (group.onMouseEnter) {
+        group.onMouseEnter()
+      }
+    }
+
+    const handleMouseLeave = (event: MouseEvent<HTMLInputElement>) => {
+      if (onMouseLeave) {
+        onMouseLeave(event)
+      }
+
+      if (group.onMouseLeave) {
+        group.onMouseLeave()
+      }
+    }
+
     return (
       <input
         ref={ref}
         id={id}
+        name={name}
         className={inputStyles({
           className,
           intent,
           isDisabled: !!isDisabled,
-          isHovered: !!isHovered,
           isLeftAddonVisible: !!isLeftAddonVisible,
           isRightAddonVisible: !!isRightAddonVisible,
           isLeftElementVisible: !!isLeftElementVisible,
@@ -83,6 +104,8 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
         aria-invalid={isInvalid}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         {...others}
       />
     )

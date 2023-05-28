@@ -9,7 +9,7 @@ import { ChangeEvent, useState } from 'react'
 import { Input, InputGroup, InputProps } from '.'
 
 const meta: Meta<typeof Input> = {
-  title: 'Components/Input',
+  title: 'Experimental/Input',
   component: Input,
 }
 
@@ -29,13 +29,7 @@ export const Controlled: StoryFn = () => {
   return <Input value={value} onChange={handleChange} />
 }
 
-export const Disabled: StoryFn = _args => (
-  <InputGroup isDisabled>
-    <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-    <Input />
-    <InputGroup.RightAddon>.com</InputGroup.RightAddon>
-  </InputGroup>
-)
+export const Disabled: StoryFn = _args => <Input defaultValue="IPhone" disabled />
 
 const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
@@ -49,7 +43,7 @@ export const Intent: StoryFn = _args => {
   )
 }
 
-export const Addons: StoryFn = _args => {
+export const GroupAddons: StoryFn = _args => {
   return (
     <InputGroup>
       <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
@@ -59,7 +53,7 @@ export const Addons: StoryFn = _args => {
   )
 }
 
-export const Elements: StoryFn = _args => {
+export const GroupElements: StoryFn = _args => {
   return (
     <InputGroup>
       <InputGroup.LeftElement>
@@ -79,7 +73,19 @@ export const Elements: StoryFn = _args => {
   )
 }
 
-export const Label: StoryFn = _args => {
+export const GroupDisabled: StoryFn = _args => (
+  <InputGroup isDisabled>
+    <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
+    <Input defaultValue="adevinta.com" />
+    <InputGroup.RightElement>
+      <Icon>
+        <Check />
+      </Icon>
+    </InputGroup.RightElement>
+  </InputGroup>
+)
+
+export const FieldLabel: StoryFn = _args => {
   return (
     <FormField className="!gap-sm" name="title">
       <FormField.Label>Title</FormField.Label>
@@ -89,7 +95,7 @@ export const Label: StoryFn = _args => {
   )
 }
 
-export const HiddenLabel: StoryFn = _args => {
+export const FieldHiddenLabel: StoryFn = _args => {
   return (
     <FormField className="!gap-sm" name="title">
       <FormField.Label>
@@ -101,7 +107,7 @@ export const HiddenLabel: StoryFn = _args => {
   )
 }
 
-export const Required: StoryFn = _args => {
+export const FieldRequired: StoryFn = _args => {
   return (
     <FormField className="!gap-sm" name="title" isRequired>
       <FormField.Label>Title</FormField.Label>
@@ -111,7 +117,7 @@ export const Required: StoryFn = _args => {
   )
 }
 
-export const HelperMessage: StoryFn = _args => {
+export const FieldHelperMessage: StoryFn = _args => {
   return (
     <FormField className="!gap-sm" name="title">
       <FormField.Label>Title</FormField.Label>
@@ -125,7 +131,7 @@ export const HelperMessage: StoryFn = _args => {
   )
 }
 
-export const Invalid: StoryFn = _args => {
+export const FieldInvalid: StoryFn = _args => {
   return (
     <FormField className="!gap-sm" name="title" isInvalid>
       <FormField.Label>Title</FormField.Label>

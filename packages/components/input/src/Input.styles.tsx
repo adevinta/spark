@@ -15,7 +15,7 @@ export const inputStyles = cva(
   {
     variants: {
       intent: {
-        neutral: ['focus:border-outline-high', 'ring-outline-high'],
+        neutral: ['border-outline', 'focus:border-outline-high', 'ring-outline-high'],
         success: ['border-success', 'ring-success'],
         alert: ['border-alert', 'ring-alert'],
         error: ['border-error', 'ring-error'],
@@ -23,14 +23,6 @@ export const inputStyles = cva(
       isDisabled: {
         true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
         false: ['bg-surface', 'text-on-surface'],
-      },
-      isHovered: {
-        true: [],
-        false: [],
-      },
-      isFocused: {
-        true: [],
-        false: [],
       },
       isLeftElementVisible: {
         true: [],
@@ -52,11 +44,6 @@ export const inputStyles = cva(
     compoundVariants: [
       {
         intent: 'neutral',
-        isHovered: false,
-        class: 'border-outline',
-      },
-      {
-        intent: 'neutral',
         isDisabled: true,
         class: 'border-outline',
       },
@@ -64,12 +51,6 @@ export const inputStyles = cva(
         intent: 'neutral',
         isDisabled: false,
         class: 'hover:border-outline-high',
-      },
-      {
-        intent: 'neutral',
-        isHovered: true,
-        isDisabled: false,
-        class: 'border-outline-high',
       },
       {
         isLeftElementVisible: false,

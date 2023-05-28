@@ -5,7 +5,7 @@ import { useInputGroup } from './InputGroupContext'
 
 export interface InputAddonProps
   extends ComponentPropsWithoutRef<'div'>,
-    Omit<InputAddonStylesProps, 'intent' | 'isHovered' | 'isFocused'> {}
+    Omit<InputAddonStylesProps, 'intent' | 'isDisabled' | 'isHovered' | 'isFocused'> {}
 
 export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
   ({ className, ...others }, ref) => {
