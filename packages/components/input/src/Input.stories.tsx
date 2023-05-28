@@ -1,14 +1,12 @@
+import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
+import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
+import { ChangeEvent, useState } from 'react'
 
-import { Input } from '.'
-import { InputGroup } from './InputGroup'
-import { InputLeftAddon } from './InputLeftAddon'
-import { InputLeftElement } from './InputLeftElement'
-import { InputRightAddon } from './InputRighAddon'
-import { InputRightElement } from './InputRightElement'
-import { TextField } from './TextField'
+import { Input, InputGroup, InputProps } from '.'
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
@@ -17,82 +15,124 @@ const meta: Meta<typeof Input> = {
 
 export default meta
 
-export const Default: StoryFn = _args => (
-  <>
-    <InputGroup>
-      <InputLeftAddon>https://</InputLeftAddon>
+export const Default: StoryFn = _args => <Input />
 
-      <Input />
+export const Uncontrolled: StoryFn = _args => <Input defaultValue="IPhone 12" />
 
-      <InputRightAddon>.com</InputRightAddon>
-    </InputGroup>
+export const Controlled: StoryFn = () => {
+  const [value, setValue] = useState('IPhone 13')
 
-    <InputGroup>
-      <InputLeftElement>
-        <Icon>
-          <Check />
-        </Icon>
-      </InputLeftElement>
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value)
+  }
 
-      <Input />
+  return <Input value={value} onChange={handleChange} />
+}
 
-      <InputRightElement>
-        <Icon>
-          <Check />
-        </Icon>
-      </InputRightElement>
-
-      <InputRightAddon>.com</InputRightAddon>
-    </InputGroup>
-
-    <InputGroup>
-      <InputLeftAddon>https://</InputLeftAddon>
-
-      <TextField>Label</TextField>
-
-      <InputRightAddon>.com</InputRightAddon>
-    </InputGroup>
-
-    <InputGroup>
-      <InputLeftElement>
-        <Icon>
-          <Check />
-        </Icon>
-      </InputLeftElement>
-
-      <TextField>Label</TextField>
-
-      <InputRightAddon>.com</InputRightAddon>
-    </InputGroup>
-
-    <InputGroup>
-      <TextField>Label</TextField>
-
-      <InputRightAddon>.com</InputRightAddon>
-    </InputGroup>
-
+export const Disabled: StoryFn = _args => (
+  <InputGroup isDisabled>
+    <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
     <Input />
-
-    <Input intent="error" />
-  </>
+    <InputGroup.RightAddon>.com</InputGroup.RightAddon>
+  </InputGroup>
 )
 
-/*
- <InputGroup>
-      <InputLeftAddon>https://</InputLeftAddon>
+const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
-      <TextField>Label</TextField>
+export const Intent: StoryFn = _args => {
+  return (
+    <div className="gap-md flex flex-col">
+      {intents.map(intent => (
+        <Input key={intent} intent={intent} />
+      ))}
+    </div>
+  )
+}
 
-      <InputRightAddon>.com</InputRightAddon>
-    </InputGroup>
-
+export const Addons: StoryFn = _args => {
+  return (
     <InputGroup>
-      <TextField>Label</TextField>
-
-      <InputRightAddon>.com</InputRightAddon>
+      <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
+      <Input />
+      <InputGroup.RightAddon>.com</InputGroup.RightAddon>
     </InputGroup>
+  )
+}
 
-    <Input />
+export const Elements: StoryFn = _args => {
+  return (
+    <InputGroup>
+      <InputGroup.LeftElement>
+        <Icon>
+          <PenOutline />
+        </Icon>
+      </InputGroup.LeftElement>
 
-    <Input intent="error" />
-    */
+      <Input />
+
+      <InputGroup.RightElement>
+        <Icon>
+          <Check />
+        </Icon>
+      </InputGroup.RightElement>
+    </InputGroup>
+  )
+}
+
+export const Label: StoryFn = _args => {
+  return (
+    <FormField className="!gap-sm" name="title">
+      <FormField.Label>Title</FormField.Label>
+
+      <Input />
+    </FormField>
+  )
+}
+
+export const HiddenLabel: StoryFn = _args => {
+  return (
+    <FormField className="!gap-sm" name="title">
+      <FormField.Label>
+        <VisuallyHidden>Title</VisuallyHidden>
+      </FormField.Label>
+
+      <Input />
+    </FormField>
+  )
+}
+
+export const Required: StoryFn = _args => {
+  return (
+    <FormField className="!gap-sm" name="title" isRequired>
+      <FormField.Label>Title</FormField.Label>
+
+      <Input />
+    </FormField>
+  )
+}
+
+export const HelperMessage: StoryFn = _args => {
+  return (
+    <FormField className="!gap-sm" name="title">
+      <FormField.Label>Title</FormField.Label>
+
+      <Input />
+
+      <FormField.HelperMessage>
+        An effective title significantly increases your chances of making a sale
+      </FormField.HelperMessage>
+    </FormField>
+  )
+}
+
+export const Invalid: StoryFn = _args => {
+  return (
+    <FormField className="!gap-sm" name="title" isInvalid>
+      <FormField.Label>Title</FormField.Label>
+
+      <Input />
+
+      <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
+    </FormField>
+  )
+}

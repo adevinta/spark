@@ -3,6 +3,7 @@ import {
   ComponentPropsWithoutRef,
   forwardRef,
   isValidElement,
+  MouseEvent,
   PropsWithChildren,
   ReactElement,
   useMemo,
@@ -14,14 +15,29 @@ import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
 import { InputLeftAddon } from './InputLeftAddon'
 import { InputLeftElement } from './InputLeftElement'
-import { InputRightAddon } from './InputRighAddon'
+import { InputRightAddon } from './InputRightAddon'
 import { InputRightElement } from './InputRightElement'
 import { TextField } from './TextField'
 
-export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {}
+export interface InputGroupProps
+  extends ComponentPropsWithoutRef<'div'>,
+    Omit<InputGroupStylesProps, 'isFocused'> {
+  isDisabled?: boolean
+}
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  ({ className, children: childrenProp, intent = 'neutral', ...others }, ref) => {
+  (
+    {
+      className,
+      children: childrenProp,
+      intent = 'neutral',
+      isDisabled,
+      onMouseEnter,
+      onMouseLeave,
+      ...others
+    },
+    ref
+  ) => {
     const [isFocused, setIsFocused] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
 
@@ -51,6 +67,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
       return {
         intent,
+        isDisabled: !!isDisabled,
         isHovered,
         isFocused,
         isLeftElementVisible,
@@ -62,6 +79,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       }
     }, [
       intent,
+      isDisabled,
       isHovered,
       isFocused,
       isLeftElementVisible,
@@ -70,12 +88,20 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       isRightAddonVisible,
     ])
 
-    const handleMouseEnter = () => {
+    const handleMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
       setIsHovered(true)
+
+      if (onMouseEnter) {
+        onMouseEnter(event)
+      }
     }
 
-    const handleMouseLeave = () => {
+    const handleMouseLeave = (event: MouseEvent<HTMLDivElement>) => {
       setIsHovered(false)
+
+      if (onMouseLeave) {
+        onMouseLeave(event)
+      }
     }
 
     return (

@@ -1,8 +1,6 @@
 import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
-import { useInputGroup } from './InputGroupContext'
-
 export type InputElementProps = ComponentPropsWithoutRef<'div'>
 
 export const InputElement = forwardRef<HTMLDivElement, PropsWithChildren<InputElementProps>>(

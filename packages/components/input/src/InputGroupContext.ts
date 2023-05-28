@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react'
 import { InputGroupProps } from './InputGroup'
 
 export interface InputGroupContext extends Pick<InputGroupProps, 'intent'> {
+  isDisabled?: boolean
   isHovered: boolean
   isFocused: boolean
   isLeftElementVisible: boolean

@@ -3,24 +3,34 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const inputStyles = cva(
   [
     'h-sz-44',
-    'rounded-lg',
     'border-sm',
     'outline-none',
     'text-ellipsis',
-    'focus:ring-1',
+    'text-body-1',
     'cursor-auto',
     'caret-neutral',
-    'bg-surface',
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
   ],
   {
     variants: {
       intent: {
-        neutral: ['hover:border-outline-high', 'focus:border-outline-high', 'ring-outline-high'],
+        neutral: ['focus:border-outline-high', 'ring-outline-high'],
         success: ['border-success', 'ring-success'],
         alert: ['border-alert', 'ring-alert'],
         error: ['border-error', 'ring-error'],
+      },
+      isDisabled: {
+        true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
+        false: ['bg-surface', 'text-on-surface'],
+      },
+      isHovered: {
+        true: [],
+        false: [],
+      },
+      isFocused: {
+        true: [],
+        false: [],
       },
       isLeftElementVisible: {
         true: [],
@@ -31,16 +41,12 @@ export const inputStyles = cva(
         false: [],
       },
       isLeftAddonVisible: {
-        true: ['border-l-none', '!rounded-l-none', '!ring-0'],
-        false: [],
+        true: ['border-l-none', 'rounded-l-none'],
+        false: ['rounded-l-lg'],
       },
       isRightAddonVisible: {
-        true: ['border-r-none', 'pr-md', '!rounded-r-none', '!ring-0'],
-        false: ['pr-lg'],
-      },
-      isHovered: {
-        true: [],
-        false: [],
+        true: ['border-r-none', 'rounded-r-none'],
+        false: ['rounded-r-lg'],
       },
     },
     compoundVariants: [
@@ -51,7 +57,18 @@ export const inputStyles = cva(
       },
       {
         intent: 'neutral',
+        isDisabled: true,
+        class: 'border-outline',
+      },
+      {
+        intent: 'neutral',
+        isDisabled: false,
+        class: 'hover:border-outline-high',
+      },
+      {
+        intent: 'neutral',
         isHovered: true,
+        isDisabled: false,
         class: 'border-outline-high',
       },
       {
@@ -83,6 +100,11 @@ export const inputStyles = cva(
         isRightElementVisible: true,
         isRightAddonVisible: false,
         class: 'pr-3xl',
+      },
+      {
+        isLeftAddonVisible: false,
+        isRightAddonVisible: false,
+        class: 'focus:ring-1',
       },
     ],
   }
