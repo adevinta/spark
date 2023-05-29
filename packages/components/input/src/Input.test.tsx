@@ -64,7 +64,7 @@ describe('Input', () => {
     expect(inputEl).toBeDisabled()
   })
 
-  it('should render addons within group', () => {
+  it.only('should render addons within group', () => {
     const leftText = 'https://'
     const rightText = '.com'
     const placeholder = 'Smartphone'

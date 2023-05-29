@@ -34,12 +34,12 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     }
 
     const input = findElement(['Input'])
-    const left = findElement(['InputLeftAddon', 'InputLeftElement'])
-    const right = findElement(['InputRightAddon', 'InputRightElement'])
-    const isLeftAddonVisible = getDisplayName(left) === 'InputLeftAddon'
-    const isRightAddonVisible = getDisplayName(right) === 'InputRightAddon'
-    const isLeftElementVisible = getDisplayName(left) === 'InputLeftElement'
-    const isRightElementVisible = getDisplayName(right) === 'InputRightElement'
+    const left = findElement(['InputGroup.LeftAddon', 'InputGroup.LeftElement'])
+    const right = findElement(['InputGroup.RightAddon', 'InputGroup.RightElement'])
+    const isLeftAddonVisible = getDisplayName(left) === 'InputGroup.LeftAddon'
+    const isRightAddonVisible = getDisplayName(right) === 'InputGroup.RightAddon'
+    const isLeftElementVisible = getDisplayName(left) === 'InputGroup.LeftElement'
+    const isRightElementVisible = getDisplayName(right) === 'InputGroup.RightElement'
 
     const value = useMemo(() => {
       const handleFocus = () => {
