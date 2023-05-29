@@ -1,6 +1,7 @@
 import {
   Children,
   ComponentPropsWithoutRef,
+  FC,
   forwardRef,
   isValidElement,
   PropsWithChildren,
@@ -9,13 +10,8 @@ import {
   useState,
 } from 'react'
 
-import { Input } from './Input'
 import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
-import { InputLeftAddon } from './InputLeftAddon'
-import { InputLeftElement } from './InputLeftElement'
-import { InputRightAddon } from './InputRightAddon'
-import { InputRightElement } from './InputRightElement'
 export interface InputGroupProps
   extends ComponentPropsWithoutRef<'div'>,
     Omit<InputGroupStylesProps, 'isFocused'> {
@@ -28,17 +24,22 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const [isHovered, setIsHovered] = useState(false)
 
     const children = Children.toArray(childrenProp).filter(isValidElement)
-    const input = children.find((child: ReactElement) => child.type === Input)
-    const left = children.find(
-      (child: ReactElement) => child.type === InputLeftAddon || child.type === InputLeftElement
-    )
-    const right = children.find(
-      (child: ReactElement) => child.type === InputRightAddon || child.type === InputRightElement
-    )
-    const isLeftAddonVisible = left?.type === InputLeftAddon
-    const isRightAddonVisible = right?.type === InputRightAddon
-    const isLeftElementVisible = left?.type === InputLeftElement
-    const isRightElementVisible = right?.type === InputRightElement
+
+    const getDisplayName = (element?: ReactElement) => {
+      return element ? (element.type as FC).displayName : ''
+    }
+
+    const findElement = (values: string[]) => {
+      return children.find(child => values.includes(getDisplayName(child) || ''))
+    }
+
+    const input = findElement(['Input'])
+    const left = findElement(['InputLeftAddon', 'InputLeftElement'])
+    const right = findElement(['InputRightAddon', 'InputRightElement'])
+    const isLeftAddonVisible = getDisplayName(left) === 'InputLeftAddon'
+    const isRightAddonVisible = getDisplayName(right) === 'InputRightAddon'
+    const isLeftElementVisible = getDisplayName(left) === 'InputLeftElement'
+    const isRightElementVisible = getDisplayName(right) === 'InputRightElement'
 
     const value = useMemo(() => {
       const handleFocus = () => {
