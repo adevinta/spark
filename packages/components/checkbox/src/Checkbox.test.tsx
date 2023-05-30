@@ -194,6 +194,41 @@ describe('CheckboxGroup', () => {
     expect(onCheckedChange).toHaveBeenCalledWith(['baseball', 'soccer'])
   })
 
+  it('should always have an accessible name', () => {
+    // By default we should always define a direct label (children)...
+    const { rerender } = render(
+      <CheckboxGroup>
+        <Checkbox value="accessible">My accessible label</Checkbox>
+      </CheckboxGroup>
+    )
+
+    expect(screen.getByRole('checkbox', { name: 'My accessible label' })).toBeInTheDocument()
+
+    // ...If not we should define an aria-label
+    rerender(
+      <CheckboxGroup>
+        <Checkbox value="accessible" aria-label="My worst effort accessible label" />
+      </CheckboxGroup>
+    )
+
+    expect(
+      screen.getByRole('checkbox', { name: 'My worst effort accessible label' })
+    ).toBeInTheDocument()
+
+    // On using the FormField we also could be using the related subcomponent
+    rerender(
+      <FormField name="agreement">
+        <FormField.Label>My accessible field label</FormField.Label>
+
+        <CheckboxGroup>
+          <Checkbox value="accessible" />
+        </CheckboxGroup>
+      </FormField>
+    )
+
+    expect(screen.getByRole('checkbox', { name: 'My accessible field label' })).toBeInTheDocument()
+  })
+
   describe('with FormField', () => {
     it('should render with a label', () => {
       render(
