@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 import { useId } from '@radix-ui/react-id'
 import { useFormFieldState } from '@spark-ui/form-field'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
@@ -34,21 +33,20 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     const rootRef = useRef<HTMLButtonElement | undefined>()
     const ref = useMergeRefs(forwardedRef, rootRef)
 
-    const name = field.name ?? group.name
-    const isRequired = field.isRequired ?? group.isRequired
-    const isInvalid = field.isInvalid ?? group.isInvalid
-    const isFieldEnclosed = field.id !== group.id
-
-    const id = isFieldEnclosed ? field.id : undefined
-    const description = isFieldEnclosed ? field.description : undefined
-
-    const intent = isInvalid ? 'error' : intentProp ?? group.intent
-    const checked = group.value && value ? group.value.includes(value) : checkedProp
+    const checked = value ? group.value?.includes(value) : checkedProp
 
     const handleCheckedChange = (isChecked: boolean) => {
       onCheckedChange?.(isChecked)
-      rootRef.current?.value && group.onCheckedChange?.(isChecked, rootRef.current.value)
+
+      const rootRefValue = rootRef.current?.value
+      rootRefValue && group.onCheckedChange?.(isChecked, rootRefValue)
     }
+
+    const { id, name, isInvalid, isRequired, description, intent } = getCheckboxAttributes({
+      fieldState: field,
+      groupState: group,
+      checkboxIntent: intentProp,
+    })
 
     return (
       <div
@@ -85,5 +83,27 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     )
   }
 )
+
+const getCheckboxAttributes = ({
+  fieldState,
+  groupState,
+  checkboxIntent,
+}: {
+  fieldState: ReturnType<typeof useFormFieldState>
+  groupState: ReturnType<typeof useCheckboxGroup>
+  checkboxIntent: CheckboxInputProps['intent']
+}) => {
+  const name = fieldState.name ?? groupState.name
+  const isRequired = fieldState.isRequired ?? groupState.isRequired
+  const isInvalid = fieldState.isInvalid ?? groupState.isInvalid
+
+  const isFieldEnclosed = fieldState.id !== groupState.id
+  const id = isFieldEnclosed ? fieldState.id : undefined
+  const description = isFieldEnclosed ? fieldState.description : undefined
+
+  const intent = isInvalid ? 'error' : checkboxIntent ?? groupState.intent
+
+  return { name, isRequired, isInvalid, id, description, intent }
+}
 
 Checkbox.displayName = 'Checkbox'

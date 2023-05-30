@@ -52,14 +52,14 @@ export interface CheckboxInputProps
 
 export const CheckboxInput = forwardRef<HTMLButtonElement, CheckboxInputProps>(
   (
-    { className, icon = <Check />, indeterminateIcon = <Minus />, intent, checked, ...rest },
+    { className, icon = <Check />, indeterminateIcon = <Minus />, intent, checked, ...others },
     ref
   ) => (
     <CheckboxPrimitive
       ref={ref}
       className={checkboxInputStyles({ intent, className })}
       checked={checked}
-      {...rest}
+      {...others}
     >
       <CheckboxIndicator>
         <Icon size="sm">{checked === 'indeterminate' ? indeterminateIcon : icon}</Icon>

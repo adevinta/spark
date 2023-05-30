@@ -138,13 +138,19 @@ export const GroupIntent: StoryFn = _args => {
 }
 
 export const GroupImproved: StoryFn = () => {
+  const [value, setValue] = useState<string[]>([])
+
+  const handleCheckedChange = (current: string[]) => {
+    setValue(current)
+  }
+
   return (
-    <FormField name="sport" isRequired>
+    <FormField name="sport" isRequired isInvalid={value.length === 0}>
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
 
-      <CheckboxGroup>
+      <CheckboxGroup value={value} onCheckedChange={handleCheckedChange}>
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="tennis">Tennis</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
@@ -154,46 +160,3 @@ export const GroupImproved: StoryFn = () => {
     </FormField>
   )
 }
-// export const GroupRequired: StoryFn = () => {
-//   return (
-//     <FormField name="sport" isRequired>
-//       <FormField.Label asChild>
-//         <span>Sports</span>
-//       </FormField.Label>
-
-//       <CheckboxGroup>
-//         <Checkbox value="soccer">Soccer</Checkbox>
-//         <Checkbox value="tennis">Tennis</Checkbox>
-//         <Checkbox value="baseball">Baseball</Checkbox>
-//       </CheckboxGroup>
-
-//       <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
-//     </FormField>
-//   )
-// }
-
-// export const GroupValidation: StoryFn = () => {
-//   const [value, setValue] = useState<string[]>([])
-
-//   const handleCheckedChange = (current: string[]) => {
-//     setValue(current)
-//   }
-
-//   return (
-//     <FormField name="sport" isInvalid={value.length === 0} isRequired>
-//       <FormField.Label asChild>
-//         <span>Sports</span>
-//       </FormField.Label>
-
-//       <CheckboxGroup value={value} onCheckedChange={handleCheckedChange}>
-//         <Checkbox value="soccer">Soccer</Checkbox>
-
-//         <Checkbox value="tennis">Tennis</Checkbox>
-
-//         <Checkbox value="baseball">Baseball</Checkbox>
-//       </CheckboxGroup>
-
-//       <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
-//     </FormField>
-//   )
-// }
