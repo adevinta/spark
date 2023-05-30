@@ -76,7 +76,7 @@ const orientations: RadioGroupProps['orientation'][] = ['horizontal', 'vertical'
 
 export const Orientation: StoryFn = _args => {
   return (
-    <div className="gap-xl flex flex-col">
+    <div className="gap-xl flex">
       {orientations.map(orientation => (
         <div key={orientation}>
           <StoryLabel>{orientation}</StoryLabel>
@@ -118,72 +118,27 @@ export const Disabled: StoryFn = _args => (
   </RadioGroup>
 )
 
-export const Control: StoryFn = _args => (
-  <FormField name="condition">
-    <FormField.Label asChild>
-      <p>Apparel condition</p>
-    </FormField.Label>
+export const WithFormField: StoryFn = _args => {
+  const [value, setValue] = useState<string>()
 
-    <RadioGroup>
-      <RadioGroup.Radio value="1">New</RadioGroup.Radio>
-      <RadioGroup.Radio value="2">Very good</RadioGroup.Radio>
-      <RadioGroup.Radio value="3">Good</RadioGroup.Radio>
-      <RadioGroup.Radio value="4">Satisfactory</RadioGroup.Radio>
-    </RadioGroup>
+  const handleValueChange = (current: string) => {
+    setValue(current)
+  }
 
-    <FormField.HelperMessage>The condition that best matches your product</FormField.HelperMessage>
-
-    <FormField.ErrorMessage>The condition is required</FormField.ErrorMessage>
-  </FormField>
-)
-
-export const HiddenLabel: StoryFn = _args => (
-  <FormField name="condition">
-    <VisuallyHidden>
+  return (
+    <FormField name="condition" isRequired isInvalid={!value}>
       <FormField.Label asChild>
         <p>Apparel condition</p>
       </FormField.Label>
-    </VisuallyHidden>
 
-    <RadioGroup>
-      <RadioGroup.Radio value="1">New</RadioGroup.Radio>
-      <RadioGroup.Radio value="2">Very good</RadioGroup.Radio>
-      <RadioGroup.Radio value="3">Good</RadioGroup.Radio>
-      <RadioGroup.Radio value="4">Satisfactory</RadioGroup.Radio>
-    </RadioGroup>
-  </FormField>
-)
+      <RadioGroup value={value} onValueChange={handleValueChange}>
+        <RadioGroup.Radio value="1">New</RadioGroup.Radio>
+        <RadioGroup.Radio value="2">Very good</RadioGroup.Radio>
+        <RadioGroup.Radio value="3">Good</RadioGroup.Radio>
+        <RadioGroup.Radio value="4">Satisfactory</RadioGroup.Radio>
+      </RadioGroup>
 
-export const Required: StoryFn = _args => (
-  <FormField name="condition" isRequired>
-    <FormField.Label asChild>
-      <p>Apparel condition</p>
-    </FormField.Label>
-
-    <RadioGroup>
-      <RadioGroup.Radio value="1">New</RadioGroup.Radio>
-      <RadioGroup.Radio value="2">Very good</RadioGroup.Radio>
-      <RadioGroup.Radio value="3">Good</RadioGroup.Radio>
-      <RadioGroup.Radio value="4">Satisfactory</RadioGroup.Radio>
-    </RadioGroup>
-
-    <FormField.ErrorMessage>The condition is required</FormField.ErrorMessage>
-  </FormField>
-)
-
-export const Invalid: StoryFn = _args => (
-  <FormField name="condition" isRequired isInvalid>
-    <FormField.Label asChild>
-      <p>Apparel condition</p>
-    </FormField.Label>
-
-    <RadioGroup>
-      <RadioGroup.Radio value="1">New</RadioGroup.Radio>
-      <RadioGroup.Radio value="2">Very good</RadioGroup.Radio>
-      <RadioGroup.Radio value="3">Good</RadioGroup.Radio>
-      <RadioGroup.Radio value="4">Satisfactory</RadioGroup.Radio>
-    </RadioGroup>
-
-    <FormField.ErrorMessage>The condition is required</FormField.ErrorMessage>
-  </FormField>
-)
+      <FormField.ErrorMessage>The condition is required</FormField.ErrorMessage>
+    </FormField>
+  )
+}
