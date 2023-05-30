@@ -24,7 +24,7 @@ jobs:
           committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
           auto_detect_branch_protection: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SA_TOKEN }}
   maintainers:
     runs-on: ubuntu-latest
     name: Maintainers
@@ -42,7 +42,7 @@ jobs:
           committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
           auto_detect_branch_protection: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SA_TOKEN }}
   release:
     runs-on: ubuntu-latest
     steps:

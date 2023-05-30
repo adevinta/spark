@@ -24,3 +24,8 @@ export const InputGroup: FC<InputGroupProps> & {
   LeftElement: InputLeftElement,
   RightElement: InputRightElement,
 })
+
+InputGroup.LeftAddon.displayName = 'InputGroup.LeftAddon'
+InputGroup.RightAddon.displayName = 'InputGroup.RightAddon'
+InputGroup.LeftElement.displayName = 'InputGroup.LeftElement'
+InputGroup.RightElement.displayName = 'InputGroup.RightElement'

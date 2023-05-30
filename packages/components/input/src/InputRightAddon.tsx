@@ -17,4 +17,4 @@ export const InputRightAddon = forwardRef<HTMLDivElement, InputRightAddonProps>(
   }
 )
 
-InputRightAddon.displayName = 'InputGroup.RightAddon'
+InputRightAddon.displayName = 'InputRightAddon'

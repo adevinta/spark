@@ -12,4 +12,4 @@ export const InputRightElement = forwardRef<
   return <InputElement ref={ref} className={cx(className, 'right-lg')} {...others} />
 })
 
-InputRightElement.displayName = 'InputGroup.RightElement'
+InputRightElement.displayName = 'InputRightElement'

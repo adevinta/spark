@@ -9,6 +9,7 @@ export const inputStyles = cva(
     'text-body-1',
     'cursor-auto',
     'caret-neutral',
+    'appearance-none',
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
   ],
@@ -48,11 +49,6 @@ export const inputStyles = cva(
         class: 'border-outline',
       },
       {
-        intent: 'neutral',
-        isDisabled: false,
-        class: 'hover:border-outline-high',
-      },
-      {
         isLeftElementVisible: false,
         isLeftAddonVisible: false,
         class: 'pl-lg',
@@ -81,6 +77,11 @@ export const inputStyles = cva(
         isRightElementVisible: true,
         isRightAddonVisible: false,
         class: 'pr-3xl',
+      },
+      {
+        intent: 'neutral',
+        isDisabled: false,
+        class: 'hover:border-outline-high',
       },
       {
         isLeftAddonVisible: false,
