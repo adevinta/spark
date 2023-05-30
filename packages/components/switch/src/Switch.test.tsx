@@ -29,6 +29,31 @@ describe('Switch', () => {
     expect(screen.getByRole('switch')).toBeChecked()
   })
 
+  it('should always have an accessible name', () => {
+    // By default we should always define a direct label (children)...
+    const { rerender } = render(<Switch>My accessible label</Switch>)
+
+    expect(screen.getByRole('switch', { name: 'My accessible label' })).toBeInTheDocument()
+
+    // ...If not we should define an aria-label
+    rerender(<Switch aria-label="My worst effort accessible label" />)
+
+    expect(
+      screen.getByRole('switch', { name: 'My worst effort accessible label' })
+    ).toBeInTheDocument()
+
+    // On using the FormField we also could be using the related subcomponent
+    rerender(
+      <FormField name="agreement">
+        <FormField.Label>My accessible field label</FormField.Label>
+
+        <Switch />
+      </FormField>
+    )
+
+    expect(screen.getByRole('switch', { name: 'My accessible field label' })).toBeInTheDocument()
+  })
+
   describe('user interactions', () => {
     it('should check/uncheck upon click', async () => {
       const user = userEvent.setup()

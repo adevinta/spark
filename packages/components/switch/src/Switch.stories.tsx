@@ -85,9 +85,9 @@ const switchColors: ComponentProps<typeof Switch>['intent'][] = [
 export const Colors: StoryFn = _args => (
   <div className="gap-lg flex">
     {switchColors.map(color => (
-      <div key={String(color)}>
-        <StoryLabel>{String(color)}</StoryLabel>
-        <Switch intent={color} defaultChecked aria-label={`My ${String(color)} switch`} />
+      <div key={color}>
+        <StoryLabel>{color}</StoryLabel>
+        <Switch intent={color} defaultChecked aria-label={`My ${color} switch`} />
       </div>
     ))}
   </div>

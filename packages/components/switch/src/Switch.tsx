@@ -1,5 +1,6 @@
 import { useId } from '@radix-ui/react-id'
 import { useFormFieldState } from '@spark-ui/form-field'
+import { cx } from 'class-variance-authority'
 import { forwardRef } from 'react'
 
 import { Input, type InputProps } from './SwitchInput'
@@ -15,7 +16,10 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
     const innerLabelId = useId()
 
     return (
-      <div data-spark-component="switch" className="gap-md text-body-1 flex items-center">
+      <div
+        data-spark-component="switch"
+        className={cx('gap-md text-body-1 flex items-center', className)}
+      >
         <Input
           ref={ref}
           size={size}
@@ -31,12 +35,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         />
 
         {children && (
-          <Label
-            disabled={disabled}
-            htmlFor={field.id || innerId}
-            className={className}
-            id={innerLabelId}
-          >
+          <Label disabled={disabled} htmlFor={field.id || innerId} id={innerLabelId}>
             {children}
           </Label>
         )}

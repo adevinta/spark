@@ -17,7 +17,7 @@
     "directory": "packages/components/switch"
   },
   "dependencies": {
-    "@radix-ui/react-id": "^1.0.0",
+    "@radix-ui/react-id": "1.0.0",
     "@radix-ui/react-switch": "1.0.2",
     "@spark-ui/form-field": "^0.1.2",
     "@spark-ui/icons": "^1.14.0",
