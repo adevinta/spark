@@ -38,8 +38,13 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
     const field = useFormFieldState()
     const group = useInputGroup() || {}
 
-    const { isLeftAddonVisible, isRightAddonVisible, isLeftElementVisible, isRightElementVisible } =
-      group
+    const {
+      isHovered,
+      isLeftAddonVisible,
+      isRightAddonVisible,
+      isLeftElementVisible,
+      isRightElementVisible,
+    } = group
     const { id, name, isInvalid, isRequired, description } = field
     const intent = isInvalid ? 'error' : intentProp || group.intent || 'neutral'
     const isDisabled = disabledProp ?? group.isDisabled
@@ -92,6 +97,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
         className={inputStyles({
           className,
           intent,
+          isHovered: !!isHovered,
           isDisabled: !!isDisabled,
           isLeftAddonVisible: !!isLeftAddonVisible,
           isRightAddonVisible: !!isRightAddonVisible,

@@ -47,6 +47,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       }
 
       const handleBlur = () => {
+        setIsHovered(false)
         setIsFocused(false)
       }
 

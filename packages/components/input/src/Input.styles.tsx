@@ -16,10 +16,14 @@ export const inputStyles = cva(
   {
     variants: {
       intent: {
-        neutral: ['border-outline', 'focus:border-outline-high', 'ring-outline-high'],
+        neutral: ['focus:border-outline-high', 'ring-outline-high'],
         success: ['border-success', 'ring-success'],
         alert: ['border-alert', 'ring-alert'],
         error: ['border-error', 'ring-error'],
+      },
+      isHovered: {
+        true: [],
+        false: [],
       },
       isDisabled: {
         true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
@@ -80,7 +84,20 @@ export const inputStyles = cva(
       },
       {
         intent: 'neutral',
+        isHovered: false,
+        class: 'border-outline',
+      },
+      {
+        intent: 'neutral',
         isDisabled: false,
+        isHovered: true,
+        class: 'border-outline-high',
+      },
+      {
+        intent: 'neutral',
+        isDisabled: false,
+        isLeftAddonVisible: false,
+        isRightAddonVisible: false,
         class: 'hover:border-outline-high',
       },
       {
