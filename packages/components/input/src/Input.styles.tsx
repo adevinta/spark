@@ -80,8 +80,6 @@ export const inputStyles = cva(
       },
       {
         intent: 'neutral',
-        isLeftAddonVisible: false,
-        isRightAddonVisible: false,
         isDisabled: false,
         class: 'hover:border-outline-high',
       },
