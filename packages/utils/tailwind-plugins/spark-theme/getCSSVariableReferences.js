@@ -22,8 +22,8 @@ function getCSSVariableReferences(_theme) {
 
   const { fontSize, colors, screens } = tailwindCategoryKeys
 
-  /* eslint-disable complexity */
   function traverse(theme, paths = []) {
+    /* eslint-disable-next-line complexity */
     Object.entries(theme).forEach(([key, value]) => {
       // 👀 see: https://tailwindcss.com/docs/font-size#providing-a-default-line-height
       if (isObject(value) && !paths.length && key === fontSize) {

@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 import * as SwitchPrimitive from '@radix-ui/react-switch'
 import { useFormFieldState } from '@spark-ui/form-field'
 import { Check } from '@spark-ui/icons/dist/icons/Check'

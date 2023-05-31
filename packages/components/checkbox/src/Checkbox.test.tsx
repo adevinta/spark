@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import { FormField } from '@spark-ui/form-field'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -117,7 +116,9 @@ describe('Checkbox', () => {
     expect(checkboxEl).not.toBeChecked()
     expect(onCheckedChange).toHaveBeenCalledTimes(0)
   })
+})
 
+describe('CheckboxGroup', () => {
   it('should render group', () => {
     render(
       <FormField name="sports">

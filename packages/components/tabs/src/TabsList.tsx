@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
@@ -134,19 +133,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     return (
       <div className={wrapperStyles({ className })} ref={wrapperRef}>
         {arrows.prev !== 'hidden' && (
-          <Button
-            shape="square"
-            intent="surface"
-            size="sm"
-            className={navigationArrowStyles()}
-            onClick={handlePrevClick}
-            disabled={arrows.prev === 'disabled'}
-            aria-label="Scroll left"
-          >
-            <Icon>
-              <ArrowVerticalLeft />
-            </Icon>
-          </Button>
+          <Components.Prev handleClick={handlePrevClick} disabled={arrows.prev === 'disabled'} />
         )}
 
         <RadixTabs.List
@@ -160,23 +147,55 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         </RadixTabs.List>
 
         {arrows.next !== 'hidden' && (
-          <Button
-            shape="square"
-            intent="surface"
-            size="sm"
-            className={navigationArrowStyles()}
-            onClick={handleNextClick}
-            disabled={arrows.next === 'disabled'}
-            aria-label="Scroll right"
-          >
-            <Icon>
-              <ArrowVerticalRight />
-            </Icon>
-          </Button>
+          <Components.Next handleClick={handleNextClick} disabled={arrows.prev === 'disabled'} />
         )}
       </div>
     )
   }
 )
+
+interface ComponentsProps {
+  NavigationBtn: {
+    handleClick: () => void
+    disabled?: boolean
+  }
+}
+
+const Components = {
+  Prev: ({ handleClick, disabled }: ComponentsProps['NavigationBtn']) => {
+    return (
+      <Button
+        shape="square"
+        intent="surface"
+        size="sm"
+        className={navigationArrowStyles()}
+        onClick={handleClick}
+        disabled={disabled}
+        aria-label="Scroll left"
+      >
+        <Icon>
+          <ArrowVerticalLeft />
+        </Icon>
+      </Button>
+    )
+  },
+  Next: ({ handleClick, disabled }: ComponentsProps['NavigationBtn']) => {
+    return (
+      <Button
+        shape="square"
+        intent="surface"
+        size="sm"
+        className={navigationArrowStyles()}
+        onClick={handleClick}
+        disabled={disabled}
+        aria-label="Scroll right"
+      >
+        <Icon>
+          <ArrowVerticalRight />
+        </Icon>
+      </Button>
+    )
+  },
+}
 
 TabsList.displayName = 'Tabs.List'

@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
