@@ -43,7 +43,7 @@
     "@commitlint/cli": "17.6.3",
     "@commitlint/config-conventional": "17.6.1",
     "@commitlint/config-lerna-scopes": "17.4.2",
-    "@commitlint/cz-commitlint": "17.4.4",
+    "@commitlint/cz-commitlint": "17.5.0",
     "@commitlint/prompt-cli": "17.6.3",
     "@radix-ui/react-switch": "*",
     "@spark-ui/cli-utils": "*",
