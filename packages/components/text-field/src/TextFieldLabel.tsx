@@ -1,7 +1,7 @@
+import { useInputGroup } from '@spark-ui/input'
 import { Label, LabelProps } from '@spark-ui/label'
 import { forwardRef, PropsWithChildren } from 'react'
 
-import { useInputGroup } from './InputGroupContext'
 import { textFieldLabelStyles, TextFieldLabelStylesProps } from './TextFieldLabel.styles'
 
 export interface TextFieldLabelProps extends LabelProps, TextFieldLabelStylesProps {}
