@@ -1,20 +1,15 @@
 import { useClipboard } from '@docs/helpers/ReactLiveBlock'
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
-import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
-import { camelCase } from 'change-case'
-import { FC, FormEvent, Fragment, useEffect, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useState } from 'react'
 
 import { Check as IconCheck } from './icons/Check'
-import * as iconTags from './tags'
 
 const meta: Meta = {
   title: 'components/Icons',
   component: IconCheck,
 }
-
-const tags = Object.fromEntries(Object.entries(iconTags))
 
 export default meta
 
@@ -27,41 +22,28 @@ export const Default: StoryFn = _args => {
 }
 
 export const List: StoryFn = _args => {
-  const [icons, setIcons] = useState<[string, any][]>([]) // eslint-disable-line @typescript-eslint/no-explicit-any
+  const [icons, setIcons] = useState<[originalName: string, lowercaseName: string, iconElm: FC][]>(
+    []
+  )
   const [value, setValue] = useState<string>('')
-  const handleChange = (event: FormEvent<EventTarget>) => {
-    const target = event.target as HTMLInputElement
+
+  const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setValue(`${target.value}`)
   }
 
-  const IconElement = ({ name, value: Value }: { name: string; value: FC }) => {
-    const { hasCopied, onCopy } = useClipboard(`<${name} />`)
-    const currentIconTags = tags[`${camelCase(name)}Tags`] as string[]
-    const isHidden = !currentIconTags.join(' ').includes(value)
-    const Wrapper = isHidden ? VisuallyHidden : Fragment
-
-    return (
-      <Wrapper key={name}>
-        <div
-          className="gap-sm flex flex-col content-start items-center"
-          onClick={onCopy}
-          data-tags={`${currentIconTags.join(' ')}`}
-        >
-          <Button design="filled" shape="pill" intent="surface">
-            <Icon key={name} aria-label={name} size="lg">
-              <Value />
-            </Icon>
-          </Button>
-          <span className="text-caption min-w-[80px] text-center">{name}</span>
-          <span>{hasCopied ? 'copied!' : <br />}</span>
-        </div>
-      </Wrapper>
-    )
-  }
+  const filteredIcons = icons.filter(([, lowercaseName]) =>
+    lowercaseName.includes(value.toLowerCase())
+  )
 
   useEffect(() => {
     import('./index').then(dynamicIcons => {
-      setIcons(Object.entries(dynamicIcons as object))
+      setIcons(
+        Object.entries(dynamicIcons as object).map(([name, iconElm]) => [
+          name,
+          name.toLowerCase(),
+          iconElm,
+        ])
+      )
     })
   }, [])
 
@@ -79,13 +61,29 @@ export const List: StoryFn = _args => {
         onChange={handleChange}
       />
 
-      {icons.length > 0 && (
-        <div className="gap-lg flex flex-wrap content-center items-start justify-evenly">
-          {icons.map(([name, Value]) => (
-            <IconElement key={name} name={name} value={Value} />
-          ))}
-        </div>
-      )}
+      <div className="gap-lg flex flex-wrap content-center items-start justify-evenly">
+        {filteredIcons.map(([originalName, , element]) => (
+          <Components.IconElement key={originalName} name={originalName} element={element} />
+        ))}
+      </div>
     </div>
   )
+}
+
+const Components = {
+  IconElement: ({ name, element: Element }: { name: string; element: FC }) => {
+    const { hasCopied, onCopy } = useClipboard(`<${name} />`)
+
+    return (
+      <div className="gap-sm flex flex-col content-start items-center" onClick={onCopy}>
+        <Button design="filled" shape="pill" intent="surface">
+          <Icon aria-label={name} size="lg">
+            <Element />
+          </Icon>
+        </Button>
+        <span className="text-caption min-w-[80px] text-center">{name}</span>
+        <span>{hasCopied ? 'copied!' : <br />}</span>
+      </div>
+    )
+  },
 }
