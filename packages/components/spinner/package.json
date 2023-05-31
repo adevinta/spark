@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/spinner",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
   "publishConfig": {
     "access": "public"
