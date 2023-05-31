@@ -133,7 +133,19 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     return (
       <div className={wrapperStyles({ className })} ref={wrapperRef}>
         {arrows.prev !== 'hidden' && (
-          <Components.Prev handleClick={handlePrevClick} disabled={arrows.prev === 'disabled'} />
+          <Button
+            shape="square"
+            intent="surface"
+            size="sm"
+            className={navigationArrowStyles()}
+            onClick={handlePrevClick}
+            disabled={arrows.prev === 'disabled'}
+            aria-label="Scroll left"
+          >
+            <Icon>
+              <ArrowVerticalLeft />
+            </Icon>
+          </Button>
         )}
 
         <RadixTabs.List
@@ -147,55 +159,23 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         </RadixTabs.List>
 
         {arrows.next !== 'hidden' && (
-          <Components.Next handleClick={handleNextClick} disabled={arrows.prev === 'disabled'} />
+          <Button
+            shape="square"
+            intent="surface"
+            size="sm"
+            className={navigationArrowStyles()}
+            onClick={handleNextClick}
+            disabled={arrows.next === 'disabled'}
+            aria-label="Scroll right"
+          >
+            <Icon>
+              <ArrowVerticalRight />
+            </Icon>
+          </Button>
         )}
       </div>
     )
   }
 )
-
-interface ComponentsProps {
-  NavigationBtn: {
-    handleClick: () => void
-    disabled?: boolean
-  }
-}
-
-const Components = {
-  Prev: ({ handleClick, disabled }: ComponentsProps['NavigationBtn']) => {
-    return (
-      <Button
-        shape="square"
-        intent="surface"
-        size="sm"
-        className={navigationArrowStyles()}
-        onClick={handleClick}
-        disabled={disabled}
-        aria-label="Scroll left"
-      >
-        <Icon>
-          <ArrowVerticalLeft />
-        </Icon>
-      </Button>
-    )
-  },
-  Next: ({ handleClick, disabled }: ComponentsProps['NavigationBtn']) => {
-    return (
-      <Button
-        shape="square"
-        intent="surface"
-        size="sm"
-        className={navigationArrowStyles()}
-        onClick={handleClick}
-        disabled={disabled}
-        aria-label="Scroll right"
-      >
-        <Icon>
-          <ArrowVerticalRight />
-        </Icon>
-      </Button>
-    )
-  },
-}
 
 TabsList.displayName = 'Tabs.List'

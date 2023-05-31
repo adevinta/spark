@@ -7,6 +7,12 @@ module.exports = {
         'max-nested-callbacks': [1, 4],
       },
     },
+    {
+      files: ['**/*.tsx'],
+      rules: {
+        'max-lines-per-function': [1, { max: 150, skipBlankLines: true, skipComments: true }],
+      },
+    },
   ],
   settings: {
     react: {
