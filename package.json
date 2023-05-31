@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
+    "install:lock": "npm install --package-lock-only --legacy-peer-deps --no-audit --no-fund",
     "postinstall": "lerna run build",
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "lerna run build",
