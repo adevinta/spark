@@ -1,4 +1,13 @@
 module.exports = {
+  overrides: [
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx'],
+      rules: {
+        'max-lines-per-function': [1, { max: 300, skipBlankLines: true, skipComments: true }],
+        'max-nested-callbacks': [1, 4],
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',
