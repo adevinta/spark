@@ -12,7 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-portal": "1.0.2",
+    "@radix-ui/react-portal": "1.0.3",
     "@radix-ui/react-primitive": "1.0.2"
   },
   "peerDependencies": {
