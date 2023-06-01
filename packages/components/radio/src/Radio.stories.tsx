@@ -1,6 +1,5 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { FormField } from '@spark-ui/form-field'
-import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 

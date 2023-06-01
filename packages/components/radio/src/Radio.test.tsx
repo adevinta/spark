@@ -1,32 +1,67 @@
 import { FormField } from '@spark-ui/form-field'
-import { render, screen, waitFor, within } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vitest } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { RadioGroup } from '.'
 
 describe('Radio', () => {
-  it('should render correctly', () => {
-    const props = { defaultValue: '1' }
+  beforeEach(() => vi.clearAllMocks())
 
+  it('should render correctly with accessible roles', () => {
     render(
-      <RadioGroup {...props}>
+      <RadioGroup defaultValue="1">
         <RadioGroup.Radio value="1">1</RadioGroup.Radio>
         <RadioGroup.Radio value="2">2</RadioGroup.Radio>
         <RadioGroup.Radio value="3">3</RadioGroup.Radio>
       </RadioGroup>
     )
+
     const element = screen.getByRole('radiogroup')
 
-    expect(element).toBeInTheDocument()
+    expect(element).toHaveAttribute('data-spark-component', 'radio-group')
+
     expect(within(element).getByRole('radio', { name: '1' })).toBeChecked()
     expect(within(element).getByRole('radio', { name: '2' })).not.toBeChecked()
     expect(within(element).getByRole('radio', { name: '3' })).not.toBeChecked()
-    expect(document.querySelector('[data-spark-component="radio-group"]')).toBeInTheDocument()
   })
 
-  it('should check and uncheck when a RadioGroup.Radio is clicked while in uncontrolled mode', async () => {
-    const props = { defaultValue: '1' }
+  it('should render as required', () => {
+    render(
+      <RadioGroup required>
+        <RadioGroup.Radio value="1">1</RadioGroup.Radio>
+        <RadioGroup.Radio value="2">2</RadioGroup.Radio>
+        <RadioGroup.Radio value="3">3</RadioGroup.Radio>
+      </RadioGroup>
+    )
+
+    expect(screen.getByRole('radiogroup')).toHaveAttribute('aria-required', 'true')
+  })
+
+  it('should toggle checked state when a radio button is clicked in uncontrolled mode', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <RadioGroup defaultValue="1">
+        <RadioGroup.Radio value="1">1</RadioGroup.Radio>
+        <RadioGroup.Radio value="2">2</RadioGroup.Radio>
+        <RadioGroup.Radio value="3">3</RadioGroup.Radio>
+      </RadioGroup>
+    )
+
+    const element = screen.getByRole('radiogroup')
+
+    expect(element).toBeInTheDocument()
+    expect(within(element).getByLabelText('1')).toBeChecked()
+
+    await user.click(within(element).getByLabelText('2'))
+
+    expect(within(element).getByLabelText('2')).toBeChecked()
+  })
+
+  it('should toggle checked state when a radio button is clicked in controlled mode', async () => {
+    const user = userEvent.setup()
+    const props = { value: '1', onValueChange: vi.fn() }
 
     render(
       <RadioGroup {...props}>
@@ -35,124 +70,82 @@ describe('Radio', () => {
         <RadioGroup.Radio value="3">3</RadioGroup.Radio>
       </RadioGroup>
     )
+
     const element = screen.getByRole('radiogroup')
 
     expect(element).toBeInTheDocument()
-    expect(within(element).getByRole('radio', { name: '1' })).toBeChecked()
+    expect(within(element).getByLabelText('1')).toBeChecked()
 
-    userEvent.click(within(element).getByRole('radio', { name: '2' }))
+    await user.click(within(element).getByLabelText('2'))
 
-    await waitFor(() => expect(within(element).getByRole('radio', { name: '1' })).toBeChecked())
+    expect(props.onValueChange).toHaveBeenCalledTimes(1)
+    expect(props.onValueChange).toHaveBeenCalledWith('2')
   })
 
-  it('should check and uncheck when a RadioGroup.Radio is clicked while in controlled mode', async () => {
-    const props = { value: '1', onValueChange: vitest.fn() }
+  it('should not toggle checked state when disabled', async () => {
+    const user = userEvent.setup()
+    const props = { value: '1', onValueChange: vi.fn() }
 
     render(
-      <RadioGroup {...props}>
+      <RadioGroup {...props} disabled>
         <RadioGroup.Radio value="1">1</RadioGroup.Radio>
         <RadioGroup.Radio value="2">2</RadioGroup.Radio>
         <RadioGroup.Radio value="3">3</RadioGroup.Radio>
       </RadioGroup>
     )
-    const element = screen.getByRole('radiogroup')
 
-    expect(element).toBeInTheDocument()
-    expect(within(element).getByRole('radio', { name: '1' })).toBeChecked()
+    expect(screen.getByLabelText('1')).toBeChecked()
 
-    userEvent.click(within(element).getByRole('radio', { name: '2' }))
+    await user.click(screen.getByLabelText('2'))
 
-    await waitFor(() => expect(props.onValueChange).toBeCalledWith('2'))
+    expect(props.onValueChange).not.toHaveBeenCalled()
   })
 
-  it('should render with label', async () => {
-    const props = { defaultValue: 'electronics' }
+  describe('with FormField', () => {
+    it('should render with label', () => {
+      render(
+        <FormField name="category">
+          <FormField.Label asChild>
+            <p>Category</p>
+          </FormField.Label>
 
-    render(
-      <FormField name="category">
-        <FormField.Label asChild>
-          <p>Category</p>
-        </FormField.Label>
+          <RadioGroup defaultValue="electronics">
+            <RadioGroup.Radio value="electronics">Electronics</RadioGroup.Radio>
+            <RadioGroup.Radio value="furnitures">Furnitures</RadioGroup.Radio>
+          </RadioGroup>
+        </FormField>
+      )
 
-        <RadioGroup {...props}>
-          <RadioGroup.Radio value="electronics">Electronics</RadioGroup.Radio>
-          <RadioGroup.Radio value="furnitures">Furnitures</RadioGroup.Radio>
-        </RadioGroup>
-      </FormField>
-    )
+      expect(screen.getByRole('radiogroup', { name: 'Category' })).toBeInTheDocument()
+    })
 
-    const groupEl = screen.getByRole('radiogroup', { name: 'Category' })
+    it('should render aria-attributes following FormField implementation', () => {
+      render(
+        <FormField name="category" isRequired isInvalid>
+          <FormField.Label asChild>
+            <p>Category</p>
+          </FormField.Label>
 
-    expect(groupEl).toBeInTheDocument()
-  })
+          <RadioGroup>
+            <RadioGroup.Radio value="electronics">Electronics</RadioGroup.Radio>
+            <RadioGroup.Radio value="furnitures">Furnitures</RadioGroup.Radio>
+          </RadioGroup>
 
-  it('should render with helper message as description', async () => {
-    const props = { defaultValue: 'electronics' }
+          <FormField.HelperMessage>The category is required</FormField.HelperMessage>
+        </FormField>
+      )
 
-    render(
-      <FormField name="category">
-        <FormField.Label asChild>
-          <p>Category</p>
-        </FormField.Label>
+      const groupEl = screen.getByRole('radiogroup', { name: 'Category' })
 
-        <RadioGroup {...props}>
-          <RadioGroup.Radio value="electronics">Electronics</RadioGroup.Radio>
-          <RadioGroup.Radio value="furnitures">Furnitures</RadioGroup.Radio>
-        </RadioGroup>
+      expect(groupEl).toHaveAttribute('aria-required', 'true')
+      expect(groupEl).toBeInvalid()
 
-        <FormField.HelperMessage>The category is required</FormField.HelperMessage>
-      </FormField>
-    )
-
-    const groupEl = screen.getByRole('radiogroup', { name: 'Category' })
-    const helperTextEl = screen.getByText('The category is required')
-
-    expect(groupEl.getAttribute('aria-describedby')).toEqual(helperTextEl.getAttribute('id'))
-  })
-
-  it('should render with error message as description', async () => {
-    const props = { defaultValue: 'electronics' }
-
-    render(
-      <FormField name="category" isInvalid>
-        <FormField.Label asChild>
-          <p>Category</p>
-        </FormField.Label>
-
-        <RadioGroup {...props}>
-          <RadioGroup.Radio value="electronics">Electronics</RadioGroup.Radio>
-          <RadioGroup.Radio value="furnitures">Furnitures</RadioGroup.Radio>
-        </RadioGroup>
-
-        <FormField.ErrorMessage>The category is required</FormField.ErrorMessage>
-      </FormField>
-    )
-
-    const groupEl = screen.getByRole('radiogroup', { name: 'Category' })
-    const errorTextEl = screen.getByText('The category is required')
-
-    expect(groupEl).toHaveAttribute('aria-invalid', 'true')
-    expect(groupEl).toHaveAttribute('aria-describedby', errorTextEl.getAttribute('id'))
-  })
-
-  it('should render as required', async () => {
-    const props = { defaultValue: 'electronics' }
-
-    render(
-      <FormField name="category" isRequired>
-        <FormField.Label asChild>
-          <p>Category</p>
-        </FormField.Label>
-
-        <RadioGroup {...props}>
-          <RadioGroup.Radio value="electronics">Electronics</RadioGroup.Radio>
-          <RadioGroup.Radio value="furnitures">Furnitures</RadioGroup.Radio>
-        </RadioGroup>
-      </FormField>
-    )
-
-    const groupEl = screen.getByRole('radiogroup', { name: 'Category' })
-
-    expect(groupEl).toHaveAttribute('aria-required', 'true')
+      expect(
+        screen.getByRole('radiogroup', {
+          name: 'Category',
+          description: 'The category is required',
+        })
+      ).toBeInTheDocument()
+    })
   })
 })
