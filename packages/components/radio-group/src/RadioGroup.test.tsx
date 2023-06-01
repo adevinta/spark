@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from 'vitest'
 
 import { RadioGroup } from '.'
 
-describe('Radio', () => {
+describe('RadioGroup', () => {
   beforeEach(() => vi.clearAllMocks())
 
   it('should render correctly with accessible roles', () => {
