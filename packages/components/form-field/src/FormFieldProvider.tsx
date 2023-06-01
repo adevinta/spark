@@ -19,12 +19,13 @@ export const FormFieldProvider = ({
   const [messageIds, setMessageIds] = useState<string[]>([])
   const description = messageIds.length > 0 ? messageIds.join(' ') : undefined
 
-  const handleMessageIdAdd = useCallback((id: string) => {
-    setMessageIds(ids => [...ids, id])
+  const handleMessageIdAdd = useCallback((msgId: string) => {
+    setMessageIds(ids => [...ids, msgId])
   }, [])
 
-  const handleMessageIdRemove = useCallback((id: string) => {
-    setMessageIds(ids => ids.filter(current => current !== id))
+  const handleMessageIdRemove = useCallback((msgId: string) => {
+    /* eslint-disable-next-line max-nested-callbacks */
+    setMessageIds(ids => ids.filter(current => current !== msgId))
   }, [])
 
   const value = useMemo(() => {

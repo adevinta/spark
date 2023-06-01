@@ -16,9 +16,7 @@ function getCSSVariableDeclarations(_theme, htmlFontSize) {
 
   function traverse(theme, paths = []) {
     Object.entries(theme).forEach(([key, value]) => {
-      if (isObject(value)) {
-        return traverse(value, paths.concat(key))
-      }
+      if (isObject(value)) return traverse(value, paths.concat(key))
 
       if (isStringOrNumber(value)) {
         const getFormattedValue = () => {
@@ -28,9 +26,7 @@ function getCSSVariableDeclarations(_theme, htmlFontSize) {
             return `${red} ${green} ${blue}`
           }
 
-          if (/rem$/gi.test(value)) {
-            return getRemEquivalentValue(value, htmlFontSize)
-          }
+          if (/rem$/gi.test(value)) return getRemEquivalentValue(value, htmlFontSize)
 
           return value
         }

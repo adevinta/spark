@@ -33,26 +33,23 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     const isFieldEnclosed = field.id !== group.id
     const id = isFieldEnclosed ? field.id : undefined
     const description = isFieldEnclosed ? field.description : undefined
+
     const intent = (() => {
-      if (isInvalid) {
-        return 'error'
-      }
+      if (isInvalid) return 'error'
 
       return intentProp ?? group.intent
     })()
 
     const checked = group.value && value ? group.value.includes(value) : checkedProp
 
-    const handleCheckedChange = (checked: boolean) => {
-      if (onCheckedChange) {
-        onCheckedChange(checked)
-      }
+    const handleCheckedChange = (isChecked: boolean) => {
+      if (onCheckedChange) onCheckedChange(isChecked)
 
-      const element = rootRef.current
+      const rootRefValue = rootRef.current?.value
 
-      if (group.onCheckedChange && element?.value) {
-        group.onCheckedChange(checked, element.value)
-      }
+      if (!rootRefValue || !group.onCheckedChange) return
+
+      group.onCheckedChange(isChecked, rootRefValue)
     }
 
     return (
