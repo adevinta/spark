@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-
 import { FormField } from '@spark-ui/form-field'
 import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

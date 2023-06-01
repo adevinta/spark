@@ -1,5 +1,3 @@
-/* eslint-disable complexity */
-
 import { useFormFieldState } from '@spark-ui/form-field'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { forwardRef, useRef } from 'react'
@@ -35,7 +33,14 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     const isFieldEnclosed = field.id !== group.id
     const id = isFieldEnclosed ? field.id : undefined
     const description = isFieldEnclosed ? field.description : undefined
-    const intent = isInvalid ? 'error' : intentProp ?? group.intent
+    const intent = (() => {
+      if (isInvalid) {
+        return 'error'
+      }
+
+      return intentProp ?? group.intent
+    })()
+
     const checked = group.value && value ? group.value.includes(value) : checkedProp
 
     const handleCheckedChange = (checked: boolean) => {

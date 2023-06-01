@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'

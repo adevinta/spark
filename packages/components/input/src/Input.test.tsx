@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-
 import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
