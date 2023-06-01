@@ -1,10 +1,11 @@
 module.exports = {
   overrides: [
     {
-      files: ['**/*.test.ts', '**/*.test.tsx'],
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.stories.tsx'],
       rules: {
         'max-lines-per-function': [1, { max: 300, skipBlankLines: true, skipComments: true }],
         'max-nested-callbacks': [1, 4],
+        'no-console': 0,
       },
     },
     {
@@ -79,7 +80,7 @@ module.exports = {
     // Misc
     'array-callback-return': 1,
     complexity: [1, 8],
-    curly: [1, 'all'],
+    curly: [1, 'multi-line'],
     'max-lines': [1, { max: 300, skipBlankLines: true, skipComments: true }],
     'max-lines-per-function': [1, { max: 100, skipBlankLines: true, skipComments: true }],
     'max-depth': [2, 2],
@@ -89,6 +90,7 @@ module.exports = {
     'no-debugger': 1,
     'no-nested-ternary': 2,
     'no-shadow': 0,
+    'no-unneeded-ternary': 2,
     'no-unused-expressions': [1, { allowShortCircuit: true }],
     'no-use-before-define': 0,
     'no-var': 2,
