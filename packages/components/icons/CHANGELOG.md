@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.13.1...@spark-ui/icons@1.14.0) (2023-05-31)
+
+### Features
+
+- **icons:** make icons search input case insensitive ([69635c2](https://github.com/adevinta/spark/commit/69635c2387a19511fc452baa81c4ac763b419b01))
+
+## [1.13.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.13.0...@spark-ui/icons@1.13.1) (2023-05-30)
+
+### Bug Fixes
+
+- **icons:** update PinFill and PinOutline icons ([eb04df6](https://github.com/adevinta/spark/commit/eb04df65bc5b35cbf20126442290779fa4510f77))
+
 # [1.13.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.12.0...@spark-ui/icons@1.13.0) (2023-05-25)
 
 ### Features
