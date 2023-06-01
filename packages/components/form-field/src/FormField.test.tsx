@@ -94,6 +94,38 @@ describe('FormField', () => {
     expect(inputEl.getAttribute('aria-describedby')).toEqual(helperTextEl.getAttribute('id'))
   })
 
+  it('should render using custom label', () => {
+    render(
+      <FormField name="category">
+        <FormField.Label asChild>
+          <p>Category</p>
+        </FormField.Label>
+
+        <FormField.State>
+          {({ labelId, name }) => (
+            <div role="radiogroup" aria-labelledby={labelId}>
+              <label>
+                <input name={name} type="radio" value="electronics" />
+                Electronics
+              </label>
+
+              <label>
+                <input name={name} type="radio" value="furnitures" />
+                Furnitures
+              </label>
+            </div>
+          )}
+        </FormField.State>
+      </FormField>
+    )
+
+    expect(screen.getByRole('radiogroup', { name: 'Category' })).toBeInTheDocument()
+    expect(screen.getByLabelText('Electronics')).toHaveAttribute('name', 'category')
+    expect(screen.getByLabelText('Electronics')).toHaveAttribute('name', 'category')
+  })
+})
+
+describe('FormField error message', () => {
   it('should not render error message when is not invalid', () => {
     render(
       <FormField name="email">
@@ -178,35 +210,5 @@ describe('FormField', () => {
 
     expect(ids).toContain(helperTextEl.getAttribute('id'))
     expect(ids).toContain(errorTextEl.getAttribute('id'))
-  })
-
-  it('should render using custom label', () => {
-    render(
-      <FormField name="category">
-        <FormField.Label asChild>
-          <p>Category</p>
-        </FormField.Label>
-
-        <FormField.State>
-          {({ labelId, name }) => (
-            <div role="radiogroup" aria-labelledby={labelId}>
-              <label>
-                <input name={name} type="radio" value="electronics" />
-                Electronics
-              </label>
-
-              <label>
-                <input name={name} type="radio" value="furnitures" />
-                Furnitures
-              </label>
-            </div>
-          )}
-        </FormField.State>
-      </FormField>
-    )
-
-    expect(screen.getByRole('radiogroup', { name: 'Category' })).toBeInTheDocument()
-    expect(screen.getByLabelText('Electronics')).toHaveAttribute('name', 'category')
-    expect(screen.getByLabelText('Electronics')).toHaveAttribute('name', 'category')
   })
 })

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 export { Accessories } from './icons/Accessories'
 export { AccountFill } from './icons/AccountFill'
 export { AccountOutline } from './icons/AccountOutline'

@@ -79,8 +79,8 @@ export const Style: StoryFn = _args => {
 
 export const Ref: StoryFn = _args => {
   const [, setRendered] = useState(false)
-  const slotRef = useRef<any>(null)
-  const childRef = useRef<any>(null)
+  const slotRef = useRef<HTMLElement>(null)
+  const childRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     setRendered(true)
   }, [])

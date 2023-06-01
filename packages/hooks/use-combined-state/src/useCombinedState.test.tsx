@@ -4,13 +4,16 @@ import { describe, expect, it } from 'vitest'
 import { useCombinedState } from './index'
 
 describe('useCombinedState', () => {
-  const map = ({ value, defaultValue }: { value?: any; defaultValue?: any }): [any?, any?] => [
+  const map = ({
     value,
     defaultValue,
-  ]
+  }: {
+    value?: unknown
+    defaultValue?: unknown
+  }): [unknown?, unknown?] => [value, defaultValue]
   interface argsType {
-    value: any
-    defaultValue: any
+    value: unknown
+    defaultValue: unknown
   }
 
   it('should be defined', () => {

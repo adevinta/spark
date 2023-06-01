@@ -11,7 +11,7 @@ interface ReactLiveBlockProps {
    * For react-live to be aware of external components,
    * each one must be passed into the `scope` property.
    */
-  scope?: Record<string, any>
+  scope?: Record<string, unknown>
   /** Enable/Disable the editable JSX. */
   editable?: boolean
 }
