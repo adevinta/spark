@@ -24,7 +24,8 @@ export const FormFieldProvider = ({
   }, [])
 
   const handleMessageIdRemove = useCallback((msgId: string) => {
-    setMessageIds(utils.filterMessageIds(msgId))
+    /* eslint-disable-next-line max-nested-callbacks */
+    setMessageIds(ids => ids.filter(current => current !== msgId))
   }, [])
 
   const value = useMemo(() => {
@@ -50,12 +51,6 @@ export const FormFieldProvider = ({
   ])
 
   return <FormFieldContext.Provider value={value}>{children}</FormFieldContext.Provider>
-}
-
-const utils = {
-  filterMessageIds(msgId: string) {
-    return (ids: string[]) => ids.filter(current => current !== msgId)
-  },
 }
 
 FormFieldProvider.displayName = 'FormFieldProvider'

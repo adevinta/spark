@@ -1,13 +1,6 @@
 import { useFormFieldState } from '@spark-ui/form-field'
 import { useCombinedState } from '@spark-ui/use-combined-state'
-import {
-  ComponentPropsWithoutRef,
-  forwardRef,
-  MutableRefObject,
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react'
+import { ComponentPropsWithoutRef, forwardRef, useEffect, useMemo, useRef } from 'react'
 
 import { checkboxGroupStyles, CheckboxGroupStylesProps } from './CheckboxGroup.styles'
 import { CheckboxGroupContext, CheckboxGroupContextState } from './CheckboxGroupContext'
@@ -49,7 +42,17 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
     const name = nameProp ?? field.name
 
     const current = useMemo(() => {
-      const onCheckedChange = utils.handleCheckedChange({ value, setValue, onCheckedChangeRef })
+      const handleCheckedChange = (checked: boolean, changed: string) => {
+        const values = value || []
+        /* eslint-disable-next-line max-nested-callbacks */
+        const modified = checked ? [...values, changed] : values.filter(val => val !== changed)
+
+        setValue(modified)
+
+        if (onCheckedChangeRef.current) {
+          onCheckedChangeRef.current(modified)
+        }
+      }
 
       return {
         id,
@@ -59,7 +62,7 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
         isInvalid,
         description,
         isRequired,
-        onCheckedChange,
+        onCheckedChange: handleCheckedChange,
       }
     }, [id, name, value, intent, isInvalid, description, isRequired, setValue])
 
@@ -83,26 +86,5 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
     )
   }
 )
-
-const utils = {
-  handleCheckedChange({
-    value: valueProp,
-    setValue,
-    onCheckedChangeRef,
-  }: {
-    value?: string[]
-    setValue: (newValue: string[], forceFlag?: boolean | undefined) => void
-    onCheckedChangeRef: MutableRefObject<((value: string[]) => void) | undefined>
-  }) {
-    return (checked: boolean, changed: string) => {
-      const values = valueProp || []
-      const modified = checked ? [...values, changed] : values.filter(value => value !== changed)
-
-      setValue(modified)
-
-      onCheckedChangeRef.current?.(modified)
-    }
-  },
-}
 
 CheckboxGroup.displayName = 'CheckboxGroup'
