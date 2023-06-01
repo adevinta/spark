@@ -23,24 +23,25 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     forwardedRef
   ) => {
     const field = useFormFieldState()
-    const {
-      name = field.name,
-      isRequired = field.isRequired,
-      isInvalid = field.isInvalid,
-
-      id: groupId,
-      intent: groupIntent,
-      value: groupValue,
-      onCheckedChange: groupOnCheckedChange,
-    } = useCheckboxGroup()
+    const group = useCheckboxGroup()
     const rootRef = useRef<HTMLButtonElement | undefined>()
     const ref = useMergeRefs(forwardedRef, rootRef)
 
-    const isFieldEnclosed = field.id !== groupId
+    const name = field.name ?? group.name
+    const isRequired = field.isRequired ?? group.isRequired
+    const isInvalid = field.isInvalid ?? group.isInvalid
+    const isFieldEnclosed = field.id !== group.id
     const id = isFieldEnclosed ? field.id : undefined
     const description = isFieldEnclosed ? field.description : undefined
-    const intent = isInvalid ? 'error' : intentProp ?? groupIntent
-    const checked = groupValue && value ? groupValue.includes(value) : checkedProp
+    const intent = (() => {
+      if (isInvalid) {
+        return 'error'
+      }
+
+      return intentProp ?? group.intent
+    })()
+
+    const checked = group.value && value ? group.value.includes(value) : checkedProp
 
     const handleCheckedChange = (checked: boolean) => {
       if (onCheckedChange) {
@@ -49,8 +50,8 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
 
       const element = rootRef.current
 
-      if (groupOnCheckedChange && element?.value) {
-        groupOnCheckedChange(checked, element.value)
+      if (group.onCheckedChange && element?.value) {
+        group.onCheckedChange(checked, element.value)
       }
     }
 
