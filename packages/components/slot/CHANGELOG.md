@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.5.0...@spark-ui/slot@1.5.1) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/slot
+
 # [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.4.7...@spark-ui/slot@1.5.0) (2023-05-12)
 
 ### Features

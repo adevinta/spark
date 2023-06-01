@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@1.6.0...@spark-ui/internal-utils@1.6.1) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/internal-utils
+
 # [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@1.5.4...@spark-ui/internal-utils@1.6.0) (2023-05-11)
 
 ### Features
