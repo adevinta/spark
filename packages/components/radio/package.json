@@ -12,6 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@radix-ui/react-id": "1.0.0",
     "@radix-ui/react-label": "2.0.1",
     "@radix-ui/react-radio-group": "1.1.2",
     "@spark-ui/form-field": "^0.1.4",

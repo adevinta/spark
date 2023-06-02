@@ -1,3 +1,5 @@
+import { useId } from '@radix-ui/react-id'
+import { cx } from 'class-variance-authority'
 import { forwardRef } from 'react'
 
 import { useRadioGroup } from './RadioGroupContext'
@@ -7,17 +9,29 @@ import { RadioLabel } from './RadioLabel'
 export type RadioProps = RadioInputProps
 
 export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
-  ({ className, children, disabled: disabledProp, ...others }, ref) => {
-    const context = useRadioGroup()
+  ({ className, children, id, disabled: disabledProp, ...others }, ref) => {
+    const innerId = useId()
+    const innerLabelId = useId()
 
-    const { intent, size } = context
-    const disabled = disabledProp || context.disabled
+    const { intent, size, disabled } = useRadioGroup()
 
     return (
-      <RadioLabel className={className} disabled={disabled}>
-        <RadioInput ref={ref} intent={intent} size={size} {...others} />
-        {children}
-      </RadioLabel>
+      <div className={cx('flex items-center gap-md text-body-1', className)}>
+        <RadioInput
+          ref={ref}
+          id={id || innerId}
+          intent={intent}
+          size={size}
+          aria-labelledby={children ? innerLabelId : undefined}
+          {...others}
+        />
+
+        {children && (
+          <RadioLabel disabled={disabledProp || disabled} htmlFor={id || innerId} id={innerLabelId}>
+            {children}
+          </RadioLabel>
+        )}
+      </div>
     )
   }
 )

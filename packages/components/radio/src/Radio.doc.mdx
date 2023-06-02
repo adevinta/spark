@@ -33,9 +33,33 @@ import { RadioGroup } from '@spark-ui/radio'
 
 ## Usage
 
-Compound `RadioGroup` and `Radio` components to create a radio group.
-
 <Canvas of={RadioStories.Default} />
+
+## Using a FormField
+
+If you need to provide more context about the Radio group (for example, a helper message or an error message) the FormField component could be used. See [documentation](./?path=/docs/experimental-formfield--docs) for more details.
+
+<Canvas of={RadioStories.WithFormField} />
+
+## Disabled
+
+<Canvas of={RadioStories.Disabled} />
+
+## Intent
+
+Use `intent` prop to set the color of every radio inside the group. Optionally, you can set the `intent` in each radio component.
+
+<Canvas of={RadioStories.Intent} />
+
+## Size
+
+Use `size` prop to set the size of every radio inside the group. Optionally, you can set the `size` in each radio component.
+
+<Canvas of={RadioStories.Size} />
+
+## Orientation
+
+<Canvas of={RadioStories.Orientation} />
 
 ## Uncontrolled
 
@@ -49,57 +73,9 @@ Use `value` and `onValueChange` props to make the radio group controlled.
 
 <Canvas of={RadioStories.Controlled} />
 
-## Disabled
-
-Use `disable` prop to disable all radios inside the group.
-
-<Canvas of={RadioStories.Disabled} />
-
-## Intent
-
-Use `intent` prop to set the color of every radio inside the group. Optionally, you can set the `intent` in each radio component.
-
-<Canvas of={RadioStories.Intent} />
-
-## Orientation
-
-Use `orientation` prop to set the orientation of the component which could be `vertical` or `horizontal`.
-
-<Canvas of={RadioStories.Orientation} />
-
-## Size
-
-Use `size` prop to set the size of every radio inside the group. Optionally, you can set the `size` in each radio component.
-
-<Canvas of={RadioStories.Size} />
-
-## Form field
-
-### Usage
-
-Use `FormField`, `FormField.Label`, `FormField.HelperMessage` and `FormField.ErrorMessage` to provide context to the radio group.
-
-<Canvas of={RadioStories.Control} />
-
-### Hidden label
-
-Use `VisuallyHidden` component to hide the label of the radio group.
-
-<Canvas of={RadioStories.HiddenLabel} />
-
-### Required
-
-Use the `isRequired` prop to indicate that the radio group is required.
-
-<Canvas of={RadioStories.Required} />
-
-### Invalid
-
-Use the `isInvalid` prop to indicate that the radio group is invalid and show the error message.
-
-<Canvas of={RadioStories.Invalid} />
-
 ## Accessibility
+
+This component should always have a label, directly declared through the `children` prop or inherited from the `FormField` wrapper. If none of those are available it is strongly recommended to define an `aria-label` attribute, to comply to accessibility requirements.
 
 Adheres to the [Radio Group WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton) and uses [roving tabindex](https://www.w3.org/TR/wai-aria-practices-1.2/examples/radio/radio.html) to manage focus movement among radio items.
 
