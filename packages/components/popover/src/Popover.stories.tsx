@@ -1,5 +1,5 @@
 import { Button } from '@spark-ui/button'
-import { RadioGroup } from '@spark-ui/radio'
+import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
 import { forwardRef, PropsWithChildren, useState } from 'react'
