@@ -35,7 +35,7 @@ export const buttonStyles = cva(
        */
       design: makeVariants<'design'>({
         filled: [],
-        outlined: ['bg-transparent', 'ring-2', 'ring-current'],
+        outlined: ['bg-transparent', 'ring-1', 'ring-current'],
         tinted: [],
         ghost: [],
         contrast: ['bg-surface'],
