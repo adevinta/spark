@@ -9,6 +9,7 @@ const utils = {
     return typeof value === 'string' || typeof value === 'number'
   },
   toKebabCase(value) {
+    if (value.toUpperCase() === value) return value.toLowerCase()
     return value.replace(/[A-Z0-9]/g, e => `-${e.toLocaleLowerCase()}`)
   },
   doubleHyphensRegex: /(?<!var\()--+/g,
