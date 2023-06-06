@@ -3,11 +3,8 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const inputStyles = cva(
   [
     'h-sz-44',
-    'border-sm',
     'outline-none',
     'text-ellipsis',
-    'text-body-1',
-    'cursor-auto',
     'caret-neutral',
     'appearance-none',
     'autofill:shadow-surface',
@@ -16,10 +13,17 @@ export const inputStyles = cva(
   {
     variants: {
       intent: {
-        neutral: ['focus:border-outline-high', 'ring-outline-high'],
-        success: ['border-success', 'ring-success'],
-        alert: ['border-alert', 'ring-alert'],
-        error: ['border-error', 'ring-error'],
+        neutral: [
+          'border-sm',
+          'focus:border-md',
+          'border-outline',
+          'focus:border-outline-high',
+          'ring-outline-high',
+        ],
+        success: ['border-sm', 'focus:border-md', 'border-success', 'ring-success'],
+        alert: ['border-sm', 'focus:border-md', 'border-alert', 'ring-alert'],
+        error: ['border-sm', 'focus:border-md', 'border-error', 'ring-error'],
+        none: [],
       },
       isHovered: {
         true: [],
@@ -49,8 +53,8 @@ export const inputStyles = cva(
     compoundVariants: [
       {
         intent: 'neutral',
-        isDisabled: true,
-        class: 'border-outline',
+        isDisabled: false,
+        class: 'hover:border-outline-high focus:border-outline-high',
       },
       {
         isLeftElementVisible: false,
@@ -81,29 +85,6 @@ export const inputStyles = cva(
         isRightElementVisible: true,
         isRightAddonVisible: false,
         class: 'pr-3xl',
-      },
-      {
-        intent: 'neutral',
-        isHovered: false,
-        class: 'border-outline',
-      },
-      {
-        intent: 'neutral',
-        isDisabled: false,
-        isHovered: true,
-        class: 'border-outline-high',
-      },
-      {
-        intent: 'neutral',
-        isDisabled: false,
-        isLeftAddonVisible: false,
-        isRightAddonVisible: false,
-        class: 'hover:border-outline-high',
-      },
-      {
-        isLeftAddonVisible: false,
-        isRightAddonVisible: false,
-        class: 'focus:ring-1',
       },
     ],
   }

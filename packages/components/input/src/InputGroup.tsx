@@ -1,3 +1,4 @@
+import { cx } from 'class-variance-authority'
 import {
   Children,
   ComponentPropsWithoutRef,
@@ -10,7 +11,8 @@ import {
   useState,
 } from 'react'
 
-import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
+import { InputContainer } from './InputContainer'
+import { InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
 export interface InputGroupProps
   extends ComponentPropsWithoutRef<'div'>,
@@ -19,7 +21,10 @@ export interface InputGroupProps
 }
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  ({ className, children: childrenProp, intent = 'neutral', isDisabled, ...others }, ref) => {
+  (
+    { className, children: childrenProp, intent = 'neutral', isDisabled = false, ...others },
+    ref
+  ) => {
     const [isFocused, setIsFocused] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
 
@@ -61,7 +66,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
       return {
         intent,
-        isDisabled: !!isDisabled,
+        isDisabled,
         isHovered,
         isFocused,
         isLeftElementVisible,
@@ -86,19 +91,19 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     return (
       <InputGroupContext.Provider value={value}>
-        <div
+        <InputContainer
+          className={cx(className, 'relative inline-flex')}
           ref={ref}
-          className={inputGroupStyles({
-            className,
-            intent,
-            isFocused,
-          })}
+          intent={intent}
+          isHovered={isHovered}
+          isFocused={isFocused}
+          isDisabled={isDisabled}
           {...others}
         >
           {left}
           {input}
           {right}
-        </div>
+        </InputContainer>
       </InputGroupContext.Provider>
     )
   }

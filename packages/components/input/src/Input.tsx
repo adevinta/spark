@@ -25,7 +25,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
   (
     {
       className,
-      intent: intentProp,
+      intent: intentProp = 'neutral',
       disabled: disabledProp,
       onFocus,
       onBlur,
@@ -39,15 +39,25 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
     const group = useInputGroup() || {}
 
     const {
-      isHovered,
-      isLeftAddonVisible,
-      isRightAddonVisible,
-      isLeftElementVisible,
-      isRightElementVisible,
+      isHovered = false,
+      isLeftAddonVisible = false,
+      isRightAddonVisible = false,
+      isLeftElementVisible = false,
+      isRightElementVisible = false,
     } = group
     const { id, name, isInvalid, isRequired, description } = field
-    const intent = isInvalid ? 'error' : intentProp || group.intent || 'neutral'
-    const isDisabled = disabledProp ?? group.isDisabled
+
+    const getIntent = () => {
+      if (isLeftAddonVisible || isRightAddonVisible) {
+        return 'none'
+      }
+
+      if (isInvalid) {
+        return 'error'
+      }
+
+      return group.intent || intentProp
+    }
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
@@ -89,6 +99,9 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
       }
     }
 
+    const intent = getIntent()
+    const isDisabled = disabledProp ?? !!group.isDisabled
+
     return (
       <input
         ref={ref}
@@ -97,12 +110,12 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
         className={inputStyles({
           className,
           intent,
-          isHovered: !!isHovered,
-          isDisabled: !!isDisabled,
-          isLeftAddonVisible: !!isLeftAddonVisible,
-          isRightAddonVisible: !!isRightAddonVisible,
-          isLeftElementVisible: !!isLeftElementVisible,
-          isRightElementVisible: !!isRightElementVisible,
+          isHovered,
+          isDisabled,
+          isLeftAddonVisible,
+          isRightAddonVisible,
+          isLeftElementVisible,
+          isRightElementVisible,
         })}
         disabled={isDisabled}
         required={isRequired}
