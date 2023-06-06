@@ -5,6 +5,8 @@ import { ChangeEvent, FocusEvent, forwardRef, PropsWithChildren, useRef, useStat
 
 import { textFieldStyles } from './TextField.styles'
 import { TextFieldLabel } from './TextFieldLabel'
+import { TextFieldLegend } from './TextFieldLegend'
+import { TextFieldset } from './TextFieldset'
 
 export type TextFieldProps = InputProps
 
@@ -16,6 +18,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
       placeholder,
       value,
       defaultValue,
+      intent,
       onChange,
       onFocus,
       onBlur,
@@ -31,7 +34,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
     const rootRef = useRef<HTMLInputElement | null>(null)
     const ref = useMergeRefs(rootRef, forwardedRef)
 
-    const { isLeftAddonVisible = false } = group || {}
+    const { isLeftAddonVisible = false, isHovered = false } = group || {}
     const isGrouped = !!group
     const isExpanded = isFocused || isLeftAddonVisible || !!placeholder || isValueSet
 
@@ -64,14 +67,20 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
         <Input
           id={id}
           ref={ref}
+          className="w-full"
           placeholder={placeholder}
           value={value}
           defaultValue={defaultValue}
+          intent="none"
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
           {...others}
         />
+
+        <TextFieldset intent={intent} isFocused={isFocused} isHovered={isHovered}>
+          <TextFieldLegend isExpanded={isExpanded}>{children}</TextFieldLegend>
+        </TextFieldset>
 
         {children && (
           <TextFieldLabel htmlFor={id} isExpanded={isExpanded}>

@@ -1,6 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const textFieldStyles = cva([], {
+export const textFieldStyles = cva(['inline-block'], {
   variants: {
     isGrouped: {
       true: [],
