@@ -28,39 +28,11 @@ import { Checkbox, CheckboxGroup } from '@spark-ui/checkbox'
 
 ## Usage
 
-The checkbox component accepts `children`, which are rendered as the label. Checkboxes should **always have a label**.
-
 <Canvas of={CheckboxStories.Default} />
-
-## Hidden label
-
-In certain cases, a visible label may not be necessary, such as when using a checkbox to select a table row. To achieve this behavior, the `VisuallyHidden` component can be used.
-
-<Canvas of={CheckboxStories.HiddenLabel} />
 
 ## Disabled
 
-Use `disabled` prop to indicate the switch is disabled.
-
 <Canvas of={CheckboxStories.Disabled} />
-
-## Uncontrolled
-
-Use `defaultChecked` prop to set the default state of the checkbox. Optionally `onCheckedChange` prop can be used to know when the state of the checkbox changes.
-
-<Canvas of={CheckboxStories.Uncontrolled} />
-
-## Controlled
-
-Use `checked` and `onCheckedChange` props to control the state of the checkbox.
-
-<Canvas of={CheckboxStories.Controlled} />
-
-## Indeterminate
-
-Use `checked` prop to set the state of the checkbox to indeterminate.
-
-<Canvas of={CheckboxStories.Indeterminate} />
 
 ## Intent
 
@@ -74,73 +46,63 @@ Use `icon` prop to change the default checked icon.
 
 <Canvas of={CheckboxStories.Icon} />
 
-## CheckboxGroup
+## Uncontrolled
+
+Use `defaultChecked` prop to set the default state of the checkbox. Optionally `onCheckedChange` prop can be used to know when the state of the checkbox changes.
+
+<Canvas of={CheckboxStories.Uncontrolled} />
+
+## Controlled
+
+Use `checked` and `onCheckedChange` props to control the state of the checkbox. The `checked` prop can also be set to indeterminate.
+
+<Canvas of={CheckboxStories.Controlled} />
+
+# CheckboxGroup
 
 A checkbox group allows users to select one or more items from a list of choices.
 
-### Props
+## Props
 
 <ArgTypes of={CheckboxGroup} />
 
-### Usage
+## Usage
 
 <Canvas of={CheckboxStories.Group} />
 
-### Label
+## Using a FormField
 
-Checkbox groups should **always have a label**.
+If you need to provide more context about the Checkbox (for example, a helper message or an error message) the FormField component could be used. See [documentation](./?path=/docs/experimental-formfield--docs) for more details.
 
-<Canvas of={CheckboxStories.GroupLabel} />
+<Canvas of={CheckboxStories.GroupImproved} />
 
-### Hidden Label
-
-Similarly to the checkbox, in certain cases, a visible label may not be necessary, and for that, the `VisuallyHidden` component can be used.
-
-<Canvas of={CheckboxStories.GroupHiddenLabel} />
-
-### Uncontrolled
-
-The `defaultValue` prop can be used to set the default state of the group. Optionally `onChange` prop can be used to get the current state of the checkbox group.
-
-<Canvas of={CheckboxStories.GroupControlled} />
-
-### Orientation
-
-Use `orientation` prop to set the orientation of the checkbox group which could be `vertical` or `horizontal`.
-
-<Canvas of={CheckboxStories.GroupOrientation} />
-
-### Controlled
-
-Use `value` and `onChange` props to control the state of the checkbox.
-
-<Canvas of={CheckboxStories.GroupControlled} />
-
-### Intent
+## Intent
 
 Use `intent` prop to change the color of all the checkboxes within the group.
 
 <Canvas of={CheckboxStories.GroupIntent} />
 
-### Required
+## Orientation
 
-Use the `isRequired` prop to indicate that the checkbox group is required.
+Use `orientation` prop to set the orientation of the checkbox group which could be `vertical` or `horizontal`.
 
-<Canvas of={CheckboxStories.GroupRequired} />
+<Canvas of={CheckboxStories.GroupOrientation} />
 
-### Validation
+## Uncontrolled
 
-Use the `isInvalid` prop to indicate that the checkbox group is invalid.
+The `defaultValue` prop can be used to set the default state of the group. Optionally `onChange` prop can be used to get the current state of the checkbox group.
 
-<Canvas of={CheckboxStories.GroupValidation} />
+<Canvas of={CheckboxStories.GroupUncontrolled} />
 
-#### Individual validation
+## Controlled
 
-If an individual checkbox is invalid, wrap it with a `FormField` component a set the `isInvalid` prop to `true`.
+Use `value` and `onChange` props to control the state of the checkbox.
 
-<Canvas of={CheckboxStories.GroupIndividualValidation} />
+<Canvas of={CheckboxStories.GroupControlled} />
 
 ## Accessibility
+
+This component should always have a label, directly declared through the `children` prop or inherited from the `FormField` wrapper. If none of those are available it is strongly recommended to define an `aria-label` attribute, to comply to accessibility requirements.
 
 Adheres to the [`tri-state Checkbox WAI-ARIA design pattern`](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox).
 

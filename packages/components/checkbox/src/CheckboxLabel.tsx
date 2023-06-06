@@ -9,8 +9,8 @@ export interface CheckboxLabelProps extends LabelProps, LabelStylesProps {
   disabled?: boolean
 }
 
-export const CheckboxLabel = ({ className, disabled, ...others }: CheckboxLabelProps) => {
-  return <Label className={labelStyles({ className, disabled })} {...others} />
-}
+export const CheckboxLabel = ({ disabled, ...others }: CheckboxLabelProps) => (
+  <Label className={labelStyles({ disabled })} {...others} />
+)
 
 CheckboxLabel.displayName = 'CheckboxLabel'
