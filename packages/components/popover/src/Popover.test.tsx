@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 import { useState } from 'react'
@@ -255,6 +255,31 @@ describe('Popover', () => {
           expect(onCloseAutoFocus).toHaveBeenCalledTimes(1)
         })
       })
+    })
+  })
+
+  describe('Popover.Portal', () => {
+    it('should render the Popover into the body of the document', () => {
+      // Given a popover rendered into a Portal
+      render(
+        <div data-testid="popover-container">
+          <Popover open>
+            <Popover.Trigger asChild>
+              <button type="button">Click me</button>
+            </Popover.Trigger>
+            <Popover.Portal>
+              <Popover.Content>Popover content</Popover.Content>
+            </Popover.Portal>
+          </Popover>
+        </div>
+      )
+
+      // When we search for the popover inside of its original container
+      const originalContainer = screen.getByTestId('popover-container')
+
+      // Then it is rendered outside of it (inside document.body)
+      expect(within(originalContainer).queryByText('Popover content')).not.toBeInTheDocument()
+      expect(screen.getByText('Popover content')).toBeInTheDocument()
     })
   })
 
