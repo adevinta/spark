@@ -74,6 +74,8 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       disabled,
     })
 
+    const isIconOnly = icon && children === undefined
+
     return (
       <ChipElement
         ref={forwardedRef}
@@ -89,7 +91,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
         }}
         data-spark-component="chip"
       >
-        <span className={chipContentStyles({})}>
+        <span className={chipContentStyles({ mode: isIconOnly ? 'icon' : 'default' })}>
           {icon && (
             <span>
               <Icon>{icon}</Icon>
