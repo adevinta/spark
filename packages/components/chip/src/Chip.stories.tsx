@@ -1,5 +1,6 @@
+import { CameraFill } from '@spark-ui/icons/dist/icons/CameraFill'
 import { Meta, StoryFn } from '@storybook/react'
-import { ComponentProps, useState } from 'react'
+import { ComponentProps, ReactElement, useState } from 'react'
 
 import { Chip } from '.'
 
@@ -26,7 +27,71 @@ export default meta
 
 export const Default: StoryFn = _args => <Chip>Hello World!</Chip>
 
-const ToogleChip = ({ intent, children }) => {
+export const MaxLength: StoryFn = _args => (
+  <div className="gap-md flex flex-col flex-wrap">
+    <div className="gap-md flex flex-wrap">
+      <Chip>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
+      <Chip icon={<CameraFill />}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
+      <Chip icon={<CameraFill />} onClose={() => console.log('close')}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Chip>
+    </div>
+    <div className="gap-md flex flex-wrap">
+      <Chip design="filled">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
+      <Chip design="filled" icon={<CameraFill />}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Chip>
+      <Chip design="filled" icon={<CameraFill />} onClose={() => console.log('close')}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Chip>
+    </div>
+    <div className="gap-md flex flex-wrap">
+      <Chip design="dashed">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
+      <Chip design="dashed" icon={<CameraFill />}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Chip>
+      <Chip design="dashed" icon={<CameraFill />} onClose={() => console.log('close')}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Chip>
+    </div>
+    <div className="gap-md flex flex-wrap">
+      <Chip design="tinted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
+      <Chip design="tinted" icon={<CameraFill />}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Chip>
+      <Chip design="tinted" icon={<CameraFill />} onClose={() => console.log('close')}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Chip>
+    </div>
+  </div>
+)
+
+export const Disabled: StoryFn = _args => (
+  <div className="gap-md flex flex-wrap">
+    <Chip disabled>disabled</Chip>
+    <Chip disabled onClose={() => console.log('close')}>
+      disabled
+    </Chip>
+  </div>
+)
+
+export const Icon: StoryFn = _args => (
+  <div className="gap-md flex flex-wrap">
+    <Chip icon={<CameraFill />}>Trailing icon</Chip>
+    <Chip icon={<CameraFill />} onClose={() => console.log('close')}>
+      Trailing icon
+    </Chip>
+    <Chip icon={<CameraFill />} />
+  </div>
+)
+
+const ToggleChip = ({
+  intent,
+  children,
+}: {
+  intent?: ChipProps['intent']
+  children?: ReactElement | string
+}) => {
   const [pressed, setPressed] = useState<undefined | boolean>()
 
   return (
@@ -44,7 +109,41 @@ const ToogleChip = ({ intent, children }) => {
 export const Interactions: StoryFn = _args => {
   return (
     <div className="gap-md flex flex-wrap">
-      <ToogleChip>Hello World!</ToogleChip>
+      <ToggleChip>Hello World!</ToggleChip>
+    </div>
+  )
+}
+
+export const Behavior: StoryFn = _args => {
+  const [pressed, setPressed] = useState<undefined | boolean>(false)
+
+  return (
+    <div className="gap-md flex flex-wrap">
+      <Chip>default</Chip>
+      <Chip
+        onClick={() => {
+          console.log('actionable')
+        }}
+      >
+        actionable
+      </Chip>
+      <Chip
+        defaultPressed={false}
+        onClick={(_, { pressed }) => {
+          setPressed(!pressed)
+          console.log('toggleable')
+        }}
+        design={pressed ? 'tinted' : undefined}
+      >
+        toggle
+      </Chip>
+      <Chip
+        onClose={_ => {
+          console.log('closable')
+        }}
+      >
+        closeable
+      </Chip>
     </div>
   )
 }

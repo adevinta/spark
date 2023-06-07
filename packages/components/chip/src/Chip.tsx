@@ -1,8 +1,15 @@
-import { Slot } from '@spark-ui/slot'
-import { useCombinedState } from '@spark-ui/use-combined-state'
+import { Icon } from '@spark-ui/icon'
+import { DeleteFill } from '@spark-ui/icons/dist/icons/DeleteFill'
 import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react'
 
-import { chipStyles, type ChipStylesProps } from './Chip.styles'
+import {
+  chipCloseStyles,
+  chipContentStyles,
+  chipContentTextStyles,
+  chipStyles,
+  type ChipStylesProps,
+} from './Chip.styles'
+import { useChipElement } from './useChipElement'
 
 export interface ChipProps
   extends PropsWithChildren<
@@ -28,9 +35,18 @@ export interface ChipProps
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     args: { pressed: boolean }
   ) => void
+  onClose?: React.MouseEventHandler<HTMLSpanElement>
+  /**
+   * The default closing icon
+   */
+  closeIcon?: React.ReactElement
+  /**
+   * Trailing icon
+   */
+  icon?: React.ReactElement
 }
 
-export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
+export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
   (
     {
       design = 'outlined',
@@ -41,20 +57,25 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
       pressed,
       asChild,
       className,
+      onClick,
+      onClose,
+      closeIcon = <DeleteFill />,
+      icon,
       ...otherProps
     },
     forwardedRef
   ) => {
-    const Component = asChild ? Slot : 'button'
-    const [isPressed, setIsPressed] = useCombinedState(pressed, defaultPressed)
-    const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-      setIsPressed(!isPressed)
-      otherProps.onClick && otherProps.onClick(event, { pressed: isPressed as boolean })
-    }
+    const [ChipElement, elementProps, closeIconProps] = useChipElement({
+      asChild,
+      pressed,
+      defaultPressed,
+      onClick,
+      onClose,
+      disabled,
+    })
 
     return (
-      <Component
-        type="button"
+      <ChipElement
         ref={forwardedRef}
         className={chipStyles({
           className,
@@ -63,20 +84,29 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
           intent,
           pressed: isPressed,
         })}
-        disabled={!!disabled}
         {...{
-          ...(isPressed !== undefined && {
-            'aria-pressed': isPressed,
-            'data-state': isPressed ? 'on' : 'off',
-          }),
-          ...(disabled && { 'data-disabled': true }),
+          ...elementProps,
           ...otherProps,
         }}
         data-spark-component="chip"
-        onClick={handleOnClick}
       >
-        {children}
-      </Component>
+        <span className={chipContentStyles({})}>
+          {icon && (
+            <span>
+              <Icon>{icon}</Icon>
+            </span>
+          )}
+          {children && <span className={chipContentTextStyles({})}>{children}</span>}
+          {onClose && (
+            <span
+              className={chipCloseStyles({ cursor: disabled ? 'disabled' : 'pointer' })}
+              {...closeIconProps}
+            >
+              <Icon>{closeIcon}</Icon>
+            </span>
+          )}
+        </span>
+      </ChipElement>
     )
   }
 )
