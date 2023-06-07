@@ -33,7 +33,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       return children.find(child => values.includes(getDisplayName(child) || ''))
     }
 
-    const input = findElement(['Input'])
+    const input = findElement(['Input', 'Textarea'])
     const left = findElement(['InputGroup.LeftAddon', 'InputGroup.LeftElement'])
     const right = findElement(['InputGroup.RightAddon', 'InputGroup.RightElement'])
     const isLeftAddonVisible = getDisplayName(left) === 'InputGroup.LeftAddon'
