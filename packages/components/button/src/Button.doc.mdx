@@ -65,6 +65,15 @@ Compose the content of the button using the `Icon` component to add an icon to t
 
 <Canvas of={ButtonStories.Icons} />
 
+## Loading state
+
+Use the `isLoading` prop to render the button in loading state.
+This will prepend a spinner inside the button.
+
+It preserves the width of your button to avoid content layout shifting.
+
+<Canvas of={ButtonStories.LoadingState} />
+
 ## Link
 
 Use `intent` prop to set the color intent of a button.

@@ -1,8 +1,10 @@
+import { StoryLabel } from '@docs/helpers/StoryLabel'
+import { Checkbox } from '@spark-ui/checkbox'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { FavoriteOutline } from '@spark-ui/icons/dist/icons/FavoriteOutline'
 import { Meta, StoryFn } from '@storybook/react'
-import { type ComponentProps } from 'react'
+import { type ComponentProps, useState } from 'react'
 
 import { Button } from '.'
 
@@ -35,7 +37,7 @@ export const Sizes: StoryFn = _args => (
   <div className="gap-md flex flex-wrap items-center">
     {sizes.map(size => {
       return (
-        <Button key={size} size={size}>
+        <Button key={size} size={size} className="!bg-error">
           Button {size}
         </Button>
       )
@@ -103,10 +105,44 @@ export const Icons: StoryFn = _args => (
   </div>
 )
 
+export const LoadingState: StoryFn = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <div className="gap-lg flex flex-col">
+      <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
+        Toggle loading state
+      </Checkbox>
+
+      <div className="gap-md flex flex-wrap">
+        <div>
+          <StoryLabel>Spinner only</StoryLabel>
+          <Button isLoading={isLoading} loadingLabel="Loading...">
+            <Icon>
+              <FavoriteOutline />
+            </Icon>
+            Button (width is preserved)
+          </Button>
+        </div>
+
+        <div>
+          <StoryLabel>Spinner + text</StoryLabel>
+          <Button isLoading={isLoading} loadingText="Loading...">
+            <Icon>
+              <FavoriteOutline />
+            </Icon>
+            Button
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export const Link: StoryFn = _args => (
   <div className="gap-md flex flex-wrap">
     <Button asChild>
-      <a href="/">button</a>
+      <a href="/">Button as a link</a>
     </Button>
   </div>
 )
