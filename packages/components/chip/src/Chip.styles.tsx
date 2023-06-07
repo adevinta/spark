@@ -4,10 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { dashedVariants, filledVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const chipStyles = cva(
-  [
-    'gap-md box-border inline-flex items-center justify-center whitespace-nowrap',
-    'px-lg text-body-1 h-sz-32 rounded-lg font-bold ring-inset',
-  ],
+  ['gap-md box-border', 'text-body-1 h-sz-32 inline-block rounded-md font-bold ring-inset'],
   {
     variants: {
       /**
@@ -62,5 +59,23 @@ export const chipStyles = cva(
     },
   }
 )
+
+export const chipContentStyles = cva([
+  'gap-sm px-lg inline-flex h-full max-w-[240px] items-center justify-center whitespace-nowrap',
+])
+
+export const chipContentTextStyles = cva(['overflow-hidden text-ellipsis'])
+
+export const chipCloseStyles = cva(['w-xl h-xl flex items-center justify-center'], {
+  variants: {
+    cursor: {
+      pointer: ['cursor-pointer'],
+      disabled: ['cursor-not-allowed'],
+    },
+  },
+  defaultVariants: {
+    cursor: 'pointer',
+  },
+})
 
 export type ChipStylesProps = VariantProps<typeof chipStyles>
