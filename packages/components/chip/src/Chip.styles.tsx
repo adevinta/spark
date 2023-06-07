@@ -60,9 +60,20 @@ export const chipStyles = cva(
   }
 )
 
-export const chipContentStyles = cva([
-  'gap-sm px-lg inline-flex h-full max-w-[240px] items-center justify-center whitespace-nowrap',
-])
+export const chipContentStyles = cva(
+  ['gap-sm inline-flex h-full max-w-[240px] items-center justify-center whitespace-nowrap'],
+  {
+    variants: {
+      mode: {
+        default: 'px-lg',
+        icon: 'px-md',
+      },
+    },
+    defaultVariants: {
+      mode: 'default',
+    },
+  }
+)
 
 export const chipContentTextStyles = cva(['overflow-hidden text-ellipsis'])
 
