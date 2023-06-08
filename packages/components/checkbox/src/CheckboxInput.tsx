@@ -54,20 +54,18 @@ export const CheckboxInput = forwardRef<HTMLButtonElement, CheckboxInputProps>(
   (
     { className, icon = <Check />, indeterminateIcon = <Minus />, intent, checked, ...others },
     ref
-  ) => {
-    return (
-      <CheckboxPrimitive
-        ref={ref}
-        className={checkboxInputStyles({ intent, className })}
-        checked={checked}
-        {...others}
-      >
-        <CheckboxIndicator>
-          <Icon size="sm">{checked === 'indeterminate' ? indeterminateIcon : icon}</Icon>
-        </CheckboxIndicator>
-      </CheckboxPrimitive>
-    )
-  }
+  ) => (
+    <CheckboxPrimitive
+      ref={ref}
+      className={checkboxInputStyles({ intent, className })}
+      checked={checked}
+      {...others}
+    >
+      <CheckboxIndicator>
+        <Icon size="sm">{checked === 'indeterminate' ? indeterminateIcon : icon}</Icon>
+      </CheckboxIndicator>
+    </CheckboxPrimitive>
+  )
 )
 
 CheckboxInput.displayName = 'CheckboxInput'

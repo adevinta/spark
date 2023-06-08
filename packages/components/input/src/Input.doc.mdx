@@ -1,0 +1,121 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
+
+import { Input, InputGroup } from '.'
+
+import * as stories from './Input.stories'
+
+<Meta of={stories} />
+
+# Input
+
+Component used to get user input in a text field
+
+## Install
+
+```sh
+npm install @spark-ui/input
+```
+
+## Import
+
+```tsx
+import { Input } from '@spark-ui/input'
+```
+
+## Props
+
+<ArgTypes of={Input} />
+
+## Usage
+
+<Canvas of={stories.Default} />
+
+## Uncontrolled
+
+Use `defaultValue` prop to set the default value of the input. Optionally `onChange` prop can be used to know when the value of the input changes.
+
+<Canvas of={stories.Uncontrolled} />
+
+## Controlled
+
+Use `value` and `onChange` props to control the value of the input.
+
+<Canvas of={stories.Controlled} />
+
+## Disabled
+
+Use `disabled` prop to indicate the input is disabled.
+
+<Canvas of={stories.Disabled} />
+
+## Intent
+
+Use `intent` prop to change the color of the input.
+
+<Canvas of={stories.Intent} />
+
+## InputGroup
+
+Use `InputGroup` component to group your input with addons and elements like icons.
+
+### Props
+
+<ExtendedArgTypes
+  of={InputGroup}
+  subcomponents={{
+    'InputGroup.LeftAddon': InputGroup.LeftAddon,
+    'InputGroup.LeftElement': InputGroup.LeftElement,
+    'InputGroup.RightAddon': InputGroup.RightAddon,
+    'InputGroup.RightElement': InputGroup.RightElement,
+  }}
+/>
+
+### Addons
+
+<Canvas of={stories.GroupAddons} />
+
+### Elements
+
+<Canvas of={stories.GroupElements} />
+
+### Disabled
+
+Use `isDisabled` prop of the `InputGroup` to indicate that the input group is disabled. Use this prop instead of the input's disabled prop when it is within a group.
+
+<Canvas of={stories.GroupDisabled} />
+
+## FormField
+
+Use `FormField` component to provide context to the input.
+
+### Label
+
+Use `FormField.Label` to add a label to the input.
+
+<Canvas of={stories.FieldLabel} />
+
+#### Hidden label
+
+In certain cases, a visible label may not be necessary, such as when using an input as a searcher. To achieve this behavior, use the `VisuallyHidden` component.
+
+<Canvas of={stories.FieldHiddenLabel} />
+
+### Required
+
+Use the `isRequired` prop of the `FormField` to indicate that the input is required.
+
+<Canvas of={stories.FieldRequired} />
+
+### Helper message
+
+Use the `FormField.HelperMessage` component to provide a description to the input.
+
+<Canvas of={stories.FieldHelperMessage} />
+
+### Validation
+
+Use the `isInvalid` prop of the `FormField` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
+
+<Canvas of={stories.FieldInvalid} />

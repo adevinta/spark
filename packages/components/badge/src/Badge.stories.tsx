@@ -1,6 +1,6 @@
 import { Icon } from '@spark-ui/icon'
 import { LikeFill } from '@spark-ui/icons/dist/icons/LikeFill'
-import { RadioGroup } from '@spark-ui/radio'
+import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
 

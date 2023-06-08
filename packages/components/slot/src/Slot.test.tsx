@@ -104,7 +104,10 @@ describe('Slot', () => {
     )
     const element = screen.getByRole('button', { name: 'Button' })
     const styles = Object.fromEntries(
-      Array.from(element.style).map(styleRule => [styleRule, element.style[styleRule as any]])
+      Array.from(element.style).map(styleRule => [
+        styleRule,
+        element.style[styleRule as unknown as number],
+      ])
     )
 
     // Then

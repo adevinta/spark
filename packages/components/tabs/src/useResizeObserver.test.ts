@@ -1,4 +1,3 @@
-/* eslint-disable max-nested-callbacks */
 import { act, renderHook } from '@testing-library/react'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 import { describe, expect, it, vi } from 'vitest'
