@@ -105,7 +105,7 @@ export const Icons: StoryFn = _args => (
   </div>
 )
 
-export const LoadingState: StoryFn = () => {
+export const Loading: StoryFn = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   return (

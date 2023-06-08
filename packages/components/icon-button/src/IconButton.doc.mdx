@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@storybook/blocks'
+import { Callout } from '@docs/helpers/Callout'
 import { IconButton } from '.'
 import * as stories from './IconButton.stories'
 
@@ -59,9 +60,25 @@ Use `intent` prop to set the color intent of a button.
 
 <Canvas of={stories.Intent} />
 
+## Loading
+
+Use `isLoading` prop to set the color intent of a button.
+
+<Canvas of={stories.Loading} />
+
 ## Link
 
-Use `intent` prop to set the color intent of a button.
+Use `asChild` so that the button takes the html tag and props of its direct child element.
+In this example, if you need your button to be a link.
+
+This polymorphic behaviour can be used with any type of HTML element.
+
+<Callout kind="warning">
+  If you do decide to change the underlying element type, it is your responsibility to ensure it
+  remains accessible and functional. In the case of Tooltip.Trigger for example, it must be a
+  focusable element that can respond to pointer and keyboard events. If you were to switch it to a
+  div, it would no longer be accessible.
+</Callout>
 
 <Canvas of={stories.Link} />
 
