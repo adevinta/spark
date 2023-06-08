@@ -73,10 +73,15 @@ This will prepend a spinner inside the button.
 
 It preserves the width of your button to avoid content layout shifting.
 
-- Use `loadingLabel` to set an accessible aria-label for when the button is in loading state.
-- Alternatively, use `loadingText` if you prefer the loading text to be visible to the user (**Warning: using this might cause layout shifting**)
+**a11y tip: use `loadingLabel` to set an accessible aria-label for when the button is in loading state.**
 
 <Canvas of={ButtonStories.Loading} />
+
+### Loading with text
+
+Alternatively, use `loadingText` if you prefer the loading text to be visible to the user (**Warning: using this might cause layout shifting**)
+
+<Canvas of={ButtonStories.LoadingWithText} />
 
 ## Link
 

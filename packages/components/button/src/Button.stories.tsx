@@ -1,4 +1,3 @@
-import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Checkbox } from '@spark-ui/checkbox'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
@@ -37,7 +36,7 @@ export const Sizes: StoryFn = _args => (
   <div className="gap-md flex flex-wrap items-center">
     {sizes.map(size => {
       return (
-        <Button key={size} size={size} className="!bg-error">
+        <Button key={size} size={size}>
           Button {size}
         </Button>
       )
@@ -109,32 +108,36 @@ export const Loading: StoryFn = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <div className="gap-lg flex flex-col">
+    <div className="gap-lg flex flex-col items-start">
       <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
         Toggle loading state
       </Checkbox>
 
-      <div className="gap-md flex flex-wrap">
-        <div>
-          <StoryLabel>Spinner only</StoryLabel>
-          <Button isLoading={isLoading} loadingLabel="Loading...">
-            <Icon>
-              <FavoriteOutline />
-            </Icon>
-            Button (width is preserved)
-          </Button>
-        </div>
+      <Button isLoading={isLoading} loadingLabel="Loading...">
+        <Icon>
+          <FavoriteOutline />
+        </Icon>
+        Button (width is preserved)
+      </Button>
+    </div>
+  )
+}
 
-        <div>
-          <StoryLabel>Spinner + text</StoryLabel>
-          <Button isLoading={isLoading} loadingText="Loading...">
-            <Icon>
-              <FavoriteOutline />
-            </Icon>
-            Button
-          </Button>
-        </div>
-      </div>
+export const LoadingWithText: StoryFn = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <div className="gap-lg flex flex-col items-start">
+      <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
+        Toggle loading state
+      </Checkbox>
+
+      <Button isLoading={isLoading} loadingText="Loading...">
+        <Icon>
+          <FavoriteOutline />
+        </Icon>
+        Button with long text
+      </Button>
     </div>
   )
 }

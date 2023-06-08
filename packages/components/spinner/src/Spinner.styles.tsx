@@ -11,7 +11,7 @@ export const spinnerStyles = cva(
   {
     variants: {
       size: {
-        current: ['w-[1em]', 'h-[1em]'],
+        current: ['u-current-font-size'],
         sm: ['w-sz-20', 'h-sz-20'],
         md: ['w-sz-28', 'h-sz-28'],
       },
