@@ -12,6 +12,7 @@ export default meta
 export const Default: StoryFn = _args => (
   <div className="gap-md flex flex-col">
     <Label htmlFor="name">First name</Label>
+
     <input
       type="text"
       id="name"
