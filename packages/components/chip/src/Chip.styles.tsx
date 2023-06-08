@@ -162,9 +162,22 @@ export const chipCloseStyles = cva(
   }
 )
 
-export const chipIconStyles = cva([
-  'rounded-full',
-  'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
-])
+export const chipIconStyles = cva(
+  [
+    'rounded-full',
+    'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
+  ],
+  {
+    variants: {
+      cursor: {
+        pointer: ['cursor-pointer'],
+        disabled: ['cursor-not-allowed'],
+      },
+    },
+    defaultVariants: {
+      cursor: 'pointer',
+    },
+  }
+)
 
 export type ChipStylesProps = VariantProps<typeof chipStyles>

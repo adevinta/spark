@@ -108,7 +108,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
                 role="button"
                 tabIndex={0}
                 aria-disabled={!!disabled}
-                className={chipIconStyles({})}
+                className={chipIconStyles({ cursor: disabled ? 'disabled' : 'pointer' })}
               >
                 <Icon label="close">
                   <DeleteFill />
