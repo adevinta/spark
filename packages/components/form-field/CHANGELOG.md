@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.1.4...@spark-ui/form-field@0.2.0) (2023-06-08)
+
+### Features
+
+- update eslint rules based on team consensus ([d20f04c](https://github.com/adevinta/spark/commit/d20f04c5f4e6b5ed381d3db412108f58196767a1))
+
 ## [0.1.4](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.1.3...@spark-ui/form-field@0.1.4) (2023-06-01)
 
 **Note:** Version bump only for package @spark-ui/form-field
