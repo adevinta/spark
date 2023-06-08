@@ -1,5 +1,3 @@
-/* eslint-disable max-nested-callbacks */
-/* eslint-disable max-lines-per-function */
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
