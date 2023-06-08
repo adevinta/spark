@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.14.9...@spark-ui/checkbox@1.15.0) (2023-06-08)
+
+### Features
+
+- update eslint rules based on team consensus ([d20f04c](https://github.com/adevinta/spark/commit/d20f04c5f4e6b5ed381d3db412108f58196767a1))
+
 ## [1.14.9](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.14.8...@spark-ui/checkbox@1.14.9) (2023-06-06)
 
 ### Bug Fixes
