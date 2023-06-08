@@ -1,26 +1,9 @@
-import { Slot } from '@spark-ui/slot'
+import { Slot, wrapPolymorphicSlot } from '@spark-ui/slot'
 import { Spinner } from '@spark-ui/spinner'
 import { cx } from 'class-variance-authority'
-import React, { MouseEvent, PropsWithChildren, ReactNode } from 'react'
+import React, { MouseEvent, PropsWithChildren } from 'react'
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
-
-/**
- *
- * When using Radix `Slot` component, it will consider its first child to merge its props with.
- * In some cases, you might need to wrap the top child with additional markup without breaking this behaviour.
- */
-const wrapPolymorphicSlot = (
-  asChild: boolean | undefined,
-  children: ReactNode,
-  callback: (children: ReactNode) => ReactNode
-) => {
-  if (!asChild) return callback(children) // If polymorphic behaviour is not used, we keep the original children
-
-  return React.isValidElement(children)
-    ? React.cloneElement(children, undefined, callback(children.props.children))
-    : null
-}
 
 export interface ButtonProps
   extends PropsWithChildren<Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>>,
