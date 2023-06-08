@@ -60,7 +60,6 @@ module.exports = plugin.withOptions(
       Object.entries(themes).forEach(([key, value]) => {
         if (key === 'default') return
 
-        /* eslint-disable-next-line @typescript-eslint/no-shadow */
         const { missingItems, additionalItems } = retrieveArrayDifferences({
           ref: getAllObjectKeys(themeUtils.defaultTheme),
           comp: getAllObjectKeys(value),
