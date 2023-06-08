@@ -1,6 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
-// eslint-disable-next-line tailwindcss/no-custom-classname
 export const styles = cva(
   [
     'rounded-md',

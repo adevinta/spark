@@ -1,4 +1,20 @@
 module.exports = {
+  overrides: [
+    {
+      files: ['**/*.tsx'],
+      rules: {
+        'max-lines-per-function': [1, { max: 200, skipBlankLines: true, skipComments: true }],
+      },
+    },
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.stories.tsx'],
+      rules: {
+        'max-lines-per-function': [1, { max: 500, skipBlankLines: true, skipComments: true }],
+        'max-nested-callbacks': [1, 8],
+        'no-console': 0,
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',
@@ -31,7 +47,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/prefer-interface': 0,
     '@typescript-eslint/no-object-literal-type-assertion': 0,
-    '@typescript-eslint/no-shadow': 1,
+    '@typescript-eslint/no-shadow': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-use-before-define': [
@@ -64,16 +80,17 @@ module.exports = {
     // Misc
     'array-callback-return': 1,
     complexity: [1, 8],
-    curly: [1, 'all'],
+    curly: [1, 'multi-line'],
     'max-lines': [1, { max: 300, skipBlankLines: true, skipComments: true }],
     'max-lines-per-function': [1, { max: 100, skipBlankLines: true, skipComments: true }],
-    'max-depth': [2, 2],
-    'max-nested-callbacks': [1, 2],
+    'max-depth': [2, 5],
+    'max-nested-callbacks': [1, 5],
     'newline-before-return': 1,
     'no-console': [1, { allow: ['error'] }],
     'no-debugger': 1,
     'no-nested-ternary': 2,
     'no-shadow': 0,
+    'no-unneeded-ternary': 2,
     'no-unused-expressions': [1, { allowShortCircuit: true }],
     'no-use-before-define': 0,
     'no-var': 2,

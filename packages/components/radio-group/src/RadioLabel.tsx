@@ -1,5 +1,5 @@
 import { Label } from '@radix-ui/react-label'
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 
 import { radioLabelStyles, RadioLabelStylesProps } from './RadioLabel.styles'
 
@@ -20,8 +20,8 @@ export interface RadioLabelProps
   disabled?: boolean
 }
 
-export const RadioLabel = ({ className, disabled, ...others }: RadioLabelProps) => {
-  return <Label className={radioLabelStyles({ className, disabled })} {...others} />
+export const RadioLabel = ({ disabled, ...others }: RadioLabelProps) => {
+  return <Label className={radioLabelStyles({ disabled })} {...others} />
 }
 
 RadioLabel.displayName = 'RadioGroup.RadioLabel'

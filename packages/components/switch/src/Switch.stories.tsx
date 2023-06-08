@@ -87,7 +87,7 @@ export const Colors: StoryFn = _args => (
     {switchColors.map(color => (
       <div key={color}>
         <StoryLabel>{color}</StoryLabel>
-        <Switch name="primary" intent={color} defaultChecked />
+        <Switch intent={color} defaultChecked aria-label={`My ${color} switch`} />
       </div>
     ))}
   </div>
@@ -97,12 +97,16 @@ export const Icons: StoryFn = _args => (
   <div className="gap-lg flex">
     <div>
       <StoryLabel>without icons</StoryLabel>
-      <Switch checkedIcon={null} uncheckedIcon={null} />
+      <Switch checkedIcon={null} uncheckedIcon={null} aria-label="My switch without icon" />
     </div>
 
     <div>
       <StoryLabel>with custom icons</StoryLabel>
-      <Switch checkedIcon={<EyeFill />} uncheckedIcon={<EyeOffFill />} />
+      <Switch
+        checkedIcon={<EyeFill />}
+        uncheckedIcon={<EyeOffFill />}
+        aria-label="My switch with custom icon"
+      />
     </div>
   </div>
 )

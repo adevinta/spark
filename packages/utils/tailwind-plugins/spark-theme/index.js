@@ -40,18 +40,15 @@ module.exports = plugin.withOptions(
 
       const { htmlFontSize = 16, themes } = opts
 
-      if (!themes.default) {
-        throw new Error(missingDefaultThemeErrorMsg)
-      }
+      if (!themes.default) throw new Error(missingDefaultThemeErrorMsg)
 
       const { missingItems, additionalItems } = retrieveArrayDifferences({
         ref: getAllObjectKeys(themeUtils.defaultTheme),
         comp: getAllObjectKeys(themes.default),
       })
 
-      if (missingItems.length) {
-        throw new Error(missingItemsErrorMsg('default', missingItems))
-      }
+      if (missingItems.length) throw new Error(missingItemsErrorMsg('default', missingItems))
+
       if (additionalItems.length) {
         throw new Error(additionalItemsErrorMsg('default', additionalItems))
       }
@@ -61,21 +58,16 @@ module.exports = plugin.withOptions(
       })
 
       Object.entries(themes).forEach(([key, value]) => {
-        if (key === 'default') {
-          return
-        }
+        if (key === 'default') return
 
         const { missingItems, additionalItems } = retrieveArrayDifferences({
           ref: getAllObjectKeys(themeUtils.defaultTheme),
           comp: getAllObjectKeys(value),
         })
 
-        if (missingItems.length) {
-          throw new Error(missingItemsErrorMsg(key, missingItems))
-        }
-        if (additionalItems.length) {
-          throw new Error(additionalItemsErrorMsg(key, additionalItems))
-        }
+        if (missingItems.length) throw new Error(missingItemsErrorMsg(key, missingItems))
+
+        if (additionalItems.length) throw new Error(additionalItemsErrorMsg(key, additionalItems))
 
         addBase({
           [`[data-theme="${key}"]`]: getObjectDifferences(
@@ -92,9 +84,7 @@ module.exports = plugin.withOptions(
 
     const { themes } = opts
 
-    if (!themes.default) {
-      throw new Error(missingDefaultThemeErrorMsg)
-    }
+    if (!themes.default) throw new Error(missingDefaultThemeErrorMsg)
 
     return { theme: getCSSVariableReferences(themes.default) }
   }

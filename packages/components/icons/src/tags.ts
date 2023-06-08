@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 export { tags as accessoriesTags } from './icons/Accessories'
 export { tags as accountFillTags } from './icons/AccountFill'
 export { tags as accountOutlineTags } from './icons/AccountOutline'

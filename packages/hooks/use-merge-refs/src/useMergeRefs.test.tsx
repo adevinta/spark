@@ -6,9 +6,9 @@ import { useMergeRefs } from './index'
 
 describe('useMergeRefs', () => {
   interface refsInterface {
-    first?: any
-    second?: any
-    third?: any
+    first?: unknown
+    second?: unknown
+    third?: unknown
   }
 
   it('should merge all the passed refs into a single one', () => {
@@ -103,10 +103,10 @@ describe('useMergeRefs', () => {
   it('should process function arguments in the array of arguments', () => {
     // Given
     const refs = {} as {
-      first?: any
-      second?: any
-      third?: any
-      fnRef?: any
+      first?: unknown
+      second?: unknown
+      third?: unknown
+      fnRef?: unknown
     }
     const fnRef = (node: HTMLDivElement) => (refs.fnRef = node)
     function TestComponent() {

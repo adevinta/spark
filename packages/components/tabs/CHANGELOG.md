@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.2.1...@spark-ui/tabs@1.2.2) (2023-06-02)
+
+**Note:** Version bump only for package @spark-ui/tabs
+
+## [1.2.1](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.2.0...@spark-ui/tabs@1.2.1) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/tabs
+
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.1.19...@spark-ui/tabs@1.2.0) (2023-06-01)
+
+### Features
+
+- update esling config following PR feedbacks ([609e6e4](https://github.com/adevinta/spark/commit/609e6e44fce1a38a4a8d44a9e2dc77b95ca25650))
+
 ## [1.1.19](https://github.com/adevinta/spark/compare/@spark-ui/tabs@1.1.18...@spark-ui/tabs@1.1.19) (2023-05-31)
 
 **Note:** Version bump only for package @spark-ui/tabs
