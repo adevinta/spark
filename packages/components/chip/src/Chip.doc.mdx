@@ -44,16 +44,21 @@ When disabled, no action is handled.
 <Canvas of={stories.Disabled} />
 
 ## Trailing icon
-An
+An special section for placing a trailing icon is properly contemplated.
 <Canvas of={stories.Icon} />
 
-## Interactions
-
-<Canvas of={stories.Interactions} />
-
 ## Behaviors
+The chip has multiple behaviors depending on the desired intention.
+- Tag: non clickable and no-keyboard tab navigable)
+- Actionable: providing an onClick handler it becomes a button (keyboard-navigable)
+  - Toggleable: providing a pressed state it becomes a toggle-button managing its on/off state.
+- Closable: providing an onClose handler it adds an actionable closing icon.
 
 <Canvas of={stories.Behavior} />
+
+## Interactions
+For the interactions, there are multiple ways for easy toggle between different states like the intent and the design.
+<Canvas of={stories.Interactions} />
 
 ## Designs
 
