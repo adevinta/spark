@@ -7,7 +7,8 @@ import { SetStateAction, useCallback, useRef, useState } from 'react'
  */
 export function useCombinedState<T>(
   controlledValue?: T,
-  defaultValue?: T
+  defaultValue?: T,
+  onChange?: (nextValue: T) => void
 ): [
   T | undefined,
   (newValue: T, forceFlag?: (prev: T, next: T) => boolean) => void,
@@ -30,6 +31,7 @@ export function useCombinedState<T>(
       if (shouldUpdate && !isControlled) {
         setInnerValue(nextValue)
       }
+      onChange && onChange(nextValue)
     },
     [isControlled, value]
   )
