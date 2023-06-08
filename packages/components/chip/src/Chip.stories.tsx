@@ -1,3 +1,4 @@
+import { Icon as SparkIcon } from '@spark-ui/icon'
 import { CameraFill } from '@spark-ui/icons/dist/icons/CameraFill'
 import { Meta, StoryFn } from '@storybook/react'
 import { ComponentProps, ReactElement, useState } from 'react'
@@ -31,35 +32,95 @@ export const MaxLength: StoryFn = _args => (
   <div className="gap-md flex flex-col flex-wrap">
     <div className="gap-md flex flex-wrap">
       <Chip>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip icon={<CameraFill />}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip icon={<CameraFill />} onClose={() => console.log('close')}>
+      <Chip
+        icon={
+          <SparkIcon>
+            <CameraFill />
+          </SparkIcon>
+        }
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Chip>
+      <Chip
+        icon={
+          <SparkIcon>
+            <CameraFill />
+          </SparkIcon>
+        }
+        onClose={() => console.log('close')}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
     </div>
     <div className="gap-md flex flex-wrap">
       <Chip design="filled">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip design="filled" icon={<CameraFill />}>
+      <Chip
+        design="filled"
+        icon={
+          <SparkIcon>
+            <CameraFill />
+          </SparkIcon>
+        }
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
-      <Chip design="filled" icon={<CameraFill />} onClose={() => console.log('close')}>
+      <Chip
+        design="filled"
+        icon={
+          <SparkIcon>
+            <CameraFill />
+          </SparkIcon>
+        }
+        onClose={() => console.log('close')}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
     </div>
     <div className="gap-md flex flex-wrap">
       <Chip design="dashed">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip design="dashed" icon={<CameraFill />}>
+      <Chip
+        design="dashed"
+        icon={
+          <SparkIcon>
+            <CameraFill />
+          </SparkIcon>
+        }
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
-      <Chip design="dashed" icon={<CameraFill />} onClose={() => console.log('close')}>
+      <Chip
+        design="dashed"
+        icon={
+          <SparkIcon>
+            <CameraFill />
+          </SparkIcon>
+        }
+        onClose={() => console.log('close')}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
     </div>
     <div className="gap-md flex flex-wrap">
       <Chip design="tinted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip design="tinted" icon={<CameraFill />}>
+      <Chip
+        design="tinted"
+        icon={
+          <SparkIcon>
+            <CameraFill />
+          </SparkIcon>
+        }
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
-      <Chip design="tinted" icon={<CameraFill />} onClose={() => console.log('close')}>
+      <Chip
+        design="tinted"
+        icon={
+          <SparkIcon>
+            <CameraFill />
+          </SparkIcon>
+        }
+        onClose={() => console.log('close')}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
     </div>
@@ -77,11 +138,32 @@ export const Disabled: StoryFn = _args => (
 
 export const Icon: StoryFn = _args => (
   <div className="gap-md flex flex-wrap">
-    <Chip icon={<CameraFill />}>Trailing icon</Chip>
-    <Chip icon={<CameraFill />} onClose={() => console.log('close')}>
+    <Chip
+      icon={
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
+      }
+    >
       Trailing icon
     </Chip>
-    <Chip icon={<CameraFill />} />
+    <Chip
+      icon={
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
+      }
+      onClose={() => console.log('close')}
+    >
+      Trailing icon
+    </Chip>
+    <Chip
+      icon={
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
+      }
+    />
   </div>
 )
 
@@ -149,21 +231,72 @@ export const Behavior: StoryFn = _args => {
 }
 
 export const Design: StoryFn = _args => (
-  <div className="gap-md flex flex-wrap">
-    {designs.map(design => (
-      <Chip key={design} design={design}>
-        {design} chip
-      </Chip>
-    ))}
+  <div className="gap-md flex flex-col flex-wrap">
+    <div className="gap-md flex flex-wrap">
+      {designs.map(design => (
+        <Chip key={design} design={design}>
+          {design} chip
+        </Chip>
+      ))}
+    </div>
+    <div className="gap-md flex flex-wrap">
+      {designs.map(design => (
+        <Chip key={design} design={design} onClick={() => console.log('click')}>
+          {design} chip
+        </Chip>
+      ))}
+    </div>
+  </div>
+)
+
+export const onClose: StoryFn = _args => (
+  <div className="gap-md flex flex-col flex-wrap">
+    <div className="gap-md flex flex-wrap">
+      {designs.map(design => (
+        <Chip key={design} design={design} onClose={() => console.log('close')}>
+          chip
+        </Chip>
+      ))}
+    </div>
+    <div className="gap-md flex flex-wrap">
+      {designs.map(design => (
+        <Chip
+          key={design}
+          design={design}
+          onClick={() => console.log('click')}
+          onClose={() => console.log('close')}
+        >
+          chip
+        </Chip>
+      ))}
+    </div>
+    <div className="gap-md flex flex-wrap">
+      {designs.map(design => (
+        <Chip
+          key={design}
+          design={design}
+          icon={
+            <SparkIcon>
+              <CameraFill />
+            </SparkIcon>
+          }
+          onClose={() => console.log('close')}
+        ></Chip>
+      ))}
+    </div>
   </div>
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-md flex flex-wrap">
-    {intents.map(intent => (
-      <Chip key={intent} intent={intent}>
-        {intent} chip
-      </Chip>
+  <div className="gap-md flex flex-col flex-wrap">
+    {designs.map(design => (
+      <div key={design} className="gap-md flex flex-wrap">
+        {intents.map(intent => (
+          <Chip design={design} key={`${design}-${intent}`} intent={intent}>
+            {intent} chip
+          </Chip>
+        ))}
+      </div>
     ))}
   </div>
 )

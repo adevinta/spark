@@ -6,6 +6,7 @@ import {
   chipCloseStyles,
   chipContentStyles,
   chipContentTextStyles,
+  chipIconStyles,
   chipStyles,
   type ChipStylesProps,
 } from './Chip.styles'
@@ -37,10 +38,6 @@ export interface ChipProps
   ) => void
   onClose?: React.MouseEventHandler<HTMLSpanElement>
   /**
-   * The default closing icon
-   */
-  closeIcon?: React.ReactElement
-  /**
    * Trailing icon
    */
   icon?: React.ReactElement
@@ -59,7 +56,6 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       className,
       onClick,
       onClose,
-      closeIcon = <DeleteFill />,
       icon,
       ...otherProps
     },
@@ -74,6 +70,8 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       disabled,
     })
 
+    const isIconOnly = icon && children === undefined
+
     return (
       <ChipElement
         ref={forwardedRef}
@@ -82,7 +80,6 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
           design,
           disabled,
           intent,
-          pressed: isPressed,
         })}
         {...{
           ...elementProps,
@@ -90,19 +87,33 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
         }}
         data-spark-component="chip"
       >
-        <span className={chipContentStyles({})}>
-          {icon && (
-            <span>
-              <Icon>{icon}</Icon>
-            </span>
-          )}
+        <span
+          className={chipContentStyles({
+            isBordered: design === 'dashed' ? 'yes' : 'no',
+            mode: isIconOnly ? 'icon' : 'default',
+            hasCloseIcon: onClose ? 'yes' : 'no',
+          })}
+        >
+          {icon && <span>{icon}</span>}
           {children && <span className={chipContentTextStyles({})}>{children}</span>}
           {onClose && (
             <span
-              className={chipCloseStyles({ cursor: disabled ? 'disabled' : 'pointer' })}
+              className={chipCloseStyles({
+                isBordered: design === 'dashed' ? 'yes' : 'no',
+                cursor: disabled ? 'disabled' : 'pointer',
+              })}
               {...closeIconProps}
             >
-              <Icon>{closeIcon}</Icon>
+              <div
+                role="button"
+                tabIndex={0}
+                aria-disabled={!!disabled}
+                className={chipIconStyles({})}
+              >
+                <Icon label="close">
+                  <DeleteFill />
+                </Icon>
+              </div>
             </span>
           )}
         </span>
