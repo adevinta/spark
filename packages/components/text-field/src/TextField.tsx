@@ -1,10 +1,10 @@
 import { useId } from '@radix-ui/react-id'
-import { Input, InputProps, useInputGroup } from '@spark-ui/input'
+import { FloatingLabel } from '@spark-ui/label'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
+import { Input, InputProps, useInputGroup } from 'packages/components/input'
 import { ChangeEvent, FocusEvent, forwardRef, PropsWithChildren, useRef, useState } from 'react'
 
 import { textFieldStyles } from './TextField.styles'
-import { TextFieldLabel } from './TextFieldLabel'
 
 export type TextFieldProps = InputProps
 
@@ -31,7 +31,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
     const rootRef = useRef<HTMLInputElement | null>(null)
     const ref = useMergeRefs(rootRef, forwardedRef)
 
-    const { isLeftAddonVisible = false } = group || {}
+    const { isLeftAddonVisible = false, isLeftElementVisible = false } = group || {}
     const isGrouped = !!group
     const isExpanded = isFocused || isLeftAddonVisible || !!placeholder || isValueSet
 
@@ -74,9 +74,13 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
         />
 
         {children && (
-          <TextFieldLabel htmlFor={id} isExpanded={isExpanded}>
+          <FloatingLabel
+            htmlFor={id}
+            isExpanded={isExpanded}
+            isLeftElementVisible={isLeftElementVisible}
+          >
             {children}
-          </TextFieldLabel>
+          </FloatingLabel>
         )}
       </div>
     )
