@@ -51,6 +51,7 @@ export const useChipElement = ({
   }
   const closeIconProps = {
     ...(onClose && !disabled && { onClick: onCloseHandler }),
+    type: 'button',
   }
   const isButton = onClick || isPressed
   if (isButton) {
