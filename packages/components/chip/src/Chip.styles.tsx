@@ -5,7 +5,7 @@ import { dashedVariants, filledVariants, outlinedVariants, tintedVariants } from
 
 export const chipStyles = cva(
   [
-    'gap-md text-body-1 h-sz-32 box-border inline-block rounded-md font-bold',
+    'gap-md text-body-1 h-sz-32 font-regular box-border inline-block rounded-md',
     'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
   ],
   {
@@ -23,10 +23,10 @@ export const chipStyles = cva(
        */
       design: makeVariants<'design', ['filled', 'outlined', 'tinted', 'dashed']>({
         filled: [],
-        outlined: ['bg-transparent', 'ring-2', 'ring-current'],
+        outlined: ['bg-transparent', 'ring-1', 'ring-current'],
         tinted: [],
         dashed: [
-          'bg-transparent border-md border-dashed shadow-none focus-visible:border-outline-high',
+          'bg-transparent border-sm border-dashed shadow-none focus-visible:border-outline-high',
         ],
       }),
       /**
@@ -71,7 +71,7 @@ export const chipContentStyles = cva(
     variants: {
       isBordered: {
         no: ['max-w-[240px]'],
-        yes: ['max-w-[236px]'],
+        yes: ['max-w-[238px]'],
       },
       mode: {
         default: [],
@@ -92,13 +92,13 @@ export const chipContentStyles = cva(
         mode: 'default',
         hasCloseIcon: 'no',
         isBordered: 'no',
-        class: tw(['px-lg']),
+        class: tw(['px-md']),
       },
       {
         mode: 'default',
         hasCloseIcon: 'no',
         isBordered: 'yes',
-        class: tw(['px-[14px]']),
+        class: tw(['px-[7px]']),
       },
       {
         mode: 'icon',
@@ -116,25 +116,25 @@ export const chipContentStyles = cva(
         mode: 'default',
         hasCloseIcon: 'yes',
         isBordered: 'no',
-        class: tw(['pl-lg']),
+        class: tw(['pl-md']),
       },
       {
         mode: 'default',
         hasCloseIcon: 'yes',
         isBordered: 'yes',
-        class: tw(['pl-[14px]']),
+        class: tw(['pl-[7px]']),
       },
       {
         mode: 'icon',
         hasCloseIcon: 'yes',
         isBordered: 'no',
-        class: tw(['pl-lg']),
+        class: tw(['pl-md']),
       },
       {
         mode: 'icon',
         hasCloseIcon: 'yes',
         isBordered: 'yes',
-        class: tw(['pl-lg']),
+        class: tw(['pl-md']),
       },
     ],
   }
@@ -151,8 +151,8 @@ export const chipCloseStyles = cva(
         disabled: ['cursor-not-allowed'],
       },
       isBordered: {
-        no: ['pr-lg'],
-        yes: ['pr-[14px]'],
+        no: ['pr-md'],
+        yes: ['pr-[7px]'],
       },
     },
     defaultVariants: {

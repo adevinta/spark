@@ -110,7 +110,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
                 aria-disabled={!!disabled}
                 className={chipIconStyles({ cursor: disabled ? 'disabled' : 'pointer' })}
               >
-                <Icon label="close">
+                <Icon label="close" className="opacity-dim-3">
                   <DeleteFill />
                 </Icon>
               </div>
