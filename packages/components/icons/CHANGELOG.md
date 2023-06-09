@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.14.2...@spark-ui/icons@1.15.0) (2023-06-09)
+
+### Bug Fixes
+
+- **icons:** re-add FlagFill ([ad19993](https://github.com/adevinta/spark/commit/ad199933f3b7c7865105354f626a91a7053884f0))
+
+### Features
+
+- **icons:** add missing icons ([faa2556](https://github.com/adevinta/spark/commit/faa2556fccbc31858e02bc03bac0d6fdcb383ed9))
+
 ## [1.14.2](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.14.1...@spark-ui/icons@1.14.2) (2023-06-01)
 
 **Note:** Version bump only for package @spark-ui/icons
