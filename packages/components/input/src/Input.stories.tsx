@@ -15,9 +15,13 @@ const meta: Meta<typeof Input> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Input />
+export const Default: StoryFn = _args => (
+  <Input placeholder="Type here..." aria-label="Phone type" />
+)
 
-export const Uncontrolled: StoryFn = _args => <Input defaultValue="IPhone 12" />
+export const Uncontrolled: StoryFn = _args => (
+  <Input defaultValue="IPhone 12" aria-label="Phone type" />
+)
 
 export const Controlled: StoryFn = () => {
   const [value, setValue] = useState('IPhone 13')
@@ -26,10 +30,12 @@ export const Controlled: StoryFn = () => {
     setValue(event.target.value)
   }
 
-  return <Input value={value} onChange={handleChange} />
+  return <Input value={value} onChange={handleChange} aria-label="Phone type" />
 }
 
-export const Disabled: StoryFn = _args => <Input defaultValue="IPhone" disabled />
+export const Disabled: StoryFn = _args => (
+  <Input defaultValue="IPhone" disabled aria-label="Phone type" />
+)
 
 const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
@@ -37,7 +43,7 @@ export const Intent: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
       {intents.map(intent => (
-        <Input key={intent} intent={intent} />
+        <Input key={intent} intent={intent} aria-label="Phone type" />
       ))}
     </div>
   )
@@ -47,7 +53,7 @@ export const GroupAddons: StoryFn = _args => {
   return (
     <InputGroup>
       <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-      <Input />
+      <Input aria-label="Website" />
       <InputGroup.RightAddon>.com</InputGroup.RightAddon>
     </InputGroup>
   )
@@ -62,7 +68,7 @@ export const GroupElements: StoryFn = _args => {
         </Icon>
       </InputGroup.LeftElement>
 
-      <Input />
+      <Input placeholder="Type here..." />
 
       <InputGroup.RightElement>
         <Icon>
@@ -76,7 +82,7 @@ export const GroupElements: StoryFn = _args => {
 export const GroupDisabled: StoryFn = _args => (
   <InputGroup isDisabled>
     <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-    <Input defaultValue="adevinta.com" />
+    <Input defaultValue="adevinta.com" aria-label="Website" />
     <InputGroup.RightElement>
       <Icon>
         <Check />
