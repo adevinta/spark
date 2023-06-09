@@ -17,7 +17,7 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "@spark-ui/input": "^0.1.2"
+    "@spark-ui/input": "^0.2.0"
   },
   "repository": {
     "type": "git",
