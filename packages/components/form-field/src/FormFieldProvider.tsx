@@ -24,7 +24,6 @@ export const FormFieldProvider = ({
   }, [])
 
   const handleMessageIdRemove = useCallback((msgId: string) => {
-    /* eslint-disable-next-line max-nested-callbacks */
     setMessageIds(ids => ids.filter(current => current !== msgId))
   }, [])
 

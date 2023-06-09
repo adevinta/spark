@@ -44,7 +44,6 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
     const current = useMemo(() => {
       const handleCheckedChange = (checked: boolean, changed: string) => {
         const values = value || []
-        /* eslint-disable-next-line max-nested-callbacks */
         const modified = checked ? [...values, changed] : values.filter(val => val !== changed)
 
         setValue(modified)

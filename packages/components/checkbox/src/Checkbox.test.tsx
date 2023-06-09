@@ -121,12 +121,10 @@ describe('Checkbox', () => {
 describe('CheckboxGroup', () => {
   it('should render group', () => {
     render(
-      <FormField name="sports">
-        <CheckboxGroup aria-label="Sports">
-          <Checkbox value="soccer">Soccer</Checkbox>
-          <Checkbox value="baseball">Baseball</Checkbox>
-        </CheckboxGroup>
-      </FormField>
+      <CheckboxGroup aria-label="Sports">
+        <Checkbox value="soccer">Soccer</Checkbox>
+        <Checkbox value="baseball">Baseball</Checkbox>
+      </CheckboxGroup>
     )
 
     const groupEl = screen.getByRole('group', { name: 'Sports' })
@@ -196,115 +194,87 @@ describe('CheckboxGroup', () => {
     expect(onCheckedChange).toHaveBeenCalledWith(['baseball', 'soccer'])
   })
 
-  it('should render group with a label', () => {
-    render(
-      <FormField name="sports">
-        <FormField.Label>Sports</FormField.Label>
-
-        <CheckboxGroup>
-          <Checkbox value="soccer">Soccer</Checkbox>
-          <Checkbox value="baseball">Baseball</Checkbox>
-        </CheckboxGroup>
-      </FormField>
+  it('should always have an accessible name', () => {
+    // By default we should always define a direct label (children)...
+    const { rerender } = render(
+      <CheckboxGroup>
+        <Checkbox value="accessible">My accessible label</Checkbox>
+      </CheckboxGroup>
     )
 
-    expect(screen.getByRole('group', { name: 'Sports' })).toBeInTheDocument()
-  })
+    expect(screen.getByRole('checkbox', { name: 'My accessible label' })).toBeInTheDocument()
 
-  it('should render group with required property', () => {
-    render(
-      <FormField name="sports" isRequired>
-        <FormField.Label>Sports</FormField.Label>
-
-        <CheckboxGroup>
-          <Checkbox value="soccer">Soccer</Checkbox>
-          <Checkbox value="baseball">Baseball</Checkbox>
-        </CheckboxGroup>
-      </FormField>
-    )
-
-    const groupEl = screen.getByRole('group', {
-      name: 'Sports',
-    })
-
-    const checkboxEls = within(groupEl).getAllByRole('checkbox')
-
-    expect(checkboxEls[0]).toHaveAttribute('aria-required', 'true')
-    expect(checkboxEls[1]).toHaveAttribute('aria-required', 'true')
-  })
-
-  it('should render group with helper message', () => {
-    render(
-      <FormField name="sports">
-        <FormField.Label>Sports</FormField.Label>
-
-        <CheckboxGroup>
-          <Checkbox value="soccer">Soccer</Checkbox>
-          <Checkbox value="baseball">Baseball</Checkbox>
-        </CheckboxGroup>
-
-        <FormField.HelperMessage>Choose which sports you like</FormField.HelperMessage>
-      </FormField>
+    // ...If not we should define an aria-label
+    rerender(
+      <CheckboxGroup>
+        <Checkbox value="accessible" aria-label="My worst effort accessible label" />
+      </CheckboxGroup>
     )
 
     expect(
-      screen.getByRole('group', {
-        name: 'Sports',
-        description: 'Choose which sports you like',
-      })
+      screen.getByRole('checkbox', { name: 'My worst effort accessible label' })
     ).toBeInTheDocument()
-  })
 
-  it('should render group with validation error', () => {
-    render(
-      <FormField name="sports" isInvalid>
-        <FormField.Label>Sports</FormField.Label>
+    // On using the FormField we also could be using the related subcomponent
+    rerender(
+      <FormField name="agreement">
+        <FormField.Label>My accessible field label</FormField.Label>
 
         <CheckboxGroup>
-          <Checkbox value="soccer">Soccer</Checkbox>
-          <Checkbox value="baseball">Baseball</Checkbox>
+          <Checkbox value="accessible" />
         </CheckboxGroup>
-
-        <FormField.ErrorMessage>Sports combination is invalid</FormField.ErrorMessage>
       </FormField>
     )
 
-    const groupEl = screen.getByRole('group', {
-      name: 'Sports',
-      description: 'Sports combination is invalid',
-    })
-
-    expect(groupEl).toBeInTheDocument()
-
-    const checkboxEls = within(groupEl).getAllByRole('checkbox')
-
-    expect(checkboxEls[0]).toBeInvalid()
-    expect(checkboxEls[1]).toBeInvalid()
+    expect(screen.getByRole('checkbox', { name: 'My accessible field label' })).toBeInTheDocument()
   })
 
-  it('should render group with a specific validation error', () => {
-    render(
-      <FormField name="sports">
-        <FormField.Label>Sports</FormField.Label>
+  describe('with FormField', () => {
+    it('should render with a label', () => {
+      render(
+        <FormField name="sports">
+          <FormField.Label>Sports</FormField.Label>
 
-        <CheckboxGroup>
-          <Checkbox value="soccer">Soccer</Checkbox>
-
-          <FormField isInvalid>
+          <CheckboxGroup>
+            <Checkbox value="soccer">Soccer</Checkbox>
             <Checkbox value="baseball">Baseball</Checkbox>
-          </FormField>
-        </CheckboxGroup>
+          </CheckboxGroup>
+        </FormField>
+      )
 
-        <FormField.ErrorMessage>Sports combination is invalid</FormField.ErrorMessage>
-      </FormField>
-    )
-
-    const groupEl = screen.getByRole('group', {
-      name: 'Sports',
+      expect(screen.getByRole('group', { name: 'Sports' })).toBeInTheDocument()
     })
 
-    expect(groupEl).toBeInTheDocument()
+    it('should render aria-attributes following FormField implementation', () => {
+      render(
+        <FormField name="sports" isRequired isInvalid>
+          <FormField.Label>Sports</FormField.Label>
 
-    expect(within(groupEl).getByRole('checkbox', { name: 'Baseball' })).toBeInvalid()
+          <CheckboxGroup>
+            <Checkbox value="soccer">Soccer</Checkbox>
+            <Checkbox value="baseball">Baseball</Checkbox>
+          </CheckboxGroup>
+
+          <FormField.HelperMessage>Choose which sports you like</FormField.HelperMessage>
+        </FormField>
+      )
+
+      const checkboxEls = within(screen.getByRole('group', { name: 'Sports' })).getAllByRole(
+        'checkbox'
+      )
+
+      expect(checkboxEls[0]).toHaveAttribute('aria-required', 'true')
+      expect(checkboxEls[1]).toHaveAttribute('aria-required', 'true')
+
+      expect(checkboxEls[0]).toBeInvalid()
+      expect(checkboxEls[1]).toBeInvalid()
+
+      expect(
+        screen.getByRole('group', {
+          name: 'Sports',
+          description: 'Choose which sports you like',
+        })
+      ).toBeInTheDocument()
+    })
   })
 })
