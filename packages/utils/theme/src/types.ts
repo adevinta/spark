@@ -170,6 +170,7 @@ export interface Theme {
   }
   fontFamily: {
     sans: string
+    mono: string
   }
   /**
    * https://www.figma.com/file/ezqkDE3LqYrek9MvYnr4dR/Spark-Foundations?node-id=105%3A2710&t=lLeJnznf64zUBmdL-4
