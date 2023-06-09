@@ -1,3 +1,7 @@
+import { FormField } from '@spark-ui/form-field'
+import { Icon } from '@spark-ui/icon'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { InputGroup } from '@spark-ui/input'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
@@ -6,22 +10,150 @@ import { Textarea } from './Textarea'
 
 describe('Textarea', () => {
   it('should render', () => {
-    render(<Textarea>Hello World!</Textarea>)
+    const placeholder = 'Smartphone'
 
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
+    render(<Textarea placeholder={placeholder} />)
+
+    expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()
   })
 
-  it('should trigger click event', async () => {
+  it('should change value in uncontrolled mode', async () => {
+    const onChange = vi.fn()
+    const defaultValue = 'Smartphone'
     const user = userEvent.setup()
-    const clickEvent = vi.fn()
 
-    // Given
-    render(<div onClick={clickEvent}>Hello World!</div>)
+    render(<Textarea defaultValue={defaultValue} onChange={onChange} />)
 
-    // When
-    await user.click(screen.getByText('Hello World!'))
+    const textareaEl = screen.getByDisplayValue(defaultValue)
 
-    // Then
-    expect(clickEvent).toHaveBeenCalledTimes(1)
+    const value = 'Iphone 12'
+
+    await user.clear(textareaEl)
+    await user.type(textareaEl, value)
+
+    expect(textareaEl).toHaveValue(value)
+    expect(onChange).toHaveBeenCalled()
+  })
+
+  it('should change value in controlled mode', async () => {
+    const onChange = vi.fn()
+    const value = 'Smartphone'
+    const user = userEvent.setup()
+
+    render(<Textarea value={value} onChange={onChange} />)
+
+    const textareaEl = screen.getByDisplayValue(value)
+
+    const current = 'Iphone 12'
+
+    await user.clear(textareaEl)
+    await user.type(textareaEl, current)
+
+    expect(onChange).toHaveBeenCalled()
+  })
+
+  it('should not change value when is disabled', async () => {
+    const placeholder = 'Smartphone'
+    const user = userEvent.setup()
+
+    render(<Textarea placeholder={placeholder} disabled />)
+
+    const textareaEl = screen.getByPlaceholderText(placeholder)
+
+    await user.type(textareaEl, 'Iphone 12')
+
+    expect(textareaEl).not.toHaveValue()
+    expect(textareaEl).toBeDisabled()
+  })
+
+  it('should render elements within group', () => {
+    const leftLabel = 'Check'
+    const rightElement = '€'
+    const placeholder = 'Smartphone'
+
+    render(
+      <InputGroup>
+        <InputGroup.LeftElement>
+          <Icon label={leftLabel}>
+            <Check />
+          </Icon>
+        </InputGroup.LeftElement>
+        <Textarea placeholder={placeholder} />
+        <InputGroup.RightElement>{rightElement}</InputGroup.RightElement>
+      </InputGroup>
+    )
+
+    expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()
+    expect(screen.getByText(leftLabel)).toBeInTheDocument()
+    expect(screen.getByText(rightElement)).toBeInTheDocument()
+  })
+
+  it('should render label within field', () => {
+    const name = 'title'
+    const label = 'Title'
+
+    render(
+      <FormField name={name}>
+        <FormField.Label>{label}</FormField.Label>
+
+        <Textarea />
+      </FormField>
+    )
+
+    const textareaEl = screen.getByLabelText(label)
+
+    expect(textareaEl).toBeInTheDocument()
+    expect(textareaEl).toHaveAttribute('name', name)
+  })
+
+  it('should render with required property within field', () => {
+    render(
+      <FormField name="title" isRequired>
+        <FormField.Label>Title</FormField.Label>
+
+        <Textarea />
+      </FormField>
+    )
+
+    expect(screen.getByLabelText(/Title/)).toBeRequired()
+  })
+
+  it('should render with helper message within field', () => {
+    const name = 'title'
+    const label = 'Title'
+    const helperText = 'An effective title significantly increases your chances of making a sale'
+
+    render(
+      <FormField name={name}>
+        <FormField.Label>{label}</FormField.Label>
+
+        <Textarea />
+
+        <FormField.HelperMessage>{helperText}</FormField.HelperMessage>
+      </FormField>
+    )
+
+    expect(screen.getByLabelText(label)).toHaveAccessibleDescription(helperText)
+  })
+
+  it('should render with validation error within field', () => {
+    const name = 'title'
+    const label = 'Title'
+    const errorText = 'The title is invalid'
+
+    render(
+      <FormField name={name} isInvalid>
+        <FormField.Label>{label}</FormField.Label>
+
+        <Textarea />
+
+        <FormField.ErrorMessage>{errorText}</FormField.ErrorMessage>
+      </FormField>
+    )
+
+    const textareaEl = screen.getByLabelText(label)
+
+    expect(textareaEl).toBeInvalid()
+    expect(textareaEl).toHaveAccessibleDescription(errorText)
   })
 })

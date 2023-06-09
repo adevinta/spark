@@ -11,13 +11,13 @@ import { Textarea } from '.'
 import { TextareaProps } from './Textarea'
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Components/Textarea',
+  title: 'Experimental/Textarea',
   component: Textarea,
 }
 
 export default meta
 
-export const Default: StoryFn = _args => <Textarea />
+export const Default: StoryFn = _args => <Textarea rows={2} />
 
 export const Uncontrolled: StoryFn = _args => <Textarea defaultValue="IPhone 12" />
 
@@ -47,9 +47,13 @@ export const Intent: StoryFn = _args => {
 
 export const GroupElements: StoryFn = _args => (
   <InputGroup>
-    <InputGroup.LeftAddon>www</InputGroup.LeftAddon>
+    <InputGroup.LeftElement>
+      <Icon>
+        <PenOutline />
+      </Icon>
+    </InputGroup.LeftElement>
 
-    <Textarea />
+    <Textarea rows={2} />
 
     <InputGroup.RightElement>
       <Icon>
@@ -59,14 +63,6 @@ export const GroupElements: StoryFn = _args => (
   </InputGroup>
 )
 
-export const GroupAddons: StoryFn = _args => {
-  return (
-    <InputGroup>
-      <Textarea />
-    </InputGroup>
-  )
-}
-
 export const GroupDisabled: StoryFn = _args => (
   <InputGroup isDisabled>
     <InputGroup.LeftElement>
@@ -74,7 +70,9 @@ export const GroupDisabled: StoryFn = _args => (
         <PenOutline />
       </Icon>
     </InputGroup.LeftElement>
-    <Textarea />
+
+    <Textarea rows={2} />
+
     <InputGroup.RightElement>
       <Icon>
         <Check />
@@ -88,7 +86,7 @@ export const FieldLabel: StoryFn = _args => {
     <FormField className="!gap-sm" name="title">
       <FormField.Label>Title</FormField.Label>
 
-      <Textarea />
+      <Textarea rows={2} />
     </FormField>
   )
 }
@@ -100,7 +98,7 @@ export const FieldHiddenLabel: StoryFn = _args => {
         <VisuallyHidden>Title</VisuallyHidden>
       </FormField.Label>
 
-      <Textarea />
+      <Textarea rows={2} />
     </FormField>
   )
 }
@@ -110,7 +108,7 @@ export const FieldRequired: StoryFn = _args => {
     <FormField className="!gap-sm" name="title" isRequired>
       <FormField.Label>Title</FormField.Label>
 
-      <Textarea />
+      <Textarea rows={2} />
     </FormField>
   )
 }
@@ -120,7 +118,7 @@ export const FieldHelperMessage: StoryFn = _args => {
     <FormField className="!gap-sm" name="title">
       <FormField.Label>Title</FormField.Label>
 
-      <Textarea />
+      <Textarea rows={2} />
 
       <FormField.HelperMessage>
         An effective title significantly increases your chances of making a sale
@@ -134,7 +132,7 @@ export const FieldInvalid: StoryFn = _args => {
     <FormField className="!gap-sm" name="title" isInvalid>
       <FormField.Label>Title</FormField.Label>
 
-      <Textarea />
+      <Textarea rows={2} />
 
       <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
     </FormField>

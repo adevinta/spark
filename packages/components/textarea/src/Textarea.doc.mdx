@@ -33,31 +33,31 @@ import { Textarea } from '@spark-ui/textarea'
 
 ## Uncontrolled
 
-Use `defaultValue` prop to set the default value of the input. Optionally `onChange` prop can be used to know when the value of the input changes.
+Use `defaultValue` prop to set the default value of the textarea. Optionally `onChange` prop can be used to know when the value of the textarea changes.
 
 <Canvas of={stories.Uncontrolled} />
 
 ## Controlled
 
-Use `value` and `onChange` props to control the value of the input.
+Use `value` and `onChange` props to control the value of the textarea.
 
 <Canvas of={stories.Controlled} />
 
 ## Disabled
 
-Use `disabled` prop to indicate the input is disabled.
+Use `disabled` prop to indicate the textarea is disabled.
 
 <Canvas of={stories.Disabled} />
 
 ## Intent
 
-Use `intent` prop to change the color of the input.
+Use `intent` prop to change the color of the textarea.
 
 <Canvas of={stories.Intent} />
 
 ## InputGroup
 
-Use `InputGroup` component to group your input with addons and elements like icons.
+Use `InputGroup` component to group your textarea with elements like icons.
 
 ### Elements
 
@@ -65,40 +65,40 @@ Use `InputGroup` component to group your input with addons and elements like ico
 
 ### Disabled
 
-Use `isDisabled` prop of the `InputGroup` to indicate that the input group is disabled. Use this prop instead of the input's disabled prop when it is within a group.
+Use `isDisabled` prop of the `InputGroup` to indicate that the input group is disabled. Use this prop instead of the textarea's disabled prop when it is within a group.
 
 <Canvas of={stories.GroupDisabled} />
 
 ## FormField
 
-Use `FormField` component to provide context to the input.
+Use `FormField` component to provide context to the textarea.
 
 ### Label
 
-Use `FormField.Label` to add a label to the input.
+Use `FormField.Label` to add a label to the textarea.
 
 <Canvas of={stories.FieldLabel} />
 
 #### Hidden label
 
-In certain cases, a visible label may not be necessary, such as when using an input as a searcher. To achieve this behavior, use the `VisuallyHidden` component.
+In certain cases, a visible label may not be necessary. To achieve this behavior, use the `VisuallyHidden` component.
 
 <Canvas of={stories.FieldHiddenLabel} />
 
 ### Required
 
-Use the `isRequired` prop of the `FormField` to indicate that the input is required.
+Use the `isRequired` prop of the `FormField` to indicate that the textarea is required.
 
 <Canvas of={stories.FieldRequired} />
 
 ### Helper message
 
-Use the `FormField.HelperMessage` component to provide a description to the input.
+Use the `FormField.HelperMessage` component to provide a description to the textarea.
 
 <Canvas of={stories.FieldHelperMessage} />
 
 ### Validation
 
-Use the `isInvalid` prop of the `FormField` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
+Use the `isInvalid` prop of the `FormField` to indicate that the textarea is invalid. Optionally use the `FormField.ErrorMessage` to describe why the textarea is invalid.
 
 <Canvas of={stories.FieldInvalid} />
