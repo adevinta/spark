@@ -270,20 +270,6 @@ export const onClose: StoryFn = _args => (
         </Chip>
       ))}
     </div>
-    <div className="gap-md flex flex-wrap">
-      {designs.map(design => (
-        <Chip
-          key={design}
-          design={design}
-          icon={
-            <SparkIcon>
-              <CameraFill />
-            </SparkIcon>
-          }
-          onClose={() => console.log('close')}
-        ></Chip>
-      ))}
-    </div>
   </div>
 )
 
