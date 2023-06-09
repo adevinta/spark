@@ -26,13 +26,9 @@ describe('useCombinedState', () => {
 
     // When
     const hook = renderHook(() => useCombinedState(...map(args)))
-    let [response, setResponse, isControlledValue, initialValue] = hook.result.current
+    let [response, _, isControlledValue, initialValue] = hook.result.current
 
     // Then
-    expect(typeof response).toBe('number')
-    expect(typeof setResponse).toBe('function')
-    expect(typeof isControlledValue).toBe('boolean')
-    expect(typeof initialValue).toBe('number')
     expect(response).toBe(123)
     expect(isControlledValue).toBe(false)
     expect(initialValue).toBe(123)
@@ -43,13 +39,9 @@ describe('useCombinedState', () => {
 
     // When
     hook.rerender(args)
-    ;[response, setResponse, isControlledValue, initialValue] = hook.result.current
+    ;[response, _, isControlledValue, initialValue] = hook.result.current
 
     // Then
-    expect(typeof response).toBe('number')
-    expect(typeof setResponse).toBe('function')
-    expect(typeof isControlledValue).toBe('boolean')
-    expect(typeof initialValue).toBe('number')
     expect(response).toBe(123)
     expect(isControlledValue).toBe(false)
     expect(initialValue).toBe(123)
@@ -60,13 +52,9 @@ describe('useCombinedState', () => {
 
     // When
     hook.rerender(args)
-    ;[response, setResponse, isControlledValue, initialValue] = hook.result.current
+    ;[response, _, isControlledValue, initialValue] = hook.result.current
 
     // Then
-    expect(typeof response).toBe('number')
-    expect(typeof setResponse).toBe('function')
-    expect(typeof isControlledValue).toBe('boolean')
-    expect(typeof initialValue).toBe('number')
     expect(response).toBe(789)
     expect(isControlledValue).toBe(true)
     expect(initialValue).toBe(123)
@@ -78,13 +66,9 @@ describe('useCombinedState', () => {
 
     // When
     const hook = renderHook(() => useCombinedState(...map(args)))
-    const [response, setResponse, isControlledValue, initialValue] = hook.result.current
+    const [response, _, isControlledValue, initialValue] = hook.result.current
 
     // Then
-    expect(typeof response).toBe('number')
-    expect(typeof setResponse).toBe('function')
-    expect(typeof isControlledValue).toBe('boolean')
-    expect(typeof initialValue).toBe('number')
     expect(response).toBe(123)
     expect(isControlledValue).toBe(true)
     expect(initialValue).toBe(123)
@@ -99,10 +83,6 @@ describe('useCombinedState', () => {
     let [response, setResponse, isControlledValue, initialValue] = hook.result.current
 
     // Then
-    expect(typeof response).toBe('number')
-    expect(typeof setResponse).toBe('function')
-    expect(typeof isControlledValue).toBe('boolean')
-    expect(typeof initialValue).toBe('number')
     expect(response).toBe(123)
     expect(isControlledValue).toBe(false)
     expect(initialValue).toBe(123)
@@ -133,5 +113,55 @@ describe('useCombinedState', () => {
     // Then
     expect(isControlledValue).toBe(true)
     expect(response).toBe(789)
+  })
+
+  it('value must NOT be updated using its setter when using uncontrolled mode using shouldUpdate flag to false', () => {
+    // Given
+    const args = { value: undefined, defaultValue: 123 } as argsType
+
+    // When
+    const hook = renderHook(() => useCombinedState(...map(args)))
+    let [response, setResponse, isControlledValue, initialValue] = hook.result.current
+
+    // Then
+    expect(response).toBe(123)
+    expect(isControlledValue).toBe(false)
+    expect(initialValue).toBe(123)
+
+    // And
+    // When
+    act(() => {
+      setResponse(456, () => false)
+    })
+    ;[response] = hook.result.current
+
+    // Then
+    expect(isControlledValue).toBe(false)
+    expect(response).toBe(123)
+  })
+
+  it('value must NOT be updated using its setter when using uncontrolled mode using shouldUpdate flag to true', () => {
+    // Given
+    const args = { value: 123, defaultValue: undefined } as argsType
+
+    // When
+    const hook = renderHook(() => useCombinedState(...map(args)))
+    let [response, setResponse, isControlledValue, initialValue] = hook.result.current
+
+    // Then
+    expect(response).toBe(123)
+    expect(isControlledValue).toBe(true)
+    expect(initialValue).toBe(123)
+
+    // And
+    // When
+    act(() => {
+      setResponse(456, () => true)
+    })
+    ;[response] = hook.result.current
+
+    // Then
+    expect(isControlledValue).toBe(true)
+    expect(response).toBe(123)
   })
 })
