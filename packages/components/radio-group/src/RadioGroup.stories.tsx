@@ -47,11 +47,11 @@ export const Controlled: StoryFn = () => {
 const intents: RadioGroupProps['intent'][] = [
   'primary',
   'secondary',
+  'info',
+  'neutral',
   'success',
   'alert',
   'error',
-  'info',
-  'neutral',
 ]
 
 export const Intent: StoryFn = _args => {
