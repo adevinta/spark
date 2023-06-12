@@ -69,8 +69,8 @@
     "@typescript-eslint/eslint-plugin": "5.51.0",
     "@typescript-eslint/parser": "5.56.0",
     "@vitejs/plugin-react": "3.1.0",
-    "@vitest/coverage-istanbul": "^0.31.0",
-    "@vitest/ui": "0.28.4",
+    "@vitest/coverage-istanbul": "^0.32.0",
+    "@vitest/ui": "0.32.0",
     "autoprefixer": "10.4.14",
     "babel-loader": "8.3.0",
     "browserslist-to-esbuild": "1.2.0",
@@ -113,7 +113,7 @@
     "vite-plugin-dts": "1.7.2",
     "vite-plugin-turbosnap": "1.0.1",
     "vite-tsconfig-paths": "4.2.0",
-    "vitest": "0.29.2"
+    "vitest": "^0.32.0"
   },
   "workspaces": [
     "packages/components/*",
