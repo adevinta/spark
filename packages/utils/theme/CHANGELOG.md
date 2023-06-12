@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.16.1...@spark-ui/theme-utils@2.17.0) (2023-06-12)
+
+### Features
+
+- **theme-utils:** monospaced font added ([f228e56](https://github.com/adevinta/spark/commit/f228e561dbcd1dac4c8d73a0f289b566dc9c7143))
+
 ## [2.16.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.16.0...@spark-ui/theme-utils@2.16.1) (2023-05-26)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
