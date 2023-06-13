@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.0.2...@spark-ui/radio-group@1.0.3) (2023-06-12)
+
+### Bug Fixes
+
+- **radio-group:** update intent success, alert and error styles ([a41e50c](https://github.com/adevinta/spark/commit/a41e50cc6f20d1e99431a195c7694ab34d375086))
+
 ## [1.0.2](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.0.1...@spark-ui/radio-group@1.0.2) (2023-06-08)
 
 **Note:** Version bump only for package @spark-ui/radio-group
