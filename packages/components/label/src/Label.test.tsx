@@ -36,7 +36,7 @@ describe('Label', () => {
       </>
     )
 
-    expect(screen.getByLabelText('Title')).toBeInTheDocument()
+    expect(screen.getByLabelText(/Title/)).toBeInTheDocument()
 
     const requiredEl = screen.getByText('*')
 
@@ -55,7 +55,7 @@ describe('Label', () => {
       </>
     )
 
-    expect(screen.getByLabelText('Title')).toBeInTheDocument()
+    expect(screen.getByLabelText(/Title/)).toBeInTheDocument()
 
     const requiredEl = screen.getByText('Required')
 
