@@ -14,6 +14,12 @@ module.exports = {
         'no-console': 0,
       },
     },
+    {
+      files: ['packages/components/icons/src/tags.ts', 'packages/components/icons/src/index.ts'],
+      rules: {
+        'max-lines': 0,
+      },
+    },
   ],
   settings: {
     react: {
