@@ -24,11 +24,11 @@ export const radioIndicatorStyles = cva(
       >({
         primary: ['after:bg-primary'],
         secondary: ['after:bg-secondary'],
+        neutral: ['after:bg-neutral'],
         success: ['after:bg-success'],
         alert: ['after:bg-alert'],
         error: ['after:bg-error'],
         info: ['after:bg-info'],
-        neutral: ['after:bg-neutral'],
       }),
       size: makeVariants<'size', ['sm', 'md']>({
         sm: ['after:spark-state-checked:h-sz-10', 'after:spark-state-checked:w-sz-10'],
