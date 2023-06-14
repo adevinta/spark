@@ -1,6 +1,8 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
+import { Checkbox } from '@spark-ui/checkbox'
 import { Icon } from '@spark-ui/icon'
 import { Meta, StoryFn } from '@storybook/react'
+import { useState } from 'react'
 
 import { IconButton, IconButtonProps } from '.'
 
@@ -96,6 +98,26 @@ export const Design: StoryFn = _args => (
     ))}
   </div>
 )
+
+export const Loading: StoryFn = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <div className="gap-lg flex flex-col">
+      <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
+        Toggle loading state
+      </Checkbox>
+
+      <div className="gap-md flex flex-wrap">
+        <div>
+          <IconButton aria-label="Submit" isLoading={isLoading} loadingLabel="Loading...">
+            {icon}
+          </IconButton>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export const Link: StoryFn = _args => (
   <div className="gap-md flex">

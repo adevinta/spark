@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/use-combined-state@0.4.5...@spark-ui/use-combined-state@0.5.0) (2023-06-09)
+
+### Features
+
+- **use-combined-state:** add onChange handler argument ([f546bf7](https://github.com/adevinta/spark/commit/f546bf7625664accb37f1f43e98202d1d39fca15))
+- **use-combined-state:** remove unnecessary state management when controlled state mode ([95f45ba](https://github.com/adevinta/spark/commit/95f45ba467cebaef2c8d6ad42081aed0720e3fe7))
+
 ## [0.4.5](https://github.com/adevinta/spark/compare/@spark-ui/use-combined-state@0.4.4...@spark-ui/use-combined-state@0.4.5) (2023-06-01)
 
 **Note:** Version bump only for package @spark-ui/use-combined-state
