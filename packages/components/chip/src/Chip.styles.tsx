@@ -70,7 +70,7 @@ export const chipContentStyles = cva(
   {
     variants: {
       isBordered: {
-        no: ['max-w-[240px]'],
+        no: ['max-w-sz-240'],
         yes: ['max-w-[238px]'],
       },
       mode: {
