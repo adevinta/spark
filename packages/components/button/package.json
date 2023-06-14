@@ -14,6 +14,7 @@
   "dependencies": {
     "@spark-ui/internal-utils": "^1.6.1",
     "@spark-ui/slot": "^1.5.2",
+    "@spark-ui/spinner": "^0.2.8",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
