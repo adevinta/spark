@@ -3,21 +3,32 @@ import { forwardRef, PropsWithChildren } from 'react'
 import { floatingLabelStyles, FloatingLabelStylesProps } from './FloatingLabel.styles'
 import { Label, LabelProps } from './Label'
 
-export interface FloatingLabelProps extends LabelProps, FloatingLabelStylesProps {
-  isExpanded: boolean
-  isLeftElementVisible: boolean
-}
+export type FloatingLabelProps = LabelProps & FloatingLabelStylesProps
 
 export const FloatingLabel = forwardRef<HTMLLabelElement, PropsWithChildren<FloatingLabelProps>>(
-  ({ className, isExpanded, isLeftElementVisible, ...others }, ref) => {
-    return (
-      <Label
-        ref={ref}
-        className={floatingLabelStyles({ className, isExpanded, isLeftElementVisible })}
-        {...others}
-      />
-    )
-  }
+  (
+    {
+      className,
+      isExpanded = false,
+      isLeftAddonVisible = false,
+      isLeftElementVisible = false,
+      isDisabled = false,
+      ...others
+    },
+    ref
+  ) => (
+    <Label
+      ref={ref}
+      className={floatingLabelStyles({
+        className,
+        isExpanded,
+        isLeftAddonVisible,
+        isLeftElementVisible,
+        isDisabled,
+      })}
+      {...others}
+    />
+  )
 )
 
 FloatingLabel.displayName = 'FloatingLabel'
