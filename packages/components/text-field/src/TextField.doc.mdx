@@ -28,6 +28,70 @@ import { TextField } from '@spark-ui/text-field'
 
 <ArgTypes of={TextField} />
 
-## Usage
+## Default
 
 <Canvas of={stories.Default} />
+
+## Uncontrolled
+
+Use `defaultValue` prop to set the default input value. Optionally `onChange` prop can be used to know when the input value changes.
+
+<Canvas of={stories.Uncontrolled} />
+
+## Controlled
+
+Use `value` and `onChange` props to control the input value.
+
+<Canvas of={stories.Controlled} />
+
+## Disabled
+
+Use `disabled` prop to indicate the input is disabled.
+
+<Canvas of={stories.Disabled} />
+
+## Intent
+
+Use `intent` prop to change the color of the input.
+
+<Canvas of={stories.Intent} />
+
+## InputGroup
+
+Use `InputGroup` component to group your input with addons and elements like icons.
+
+### Addons
+
+<Canvas of={stories.GroupAddons} />
+
+### Elements
+
+<Canvas of={stories.GroupElements} />
+
+### Disabled
+
+Use `isDisabled` prop of the `InputGroup` to indicate that the input group is disabled. Use this prop instead of the input's disabled prop when it is within a group.
+
+<Canvas of={stories.GroupDisabled} />
+
+## FormField
+
+Use `FormField` component to provide context to the input.
+
+### Required
+
+Use the `isRequired` prop of the `FormField` to indicate that the input is required.
+
+<Canvas of={stories.FieldRequired} />
+
+### Helper message
+
+Use the `FormField.HelperMessage` component to provide a description to the input.
+
+<Canvas of={stories.FieldHelperMessage} />
+
+### Validation
+
+Use the `isInvalid` prop of the `FormField` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
+
+<Canvas of={stories.FieldInvalid} />

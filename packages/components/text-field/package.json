@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@radix-ui/react-id": "1.0.1",
-    "class-variance-authority": "0.5.2",
+    "@spark-ui/input": "^0.2.0",
     "@spark-ui/label": "^1.2.1",
-    "@spark-ui/input": "^0.1.3",
-    "@spark-ui/use-merge-refs": "^0.3.3"
+    "@spark-ui/use-merge-refs": "^0.3.3",
+    "class-variance-authority": "0.5.2"
   },
   "repository": {
     "type": "git",

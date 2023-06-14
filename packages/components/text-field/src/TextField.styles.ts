@@ -6,6 +6,14 @@ export const textFieldStyles = cva([], {
       true: [],
       false: ['relative'],
     },
+    isExpanded: {
+      true: [],
+      false: [],
+    },
+    isLeftAddonVisible: {
+      true: [],
+      false: [],
+    },
   },
 })
 

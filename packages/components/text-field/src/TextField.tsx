@@ -1,7 +1,7 @@
 import { useId } from '@radix-ui/react-id'
+import { Input, InputProps, useInputGroup } from '@spark-ui/input'
 import { FloatingLabel } from '@spark-ui/label'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { Input, InputProps, useInputGroup } from 'packages/components/input'
 import { ChangeEvent, FocusEvent, forwardRef, PropsWithChildren, useRef, useState } from 'react'
 
 import { textFieldStyles } from './TextField.styles'
@@ -20,6 +20,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
       onFocus,
       onBlur,
       children,
+      disabled,
       ...others
     },
     forwardedRef
@@ -30,8 +31,12 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
     const group = useInputGroup()
     const rootRef = useRef<HTMLInputElement | null>(null)
     const ref = useMergeRefs(rootRef, forwardedRef)
-
-    const { isLeftAddonVisible = false, isLeftElementVisible = false } = group || {}
+    const {
+      isDisabled: isInputGroupDisabled,
+      isLeftAddonVisible = false,
+      isLeftElementVisible = false,
+    } = group || {}
+    const isDisabled = disabled || isInputGroupDisabled
     const isGrouped = !!group
     const isExpanded = isFocused || isLeftAddonVisible || !!placeholder || isValueSet
 
@@ -60,7 +65,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
     }
 
     return (
-      <div className={textFieldStyles({ isGrouped })}>
+      <div className={textFieldStyles({ isGrouped, isExpanded, isLeftAddonVisible })}>
         <Input
           id={id}
           ref={ref}
@@ -70,6 +75,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
+          disabled={isDisabled}
           {...others}
         />
 
@@ -78,6 +84,8 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
             htmlFor={id}
             isExpanded={isExpanded}
             isLeftElementVisible={isLeftElementVisible}
+            isLeftAddonVisible={isLeftAddonVisible}
+            isDisabled={isDisabled}
           >
             {children}
           </FloatingLabel>
