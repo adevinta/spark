@@ -25,6 +25,7 @@ export interface ButtonProps
    * **Please note that using this can result in layout shifting when the Button goes from loading state to normal state.**
    */
   loadingText?: string
+  spinnerPlacement?: 'left' | 'right'
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -40,6 +41,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       onClick,
       shape = 'rounded',
       size = 'md',
+      spinnerPlacement = 'left',
       asChild,
       className,
       ...others
@@ -57,6 +59,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       if (isDisabled) event.preventDefault()
       if (onClick) onClick(event)
     }
+
+    const spinner = isLoading ? (
+      <Spinner
+        size="current"
+        className={loadingText ? 'inline-block' : 'absolute'}
+        {...(loadingLabel && { 'aria-label': loadingLabel })}
+      />
+    ) : null
 
     return (
       <Component
@@ -78,12 +88,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {wrapPolymorphicSlot(asChild, children, slotted =>
           isLoading ? (
             <>
-              <Spinner
-                size="current"
-                className={loadingText ? 'inline-block' : 'absolute'}
-                {...(loadingLabel && { 'aria-label': loadingLabel })}
-              />
+              {spinnerPlacement === 'left' && spinner}
               {loadingText && loadingText}
+              {spinnerPlacement === 'right' && spinner}
               <div
                 aria-hidden
                 className={cx('gap-md inline-flex', loadingText ? 'hidden' : 'opacity-0')}
