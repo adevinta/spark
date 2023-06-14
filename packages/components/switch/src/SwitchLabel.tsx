@@ -1,4 +1,3 @@
-import { useFormFieldState } from '@spark-ui/form-field'
 import { Label as SparkLabel } from '@spark-ui/label'
 import type { PropsWithChildren } from 'react'
 
@@ -21,14 +20,6 @@ export interface LabelProps
   disabled?: boolean
 }
 
-export const Label = ({ className, disabled, htmlFor, ...others }: LabelProps) => {
-  const { labelId } = useFormFieldState()
-
-  return (
-    <SparkLabel
-      className={labelStyles({ className, disabled })}
-      htmlFor={htmlFor || labelId}
-      {...others}
-    />
-  )
-}
+export const Label = ({ className, disabled, ...others }: LabelProps) => (
+  <SparkLabel className={labelStyles({ disabled, className })} {...others} />
+)

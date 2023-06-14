@@ -168,6 +168,7 @@ export const defaultTheme: Theme = {
   },
   fontFamily: {
     sans: '"Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+    mono: 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },
   fontSize: {
     display1: { fontSize: '2.5rem', lineHeight: '3.5rem', fontWeight: '700' },

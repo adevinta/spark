@@ -6,6 +6,8 @@ import { InputLeftElement, InputLeftElementProps } from './InputLeftElement'
 import { InputRightAddon, InputRightAddonProps } from './InputRightAddon'
 import { InputRightElement, InputRightElementProps } from './InputRightElement'
 
+export { useInputGroup } from './InputGroupContext'
+
 export * from './Input'
 export { useInputGroup } from './InputGroupContext'
 export { type InputGroupProps } from './InputGroup'

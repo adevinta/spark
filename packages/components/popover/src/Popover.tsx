@@ -1,24 +1,28 @@
 import type { FC } from 'react'
 
-import { Anchor, type AnchorProps } from './PopoverAnchor'
-import { Arrow, type ArrowProps } from './PopoverArrow'
-import { Content, type ContentProps } from './PopoverContent'
+import { Anchor } from './PopoverAnchor'
+import { Arrow } from './PopoverArrow'
+import { Content } from './PopoverContent'
+import { Portal } from './PopoverPortal'
 import { Root, type RootProps } from './PopoverRoot'
-import { Trigger, type TriggerProps } from './PopoverTrigger'
+import { Trigger } from './PopoverTrigger'
 
-Trigger.displayName = 'Popover.Trigger'
 Anchor.displayName = 'Popover.Anchor'
 Arrow.displayName = 'Popover.Arrow'
 Content.displayName = 'Popover.Content'
+Portal.displayName = 'Popover.Portal'
+Trigger.displayName = 'Popover.Trigger'
 
 export const Popover: FC<RootProps> & {
-  Trigger: FC<TriggerProps>
-  Anchor: FC<AnchorProps>
-  Arrow: FC<ArrowProps>
-  Content: FC<ContentProps>
+  Anchor: typeof Anchor
+  Arrow: typeof Arrow
+  Content: typeof Content
+  Portal: typeof Portal
+  Trigger: typeof Trigger
 } = Object.assign(Root, {
-  Trigger,
   Anchor,
   Arrow,
   Content,
+  Portal,
+  Trigger,
 })

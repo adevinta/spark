@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.14.2...@spark-ui/icons@1.15.0) (2023-06-09)
+
+### Bug Fixes
+
+- **icons:** re-add FlagFill ([ad19993](https://github.com/adevinta/spark/commit/ad199933f3b7c7865105354f626a91a7053884f0))
+
+### Features
+
+- **icons:** add missing icons ([faa2556](https://github.com/adevinta/spark/commit/faa2556fccbc31858e02bc03bac0d6fdcb383ed9))
+
+## [1.14.2](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.14.1...@spark-ui/icons@1.14.2) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+## [1.14.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.14.0...@spark-ui/icons@1.14.1) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+# [1.14.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.13.1...@spark-ui/icons@1.14.0) (2023-05-31)
+
+### Features
+
+- **icons:** make icons search input case insensitive ([69635c2](https://github.com/adevinta/spark/commit/69635c2387a19511fc452baa81c4ac763b419b01))
+
+## [1.13.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.13.0...@spark-ui/icons@1.13.1) (2023-05-30)
+
+### Bug Fixes
+
+- **icons:** update PinFill and PinOutline icons ([eb04df6](https://github.com/adevinta/spark/commit/eb04df65bc5b35cbf20126442290779fa4510f77))
+
 # [1.13.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.12.0...@spark-ui/icons@1.13.0) (2023-05-25)
 
 ### Features

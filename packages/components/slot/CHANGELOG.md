@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.5.2...@spark-ui/slot@1.6.0) (2023-06-14)
+
+### Features
+
+- **slot:** wrapPolymorphicSlot method ([5ba6615](https://github.com/adevinta/spark/commit/5ba661528d9e375b8720f8cf9c62cf222fb34c95))
+
+## [1.5.2](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.5.1...@spark-ui/slot@1.5.2) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/slot
+
+## [1.5.1](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.5.0...@spark-ui/slot@1.5.1) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/slot
+
 # [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.4.7...@spark-ui/slot@1.5.0) (2023-05-12)
 
 ### Features

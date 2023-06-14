@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.11.11...@spark-ui/button@1.12.0) (2023-06-14)
+
+### Features
+
+- **button:** loading state for button ([e0e5a06](https://github.com/adevinta/spark/commit/e0e5a06e12ff28cece560010b03046df1120c332))
+- **button:** spinner placement for loading button ([2f0fc18](https://github.com/adevinta/spark/commit/2f0fc183c137b6ac94fca92f85809b1363644108))
+- **icon-button:** loading state ([3181b32](https://github.com/adevinta/spark/commit/3181b32d4bf11cae5858f50fe10fa64af187a274))
+- **slot:** wrapPolymorphicSlot method ([5ba6615](https://github.com/adevinta/spark/commit/5ba661528d9e375b8720f8cf9c62cf222fb34c95))
+
+## [1.11.11](https://github.com/adevinta/spark/compare/@spark-ui/button@1.11.10...@spark-ui/button@1.11.11) (2023-06-02)
+
+**Note:** Version bump only for package @spark-ui/button
+
+## [1.11.10](https://github.com/adevinta/spark/compare/@spark-ui/button@1.11.9...@spark-ui/button@1.11.10) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/button
+
+## [1.11.9](https://github.com/adevinta/spark/compare/@spark-ui/button@1.11.8...@spark-ui/button@1.11.9) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/button
+
 ## [1.11.8](https://github.com/adevinta/spark/compare/@spark-ui/button@1.11.7...@spark-ui/button@1.11.8) (2023-05-25)
 
 **Note:** Version bump only for package @spark-ui/button

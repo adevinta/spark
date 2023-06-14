@@ -1,7 +1,7 @@
-/* eslint-disable complexity */
-
+import { useId } from '@radix-ui/react-id'
 import { useFormFieldState } from '@spark-ui/form-field'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
+import { cx } from 'class-variance-authority'
 import { forwardRef, useRef } from 'react'
 
 import { useCheckboxGroup } from './CheckboxGroupContext'
@@ -24,37 +24,62 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     },
     forwardedRef
   ) => {
+    const innerId = useId()
+    const innerLabelId = useId()
+
     const field = useFormFieldState()
     const group = useCheckboxGroup()
+
     const rootRef = useRef<HTMLButtonElement | undefined>()
     const ref = useMergeRefs(forwardedRef, rootRef)
 
-    const name = field.name ?? group.name
-    const isRequired = field.isRequired ?? group.isRequired
-    const isInvalid = field.isInvalid ?? group.isInvalid
-    const isFieldEnclosed = field.id !== group.id
-    const id = isFieldEnclosed ? field.id : undefined
-    const description = isFieldEnclosed ? field.description : undefined
-    const intent = isInvalid ? 'error' : intentProp ?? group.intent
-    const checked = group.value && value ? group.value.includes(value) : checkedProp
+    const getCheckboxAttributes = ({
+      fieldState,
+      groupState,
+      checkboxIntent,
+    }: {
+      fieldState: ReturnType<typeof useFormFieldState>
+      groupState: ReturnType<typeof useCheckboxGroup>
+      checkboxIntent: CheckboxInputProps['intent']
+    }) => {
+      const name = fieldState.name ?? groupState.name
+      const isRequired = fieldState.isRequired ?? groupState.isRequired
+      const isInvalid = fieldState.isInvalid ?? groupState.isInvalid
 
-    const handleCheckedChange = (checked: boolean) => {
-      if (onCheckedChange) {
-        onCheckedChange(checked)
-      }
+      const isFieldEnclosed = fieldState.id !== groupState.id
+      const id = isFieldEnclosed ? fieldState.id : undefined
+      const description = isFieldEnclosed ? fieldState.description : undefined
 
-      const element = rootRef.current
+      const intent = isInvalid ? 'error' : checkboxIntent ?? groupState.intent
 
-      if (group.onCheckedChange && element?.value) {
-        group.onCheckedChange(checked, element.value)
+      return { name, isRequired, isInvalid, id, description, intent }
+    }
+
+    const checked = value ? group.value?.includes(value) : checkedProp
+
+    const handleCheckedChange = (isChecked: boolean) => {
+      onCheckedChange?.(isChecked)
+
+      const rootRefValue = rootRef.current?.value
+      if (rootRefValue && group.onCheckedChange) {
+        group.onCheckedChange(isChecked, rootRefValue)
       }
     }
 
+    const { id, name, isInvalid, isRequired, description, intent } = getCheckboxAttributes({
+      fieldState: field,
+      groupState: group,
+      checkboxIntent: intentProp,
+    })
+
     return (
-      <CheckboxLabel data-spark-component="checkbox" className={className} disabled={disabled}>
+      <div
+        data-spark-component="checkbox"
+        className={cx('gap-md text-body-1 flex items-center', className)}
+      >
         <CheckboxInput
           ref={ref}
-          id={id}
+          id={id || innerId}
           name={name}
           value={value}
           intent={intent}
@@ -64,10 +89,16 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
           aria-describedby={description}
           aria-invalid={isInvalid}
           onCheckedChange={handleCheckedChange}
+          aria-labelledby={children ? innerLabelId : field.labelId}
           {...others}
         />
-        {children}
-      </CheckboxLabel>
+
+        {children && (
+          <CheckboxLabel disabled={disabled} htmlFor={id || innerId} id={innerLabelId}>
+            {children}
+          </CheckboxLabel>
+        )}
+      </div>
     )
   }
 )

@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.10](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.9...@spark-ui/switch@1.11.10) (2023-06-14)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.9](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.8...@spark-ui/switch@1.11.9) (2023-06-09)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.8](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.7...@spark-ui/switch@1.11.8) (2023-06-09)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.7](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.6...@spark-ui/switch@1.11.7) (2023-06-08)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.6](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.5...@spark-ui/switch@1.11.6) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.5](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.4...@spark-ui/switch@1.11.5) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.4](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.3...@spark-ui/switch@1.11.4) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.3](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.2...@spark-ui/switch@1.11.3) (2023-05-31)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.2](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.1...@spark-ui/switch@1.11.2) (2023-05-31)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.1](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.0...@spark-ui/switch@1.11.1) (2023-05-30)
+
+**Note:** Version bump only for package @spark-ui/switch
+
 # [1.11.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.10.19...@spark-ui/switch@1.11.0) (2023-05-25)
 
 ### Features

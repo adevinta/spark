@@ -22,8 +22,8 @@ function getCSSVariableReferences(_theme) {
 
   const { fontSize, colors, screens } = tailwindCategoryKeys
 
-  /* eslint-disable complexity */
   function traverse(theme, paths = []) {
+    /* eslint-disable-next-line complexity */
     Object.entries(theme).forEach(([key, value]) => {
       // 👀 see: https://tailwindcss.com/docs/font-size#providing-a-default-line-height
       if (isObject(value) && !paths.length && key === fontSize) {
@@ -64,13 +64,8 @@ function getCSSVariableReferences(_theme) {
 
       if (isObject(value)) {
         Object.keys(value).forEach(k => {
-          if (k === DEFAULT_KEY) {
-            return
-          }
-
-          if (!isObject(value[k]) && !isCamelCase(k)) {
-            return
-          }
+          if (k === DEFAULT_KEY) return
+          if (!isObject(value[k]) && !isCamelCase(k)) return
 
           const tmp = value[k]
           delete value[k]
@@ -89,9 +84,8 @@ function getCSSVariableReferences(_theme) {
           if (isColorValue && isHex(value)) {
             return `rgb(var(--${paths.join('-')}-${key}) / <alpha-value>)`
           }
-          if (isScreenValue) {
-            return String(value).toLowerCase()
-          }
+
+          if (isScreenValue) return String(value).toLowerCase()
 
           return `var(--${paths.join('-')}-${key.toLowerCase()})`
         })()

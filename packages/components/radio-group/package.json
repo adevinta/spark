@@ -1,6 +1,6 @@
 {
-  "name": "@spark-ui/radio",
-  "version": "2.0.2",
+  "name": "@spark-ui/radio-group",
+  "version": "1.0.4",
   "description": "Component used when only one choice may be selected in a series of options",
   "publishConfig": {
     "access": "public"
@@ -12,10 +12,11 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@radix-ui/react-id": "1.0.0",
     "@radix-ui/react-label": "2.0.1",
     "@radix-ui/react-radio-group": "1.1.2",
-    "@spark-ui/form-field": "^0.1.1",
-    "@spark-ui/internal-utils": "^1.6.0",
+    "@spark-ui/form-field": "^0.2.1",
+    "@spark-ui/internal-utils": "^1.6.1",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
@@ -26,7 +27,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
-    "directory": "packages/components/radio"
+    "directory": "packages/components/radio-group"
   },
   "bugs": {
     "url": "https://github.com/adevinta/spark/issues"

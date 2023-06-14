@@ -1,8 +1,8 @@
 import { Picks, VariantLookup } from './types'
 
-/* eslint-disable space-before-function-paren */
 function makeVariants<
   Variant extends 'design' | 'intent' | 'shape' | 'size',
+  /* eslint-disable-next-line space-before-function-paren */
   P extends (keyof VariantLookup[Variant])[] = []
 >(
   variants: P extends [] ? VariantLookup[Variant] : Picks<VariantLookup[Variant], P>

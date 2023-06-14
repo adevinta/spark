@@ -8,9 +8,13 @@ export interface SpinnerProps extends ComponentPropsWithoutRef<'div'>, SpinnerSt
 }
 
 export const Spinner = forwardRef<HTMLDivElement, PropsWithChildren<SpinnerProps>>(
-  ({ className, size, intent, label, isBackgroundVisible, ...others }, ref) => {
+  (
+    { className, size = 'current', intent = 'current', label, isBackgroundVisible, ...others },
+    ref
+  ) => {
     return (
       <div
+        role="status"
         data-spark-component="spinner"
         ref={ref}
         className={spinnerStyles({ className, size, intent, isBackgroundVisible })}

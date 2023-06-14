@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.1](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.11.0...@spark-ui/tailwind-plugins@2.11.1) (2023-06-12)
+
+**Note:** Version bump only for package @spark-ui/tailwind-plugins
+
+# [2.11.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.10.14...@spark-ui/tailwind-plugins@2.11.0) (2023-06-08)
+
+### Features
+
+- update eslint rules based on team consensus ([d20f04c](https://github.com/adevinta/spark/commit/d20f04c5f4e6b5ed381d3db412108f58196767a1))
+
+## [2.10.14](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.10.13...@spark-ui/tailwind-plugins@2.10.14) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/tailwind-plugins
+
+## [2.10.13](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.10.12...@spark-ui/tailwind-plugins@2.10.13) (2023-06-01)
+
+**Note:** Version bump only for package @spark-ui/tailwind-plugins
+
 ## [2.10.12](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.10.11...@spark-ui/tailwind-plugins@2.10.12) (2023-05-26)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins

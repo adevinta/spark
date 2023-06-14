@@ -1,8 +1,9 @@
+import { Checkbox } from '@spark-ui/checkbox'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { FavoriteOutline } from '@spark-ui/icons/dist/icons/FavoriteOutline'
 import { Meta, StoryFn } from '@storybook/react'
-import { type ComponentProps } from 'react'
+import { type ComponentProps, useState } from 'react'
 
 import { Button } from '.'
 
@@ -103,10 +104,59 @@ export const Icons: StoryFn = _args => (
   </div>
 )
 
+export const Loading: StoryFn = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <div className="gap-lg flex flex-col items-start">
+      <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
+        Toggle loading state
+      </Checkbox>
+
+      <Button isLoading={isLoading} loadingLabel="Loading...">
+        <Icon>
+          <FavoriteOutline />
+        </Icon>
+        Button (width is preserved)
+      </Button>
+    </div>
+  )
+}
+
+export const LoadingWithText: StoryFn = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <div className="gap-lg flex flex-col items-start">
+      <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
+        Toggle loading state
+      </Checkbox>
+
+      <Button isLoading={isLoading} loadingText="Loading...">
+        <Icon>
+          <FavoriteOutline />
+        </Icon>
+        Button with long text
+      </Button>
+
+      <Button
+        isLoading={isLoading}
+        loadingText="Loading (spinner to the right)..."
+        spinnerPlacement="right"
+      >
+        <Icon>
+          <FavoriteOutline />
+        </Icon>
+        Button with long text
+      </Button>
+    </div>
+  )
+}
+
 export const Link: StoryFn = _args => (
   <div className="gap-md flex flex-wrap">
     <Button asChild>
-      <a href="/">button</a>
+      <a href="/">Button as a link</a>
     </Button>
   </div>
 )
