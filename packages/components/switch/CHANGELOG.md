@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.12](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.11...@spark-ui/switch@1.11.12) (2023-06-15)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.11.11](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.10...@spark-ui/switch@1.11.11) (2023-06-15)
+
+**Note:** Version bump only for package @spark-ui/switch
+
 ## [1.11.10](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.9...@spark-ui/switch@1.11.10) (2023-06-14)
 
 **Note:** Version bump only for package @spark-ui/switch

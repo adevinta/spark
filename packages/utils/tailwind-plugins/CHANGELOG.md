@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.11.1...@spark-ui/tailwind-plugins@2.12.0) (2023-06-15)
+
+### Features
+
+- **tailwind-plugins:** handle motion tokens inside tw spark-theme plugin ([ffb5792](https://github.com/adevinta/spark/commit/ffb57926d273c3a7e74ad6b397afba2432710819))
+
 ## [2.11.1](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.11.0...@spark-ui/tailwind-plugins@2.11.1) (2023-06-12)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins
