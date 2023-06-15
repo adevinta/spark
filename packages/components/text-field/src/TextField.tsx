@@ -1,5 +1,6 @@
 import { useId } from '@radix-ui/react-id'
-import { Input, InputProps, useInputGroup } from '@spark-ui/input'
+import { useFormFieldState } from '@spark-ui/form-field'
+import { Input, InputContainerProps, InputProps, useInputGroup } from '@spark-ui/input'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { ChangeEvent, FocusEvent, forwardRef, useRef, useState } from 'react'
 
@@ -7,7 +8,9 @@ import { textFieldStyles } from './TextField.styles'
 import { TextFieldFieldset } from './TextFieldFieldset'
 import { TextFieldLabel } from './TextFieldLabel'
 
-export interface TextFieldProps extends InputProps {
+export interface TextFieldProps
+  extends Omit<InputProps, 'intent'>,
+    Pick<InputContainerProps, 'intent'> {
   label: string
 }
 
@@ -23,8 +26,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       onFocus,
       onBlur,
       label,
-      intent = 'neutral',
+      intent: intentProp = 'neutral',
       children,
+      disabled,
       ...others
     },
     forwardedRef
@@ -32,13 +36,15 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const id = useId(idProp)
     const [isValueSet, setIsValueSet] = useState(!!value || !!defaultValue)
     const [isFocused, setIsFocused] = useState(false)
-    const group = useInputGroup()
     const rootRef = useRef<HTMLInputElement | null>(null)
     const ref = useMergeRefs(rootRef, forwardedRef)
+    const field = useFormFieldState()
+    const group = useInputGroup()
 
-    const { isLeftAddonVisible = false } = group || {}
+    const intent = field.isInvalid ? 'error' : intentProp
     const isGrouped = !!group
-    const isExpanded = isFocused || isLeftAddonVisible || !!placeholder || isValueSet
+    const isDisabled = disabled || group?.isDisabled
+    const isExpanded = isFocused || group?.isLeftAddonVisible || !!placeholder || isValueSet
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
@@ -69,19 +75,19 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         <Input
           id={id}
           ref={ref}
-          intent="unstyled"
+          intent="none"
           placeholder={placeholder}
           value={value}
           defaultValue={defaultValue}
+          disabled={isDisabled}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
           {...others}
         />
-
         {children}
 
-        <TextFieldFieldset intent={intent} isExpanded={isExpanded} asChild>
+        <TextFieldFieldset intent={intent} isExpanded={isExpanded} isDisabled={isDisabled}>
           {label}
         </TextFieldFieldset>
 
