@@ -39,17 +39,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/arnau-rius">
-            <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="50;" alt="arnau-rius"/>
-            <br />
-            <sub><b>arnau-rius</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/soykje">
             <img src="https://avatars.githubusercontent.com/u/66770550?v=4" width="50;" alt="soykje"/>
             <br />
             <sub><b>soykje</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/arnau-rius">
+            <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="50;" alt="arnau-rius"/>
+            <br />
+            <sub><b>arnau-rius</b></sub>
         </a>
     </td>
     <td align="center">
