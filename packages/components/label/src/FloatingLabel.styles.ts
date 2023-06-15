@@ -57,7 +57,8 @@ export const floatingLabelStyles = cva(['absolute', 'z-base', 'transition-all', 
         'before:absolute',
         'before:z-hide',
         'before:block',
-        'before:border-t-on-primary', // TODO: Spaeak to Design team if it's possible to switch this to a solid color.
+        'before:border-t-on-primary', // TODO: It has to be the same as the field background color.
+        // Ask to design team if it's possible to switch this to a solid color.
         'before:border-t-sm',
         'before:-translate-y-1/2',
         'before:mt-md',
