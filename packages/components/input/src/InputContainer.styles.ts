@@ -15,16 +15,23 @@ export const inputContainerStyles = cva(
   {
     variants: {
       intent: {
-        neutral: [
-          'border-outline',
-          'peer-hover:border-outline-high',
-          'peer-focus:border-outline-high',
-        ],
+        neutral: ['border-outline', 'peer-focus:border-outline-high'],
         success: ['border-success'],
         alert: ['border-alert'],
         error: ['border-error'],
       },
+      isDisabled: {
+        true: [],
+        false: [],
+      },
     },
+    compoundVariants: [
+      {
+        intent: 'neutral',
+        isDisabled: false,
+        class: 'peer-hover:border-outline-high',
+      },
+    ],
   }
 )
 

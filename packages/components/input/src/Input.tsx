@@ -1,5 +1,5 @@
 import { useFormFieldState } from '@spark-ui/form-field'
-import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { inputStyles, InputStylesProps } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
@@ -16,16 +16,15 @@ export interface InputProps
     > {}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, intent: intentProp, disabled: disabledProp, ...others }, ref) => {
+  ({ className, intent: intentProp = 'neutral', disabled: disabledProp, ...others }, ref) => {
     const field = useFormFieldState()
     const group = useInputGroup() || {}
 
     const { isLeftAddonVisible, isRightAddonVisible, isLeftElementVisible, isRightElementVisible } =
       group
     const { id, name, isInvalid, isRequired, description } = field
-
-    const intent = isInvalid ? 'error' : intentProp || 'neutral'
-    const isDisabled = disabledProp ?? group.isDisabled
+    const intent = isInvalid && intentProp !== 'none' ? 'error' : intentProp
+    const isDisabled = group.isDisabled ?? disabledProp
 
     return (
       <input

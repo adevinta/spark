@@ -26,13 +26,13 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       return element ? (element.type as FC).displayName : ''
     }
 
-    const findElement = (values: string[]) => {
+    const findElement = (...values: string[]) => {
       return children.find(child => values.includes(getDisplayName(child) || ''))
     }
 
-    const input = findElement(['Input', 'TextField'])
-    const left = findElement(['InputGroup.LeftAddon', 'InputGroup.LeftElement'])
-    const right = findElement(['InputGroup.RightAddon', 'InputGroup.RightElement'])
+    const input = findElement('Input', 'TextField')
+    const left = findElement('InputGroup.LeftAddon', 'InputGroup.LeftElement')
+    const right = findElement('InputGroup.RightAddon', 'InputGroup.RightElement')
     const isLeftAddonVisible = getDisplayName(left) === 'InputGroup.LeftAddon'
     const isRightAddonVisible = getDisplayName(right) === 'InputGroup.RightAddon'
     const isLeftElementVisible = getDisplayName(left) === 'InputGroup.LeftElement'
@@ -68,22 +68,28 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
           {isInput ? (
             <>
-              {cloneElement(input as any, { intent: 'unstyled' })}
-              <InputContainer intent={intent} />
+              {cloneElement(input as ReactElement, { intent: 'none' })}
+
+              <InputContainer intent={intent} isDisabled={isDisabled} />
+
               {isLeftElementVisible && left}
-              {right}
+
+              {isRightElementVisible && right}
             </>
           ) : (
-            cloneElement(input as any, {
+            cloneElement(input as ReactElement, {
               intent,
               children: (
                 <>
                   {isLeftElementVisible && left}
-                  {right}
+
+                  {isRightElementVisible && right}
                 </>
               ),
             })
           )}
+
+          {isRightAddonVisible && right}
         </div>
       </InputGroupContext.Provider>
     )
