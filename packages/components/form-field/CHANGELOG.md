@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.2.2...@spark-ui/form-field@0.2.3) (2023-06-15)
+
+### Bug Fixes
+
+- undo radix label bump ([04b5d2f](https://github.com/adevinta/spark/commit/04b5d2f138d850f9d0bd14bc4e160299b46ac62b))
+
 ## [0.2.2](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.2.1...@spark-ui/form-field@0.2.2) (2023-06-15)
 
 **Note:** Version bump only for package @spark-ui/form-field
