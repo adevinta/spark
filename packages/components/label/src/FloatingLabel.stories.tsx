@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { cva } from 'class-variance-authority'
-import { ComponentProps, ComponentPropsWithoutRef, FC, PropsWithChildren, useState } from 'react'
+import { PropsWithChildren, useState } from 'react'
 
 import { FloatingLabel } from '.'
 
@@ -16,7 +16,7 @@ const ControlledFloatingLabel = ({
   isExpanded = false,
   isDisabled = false,
   children,
-}: PropsWithChildren<{ id: string; isExpanded: boolean; isDisabled: boolean }>) => {
+}: PropsWithChildren<{ id: string; isExpanded?: boolean; isDisabled?: boolean }>) => {
   const [isFocused, setIsFocused] = useState(false)
 
   const handleFocus = () => {
