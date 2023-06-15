@@ -5,7 +5,7 @@ export const textFieldLabelStyles = cva(
   {
     variants: {
       isExpanded: {
-        true: ['left-lg', '-top-md', 'text-body-2', 'bg-surface', 'px-sm'],
+        true: ['left-lg', '-top-md', 'text-body-2', 'px-sm'],
         false: ['left-none', 'top-1/2', 'left-none', 'transform', '-translate-y-1/2', 'px-lg'],
       },
       isLeftElementVisible: {

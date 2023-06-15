@@ -1,14 +1,17 @@
 import { useId } from '@radix-ui/react-id'
 import { Input, InputProps, useInputGroup } from '@spark-ui/input'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { ChangeEvent, FocusEvent, forwardRef, PropsWithChildren, useRef, useState } from 'react'
+import { ChangeEvent, FocusEvent, forwardRef, useRef, useState } from 'react'
 
 import { textFieldStyles } from './TextField.styles'
+import { TextFieldFieldset } from './TextFieldFieldset'
 import { TextFieldLabel } from './TextFieldLabel'
 
-export type TextFieldProps = InputProps
+export interface TextFieldProps extends InputProps {
+  label: string
+}
 
-export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFieldProps>>(
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
     {
       id: idProp,
@@ -19,6 +22,8 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
       onChange,
       onFocus,
       onBlur,
+      label,
+      intent = 'neutral',
       children,
       ...others
     },
@@ -64,6 +69,7 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
         <Input
           id={id}
           ref={ref}
+          intent="unstyled"
           placeholder={placeholder}
           value={value}
           defaultValue={defaultValue}
@@ -73,9 +79,15 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
           {...others}
         />
 
-        {children && (
+        {children}
+
+        <TextFieldFieldset intent={intent} isExpanded={isExpanded} asChild>
+          {label}
+        </TextFieldFieldset>
+
+        {label && (
           <TextFieldLabel htmlFor={id} isExpanded={isExpanded}>
-            {children}
+            {label}
           </TextFieldLabel>
         )}
       </div>
