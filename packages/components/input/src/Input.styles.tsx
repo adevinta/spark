@@ -3,23 +3,25 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const inputStyles = cva(
   [
     'h-sz-44',
-    'border-sm',
     'outline-none',
     'text-ellipsis',
+    'peer',
     'text-body-1',
     'cursor-auto',
     'caret-neutral',
     'appearance-none',
+    'w-full',
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
   ],
   {
     variants: {
       intent: {
-        neutral: ['focus:border-outline-high', 'ring-outline-high'],
-        success: ['border-success', 'ring-success'],
-        alert: ['border-alert', 'ring-alert'],
-        error: ['border-error', 'ring-error'],
+        unstyled: [''],
+        neutral: ['border-sm', 'focus:ring-1', 'focus:border-outline-high', 'ring-outline-high'],
+        success: ['border-sm', 'focus:ring-1', 'border-success', 'ring-success'],
+        alert: ['border-sm', 'focus:ring-1', 'border-alert', 'ring-alert'],
+        error: ['border-sm', 'focus:ring-1', 'border-error', 'ring-error'],
       },
       isHovered: {
         true: [],
@@ -84,26 +86,8 @@ export const inputStyles = cva(
       },
       {
         intent: 'neutral',
-        isHovered: false,
-        class: 'border-outline',
-      },
-      {
-        intent: 'neutral',
         isDisabled: false,
-        isHovered: true,
-        class: 'border-outline-high',
-      },
-      {
-        intent: 'neutral',
-        isDisabled: false,
-        isLeftAddonVisible: false,
-        isRightAddonVisible: false,
         class: 'hover:border-outline-high',
-      },
-      {
-        isLeftAddonVisible: false,
-        isRightAddonVisible: false,
-        class: 'focus:ring-1',
       },
     ],
   }

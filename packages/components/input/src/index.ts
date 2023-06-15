@@ -9,7 +9,7 @@ import { InputRightElement, InputRightElementProps } from './InputRightElement'
 export { useInputGroup } from './InputGroupContext'
 
 export * from './Input'
-export { useInputGroup } from './InputGroupContext'
+export * from './InputContainer'
 export { type InputGroupProps } from './InputGroup'
 export { type InputLeftAddonProps } from './InputLeftAddon'
 export { type InputLeftElementProps } from './InputLeftElement'

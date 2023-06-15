@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@spark-ui/form-field": "^0.2.1",
+    "@spark-ui/slot": "^1.6.0",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {

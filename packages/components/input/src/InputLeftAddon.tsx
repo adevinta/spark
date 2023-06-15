@@ -7,13 +7,7 @@ export type InputLeftAddonProps = InputAddonProps
 
 export const InputLeftAddon = forwardRef<HTMLDivElement, InputLeftAddonProps>(
   ({ className, ...others }, ref) => {
-    return (
-      <InputAddon
-        ref={ref}
-        className={cx(className, 'pl-lg border-r-none rounded-r-none')}
-        {...others}
-      />
-    )
+    return <InputAddon ref={ref} className={cx(className, 'pl-lg')} {...others} />
   }
 )
 

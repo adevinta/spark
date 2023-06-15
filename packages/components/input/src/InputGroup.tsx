@@ -1,5 +1,6 @@
 import {
   Children,
+  cloneElement,
   ComponentPropsWithoutRef,
   FC,
   forwardRef,
@@ -7,22 +8,18 @@ import {
   PropsWithChildren,
   ReactElement,
   useMemo,
-  useState,
 } from 'react'
 
+import { InputContainer, InputContainerProps } from './InputContainer'
 import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
-export interface InputGroupProps
-  extends ComponentPropsWithoutRef<'div'>,
-    Omit<InputGroupStylesProps, 'isFocused'> {
+export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
+  intent?: InputContainerProps['intent']
   isDisabled?: boolean
 }
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
   ({ className, children: childrenProp, intent = 'neutral', isDisabled, ...others }, ref) => {
-    const [isFocused, setIsFocused] = useState(false)
-    const [isHovered, setIsHovered] = useState(false)
-
     const children = Children.toArray(childrenProp).filter(isValidElement)
 
     const getDisplayName = (element?: ReactElement) => {
@@ -40,44 +37,18 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const isRightAddonVisible = getDisplayName(right) === 'InputGroup.RightAddon'
     const isLeftElementVisible = getDisplayName(left) === 'InputGroup.LeftElement'
     const isRightElementVisible = getDisplayName(right) === 'InputGroup.RightElement'
+    const isInput = getDisplayName(input) === 'Input'
 
     const value = useMemo(() => {
-      const handleFocus = () => {
-        setIsFocused(true)
-      }
-
-      const handleBlur = () => {
-        setIsHovered(false)
-        setIsFocused(false)
-      }
-
-      const handleMouseEnter = () => {
-        setIsHovered(true)
-      }
-
-      const handleMouseLeave = () => {
-        setIsHovered(false)
-      }
-
       return {
-        intent,
         isDisabled: !!isDisabled,
-        isHovered,
-        isFocused,
         isLeftElementVisible,
         isRightElementVisible,
         isLeftAddonVisible,
         isRightAddonVisible,
-        onFocus: handleFocus,
-        onBlur: handleBlur,
-        onMouseEnter: handleMouseEnter,
-        onMouseLeave: handleMouseLeave,
       }
     }, [
-      intent,
       isDisabled,
-      isHovered,
-      isFocused,
       isLeftElementVisible,
       isRightElementVisible,
       isLeftAddonVisible,
@@ -90,14 +61,29 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
           ref={ref}
           className={inputGroupStyles({
             className,
-            intent,
-            isFocused,
           })}
           {...others}
         >
-          {left}
-          {input}
-          {right}
+          {isLeftAddonVisible && left}
+
+          {isInput ? (
+            <>
+              {cloneElement(input as any, { intent: 'unstyled' })}
+              <InputContainer intent={intent} />
+              {isLeftElementVisible && left}
+              {right}
+            </>
+          ) : (
+            cloneElement(input as any, {
+              intent,
+              children: (
+                <>
+                  {isLeftElementVisible && left}
+                  {right}
+                </>
+              ),
+            })
+          )}
         </div>
       </InputGroupContext.Provider>
     )
