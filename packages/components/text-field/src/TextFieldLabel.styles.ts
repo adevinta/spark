@@ -1,7 +1,7 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
 export const textFieldLabelStyles = cva(
-  ['absolute', 'transition-all', 'duration-100', 'cursor-auto'],
+  ['absolute', 'transition-all', 'duration-200', 'cursor-auto'],
   {
     variants: {
       isExpanded: {
