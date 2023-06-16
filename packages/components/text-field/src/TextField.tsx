@@ -12,8 +12,9 @@ import { TextFieldFloatingLabel } from './TextFieldFloatingLabel'
 import { TextFieldLegend } from './TextFieldLegend'
 
 export interface TextFieldProps
-  extends Omit<InputProps, 'intent'>,
+  extends Omit<InputProps, 'intent' | 'content'>,
     Pick<InputContainerProps, 'intent'> {
+  content?: ReactNode
   requiredIndicator?: ReactNode
   label: string
 }
@@ -32,9 +33,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       label,
       intent: intentProp = 'neutral',
       requiredIndicator,
+      content,
       disabled,
       required,
-      children,
       ...others
     },
     forwardedRef
@@ -93,7 +94,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           onChange={handleChange}
           {...others}
         />
-        {children}
+
+        {content}
 
         <TextFieldFieldset intent={intent} isDisabled={isDisabled}>
           <TextFieldLegend
