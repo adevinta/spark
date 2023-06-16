@@ -1,4 +1,4 @@
-import { Label, LabelProps } from '@radix-ui/react-label'
+import { Label, LabelProps } from '@spark-ui/label'
 import { Slottable } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
 import { forwardRef, ReactNode } from 'react'
@@ -34,9 +34,9 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
       <Label
         ref={ref}
         id={labelId}
-        data-spark-component="form-label"
+        data-spark-component="form-field-label"
         htmlFor={htmlFor}
-        className={cx(className, 'flex items-center gap-sm text-body-1')}
+        className={cx(className, 'flex items-center gap-sm')}
         asChild={asChild}
         {...others}
       >
