@@ -35,7 +35,7 @@ const intents: TextFieldProps['intent'][] = ['neutral', 'success', 'alert', 'err
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="gap-md flex flex-col">
+    <div className="flex flex-col gap-md">
       {intents.map(intent => (
         <TextField key={intent} label={intent as string} intent={intent} />
       ))}

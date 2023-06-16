@@ -1,16 +1,20 @@
+/* eslint-disable complexity */
+
 import { useId } from '@radix-ui/react-id'
 import { useFormFieldState } from '@spark-ui/form-field'
 import { Input, InputContainerProps, InputProps, useInputGroup } from '@spark-ui/input'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { ChangeEvent, FocusEvent, forwardRef, useRef, useState } from 'react'
+import { ChangeEvent, FocusEvent, forwardRef, ReactNode, useRef, useState } from 'react'
 
 import { textFieldStyles } from './TextField.styles'
 import { TextFieldFieldset } from './TextFieldFieldset'
-import { TextFieldLabel } from './TextFieldLabel'
+import { TextFieldFloatingLabel } from './TextFieldFloatingLabel'
+import { TextFieldLegend } from './TextFieldLegend'
 
 export interface TextFieldProps
   extends Omit<InputProps, 'intent'>,
     Pick<InputContainerProps, 'intent'> {
+  requiredIndicator?: ReactNode
   label: string
 }
 
@@ -27,8 +31,10 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       onBlur,
       label,
       intent: intentProp = 'neutral',
-      children,
+      requiredIndicator,
       disabled,
+      required,
+      children,
       ...others
     },
     forwardedRef
@@ -43,7 +49,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 
     const intent = field.isInvalid ? 'error' : intentProp
     const isGrouped = !!group
-    const isDisabled = disabled || group?.isDisabled
+    const isRequired = field.isRequired ?? required
+    const isDisabled = group?.isDisabled ?? disabled
     const isExpanded = isFocused || group?.isLeftAddonVisible || !!placeholder || isValueSet
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
@@ -79,6 +86,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           placeholder={placeholder}
           value={value}
           defaultValue={defaultValue}
+          required={isRequired}
           disabled={isDisabled}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -87,14 +95,25 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         />
         {children}
 
-        <TextFieldFieldset intent={intent} isExpanded={isExpanded} isDisabled={isDisabled}>
-          {label}
+        <TextFieldFieldset intent={intent} isDisabled={isDisabled}>
+          <TextFieldLegend
+            requiredIndicator={requiredIndicator}
+            isExpanded={isExpanded}
+            isRequired={isRequired}
+          >
+            {label}
+          </TextFieldLegend>
         </TextFieldFieldset>
 
         {label && (
-          <TextFieldLabel htmlFor={id} isExpanded={isExpanded}>
+          <TextFieldFloatingLabel
+            htmlFor={id}
+            requiredIndicator={requiredIndicator}
+            isExpanded={isExpanded}
+            isRequired={isRequired}
+          >
             {label}
-          </TextFieldLabel>
+          </TextFieldFloatingLabel>
         )}
       </div>
     )

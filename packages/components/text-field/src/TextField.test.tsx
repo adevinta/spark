@@ -1,27 +1,14 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { TextField } from './TextField'
 
 describe('TextField', () => {
   it('should render', () => {
-    render(<TextField>Hello World!</TextField>)
+    const label = 'label'
 
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
-  })
+    render(<TextField label={label} />)
 
-  it('should trigger click event', async () => {
-    const user = userEvent.setup()
-    const clickEvent = vi.fn()
-
-    // Given
-    render(<div onClick={clickEvent}>Hello World!</div>)
-
-    // When
-    await user.click(screen.getByText('Hello World!'))
-
-    // Then
-    expect(clickEvent).toHaveBeenCalledTimes(1)
+    expect(screen.getByLabelText(label)).toBeVisible()
   })
 })

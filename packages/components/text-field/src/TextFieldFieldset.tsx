@@ -1,17 +1,14 @@
 import { InputContainer, InputContainerProps } from '@spark-ui/input'
+import { ComponentPropsWithoutRef } from 'react'
 
-import { TextFieldLegend } from './TextFieldLegend'
+export interface TextFieldFieldsetProps
+  extends ComponentPropsWithoutRef<'fieldset'>,
+    Pick<InputContainerProps, 'intent' | 'isDisabled'> {}
 
-export interface TextFieldFieldsetProps extends Omit<InputContainerProps, 'asChild'> {
-  isExpanded: boolean
-}
-
-export const TextFieldFieldset = ({ children, isExpanded, ...others }: TextFieldFieldsetProps) => {
+export const TextFieldFieldset = ({ intent, isDisabled, ...others }: TextFieldFieldsetProps) => {
   return (
-    <InputContainer {...others} asChild>
-      <fieldset aria-hidden="true">
-        <TextFieldLegend isExpanded={isExpanded}>{children}</TextFieldLegend>
-      </fieldset>
+    <InputContainer intent={intent} isDisabled={isDisabled} asChild>
+      <fieldset aria-hidden="true" {...others} />
     </InputContainer>
   )
 }
