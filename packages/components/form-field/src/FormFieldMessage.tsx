@@ -20,7 +20,15 @@ export const FormFieldMessage = forwardRef<HTMLSpanElement, FormFieldMessageProp
       }
     }, [id, onMessageIdAdd, onMessageIdRemove])
 
-    return <span ref={ref} id={id} className={cx(className, 'text-caption')} {...others} />
+    return (
+      <span
+        ref={ref}
+        id={id}
+        data-spark-component="form-field-message"
+        className={cx(className, 'text-caption')}
+        {...others}
+      />
+    )
   }
 )
 

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/label@1.2.3...@spark-ui/label@1.3.0) (2023-06-16)
+
+### Features
+
+- **label:** add required indicator component ([62021f8](https://github.com/adevinta/spark/commit/62021f8128a0376fa2239f5adf76460392a7fbd0))
+
 ## [1.2.3](https://github.com/adevinta/spark/compare/@spark-ui/label@1.2.2...@spark-ui/label@1.2.3) (2023-06-15)
 
 ### Bug Fixes

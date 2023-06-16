@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Label } from '.'
 import * as stories from './Label.stories'
 
@@ -23,11 +23,28 @@ import { Label } from '@spark-ui/label'
 
 ## Props
 
-<ArgTypes of={Label} />
+<ArgTypes
+  of={Label}
+  subcomponents={{
+    'Label.RequiredIndicator': Label.RequiredIndicator,
+  }}
+/>
 
 ## Default
 
 <Canvas of={stories.Default} />
+
+## Required
+
+Use `Label.RequiredIndicator` component to display a required indicator inside the label. By default `*` is used as indicator.
+
+<Canvas of={stories.Required} />
+
+### Custom required indicator
+
+Optionally use the `children` prop to change the indicator.
+
+<Canvas of={stories.RequiredIndicator} />
 
 ## Accessibility
 

@@ -24,7 +24,7 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
       <FormFieldProvider id={id} name={name} isRequired={isRequired} isInvalid={isInvalid}>
         <Component
           ref={ref}
-          data-spark-component="form-control"
+          data-spark-component="form-field"
           className={cx(className, 'flex flex-col gap-xl')}
           {...others}
         />
