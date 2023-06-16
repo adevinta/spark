@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/text-field",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Input with a floating label",
   "publishConfig": {
     "access": "public"
