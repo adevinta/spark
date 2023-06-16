@@ -11,32 +11,30 @@ const meta: Meta<typeof FormField> = {
 export default meta
 
 export const Default: StoryFn = () => (
-  <FormField name="email">
+  <FormField className="!gap-md" name="email">
     <FormField.Label>Email</FormField.Label>
 
-    <FormField.State>
+    <FormField.Control>
       {({ id, name, description }) => (
         <input
           type="email"
           id={id}
           name={name}
           aria-describedby={description}
-          className="p-md border-neutral active:border-primary border-md rounded-sm"
+          className="rounded-sm border-md border-neutral p-md outline-none"
         />
       )}
-    </FormField.State>
-
-    <FormField.ErrorMessage>Email is required</FormField.ErrorMessage>
+    </FormField.Control>
 
     <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
   </FormField>
 )
 
 export const Required: StoryFn = () => (
-  <FormField name="password" isRequired>
+  <FormField className="!gap-md" name="password" isRequired>
     <FormField.Label>Password</FormField.Label>
 
-    <FormField.State>
+    <FormField.Control>
       {({ id, name, description, isRequired }) => (
         <input
           type="password"
@@ -45,17 +43,17 @@ export const Required: StoryFn = () => (
           aria-describedby={description}
           aria-required={isRequired}
           required={isRequired}
-          className="p-md border-neutral active:border-primary border-md rounded-sm"
+          className="rounded-sm border-md border-neutral p-md outline-none"
         />
       )}
-    </FormField.State>
+    </FormField.Control>
 
-    <FormField.ErrorMessage>Password is required</FormField.ErrorMessage>
+    <FormField.StateMessage state="error">Password is required</FormField.StateMessage>
   </FormField>
 )
 
 export const CustomRequired: StoryFn = () => (
-  <FormField name="password" isRequired>
+  <FormField className="!gap-md" name="password" isRequired>
     <FormField.Label
       requiredIndicator={
         <FormField.RequiredIndicator className="text-caption text-neutral">
@@ -66,7 +64,7 @@ export const CustomRequired: StoryFn = () => (
       Password
     </FormField.Label>
 
-    <FormField.State>
+    <FormField.Control>
       {({ id, name, description, isRequired }) => (
         <input
           type="password"
@@ -75,34 +73,80 @@ export const CustomRequired: StoryFn = () => (
           aria-describedby={description}
           aria-required={isRequired}
           required={isRequired}
-          className="p-md border-neutral active:border-primary border-md rounded-sm"
+          className="rounded-sm border-md border-neutral p-md outline-none"
         />
       )}
-    </FormField.State>
+    </FormField.Control>
 
-    <FormField.ErrorMessage>Password is required</FormField.ErrorMessage>
+    <FormField.StateMessage state="error">Password is required</FormField.StateMessage>
   </FormField>
 )
 
-export const Invalid: StoryFn = () => (
-  <FormField name="email" isInvalid>
-    <FormField.Label>Name</FormField.Label>
+export const State: StoryFn = () => (
+  <div className="flex flex-col gap-lg">
+    <FormField className="!gap-md" name="email" state="error">
+      <FormField.Label>Name</FormField.Label>
 
-    <FormField.State>
-      {({ id, name, description, isInvalid }) => (
-        <input
-          type="text"
-          id={id}
-          name={name}
-          aria-describedby={description}
-          className={cx(
-            'p-md border-md rounded-sm',
-            isInvalid ? 'border-error' : 'border-neutral active:border-primary'
-          )}
-        />
-      )}
-    </FormField.State>
+      <FormField.Control>
+        {({ id, name, description, state }) => (
+          <input
+            type="text"
+            id={id}
+            name={name}
+            aria-describedby={description}
+            className={cx(
+              'p-md border-md rounded-sm outline-none',
+              state === 'error' ? 'border-error' : 'border-neutral'
+            )}
+          />
+        )}
+      </FormField.Control>
 
-    <FormField.ErrorMessage>Name is invalid</FormField.ErrorMessage>
-  </FormField>
+      <FormField.StateMessage state="error">Name is invalid</FormField.StateMessage>
+    </FormField>
+
+    <FormField className="!gap-md" name="email" state="success">
+      <FormField.Label>Email</FormField.Label>
+
+      <FormField.Control>
+        {({ id, name, description, state }) => (
+          <input
+            type="email"
+            id={id}
+            name={name}
+            aria-describedby={description}
+            className={cx(
+              'p-md border-md rounded-sm outline-none',
+              state === 'success' ? 'border-success' : 'border-neutral'
+            )}
+          />
+        )}
+      </FormField.Control>
+
+      <FormField.StateMessage state="success">Email is valid</FormField.StateMessage>
+    </FormField>
+
+    <FormField className="!gap-md" name="email" state="alert">
+      <FormField.Label>Password</FormField.Label>
+
+      <FormField.Control>
+        {({ id, name, description, state }) => (
+          <input
+            type="password"
+            id={id}
+            name={name}
+            aria-describedby={description}
+            className={cx(
+              'p-md border-md rounded-sm outline-none',
+              state === 'alert' ? 'border-alert' : 'border-neutral'
+            )}
+          />
+        )}
+      </FormField.Control>
+
+      <FormField.StateMessage state="alert">
+        There is an issue with your password
+      </FormField.StateMessage>
+    </FormField>
+  </div>
 )
