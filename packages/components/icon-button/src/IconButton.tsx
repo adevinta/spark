@@ -3,7 +3,7 @@ import React from 'react'
 
 import { iconButtonStyles } from './IconButton.styles'
 
-export interface IconButtonProps extends ButtonProps {
+export interface IconButtonProps extends Omit<ButtonProps, 'loadingText'> {
   'aria-label': string
 }
 
