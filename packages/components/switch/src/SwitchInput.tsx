@@ -1,5 +1,5 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
 import { Slot } from '@spark-ui/slot'
@@ -64,14 +64,13 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
       value = 'on',
       onCheckedChange,
       className,
-      name,
       required,
       ...rest
     },
     ref
   ) => {
     const [isChecked, setIsChecked] = useCombinedState(checked, defaultChecked)
-    const { name: controlledName, description, isRequired, isInvalid } = useFormFieldState()
+    const { name, description, isRequired, isInvalid } = useFormFieldControl()
 
     const handleCheckedChange = (updatedValue: boolean): void => {
       setIsChecked(updatedValue)
@@ -86,7 +85,7 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
         checked={checked}
         defaultChecked={defaultChecked}
         onCheckedChange={handleCheckedChange}
-        name={name || controlledName}
+        name={name}
         required={required || isRequired}
         aria-invalid={isInvalid}
         aria-describedby={description}

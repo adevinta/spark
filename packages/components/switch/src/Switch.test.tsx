@@ -146,14 +146,14 @@ describe('Switch', () => {
 
     it('should render aria-attributes following FormField implementation', () => {
       render(
-        <FormField name="agreement" isRequired isInvalid>
+        <FormField name="agreement" state="error" isRequired>
           <FormField.Label asChild>
             <p>Agreement</p>
           </FormField.Label>
 
           <Switch />
 
-          <FormField.ErrorMessage>Agreement is required</FormField.ErrorMessage>
+          <FormField.StateMessage state="error">Agreement is required</FormField.StateMessage>
         </FormField>
       )
 
