@@ -1,4 +1,4 @@
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { useCombinedState } from '@spark-ui/use-combined-state'
 import { ComponentPropsWithoutRef, forwardRef, useEffect, useMemo, useRef } from 'react'
 
@@ -35,10 +35,10 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
     ref
   ) => {
     const [value, setValue] = useCombinedState(valueProp, defaultValue)
-    const field = useFormFieldState()
+    const field = useFormFieldControl()
     const onCheckedChangeRef = useRef(onCheckedChangeProp)
 
-    const { id, labelId, description, isInvalid, isRequired } = field
+    const { id, labelId, description, state, isInvalid, isRequired } = field
     const name = nameProp ?? field.name
 
     const current = useMemo(() => {
@@ -58,12 +58,13 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
         name,
         value,
         intent,
+        state,
         isInvalid,
         description,
         isRequired,
         onCheckedChange: handleCheckedChange,
       }
-    }, [id, name, value, intent, isInvalid, description, isRequired, setValue])
+    }, [id, name, value, intent, state, isInvalid, description, isRequired, setValue])
 
     useEffect(() => {
       onCheckedChangeRef.current = onCheckedChangeProp

@@ -24,7 +24,7 @@ export const Uncontrolled: StoryFn = () => {
   }
 
   return (
-    <div className="gap-lg flex flex-col">
+    <div className="flex flex-col gap-lg">
       <Checkbox defaultChecked onCheckedChange={handleCheckedChange}>
         Accept terms and conditions
       </Checkbox>
@@ -40,7 +40,7 @@ export const Controlled: StoryFn = () => {
   }
 
   return (
-    <div className="gap-lg flex">
+    <div className="flex gap-lg">
       <Checkbox checked={checked} onCheckedChange={handleCheckedChange}>
         Accept terms and conditions
       </Checkbox>
@@ -55,7 +55,7 @@ export const Controlled: StoryFn = () => {
 const intent = ['primary', 'success', 'alert', 'error', 'info', 'neutral'] as const
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {intent.map(color => {
       return (
         <Checkbox className="capitalize" key={color} intent={color}>
@@ -67,7 +67,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Icon: StoryFn = _args => (
-  <div className="gap-lg flex flex-col">
+  <div className="flex flex-col gap-lg">
     <Checkbox defaultChecked icon={<Close />}>
       Accept terms and conditions
     </Checkbox>
@@ -145,7 +145,7 @@ export const GroupImproved: StoryFn = () => {
   }
 
   return (
-    <FormField name="sport" isRequired isInvalid={value.length === 0}>
+    <FormField name="sport" state={value.length === 0 ? 'error' : undefined} isRequired>
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
@@ -156,7 +156,7 @@ export const GroupImproved: StoryFn = () => {
         <Checkbox value="baseball">Baseball</Checkbox>
       </CheckboxGroup>
 
-      <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
+      <FormField.StateMessage state="error">The sport field is required.</FormField.StateMessage>
     </FormField>
   )
 }
