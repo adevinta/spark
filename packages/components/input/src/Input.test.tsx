@@ -156,12 +156,12 @@ describe('Input', () => {
     const errorText = 'The title is invalid'
 
     render(
-      <FormField name={name} isInvalid>
+      <FormField name={name} state="error">
         <FormField.Label>{label}</FormField.Label>
 
         <Input />
 
-        <FormField.ErrorMessage>{errorText}</FormField.ErrorMessage>
+        <FormField.StateMessage state="error">{errorText}</FormField.StateMessage>
       </FormField>
     )
 

@@ -35,7 +35,7 @@ const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="gap-md flex flex-col">
+    <div className="flex flex-col gap-md">
       {intents.map(intent => (
         <Input key={intent} intent={intent} />
       ))}
@@ -133,12 +133,12 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isInvalid>
+    <FormField className="!gap-sm" name="title" state="error">
       <FormField.Label>Title</FormField.Label>
 
       <Input />
 
-      <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
+      <FormField.StateMessage state="error">The title is invalid</FormField.StateMessage>
     </FormField>
   )
 }
