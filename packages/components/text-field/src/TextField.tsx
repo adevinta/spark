@@ -110,6 +110,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         {label && (
           <TextFieldFloatingLabel
             htmlFor={id}
+            intent={intent}
             requiredIndicator={requiredIndicator}
             isExpanded={isExpanded}
             isRequired={isRequired}
