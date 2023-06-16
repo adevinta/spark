@@ -17,7 +17,7 @@ export const FormFieldErrorMessage = forwardRef<HTMLSpanElement, FormFieldErrorM
     return (
       <FormFieldMessage
         ref={ref}
-        data-spark-component="form-error-message"
+        data-spark-component="form-field-error-message"
         aria-live="polite"
         className={cx(className, 'text-error')}
         {...others}
