@@ -56,7 +56,7 @@ const intents: RadioGroupProps['intent'][] = [
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="gap-xl flex">
+    <div className="flex gap-xl">
       {intents.map(intent => (
         <div key={intent}>
           <StoryLabel>{intent}</StoryLabel>
@@ -75,7 +75,7 @@ const orientations: RadioGroupProps['orientation'][] = ['horizontal', 'vertical'
 
 export const Orientation: StoryFn = _args => {
   return (
-    <div className="gap-xl flex">
+    <div className="flex gap-xl">
       {orientations.map(orientation => (
         <div key={orientation}>
           <StoryLabel>{orientation}</StoryLabel>
@@ -94,7 +94,7 @@ const sizes: RadioGroupProps['size'][] = ['sm', 'md']
 
 export const Size: StoryFn = _args => {
   return (
-    <div className="gap-xl flex">
+    <div className="flex gap-xl">
       {sizes.map(size => (
         <div key={size}>
           <StoryLabel>{size}</StoryLabel>
@@ -125,7 +125,7 @@ export const WithFormField: StoryFn = _args => {
   }
 
   return (
-    <FormField name="condition" isRequired isInvalid={!value}>
+    <FormField name="condition" state={!value ? 'error' : undefined} isRequired>
       <FormField.Label asChild>
         <p>Apparel condition</p>
       </FormField.Label>
@@ -137,7 +137,7 @@ export const WithFormField: StoryFn = _args => {
         <RadioGroup.Radio value="4">Satisfactory</RadioGroup.Radio>
       </RadioGroup>
 
-      <FormField.ErrorMessage>The condition is required</FormField.ErrorMessage>
+      <FormField.StateMessage state="error">The condition is required</FormField.StateMessage>
     </FormField>
   )
 }

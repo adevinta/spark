@@ -1,5 +1,5 @@
 import { RadioGroupItem as RadioPrimitive } from '@radix-ui/react-radio-group'
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 
 import { RadioIndicator } from './RadioIndicator'
@@ -28,9 +28,9 @@ export interface RadioInputProps
 
 export const RadioInput = forwardRef<HTMLButtonElement, RadioInputProps>(
   ({ intent: intentProp, size, className, ...others }, ref) => {
-    const { isInvalid } = useFormFieldState()
+    const { state } = useFormFieldControl()
 
-    const intent = isInvalid ? 'error' : intentProp
+    const intent = state ?? intentProp
 
     return (
       <RadioPrimitive

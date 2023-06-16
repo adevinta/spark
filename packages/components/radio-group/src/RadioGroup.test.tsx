@@ -121,7 +121,7 @@ describe('RadioGroup', () => {
 
     it('should render aria-attributes following FormField implementation', () => {
       render(
-        <FormField name="category" isRequired isInvalid>
+        <FormField name="category" state="error" isRequired>
           <FormField.Label asChild>
             <p>Category</p>
           </FormField.Label>
