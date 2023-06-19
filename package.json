@@ -97,7 +97,7 @@
     "jsdom": "21.1.1",
     "lerna": "6.4.1",
     "lint-staged": "13.2.2",
-    "postcss": "8.4.21",
+    "postcss": "8.4.24",
     "prettier": "2.8.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
