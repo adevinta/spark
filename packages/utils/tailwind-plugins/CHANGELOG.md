@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.12.0...@spark-ui/tailwind-plugins@2.13.0) (2023-06-19)
+
+### Features
+
+- **tailwind-plugins:** spark plugin now offer retina screens tailwind classes ([0ff5027](https://github.com/adevinta/spark/commit/0ff502759cd734ab1a7b696ec5490853318c9df3))
+
 # [2.12.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.11.1...@spark-ui/tailwind-plugins@2.12.0) (2023-06-15)
 
 ### Features
