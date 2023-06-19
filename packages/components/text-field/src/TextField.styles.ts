@@ -6,14 +6,6 @@ export const textFieldStyles = cva(['inline-flex'], {
       true: [],
       false: ['relative'],
     },
-    isExpanded: {
-      true: [],
-      false: [],
-    },
-    isLeftAddonVisible: {
-      true: [],
-      false: [],
-    },
   },
 })
 

@@ -79,7 +79,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     }
 
     return (
-      <div className={textFieldStyles({ isGrouped, isExpanded, isLeftAddonVisible })}>
+      <div className={textFieldStyles({ isGrouped })}>
         <Input
           id={id}
           ref={ref}
