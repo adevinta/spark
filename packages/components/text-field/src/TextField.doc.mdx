@@ -15,32 +15,32 @@ Component used to get user input in a text field
 ## Install
 
 ```sh
-npm install @spark-ui/input
+npm install @spark-ui/text-field
 ```
 
 ## Import
 
 ```tsx
-import { Input } from '@spark-ui/input'
+import { TextField } from '@spark-ui/text-field'
 ```
 
 ## Props
 
 <ArgTypes of={TextField} />
 
-## Usage
+## Default
 
 <Canvas of={stories.Default} />
 
 ## Uncontrolled
 
-Use `defaultValue` prop to set the default value of the input. Optionally `onChange` prop can be used to know when the value of the input changes.
+Use `defaultValue` prop to set the default input value. Optionally `onChange` prop can be used to know when the input value changes.
 
 <Canvas of={stories.Uncontrolled} />
 
 ## Controlled
 
-Use `value` and `onChange` props to control the value of the input.
+Use `value` and `onChange` props to control the input value.
 
 <Canvas of={stories.Controlled} />
 

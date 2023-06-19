@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { TextField } from './TextField'
+import { TextField } from '.'
 
 describe('TextField', () => {
   it('should render', () => {

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/text-field",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Input with a floating label",
   "publishConfig": {
     "access": "public"
@@ -18,10 +18,11 @@
   },
   "dependencies": {
     "@radix-ui/react-id": "1.0.1",
-    "class-variance-authority": "0.5.2",
-    "@spark-ui/label": "^1.2.1",
-    "@spark-ui/input": "^0.2.4",
-    "@spark-ui/use-merge-refs": "^0.3.3"
+    "@spark-ui/input": "^0.3.0",
+    "@spark-ui/label": "^1.4.0",
+    "@spark-ui/form-field": "^0.3.1",
+    "@spark-ui/use-merge-refs": "^0.3.3",
+    "class-variance-authority": "0.5.2"
   },
   "repository": {
     "type": "git",

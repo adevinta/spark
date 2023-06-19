@@ -20,7 +20,7 @@ export const Default: StoryFn = _args => <TextField label="Title" />
 export const Uncontrolled: StoryFn = _args => <TextField label="Title" defaultValue="IPhone 12" />
 
 export const Controlled: StoryFn = () => {
-  const [value, setValue] = useState('IPhone 13')
+  const [value, setValue] = useState('iPhone 13')
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)

@@ -49,7 +49,7 @@ export const inputStyles = cva(
       {
         intent: 'neutral',
         isDisabled: true,
-        class: 'border-outline',
+        class: 'border-on-surface/dim-3',
       },
       {
         intent: 'neutral',
