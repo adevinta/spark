@@ -1,9 +1,5 @@
-import { FormField } from '@spark-ui/form-field'
-import { Icon } from '@spark-ui/icon'
-import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { TextField } from '.'
 
