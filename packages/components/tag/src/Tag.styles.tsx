@@ -5,7 +5,7 @@ import { filledVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const tagStyles = cva(
   [
-    'box-border inline-flex items-center justify-center gap-sm whitespace-nowrap',
+    'gap-sm box-border inline-flex items-center justify-center whitespace-nowrap',
     'text-caption font-bold',
     'h-sz-20 px-md',
     'ring-inset',

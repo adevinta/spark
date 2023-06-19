@@ -29,7 +29,7 @@ const shapes: TagProps['shape'][] = ['rounded', 'square', 'pill']
 export const Default: StoryFn = _args => <Tag>Default tag</Tag>
 
 export const Design: StoryFn = _args => (
-  <div className="flex flex-row gap-md">
+  <div className="gap-md flex flex-row">
     {designs.map(design => (
       <Tag key={design} design={design}>
         {design} tag
@@ -39,7 +39,7 @@ export const Design: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-row gap-md">
+  <div className="gap-md flex flex-row">
     {intents.map(intent => (
       <Tag key={intent} intent={intent}>
         {intent} tag
@@ -49,7 +49,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Shapes: StoryFn = _args => (
-  <div className="flex items-center gap-md">
+  <div className="gap-md flex items-center">
     {shapes.map(shape => {
       return (
         <Tag key={shape} shape={shape}>
@@ -61,7 +61,7 @@ export const Shapes: StoryFn = _args => (
 )
 
 export const Icons: StoryFn = _args => (
-  <div className="flex flex-wrap gap-md">
+  <div className="gap-md flex flex-wrap">
     <Tag>
       Button
       <Icon>

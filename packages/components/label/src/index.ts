@@ -9,3 +9,5 @@ export const Label: typeof Root & {
 } = Object.assign(Root, {
   RequiredIndicator: LabelRequiredIndicator,
 })
+
+export * from './FloatingLabel'
