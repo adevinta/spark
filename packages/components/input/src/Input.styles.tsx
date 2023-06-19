@@ -3,6 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const inputStyles = cva(
   [
     'h-sz-44',
+    'box-border',
     'outline-none',
     'text-ellipsis',
     'peer',

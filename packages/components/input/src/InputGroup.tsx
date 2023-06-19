@@ -79,7 +79,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
           ) : (
             cloneElement(input as ReactElement, {
               intent,
-              content: (
+              elements: (
                 <>
                   {isLeftElementVisible && left}
 
