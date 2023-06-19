@@ -1,6 +1,8 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
+import { Checkbox } from '@spark-ui/checkbox'
 import { Icon } from '@spark-ui/icon'
 import { Meta, StoryFn } from '@storybook/react'
+import { useState } from 'react'
 
 import { IconButton, IconButtonProps } from '.'
 
@@ -36,7 +38,7 @@ const icon = (
 export const Default: StoryFn = _args => <IconButton aria-label="Button">{icon}</IconButton>
 
 export const Sizes: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {sizes.map(size => {
       return (
         <div key={size} className="text-center">
@@ -51,7 +53,7 @@ export const Sizes: StoryFn = _args => (
 )
 
 export const Shapes: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {shapes.map(shape => {
       return (
         <div key={shape} className="text-center">
@@ -72,7 +74,7 @@ export const Disabled: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {intents.map(intent => (
       <div key={intent} className="text-center">
         <StoryLabel className="mx-auto">{intent}</StoryLabel>
@@ -85,7 +87,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Design: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {designs.map(design => (
       <div key={design} className="text-center">
         <StoryLabel className="mx-auto">{design}</StoryLabel>
@@ -97,8 +99,28 @@ export const Design: StoryFn = _args => (
   </div>
 )
 
+export const Loading: StoryFn = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <div className="flex flex-col gap-lg">
+      <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
+        Toggle loading state
+      </Checkbox>
+
+      <div className="flex flex-wrap gap-md">
+        <div>
+          <IconButton aria-label="Submit" isLoading={isLoading} loadingLabel="Loading...">
+            {icon}
+          </IconButton>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export const Link: StoryFn = _args => (
-  <div className="gap-md flex">
+  <div className="flex gap-md">
     <IconButton aria-label="Link" asChild>
       <a href="/">{icon}</a>
     </IconButton>

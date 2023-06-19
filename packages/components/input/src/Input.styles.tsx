@@ -51,37 +51,22 @@ export const inputStyles = cva(
       {
         intent: 'neutral',
         isDisabled: true,
-        class: 'border-outline',
+        class: 'border-on-surface/dim-3',
       },
       {
         isLeftElementVisible: false,
         isLeftAddonVisible: false,
-        class: 'pl-lg',
+        class: ['px-lg'],
       },
       {
         isLeftElementVisible: false,
         isLeftAddonVisible: true,
-        class: 'pl-md',
+        class: ['px-md'],
       },
       {
         isLeftElementVisible: true,
         isLeftAddonVisible: false,
-        class: 'pl-3xl',
-      },
-      {
-        isRightElementVisible: false,
-        isRightAddonVisible: false,
-        class: 'pr-lg',
-      },
-      {
-        isRightElementVisible: false,
-        isRightAddonVisible: true,
-        class: 'pr-md',
-      },
-      {
-        isRightElementVisible: true,
-        isRightAddonVisible: false,
-        class: 'pr-3xl',
+        class: ['px-3xl'],
       },
       {
         intent: 'neutral',

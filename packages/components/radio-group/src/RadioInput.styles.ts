@@ -9,11 +9,11 @@ const defaultVariants = {
 export const radioInputVariants = cva(
   [
     'rounded-full',
-    'border-md border-outline',
+    'border-md',
     'outline-none',
     'hover:ring-4',
-    'focus-visible:ring-on-surface focus-visible:ring-2',
-    'disabled:border-outline/dim-2 disabled:cursor-not-allowed disabled:hover:ring-transparent',
+    'focus-visible:ring-2 focus-visible:ring-on-surface',
+    'disabled:cursor-not-allowed disabled:border-outline/dim-2 disabled:hover:ring-transparent',
     'u-shadow-border-transition',
   ],
   {
@@ -26,13 +26,25 @@ export const radioInputVariants = cva(
         'intent',
         ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
       >({
-        primary: ['spark-state-checked:border-primary', 'hover:ring-primary-container'],
-        secondary: ['spark-state-checked:border-secondary', 'hover:ring-secondary-container'],
-        success: ['spark-state-checked:border-success', 'hover:ring-success-container'],
-        alert: ['spark-state-checked:border-alert', 'hover:ring-alert-container'],
-        error: ['spark-state-checked:border-error', 'hover:ring-error-container'],
-        info: ['spark-state-checked:border-info', 'hover:ring-info-container'],
-        neutral: ['spark-state-checked:border-neutral', 'hover:ring-neutral-container'],
+        primary: [
+          'border-outline',
+          'spark-state-checked:border-primary',
+          'hover:ring-primary-container',
+        ],
+        secondary: [
+          'border-outline',
+          'spark-state-checked:border-secondary',
+          'hover:ring-secondary-container',
+        ],
+        neutral: [
+          'border-outline',
+          'spark-state-checked:border-neutral',
+          'hover:ring-neutral-container',
+        ],
+        info: ['border-outline', 'spark-state-checked:border-info', 'hover:ring-info-container'],
+        success: ['border-success', 'hover:ring-success-container'],
+        alert: ['border-alert', 'hover:ring-alert-container'],
+        error: ['border-error', 'hover:ring-error-container'],
       }),
     },
     defaultVariants,

@@ -47,16 +47,16 @@ export const Controlled: StoryFn = () => {
 const intents: RadioGroupProps['intent'][] = [
   'primary',
   'secondary',
+  'info',
+  'neutral',
   'success',
   'alert',
   'error',
-  'info',
-  'neutral',
 ]
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="gap-xl flex">
+    <div className="flex gap-xl">
       {intents.map(intent => (
         <div key={intent}>
           <StoryLabel>{intent}</StoryLabel>
@@ -75,7 +75,7 @@ const orientations: RadioGroupProps['orientation'][] = ['horizontal', 'vertical'
 
 export const Orientation: StoryFn = _args => {
   return (
-    <div className="gap-xl flex">
+    <div className="flex gap-xl">
       {orientations.map(orientation => (
         <div key={orientation}>
           <StoryLabel>{orientation}</StoryLabel>
@@ -94,7 +94,7 @@ const sizes: RadioGroupProps['size'][] = ['sm', 'md']
 
 export const Size: StoryFn = _args => {
   return (
-    <div className="gap-xl flex">
+    <div className="flex gap-xl">
       {sizes.map(size => (
         <div key={size}>
           <StoryLabel>{size}</StoryLabel>

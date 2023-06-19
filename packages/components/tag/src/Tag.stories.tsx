@@ -1,3 +1,5 @@
+import { Icon } from '@spark-ui/icon'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
 
@@ -27,7 +29,7 @@ const shapes: TagProps['shape'][] = ['rounded', 'square', 'pill']
 export const Default: StoryFn = _args => <Tag>Default tag</Tag>
 
 export const Design: StoryFn = _args => (
-  <div className="gap-md flex flex-row">
+  <div className="flex flex-row gap-md">
     {designs.map(design => (
       <Tag key={design} design={design}>
         {design} tag
@@ -37,7 +39,7 @@ export const Design: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-md flex flex-row">
+  <div className="flex flex-row gap-md">
     {intents.map(intent => (
       <Tag key={intent} intent={intent}>
         {intent} tag
@@ -47,7 +49,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Shapes: StoryFn = _args => (
-  <div className="gap-md flex items-center">
+  <div className="flex items-center gap-md">
     {shapes.map(shape => {
       return (
         <Tag key={shape} shape={shape}>
@@ -55,5 +57,22 @@ export const Shapes: StoryFn = _args => (
         </Tag>
       )
     })}
+  </div>
+)
+
+export const Icons: StoryFn = _args => (
+  <div className="flex flex-wrap gap-md">
+    <Tag>
+      Button
+      <Icon>
+        <Check />
+      </Icon>
+    </Tag>
+    <Tag>
+      <Icon>
+        <Check />
+      </Icon>
+      Button
+    </Tag>
   </div>
 )

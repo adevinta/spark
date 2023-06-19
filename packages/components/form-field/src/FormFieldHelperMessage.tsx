@@ -10,7 +10,7 @@ export const FormFieldHelperMessage = forwardRef<HTMLSpanElement, FormFieldHelpe
     return (
       <FormFieldMessage
         ref={ref}
-        data-spark-component="form-helper-message"
+        data-spark-component="form-field-helper-message"
         className={cx(className, 'text-neutral')}
         {...others}
       />

@@ -3,6 +3,7 @@ const {
   DEFAULT_KEY,
   tailwindCategoryKeys,
   transitionDurationLookup,
+  transitionDelayDurationLookup,
   transitionTimingFunctionLookup,
   unassignedColors,
 } = require('./constants')
@@ -109,6 +110,7 @@ function getCSSVariableReferences(_theme) {
     ...themeCpy,
     colors: { ...themeCpy.colors, ...unassignedColors },
     transitionDuration: transitionDurationLookup,
+    transitionDelay: transitionDelayDurationLookup,
     extend: {
       transitionTimingFunction: transitionTimingFunctionLookup,
     },
