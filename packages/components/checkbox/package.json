@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "1.0.3",
-    "@radix-ui/react-id": "1.0.0",
+    "@radix-ui/react-id": "1.0.1",
     "@spark-ui/icon": "^1.7.4",
     "@spark-ui/icons": "^1.15.0",
     "@spark-ui/internal-utils": "^1.6.1",
