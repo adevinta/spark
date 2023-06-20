@@ -14,7 +14,8 @@
   "dependencies": {
     "@spark-ui/form-field": "^0.6.0",
     "@spark-ui/slot": "^1.6.0",
-    "class-variance-authority": "0.5.2"
+    "class-variance-authority": "0.5.2",
+    "@spark-ui/close-button": "0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",

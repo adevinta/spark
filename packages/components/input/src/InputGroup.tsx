@@ -41,7 +41,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const isLeftElementVisible = getDisplayName(left) === 'InputGroup.LeftElement'
     const isRightElementVisible = getDisplayName(right) === 'InputGroup.RightElement'
 
-    const value = useMemo(() => {
+    const context = useMemo(() => {
       const handleFocus = () => {
         setIsFocused(true)
       }
@@ -85,7 +85,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     ])
 
     return (
-      <InputGroupContext.Provider value={value}>
+      <InputGroupContext.Provider value={context}>
         <div
           ref={ref}
           className={inputGroupStyles({

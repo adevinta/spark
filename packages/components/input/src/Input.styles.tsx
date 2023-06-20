@@ -9,6 +9,7 @@ export const inputStyles = cva(
     'text-ellipsis',
     'text-body-1',
     'cursor-auto',
+    'grow',
     'caret-neutral',
     'appearance-none',
     'autofill:shadow-surface',
@@ -31,6 +32,10 @@ export const inputStyles = cva(
         false: ['bg-surface', 'text-on-surface'],
       },
       isLeftElementVisible: {
+        true: [],
+        false: [],
+      },
+      hasClear: {
         true: [],
         false: [],
       },
@@ -66,7 +71,55 @@ export const inputStyles = cva(
       {
         isLeftElementVisible: true,
         isLeftAddonVisible: false,
-        class: ['px-3xl'],
+        class: 'px-3xl',
+      },
+      {
+        isRightElementVisible: false,
+        isRightAddonVisible: false,
+        hasClear: false,
+        class: 'pr-lg',
+      },
+      {
+        isRightElementVisible: false,
+        isRightAddonVisible: false,
+        hasClear: true,
+        class: 'pr-3xl',
+      },
+      {
+        isRightElementVisible: false,
+        isRightAddonVisible: true,
+        hasClear: false,
+        class: 'pr-md',
+      },
+      {
+        isRightElementVisible: false,
+        isRightAddonVisible: true,
+        hasClear: true,
+        class: 'pr-2xl',
+      },
+      {
+        isRightElementVisible: true,
+        isRightAddonVisible: false,
+        hasClear: false,
+        class: 'pr-3xl',
+      },
+      {
+        isRightElementVisible: true,
+        isRightAddonVisible: false,
+        hasClear: true,
+        class: 'pr-6xl',
+      },
+      {
+        isRightElementVisible: true,
+        isRightAddonVisible: true,
+        hasClear: false,
+        class: 'pr-3xl',
+      },
+      {
+        isRightElementVisible: true,
+        isRightAddonVisible: true,
+        hasClear: true,
+        class: 'pr-6xl',
       },
       {
         intent: 'neutral',
@@ -94,5 +147,40 @@ export const inputStyles = cva(
     ],
   }
 )
+
+export const clearInputStyles = cva(['ml-md absolute top-1/2 flex -translate-y-1/2'], {
+  variants: {
+    isRightAddonVisible: {
+      true: [],
+      false: [],
+    },
+    isRightElementVisible: {
+      true: [],
+      false: [],
+    },
+  },
+  compoundVariants: [
+    {
+      isRightAddonVisible: false,
+      isRightElementVisible: false,
+      class: 'right-none pr-lg',
+    },
+    {
+      isRightAddonVisible: false,
+      isRightElementVisible: true,
+      class: 'right-2xl pr-md',
+    },
+    {
+      isRightAddonVisible: true,
+      isRightElementVisible: false,
+      class: 'right-none pr-md',
+    },
+    {
+      isRightAddonVisible: true,
+      isRightElementVisible: true,
+      class: 'pr-md',
+    },
+  ],
+})
 
 export type InputStylesProps = VariantProps<typeof inputStyles>
