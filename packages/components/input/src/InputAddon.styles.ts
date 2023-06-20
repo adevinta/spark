@@ -1,45 +1,34 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const inputAddonStyles = cva(['border-sm', 'flex', 'items-center', 'rounded-lg'], {
-  variants: {
-    intent: {
-      neutral: ['border-outline'],
-      success: ['border-success'],
-      alert: ['border-alert'],
-      error: ['border-error'],
-    },
-    isDisabled: {
-      true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
-      false: ['bg-surface', 'text-on-surface'],
-    },
-    isFocused: {
-      true: [],
-      false: [],
-    },
-    isHovered: {
-      true: [],
-      false: [],
-    },
-  },
-  compoundVariants: [
-    {
-      intent: 'neutral',
-      isDisabled: true,
-      class: 'border-on-surface/dim-3',
-    },
-    {
-      intent: 'neutral',
-      isHovered: true,
-      isDisabled: false,
-      class: 'border-outline-high',
-    },
-    {
-      intent: 'neutral',
-      isFocused: true,
-      isDisabled: false,
-      class: 'border-outline-high',
-    },
+export const inputAddonStyles = cva(
+  [
+    'border-sm',
+    'flex',
+    'items-center',
+    'rounded-lg',
+    'bg-surface',
+    'text-on-surface',
+    'peer:disabled:bg-on-surface/dim-5',
+    'peer:disabled:border-on-surface/dim-3',
+    'peer:disabled:text-on-surface/dim-3',
+    'peer:disabled:cursor-not-allowed',
+    'peer:focus:ring-1',
   ],
-})
+  {
+    variants: {
+      intent: {
+        neutral: [
+          'border-outline',
+          'ring-outline-high',
+          'peer:hover:border-outline-high',
+          'peer:focus:border-outline-high',
+        ],
+        success: ['border-success', 'ring-success'],
+        alert: ['border-alert', 'ring-alert'],
+        error: ['border-error', 'ring-error'],
+      },
+    },
+  }
+)
 
 export type InputAddonStylesProps = VariantProps<typeof inputAddonStyles>

@@ -9,15 +9,9 @@ export interface InputAddonProps
 
 export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
   ({ className, ...others }, ref) => {
-    const { intent, isDisabled, isHovered, isFocused } = useInputGroup() || {}
+    const { intent } = useInputGroup() || {}
 
-    return (
-      <div
-        ref={ref}
-        className={inputAddonStyles({ className, intent, isDisabled, isHovered, isFocused })}
-        {...others}
-      />
-    )
+    return <div ref={ref} className={inputAddonStyles({ className, intent })} {...others} />
   }
 )
 
