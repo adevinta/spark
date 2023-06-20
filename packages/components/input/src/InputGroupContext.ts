@@ -18,6 +18,4 @@ export interface InputGroupContext extends Pick<InputGroupProps, 'intent'> {
 
 export const InputGroupContext = createContext<Partial<InputGroupContext> | null>(null)
 
-export const useInputGroup = () => {
-  return useContext(InputGroupContext)
-}
+export const useInputGroup = () => useContext(InputGroupContext) || {}

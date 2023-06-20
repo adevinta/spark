@@ -1,6 +1,7 @@
 import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { HomeOutline } from '@spark-ui/icons/dist/icons/HomeOutline'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
@@ -43,11 +44,52 @@ export const Intent: StoryFn = _args => {
   )
 }
 
+export const HasClear: StoryFn = _args => {
+  return (
+    <div className="gap-sm flex flex-col items-start justify-items-start">
+      <Input onClear={() => console.log('clear')} />
+      <InputGroup>
+        <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
+        <Input onClear={() => console.log('clear')} />
+        <InputGroup.RightAddon>.com</InputGroup.RightAddon>
+      </InputGroup>
+      <InputGroup>
+        <InputGroup.LeftElement>
+          <Icon>
+            <PenOutline />
+          </Icon>
+        </InputGroup.LeftElement>
+        <Input onClear={() => console.log('clear')} />
+        <InputGroup.RightElement>
+          <Icon>
+            <Check />
+          </Icon>
+        </InputGroup.RightElement>
+      </InputGroup>
+      <InputGroup>
+        <InputGroup.LeftElement>
+          <Icon>
+            <PenOutline />
+          </Icon>
+        </InputGroup.LeftElement>
+        <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
+        <Input onClear={() => console.log('clear')} />
+        <InputGroup.RightAddon>.com</InputGroup.RightAddon>
+        <InputGroup.RightElement>
+          <Icon>
+            <Check />
+          </Icon>
+        </InputGroup.RightElement>
+      </InputGroup>
+    </div>
+  )
+}
+
 export const GroupAddons: StoryFn = _args => {
   return (
     <InputGroup>
       <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-      <Input />
+      <Input onClear={() => console.log('clear')} />
       <InputGroup.RightAddon>.com</InputGroup.RightAddon>
     </InputGroup>
   )
@@ -58,11 +100,11 @@ export const GroupElements: StoryFn = _args => {
     <InputGroup>
       <InputGroup.LeftElement>
         <Icon>
-          <PenOutline />
+          <Check />
         </Icon>
       </InputGroup.LeftElement>
 
-      <Input />
+      <Input onClear={() => console.log('clear')} />
 
       <InputGroup.RightElement>
         <Icon>
@@ -89,7 +131,6 @@ export const FieldLabel: StoryFn = _args => {
   return (
     <FormField className="!gap-sm" name="title">
       <FormField.Label>Title</FormField.Label>
-
       <Input />
     </FormField>
   )
