@@ -73,10 +73,6 @@ export const chipContentStyles = cva(
         no: ['max-w-sz-240'],
         yes: ['max-w-[238px]'],
       },
-      mode: {
-        default: [],
-        icon: [],
-      },
       hasCloseIcon: {
         yes: [],
         no: [],
@@ -84,63 +80,36 @@ export const chipContentStyles = cva(
     },
     defaultVariants: {
       isBordered: 'no',
-      mode: 'default',
       hasCloseIcon: 'no',
     },
     compoundVariants: [
       {
-        mode: 'default',
         hasCloseIcon: 'no',
         isBordered: 'no',
         class: tw(['px-md']),
       },
       {
-        mode: 'default',
         hasCloseIcon: 'no',
         isBordered: 'yes',
         class: tw(['px-[7px]']),
       },
       {
-        mode: 'icon',
-        hasCloseIcon: 'no',
-        isBordered: 'no',
-        class: tw(['px-md']),
-      },
-      {
-        mode: 'icon',
-        hasCloseIcon: 'no',
-        isBordered: 'yes',
-        class: tw(['px-md']),
-      },
-      {
-        mode: 'default',
         hasCloseIcon: 'yes',
         isBordered: 'no',
         class: tw(['pl-md']),
       },
       {
-        mode: 'default',
         hasCloseIcon: 'yes',
         isBordered: 'yes',
         class: tw(['pl-[7px]']),
-      },
-      {
-        mode: 'icon',
-        hasCloseIcon: 'yes',
-        isBordered: 'no',
-        class: tw(['pl-md']),
-      },
-      {
-        mode: 'icon',
-        hasCloseIcon: 'yes',
-        isBordered: 'yes',
-        class: tw(['pl-md']),
       },
     ],
   }
 )
 
-export const chipContentTextStyles = cva(['overflow-hidden text-ellipsis'])
+export const chipContentTextStyles = cva([
+  'gap-sm flex flex-nowrap items-center overflow-hidden text-ellipsis',
+])
 
 export const chipCloseStyles = cva(
   ['flex h-full items-center justify-center', 'focus-visible:outline-none'],

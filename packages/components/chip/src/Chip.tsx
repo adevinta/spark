@@ -37,10 +37,6 @@ export interface ChipProps
     args: { pressed: boolean }
   ) => void
   onClose?: React.MouseEventHandler<HTMLSpanElement>
-  /**
-   * Trailing icon
-   */
-  icon?: React.ReactElement
 }
 
 export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
@@ -56,12 +52,15 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       className,
       onClick,
       onClose,
-      icon,
       ...otherProps
     },
     forwardedRef
   ) => {
-    const [ChipElement, elementProps, closeIconProps] = useChipElement({
+    const {
+      Element: ChipElement,
+      chipProps,
+      closeIconProps,
+    } = useChipElement({
       asChild,
       pressed,
       defaultPressed,
@@ -69,8 +68,6 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       onClose,
       disabled,
     })
-
-    const isIconOnly = icon && children === undefined
 
     return (
       <ChipElement
@@ -82,7 +79,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
           intent,
         })}
         {...{
-          ...elementProps,
+          ...chipProps,
           ...otherProps,
         }}
         data-spark-component="chip"
@@ -90,11 +87,9 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
         <span
           className={chipContentStyles({
             isBordered: design === 'dashed' ? 'yes' : 'no',
-            mode: isIconOnly ? 'icon' : 'default',
             hasCloseIcon: onClose ? 'yes' : 'no',
           })}
         >
-          {icon && <span>{icon}</span>}
           {children && <span className={chipContentTextStyles({})}>{children}</span>}
           {onClose && (
             <span

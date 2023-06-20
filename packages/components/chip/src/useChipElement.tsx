@@ -19,16 +19,15 @@ export const useChipElement = ({
   pressed?: boolean
   defaultPressed?: boolean
   disabled: boolean | null
-}): [
-  (
+}): {
+  Element:
     | React.ForwardRefExoticComponent<
         React.HTMLAttributes<HTMLElement> & {
           children?: React.ReactNode
         } & React.RefAttributes<HTMLElement>
       >
     | React.ElementType
-  ),
-  (
+  chipProps:
     | {
         type: 'button'
         'aria-pressed'?: boolean
@@ -39,11 +38,10 @@ export const useChipElement = ({
     | {
         'aria-disabled'?: true
       }
-  ),
-  {
+  closeIconProps: {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   }
-] => {
+} => {
   const [isPressed, setIsPressed] = useCombinedState<boolean | undefined>(pressed, defaultPressed)
   const onCloseHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation()
@@ -55,9 +53,9 @@ export const useChipElement = ({
   }
   const isButton = onClick || isPressed
   if (isButton) {
-    return [
-      asChild ? Slot : 'button',
-      {
+    return {
+      Element: asChild ? Slot : 'button',
+      chipProps: {
         type: 'button',
         ...(isPressed !== undefined && {
           'aria-pressed': isPressed,
@@ -70,14 +68,14 @@ export const useChipElement = ({
         ...(disabled && { disabled: true }),
       },
       closeIconProps,
-    ]
+    }
   }
 
-  return [
-    asChild ? Slot : 'div',
-    {
+  return {
+    Element: asChild ? Slot : 'div',
+    chipProps: {
       ...(disabled && { 'aria-disabled': true }),
     },
     closeIconProps,
-  ]
+  }
 }

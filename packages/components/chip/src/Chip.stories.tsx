@@ -32,95 +32,61 @@ export const MaxLength: StoryFn = _args => (
   <div className="gap-md flex flex-col flex-wrap">
     <div className="gap-md flex flex-wrap">
       <Chip>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip
-        icon={
-          <SparkIcon>
-            <CameraFill />
-          </SparkIcon>
-        }
-      >
+      <Chip>
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
-      <Chip
-        icon={
-          <SparkIcon>
-            <CameraFill />
-          </SparkIcon>
-        }
-        onClose={() => console.log('close')}
-      >
+      <Chip onClose={() => console.log('close')}>
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
     </div>
     <div className="gap-md flex flex-wrap">
       <Chip design="filled">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip
-        design="filled"
-        icon={
-          <SparkIcon>
-            <CameraFill />
-          </SparkIcon>
-        }
-      >
+      <Chip design="filled">
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
-      <Chip
-        design="filled"
-        icon={
-          <SparkIcon>
-            <CameraFill />
-          </SparkIcon>
-        }
-        onClose={() => console.log('close')}
-      >
+      <Chip design="filled" onClose={() => console.log('close')}>
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
     </div>
     <div className="gap-md flex flex-wrap">
       <Chip design="dashed">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip
-        design="dashed"
-        icon={
-          <SparkIcon>
-            <CameraFill />
-          </SparkIcon>
-        }
-      >
+      <Chip design="dashed">
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
-      <Chip
-        design="dashed"
-        icon={
-          <SparkIcon>
-            <CameraFill />
-          </SparkIcon>
-        }
-        onClose={() => console.log('close')}
-      >
+      <Chip design="dashed" onClose={() => console.log('close')}>
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
     </div>
     <div className="gap-md flex flex-wrap">
       <Chip design="tinted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Chip>
-      <Chip
-        design="tinted"
-        icon={
-          <SparkIcon>
-            <CameraFill />
-          </SparkIcon>
-        }
-      >
+      <Chip design="tinted">
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
-      <Chip
-        design="tinted"
-        icon={
-          <SparkIcon>
-            <CameraFill />
-          </SparkIcon>
-        }
-        onClose={() => console.log('close')}
-      >
+      <Chip design="tinted" onClose={() => console.log('close')}>
+        <SparkIcon>
+          <CameraFill />
+        </SparkIcon>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Chip>
     </div>
@@ -138,32 +104,23 @@ export const Disabled: StoryFn = _args => (
 
 export const Icon: StoryFn = _args => (
   <div className="gap-md flex flex-wrap">
-    <Chip
-      icon={
-        <SparkIcon>
-          <CameraFill />
-        </SparkIcon>
-      }
-    >
+    <Chip>
+      <SparkIcon>
+        <CameraFill />
+      </SparkIcon>
       Trailing icon
     </Chip>
-    <Chip
-      icon={
-        <SparkIcon>
-          <CameraFill />
-        </SparkIcon>
-      }
-      onClose={() => console.log('close')}
-    >
+    <Chip onClose={() => console.log('close')}>
+      <SparkIcon>
+        <CameraFill />
+      </SparkIcon>
       Trailing icon
     </Chip>
-    <Chip
-      icon={
-        <SparkIcon>
-          <CameraFill />
-        </SparkIcon>
-      }
-    />
+    <Chip>
+      <SparkIcon>
+        <CameraFill />
+      </SparkIcon>
+    </Chip>
   </div>
 )
 
