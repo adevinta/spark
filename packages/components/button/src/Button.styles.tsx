@@ -12,10 +12,10 @@ import {
 export const buttonStyles = cva(
   [
     'u-shadow-border-transition',
-    'gap-md box-border inline-flex items-center justify-center whitespace-nowrap',
+    'box-border inline-flex items-center justify-center gap-md whitespace-nowrap',
     'px-lg',
     'text-body-1 font-bold',
-    'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
+    'ring-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
   ],
   {
     variants: {

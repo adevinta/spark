@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/tag",
-  "version": "1.6.16",
-  "description": "Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.",
+  "name": "@spark-ui/text-field",
+  "version": "0.1.1",
+  "description": "Input with a floating label",
   "publishConfig": {
     "access": "public"
   },
@@ -11,20 +11,22 @@
   "scripts": {
     "build": "vite build"
   },
-  "dependencies": {
-    "@spark-ui/internal-utils": "^1.6.1",
-    "@spark-ui/slot": "^1.6.0",
-    "class-variance-authority": "0.5.2"
-  },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
     "tailwindcss": "^3.0.0"
   },
+  "dependencies": {
+    "@radix-ui/react-id": "1.0.1",
+    "@spark-ui/input": "^0.3.1",
+    "@spark-ui/label": "^1.4.1",
+    "@spark-ui/use-merge-refs": "^0.3.3",
+    "class-variance-authority": "0.5.2"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:adevinta/spark.git",
-    "directory": "packages/components/tag"
+    "directory": "packages/components/text-field"
   },
   "bugs": {
     "url": "https://github.com/adevinta/spark/issues"

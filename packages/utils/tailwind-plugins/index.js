@@ -2,6 +2,7 @@
 const animations = require('./animations')
 const sizings = require('./sizings')
 const utilities = require('./utilities')
+const variants = require('./variants')
 const sparkTheme = require('./spark-theme')
 const tailwindConfigViewerMisc = require('./tailwind.config.viewer.misc')
 const tailwindcssRadix = require('tailwindcss-radix')
@@ -24,6 +25,7 @@ const sparkConfig = ({ htmlFontSize, themes }) => {
     sizings({ htmlFontSize }),
     animations(),
     utilities(),
+    variants(),
     tailwindcssRadix({ variantPrefix: 'spark' }),
   ]
 }
@@ -32,6 +34,7 @@ module.exports = {
   animations,
   sizings,
   utilities,
+  variants,
   sparkTheme,
   sparkConfig,
   tailwindConfigViewerMisc,

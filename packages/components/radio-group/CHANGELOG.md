@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.0.8...@spark-ui/radio-group@1.0.9) (2023-06-19)
+
+### Bug Fixes
+
+- fix code snippets on component docs ([f2e8163](https://github.com/adevinta/spark/commit/f2e8163130257ba86bd61fbce77846f373a642d6))
+
+## [1.0.8](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.0.7...@spark-ui/radio-group@1.0.8) (2023-06-19)
+
+**Note:** Version bump only for package @spark-ui/radio-group
+
 ## [1.0.7](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.0.6...@spark-ui/radio-group@1.0.7) (2023-06-16)
 
 **Note:** Version bump only for package @spark-ui/radio-group

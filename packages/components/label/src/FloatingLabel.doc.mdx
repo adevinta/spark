@@ -1,0 +1,34 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+import { FloatingLabel } from '.'
+import * as stories from './FloatingLabel.stories'
+
+<Meta of={stories} />
+
+# FloatingLabel
+
+Renders an accessible and animated label associated with controls. **It doesn't work on its own, it must be wrapped by a form element controlling when it has to be expanded.**
+
+## Install
+
+```sh
+npm install @spark-ui/label
+```
+
+## Import
+
+```tsx
+import { FloatingLabel } from '@spark-ui/label'
+```
+
+## Props
+
+<ArgTypes of={FloatingLabel} />
+
+## Default
+
+<Canvas of={stories.Default} />
+
+## Disabled
+
+<Canvas of={stories.Disabled} />
