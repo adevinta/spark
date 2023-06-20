@@ -44,9 +44,9 @@ export const Intent: StoryFn = _args => {
   )
 }
 
-export const HasClear: StoryFn = _args => {
+export const onClear: StoryFn = _args => {
   return (
-    <div className="gap-sm flex flex-col items-start justify-items-start">
+    <div className="flex flex-col items-start justify-items-start gap-sm">
       <Input onClear={() => console.log('clear')} />
       <InputGroup>
         <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
