@@ -1,3 +1,5 @@
+import { Icon } from '@spark-ui/icon'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps } from 'react'
 
@@ -55,5 +57,22 @@ export const Shapes: StoryFn = _args => (
         </Tag>
       )
     })}
+  </div>
+)
+
+export const Icons: StoryFn = _args => (
+  <div className="gap-md flex flex-wrap">
+    <Tag>
+      Button
+      <Icon>
+        <Check />
+      </Icon>
+    </Tag>
+    <Tag>
+      <Icon>
+        <Check />
+      </Icon>
+      Button
+    </Tag>
   </div>
 )

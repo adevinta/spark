@@ -11,17 +11,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/acd02">
-            <img src="https://avatars.githubusercontent.com/u/51230231?v=4" width="50;" alt="acd02"/>
-            <br />
-            <sub><b>acd02</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/andresz1">
             <img src="https://avatars.githubusercontent.com/u/6877967?v=4" width="50;" alt="andresz1"/>
             <br />
             <sub><b>andresz1</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/acd02">
+            <img src="https://avatars.githubusercontent.com/u/51230231?v=4" width="50;" alt="acd02"/>
+            <br />
+            <sub><b>acd02</b></sub>
         </a>
     </td>
     <td align="center">
@@ -39,17 +39,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/arnau-rius">
-            <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="50;" alt="arnau-rius"/>
-            <br />
-            <sub><b>arnau-rius</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/soykje">
             <img src="https://avatars.githubusercontent.com/u/66770550?v=4" width="50;" alt="soykje"/>
             <br />
             <sub><b>soykje</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/arnau-rius">
+            <img src="https://avatars.githubusercontent.com/u/32937662?v=4" width="50;" alt="arnau-rius"/>
+            <br />
+            <sub><b>arnau-rius</b></sub>
         </a>
     </td>
     <td align="center">

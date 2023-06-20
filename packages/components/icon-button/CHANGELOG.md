@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.3](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@1.3.2...@spark-ui/icon-button@1.3.3) (2023-06-19)
+
+**Note:** Version bump only for package @spark-ui/icon-button
+
+## [1.3.2](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@1.3.1...@spark-ui/icon-button@1.3.2) (2023-06-19)
+
+**Note:** Version bump only for package @spark-ui/icon-button
+
+## [1.3.1](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@1.3.0...@spark-ui/icon-button@1.3.1) (2023-06-16)
+
+**Note:** Version bump only for package @spark-ui/icon-button
+
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@1.2.13...@spark-ui/icon-button@1.3.0) (2023-06-14)
+
+### Features
+
+- **icon-button:** loading state ([3181b32](https://github.com/adevinta/spark/commit/3181b32d4bf11cae5858f50fe10fa64af187a274))
+
 ## [1.2.13](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@1.2.12...@spark-ui/icon-button@1.2.13) (2023-06-02)
 
 **Note:** Version bump only for package @spark-ui/icon-button

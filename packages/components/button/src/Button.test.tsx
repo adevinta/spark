@@ -16,6 +16,41 @@ describe('Button', () => {
     // Then
     expect(element).toBeInTheDocument()
     expect(document.querySelector('[data-spark-component="button"]')).toBeInTheDocument()
+    expect(document.querySelector('[data-spark-component="spinner"]')).not.toBeInTheDocument()
+  })
+
+  describe('Loading state', () => {
+    it('should display spinner and replace accessible name with hidden loading label', () => {
+      // Given
+      render(
+        <Button isLoading loadingLabel="Loading...">
+          Hello World!
+        </Button>
+      )
+
+      screen.debug(screen.getByText('Hello World!'))
+
+      // Then
+      expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Loading...' })).toBeInTheDocument()
+      expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
+    })
+
+    it('should display spinner and replace accessible name with visible loading text', () => {
+      // Given
+      render(
+        <Button isLoading loadingText="Loading...">
+          Hello World!
+        </Button>
+      )
+
+      screen.debug(screen.getByText('Hello World!'))
+
+      // Then
+      expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Loading...' })).toBeInTheDocument()
+      expect(screen.getByText('Loading...')).toBeInTheDocument()
+    })
   })
 
   it('should render as link', async () => {
