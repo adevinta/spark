@@ -3,10 +3,11 @@ import { cva, type VariantProps } from 'class-variance-authority'
 export const styles = cva(
   [
     'rounded-md',
-    'p-lg',
+    'max-w-sz-384 p-lg',
     'bg-surface text-on-surface',
     'shadow',
     'focus:shadow-lg',
+    'pr-[40px]',
     // directions styles
     'will-change-[transform,opacity]',
   ],
@@ -18,6 +19,9 @@ export const styles = cva(
       enforceBoundaries: {
         true: ['max-w-[--radix-popper-available-width]'],
       },
+      // hasCloseButton: {
+      //   true: 'pr-[40px]',
+      // },
     },
     defaultVariants: {
       matchTriggerWidth: false,

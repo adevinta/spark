@@ -33,6 +33,7 @@ import { Popover } from '@spark-ui/popover'
     'Popover.Portal': Popover.Portal,
     'Popover.Content': Popover.Content,
     'Popover.Arrow': Popover.Arrow,
+    'Popover.Close': Popover.Close,
   }}
 />
 
@@ -42,6 +43,8 @@ A basic popover should have a trigger element and a content element.
 
 The trigger is the element that should toggle the popover.
 The content is the popover itself.
+
+**Note: For headings inside Popover, please use the `header` HTML tag instead of `h1, h2`, etc.**
 
 <Canvas of={stories.Default} />
 
