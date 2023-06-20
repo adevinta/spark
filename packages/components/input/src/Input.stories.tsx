@@ -35,7 +35,7 @@ const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="gap-md flex flex-col">
+    <div className="flex flex-col gap-md">
       {intents.map(intent => (
         <Input key={intent} intent={intent} />
       ))}
@@ -133,12 +133,22 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isInvalid>
-      <FormField.Label>Title</FormField.Label>
+    <FormField className="!gap-sm" name="url" isInvalid>
+      <FormField.Label>URL</FormField.Label>
 
-      <Input />
+      <InputGroup>
+        <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
 
-      <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
+        <Input defaultValue="adevinta.com" />
+
+        <InputGroup.RightElement>
+          <Icon>
+            <Check />
+          </Icon>
+        </InputGroup.RightElement>
+      </InputGroup>
+
+      <FormField.ErrorMessage>The URL is invalid</FormField.ErrorMessage>
     </FormField>
   )
 }

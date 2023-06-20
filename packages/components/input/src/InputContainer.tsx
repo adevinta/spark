@@ -10,12 +10,10 @@ export interface InputContainerProps
 }
 
 export const InputContainer = forwardRef<HTMLDivElement, PropsWithChildren<InputContainerProps>>(
-  ({ className, intent, isDisabled, asChild, ...others }, ref) => {
+  ({ className, intent, asChild, ...others }, ref) => {
     const Component = asChild ? Slot : 'div'
 
-    return (
-      <Component ref={ref} className={inputContainerStyles({ intent, isDisabled })} {...others} />
-    )
+    return <Component ref={ref} className={inputContainerStyles({ intent })} {...others} />
   }
 )
 

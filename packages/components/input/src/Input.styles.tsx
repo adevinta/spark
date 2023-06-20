@@ -11,22 +11,30 @@ export const inputStyles = cva(
     'cursor-auto',
     'caret-neutral',
     'appearance-none',
-    'w-full',
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
+    'bg-surface',
+    'text-on-surface',
+    'disabled:bg-on-surface/dim-5',
+    'disabled:text-on-surface/dim-3',
+    'disabled:cursor-not-allowed',
+    'disabled:border-on-surface/dim-3',
   ],
   {
     variants: {
       intent: {
         none: [''],
-        neutral: ['border-sm', 'focus:ring-1', 'focus:border-outline-high', 'ring-outline-high'],
-        success: ['border-sm', 'focus:ring-1', 'border-success', 'ring-success'],
-        alert: ['border-sm', 'focus:ring-1', 'border-alert', 'ring-alert'],
-        error: ['border-sm', 'focus:ring-1', 'border-error', 'ring-error'],
-      },
-      isDisabled: {
-        true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
-        false: ['bg-surface', 'text-on-surface'],
+        neutral: [
+          'border-sm',
+          'border-outline',
+          'ring-outline-high',
+          'hover:border-outline-high',
+          'focus:ring-1',
+          'focus:border-outline-high',
+        ],
+        success: ['border-sm', 'border-success', 'ring-success', 'focus:ring-1'],
+        alert: ['border-sm', 'border-alert', 'ring-alert', 'focus:ring-1'],
+        error: ['border-sm', 'border-error', 'ring-error', 'focus:ring-1'],
       },
       isLeftElementVisible: {
         true: ['pl-3xl'],
@@ -46,16 +54,6 @@ export const inputStyles = cva(
       },
     },
     compoundVariants: [
-      {
-        intent: 'neutral',
-        isDisabled: true,
-        class: 'border-on-surface/dim-3',
-      },
-      {
-        intent: 'neutral',
-        isDisabled: false,
-        class: 'hover:border-outline-high',
-      },
       {
         isLeftElementVisible: false,
         isLeftAddonVisible: false,

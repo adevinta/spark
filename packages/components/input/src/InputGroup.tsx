@@ -70,7 +70,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
             <>
               {cloneElement(input as ReactElement, { intent: 'none' })}
 
-              <InputContainer intent={intent} isDisabled={isDisabled} />
+              <InputContainer intent={intent} />
 
               {isLeftElementVisible && left}
 

@@ -34,7 +34,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         className={inputStyles({
           className,
           intent,
-          isDisabled: !!isDisabled,
           isLeftAddonVisible: !!isLeftAddonVisible,
           isRightAddonVisible: !!isRightAddonVisible,
           isLeftElementVisible: !!isLeftElementVisible,
