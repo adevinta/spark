@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.1.1...@spark-ui/radio-group@1.2.0) (2023-06-21)
+
+### Features
+
+- **radio-group:** use validation state ([f926c0b](https://github.com/adevinta/spark/commit/f926c0b0d14515b51e8ac0f94a6965851233a91a))
+
 ## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.1.0...@spark-ui/radio-group@1.1.1) (2023-06-21)
 
 **Note:** Version bump only for package @spark-ui/radio-group
