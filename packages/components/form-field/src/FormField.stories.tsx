@@ -11,7 +11,7 @@ const meta: Meta<typeof FormField> = {
 export default meta
 
 export const Default: StoryFn = () => (
-  <FormField className="!gap-md" name="email">
+  <FormField name="email">
     <FormField.Label>Email</FormField.Label>
 
     <FormField.Control>
@@ -31,7 +31,7 @@ export const Default: StoryFn = () => (
 )
 
 export const Required: StoryFn = () => (
-  <FormField className="!gap-md" name="password" isRequired>
+  <FormField name="password" isRequired>
     <FormField.Label>Password</FormField.Label>
 
     <FormField.Control>
@@ -53,7 +53,7 @@ export const Required: StoryFn = () => (
 )
 
 export const CustomRequired: StoryFn = () => (
-  <FormField className="!gap-md" name="password" isRequired>
+  <FormField name="password" isRequired>
     <FormField.Label
       requiredIndicator={
         <FormField.RequiredIndicator className="text-caption text-neutral">
@@ -84,7 +84,7 @@ export const CustomRequired: StoryFn = () => (
 
 export const State: StoryFn = () => (
   <div className="flex flex-col gap-lg">
-    <FormField className="!gap-md" name="email" state="error">
+    <FormField name="email" state="error">
       <FormField.Label>Name</FormField.Label>
 
       <FormField.Control>
@@ -105,7 +105,7 @@ export const State: StoryFn = () => (
       <FormField.ErrorMessage>Name is invalid</FormField.ErrorMessage>
     </FormField>
 
-    <FormField className="!gap-md" name="email" state="success">
+    <FormField name="email" state="success">
       <FormField.Label>Email</FormField.Label>
 
       <FormField.Control>
@@ -126,7 +126,7 @@ export const State: StoryFn = () => (
       <FormField.SuccessMessage>Email is valid</FormField.SuccessMessage>
     </FormField>
 
-    <FormField className="!gap-md" name="email" state="alert">
+    <FormField name="email" state="alert">
       <FormField.Label>Password</FormField.Label>
 
       <FormField.Control>

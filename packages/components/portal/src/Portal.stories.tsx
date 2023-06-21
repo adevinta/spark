@@ -14,18 +14,18 @@ export const Usage: StoryFn = () => {
   const [portalContainer, setPortalContainer] = React.useState<HTMLDivElement | null>(null)
 
   return (
-    <div className="gap-lg flex">
-      <div className="h-sz-160 bg-primary-container p-lg text-on-primary-container w-1/2 rounded-md">
+    <div className="flex gap-lg">
+      <div className="h-sz-160 w-1/2 rounded-md bg-primary-container p-lg text-on-primary-container">
         <p>Element is located here in the JSX...</p>
         <Portal container={portalContainer}>
-          <p className="bg-surface p-md hover:bg-surface-hovered rounded-sm text-current">
+          <p className="rounded-sm bg-surface p-md text-current hover:bg-surface-hovered">
             This element is wrapped by Portal.
           </p>
         </Portal>
       </div>
 
       <div
-        className=" h-sz-160 bg-secondary-container p-lg text-on-secondary-container w-1/2 rounded-md"
+        className=" h-sz-160 w-1/2 rounded-md bg-secondary-container p-lg text-on-secondary-container"
         ref={setPortalContainer}
       >
         <p>...but rendered here thanks to the Portal</p>
