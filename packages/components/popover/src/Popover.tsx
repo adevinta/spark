@@ -8,8 +8,6 @@ import { Portal } from './PopoverPortal'
 import { Root, type RootProps } from './PopoverRoot'
 import { Trigger } from './PopoverTrigger'
 
-// todo: add 40px when Popover has a close button
-
 Anchor.displayName = 'Popover.Anchor'
 Arrow.displayName = 'Popover.Arrow'
 Close.displayName = 'Popover.Close'

@@ -3,7 +3,9 @@ import { Icon } from '@spark-ui/icon'
 import { IconButton } from '@spark-ui/icon-button'
 import { Close as CloseSVG } from '@spark-ui/icons/dist/icons/Close'
 import { cx } from 'class-variance-authority'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect } from 'react'
+
+import { usePopover } from './PopoverContext'
 
 export type CloseProps = RadixPopover.PopoverCloseProps & {
   'aria-label': string
@@ -11,13 +13,19 @@ export type CloseProps = RadixPopover.PopoverCloseProps & {
 
 export const Close = forwardRef<HTMLButtonElement, CloseProps>(
   ({ 'aria-label': ariaLabel, className, ...rest }, ref) => {
-    const styles = cx('absolute top-md right-md', className)
+    const { setHasCloseButton } = usePopover()
+
+    useEffect(() => {
+      setHasCloseButton(true)
+
+      return () => setHasCloseButton(false)
+    })
 
     return (
       <RadixPopover.Close
         data-spark-component="Popover.Close"
         ref={ref}
-        className={styles}
+        className={cx('absolute top-md right-md', className)}
         asChild
         {...rest}
       >

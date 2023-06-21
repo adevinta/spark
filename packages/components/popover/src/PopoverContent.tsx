@@ -2,6 +2,7 @@ import * as RadixPopover from '@radix-ui/react-popover'
 import { forwardRef } from 'react'
 
 import { styles, type StylesProps } from './PopoverContent.styles'
+import { usePopover } from './PopoverContext'
 
 export type ContentProps = RadixPopover.PopoverContentProps & StylesProps
 
@@ -27,9 +28,16 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
     },
     ref
   ) => {
+    const { hasCloseButton } = usePopover()
+
     return (
       <RadixPopover.Content
-        className={styles({ enforceBoundaries: !!collisionBoundary, matchTriggerWidth, className })}
+        className={styles({
+          enforceBoundaries: !!collisionBoundary,
+          matchTriggerWidth,
+          hasCloseButton,
+          className,
+        })}
         data-spark-component="popover-content"
         ref={ref}
         {...{

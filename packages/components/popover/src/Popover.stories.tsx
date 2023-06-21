@@ -40,13 +40,8 @@ export const Default: StoryFn = _args => {
         </Popover.Trigger>
         <Popover.Portal>
           <Popover.Content>
-            {/* <header className="text-display-3">Title</header> */}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
+            <header className="mb-md text-headline-2">Title</header>
+            <p>Are you sure you want to have that cookie now ?</p>
             <Popover.Arrow />
             <Popover.Close aria-label="Close the popover" />
           </Popover.Content>
@@ -72,7 +67,8 @@ export const Controlled: StoryFn = () => {
           </Popover.Anchor>
           <Popover.Portal>
             <Popover.Content onInteractOutside={() => setOpen(false)}>
-              Popover contents
+              <header className="mb-md text-headline-2">Title</header>
+              <p>Are you sure you want to have that cookie now ?</p>
               <Popover.Arrow />
             </Popover.Content>
           </Popover.Portal>
@@ -104,7 +100,8 @@ export const Anchored: StoryFn = _args => {
 
         <Popover.Portal>
           <Popover.Content>
-            Popover contents
+            <header className="mb-md text-headline-2">Title</header>
+            <p>Are you sure you want to have that cookie now ?</p>
             <Popover.Arrow />
           </Popover.Content>
         </Popover.Portal>
@@ -195,12 +192,8 @@ export const Positionning: StoryFn = _args => {
             <Button>Trigger popover</Button>
           </Popover.Trigger>
           <Popover.Portal>
-            <Popover.Content
-              side={currentSide}
-              align={currentAlign}
-              aria-label="Positionning example"
-            >
-              Popover contents
+            <Popover.Content side={currentSide} align={currentAlign}>
+              <p>Are you sure you want to have that cookie now ?</p>
               <Popover.Arrow />
             </Popover.Content>
           </Popover.Portal>

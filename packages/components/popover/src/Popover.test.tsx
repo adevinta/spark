@@ -208,7 +208,7 @@ describe('Popover', () => {
       // ...by default, content is rendered
       expect(screen.getByText('Popover content')).toBeInTheDocument()
 
-      // When the user clicks outside of it
+      // When the user clicks on the close button
       await user.click(screen.getByRole('button', { name: 'Close the popover' }))
 
       // Then the content is no longer rendered
