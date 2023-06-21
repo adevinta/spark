@@ -12,6 +12,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@spark-ui/slot": "^1.6.0",
     "@spark-ui/form-field": "^0.5.0",
     "class-variance-authority": "0.5.2"
   },

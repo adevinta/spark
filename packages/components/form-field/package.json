@@ -27,8 +27,8 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@radix-ui/react-id": "1.0.0",
+    "@radix-ui/react-id": "1.0.1",
     "@spark-ui/label": "^1.4.2",
-    "@spark-ui/slot": "^1.5.2"
+    "@spark-ui/slot": "^1.6.0"
   }
 }

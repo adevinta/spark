@@ -1,4 +1,5 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
+import { Slot } from '@spark-ui/slot'
 import {
   ComponentPropsWithoutRef,
   FocusEvent,
@@ -19,7 +20,9 @@ export interface InputProps
       | 'isRightAddonVisible'
       | 'isLeftElementVisible'
       | 'isRightElementVisible'
-    > {}
+    > {
+  asChild?: boolean
+}
 
 export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
   (
@@ -27,6 +30,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
       className,
       intent: intentProp = 'neutral',
       disabled: disabledProp = false,
+      asChild,
       onFocus,
       onBlur,
       onMouseEnter,
@@ -48,6 +52,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
     const { id, name, state, description, isInvalid, isRequired } = field
     const intent = state ?? group.intent ?? intentProp
     const isDisabled = group.isDisabled ?? disabledProp
+    const Component = asChild ? Slot : 'input'
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
@@ -90,7 +95,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
     }
 
     return (
-      <input
+      <Component
         ref={ref}
         id={id}
         name={name}
