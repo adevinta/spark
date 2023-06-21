@@ -4,14 +4,14 @@ import { ReactNode, useCallback, useMemo, useState } from 'react'
 import { FormFieldContext, FormFieldContextState } from './FormFieldContext'
 
 export interface FormFieldProviderProps
-  extends Pick<FormFieldContextState, 'id' | 'name' | 'isInvalid' | 'isRequired'> {
+  extends Pick<FormFieldContextState, 'id' | 'name' | 'state' | 'isRequired'> {
   children: ReactNode
 }
 
 export const FormFieldProvider = ({
   id,
   name,
-  isInvalid,
+  state,
   isRequired,
   children,
 }: FormFieldProviderProps) => {
@@ -28,26 +28,20 @@ export const FormFieldProvider = ({
   }, [])
 
   const value = useMemo(() => {
+    const isInvalid = state === 'error'
+
     return {
       id,
       labelId,
       name,
-      isInvalid,
+      state,
       isRequired,
+      isInvalid,
       description,
       onMessageIdAdd: handleMessageIdAdd,
       onMessageIdRemove: handleMessageIdRemove,
     }
-  }, [
-    id,
-    labelId,
-    name,
-    description,
-    isInvalid,
-    isRequired,
-    handleMessageIdAdd,
-    handleMessageIdRemove,
-  ])
+  }, [id, labelId, name, description, state, isRequired, handleMessageIdAdd, handleMessageIdRemove])
 
   return <FormFieldContext.Provider value={value}>{children}</FormFieldContext.Provider>
 }

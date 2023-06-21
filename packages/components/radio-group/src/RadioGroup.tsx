@@ -1,5 +1,5 @@
 import { RadioGroup as RadioGroupPrimitive } from '@radix-ui/react-radio-group'
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { forwardRef, HTMLAttributes } from 'react'
 
 import { radioGroupStyles, RadioGroupVariantsProps } from './RadioGroup.styles'
@@ -66,7 +66,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
     },
     ref
   ) => {
-    const { labelId, isInvalid, isRequired, description, name } = useFormFieldState()
+    const { labelId, isInvalid, isRequired, description, name } = useFormFieldControl()
     const required = requiredProp !== undefined ? requiredProp : isRequired
 
     return (

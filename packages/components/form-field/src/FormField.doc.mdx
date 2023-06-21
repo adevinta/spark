@@ -9,14 +9,7 @@ import * as stories from './FormField.stories'
 
 # FormField
 
-Provide context to your form elements
-
-- `FormField` the wrapper that provides context and functionality for all children.
-- `FormField.Label` the label of a form section. The usage is similar to html label. `htmlFor` is set by default for children input.
-- `FormField.HelperMessage` the message that tells users more details about the form section.
-- `FormField.ErrorMessage` the message that shows up when an error occurs.
-- `FormField.State` provides the input state using render props.
-- `FormField.RequiredIndicator` optinally use to customize the required indicator.
+Provide context to your form elements easily.
 
 ## Install
 
@@ -37,15 +30,17 @@ import { FormField } from '@spark-ui/form-control'
   subcomponents={{
     'FormField.Label': FormField.Label,
     'FormField.HelperMessage': FormField.HelperMessage,
+    'FormField.SuccessMessage': FormField.SuccessMessage,
+    'FormField.AlertMessage': FormField.AlertMessage,
     'FormField.ErrorMessage': FormField.ErrorMessage,
-    'FormField.State': FormField.State,
+    'FormField.Control': FormField.Control,
     'FormField.RequiredIndicator': FormField.RequiredIndicator,
   }}
 />
 
 ## Usage
 
-By default, all Spark input components use `FormFieldState` behind the scenes, so **you do not need to use it explicitly**. However, if you want to use a custom input component, or if you need more fine-grained control over the state of a form control, it can be used.
+By default, all Spark input components use `FormField.Control` behind the scenes, so **you do not need to use it explicitly**. However, if you want to use a custom input component, or if you need more fine-grained control over the state of a form control, it can be used.
 
 <Canvas of={stories.Default} />
 
@@ -61,8 +56,8 @@ Configure the required indicator using the `requiredIndicator` prop and the `For
 
 <Canvas of={stories.CustomRequired} />
 
-## Invalid
+## State
 
-`FormErrorMessage` will only show up when the property `isInvalid` in `FormField` is `true`.
+Use the `state` prop to set the visual validation state. Choose between `error`, `success` and `alert`.
 
-<Canvas of={stories.Invalid} />
+<Canvas of={stories.State} />

@@ -121,7 +121,7 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField name="title" isInvalid>
+    <FormField name="title" state="error">
       <TextField>Title</TextField>
 
       <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>

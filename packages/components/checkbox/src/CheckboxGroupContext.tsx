@@ -20,6 +20,10 @@ export interface CheckboxGroupContextState extends Pick<CheckboxInputStylesProps
    */
   description?: string
   /**
+   * The validation state of the checkbox group.
+   */
+  state?: 'error' | 'success' | 'alert'
+  /**
    * If true, the checkbox group will be invalid.
    */
   isInvalid?: boolean

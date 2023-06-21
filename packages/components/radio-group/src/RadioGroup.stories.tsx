@@ -125,7 +125,7 @@ export const WithFormField: StoryFn = _args => {
   }
 
   return (
-    <FormField name="condition" isRequired isInvalid={!value}>
+    <FormField name="condition" state={!value ? 'error' : undefined} isRequired>
       <FormField.Label asChild>
         <p>Apparel condition</p>
       </FormField.Label>

@@ -1,5 +1,7 @@
+/* eslint-disable complexity */
+
 import { useId } from '@radix-ui/react-id'
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
 import { forwardRef, useRef } from 'react'
@@ -27,7 +29,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     const innerId = useId()
     const innerLabelId = useId()
 
-    const field = useFormFieldState()
+    const field = useFormFieldControl()
     const group = useCheckboxGroup()
 
     const rootRef = useRef<HTMLButtonElement | undefined>()
@@ -38,19 +40,20 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       groupState,
       checkboxIntent,
     }: {
-      fieldState: ReturnType<typeof useFormFieldState>
+      fieldState: ReturnType<typeof useFormFieldControl>
       groupState: ReturnType<typeof useCheckboxGroup>
       checkboxIntent: CheckboxInputProps['intent']
     }) => {
       const name = fieldState.name ?? groupState.name
       const isRequired = fieldState.isRequired ?? groupState.isRequired
+      const state = fieldState.state ?? groupState.state
       const isInvalid = fieldState.isInvalid ?? groupState.isInvalid
 
       const isFieldEnclosed = fieldState.id !== groupState.id
       const id = isFieldEnclosed ? fieldState.id : undefined
       const description = isFieldEnclosed ? fieldState.description : undefined
 
-      const intent = isInvalid ? 'error' : checkboxIntent ?? groupState.intent
+      const intent = state ?? checkboxIntent ?? groupState.intent
 
       return { name, isRequired, isInvalid, id, description, intent }
     }

@@ -145,7 +145,7 @@ export const GroupImproved: StoryFn = () => {
   }
 
   return (
-    <FormField name="sport" isRequired isInvalid={value.length === 0}>
+    <FormField name="sport" state={value.length === 0 ? 'error' : undefined} isRequired>
       <FormField.Label asChild>
         <span>Sports</span>
       </FormField.Label>
