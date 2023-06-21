@@ -2,7 +2,12 @@
 
 import { useId } from '@radix-ui/react-id'
 import { useFormFieldState } from '@spark-ui/form-field'
-import { Input, InputContainerProps, InputProps, useInputGroup } from '@spark-ui/input'
+import {
+  InputContainerProps,
+  InputPrimitive,
+  InputPrimitiveProps,
+  useInputGroup,
+} from '@spark-ui/input'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { ChangeEvent, FocusEvent, forwardRef, ReactNode, useRef, useState } from 'react'
 
@@ -11,9 +16,7 @@ import { TextFieldFieldset } from './TextFieldFieldset'
 import { TextFieldFloatingLabel } from './TextFieldFloatingLabel'
 import { TextFieldLegend } from './TextFieldLegend'
 
-export interface TextFieldProps
-  extends Omit<InputProps, 'intent'>,
-    Pick<InputContainerProps, 'intent'> {
+export interface TextFieldProps extends InputPrimitiveProps, Pick<InputContainerProps, 'intent'> {
   elements?: ReactNode
   requiredIndicator?: ReactNode
   label: string
@@ -80,10 +83,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 
     return (
       <div className={textFieldStyles({ isGrouped })}>
-        <Input
+        <InputPrimitive
           id={id}
           ref={ref}
-          intent="none"
           placeholder={placeholder}
           value={value}
           defaultValue={defaultValue}
