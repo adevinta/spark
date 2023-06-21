@@ -143,9 +143,7 @@ describe('FormField error message', () => {
           )}
         </FormField.Control>
 
-        <FormField.StateMessage state="error">
-          We will never share your email
-        </FormField.StateMessage>
+        <FormField.ErrorMessage>We will never share your email</FormField.ErrorMessage>
       </FormField>
     )
 
@@ -173,7 +171,7 @@ describe('FormField error message', () => {
           )}
         </FormField.Control>
 
-        <FormField.StateMessage state="error">Email is required</FormField.StateMessage>
+        <FormField.ErrorMessage>Email is required</FormField.ErrorMessage>
       </FormField>
     )
 
@@ -196,7 +194,7 @@ describe('FormField error message', () => {
           )}
         </FormField.Control>
 
-        <FormField.StateMessage state="error">Email is required</FormField.StateMessage>
+        <FormField.ErrorMessage>Email is required</FormField.ErrorMessage>
 
         <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
       </FormField>

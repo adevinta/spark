@@ -48,7 +48,7 @@ export const Required: StoryFn = () => (
       )}
     </FormField.Control>
 
-    <FormField.StateMessage state="error">Password is required</FormField.StateMessage>
+    <FormField.ErrorMessage>Password is required</FormField.ErrorMessage>
   </FormField>
 )
 
@@ -78,7 +78,7 @@ export const CustomRequired: StoryFn = () => (
       )}
     </FormField.Control>
 
-    <FormField.StateMessage state="error">Password is required</FormField.StateMessage>
+    <FormField.ErrorMessage>Password is required</FormField.ErrorMessage>
   </FormField>
 )
 
@@ -102,7 +102,7 @@ export const State: StoryFn = () => (
         )}
       </FormField.Control>
 
-      <FormField.StateMessage state="error">Name is invalid</FormField.StateMessage>
+      <FormField.ErrorMessage>Name is invalid</FormField.ErrorMessage>
     </FormField>
 
     <FormField className="!gap-md" name="email" state="success">
@@ -123,7 +123,7 @@ export const State: StoryFn = () => (
         )}
       </FormField.Control>
 
-      <FormField.StateMessage state="success">Email is valid</FormField.StateMessage>
+      <FormField.SuccessMessage>Email is valid</FormField.SuccessMessage>
     </FormField>
 
     <FormField className="!gap-md" name="email" state="alert">
@@ -144,9 +144,7 @@ export const State: StoryFn = () => (
         )}
       </FormField.Control>
 
-      <FormField.StateMessage state="alert">
-        There is an issue with your password
-      </FormField.StateMessage>
+      <FormField.AlertMessage>There is an issue with your password</FormField.AlertMessage>
     </FormField>
   </div>
 )
