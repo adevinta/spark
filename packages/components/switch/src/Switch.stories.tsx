@@ -16,7 +16,7 @@ const meta: Meta<typeof Switch> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     <div>
       <StoryLabel>basic</StoryLabel>
       <Switch>Agreed</Switch>
@@ -42,7 +42,7 @@ export const ImprovedField: StoryFn = _args => (
 )
 
 export const Disabled: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     <div>
       <StoryLabel>disabled</StoryLabel>
       <Switch disabled>Agreed</Switch>
@@ -60,7 +60,7 @@ export const Disabled: StoryFn = _args => (
 const switchSizes: ComponentProps<typeof Switch>['size'][] = ['sm', 'md']
 
 export const Sizes: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {switchSizes.map(size => (
       <div key={size}>
         <StoryLabel>{size}</StoryLabel>
@@ -83,7 +83,7 @@ const switchColors: ComponentProps<typeof Switch>['intent'][] = [
 ]
 
 export const Colors: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {switchColors.map(color => (
       <div key={color}>
         <StoryLabel>{color}</StoryLabel>
@@ -94,7 +94,7 @@ export const Colors: StoryFn = _args => (
 )
 
 export const Icons: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     <div>
       <StoryLabel>without icons</StoryLabel>
       <Switch checkedIcon={null} uncheckedIcon={null} aria-label="My switch without icon" />
@@ -115,8 +115,8 @@ export const ControlledMode: StoryFn = () => {
   const [checked, setChecked] = useState(true)
 
   return (
-    <div className="gap-lg flex flex-col">
-      <div className="gap-md flex">
+    <div className="flex flex-col gap-lg">
+      <div className="flex gap-md">
         <Button intent="danger" onClick={() => setChecked(false)}>
           Toggle off
         </Button>

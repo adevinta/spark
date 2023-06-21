@@ -149,7 +149,7 @@ export const createTabs = ({
 }
 
 export const Default: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       <StoryLabel>basic</StoryLabel>
       {createTabs()}
@@ -168,7 +168,7 @@ export const Default: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       <StoryLabel>primary (default)</StoryLabel>
       {createTabs()}
@@ -181,7 +181,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Size: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       <StoryLabel>xs</StoryLabel>
       {createTabs({ rootProps: { size: 'xs' } })}
@@ -200,7 +200,7 @@ export const Size: StoryFn = _args => (
 )
 
 export const State: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       {createTabs({
         rootProps: { defaultValue: 'tab2' },
@@ -230,7 +230,7 @@ export const State: StoryFn = _args => (
 )
 
 export const Orientation: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       <StoryLabel>horizontal (default)</StoryLabel>
       {createTabs({ rootProps: { orientation: 'horizontal' } })}
@@ -267,7 +267,7 @@ export const Overflow: StoryFn = _args => {
   ]
 
   return (
-    <div className="gap-lg flex flex-row">
+    <div className="flex flex-row gap-lg">
       <div className="shrink basis-auto overflow-auto">
         <StoryLabel>with loop</StoryLabel>
         {createTabs({

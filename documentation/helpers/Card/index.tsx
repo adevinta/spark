@@ -4,18 +4,18 @@ import { type ReactNode } from 'react'
 export const cardStyles = cva(
   [
     'sb-unstyled group',
-    'p-lg w-sz-224 min-h-sz-96 inline-flex flex-col justify-between overflow-hidden rounded-md',
+    'inline-flex min-h-sz-96 w-sz-224 flex-col justify-between overflow-hidden rounded-md p-lg',
     'transition-all duration-200',
-    '!text-on-secondary text-body-1 text-left font-bold',
-    'from-primary to-secondary bg-gradient-to-br shadow',
-    'focus-visible:ring-outline-high outline-none focus-visible:ring-2',
+    'text-left text-body-1 font-bold !text-on-secondary',
+    'bg-gradient-to-br from-primary to-secondary shadow',
+    'outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
   ],
   {
     variants: {
       disabled: {
         true: 'opacity-dim-3 hover:cursor-not-allowed',
         false:
-          'hover:from-primary-hovered hover:to-secondary-hovered hover:cursor-pointer hover:shadow-lg',
+          'hover:cursor-pointer hover:from-primary-hovered hover:to-secondary-hovered hover:shadow-lg',
       },
     },
     defaultVariants: {

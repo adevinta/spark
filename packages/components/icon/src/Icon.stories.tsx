@@ -23,7 +23,7 @@ const sizes: ComponentProps<typeof Icon>['size'][] = ['sm', 'md', 'lg', 'xl']
 
 export const Sizes: StoryFn = _args => (
   <>
-    <div className="gap-lg flex">
+    <div className="flex gap-lg">
       {sizes.map(size => (
         <div key={size} className="flex flex-col items-center">
           <StoryLabel>{size}</StoryLabel>
@@ -58,7 +58,7 @@ const intents: ComponentProps<typeof Icon>['intent'][] = [
 ]
 
 export const Colors: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {intents.map(intent => (
       <div key={intent} className="flex flex-col items-center">
         <StoryLabel>{intent}</StoryLabel>

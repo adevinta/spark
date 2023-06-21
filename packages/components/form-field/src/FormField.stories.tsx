@@ -21,7 +21,7 @@ export const Default: StoryFn = () => (
           id={id}
           name={name}
           aria-describedby={description}
-          className="p-md border-neutral active:border-primary border-md rounded-sm"
+          className="rounded-sm border-md border-neutral p-md active:border-primary"
         />
       )}
     </FormField.State>
@@ -45,7 +45,7 @@ export const Required: StoryFn = () => (
           aria-describedby={description}
           aria-required={isRequired}
           required={isRequired}
-          className="p-md border-neutral active:border-primary border-md rounded-sm"
+          className="rounded-sm border-md border-neutral p-md active:border-primary"
         />
       )}
     </FormField.State>
@@ -75,7 +75,7 @@ export const CustomRequired: StoryFn = () => (
           aria-describedby={description}
           aria-required={isRequired}
           required={isRequired}
-          className="p-md border-neutral active:border-primary border-md rounded-sm"
+          className="rounded-sm border-md border-neutral p-md active:border-primary"
         />
       )}
     </FormField.State>
