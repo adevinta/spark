@@ -43,7 +43,7 @@ export const Default: StoryFn = _args => {
             <header className="mb-md text-headline-2">Title</header>
             <p>Are you sure you want to have that cookie now ?</p>
             <Popover.Arrow />
-            <Popover.Close aria-label="Close the popover" />
+            <Popover.Close label="Close the popover" />
           </Popover.Content>
         </Popover.Portal>
       </Popover>

@@ -200,7 +200,7 @@ describe('Popover', () => {
           </Popover.Trigger>
           <Popover.Content>
             Popover content
-            <Popover.Close aria-label="Close the popover" />
+            <Popover.Close label="Close the popover" />
           </Popover.Content>
         </Popover>
       )
