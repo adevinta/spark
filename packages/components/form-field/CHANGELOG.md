@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.4.1...@spark-ui/form-field@0.5.0) (2023-06-21)
+
+### Features
+
+- **form-field:** add form field component states ([eb15c09](https://github.com/adevinta/spark/commit/eb15c094094fdbc1b4c18233fe705f5f49186496))
+- **form-field:** add validation state support ([1e45c02](https://github.com/adevinta/spark/commit/1e45c0214cfd8d12bc455421a27fb569f76386d3))
+
+## [0.4.1](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.4.0...@spark-ui/form-field@0.4.1) (2023-06-21)
+
+**Note:** Version bump only for package @spark-ui/form-field
+
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.3.2...@spark-ui/form-field@0.4.0) (2023-06-21)
+
+### Features
+
+- update form field spacing ([5ef4773](https://github.com/adevinta/spark/commit/5ef4773c27867d83bd6b21ba1f1d2589ca773065))
+
 ## [0.3.2](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.3.1...@spark-ui/form-field@0.3.2) (2023-06-19)
 
 ### Bug Fixes

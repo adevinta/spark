@@ -18,6 +18,10 @@ export interface FormFieldContextState {
    */
   description?: string
   /**
+   * The validation state of the input.
+   */
+  state?: 'error' | 'success' | 'alert'
+  /**
    * If true, the form field will be invalid.
    */
   isInvalid?: boolean

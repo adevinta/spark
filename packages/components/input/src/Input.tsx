@@ -1,4 +1,4 @@
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { Slot } from '@spark-ui/slot'
 import {
   ComponentPropsWithoutRef,
@@ -28,8 +28,8 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
   (
     {
       className,
-      intent: intentProp,
-      disabled: disabledProp,
+      intent: intentProp = 'neutral',
+      disabled: disabledProp = false,
       asChild,
       onFocus,
       onBlur,
@@ -39,7 +39,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
     },
     ref
   ) => {
-    const field = useFormFieldState()
+    const field = useFormFieldControl()
     const group = useInputGroup() || {}
 
     const {
@@ -49,9 +49,9 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
       isLeftElementVisible,
       isRightElementVisible,
     } = group
-    const { id, name, isInvalid, isRequired, description } = field
-    const intent = isInvalid ? 'error' : intentProp || group.intent || 'neutral'
-    const isDisabled = disabledProp ?? group.isDisabled
+    const { id, name, state, description, isInvalid, isRequired } = field
+    const intent = state ?? group.intent ?? intentProp
+    const isDisabled = group.isDisabled ?? disabledProp
     const Component = asChild ? Slot : 'input'
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {

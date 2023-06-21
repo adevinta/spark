@@ -247,7 +247,7 @@ describe('CheckboxGroup', () => {
 
     it('should render aria-attributes following FormField implementation', () => {
       render(
-        <FormField name="sports" isRequired isInvalid>
+        <FormField name="sports" state="error" isRequired>
           <FormField.Label>Sports</FormField.Label>
 
           <CheckboxGroup>

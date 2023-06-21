@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.15.7...@spark-ui/checkbox@1.16.0) (2023-06-21)
+
+### Features
+
+- **checkbox:** use validation state ([6d7a11c](https://github.com/adevinta/spark/commit/6d7a11ccf2139efbeac0e1edfc377c81e06051fe))
+
+## [1.15.7](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.15.6...@spark-ui/checkbox@1.15.7) (2023-06-21)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
 ## [1.15.6](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.15.5...@spark-ui/checkbox@1.15.6) (2023-06-19)
 
 **Note:** Version bump only for package @spark-ui/checkbox

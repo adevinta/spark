@@ -101,7 +101,7 @@ export const GroupDisabled: StoryFn = _args => (
 
 export const FieldRequired: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isRequired>
+    <FormField name="title" isRequired>
       <TextField>Title</TextField>
     </FormField>
   )
@@ -109,7 +109,7 @@ export const FieldRequired: StoryFn = _args => {
 
 export const FieldHelperMessage: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title">
+    <FormField name="title">
       <TextField>Title</TextField>
 
       <FormField.HelperMessage>
@@ -121,7 +121,7 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isInvalid>
+    <FormField name="title" state="error">
       <TextField>Title</TextField>
 
       <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>

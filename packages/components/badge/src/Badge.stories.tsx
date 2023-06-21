@@ -24,7 +24,7 @@ const intents: BadgeProps['intent'][] = [
   'surface',
 ]
 
-const fakeAvatar = <div className="w-sz-40 h-sz-40 bg-outline rounded-lg" />
+const fakeAvatar = <div className="h-sz-40 w-sz-40 rounded-lg bg-outline" />
 
 export const Default: StoryFn = _args => <Badge>{fakeAvatar}</Badge>
 export const Standalone: StoryFn = _args => <Badge aria-label="New notification" />
@@ -60,7 +60,7 @@ export const LargeCustomCount: StoryFn = _args => (
 )
 
 export const Intents: StoryFn = _args => (
-  <div className="gap-md flex flex-wrap">
+  <div className="flex flex-wrap gap-md">
     {intents.map(intent => (
       <Badge key={intent} intent={intent} count={1}>
         {fakeAvatar}
@@ -70,7 +70,7 @@ export const Intents: StoryFn = _args => (
 )
 
 export const Sizes: StoryFn = _args => (
-  <div className="gap-md flex flex-wrap">
+  <div className="flex flex-wrap gap-md">
     {sizes.map(size => (
       <Badge key={size} size={size} count={25}>
         {fakeAvatar}
