@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/text-field@0.1.1...@spark-ui/text-field@0.2.0) (2023-06-21)
+
+### Features
+
+- update form field spacing ([5ef4773](https://github.com/adevinta/spark/commit/5ef4773c27867d83bd6b21ba1f1d2589ca773065))
+
 ## [0.1.1](https://github.com/adevinta/spark/compare/@spark-ui/text-field@0.1.0...@spark-ui/text-field@0.1.1) (2023-06-19)
 
 **Note:** Version bump only for package @spark-ui/text-field

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.0.9...@spark-ui/radio-group@1.1.0) (2023-06-21)
+
+### Features
+
+- update form field spacing ([5ef4773](https://github.com/adevinta/spark/commit/5ef4773c27867d83bd6b21ba1f1d2589ca773065))
+
 ## [1.0.9](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.0.8...@spark-ui/radio-group@1.0.9) (2023-06-19)
 
 ### Bug Fixes
