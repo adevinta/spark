@@ -37,7 +37,7 @@ const intents: TextareaProps['intent'][] = ['neutral', 'success', 'alert', 'erro
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="gap-md flex flex-col">
+    <div className="flex flex-col gap-md">
       {intents.map(intent => (
         <Textarea key={intent} intent={intent} />
       ))}
@@ -129,7 +129,7 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isInvalid>
+    <FormField className="!gap-sm" name="title" state="error">
       <FormField.Label>Title</FormField.Label>
 
       <Textarea rows={2} />
