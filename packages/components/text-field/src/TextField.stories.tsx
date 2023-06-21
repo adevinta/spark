@@ -2,42 +2,52 @@ import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
-import { VisuallyHidden } from '@spark-ui/visually-hidden'
+import { InputGroup } from '@spark-ui/input'
 import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, useState } from 'react'
 
-import { Input, InputGroup, InputProps } from '.'
+import { TextField, TextFieldProps } from '.'
 
-const meta: Meta<typeof Input> = {
-  title: 'Experimental/Input',
-  component: Input,
+const meta: Meta<typeof TextField> = {
+  title: 'Experimental/TextField',
+  component: TextField,
 }
 
 export default meta
 
-export const Default: StoryFn = _args => <Input />
+export const Default: StoryFn = _args => <TextField>Title</TextField>
 
-export const Uncontrolled: StoryFn = _args => <Input defaultValue="IPhone 12" />
+export const Uncontrolled: StoryFn = _args => <TextField defaultValue="iPhone 12">Title</TextField>
 
 export const Controlled: StoryFn = () => {
-  const [value, setValue] = useState('IPhone 13')
+  const [value, setValue] = useState('iPhone 13')
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
   }
 
-  return <Input value={value} onChange={handleChange} />
+  return (
+    <TextField value={value} onChange={handleChange}>
+      Title
+    </TextField>
+  )
 }
 
-export const Disabled: StoryFn = _args => <Input defaultValue="IPhone" disabled />
+export const Disabled: StoryFn = _args => (
+  <TextField defaultValue="iPhone" disabled>
+    Title
+  </TextField>
+)
 
-const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']
+const intents: TextFieldProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
 export const Intent: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
       {intents.map(intent => (
-        <Input key={intent} intent={intent} />
+        <TextField key={intent} intent={intent}>
+          {intent}
+        </TextField>
       ))}
     </div>
   )
@@ -47,7 +57,9 @@ export const GroupAddons: StoryFn = _args => {
   return (
     <InputGroup>
       <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-      <Input />
+
+      <TextField>URL</TextField>
+
       <InputGroup.RightAddon>.com</InputGroup.RightAddon>
     </InputGroup>
   )
@@ -62,7 +74,7 @@ export const GroupElements: StoryFn = _args => {
         </Icon>
       </InputGroup.LeftElement>
 
-      <Input />
+      <TextField>Title</TextField>
 
       <InputGroup.RightElement>
         <Icon>
@@ -76,7 +88,9 @@ export const GroupElements: StoryFn = _args => {
 export const GroupDisabled: StoryFn = _args => (
   <InputGroup isDisabled>
     <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-    <Input defaultValue="adevinta.com" />
+
+    <TextField defaultValue="adevinta.com">URL</TextField>
+
     <InputGroup.RightElement>
       <Icon>
         <Check />
@@ -85,34 +99,10 @@ export const GroupDisabled: StoryFn = _args => (
   </InputGroup>
 )
 
-export const FieldLabel: StoryFn = _args => {
-  return (
-    <FormField name="title">
-      <FormField.Label>Title</FormField.Label>
-
-      <Input />
-    </FormField>
-  )
-}
-
-export const FieldHiddenLabel: StoryFn = _args => {
-  return (
-    <FormField name="title">
-      <FormField.Label>
-        <VisuallyHidden>Title</VisuallyHidden>
-      </FormField.Label>
-
-      <Input />
-    </FormField>
-  )
-}
-
 export const FieldRequired: StoryFn = _args => {
   return (
     <FormField name="title" isRequired>
-      <FormField.Label>Title</FormField.Label>
-
-      <Input />
+      <TextField>Title</TextField>
     </FormField>
   )
 }
@@ -120,9 +110,7 @@ export const FieldRequired: StoryFn = _args => {
 export const FieldHelperMessage: StoryFn = _args => {
   return (
     <FormField name="title">
-      <FormField.Label>Title</FormField.Label>
-
-      <Input />
+      <TextField>Title</TextField>
 
       <FormField.HelperMessage>
         An effective title significantly increases your chances of making a sale
@@ -133,12 +121,10 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField name="title" state="error">
-      <FormField.Label>Title</FormField.Label>
+    <FormField name="title" isInvalid>
+      <TextField>Title</TextField>
 
-      <Input />
-
-      <FormField.StateMessage state="error">The title is invalid</FormField.StateMessage>
+      <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
     </FormField>
   )
 }
