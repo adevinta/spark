@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 
-import { Textarea } from './Textarea'
+import { Textarea } from '.'
 
 describe('Textarea', () => {
   it('should render', () => {
@@ -142,7 +142,7 @@ describe('Textarea', () => {
     const errorText = 'The title is invalid'
 
     render(
-      <FormField name={name} isInvalid>
+      <FormField name={name} state="error">
         <FormField.Label>{label}</FormField.Label>
 
         <Textarea />
