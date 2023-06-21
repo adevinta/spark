@@ -10,8 +10,8 @@ const meta: Meta<typeof Kbd> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <div className="gap-lg flex flex-col">
-    <div className="gap-lg flex flex-row flex-nowrap justify-between">
+  <div className="flex flex-col gap-lg">
+    <div className="flex flex-row flex-nowrap justify-between gap-lg">
       <Kbd>esc</Kbd>
       <Kbd>F1</Kbd>
       <Kbd>F2</Kbd>
@@ -27,7 +27,7 @@ export const Default: StoryFn = _args => (
       <Kbd>F12</Kbd>
       <Kbd>eject</Kbd>
     </div>
-    <div className="gap-lg flex flex-row flex-nowrap justify-between">
+    <div className="flex flex-row flex-nowrap justify-between gap-lg">
       <Kbd>§</Kbd>
       <Kbd>1</Kbd>
       <Kbd>2</Kbd>
@@ -43,7 +43,7 @@ export const Default: StoryFn = _args => (
       <Kbd>=</Kbd>
       <Kbd>backspace</Kbd>
     </div>
-    <div className="gap-lg flex flex-row flex-nowrap justify-between">
+    <div className="flex flex-row flex-nowrap justify-between gap-lg">
       <Kbd>tab</Kbd>
       <Kbd>Q</Kbd>
       <Kbd>W</Kbd>
@@ -58,7 +58,7 @@ export const Default: StoryFn = _args => (
       <Kbd>]</Kbd>
       <Kbd>enter</Kbd>
     </div>
-    <div className="gap-lg flex flex-row flex-nowrap justify-between">
+    <div className="flex flex-row flex-nowrap justify-between gap-lg">
       <Kbd>caps lock</Kbd>
       <Kbd>A</Kbd>
       <Kbd>S</Kbd>
@@ -74,7 +74,7 @@ export const Default: StoryFn = _args => (
       <Kbd>\</Kbd>
       <Kbd>enter</Kbd>
     </div>
-    <div className="gap-lg flex flex-row flex-nowrap justify-between">
+    <div className="flex flex-row flex-nowrap justify-between gap-lg">
       <Kbd>shift</Kbd>
       <Kbd>`</Kbd>
       <Kbd>Z</Kbd>
@@ -89,7 +89,7 @@ export const Default: StoryFn = _args => (
       <Kbd>/</Kbd>
       <Kbd>right shift</Kbd>
     </div>
-    <div className="gap-lg flex flex-row flex-nowrap justify-between">
+    <div className="flex flex-row flex-nowrap justify-between gap-lg">
       <Kbd>fn</Kbd>
       <Kbd>control</Kbd>
       <Kbd>option</Kbd>
@@ -106,7 +106,7 @@ export const Default: StoryFn = _args => (
 )
 
 export const Demos: StoryFn = _args => (
-  <div className="gap-lg flex flex-col">
+  <div className="flex flex-col gap-lg">
     <div>
       <Kbd>command</Kbd> + <Kbd>tab</Kbd>
     </div>

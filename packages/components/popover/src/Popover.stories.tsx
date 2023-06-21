@@ -54,7 +54,7 @@ export const Controlled: StoryFn = () => {
 
   return (
     <>
-      <div className="gap-lg mb-lg flex">
+      <div className="mb-lg flex gap-lg">
         <Button onClick={() => setOpen(true)}>Open popover</Button>
         <Button onClick={() => setOpen(false)}>Close popover</Button>
       </div>
@@ -79,7 +79,7 @@ export const Anchored: StoryFn = _args => {
   return (
     <ShowcaseContainer className="!justify-between">
       <Popover>
-        <div className="gap-md flex flex-col">
+        <div className="flex flex-col gap-md">
           <Popover.Trigger asChild>
             <Button>Trigger 1</Button>
           </Popover.Trigger>
@@ -129,7 +129,7 @@ export const Boundaries: StoryFn = () => {
   const [boundaryContainer, setBoundaryContainer] = useState<HTMLDivElement | null>(null)
 
   return (
-    <ShowcaseContainer ref={setBoundaryContainer} className="!w-sz-256 !h-sz-240">
+    <ShowcaseContainer ref={setBoundaryContainer} className="!h-sz-240 !w-sz-256">
       <Popover>
         <Popover.Trigger asChild>
           <Button>Trigger popover</Button>
@@ -159,8 +159,8 @@ export const Positionning: StoryFn = _args => {
   }
 
   return (
-    <div className="gap-lg flex flex-col">
-      <div className="gap-lg flex">
+    <div className="flex flex-col gap-lg">
+      <div className="flex gap-lg">
         <p className="text-headline-2">Side:</p>
         <RadioGroup value={currentSide} onValueChange={handleChangeSide} orientation="horizontal">
           {['bottom', 'top', 'left', 'right'].map(side => (
@@ -171,7 +171,7 @@ export const Positionning: StoryFn = _args => {
         </RadioGroup>
       </div>
 
-      <div className="gap-lg flex">
+      <div className="flex gap-lg">
         <p className="text-headline-2">Align:</p>
         <RadioGroup value={currentAlign} onValueChange={handleChangeAlign} orientation="horizontal">
           {['start', 'center', 'end'].map(align => (

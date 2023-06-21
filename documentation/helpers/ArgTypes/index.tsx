@@ -14,7 +14,7 @@ export const ArgTypes = <T extends FC>({ of, subcomponents = {} }: Props<T>) => 
   }
 
   return (
-    <Tabs defaultValue={of?.displayName} orientation="vertical" className="mt-xl sb-unstyled">
+    <Tabs defaultValue={of?.displayName} orientation="vertical" className="sb-unstyled mt-xl">
       <Tabs.List>
         {Object.keys(components).map(name => (
           <Tabs.Trigger key={name} value={name}>

@@ -32,7 +32,7 @@ const ControlledFloatingLabel = ({
       <input
         type="text"
         id={id}
-        className={cva('p-lg border-neutral active:border-primary border-sm rounded-sm', {
+        className={cva('rounded-sm border-sm border-neutral p-lg active:border-primary', {
           variants: { isDisabled: { true: ['bg-on-surface/dim-5'] } },
         })({ isDisabled })}
         onFocus={handleFocus}
