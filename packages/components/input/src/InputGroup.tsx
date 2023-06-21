@@ -1,3 +1,5 @@
+/* eslint-disable complexity */
+import { useFormFieldState } from '@spark-ui/form-field'
 import {
   Children,
   cloneElement,
@@ -19,8 +21,13 @@ export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputG
 }
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  ({ className, children: childrenProp, intent = 'neutral', isDisabled, ...others }, ref) => {
+  (
+    { className, children: childrenProp, intent: intentProp = 'neutral', isDisabled, ...others },
+    ref
+  ) => {
+    const { isInvalid } = useFormFieldState()
     const children = Children.toArray(childrenProp).filter(isValidElement)
+    const intent = isInvalid ? 'error' : intentProp
 
     const getDisplayName = (element?: ReactElement) => {
       return element ? (element.type as FC).displayName : ''
@@ -68,7 +75,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
           {isInput ? (
             <>
-              {cloneElement(input as ReactElement, { intent: 'none' })}
+              {input}
 
               <InputContainer intent={intent} />
 
