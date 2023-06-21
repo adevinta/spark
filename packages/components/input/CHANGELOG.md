@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.5.0...@spark-ui/input@0.6.0) (2023-06-21)
+
+### Features
+
+- **input:** improve input component ([7570be0](https://github.com/adevinta/spark/commit/7570be05b16d28c93d109e479b1386bad8c37ab0))
+- **textarea:** update tests and styles ([8ef1b36](https://github.com/adevinta/spark/commit/8ef1b368d3c2a4afa7df12e1a0b0464d53dd110c))
+- update deps ([9a8e4e3](https://github.com/adevinta/spark/commit/9a8e4e3e9541d47a3e610a36ade9ddfd349e6e71))
+
 # [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.4.1...@spark-ui/input@0.5.0) (2023-06-21)
 
 ### Features

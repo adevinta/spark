@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.12.0...@spark-ui/switch@1.13.0) (2023-06-21)
+
+### Features
+
+- update deps ([9a8e4e3](https://github.com/adevinta/spark/commit/9a8e4e3e9541d47a3e610a36ade9ddfd349e6e71))
+
 # [1.12.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.11.17...@spark-ui/switch@1.12.0) (2023-06-21)
 
 ### Features

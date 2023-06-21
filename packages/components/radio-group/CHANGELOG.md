@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.2.0...@spark-ui/radio-group@1.3.0) (2023-06-21)
+
+### Features
+
+- update deps ([9a8e4e3](https://github.com/adevinta/spark/commit/9a8e4e3e9541d47a3e610a36ade9ddfd349e6e71))
+
 # [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.1.1...@spark-ui/radio-group@1.2.0) (2023-06-21)
 
 ### Features
