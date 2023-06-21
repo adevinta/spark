@@ -156,7 +156,7 @@ export const GroupImproved: StoryFn = () => {
         <Checkbox value="baseball">Baseball</Checkbox>
       </CheckboxGroup>
 
-      <FormField.StateMessage state="error">The sport field is required.</FormField.StateMessage>
+      <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
     </FormField>
   )
 }

@@ -153,7 +153,7 @@ describe('Switch', () => {
 
           <Switch />
 
-          <FormField.StateMessage state="error">Agreement is required</FormField.StateMessage>
+          <FormField.ErrorMessage>Agreement is required</FormField.ErrorMessage>
         </FormField>
       )
 

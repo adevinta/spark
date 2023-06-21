@@ -138,7 +138,7 @@ export const FieldInvalid: StoryFn = _args => {
 
       <Input />
 
-      <FormField.StateMessage state="error">The title is invalid</FormField.StateMessage>
+      <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
     </FormField>
   )
 }

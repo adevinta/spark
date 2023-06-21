@@ -137,7 +137,7 @@ export const WithFormField: StoryFn = _args => {
         <RadioGroup.Radio value="4">Satisfactory</RadioGroup.Radio>
       </RadioGroup>
 
-      <FormField.StateMessage state="error">The condition is required</FormField.StateMessage>
+      <FormField.ErrorMessage>The condition is required</FormField.ErrorMessage>
     </FormField>
   )
 }

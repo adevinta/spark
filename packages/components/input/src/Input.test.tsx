@@ -161,7 +161,7 @@ describe('Input', () => {
 
         <Input />
 
-        <FormField.StateMessage state="error">{errorText}</FormField.StateMessage>
+        <FormField.ErrorMessage>{errorText}</FormField.ErrorMessage>
       </FormField>
     )
 
