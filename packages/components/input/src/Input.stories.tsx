@@ -35,7 +35,7 @@ const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="gap-md flex flex-col">
+    <div className="flex flex-col gap-md">
       {intents.map(intent => (
         <Input key={intent} intent={intent} />
       ))}
@@ -87,7 +87,7 @@ export const GroupDisabled: StoryFn = _args => (
 
 export const FieldLabel: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title">
+    <FormField name="title">
       <FormField.Label>Title</FormField.Label>
 
       <Input />
@@ -97,7 +97,7 @@ export const FieldLabel: StoryFn = _args => {
 
 export const FieldHiddenLabel: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title">
+    <FormField name="title">
       <FormField.Label>
         <VisuallyHidden>Title</VisuallyHidden>
       </FormField.Label>
@@ -109,7 +109,7 @@ export const FieldHiddenLabel: StoryFn = _args => {
 
 export const FieldRequired: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isRequired>
+    <FormField name="title" isRequired>
       <FormField.Label>Title</FormField.Label>
 
       <Input />
@@ -119,7 +119,7 @@ export const FieldRequired: StoryFn = _args => {
 
 export const FieldHelperMessage: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title">
+    <FormField name="title">
       <FormField.Label>Title</FormField.Label>
 
       <Input />
@@ -133,7 +133,7 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isInvalid>
+    <FormField name="title" isInvalid>
       <FormField.Label>Title</FormField.Label>
 
       <Input />
