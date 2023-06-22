@@ -18,7 +18,7 @@ export const closeButtonStyles = cva(
 export const closeButtonIconStyles = cva(
   [
     'inline-flex rounded-full',
-    'focus-visible:ring-outline-high ring-inset focus-visible:outline-none focus-visible:ring-2',
+    'ring-inset focus-visible:opacity-dim-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
   ],
   {
     variants: {

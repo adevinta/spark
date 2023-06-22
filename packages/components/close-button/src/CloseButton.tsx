@@ -1,33 +1,56 @@
 import { ButtonStylesProps } from '@spark-ui/button/src/Button.styles'
 import { Icon } from '@spark-ui/icon'
 import { DeleteFill } from '@spark-ui/icons/dist/icons/DeleteFill'
-import React, { forwardRef, PropsWithChildren, useCallback, useRef } from 'react'
+import { Slot } from '@spark-ui/slot'
+import React, {
+  ButtonHTMLAttributes,
+  forwardRef,
+  KeyboardEvent,
+  MouseEvent,
+  MouseEventHandler,
+  PropsWithChildren,
+  ReactNode,
+  useCallback,
+  useRef,
+} from 'react'
 
 import { closeButtonIconStyles, closeButtonStyles } from './CloseButton.styles'
 
 export interface CloseButtonProps
-  extends PropsWithChildren<Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>>,
+  extends PropsWithChildren<Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>>,
     ButtonStylesProps {
   disabled?: boolean
-  onClick?: React.MouseEventHandler<HTMLSpanElement>
+  onClick?: MouseEventHandler<HTMLSpanElement>
   label?: string
+  children?: ReactNode
 }
 
 export const CloseButton = forwardRef<HTMLSpanElement, PropsWithChildren<CloseButtonProps>>(
   (
-    { disabled, onClick, className, label = 'close', children = <DeleteFill />, ...props },
+    {
+      disabled,
+      onClick,
+      className,
+      label = 'close',
+      children = (
+        <Icon>
+          <DeleteFill />
+        </Icon>
+      ),
+      ...props
+    },
     forwardedRef
   ) => {
     const buttonRef = useRef<HTMLDivElement>(null)
     const onCloseHandler = useCallback(
-      (event: React.MouseEvent<HTMLButtonElement>) => {
+      (event: MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation()
         onClick && onClick(event)
       },
       [onClick]
     )
 
-    const onKeyUpHandler = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
+    const onKeyUpHandler = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
       ;['Enter'].includes(event.key) && buttonRef.current?.click()
     }, [])
 
@@ -44,13 +67,14 @@ export const CloseButton = forwardRef<HTMLSpanElement, PropsWithChildren<CloseBu
         <div
           ref={buttonRef}
           role="button"
+          aria-label={label}
           {...(disabled ? { 'aria-disabled': disabled } : { tabIndex: 0 })}
           onKeyUp={onKeyUpHandler}
           className={closeButtonIconStyles({ cursor: disabled ? 'disabled' : 'pointer' })}
         >
-          <Icon label={label} className="opacity-dim-3">
+          <Slot aria-label={label} className={'text-neutral'}>
             {children}
-          </Icon>
+          </Slot>
         </div>
       </span>
     )
