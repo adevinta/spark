@@ -10,7 +10,6 @@ export interface CloseButtonProps
     ButtonStylesProps {
   disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLSpanElement>
-  children?: JSX.Element
   label?: string
 }
 
@@ -29,7 +28,7 @@ export const CloseButton = forwardRef<HTMLSpanElement, PropsWithChildren<CloseBu
     )
 
     const onKeyUpHandler = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
-      ;['Enter', ' '].includes(event.key) && buttonRef.current?.click()
+      ;['Enter'].includes(event.key) && buttonRef.current?.click()
     }, [])
 
     return (

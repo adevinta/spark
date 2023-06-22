@@ -1,7 +1,6 @@
 import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
-import { HomeOutline } from '@spark-ui/icons/dist/icons/HomeOutline'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
