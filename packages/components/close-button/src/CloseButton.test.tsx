@@ -6,9 +6,9 @@ import { CloseButton } from './CloseButton'
 
 describe('CloseButton', () => {
   it('should render', () => {
-    render(<CloseButton>Hello World!</CloseButton>)
+    render(<CloseButton />)
 
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
+    expect(screen.getByRole('button')).toBeInTheDocument()
   })
 
   it('should trigger click event', async () => {
@@ -16,10 +16,10 @@ describe('CloseButton', () => {
     const clickEvent = vi.fn()
 
     // Given
-    render(<div onClick={clickEvent}>Hello World!</div>)
+    render(<CloseButton onClick={clickEvent} />)
 
     // When
-    await user.click(screen.getByText('Hello World!'))
+    await user.click(screen.getByRole('button'))
 
     // Then
     expect(clickEvent).toHaveBeenCalledTimes(1)
