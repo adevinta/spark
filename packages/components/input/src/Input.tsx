@@ -1,3 +1,8 @@
+import { CloseButton } from '@spark-ui/close-button'
+import { useFormFieldControl } from '@spark-ui/form-field'
+import { Slot } from '@spark-ui/slot'
+import { useCombinedState } from '@spark-ui/use-combined-state'
+import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import {
   ChangeEvent,
   ComponentPropsWithoutRef,
@@ -5,14 +10,9 @@ import {
   forwardRef,
   MouseEvent,
   PropsWithChildren,
+  RefObject,
   useRef,
 } from 'react'
-import { useFormFieldControl } from '@spark-ui/form-field'
-import { Slot } from '@spark-ui/slot'
-import { CloseButton } from '@spark-ui/close-button'
-import { useFormFieldState } from '@spark-ui/form-field'
-import { useCombinedState } from '@spark-ui/use-combined-state'
-import { useMergeRefs } from '@spark-ui/use-merge-refs'
 
 import { clearInputStyles, inputStyles, InputStylesProps } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
@@ -61,12 +61,12 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
       isLeftElementVisible,
       isRightElementVisible,
     } = group
-        const Component = asChild ? Slot : 'input'
+    const Component = asChild ? Slot : 'input'
     const { id, name, isInvalid, isRequired, description } = field
     const intent = isInvalid ? 'error' : intentProp || group.intent || 'neutral'
     const isDisabled = disabledProp ?? group.isDisabled
-    const innerRef = useRef<HTMLInputElement>()
-    const ref = useMergeRefs(forwardRef, innerRef)
+    const innerRef = useRef<HTMLInputElement>(null)
+    const ref = useMergeRefs<HTMLInputElement>(forwardRef, innerRef)
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
@@ -125,32 +125,8 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
     const hasValue = ![undefined, ''].includes(value as string)
 
     return (
-      <Component
-        ref={ref}
-        id={id}
-        name={name}
-        className={inputStyles({
-          className,
-          intent,
-          isHovered: !!isHovered,
-          isDisabled: !!isDisabled,
-          isLeftAddonVisible: !!isLeftAddonVisible,
-          isRightAddonVisible: !!isRightAddonVisible,
-          isLeftElementVisible: !!isLeftElementVisible,
-          isRightElementVisible: !!isRightElementVisible,
-        })}
-        disabled={isDisabled}
-        required={isRequired}
-        aria-describedby={description}
-        aria-invalid={isInvalid}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        {...others}
-      />
-      <div className="min-w-sz-240 relative inline-flex grow items-start justify-items-start">
-        <input
+      <div className="relative inline-flex min-w-sz-240 grow items-start justify-items-start">
+        <Component
           ref={ref}
           id={id}
           name={name}
@@ -183,7 +159,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
               isRightAddonVisible: !!isRightAddonVisible,
               isRightElementVisible: !!isRightElementVisible,
             })}
-            disabled={!!isDisabled}
+            disabled={isDisabled}
             onClick={handleClear}
           />
         )}
