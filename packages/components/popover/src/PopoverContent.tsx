@@ -18,6 +18,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
       arrowPadding = 16, // In order not to overlap the arrow on the rounded corners of the popover.
       asChild = false,
       avoidCollisions = true,
+      'aria-labelledby': ariaLabelledBy,
       collisionBoundary,
       collisionPadding = 0,
       hideWhenDetached = false,
@@ -28,10 +29,11 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
     },
     ref
   ) => {
-    const { hasCloseButton } = usePopover()
+    const { hasCloseButton, headerId } = usePopover()
 
     return (
       <RadixPopover.Content
+        aria-labelledby={headerId || ariaLabelledBy}
         className={styles({
           enforceBoundaries: !!collisionBoundary,
           matchTriggerWidth,

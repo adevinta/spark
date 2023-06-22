@@ -8,11 +8,11 @@ import { forwardRef, useLayoutEffect } from 'react'
 import { usePopover } from './PopoverContext'
 
 export type CloseProps = RadixPopover.PopoverCloseProps & {
-  label: string
+  'aria-label': string
 }
 
 export const Close = forwardRef<HTMLButtonElement, CloseProps>(
-  ({ label, className, ...rest }, ref) => {
+  ({ 'aria-label': ariaLabel, className, ...rest }, ref) => {
     const { setHasCloseButton } = usePopover()
 
     useLayoutEffect(() => {
@@ -29,7 +29,7 @@ export const Close = forwardRef<HTMLButtonElement, CloseProps>(
         asChild
         {...rest}
       >
-        <IconButton size="sm" intent="neutral" design="ghost" aria-label={label}>
+        <IconButton size="sm" intent="neutral" design="ghost" aria-label={ariaLabel}>
           <Icon>
             <CloseSVG />
           </Icon>
