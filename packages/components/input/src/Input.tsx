@@ -10,7 +10,6 @@ import {
   forwardRef,
   MouseEvent,
   PropsWithChildren,
-  RefObject,
   useRef,
 } from 'react'
 
