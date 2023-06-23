@@ -36,6 +36,21 @@ export const Default: StoryFn = _args => {
   )
 }
 
+export const SlotNChild: StoryFn = _args => {
+  const [element, ref] = useDOMElementString<HTMLAnchorElement>()
+
+  return (
+    <div className="flex flex-col">
+      <Slot data-slot="slot" data-collision="slot">
+        <a data-child="child" data-collision="child" href="/" ref={ref}>
+          Link
+        </a>
+      </Slot>
+      <div>{element}</div>
+    </div>
+  )
+}
+
 export const Handlers: StoryFn = _args => {
   const onSlotClick = () => console.log('slot click')
   const onChildClick = () => console.log('child click')

@@ -76,8 +76,8 @@ const Components = {
 
     return (
       <div className="flex flex-col content-start items-center gap-sm" onClick={onCopy}>
-        <Button design="filled" shape="pill" intent="surface">
-          <Icon aria-label={name} size="lg">
+        <Button design="filled" shape="pill" intent="surface" aria-label={name}>
+          <Icon size="lg">
             <Element />
           </Icon>
         </Button>

@@ -33,6 +33,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
       disabled = false,
       children,
       className,
+      ...rest
     },
     ref
   ) => {
@@ -53,6 +54,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         disabled={disabled}
         value={value}
         onFocus={scrollToFocusedElement}
+        {...rest}
       >
         {children}
       </RadixTabs.Trigger>

@@ -51,6 +51,27 @@ jobs:
 
       - name: Test
         run: npm run test
+  a11y:
+    runs-on: ubuntu-latest
+    name: Accessibility
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Build Project Artifacts
+        run: npm run build && npm run storybook:build
+
+      - name: Serve Storybook files
+        uses: Eun/http-server-action@v1
+        with:
+          directory: ./dist
+          port: 6006
+
+      - name: Accessibility checking
+        run: npm run a11y:check
   visual-testing:
     runs-on: ubuntu-latest
     name: Visual testing
@@ -72,6 +93,7 @@ jobs:
           untraced: 'packages/utils/\*\*"'
   deploy:
     runs-on: ubuntu-latest
+    name: Deploy
     environment:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
       url: ${{ steps.deployment.outputs.url }}

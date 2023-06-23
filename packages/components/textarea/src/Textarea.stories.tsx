@@ -17,9 +17,11 @@ const meta: Meta<typeof Textarea> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Textarea rows={2} />
+export const Default: StoryFn = _args => <Textarea rows={2} aria-label="Message" />
 
-export const Uncontrolled: StoryFn = _args => <Textarea defaultValue="IPhone 12" />
+export const Uncontrolled: StoryFn = _args => (
+  <Textarea defaultValue="IPhone 12" aria-label="Message" />
+)
 
 export const Controlled: StoryFn = () => {
   const [value, setValue] = useState('IPhone 13')
@@ -28,10 +30,12 @@ export const Controlled: StoryFn = () => {
     setValue(event.target.value)
   }
 
-  return <Textarea value={value} onChange={handleChange} />
+  return <Textarea value={value} onChange={handleChange} aria-label="Message" />
 }
 
-export const Disabled: StoryFn = _args => <Textarea defaultValue="IPhone" disabled />
+export const Disabled: StoryFn = _args => (
+  <Textarea defaultValue="IPhone" aria-label="Message" disabled />
+)
 
 const intents: TextareaProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
@@ -39,7 +43,7 @@ export const Intent: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
       {intents.map(intent => (
-        <Textarea key={intent} intent={intent} />
+        <Textarea key={intent} intent={intent} aria-label="Message" />
       ))}
     </div>
   )
@@ -53,7 +57,7 @@ export const GroupElements: StoryFn = _args => (
       </Icon>
     </InputGroup.LeftElement>
 
-    <Textarea rows={2} />
+    <Textarea rows={2} aria-label="Message" />
 
     <InputGroup.RightElement>
       <Icon>
@@ -71,7 +75,7 @@ export const GroupDisabled: StoryFn = _args => (
       </Icon>
     </InputGroup.LeftElement>
 
-    <Textarea rows={2} />
+    <Textarea rows={2} aria-label="Message" />
 
     <InputGroup.RightElement>
       <Icon>

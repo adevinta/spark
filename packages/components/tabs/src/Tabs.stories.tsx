@@ -21,6 +21,7 @@ export interface TabItem {
   children?: ReactNode
   value: string
   disabled?: boolean
+  a11yLabel?: string
   content: string
 }
 
@@ -95,6 +96,7 @@ const withIconOnlyTabs = [
         <MailFill />
       </Icon>
     ),
+    a11yLabel: 'Inbox',
     content: 'Your inbox is empty',
     disabled: false,
   },
@@ -104,6 +106,7 @@ const withIconOnlyTabs = [
         <ConversationFill />
       </Icon>
     ),
+    a11yLabel: 'Today',
     value: 'tab2',
     content: 'Make some coffee',
     disabled: false,
@@ -114,6 +117,7 @@ const withIconOnlyTabs = [
         <HolidayFill />
       </Icon>
     ),
+    a11yLabel: 'Upcoming',
     value: 'tab3',
     content: 'Order more coffee',
     disabled: false,
@@ -132,8 +136,8 @@ export const createTabs = ({
   return (
     <Tabs defaultValue="tab1" {...rootProps}>
       <Tabs.List {...listProps}>
-        {tabs.map(({ value, children, disabled }) => (
-          <Tabs.Trigger key={value} value={value} disabled={disabled}>
+        {tabs.map(({ value, children, disabled, a11yLabel }) => (
+          <Tabs.Trigger key={value} value={value} disabled={disabled} aria-label={a11yLabel}>
             {children}
           </Tabs.Trigger>
         ))}

@@ -114,7 +114,7 @@ export const MatchTriggerWidth: StoryFn = _args => {
           <Button>Check the width of this popover</Button>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content matchTriggerWidth>
+          <Popover.Content matchTriggerWidth aria-label="Match Trigger Width Example">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.
             <Popover.Arrow />
@@ -188,7 +188,11 @@ export const Positionning: StoryFn = _args => {
             <Button>Trigger popover</Button>
           </Popover.Trigger>
           <Popover.Portal>
-            <Popover.Content side={currentSide} align={currentAlign}>
+            <Popover.Content
+              side={currentSide}
+              align={currentAlign}
+              aria-label="Positionning example"
+            >
               Popover contents
               <Popover.Arrow />
             </Popover.Content>
