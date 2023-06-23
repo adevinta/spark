@@ -189,7 +189,7 @@ describe('Popover', () => {
       expect(onEscapeKeyDown).toHaveBeenCalledTimes(1)
     })
 
-    it('should close when clicking on Popover.Close', async () => {
+    it('should close when clicking on Popover.CloseButton', async () => {
       const user = userEvent.setup()
 
       // Given a popover opened by default
@@ -200,7 +200,7 @@ describe('Popover', () => {
           </Popover.Trigger>
           <Popover.Content>
             Popover content
-            <Popover.Close aria-label="Close the popover" />
+            <Popover.CloseButton aria-label="Close the popover" />
           </Popover.Content>
         </Popover>
       )

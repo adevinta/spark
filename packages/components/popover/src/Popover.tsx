@@ -2,7 +2,7 @@ import type { FC } from 'react'
 
 import { Anchor } from './PopoverAnchor'
 import { Arrow } from './PopoverArrow'
-import { Close } from './PopoverClose'
+import { CloseButton } from './PopoverCloseButton'
 import { Content } from './PopoverContent'
 import { Header } from './PopoverHeader'
 import { Portal } from './PopoverPortal'
@@ -11,7 +11,7 @@ import { Trigger } from './PopoverTrigger'
 
 Anchor.displayName = 'Popover.Anchor'
 Arrow.displayName = 'Popover.Arrow'
-Close.displayName = 'Popover.Close'
+CloseButton.displayName = 'Popover.CloseButton'
 Content.displayName = 'Popover.Content'
 Header.displayName = 'Popover.Header'
 Portal.displayName = 'Popover.Portal'
@@ -20,7 +20,7 @@ Trigger.displayName = 'Popover.Trigger'
 export const Popover: FC<RootProps> & {
   Anchor: typeof Anchor
   Arrow: typeof Arrow
-  Close: typeof Close
+  CloseButton: typeof CloseButton
   Content: typeof Content
   Header: typeof Header
   Portal: typeof Portal
@@ -28,7 +28,7 @@ export const Popover: FC<RootProps> & {
 } = Object.assign(Root, {
   Anchor,
   Arrow,
-  Close,
+  CloseButton,
   Content,
   Header,
   Portal,

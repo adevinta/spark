@@ -8,7 +8,7 @@ import { Popover } from '.'
 import { type ContentProps } from './PopoverContent'
 
 const meta: Meta<typeof Popover> = {
-  title: 'Experimental/Popover',
+  title: 'Components/Popover',
   component: Popover,
 }
 
@@ -43,7 +43,7 @@ export const Default: StoryFn = _args => {
             <Popover.Header>Title</Popover.Header>
             <p>Are you sure you want to have that cookie now ?</p>
             <Popover.Arrow />
-            <Popover.Close aria-label="Close the popover" />
+            <Popover.CloseButton aria-label="Close the popover" />
           </Popover.Content>
         </Popover.Portal>
       </Popover>

@@ -7,11 +7,11 @@ import { forwardRef, useLayoutEffect } from 'react'
 
 import { usePopover } from './PopoverContext'
 
-export type CloseProps = RadixPopover.PopoverCloseProps & {
+export type CloseButtonProps = RadixPopover.PopoverCloseProps & {
   'aria-label': string
 }
 
-export const Close = forwardRef<HTMLButtonElement, CloseProps>(
+export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
   ({ 'aria-label': ariaLabel, className, ...rest }, ref) => {
     const { setHasCloseButton } = usePopover()
 
@@ -23,7 +23,7 @@ export const Close = forwardRef<HTMLButtonElement, CloseProps>(
 
     return (
       <RadixPopover.Close
-        data-spark-component="popover-close"
+        data-spark-component="popover-close-button"
         ref={ref}
         className={cx('absolute top-md right-md', className)}
         asChild
@@ -39,4 +39,4 @@ export const Close = forwardRef<HTMLButtonElement, CloseProps>(
   }
 )
 
-Close.displayName = 'Popover.Close'
+CloseButton.displayName = 'Popover.CloseButton'
