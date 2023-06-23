@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.16.1...@spark-ui/icons@1.17.0) (2023-06-23)
+
+### Bug Fixes
+
+- **icons:** remove flags from assets ([0908d52](https://github.com/adevinta/spark/commit/0908d529c12ed85ce69131ba4abc006b25ba8b0c))
+- **icons:** remove Send icon, add SendFill and SendOutline icons ([6b54d6d](https://github.com/adevinta/spark/commit/6b54d6df39deac70006c92a87519063536945d5d))
+- **icons:** update Parking icon ([6de68d4](https://github.com/adevinta/spark/commit/6de68d47f9e80936b62e62ca4ae89d41d1d3fb46))
+
+### Features
+
+- **icons:** add FilePdfFill and FilePdfOutline icons ([cd6bcea](https://github.com/adevinta/spark/commit/cd6bcea9fd2979df92f1186a5f8c24151d4a7a8f))
+- **icons:** add ThreeSixty icon ([bdb7431](https://github.com/adevinta/spark/commit/bdb743157360305344e85d2c798828a501fbd07b))
+
 ## [1.16.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.16.0...@spark-ui/icons@1.16.1) (2023-06-23)
 
 **Note:** Version bump only for package @spark-ui/icons
