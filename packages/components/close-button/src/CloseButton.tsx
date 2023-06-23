@@ -5,7 +5,6 @@ import { Slot } from '@spark-ui/slot'
 import React, {
   ButtonHTMLAttributes,
   forwardRef,
-  KeyboardEvent,
   MouseEvent,
   MouseEventHandler,
   PropsWithChildren,
@@ -31,7 +30,7 @@ export const CloseButton = forwardRef<HTMLSpanElement, PropsWithChildren<CloseBu
       disabled,
       onClick,
       className,
-      label = 'close',
+      label,
       children = (
         <Icon>
           <DeleteFill />
@@ -41,7 +40,7 @@ export const CloseButton = forwardRef<HTMLSpanElement, PropsWithChildren<CloseBu
     },
     forwardedRef
   ) => {
-    const buttonRef = useRef<HTMLDivElement>(null)
+    const buttonRef = useRef<HTMLButtonElement>(null)
     const onCloseHandler = useCallback(
       (event: MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation()
@@ -49,10 +48,6 @@ export const CloseButton = forwardRef<HTMLSpanElement, PropsWithChildren<CloseBu
       },
       [onClick]
     )
-
-    const onKeyUpHandler = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
-      ;['Enter'].includes(event.key) && buttonRef.current?.click()
-    }, [])
 
     return (
       <span
@@ -64,18 +59,15 @@ export const CloseButton = forwardRef<HTMLSpanElement, PropsWithChildren<CloseBu
         onClick={onCloseHandler}
         {...props}
       >
-        <div
+        <button
           ref={buttonRef}
-          role="button"
-          aria-label={label}
-          {...(disabled ? { 'aria-disabled': disabled } : { tabIndex: 0 })}
-          onKeyUp={onKeyUpHandler}
           className={closeButtonIconStyles({ cursor: disabled ? 'disabled' : 'pointer' })}
+          {...(disabled && { 'aria-disabled': disabled })}
         >
           <Slot aria-label={label} className={'text-neutral'}>
             {children}
           </Slot>
-        </div>
+        </button>
       </span>
     )
   }

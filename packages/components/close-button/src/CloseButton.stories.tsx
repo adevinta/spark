@@ -9,4 +9,4 @@ const meta: Meta<typeof CloseButton> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <CloseButton />
+export const Default: StoryFn = _args => <CloseButton label="close" />

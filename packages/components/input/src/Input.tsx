@@ -28,6 +28,7 @@ export interface InputProps
     > {
   asChild?: boolean
   onClear?: (event: MouseEvent<HTMLButtonElement>) => void
+  clearLabel?: string
 }
 
 export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
@@ -45,6 +46,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
       defaultValue: defaultValueProp = '',
       onChange,
       onClear,
+      clearLabel,
       ...others
     },
     forwardRef
@@ -160,6 +162,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
             })}
             disabled={isDisabled}
             onClick={handleClear}
+            label={clearLabel}
           />
         )}
       </div>

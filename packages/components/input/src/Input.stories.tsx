@@ -46,10 +46,10 @@ export const Intent: StoryFn = _args => {
 export const onClear: StoryFn = _args => {
   return (
     <div className="flex flex-col items-start justify-items-start gap-sm">
-      <Input onClear={() => console.log('clear')} />
+      <Input onClear={() => console.log('clear')} clearLabel="clear" />
       <InputGroup>
         <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-        <Input onClear={() => console.log('clear')} />
+        <Input onClear={() => console.log('clear')} clearLabel="clear" />
         <InputGroup.RightAddon>.com</InputGroup.RightAddon>
       </InputGroup>
       <InputGroup>
@@ -58,7 +58,7 @@ export const onClear: StoryFn = _args => {
             <PenOutline />
           </Icon>
         </InputGroup.LeftElement>
-        <Input onClear={() => console.log('clear')} />
+        <Input onClear={() => console.log('clear')} clearLabel="clear" />
         <InputGroup.RightElement>
           <Icon>
             <Check />
@@ -72,7 +72,7 @@ export const onClear: StoryFn = _args => {
           </Icon>
         </InputGroup.LeftElement>
         <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-        <Input onClear={() => console.log('clear')} />
+        <Input onClear={() => console.log('clear')} clearLabel="clear" />
         <InputGroup.RightAddon>.com</InputGroup.RightAddon>
         <InputGroup.RightElement>
           <Icon>
@@ -88,7 +88,7 @@ export const GroupAddons: StoryFn = _args => {
   return (
     <InputGroup>
       <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-      <Input onClear={() => console.log('clear')} />
+      <Input onClear={() => console.log('clear')} clearLabel="clear" />
       <InputGroup.RightAddon>.com</InputGroup.RightAddon>
     </InputGroup>
   )
@@ -103,7 +103,7 @@ export const GroupElements: StoryFn = _args => {
         </Icon>
       </InputGroup.LeftElement>
 
-      <Input onClear={() => console.log('clear')} />
+      <Input onClear={() => console.log('clear')} clearLabel="clear" />
 
       <InputGroup.RightElement>
         <Icon>
