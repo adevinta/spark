@@ -8,7 +8,7 @@ import { Popover } from '.'
 import { type ContentProps } from './PopoverContent'
 
 const meta: Meta<typeof Popover> = {
-  title: 'Experimental/Popover',
+  title: 'Components/Popover',
   component: Popover,
 }
 
@@ -40,8 +40,10 @@ export const Default: StoryFn = _args => {
         </Popover.Trigger>
         <Popover.Portal>
           <Popover.Content>
-            Popover contents
+            <Popover.Header>Title</Popover.Header>
+            <p>Are you sure you want to have that cookie now ?</p>
             <Popover.Arrow />
+            <Popover.CloseButton aria-label="Close the popover" />
           </Popover.Content>
         </Popover.Portal>
       </Popover>
@@ -65,7 +67,8 @@ export const Controlled: StoryFn = () => {
           </Popover.Anchor>
           <Popover.Portal>
             <Popover.Content onInteractOutside={() => setOpen(false)}>
-              Popover contents
+              <Popover.Header>Title</Popover.Header>
+              <p>Are you sure you want to have that cookie now ?</p>
               <Popover.Arrow />
             </Popover.Content>
           </Popover.Portal>
@@ -79,25 +82,18 @@ export const Anchored: StoryFn = _args => {
   return (
     <ShowcaseContainer className="!justify-between">
       <Popover>
-        <div className="flex flex-col gap-md">
-          <Popover.Trigger asChild>
-            <Button>Trigger 1</Button>
-          </Popover.Trigger>
-          <Popover.Trigger asChild>
-            <Button>Trigger 2</Button>
-          </Popover.Trigger>
-          <Popover.Trigger asChild>
-            <Button>Trigger 3</Button>
-          </Popover.Trigger>
-        </div>
-
         <Popover.Trigger asChild>
-          <Button intent="secondary">Anchor element</Button>
+          <Button>Trigger</Button>
         </Popover.Trigger>
+
+        <Popover.Anchor asChild>
+          <Button intent="secondary">Anchor element</Button>
+        </Popover.Anchor>
 
         <Popover.Portal>
           <Popover.Content>
-            Popover contents
+            <Popover.Header>Title</Popover.Header>
+            <p>Are you sure you want to have that cookie now ?</p>
             <Popover.Arrow />
           </Popover.Content>
         </Popover.Portal>
@@ -188,12 +184,8 @@ export const Positionning: StoryFn = _args => {
             <Button>Trigger popover</Button>
           </Popover.Trigger>
           <Popover.Portal>
-            <Popover.Content
-              side={currentSide}
-              align={currentAlign}
-              aria-label="Positionning example"
-            >
-              Popover contents
+            <Popover.Content side={currentSide} align={currentAlign}>
+              <p>Are you sure you want to have that cookie now ?</p>
               <Popover.Arrow />
             </Popover.Content>
           </Popover.Portal>

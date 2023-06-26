@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/addon-docs'
+import { Meta, Canvas } from '@storybook/blocks'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Popover } from '.'
@@ -32,18 +32,20 @@ import { Popover } from '@spark-ui/popover'
     'Popover.Anchor': Popover.Anchor,
     'Popover.Portal': Popover.Portal,
     'Popover.Content': Popover.Content,
+    'Popover.Header': Popover.Header,
+    'Popover.CloseButton': Popover.CloseButton,
     'Popover.Arrow': Popover.Arrow,
   }}
 />
 
-## Usage
+## Anatomy
 
 A basic popover should have a trigger element and a content element.
 
 The trigger is the element that should toggle the popover.
 The content is the popover itself.
 
-<Canvas of={stories.Default} />
+<Canvas of={stories.Default} sourceState="shown" />
 
 ## Controlled
 
