@@ -15,10 +15,18 @@ const impactColor = {
 }
 
 const { stories } = JSON.parse(readFileSync('dist/stories.json', 'utf8'))
+const pkgFilter = process.argv.slice(2).map((pkgPath) => `./${pkgPath.split('/src')[0]}`) ?? []
 
-const storiesList = Object.keys(stories).reduce((acc, curr) => {
-  if ((stories[curr].importPath).startsWith('./packages/components/') && !(stories[curr].id).endsWith('--docs')) {
-    acc.push(stories[curr].id)
+const storiesList = Object.keys(stories).reduce((acc, cur) => {
+  const isComponentStory = (story) => (story.importPath).startsWith('./packages/components/') && !(story.id).endsWith('--docs')
+  const belongsToFilter = (story, filter) => filter.includes(stories[cur].importPath.split('/src')[0])
+
+  if (isComponentStory(stories[cur])) {
+    if (pkgFilter.length && !belongsToFilter(stories[cur], pkgFilter)) {
+      return acc
+    }
+
+    acc.push(stories[cur].id)
   }
 
   return acc
@@ -31,7 +39,7 @@ let issues = {
   critical: 0,
 }
 
-const checkA11y = async () => { 
+const checkA11y = async () => {
   const driver = new Builder()
     .forBrowser('firefox')
     .setFirefoxOptions(new Options().headless())

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/adevinta/spark/compare/@spark-ui/text-field@0.2.4...@spark-ui/text-field@0.2.5) (2023-06-26)
+
+**Note:** Version bump only for package @spark-ui/text-field
+
 ## [0.2.4](https://github.com/adevinta/spark/compare/@spark-ui/text-field@0.2.3...@spark-ui/text-field@0.2.4) (2023-06-23)
 
 **Note:** Version bump only for package @spark-ui/text-field
