@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/text-field",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Input with a floating label",
   "publishConfig": {
     "access": "public"
@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@radix-ui/react-id": "1.0.1",
-    "@spark-ui/input": "^0.6.1",
-    "@spark-ui/label": "^1.4.2",
+    "@spark-ui/input": "^0.6.2",
+    "@spark-ui/label": "^1.4.3",
     "@spark-ui/use-merge-refs": "^0.3.3",
     "class-variance-authority": "0.5.2"
   },

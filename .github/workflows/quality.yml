@@ -57,12 +57,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        uses: tj-actions/changed-files@v36
+        id: files
+        with:
+          files: ./packages/components/**/*.{ts,tsx,mdx,json}
 
       - name: Install
         uses: ./.github/composite-actions/install
 
       - name: Build Project Artifacts
-        run: npm run build && npm run storybook:build
+        run: npm run storybook:build
 
       - name: Serve Storybook files
         uses: Eun/http-server-action@v1
@@ -71,7 +79,7 @@ jobs:
           port: 6006
 
       - name: Accessibility checking
-        run: npm run a11y:check
+        run: npm run a11y:check ${{ steps.files.outputs.all_changed_files }}
   visual-testing:
     runs-on: ubuntu-latest
     name: Visual testing

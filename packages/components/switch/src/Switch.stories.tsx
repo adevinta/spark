@@ -3,7 +3,7 @@ import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
 import { EyeFill } from '@spark-ui/icons/dist/icons/EyeFill'
 import { EyeOffFill } from '@spark-ui/icons/dist/icons/EyeOffFill'
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps, useState } from 'react'
 
 import { Switch } from '.'
