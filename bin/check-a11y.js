@@ -18,8 +18,11 @@ const { stories } = JSON.parse(readFileSync('dist/stories.json', 'utf8'))
 const pkgFilter = process.argv.slice(2).map((pkgPath) => `./${pkgPath.split('/src')[0]}`) ?? []
 
 const storiesList = Object.keys(stories).reduce((acc, cur) => {
-  if ((stories[cur].importPath).startsWith('./packages/components/') && !(stories[cur].id).endsWith('--docs')) {
-    if (pkgFilter.length && !pkgFilter.includes(stories[cur].importPath.split('/src')[0])) {
+  const isComponentStory = (story) => (story.importPath).startsWith('./packages/components/') && !(story.id).endsWith('--docs')
+  const belongsToFilter = (story, filter) => filter.includes(stories[cur].importPath.split('/src')[0])
+
+  if (isComponentStory(stories[cur])) {
+    if (pkgFilter.length && !belongsToFilter(stories[cur], pkgFilter)) {
       return acc
     }
 
