@@ -65,10 +65,10 @@ Use `InputGroup` component to group your input with addons and elements like ico
 <ExtendedArgTypes
   of={InputGroup}
   subcomponents={{
-    'InputGroup.LeftAddon': InputGroup.LeftAddon,
-    'InputGroup.LeftElement': InputGroup.LeftElement,
-    'InputGroup.RightAddon': InputGroup.RightAddon,
-    'InputGroup.RightElement': InputGroup.RightElement,
+    'InputGroup.LeftAddon': { of: InputGroup.LeftAddon },
+    'InputGroup.LeftElement': { of: InputGroup.LeftElement },
+    'InputGroup.RightAddon': { of: InputGroup.RightAddon },
+    'InputGroup.RightElement': { of: InputGroup.RightElement },
   }}
 />
 

@@ -25,8 +25,13 @@ import { Label } from '@spark-ui/label'
 
 <ArgTypes
   of={Label}
+  description="A label that can be used to describe a field"
   subcomponents={{
-    'Label.RequiredIndicator': Label.RequiredIndicator,
+    'Label.RequiredIndicator': {
+      of: Label.RequiredIndicator,
+      description:
+        'An optional indicator to display a field as required. Must be rendered inside Label.',
+    },
   }}
 />
 
