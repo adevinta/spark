@@ -1,11 +1,11 @@
-import { useFaqContext } from './context'
+import { useFaqItemContext } from './context'
 
 interface Props {
   label: string
 }
 
 export function Question({ label }: Props) {
-  const { state, dispatch } = useFaqContext()
+  const { state, dispatch } = useFaqItemContext()
 
   return (
     <dt className="py-lg">
