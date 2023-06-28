@@ -42,7 +42,7 @@ export const styles = cva(
       }),
     },
     defaultVariants: {
-      intent: 'primary',
+      intent: 'contrast',
       size: 'sm',
     },
   }
