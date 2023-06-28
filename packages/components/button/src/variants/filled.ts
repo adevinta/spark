@@ -93,4 +93,16 @@ export const filledVariants = [
       'focus-visible:bg-surface-focused',
     ]),
   },
+  // Contrast
+  {
+    intent: 'contrast',
+    design: 'filled',
+    class: tw([
+      'bg-on-surface',
+      'text-surface',
+      'enabled:hover:opacity-dim-1',
+      'enabled:active:opacity-dim-1',
+      'focus-visible:opacity-dim-1',
+    ]),
+  },
 ] as const

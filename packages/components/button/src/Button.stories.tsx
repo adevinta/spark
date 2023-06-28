@@ -26,8 +26,9 @@ const intents: ButtonProps['intent'][] = [
   'info',
   'neutral',
   'surface',
+  'contrast',
 ]
-const designs: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost', 'contrast']
+const designs: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost']
 const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 
 export const Default: StoryFn = _args => <Button>Default button</Button>
@@ -70,10 +71,21 @@ export const Design: StoryFn = _args => (
 
 export const Intent: StoryFn = _args => (
   <div className="flex flex-wrap gap-md">
+    <div className="flex flex-col gap-md">
+      {designs.map(design => (
+        <Button design={design} key={design}>
+          {undefined} {design}
+        </Button>
+      ))}
+    </div>
     {intents.map(intent => (
-      <Button key={intent} intent={intent}>
-        {intent} button
-      </Button>
+      <div key={intent} className="flex flex-col gap-md">
+        {designs.map(design => (
+          <Button design={design} key={`${design}-${intent}`} intent={intent}>
+            {intent} {design}
+          </Button>
+        ))}
+      </div>
     ))}
   </div>
 )

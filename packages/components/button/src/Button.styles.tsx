@@ -1,13 +1,7 @@
 import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import {
-  contrastVariants,
-  filledVariants,
-  ghostVariants,
-  outlinedVariants,
-  tintedVariants,
-} from './variants'
+import { filledVariants, ghostVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const buttonStyles = cva(
   [
@@ -33,12 +27,11 @@ export const buttonStyles = cva(
        * - `contrast`: Button will be surface filled. No borders, plain text.
        *
        */
-      design: makeVariants<'design'>({
+      design: makeVariants<'design', ['filled', 'outlined', 'tinted', 'ghost']>({
         filled: [],
         outlined: ['bg-transparent', 'ring-1', 'ring-current'],
         tinted: [],
         ghost: [],
-        contrast: ['bg-surface'],
       }),
 
       /**
@@ -46,7 +39,17 @@ export const buttonStyles = cva(
        */
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'danger', 'info', 'neutral', 'surface']
+        [
+          'primary',
+          'secondary',
+          'success',
+          'alert',
+          'danger',
+          'info',
+          'neutral',
+          'surface',
+          'contrast'
+        ]
       >({
         primary: [],
         secondary: [],
@@ -56,6 +59,7 @@ export const buttonStyles = cva(
         info: [],
         neutral: [],
         surface: [],
+        contrast: [],
       }),
 
       size: makeVariants<'size', ['sm', 'md', 'lg']>({
@@ -77,16 +81,10 @@ export const buttonStyles = cva(
         true: ['cursor-not-allowed', 'opacity-dim-3'],
       },
     },
-    compoundVariants: [
-      ...filledVariants,
-      ...outlinedVariants,
-      ...tintedVariants,
-      ...ghostVariants,
-      ...contrastVariants,
-    ],
+    compoundVariants: [...filledVariants, ...outlinedVariants, ...tintedVariants, ...ghostVariants],
     defaultVariants: {
       design: 'filled',
-      intent: 'primary',
+      intent: 'contrast',
       size: 'md',
       shape: 'rounded',
     },

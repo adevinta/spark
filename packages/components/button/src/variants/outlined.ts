@@ -81,4 +81,14 @@ export const outlinedVariants = [
       'text-surface',
     ]),
   },
+  {
+    intent: 'contrast',
+    design: 'outlined',
+    class: tw([
+      'enabled:hover:bg-on-surface/dim-5',
+      'enabled:active:bg-on-surface/dim-5',
+      'focus-visible:bg-on-surface/dim-5',
+      'text-on-surface',
+    ]),
+  },
 ] as const

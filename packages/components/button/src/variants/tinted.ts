@@ -89,4 +89,15 @@ export const tintedVariants = [
       'focus-visible:bg-surface-focused',
     ]),
   },
+  {
+    intent: 'contrast',
+    design: 'tinted',
+    class: tw([
+      'bg-surface-container',
+      'text-on-surface-container',
+      'enabled:hover:bg-surface-container-hovered',
+      'enabled:active:bg-surface-container-pressed',
+      'focus-visible:bg-surface-container-focused',
+    ]),
+  },
 ] as const

@@ -81,4 +81,14 @@ export const ghostVariants = [
       'focus-visible:bg-surface/dim-5',
     ]),
   },
+  {
+    intent: 'contrast',
+    design: 'ghost',
+    class: tw([
+      'text-on-surface',
+      'enabled:hover:bg-on-surface/dim-5',
+      'enabled:active:bg-on-surface/dim-5',
+      'focus-visible:bg-on-surface/dim-5',
+    ]),
+  },
 ] as const
