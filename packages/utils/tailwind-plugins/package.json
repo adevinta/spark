@@ -1,13 +1,13 @@
 {
   "name": "@spark-ui/tailwind-plugins",
-  "version": "2.13.0",
+  "version": "2.13.0-contrast",
   "description": "Spark Tailwind plugins",
   "publishConfig": {
     "access": "public"
   },
   "main": "index.js",
   "dependencies": {
-    "@spark-ui/theme-utils": "^2.17.0",
+    "@spark-ui/theme-utils": "2.17.0-contrast",
     "tailwindcss-radix": "2.8.0"
   },
   "peerDependencies": {
