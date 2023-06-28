@@ -52,7 +52,7 @@ export const Controlled: StoryFn = () => {
   )
 }
 
-const intent = ['primary', 'success', 'alert', 'error', 'info', 'neutral'] as const
+const intent = ['primary', 'success', 'alert', 'error', 'info', 'neutral', 'contrast'] as const
 
 export const Intent: StoryFn = _args => (
   <div className="flex gap-lg">

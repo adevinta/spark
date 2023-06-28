@@ -6,12 +6,15 @@ export const checkboxInputStyles = cva(
     'box-content h-sz-16 w-sz-16 items-center justify-center rounded-sm border-md bg-transparent outline-none',
     'spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3 spark-disabled:hover:ring-0',
     'focus-visible:ring-2 focus-visible:ring-outline-high',
-    'hover:border-primary-container hover:ring-2',
+    'hover:ring-2',
     'u-shadow-border-transition',
   ],
   {
     variants: {
-      intent: makeVariants<'intent', ['primary', 'success', 'alert', 'error', 'info', 'neutral']>({
+      intent: makeVariants<
+        'intent',
+        ['primary', 'success', 'alert', 'error', 'info', 'neutral', 'contrast']
+      >({
         primary: [
           'spark-state-unchecked:border-outline',
           'spark-state-indeterminate:border-primary spark-state-indeterminate:bg-primary',
@@ -42,10 +45,15 @@ export const checkboxInputStyles = cva(
           'spark-state-indeterminate:border-neutral spark-state-indeterminate:bg-neutral',
           'spark-state-checked:border-neutral spark-state-checked:bg-neutral',
         ],
+        contrast: [
+          'spark-state-unchecked:border-on-surface',
+          'spark-state-indeterminate:border-on-surface spark-state-indeterminate:bg-on-surface',
+          'spark-state-checked:border-on-surface spark-state-checked:bg-on-surface',
+        ],
       }),
     },
     defaultVariants: {
-      intent: 'primary',
+      intent: 'contrast',
     },
   }
 )
