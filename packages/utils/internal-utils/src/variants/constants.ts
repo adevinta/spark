@@ -11,9 +11,10 @@ const intents = [
   'danger',
   'neutral',
   'surface',
+  'contrast',
 ] as const
 
-const designs = ['filled', 'outlined', 'tinted', 'ghost', 'contrast'] as const
+const designs = ['filled', 'outlined', 'tinted', 'ghost'] as const
 
 const shapes = ['rounded', 'square', 'pill'] as const
 
