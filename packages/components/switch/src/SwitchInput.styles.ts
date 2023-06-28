@@ -21,7 +21,7 @@ export const styles = cva(
       }),
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral', 'contrast']
       >({
         primary: ['spark-state-checked:bg-primary', 'hover:ring-primary-container', 'text-primary'],
         secondary: [
@@ -34,6 +34,11 @@ export const styles = cva(
         error: ['spark-state-checked:bg-error', 'hover:ring-error-container', 'text-error'],
         info: ['spark-state-checked:bg-info', 'hover:ring-info-container', 'text-info'],
         neutral: ['spark-state-checked:bg-neutral', 'hover:ring-neutral-container', 'text-neutral'],
+        contrast: [
+          'spark-state-checked:bg-on-surface',
+          'hover:ring-surface-container',
+          'text-on-surface',
+        ],
       }),
     },
     defaultVariants: {

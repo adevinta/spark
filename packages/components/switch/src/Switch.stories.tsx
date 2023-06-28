@@ -80,6 +80,7 @@ const switchColors: ComponentProps<typeof Switch>['intent'][] = [
   'error',
   'info',
   'neutral',
+  'contrast',
 ]
 
 export const Colors: StoryFn = _args => (
