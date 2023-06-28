@@ -67,18 +67,22 @@ jobs:
           files: ./packages/components/**/*.{ts,tsx,mdx,json}
 
       - name: Install
+        if: steps.files.outputs.all_changed_files_count > 0
         uses: ./.github/composite-actions/install
 
       - name: Build Project Artifacts
+        if: steps.files.outputs.all_changed_files_count > 0
         run: npm run storybook:build
 
       - name: Serve Storybook files
+        if: steps.files.outputs.all_changed_files_count > 0
         uses: Eun/http-server-action@v1
         with:
           directory: ./dist
           port: 6006
 
       - name: Accessibility checking
+        if: steps.files.outputs.all_changed_files_count > 0
         run: npm run a11y:check ${{ steps.files.outputs.all_changed_files }}
   visual-testing:
     runs-on: ubuntu-latest
