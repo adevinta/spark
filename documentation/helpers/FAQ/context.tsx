@@ -13,7 +13,7 @@ interface Context {
   dispatch: Dispatch<Action>
 }
 
-const faqItemCtx = createContext<Context>({} as Context)
+const FAQItemContext = createContext<Context>({} as Context)
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
@@ -30,8 +30,8 @@ const initialState: State = {
   isOpen: false,
 }
 
-function useFaqItemContext() {
-  const ctx = useContext(faqItemCtx)
+function useFAQItemContext() {
+  const ctx = useContext(FAQItemContext)
 
   if (!ctx) {
     throw Error('useFaqItemContext must be used within the appropriate Provider')
@@ -43,7 +43,7 @@ function useFaqItemContext() {
 function ItemProvider({ children }: PropsWithChildren<unknown>) {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  return <faqItemCtx.Provider value={{ state, dispatch }}>{children}</faqItemCtx.Provider>
+  return <FAQItemContext.Provider value={{ state, dispatch }}>{children}</FAQItemContext.Provider>
 }
 
-export { useFaqItemContext, ItemProvider }
+export { useFAQItemContext, ItemProvider }

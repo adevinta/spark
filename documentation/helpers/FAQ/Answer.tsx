@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react'
 
-import { useFaqItemContext } from './context'
+import { useFAQItemContext } from './context'
 
 export function Answer({ children }: PropsWithChildren<unknown>) {
-  const { state } = useFaqItemContext()
+  const { state } = useFAQItemContext()
 
   return <dd className={`${state.isOpen ? 'block' : 'hidden'} mb-lg`}>{children}</dd>
 }
