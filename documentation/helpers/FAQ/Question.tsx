@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+
 import { useFAQItemContext } from './context'
 
 interface Props {
@@ -6,12 +8,31 @@ interface Props {
 
 export function Question({ label }: Props) {
   const { state, dispatch } = useFAQItemContext()
+  const btnRef = useRef<HTMLButtonElement>(null)
+
+  const slugifiedLabel = utils.slugify(label)
+
+  function handleClick() {
+    dispatch({ type: 'TOGGLE_OPEN' })
+
+    if (!window.top) return
+    window.top.location.hash = slugifiedLabel
+  }
+
+  useEffect(() => {
+    if (!btnRef.current || window.top?.location.hash !== `#${slugifiedLabel}`) return
+
+    dispatch({ type: 'TOGGLE_OPEN' })
+    btnRef.current.scrollIntoView({ behavior: 'smooth' })
+  }, [])
 
   return (
     <dt className="py-lg">
       <button
-        className="flex w-full items-start justify-between"
-        onClick={() => dispatch({ type: 'TOGGLE_OPEN' })}
+        ref={btnRef}
+        id={slugifiedLabel}
+        className="flex w-full scroll-mt-lg items-start justify-between"
+        onClick={handleClick}
       >
         <span className="flex basis-11/12 font-bold">{label}</span>
         <span className="h-sz-20 w-sz-20">
@@ -20,6 +41,15 @@ export function Question({ label }: Props) {
       </button>
     </dt>
   )
+}
+
+const utils = {
+  slugify(str: string) {
+    return str
+      .replace(/[^a-z0-9 ]/gi, '')
+      .toLowerCase()
+      .replace(/ /g, '-')
+  },
 }
 
 const Components = {
