@@ -148,6 +148,13 @@ export const defaultTheme: Theme = {
     surfacePressed: '#F4F4FC',
     surfaceDisabled: '#F8F8F9',
     surfaceFocused: '#F4F4FC',
+    // Surface container
+    surfaceContainer: '#DADADA',
+    onSurfaceContainer: '#202020',
+    surfaceContainerHovered: '#E8E8E8',
+    surfaceContainerPressed: '#E8E8E8',
+    surfaceContainerDisabled: '#E8E8E8',
+    surfaceContainerFocused: '#E8E8E8',
     // Surface Inverse
     surfaceInverse: '#252428',
     onSurfaceInverse: '#FFFFFF',

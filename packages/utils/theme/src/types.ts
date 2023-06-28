@@ -150,6 +150,13 @@ export interface Theme {
     surfacePressed: string
     surfaceDisabled: string
     surfaceFocused: string
+    // Surface Container
+    surfaceContainer: string
+    onSurfaceContainer: string
+    surfaceContainerHovered: string
+    surfaceContainerPressed: string
+    surfaceContainerDisabled: string
+    surfaceContainerFocused: string
     // Surface Inverse
     surfaceInverse: string
     onSurfaceInverse: string

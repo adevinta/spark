@@ -128,6 +128,13 @@ export const defaultThemeDark: Theme = createTheme({
     surfacePressed: '#080632',
     surfaceDisabled: '#252428',
     surfaceFocused: '#080632',
+    // Surface
+    surfaceContainer: '#272727',
+    onSurfaceContainer: '#C5C5C5',
+    surfaceContainerHovered: '#151515',
+    surfaceContainerPressed: '#151515',
+    surfaceContainerDisabled: '#252428',
+    surfaceContainerFocused: '#151515',
     // Surface Inverse
     surfaceInverse: '#F8F8F9',
     onSurfaceInverse: '#000000',
