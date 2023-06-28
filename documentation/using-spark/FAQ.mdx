@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/blocks'
+import { Card } from '@docs/helpers/Card'
+import { Callout } from '@docs/helpers/Callout'
+import { FAQ } from '@docs/helpers/FAQ'
+
+<Meta title="Using Spark/F.A.Q" />
+
+# FAQ
+
+<FAQ.Root className="mt-2xl">
+  <FAQ.Item>
+    <FAQ.Question label="How do I change an element's opacity using the color opacity modifier?" />
+    <FAQ.Answer>
+      If you need to apply an opacity to an element color (whether it be a text color, a border color,
+      a background color, etc.), you can use the following syntax:
+      
+      ```tsx
+      <div class="bg-primary/dim-1">...</div>
+      //              ^1.   ^2. ^3.
+      // 1. First, add the classname that applies
+      //    some color-related property to the element.
+      //
+      // 2. Then, use the "/" modifier.
+      //
+      // 3. Finally, apply the opacity by using a value from one of the opacity
+      //    tokens from the theme
+      ```
+
+      By using this syntax, you can apply an opacity to any color-related property of an element.
+
+      For more information, see → https://tailwindcss.com/docs/background-color#changing-the-opacity
+    </FAQ.Answer>
+
+  </FAQ.Item>
+
+  <FAQ.Item>
+    <FAQ.Question
+      label="How do I deal with font weights?"
+    />
+    <FAQ.Answer>
+      If you have text with the CSS class `text-body-1` applied to it but also wish to give this element a bold font weight, you can add another dedicated class to accomplish this:
+
+      ```tsx
+      <div class="text-body-1 font-bold">...</div>
+      ```
+
+      In this example, The class `text-body-1` sets the appropriate font size and line height, while `font-bold` sets the appropriate font weight.
+
+      Tailwind Spark themes expose a set of font-weight related tokens. Be sure to check those out to see what values you have at your disposal.
+
+</FAQ.Answer>
+
+  </FAQ.Item>
+</FAQ.Root>
