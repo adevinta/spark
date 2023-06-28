@@ -52,6 +52,7 @@ const intents: RadioGroupProps['intent'][] = [
   'success',
   'alert',
   'error',
+  'contrast',
 ]
 
 export const Intent: StoryFn = _args => {

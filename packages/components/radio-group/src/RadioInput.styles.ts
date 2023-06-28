@@ -2,7 +2,7 @@ import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
 const defaultVariants = {
-  intent: 'primary',
+  intent: 'contrast',
   size: 'sm',
 } as const
 
@@ -24,7 +24,7 @@ export const radioInputVariants = cva(
       }),
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral', 'contrast']
       >({
         primary: [
           'border-outline',
@@ -36,15 +36,16 @@ export const radioInputVariants = cva(
           'spark-state-checked:border-secondary',
           'hover:ring-secondary-container',
         ],
+        info: ['border-outline', 'spark-state-checked:border-info', 'hover:ring-info-container'],
+        success: ['border-success', 'hover:ring-success-container'],
+        alert: ['border-alert', 'hover:ring-alert-container'],
+        error: ['border-error', 'hover:ring-error-container'],
         neutral: [
           'border-outline',
           'spark-state-checked:border-neutral',
           'hover:ring-neutral-container',
         ],
-        info: ['border-outline', 'spark-state-checked:border-info', 'hover:ring-info-container'],
-        success: ['border-success', 'hover:ring-success-container'],
-        alert: ['border-alert', 'hover:ring-alert-container'],
-        error: ['border-error', 'hover:ring-error-container'],
+        contrast: ['border-on-surface', 'hover:ring-surface-container'],
       }),
     },
     defaultVariants,

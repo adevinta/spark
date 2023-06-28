@@ -20,7 +20,7 @@ export const radioIndicatorStyles = cva(
     variants: {
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral', 'contrast']
       >({
         primary: ['after:bg-primary'],
         secondary: ['after:bg-secondary'],
@@ -29,6 +29,7 @@ export const radioIndicatorStyles = cva(
         alert: ['after:bg-alert'],
         error: ['after:bg-error'],
         info: ['after:bg-info'],
+        contrast: ['after:bg-on-surface'],
       }),
       size: makeVariants<'size', ['sm', 'md']>({
         sm: ['after:spark-state-checked:h-sz-10', 'after:spark-state-checked:w-sz-10'],
@@ -36,7 +37,7 @@ export const radioIndicatorStyles = cva(
       }),
     },
     defaultVariants: {
-      intent: 'primary',
+      intent: 'contrast',
       size: 'sm',
     },
   }
