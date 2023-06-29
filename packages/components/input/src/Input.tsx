@@ -8,10 +8,7 @@ import { InputPrimitive, InputPrimitiveProps } from './InputPrimitive'
 export interface InputProps extends InputPrimitiveProps, InputStylesProps {}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  (
-    { className: classNameProp, intent: intentProp = 'neutral', disabled: disabledProp, ...others },
-    ref
-  ) => {
+  ({ className: classNameProp, intent: intentProp = 'neutral', ...others }, ref) => {
     const field = useFormFieldState()
     const group = useInputGroup()
     const { isInvalid } = field
