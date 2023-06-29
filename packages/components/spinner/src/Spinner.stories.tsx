@@ -24,7 +24,7 @@ const intents: ComponentProps<typeof Spinner>['intent'][] = [
 ]
 
 export const Intents: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {intents.map(intent => (
       <div key={intent} className="text-center">
         <StoryLabel>{intent}</StoryLabel>
@@ -37,7 +37,7 @@ export const Intents: StoryFn = _args => (
 const sizes: ComponentProps<typeof Spinner>['size'][] = ['sm', 'md']
 
 export const Sizes: StoryFn = _args => (
-  <div className="gap-lg flex">
+  <div className="flex gap-lg">
     {sizes.map(size => (
       <div key={size} className="text-center">
         <StoryLabel>{size}</StoryLabel>

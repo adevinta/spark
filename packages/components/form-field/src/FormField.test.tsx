@@ -9,11 +9,11 @@ describe('FormField', () => {
       <FormField name="email">
         <FormField.Label>Email</FormField.Label>
 
-        <FormField.State>
+        <FormField.Control>
           {({ id, name, description }) => (
             <input type="email" id={id} name={name} aria-describedby={description} />
           )}
-        </FormField.State>
+        </FormField.Control>
       </FormField>
     )
 
@@ -25,7 +25,7 @@ describe('FormField', () => {
       <FormField name="email" isRequired>
         <FormField.Label>Email</FormField.Label>
 
-        <FormField.State>
+        <FormField.Control>
           {({ id, name, description, isRequired }) => (
             <input
               type="email"
@@ -36,7 +36,7 @@ describe('FormField', () => {
               aria-describedby={description}
             />
           )}
-        </FormField.State>
+        </FormField.Control>
       </FormField>
     )
 
@@ -59,11 +59,11 @@ describe('FormField', () => {
           Email
         </FormField.Label>
 
-        <FormField.State>
+        <FormField.Control>
           {({ id, name, description }) => (
             <input type="email" id={id} name={name} aria-describedby={description} />
           )}
-        </FormField.State>
+        </FormField.Control>
       </FormField>
     )
 
@@ -78,11 +78,11 @@ describe('FormField', () => {
       <FormField name="email">
         <FormField.Label>Email</FormField.Label>
 
-        <FormField.State>
+        <FormField.Control>
           {({ id, name, description }) => (
             <input type="email" id={id} name={name} aria-describedby={description} />
           )}
-        </FormField.State>
+        </FormField.Control>
 
         <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
       </FormField>
@@ -101,7 +101,7 @@ describe('FormField', () => {
           <p>Category</p>
         </FormField.Label>
 
-        <FormField.State>
+        <FormField.Control>
           {({ labelId, name }) => (
             <div role="radiogroup" aria-labelledby={labelId}>
               <label>
@@ -115,7 +115,7 @@ describe('FormField', () => {
               </label>
             </div>
           )}
-        </FormField.State>
+        </FormField.Control>
       </FormField>
     )
 
@@ -131,7 +131,7 @@ describe('FormField error message', () => {
       <FormField name="email">
         <FormField.Label>Email</FormField.Label>
 
-        <FormField.State>
+        <FormField.Control>
           {({ id, name, isInvalid, description }) => (
             <input
               type="email"
@@ -141,7 +141,7 @@ describe('FormField error message', () => {
               aria-describedby={description}
             />
           )}
-        </FormField.State>
+        </FormField.Control>
 
         <FormField.ErrorMessage>We will never share your email</FormField.ErrorMessage>
       </FormField>
@@ -156,10 +156,10 @@ describe('FormField error message', () => {
 
   it('should render error message when is invalid', () => {
     render(
-      <FormField name="email" isInvalid>
+      <FormField name="email" state="error">
         <FormField.Label>Email</FormField.Label>
 
-        <FormField.State>
+        <FormField.Control>
           {({ id, name, isInvalid, description }) => (
             <input
               type="email"
@@ -169,7 +169,7 @@ describe('FormField error message', () => {
               aria-describedby={description}
             />
           )}
-        </FormField.State>
+        </FormField.Control>
 
         <FormField.ErrorMessage>Email is required</FormField.ErrorMessage>
       </FormField>
@@ -185,14 +185,14 @@ describe('FormField error message', () => {
 
   it('should render error and helper message when is invalid', () => {
     render(
-      <FormField name="email" isInvalid>
+      <FormField name="email" state="error">
         <FormField.Label>Email</FormField.Label>
 
-        <FormField.State>
+        <FormField.Control>
           {({ id, name, description }) => (
             <input type="email" id={id} name={name} aria-describedby={description} />
           )}
-        </FormField.State>
+        </FormField.Control>
 
         <FormField.ErrorMessage>Email is required</FormField.ErrorMessage>
 

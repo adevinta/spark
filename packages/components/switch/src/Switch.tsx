@@ -1,5 +1,5 @@
 import { useId } from '@radix-ui/react-id'
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { cx } from 'class-variance-authority'
 import { forwardRef } from 'react'
 
@@ -10,7 +10,7 @@ export type SwitchProps = InputProps
 
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
   ({ value = 'on', size = 'md', children, className, id, disabled, ...rest }, ref) => {
-    const field = useFormFieldState()
+    const field = useFormFieldControl()
 
     const innerId = useId(id)
     const innerLabelId = useId()

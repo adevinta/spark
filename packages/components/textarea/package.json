@@ -1,0 +1,32 @@
+{
+  "name": "@spark-ui/textarea",
+  "version": "0.1.2",
+  "description": "The textarea component allows you to easily create multi-line text inputs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "dependencies": {
+    "@spark-ui/input": "^0.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/textarea"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
+}

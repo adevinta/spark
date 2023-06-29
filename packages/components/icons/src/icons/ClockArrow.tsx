@@ -2,7 +2,7 @@ import React, { type Ref } from 'react'
 
 import { IconProps } from '../Types'
 
-export const ClockArrowFill = React.forwardRef(
+export const ClockArrow = React.forwardRef(
   (
     { title, fill = 'currentColor', stroke = 'none', ...props }: IconProps,
     ref: Ref<SVGSVGElement>
@@ -21,6 +21,6 @@ export const ClockArrowFill = React.forwardRef(
   )
 )
 
-ClockArrowFill.displayName = 'ClockArrowFill'
+ClockArrow.displayName = 'ClockArrow'
 
-export const tags = ['ClockArrowFill', '']
+export const tags = ['ClockArrow', '']

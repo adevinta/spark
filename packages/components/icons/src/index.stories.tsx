@@ -48,20 +48,20 @@ export const List: StoryFn = _args => {
   }, [])
 
   return (
-    <div className="gap-md flex flex-col content-start items-start">
+    <div className="flex flex-col content-start items-start gap-md">
       <label htmlFor="default-search-input" className="px-md text-small uppercase">
         search
       </label>
 
       <input
-        className="px-md py-sm text-on-surface rounded-md ring-2 ring-current focus-visible:outline-0"
+        className="rounded-md px-md py-sm text-on-surface ring-2 ring-current focus-visible:outline-0"
         id="default-search-input"
         value={value}
         placeholder="icon name"
         onChange={handleChange}
       />
 
-      <div className="gap-lg flex flex-wrap content-center items-start justify-evenly">
+      <div className="flex flex-wrap content-center items-start justify-evenly gap-lg">
         {filteredIcons.map(([originalName, , element]) => (
           <Components.IconElement key={originalName} name={originalName} element={element} />
         ))}
@@ -75,13 +75,13 @@ const Components = {
     const { hasCopied, onCopy } = useClipboard(`<${name} />`)
 
     return (
-      <div className="gap-sm flex flex-col content-start items-center" onClick={onCopy}>
-        <Button design="filled" shape="pill" intent="surface">
-          <Icon aria-label={name} size="lg">
+      <div className="flex flex-col content-start items-center gap-sm" onClick={onCopy}>
+        <Button design="filled" shape="pill" intent="surface" aria-label={name}>
+          <Icon size="lg">
             <Element />
           </Icon>
         </Button>
-        <span className="text-caption min-w-[80px] text-center">{name}</span>
+        <span className="min-w-[80px] text-center text-caption">{name}</span>
         <span>{hasCopied ? 'copied!' : <br />}</span>
       </div>
     )

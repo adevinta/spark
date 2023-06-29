@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/popover@0.4.2...@spark-ui/popover@1.0.1) (2023-06-28)
+
+**Note:** Version bump only for package @spark-ui/popover
+
+## [0.4.2](https://github.com/adevinta/spark/compare/@spark-ui/popover@0.4.1...@spark-ui/popover@0.4.2) (2023-06-28)
+
+**Note:** Version bump only for package @spark-ui/popover
+
+## [0.4.1](https://github.com/adevinta/spark/compare/@spark-ui/popover@0.4.0...@spark-ui/popover@0.4.1) (2023-06-26)
+
+**Note:** Version bump only for package @spark-ui/popover
+
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@0.3.2...@spark-ui/popover@0.4.0) (2023-06-23)
+
+### Features
+
+- **popover:** adjust styles when popover.close is used ([bd3a1fa](https://github.com/adevinta/spark/commit/bd3a1fac807afac78324462a6754afacfcda2c22))
+- **popover:** popover close button ([7eb5f3e](https://github.com/adevinta/spark/commit/7eb5f3e2faf3b637d53c61338ba232cc5e13610f))
+- **popover:** popover header subcomponent ([937d87c](https://github.com/adevinta/spark/commit/937d87c7f34f1b0de716f242a26f4706c3e43d7a))
+
+## [0.3.2](https://github.com/adevinta/spark/compare/@spark-ui/popover@0.3.1...@spark-ui/popover@0.3.2) (2023-06-23)
+
+**Note:** Version bump only for package @spark-ui/popover
+
+## [0.3.1](https://github.com/adevinta/spark/compare/@spark-ui/popover@0.3.0...@spark-ui/popover@0.3.1) (2023-06-21)
+
+**Note:** Version bump only for package @spark-ui/popover
+
 # [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@0.2.0...@spark-ui/popover@0.3.0) (2023-06-09)
 
 ### Features

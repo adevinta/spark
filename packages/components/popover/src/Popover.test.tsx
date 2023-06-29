@@ -189,6 +189,32 @@ describe('Popover', () => {
       expect(onEscapeKeyDown).toHaveBeenCalledTimes(1)
     })
 
+    it('should close when clicking on Popover.CloseButton', async () => {
+      const user = userEvent.setup()
+
+      // Given a popover opened by default
+      render(
+        <Popover defaultOpen>
+          <Popover.Trigger asChild>
+            <button type="button">Click me</button>
+          </Popover.Trigger>
+          <Popover.Content>
+            Popover content
+            <Popover.CloseButton aria-label="Close the popover" />
+          </Popover.Content>
+        </Popover>
+      )
+
+      // ...by default, content is rendered
+      expect(screen.getByText('Popover content')).toBeInTheDocument()
+
+      // When the user clicks on the close button
+      await user.click(screen.getByRole('button', { name: 'Close the popover' }))
+
+      // Then the content is no longer rendered
+      expect(screen.queryByText('Popover content')).not.toBeInTheDocument()
+    })
+
     it('should not close on click inside the popover contents', async () => {
       const user = userEvent.setup()
 

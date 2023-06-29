@@ -1,0 +1,104 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+
+import { Textarea } from '.'
+
+import * as stories from './Textarea.stories'
+
+<Meta of={stories} />
+
+# Textarea
+
+The textarea component allows you to easily create multi-line text inputs
+
+## Install
+
+```sh
+npm install @spark-ui/textarea
+```
+
+## Import
+
+```tsx
+import { Textarea } from '@spark-ui/textarea'
+```
+
+## Props
+
+<ArgTypes of={Textarea} />
+
+## Usage
+
+<Canvas of={stories.Default} />
+
+## Uncontrolled
+
+Use `defaultValue` prop to set the default value of the textarea. Optionally `onChange` prop can be used to know when the value of the textarea changes.
+
+<Canvas of={stories.Uncontrolled} />
+
+## Controlled
+
+Use `value` and `onChange` props to control the value of the textarea.
+
+<Canvas of={stories.Controlled} />
+
+## Disabled
+
+Use `disabled` prop to indicate the textarea is disabled.
+
+<Canvas of={stories.Disabled} />
+
+## Intent
+
+Use `intent` prop to change the color of the textarea.
+
+<Canvas of={stories.Intent} />
+
+## InputGroup
+
+Use `InputGroup` component to group your textarea with elements like icons.
+
+### Elements
+
+<Canvas of={stories.GroupElements} />
+
+### Disabled
+
+Use `isDisabled` prop of the `InputGroup` to indicate that the input group is disabled. Use this prop instead of the textarea's disabled prop when it is within a group.
+
+<Canvas of={stories.GroupDisabled} />
+
+## FormField
+
+Use `FormField` component to provide context to the textarea.
+
+### Label
+
+Use `FormField.Label` to add a label to the textarea.
+
+<Canvas of={stories.FieldLabel} />
+
+#### Hidden label
+
+In certain cases, a visible label may not be necessary. To achieve this behavior, use the `VisuallyHidden` component.
+
+<Canvas of={stories.FieldHiddenLabel} />
+
+### Required
+
+Use the `isRequired` prop of the `FormField` to indicate that the textarea is required.
+
+<Canvas of={stories.FieldRequired} />
+
+### Helper message
+
+Use the `FormField.HelperMessage` component to provide a description to the textarea.
+
+<Canvas of={stories.FieldHelperMessage} />
+
+### Validation
+
+Use the `isInvalid` prop of the `FormField` to indicate that the textarea is invalid. Optionally use the `FormField.ErrorMessage` to describe why the textarea is invalid.
+
+<Canvas of={stories.FieldInvalid} />

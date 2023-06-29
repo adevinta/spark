@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.16.1...@spark-ui/icons@1.17.0) (2023-06-23)
+
+### Bug Fixes
+
+- **icons:** remove flags from assets ([0908d52](https://github.com/adevinta/spark/commit/0908d529c12ed85ce69131ba4abc006b25ba8b0c))
+- **icons:** remove Send icon, add SendFill and SendOutline icons ([6b54d6d](https://github.com/adevinta/spark/commit/6b54d6df39deac70006c92a87519063536945d5d))
+- **icons:** update Parking icon ([6de68d4](https://github.com/adevinta/spark/commit/6de68d47f9e80936b62e62ca4ae89d41d1d3fb46))
+
+### Features
+
+- **icons:** add FilePdfFill and FilePdfOutline icons ([cd6bcea](https://github.com/adevinta/spark/commit/cd6bcea9fd2979df92f1186a5f8c24151d4a7a8f))
+- **icons:** add ThreeSixty icon ([bdb7431](https://github.com/adevinta/spark/commit/bdb743157360305344e85d2c798828a501fbd07b))
+
+## [1.16.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.16.0...@spark-ui/icons@1.16.1) (2023-06-23)
+
+**Note:** Version bump only for package @spark-ui/icons
+
+# [1.16.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.15.1...@spark-ui/icons@1.16.0) (2023-06-22)
+
+### Bug Fixes
+
+- **icons:** remove deleted icons ([293d24a](https://github.com/adevinta/spark/commit/293d24a8683233031dc0959e6285d63d5eb259a9))
+- **icons:** remove flags from assets ([2a6d8c9](https://github.com/adevinta/spark/commit/2a6d8c924f3139d7f60988efa4ab31f4340e6546))
+- **icons:** update index and tags ([6f67827](https://github.com/adevinta/spark/commit/6f67827d0ea6ce9a963b76b410736365fd17c889))
+
+### Features
+
+- **icons:** add ClockArrow and ErrorPhotoOutline ([8c8b6e9](https://github.com/adevinta/spark/commit/8c8b6e9c41db7bb5d5c3c5adecc940841d10c2d3))
+
+## [1.15.1](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.15.0...@spark-ui/icons@1.15.1) (2023-06-21)
+
+**Note:** Version bump only for package @spark-ui/icons
+
 # [1.15.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.14.2...@spark-ui/icons@1.15.0) (2023-06-09)
 
 ### Bug Fixes

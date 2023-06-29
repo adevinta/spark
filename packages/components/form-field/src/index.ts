@@ -1,31 +1,49 @@
 import { FC } from 'react'
 
 import { FormField as Root, FormFieldProps } from './FormField'
-import { FormFieldErrorMessage, FormFieldErrorMessageProps } from './FormFieldErrorMessage'
-import { FormFieldHelperMessage, FormFieldHelperMessageProps } from './FormFieldHelperMessage'
-import { FormFieldLabel, FormFieldLabelProps } from './FormFieldLabel'
-import {
-  FormFieldRequiredIndicator,
-  FormFieldRequiredIndicatorProps,
-} from './FormFieldRequiredIndicator'
-import { FormFieldState, FormFieldStateProps } from './FormFieldState'
+import { FormFieldAlertMessage } from './FormFieldAlertMessage'
+import { FormFieldControl } from './FormFieldControl'
+import { FormFieldErrorMessage } from './FormFieldErrorMessage'
+import { FormFieldHelperMessage } from './FormFieldHelperMessage'
+import { FormFieldLabel } from './FormFieldLabel'
+import { FormFieldRequiredIndicator } from './FormFieldRequiredIndicator'
+import { FormFieldStateMessage } from './FormFieldStateMessage'
+import { FormFieldSuccessMessage } from './FormFieldSuccessMessage'
 
 export { type FormFieldProps } from './FormField'
-export { type FormFieldErrorMessageProps } from './FormFieldErrorMessage'
-export { type FormFieldState, useFormFieldState } from './FormFieldState'
+export { type FormFieldStateMessageProps } from './FormFieldStateMessage'
+export { type FormFieldControl, useFormFieldControl } from './FormFieldControl'
 export { type FormFieldHelperMessageProps } from './FormFieldHelperMessage'
+export { type FormFieldSuccessMessageProps } from './FormFieldSuccessMessage'
+export { type FormFieldAlertMessageProps } from './FormFieldAlertMessage'
+export { type FormFieldErrorMessageProps } from './FormFieldErrorMessage'
 export { type FormFieldLabelProps } from './FormFieldLabel'
 export { type FormFieldRequiredIndicatorProps } from './FormFieldRequiredIndicator'
 
+FormFieldLabel.displayName = 'FormField.Label'
+FormFieldControl.displayName = 'FormField.Control'
+FormFieldStateMessage.displayName = 'FormField.StateMessage'
+FormFieldSuccessMessage.displayName = 'FormField.SuccessMessage'
+FormFieldAlertMessage.displayName = 'FormField.AlertMessage'
+FormFieldErrorMessage.displayName = 'FormField.ErrorMessage'
+FormFieldHelperMessage.displayName = 'FormField.HelperMessage'
+FormFieldRequiredIndicator.displayName = 'FormField.RequiredIndicator'
+
 export const FormField: FC<FormFieldProps> & {
-  Label: FC<FormFieldLabelProps>
-  State: FC<FormFieldStateProps>
-  ErrorMessage: FC<FormFieldErrorMessageProps>
-  HelperMessage: FC<FormFieldHelperMessageProps>
-  RequiredIndicator: FC<FormFieldRequiredIndicatorProps>
+  Label: typeof FormFieldLabel
+  Control: typeof FormFieldControl
+  StateMessage: typeof FormFieldStateMessage
+  SuccessMessage: typeof FormFieldSuccessMessage
+  AlertMessage: typeof FormFieldAlertMessage
+  ErrorMessage: typeof FormFieldErrorMessage
+  HelperMessage: typeof FormFieldHelperMessage
+  RequiredIndicator: typeof FormFieldRequiredIndicator
 } = Object.assign(Root, {
   Label: FormFieldLabel,
-  State: FormFieldState,
+  Control: FormFieldControl,
+  StateMessage: FormFieldStateMessage,
+  SuccessMessage: FormFieldSuccessMessage,
+  AlertMessage: FormFieldAlertMessage,
   ErrorMessage: FormFieldErrorMessage,
   HelperMessage: FormFieldHelperMessage,
   RequiredIndicator: FormFieldRequiredIndicator,

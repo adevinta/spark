@@ -3,7 +3,7 @@ import { Icon } from '@spark-ui/icon'
 import { ConversationFill } from '@spark-ui/icons/dist/icons/ConversationFill'
 import { HolidayFill } from '@spark-ui/icons/dist/icons/HolidayFill'
 import { MailFill } from '@spark-ui/icons/dist/icons/MailFill'
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import type { ReactNode } from 'react'
 
 import { Tabs } from '.'
@@ -21,6 +21,7 @@ export interface TabItem {
   children?: ReactNode
   value: string
   disabled?: boolean
+  a11yLabel?: string
   content: string
 }
 
@@ -95,6 +96,7 @@ const withIconOnlyTabs = [
         <MailFill />
       </Icon>
     ),
+    a11yLabel: 'Inbox',
     content: 'Your inbox is empty',
     disabled: false,
   },
@@ -104,6 +106,7 @@ const withIconOnlyTabs = [
         <ConversationFill />
       </Icon>
     ),
+    a11yLabel: 'Today',
     value: 'tab2',
     content: 'Make some coffee',
     disabled: false,
@@ -114,6 +117,7 @@ const withIconOnlyTabs = [
         <HolidayFill />
       </Icon>
     ),
+    a11yLabel: 'Upcoming',
     value: 'tab3',
     content: 'Order more coffee',
     disabled: false,
@@ -132,8 +136,8 @@ export const createTabs = ({
   return (
     <Tabs defaultValue="tab1" {...rootProps}>
       <Tabs.List {...listProps}>
-        {tabs.map(({ value, children, disabled }) => (
-          <Tabs.Trigger key={value} value={value} disabled={disabled}>
+        {tabs.map(({ value, children, disabled, a11yLabel }) => (
+          <Tabs.Trigger key={value} value={value} disabled={disabled} aria-label={a11yLabel}>
             {children}
           </Tabs.Trigger>
         ))}
@@ -149,7 +153,7 @@ export const createTabs = ({
 }
 
 export const Default: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       <StoryLabel>basic</StoryLabel>
       {createTabs()}
@@ -168,7 +172,7 @@ export const Default: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       <StoryLabel>primary (default)</StoryLabel>
       {createTabs()}
@@ -181,7 +185,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Size: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       <StoryLabel>xs</StoryLabel>
       {createTabs({ rootProps: { size: 'xs' } })}
@@ -200,7 +204,7 @@ export const Size: StoryFn = _args => (
 )
 
 export const State: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       {createTabs({
         rootProps: { defaultValue: 'tab2' },
@@ -230,7 +234,7 @@ export const State: StoryFn = _args => (
 )
 
 export const Orientation: StoryFn = _args => (
-  <div className="gap-lg flex flex-row">
+  <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
       <StoryLabel>horizontal (default)</StoryLabel>
       {createTabs({ rootProps: { orientation: 'horizontal' } })}
@@ -267,7 +271,7 @@ export const Overflow: StoryFn = _args => {
   ]
 
   return (
-    <div className="gap-lg flex flex-row">
+    <div className="flex flex-row gap-lg">
       <div className="shrink basis-auto overflow-auto">
         <StoryLabel>with loop</StoryLabel>
         {createTabs({

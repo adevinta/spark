@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/adevinta/spark/compare/@spark-ui/input@0.6.1...@spark-ui/input@0.6.2) (2023-06-26)
+
+**Note:** Version bump only for package @spark-ui/input
+
+## [0.6.1](https://github.com/adevinta/spark/compare/@spark-ui/input@0.6.0...@spark-ui/input@0.6.1) (2023-06-23)
+
+**Note:** Version bump only for package @spark-ui/input
+
+# [0.6.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.5.0...@spark-ui/input@0.6.0) (2023-06-21)
+
+### Features
+
+- **input:** improve input component ([7570be0](https://github.com/adevinta/spark/commit/7570be05b16d28c93d109e479b1386bad8c37ab0))
+- **textarea:** update tests and styles ([8ef1b36](https://github.com/adevinta/spark/commit/8ef1b368d3c2a4afa7df12e1a0b0464d53dd110c))
+- update deps ([9a8e4e3](https://github.com/adevinta/spark/commit/9a8e4e3e9541d47a3e610a36ade9ddfd349e6e71))
+
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.4.1...@spark-ui/input@0.5.0) (2023-06-21)
+
+### Features
+
+- **input:** use validation state ([b8f6901](https://github.com/adevinta/spark/commit/b8f69016146c7e591571a28c3a8dd09969e35f68))
+
+## [0.4.1](https://github.com/adevinta/spark/compare/@spark-ui/input@0.4.0...@spark-ui/input@0.4.1) (2023-06-21)
+
+**Note:** Version bump only for package @spark-ui/input
+
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.3.1...@spark-ui/input@0.4.0) (2023-06-21)
+
+### Features
+
+- update form field spacing ([5ef4773](https://github.com/adevinta/spark/commit/5ef4773c27867d83bd6b21ba1f1d2589ca773065))
+
+## [0.3.1](https://github.com/adevinta/spark/compare/@spark-ui/input@0.3.0...@spark-ui/input@0.3.1) (2023-06-19)
+
+**Note:** Version bump only for package @spark-ui/input
+
 # [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.2.4...@spark-ui/input@0.3.0) (2023-06-19)
 
 ### Bug Fixes
