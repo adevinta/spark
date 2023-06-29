@@ -1,18 +1,10 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const textFieldStyles = cva([], {
+export const textFieldStyles = cva(['inline-flex', 'w-full'], {
   variants: {
     isGrouped: {
       true: [],
       false: ['relative'],
-    },
-    isExpanded: {
-      true: [],
-      false: [],
-    },
-    isLeftAddonVisible: {
-      true: [],
-      false: [],
     },
   },
 })
