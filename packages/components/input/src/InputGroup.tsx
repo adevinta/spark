@@ -37,14 +37,14 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       return children.find(child => values.includes(getDisplayName(child) || ''))
     }
 
-    const input = findElement('Input', 'TextField')
+    const input = findElement('Input', 'TextField', 'Textarea')
     const left = findElement('InputGroup.LeftAddon', 'InputGroup.LeftElement')
     const right = findElement('InputGroup.RightAddon', 'InputGroup.RightElement')
     const isLeftAddonVisible = getDisplayName(left) === 'InputGroup.LeftAddon'
     const isRightAddonVisible = getDisplayName(right) === 'InputGroup.RightAddon'
     const isLeftElementVisible = getDisplayName(left) === 'InputGroup.LeftElement'
     const isRightElementVisible = getDisplayName(right) === 'InputGroup.RightElement'
-    const isInput = getDisplayName(input) === 'Input'
+    const isInput = getDisplayName(input) !== 'TextField'
 
     const value = useMemo(() => {
       return {
