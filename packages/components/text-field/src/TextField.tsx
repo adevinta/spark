@@ -1,7 +1,7 @@
 /* eslint-disable complexity */
 
 import { useId } from '@radix-ui/react-id'
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import {
   InputContainerProps,
   InputPrimitive,
@@ -48,7 +48,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const [isFocused, setIsFocused] = useState(false)
     const rootRef = useRef<HTMLInputElement | null>(null)
     const ref = useMergeRefs(rootRef, forwardedRef)
-    const field = useFormFieldState()
+    const field = useFormFieldControl()
     const group = useInputGroup()
 
     const intent = field.isInvalid ? 'error' : intentProp
