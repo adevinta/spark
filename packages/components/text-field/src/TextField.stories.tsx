@@ -15,9 +15,9 @@ const meta: Meta<typeof TextField> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <TextField>Title</TextField>
+export const Default: StoryFn = _args => <TextField label="Title" />
 
-export const Uncontrolled: StoryFn = _args => <TextField defaultValue="iPhone 12">Title</TextField>
+export const Uncontrolled: StoryFn = _args => <TextField label="Title" defaultValue="IPhone 12" />
 
 export const Controlled: StoryFn = () => {
   const [value, setValue] = useState('iPhone 13')
@@ -26,18 +26,10 @@ export const Controlled: StoryFn = () => {
     setValue(event.target.value)
   }
 
-  return (
-    <TextField value={value} onChange={handleChange}>
-      Title
-    </TextField>
-  )
+  return <TextField label="Title" value={value} onChange={handleChange} />
 }
 
-export const Disabled: StoryFn = _args => (
-  <TextField defaultValue="iPhone" disabled>
-    Title
-  </TextField>
-)
+export const Disabled: StoryFn = _args => <TextField label="Title" defaultValue="IPhone" disabled />
 
 const intents: TextFieldProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
@@ -45,9 +37,7 @@ export const Intent: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
       {intents.map(intent => (
-        <TextField key={intent} intent={intent}>
-          {intent}
-        </TextField>
+        <TextField key={intent} label={intent as string} intent={intent} />
       ))}
     </div>
   )
@@ -58,7 +48,7 @@ export const GroupAddons: StoryFn = _args => {
     <InputGroup>
       <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
 
-      <TextField>URL</TextField>
+      <TextField label="URL" />
 
       <InputGroup.RightAddon>.com</InputGroup.RightAddon>
     </InputGroup>
@@ -74,7 +64,7 @@ export const GroupElements: StoryFn = _args => {
         </Icon>
       </InputGroup.LeftElement>
 
-      <TextField>Title</TextField>
+      <TextField label="Title" />
 
       <InputGroup.RightElement>
         <Icon>
@@ -89,7 +79,7 @@ export const GroupDisabled: StoryFn = _args => (
   <InputGroup isDisabled>
     <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
 
-    <TextField defaultValue="adevinta.com">URL</TextField>
+    <TextField label="URL" defaultValue="adevinta.com" />
 
     <InputGroup.RightElement>
       <Icon>
@@ -101,16 +91,16 @@ export const GroupDisabled: StoryFn = _args => (
 
 export const FieldRequired: StoryFn = _args => {
   return (
-    <FormField name="title" isRequired>
-      <TextField>Title</TextField>
+    <FormField className="!gap-sm" name="title" isRequired>
+      <TextField label="Title" />
     </FormField>
   )
 }
 
 export const FieldHelperMessage: StoryFn = _args => {
   return (
-    <FormField name="title">
-      <TextField>Title</TextField>
+    <FormField className="!gap-sm" name="title">
+      <TextField label="Title" />
 
       <FormField.HelperMessage>
         An effective title significantly increases your chances of making a sale
@@ -121,8 +111,8 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField name="title" state="error">
-      <TextField>Title</TextField>
+    <FormField className="!gap-sm" name="title">
+      <TextField label="Title" />
 
       <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
     </FormField>

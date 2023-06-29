@@ -1,14 +1,28 @@
+/* eslint-disable complexity */
+
 import { useId } from '@radix-ui/react-id'
-import { Input, InputProps, useInputGroup } from '@spark-ui/input'
-import { FloatingLabel } from '@spark-ui/label'
+import { useFormFieldControl } from '@spark-ui/form-field'
+import {
+  InputContainerProps,
+  InputPrimitive,
+  InputPrimitiveProps,
+  useInputGroup,
+} from '@spark-ui/input'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { ChangeEvent, FocusEvent, forwardRef, PropsWithChildren, useRef, useState } from 'react'
+import { ChangeEvent, FocusEvent, forwardRef, ReactNode, useRef, useState } from 'react'
 
 import { textFieldStyles } from './TextField.styles'
+import { TextFieldFieldset } from './TextFieldFieldset'
+import { TextFieldFloatingLabel } from './TextFieldFloatingLabel'
+import { TextFieldLegend } from './TextFieldLegend'
 
-export type TextFieldProps = InputProps
+export interface TextFieldProps extends InputPrimitiveProps, Pick<InputContainerProps, 'intent'> {
+  elements?: ReactNode
+  requiredIndicator?: ReactNode
+  label: string
+}
 
-export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFieldProps>>(
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
     {
       id: idProp,
@@ -19,8 +33,12 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
       onChange,
       onFocus,
       onBlur,
-      children,
+      label,
+      intent: intentProp = 'neutral',
+      requiredIndicator,
+      elements,
       disabled,
+      required,
       ...others
     },
     forwardedRef
@@ -28,17 +46,16 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
     const id = useId(idProp)
     const [isValueSet, setIsValueSet] = useState(!!value || !!defaultValue)
     const [isFocused, setIsFocused] = useState(false)
-    const group = useInputGroup()
     const rootRef = useRef<HTMLInputElement | null>(null)
     const ref = useMergeRefs(rootRef, forwardedRef)
-    const {
-      isDisabled: isInputGroupDisabled,
-      isLeftAddonVisible = false,
-      isLeftElementVisible = false,
-    } = group || {}
-    const isDisabled = disabled || isInputGroupDisabled
+    const field = useFormFieldControl()
+    const group = useInputGroup()
+
+    const intent = field.isInvalid ? 'error' : intentProp
     const isGrouped = !!group
-    const isExpanded = isFocused || isLeftAddonVisible || !!placeholder || isValueSet
+    const isRequired = field.isRequired ?? required
+    const isDisabled = group?.isDisabled ?? disabled
+    const isExpanded = isFocused || group?.isLeftAddonVisible || !!placeholder || isValueSet
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
@@ -65,30 +82,42 @@ export const TextField = forwardRef<HTMLInputElement, PropsWithChildren<TextFiel
     }
 
     return (
-      <div className={textFieldStyles({ isGrouped, isExpanded, isLeftAddonVisible })}>
-        <Input
+      <div className={textFieldStyles({ isGrouped })}>
+        <InputPrimitive
           id={id}
           ref={ref}
           placeholder={placeholder}
           value={value}
           defaultValue={defaultValue}
+          required={isRequired}
+          disabled={isDisabled}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
-          disabled={isDisabled}
           {...others}
         />
 
-        {children && (
-          <FloatingLabel
-            htmlFor={id}
+        {elements}
+
+        <TextFieldFieldset intent={intent}>
+          <TextFieldLegend
+            requiredIndicator={requiredIndicator}
             isExpanded={isExpanded}
-            isLeftElementVisible={isLeftElementVisible}
-            isLeftAddonVisible={isLeftAddonVisible}
-            isDisabled={isDisabled}
+            isRequired={isRequired}
           >
-            {children}
-          </FloatingLabel>
+            {label}
+          </TextFieldLegend>
+        </TextFieldFieldset>
+
+        {label && (
+          <TextFieldFloatingLabel
+            htmlFor={id}
+            requiredIndicator={requiredIndicator}
+            isExpanded={isExpanded}
+            isRequired={isRequired}
+          >
+            {label}
+          </TextFieldFloatingLabel>
         )}
       </div>
     )
