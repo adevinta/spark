@@ -3,11 +3,11 @@ import { ComponentPropsWithoutRef } from 'react'
 
 export interface TextFieldFieldsetProps
   extends ComponentPropsWithoutRef<'fieldset'>,
-    Pick<InputContainerProps, 'intent' | 'isDisabled'> {}
+    Pick<InputContainerProps, 'intent'> {}
 
-export const TextFieldFieldset = ({ intent, isDisabled, ...others }: TextFieldFieldsetProps) => {
+export const TextFieldFieldset = ({ intent, ...others }: TextFieldFieldsetProps) => {
   return (
-    <InputContainer intent={intent} isDisabled={isDisabled} asChild>
+    <InputContainer intent={intent} asChild>
       <fieldset aria-hidden="true" {...others} />
     </InputContainer>
   )

@@ -99,7 +99,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 
         {elements}
 
-        <TextFieldFieldset intent={intent} isDisabled={isDisabled}>
+        <TextFieldFieldset intent={intent}>
           <TextFieldLegend
             requiredIndicator={requiredIndicator}
             isExpanded={isExpanded}
