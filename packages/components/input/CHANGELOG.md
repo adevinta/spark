@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.6.2...@spark-ui/input@0.7.0) (2023-06-29)
+
+### Bug Fixes
+
+- **input:** small improvements ([300a5b6](https://github.com/adevinta/spark/commit/300a5b65296f3b40764f6a14d1401ff5c655758a))
+
+### Features
+
+- **input:** add as child ([ffb872a](https://github.com/adevinta/spark/commit/ffb872a5c96664dc6c3a9881adb3cf042d6c96fd))
+- **input:** add text field support ([b739c75](https://github.com/adevinta/spark/commit/b739c7533656c99994d29eb8a8b12dc05ae2a072))
+- **input:** improve input styles ([41d0f12](https://github.com/adevinta/spark/commit/41d0f129bf4ae2957c527ebe38a2dc592506ebc0))
+- **input:** improve input styles ([8d14d4b](https://github.com/adevinta/spark/commit/8d14d4b366b64c626a5d4790f2957574114dc539))
+- **input:** iterate input to remove js ([fca82fc](https://github.com/adevinta/spark/commit/fca82fcbf00911dd9f45246b308ea7560d937921))
+- **input:** update disable state ([cdcc957](https://github.com/adevinta/spark/commit/cdcc957a763dc963c3820de9742c26aa76e7836b))
+- **input:** update field ([3d818d1](https://github.com/adevinta/spark/commit/3d818d15371418a5c1827f356747ddcddab75612))
+- **input:** update input mapping ([1cdcbb8](https://github.com/adevinta/spark/commit/1cdcbb851c5212d5a68657de1be51f60f02c6227))
+- **input:** use content prop ([19f9df1](https://github.com/adevinta/spark/commit/19f9df183dcf40f1ba7df89db9fc1752dff70463))
+- **input:** use input primitive ([f73ae2b](https://github.com/adevinta/spark/commit/f73ae2b04e50dc9922f20e0584919c643c87776d))
+
 ## [0.6.2](https://github.com/adevinta/spark/compare/@spark-ui/input@0.6.1...@spark-ui/input@0.6.2) (2023-06-26)
 
 **Note:** Version bump only for package @spark-ui/input

@@ -1,45 +1,12 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const inputAddonStyles = cva(['border-sm', 'flex', 'items-center', 'rounded-lg'], {
+export const inputAddonStyles = cva(['flex', 'items-center'], {
   variants: {
-    intent: {
-      neutral: ['border-outline'],
-      success: ['border-success'],
-      alert: ['border-alert'],
-      error: ['border-error'],
-    },
     isDisabled: {
       true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
       false: ['bg-surface', 'text-on-surface'],
     },
-    isFocused: {
-      true: [],
-      false: [],
-    },
-    isHovered: {
-      true: [],
-      false: [],
-    },
   },
-  compoundVariants: [
-    {
-      intent: 'neutral',
-      isDisabled: true,
-      class: 'border-on-surface/dim-3',
-    },
-    {
-      intent: 'neutral',
-      isHovered: true,
-      isDisabled: false,
-      class: 'border-outline-high',
-    },
-    {
-      intent: 'neutral',
-      isFocused: true,
-      isDisabled: false,
-      class: 'border-outline-high',
-    },
-  ],
 })
 
 export type InputAddonStylesProps = VariantProps<typeof inputAddonStyles>
