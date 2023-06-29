@@ -21,7 +21,7 @@ npm install @spark-ui/input
 ## Import
 
 ```tsx
-import { Input } from '@spark-ui/input'
+import { Input, InputGroup } from '@spark-ui/input'
 ```
 
 ## Props
@@ -50,12 +50,6 @@ Use `disabled` prop to indicate the input is disabled.
 
 <Canvas of={stories.Disabled} />
 
-## Intent
-
-Use `intent` prop to change the color of the input.
-
-<Canvas of={stories.Intent} />
-
 ## InputGroup
 
 Use `InputGroup` component to group your input with addons and elements like icons.
@@ -71,6 +65,12 @@ Use `InputGroup` component to group your input with addons and elements like ico
     'InputGroup.RightElement': { of: InputGroup.RightElement },
   }}
 />
+
+## Status
+
+Use `status` prop to change the color of the input.
+
+<Canvas of={stories.Status} />
 
 ### Addons
 

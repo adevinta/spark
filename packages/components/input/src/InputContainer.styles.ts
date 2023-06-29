@@ -16,7 +16,7 @@ export const inputContainerStyles = cva(
   ],
   {
     variants: {
-      intent: {
+      status: {
         neutral: [
           'border-outline',
           'peer-hover:border-outline-high',

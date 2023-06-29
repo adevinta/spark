@@ -37,13 +37,16 @@ export const Disabled: StoryFn = _args => (
   <Input defaultValue="IPhone" disabled aria-label="Phone type" />
 )
 
-const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']
+const statuses: InputProps['status'][] = ['success', 'alert', 'error']
 
-export const Intent: StoryFn = _args => {
+export const Status: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
-      {intents.map(intent => (
-        <Input key={intent} intent={intent} aria-label="Phone type" />
+      {statuses.map(status => (
+        <InputGroup status={status}>
+          <Input key={status} aria-label="Phone type" />
+          <InputGroup.StatusIndicator />
+        </InputGroup>
       ))}
     </div>
   )
@@ -51,9 +54,10 @@ export const Intent: StoryFn = _args => {
 
 export const GroupAddons: StoryFn = _args => {
   return (
-    <InputGroup>
+    <InputGroup status="error">
       <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
       <Input aria-label="Website" />
+      <InputGroup.StatusIndicator />
       <InputGroup.RightAddon>.com</InputGroup.RightAddon>
     </InputGroup>
   )
@@ -61,7 +65,7 @@ export const GroupAddons: StoryFn = _args => {
 
 export const GroupElements: StoryFn = _args => {
   return (
-    <InputGroup>
+    <InputGroup status="error">
       <InputGroup.LeftElement>
         <Icon>
           <PenOutline />
@@ -69,7 +73,7 @@ export const GroupElements: StoryFn = _args => {
       </InputGroup.LeftElement>
 
       <Input placeholder="Type here..." />
-
+      <InputGroup.StatusIndicator />
       <InputGroup.RightElement>
         <Icon>
           <Check />

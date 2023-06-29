@@ -8,16 +8,16 @@ import { InputPrimitive, InputPrimitiveProps } from './InputPrimitive'
 export interface InputProps extends InputPrimitiveProps, InputStylesProps {}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className: classNameProp, intent: intentProp = 'neutral', ...others }, ref) => {
+  ({ className: classNameProp, status: statusProp = 'neutral', ...others }, ref) => {
     const field = useFormFieldControl()
     const group = useInputGroup()
     const isGrouped = !!group
-    const intent = field.state ?? intentProp
+    const status = field.state ?? statusProp
 
     return (
       <InputPrimitive
         ref={ref}
-        className={inputStyles({ className: classNameProp, intent, isGrouped })}
+        className={inputStyles({ className: classNameProp, status, isGrouped })}
         {...others}
       />
     )

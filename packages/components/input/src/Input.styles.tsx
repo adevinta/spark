@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const inputStyles = cva([], {
   variants: {
-    intent: {
+    status: {
       neutral: [],
       success: [],
       alert: [],
@@ -15,7 +15,7 @@ export const inputStyles = cva([], {
   },
   compoundVariants: [
     {
-      intent: 'neutral',
+      status: 'neutral',
       isGrouped: false,
       class: [
         'border-outline',
@@ -25,17 +25,17 @@ export const inputStyles = cva([], {
       ],
     },
     {
-      intent: 'success',
+      status: 'success',
       isGrouped: false,
       class: ['border-success', 'ring-success'],
     },
     {
-      intent: 'alert',
+      status: 'alert',
       isGrouped: false,
       class: ['border-alert', 'ring-alert'],
     },
     {
-      intent: 'error',
+      status: 'error',
       isGrouped: false,
       class: ['border-error', 'ring-error'],
     },

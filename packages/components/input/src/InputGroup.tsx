@@ -16,18 +16,18 @@ import { InputContainer, InputContainerProps } from './InputContainer'
 import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
-  intent?: InputContainerProps['intent']
+  status?: InputContainerProps['status']
   isDisabled?: boolean
 }
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
   (
-    { className, children: childrenProp, intent: intentProp = 'neutral', isDisabled, ...others },
+    { className, children: childrenProp, status: statusProp = 'neutral', isDisabled, ...others },
     ref
   ) => {
     const { state } = useFormFieldControl()
     const children = Children.toArray(childrenProp).filter(isValidElement)
-    const intent = state ?? intentProp
+    const status = state ?? statusProp
 
     const getDisplayName = (element?: ReactElement) => {
       return element ? (element.type as FC).displayName : ''
@@ -38,6 +38,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     }
 
     const input = findElement('Input', 'TextField', 'Textarea')
+    const statusIndicator = findElement('InputGroup.StatusIndicator')
     const left = findElement('InputGroup.LeftAddon', 'InputGroup.LeftElement')
     const right = findElement('InputGroup.RightAddon', 'InputGroup.RightElement')
     const isLeftAddonVisible = getDisplayName(left) === 'InputGroup.LeftAddon'
@@ -48,6 +49,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     const value = useMemo(() => {
       return {
+        status,
         isDisabled: !!isDisabled,
         isLeftElementVisible,
         isRightElementVisible,
@@ -55,6 +57,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         isRightAddonVisible,
       }
     }, [
+      status,
       isDisabled,
       isLeftElementVisible,
       isRightElementVisible,
@@ -77,10 +80,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
             <>
               {input}
 
-              <InputContainer intent={intent} />
+              <InputContainer status={status} />
 
               {isLeftElementVisible && left}
-
               {isRightElementVisible && right}
             </>
           ) : (
@@ -88,13 +90,13 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
               elements: (
                 <>
                   {isLeftElementVisible && left}
-
                   {isRightElementVisible && right}
                 </>
               ),
             })
           )}
 
+          {statusIndicator}
           {isRightAddonVisible && right}
         </div>
       </InputGroupContext.Provider>

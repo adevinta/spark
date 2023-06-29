@@ -1,8 +1,8 @@
 import { createContext, useContext } from 'react'
 
-import { InputContainerProps } from './InputContainer'
+import { type InputContainerProps } from './InputContainer'
 
-export interface InputGroupContext extends Pick<InputContainerProps, 'intent'> {
+export interface InputGroupContext extends Pick<InputContainerProps, 'status'> {
   isDisabled?: boolean
   isLeftElementVisible: boolean
   isRightElementVisible: boolean
