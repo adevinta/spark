@@ -4,10 +4,10 @@ import { describe, expect, it } from 'vitest'
 import { TextField } from '.'
 
 describe('TextField', () => {
-  it('should render a label as children', () => {
-    const label = 'Title'
+  it('should render', () => {
+    const label = 'label'
 
-    render(<TextField>{label}</TextField>)
+    render(<TextField label={label} />)
 
     expect(screen.getByLabelText(label)).toBeVisible()
   })

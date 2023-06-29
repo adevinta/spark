@@ -7,7 +7,7 @@ export interface TextareaProps
     Pick<InputProps, 'intent'> {}
 
 export const Textarea = forwardRef<HTMLTextAreaElement, PropsWithChildren<TextareaProps>>(
-  ({ className, intent, disabled, rows = 1, ...others }, ref) => {
+  ({ className, intent = 'neutral', disabled, rows = 1, ...others }, ref) => {
     return (
       <Input
         className={cx(className, 'py-md resize-y')}

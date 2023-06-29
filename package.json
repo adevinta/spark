@@ -41,7 +41,7 @@
     "selenium-webdriver": "^4.10.0"
   },
   "devDependencies": {
-    "@adevinta/tailwind-config-viewer": "1.7.4",
+    "@adevinta/tailwind-config-viewer": "1.7.5",
     "@babel/core": "7.21.4",
     "@commitlint/cli": "17.6.3",
     "@commitlint/config-conventional": "17.6.1",
@@ -67,7 +67,7 @@
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
-    "@types/react": "18.0.33",
+    "@types/react": "18.2.14",
     "@types/react-dom": "18.0.10",
     "@typescript-eslint/eslint-plugin": "5.51.0",
     "@typescript-eslint/parser": "5.60.0",

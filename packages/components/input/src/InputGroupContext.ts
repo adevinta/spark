@@ -1,19 +1,13 @@
 import { createContext, useContext } from 'react'
 
-import { InputGroupProps } from './InputGroup'
+import { InputContainerProps } from './InputContainer'
 
-export interface InputGroupContext extends Pick<InputGroupProps, 'intent'> {
+export interface InputGroupContext extends Pick<InputContainerProps, 'intent'> {
   isDisabled?: boolean
-  isHovered: boolean
-  isFocused: boolean
   isLeftElementVisible: boolean
   isRightElementVisible: boolean
   isLeftAddonVisible: boolean
   isRightAddonVisible: boolean
-  onFocus: () => void
-  onBlur: () => void
-  onMouseEnter: () => void
-  onMouseLeave: () => void
 }
 
 export const InputGroupContext = createContext<Partial<InputGroupContext> | null>(null)

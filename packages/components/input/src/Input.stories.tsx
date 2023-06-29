@@ -142,9 +142,19 @@ export const FieldInvalid: StoryFn = _args => {
     <FormField name="title" state="error">
       <FormField.Label>Title</FormField.Label>
 
-      <Input />
+      <InputGroup>
+        <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
 
-      <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
+        <Input defaultValue="adevinta.com" />
+
+        <InputGroup.RightElement>
+          <Icon>
+            <Check />
+          </Icon>
+        </InputGroup.RightElement>
+      </InputGroup>
+
+      <FormField.ErrorMessage>The URL is invalid</FormField.ErrorMessage>
     </FormField>
   )
 }
