@@ -111,7 +111,7 @@ export const FieldHelperMessage: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isInvalid>
+    <FormField className="!gap-sm" name="title">
       <TextField label="Title" />
 
       <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
