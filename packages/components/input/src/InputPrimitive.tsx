@@ -1,4 +1,4 @@
-import { useFormFieldState } from '@spark-ui/form-field'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { useInputGroup } from './InputGroupContext'
@@ -16,7 +16,7 @@ export interface InputPrimitiveProps
 
 export const InputPrimitive = forwardRef<HTMLInputElement, InputPrimitiveProps>(
   ({ className, disabled: disabledProp, ...others }, ref) => {
-    const field = useFormFieldState()
+    const field = useFormFieldControl()
     const group = useInputGroup() || {}
 
     const { isLeftAddonVisible, isRightAddonVisible, isLeftElementVisible, isRightElementVisible } =
