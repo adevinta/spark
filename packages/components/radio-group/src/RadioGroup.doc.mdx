@@ -26,8 +26,12 @@ import { RadioGroup } from '@spark-ui/radio-group'
 
 <ArgTypes
   of={RadioGroup}
+  description="Contains all the parts of a radio group."
   subcomponents={{
-    'RadioGroup.Radio': RadioGroup.Radio,
+    'RadioGroup.Radio': {
+      of: RadioGroup.Radio,
+      description: 'An item in the group that can be checked.',
+    },
   }}
 />
 

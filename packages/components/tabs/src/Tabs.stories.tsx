@@ -3,7 +3,7 @@ import { Icon } from '@spark-ui/icon'
 import { ConversationFill } from '@spark-ui/icons/dist/icons/ConversationFill'
 import { HolidayFill } from '@spark-ui/icons/dist/icons/HolidayFill'
 import { MailFill } from '@spark-ui/icons/dist/icons/MailFill'
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import type { ReactNode } from 'react'
 
 import { Tabs } from '.'
