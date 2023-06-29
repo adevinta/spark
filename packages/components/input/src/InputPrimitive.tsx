@@ -1,4 +1,5 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
+import { Slot } from '@spark-ui/slot'
 import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { useInputGroup } from './InputGroupContext'
@@ -12,10 +13,12 @@ export interface InputPrimitiveProps
       | 'isRightAddonVisible'
       | 'isLeftElementVisible'
       | 'isRightElementVisible'
-    > {}
+    > {
+  asChild?: boolean
+}
 
 export const InputPrimitive = forwardRef<HTMLInputElement, InputPrimitiveProps>(
-  ({ className, disabled: disabledProp, ...others }, ref) => {
+  ({ className, disabled: disabledProp, asChild, ...others }, ref) => {
     const field = useFormFieldControl()
     const group = useInputGroup() || {}
 
@@ -23,9 +26,10 @@ export const InputPrimitive = forwardRef<HTMLInputElement, InputPrimitiveProps>(
       group
     const { id, name, isInvalid, isRequired, description } = field
     const isDisabled = group.isDisabled ?? disabledProp
+    const Component = asChild ? Slot : 'input'
 
     return (
-      <input
+      <Component
         ref={ref}
         id={id}
         name={name}
