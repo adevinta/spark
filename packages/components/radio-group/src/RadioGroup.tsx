@@ -8,7 +8,7 @@ import { RadioInputVariantsProps } from './RadioInput.styles'
 
 export interface RadioGroupProps
   extends RadioGroupVariantsProps,
-    Pick<RadioInputVariantsProps, 'intent' | 'size'>,
+    Pick<RadioInputVariantsProps, 'intent'>,
     Omit<HTMLAttributes<HTMLDivElement>, 'value' | 'defaultValue' | 'dir'> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -58,7 +58,6 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
       orientation = 'vertical',
       loop = true,
       intent,
-      size,
       disabled,
       className,
       required: requiredProp,
@@ -70,7 +69,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
     const required = requiredProp !== undefined ? requiredProp : isRequired
 
     return (
-      <RadioGroupProvider intent={intent} size={size} disabled={disabled}>
+      <RadioGroupProvider intent={intent} disabled={disabled}>
         <RadioGroupPrimitive
           data-spark-component="radio-group"
           className={radioGroupStyles({ orientation, className })}

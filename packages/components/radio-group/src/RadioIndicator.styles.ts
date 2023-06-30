@@ -3,10 +3,8 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const radioIndicatorStyles = cva(
   [
-    'block',
-    'relative',
-    'h-full',
-    'w-full',
+    'relative block',
+    'h-4/6 w-4/6',
     'after:absolute',
     'after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2',
     'after:h-none',
@@ -15,6 +13,7 @@ export const radioIndicatorStyles = cva(
     'after:rounded-[50%]',
     "after:content-['']",
     'after:transition-all',
+    'after:spark-state-checked:h-full after:spark-state-checked:w-full',
   ],
   {
     variants: {
@@ -30,14 +29,9 @@ export const radioIndicatorStyles = cva(
         error: ['after:bg-error'],
         info: ['after:bg-info'],
       }),
-      size: makeVariants<'size', ['sm', 'md']>({
-        sm: ['after:spark-state-checked:h-sz-10', 'after:spark-state-checked:w-sz-10'],
-        md: ['after:spark-state-checked:h-sz-16', 'after:spark-state-checked:w-sz-16'],
-      }),
     },
     defaultVariants: {
       intent: 'primary',
-      size: 'sm',
     },
   }
 )
