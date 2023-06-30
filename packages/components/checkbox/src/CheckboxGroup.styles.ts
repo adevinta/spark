@@ -1,10 +1,10 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const checkboxGroupStyles = cva(['flex', 'gap-lg'], {
+export const checkboxGroupStyles = cva(['flex'], {
   variants: {
     orientation: {
-      vertical: ['flex-col'],
-      horizontal: [],
+      vertical: ['flex-col', 'gap-lg'],
+      horizontal: ['gap-xl'],
     },
   },
 })
