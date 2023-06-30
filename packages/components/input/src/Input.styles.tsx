@@ -22,13 +22,17 @@ export const inputStyles = cva(
         alert: ['border-alert', 'ring-alert'],
         error: ['border-error', 'ring-error'],
       },
+      isDisabled: {
+        true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
+        false: [],
+      },
+      isReadOnly: {
+        true: ['bg-on-surface/dim-5', 'cursor-text'],
+        false: [],
+      },
       isHovered: {
         true: [],
         false: [],
-      },
-      isDisabled: {
-        true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
-        false: ['bg-surface', 'text-on-surface'],
       },
       isLeftElementVisible: {
         true: [],
@@ -48,6 +52,11 @@ export const inputStyles = cva(
       },
     },
     compoundVariants: [
+      {
+        isDisabled: false,
+        isReadOnly: false,
+        class: ['bg-surface', 'text-on-surface'],
+      },
       {
         intent: 'neutral',
         isDisabled: true,

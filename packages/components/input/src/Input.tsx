@@ -16,6 +16,7 @@ export interface InputProps
     Omit<
       InputStylesProps,
       | 'isDisabled'
+      | 'isReadOnly'
       | 'isLeftAddonVisible'
       | 'isRightAddonVisible'
       | 'isLeftElementVisible'
@@ -30,6 +31,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
       className,
       intent: intentProp = 'neutral',
       disabled: disabledProp = false,
+      readOnly = false,
       asChild,
       onFocus,
       onBlur,
@@ -104,12 +106,14 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
           intent,
           isHovered: !!isHovered,
           isDisabled: !!isDisabled,
+          isReadOnly: !!readOnly,
           isLeftAddonVisible: !!isLeftAddonVisible,
           isRightAddonVisible: !!isRightAddonVisible,
           isLeftElementVisible: !!isLeftElementVisible,
           isRightElementVisible: !!isRightElementVisible,
         })}
         disabled={isDisabled}
+        readOnly={readOnly}
         required={isRequired}
         aria-describedby={description}
         aria-invalid={isInvalid}
