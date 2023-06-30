@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.17.0...@spark-ui/icons@1.18.0) (2023-06-30)
+
+### Bug Fixes
+
+- **icons:** centering ArrowHorizontalDown and ArrowHorizontalUp ([1b87783](https://github.com/adevinta/spark/commit/1b87783976525ed883fca070979cce843eb827ff))
+- **icons:** remove flags ([a27be3f](https://github.com/adevinta/spark/commit/a27be3fe4e7b616e745decfbf57c847dfc66bed4))
+- **icons:** removing clip-path from Delivery and Localisation ([80a5927](https://github.com/adevinta/spark/commit/80a592790199c87a168885db7a174108b659d303))
+- **icons:** renaming ErrorPhotoOutline to ErrorPhoto ([ab18663](https://github.com/adevinta/spark/commit/ab1866359dedf28e50710c2b290daa2aff1a86b2))
+
+### Features
+
+- **icons:** add pro equipment icons ([37ba625](https://github.com/adevinta/spark/commit/37ba6258b8eeaa0bf2e4f12dd4ee33fd711e1a64))
+
 # [1.17.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.16.1...@spark-ui/icons@1.17.0) (2023-06-23)
 
 ### Bug Fixes
