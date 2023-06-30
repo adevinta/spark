@@ -1,3 +1,4 @@
+import { Checkbox } from '@spark-ui/checkbox'
 import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
@@ -37,15 +38,15 @@ export const Disabled: StoryFn = _args => (
   <Input defaultValue="IPhone" disabled aria-label="Phone type" />
 )
 
-const statuses: InputProps['status'][] = ['success', 'alert', 'error']
+const states: InputProps['state'][] = ['success', 'alert', 'error']
 
-export const Status: StoryFn = _args => {
+export const State: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
-      {statuses.map(status => (
-        <InputGroup status={status}>
-          <Input key={status} aria-label="Phone type" />
-          <InputGroup.StatusIndicator />
+      {states.map(state => (
+        <InputGroup state={state}>
+          <Input key={state} aria-label="Phone type" />
+          <InputGroup.StateIndicator />
         </InputGroup>
       ))}
     </div>
@@ -53,33 +54,49 @@ export const Status: StoryFn = _args => {
 }
 
 export const GroupAddons: StoryFn = _args => {
+  const [isInvalid, setIsInvalid] = useState(false)
+
   return (
-    <InputGroup status="error">
-      <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
-      <Input aria-label="Website" />
-      <InputGroup.StatusIndicator />
-      <InputGroup.RightAddon>.com</InputGroup.RightAddon>
-    </InputGroup>
+    <div className="flex flex-col items-start gap-lg">
+      <Checkbox checked={isInvalid} onClick={() => setIsInvalid(!isInvalid)}>
+        Toggle error state
+      </Checkbox>
+
+      <InputGroup state={isInvalid ? 'error' : null}>
+        <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
+        <Input aria-label="Website" />
+        <InputGroup.StateIndicator />
+        <InputGroup.RightAddon>.com</InputGroup.RightAddon>
+      </InputGroup>
+    </div>
   )
 }
 
 export const GroupElements: StoryFn = _args => {
-  return (
-    <InputGroup status="error">
-      <InputGroup.LeftElement>
-        <Icon>
-          <PenOutline />
-        </Icon>
-      </InputGroup.LeftElement>
+  const [isInvalid, setIsInvalid] = useState(false)
 
-      <Input placeholder="Type here..." />
-      <InputGroup.StatusIndicator />
-      <InputGroup.RightElement>
-        <Icon>
-          <Check />
-        </Icon>
-      </InputGroup.RightElement>
-    </InputGroup>
+  return (
+    <div className="flex flex-col items-start gap-lg">
+      <Checkbox checked={isInvalid} onClick={() => setIsInvalid(!isInvalid)}>
+        Toggle error state
+      </Checkbox>
+
+      <InputGroup state={isInvalid ? 'error' : null}>
+        <InputGroup.LeftElement>
+          <Icon>
+            <PenOutline />
+          </Icon>
+        </InputGroup.LeftElement>
+
+        <Input placeholder="Type here..." />
+        <InputGroup.StateIndicator />
+        <InputGroup.RightElement>
+          <Icon>
+            <Check />
+          </Icon>
+        </InputGroup.RightElement>
+      </InputGroup>
+    </div>
   )
 }
 

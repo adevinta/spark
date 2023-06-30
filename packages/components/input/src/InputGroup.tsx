@@ -16,18 +16,15 @@ import { InputContainer, InputContainerProps } from './InputContainer'
 import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
-  status?: InputContainerProps['status']
+  state?: InputContainerProps['state']
   isDisabled?: boolean
 }
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  (
-    { className, children: childrenProp, status: statusProp = 'neutral', isDisabled, ...others },
-    ref
-  ) => {
-    const { state } = useFormFieldControl()
+  ({ className, children: childrenProp, state: stateProp, isDisabled, ...others }, ref) => {
+    const field = useFormFieldControl()
     const children = Children.toArray(childrenProp).filter(isValidElement)
-    const status = state ?? statusProp
+    const state = field.state ?? stateProp
 
     const getDisplayName = (element?: ReactElement) => {
       return element ? (element.type as FC).displayName : ''
@@ -38,18 +35,23 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     }
 
     const input = findElement('Input', 'TextField', 'Textarea')
-    const statusIndicator = findElement('InputGroup.StatusIndicator')
-    const left = findElement('InputGroup.LeftAddon', 'InputGroup.LeftElement')
-    const right = findElement('InputGroup.RightAddon', 'InputGroup.RightElement')
-    const isLeftAddonVisible = getDisplayName(left) === 'InputGroup.LeftAddon'
-    const isRightAddonVisible = getDisplayName(right) === 'InputGroup.RightAddon'
-    const isLeftElementVisible = getDisplayName(left) === 'InputGroup.LeftElement'
-    const isRightElementVisible = getDisplayName(right) === 'InputGroup.RightElement'
+    const stateIndicator = findElement('InputGroup.StateIndicator')
+
+    const leftAddon = findElement('InputGroup.LeftAddon')
+    const leftElement = findElement('InputGroup.LeftElement')
+
+    const rightElement = state ? stateIndicator : findElement('InputGroup.RightElement')
+    const rightAddon = findElement('InputGroup.RightAddon')
+
+    const isLeftAddonVisible = !!leftAddon
+    const isRightAddonVisible = !!rightAddon
+    const isLeftElementVisible = !!leftElement
+    const isRightElementVisible = !!rightElement || !!state
     const isInput = getDisplayName(input) !== 'TextField'
 
     const value = useMemo(() => {
       return {
-        status,
+        state,
         isDisabled: !!isDisabled,
         isLeftElementVisible,
         isRightElementVisible,
@@ -57,7 +59,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         isRightAddonVisible,
       }
     }, [
-      status,
+      state,
       isDisabled,
       isLeftElementVisible,
       isRightElementVisible,
@@ -74,30 +76,29 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
           })}
           {...others}
         >
-          {isLeftAddonVisible && left}
+          {isLeftAddonVisible && leftAddon}
 
           {isInput ? (
             <>
               {input}
 
-              <InputContainer status={status} />
+              <InputContainer state={state} />
 
-              {isLeftElementVisible && left}
-              {isRightElementVisible && right}
+              {leftElement}
+              {rightElement}
             </>
           ) : (
             cloneElement(input as ReactElement, {
               elements: (
                 <>
-                  {isLeftElementVisible && left}
-                  {isRightElementVisible && right}
+                  {leftElement}
+                  {rightElement}
                 </>
               ),
             })
           )}
 
-          {statusIndicator}
-          {isRightAddonVisible && right}
+          {isRightAddonVisible && rightAddon}
         </div>
       </InputGroupContext.Provider>
     )

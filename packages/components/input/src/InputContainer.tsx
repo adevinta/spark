@@ -5,15 +5,22 @@ import { inputContainerStyles, InputContainerStylesProps } from './InputContaine
 
 export interface InputContainerProps
   extends ComponentPropsWithoutRef<'div'>,
-    InputContainerStylesProps {
+    Omit<InputContainerStylesProps, 'intent'> {
   asChild?: boolean
+  state?: 'error' | 'alert' | 'success'
 }
 
 export const InputContainer = forwardRef<HTMLDivElement, PropsWithChildren<InputContainerProps>>(
-  ({ className, status = 'neutral', asChild, ...others }, ref) => {
+  ({ className, state, asChild, ...others }, ref) => {
     const Component = asChild ? Slot : 'div'
 
-    return <Component ref={ref} className={inputContainerStyles({ status })} {...others} />
+    return (
+      <Component
+        ref={ref}
+        className={inputContainerStyles({ intent: state, className })}
+        {...others}
+      />
+    )
   }
 )
 

@@ -1,23 +1,25 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { forwardRef } from 'react'
 
-import { inputStyles, InputStylesProps } from './Input.styles'
+import { inputStyles } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
 import { InputPrimitive, InputPrimitiveProps } from './InputPrimitive'
 
-export interface InputProps extends InputPrimitiveProps, InputStylesProps {}
+export interface InputProps extends InputPrimitiveProps {
+  state: 'error' | 'alert' | 'success'
+}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className: classNameProp, status: statusProp = 'neutral', ...others }, ref) => {
+  ({ className: classNameProp, state: stateProp, ...others }, ref) => {
     const field = useFormFieldControl()
     const group = useInputGroup()
     const isGrouped = !!group
-    const status = field.state ?? statusProp
+    const state = field.state ?? stateProp
 
     return (
       <InputPrimitive
         ref={ref}
-        className={inputStyles({ className: classNameProp, status, isGrouped })}
+        className={inputStyles({ className: classNameProp, intent: state, isGrouped })}
         {...others}
       />
     )

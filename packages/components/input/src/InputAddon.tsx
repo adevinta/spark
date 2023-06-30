@@ -5,13 +5,17 @@ import { useInputGroup } from './InputGroupContext'
 
 export interface InputAddonProps
   extends ComponentPropsWithoutRef<'div'>,
-    Omit<InputAddonStylesProps, 'status' | 'isDisabled'> {}
+    Omit<InputAddonStylesProps, 'state' | 'isDisabled'> {}
 
 export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
-  ({ className, ...others }, ref) => {
+  ({ className, children, ...others }, ref) => {
     const { isDisabled } = useInputGroup() || {}
 
-    return <div ref={ref} className={inputAddonStyles({ className, isDisabled })} {...others} />
+    return (
+      <div ref={ref} className={inputAddonStyles({ className, isDisabled })} {...others}>
+        {children}
+      </div>
+    )
   }
 )
 
