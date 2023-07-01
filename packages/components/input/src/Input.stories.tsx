@@ -20,11 +20,11 @@ export const Default: StoryFn = _args => (
 )
 
 export const Uncontrolled: StoryFn = _args => (
-  <Input defaultValue="IPhone 12" aria-label="Phone type" />
+  <Input defaultValue="iPhone 12" aria-label="Phone type" />
 )
 
 export const Controlled: StoryFn = () => {
-  const [value, setValue] = useState('IPhone 13')
+  const [value, setValue] = useState('iPhone 13')
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
@@ -34,7 +34,11 @@ export const Controlled: StoryFn = () => {
 }
 
 export const Disabled: StoryFn = _args => (
-  <Input defaultValue="IPhone" disabled aria-label="Phone type" />
+  <Input defaultValue="iPhone" disabled aria-label="Phone type" />
+)
+
+export const ReadOnly: StoryFn = _args => (
+  <Input defaultValue="iPhone" readOnly aria-label="Phone type" />
 )
 
 const intents: InputProps['intent'][] = ['neutral', 'success', 'alert', 'error']

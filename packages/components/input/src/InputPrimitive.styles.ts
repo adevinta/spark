@@ -17,9 +17,12 @@ export const inputPrimitiveStyles = cva(
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
     'disabled:bg-on-surface/dim-5',
+    'disabled:border-on-surface/dim-3',
     'disabled:text-on-surface/dim-3',
     'disabled:cursor-not-allowed',
-    'disabled:border-on-surface/dim-3',
+    'read-only:bg-on-surface/dim-5',
+    'read-only:border-on-surface/dim-3',
+    'read-only:cursor-text',
   ],
   {
     variants: {

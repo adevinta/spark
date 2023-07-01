@@ -24,7 +24,7 @@ describe('Input', () => {
 
     const inputEl = screen.getByDisplayValue(defaultValue)
 
-    const value = 'Iphone 12'
+    const value = 'iPhone 12'
 
     await userEvent.clear(inputEl)
     await userEvent.type(inputEl, value)
@@ -41,7 +41,7 @@ describe('Input', () => {
 
     const inputEl = screen.getByDisplayValue(value)
 
-    const current = 'Iphone 12'
+    const current = 'iPhone 12'
 
     await userEvent.clear(inputEl)
     await userEvent.type(inputEl, current)
@@ -56,10 +56,23 @@ describe('Input', () => {
 
     const inputEl = screen.getByPlaceholderText(placeholder)
 
-    await userEvent.type(inputEl, 'Iphone 12')
+    await userEvent.type(inputEl, 'iPhone 12')
 
     expect(inputEl).not.toHaveValue()
     expect(inputEl).toBeDisabled()
+  })
+
+  it('should not change value when is read only', async () => {
+    const placeholder = 'Smartphone'
+
+    render(<Input placeholder={placeholder} readOnly />)
+
+    const inputEl = screen.getByPlaceholderText(placeholder)
+
+    await userEvent.type(inputEl, 'iPhone 12')
+
+    expect(inputEl).not.toHaveValue()
+    expect(inputEl).toHaveAttribute('readonly')
   })
 
   it('should render addons within group', () => {
