@@ -2,7 +2,7 @@ import React, { type Ref } from 'react'
 
 import { IconProps } from '../Types'
 
-export const ErrorPhotoOutline = React.forwardRef(
+export const ErrorPhoto = React.forwardRef(
   (
     { title, fill = 'currentColor', stroke = 'none', ...props }: IconProps,
     ref: Ref<SVGSVGElement>
@@ -21,6 +21,6 @@ export const ErrorPhotoOutline = React.forwardRef(
   )
 )
 
-ErrorPhotoOutline.displayName = 'ErrorPhotoOutline'
+ErrorPhoto.displayName = 'ErrorPhoto'
 
-export const tags = ['ErrorPhotoOutline', '']
+export const tags = ['ErrorPhoto', '']
