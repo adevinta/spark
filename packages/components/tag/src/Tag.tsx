@@ -1,5 +1,5 @@
 import { Slot } from '@spark-ui/slot'
-import React, { PropsWithChildren } from 'react'
+import { forwardRef, type PropsWithChildren } from 'react'
 
 import { tagStyles, type TagStylesProps } from './Tag.styles'
 
@@ -12,11 +12,8 @@ export interface TagProps
   asChild?: boolean
 }
 
-export const Tag = React.forwardRef<HTMLButtonElement, TagProps>(
-  (
-    { design = 'filled', intent = 'primary', shape = 'rounded', asChild, className, ...others },
-    ref
-  ) => {
+export const Tag = forwardRef<HTMLButtonElement, TagProps>(
+  ({ design = 'filled', intent = 'primary', asChild, className, ...others }, ref) => {
     const Component = asChild ? Slot : 'span'
 
     return (
@@ -27,7 +24,6 @@ export const Tag = React.forwardRef<HTMLButtonElement, TagProps>(
           className,
           design,
           intent,
-          shape,
         })}
         {...others}
       />
