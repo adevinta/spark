@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.18.0...@spark-ui/icons@1.19.0) (2023-07-04)
+
+### Features
+
+- **icons:** add country flag icons ([27d4fb9](https://github.com/adevinta/spark/commit/27d4fb9c7a7ed5b449e3593f8c772b45cb4da726))
+- **icons:** handle country flag colors ([e67dd6f](https://github.com/adevinta/spark/commit/e67dd6ff7c4dd54560b1f482823669a4f912fcbc))
+
 # [1.18.0](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.17.0...@spark-ui/icons@1.18.0) (2023-06-30)
 
 ### Bug Fixes
