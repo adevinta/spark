@@ -1,6 +1,6 @@
 import { optimize as optimizeSVGO } from 'svgo'
 
-const optimize = (svgString, { attributes = [], title } = {}) => {
+const optimize = (svgString, { attributes = [], title, isCountryFlag = false } = {}) => {
   return optimizeSVGO(svgString, {
     multipass: true, // boolean. false by default
     js2svg: {
@@ -8,12 +8,17 @@ const optimize = (svgString, { attributes = [], title } = {}) => {
       pretty: true, // boolean, false by default
     },
     plugins: [
-      {
-        name: 'removeAttrs',
-        params: {
-          attrs: '(fill|stroke)',
-        },
-      },
+      // Exclude removeAttrs plugin for country flags
+      ...(isCountryFlag
+        ? []
+        : [
+            {
+              name: 'removeAttrs',
+              params: {
+                attrs: '(fill|stroke|stroke-width)',
+              },
+            },
+          ]),
       {
         name: 'addAttributesToSVGElement',
         params: {
