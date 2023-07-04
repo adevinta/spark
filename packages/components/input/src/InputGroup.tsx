@@ -1,8 +1,6 @@
-/* eslint-disable complexity */
 import { useFormFieldControl } from '@spark-ui/form-field'
 import {
   Children,
-  cloneElement,
   ComponentPropsWithoutRef,
   FC,
   forwardRef,
@@ -69,8 +67,8 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
           {hasLeadingAddon && leadingAddon}
 
           <InputContainer state={state}>
-            {leadingIcon}
             {input}
+            {leadingIcon}
             {trailingIcon}
           </InputContainer>
 

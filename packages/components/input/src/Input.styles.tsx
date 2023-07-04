@@ -3,10 +3,9 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const inputStyles = cva(
   [
     'border-sm',
-
     'peer',
     'box-border',
-    'h-sz-48',
+    'h-sz-44',
     'w-full',
     'outline-none',
     'appearance-none',
@@ -44,9 +43,11 @@ export const inputStyles = cva(
       },
       hasLeadingIcon: {
         true: ['pl-3xl'],
+        false: ['pl-lg'],
       },
       hasTrailingIcon: {
         true: ['pr-3xl'],
+        false: ['pr-lg'],
       },
     },
     defaultVariants: {
