@@ -15,6 +15,7 @@ import {
 import { InputContainer, InputContainerProps } from './InputContainer'
 import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
+import { InputStateIndicator } from './InputStateIndicator'
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
   state?: InputContainerProps['state']
   isDisabled?: boolean
@@ -34,38 +35,27 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       return children.find(child => values.includes(getDisplayName(child) || ''))
     }
 
-    const input = findElement('Input', 'TextField', 'Textarea')
-    const stateIndicator = findElement('InputGroup.StateIndicator')
+    const leadingAddon = findElement('InputGroup.LeadingAddon')
+    const leadingIcon = findElement('InputGroup.LeadingIcon')
+    const input = findElement('Input')
+    const trailingIcon = state ? <InputStateIndicator /> : findElement('InputGroup.TrailingIcon')
+    const trailingAddon = findElement('InputGroup.TrailingAddon')
 
-    const leftAddon = findElement('InputGroup.LeftAddon')
-    const leftElement = findElement('InputGroup.LeftElement')
-
-    const rightElement = state ? stateIndicator : findElement('InputGroup.RightElement')
-    const rightAddon = findElement('InputGroup.RightAddon')
-
-    const isLeftAddonVisible = !!leftAddon
-    const isRightAddonVisible = !!rightAddon
-    const isLeftElementVisible = !!leftElement
-    const isRightElementVisible = !!rightElement || !!state
-    const isInput = getDisplayName(input) !== 'TextField'
+    const hasLeadingAddon = !!leadingAddon
+    const hasTrailingAddon = !!trailingAddon
+    const hasLeadingIcon = !!leadingIcon
+    const hasTrailingIcon = !!trailingIcon || !!state
 
     const value = useMemo(() => {
       return {
         state,
         isDisabled: !!isDisabled,
-        isLeftElementVisible,
-        isRightElementVisible,
-        isLeftAddonVisible,
-        isRightAddonVisible,
+        hasLeadingIcon,
+        hasTrailingIcon,
+        hasLeadingAddon,
+        hasTrailingAddon,
       }
-    }, [
-      state,
-      isDisabled,
-      isLeftElementVisible,
-      isRightElementVisible,
-      isLeftAddonVisible,
-      isRightAddonVisible,
-    ])
+    }, [state, isDisabled, hasLeadingIcon, hasTrailingIcon, hasLeadingAddon, hasTrailingAddon])
 
     return (
       <InputGroupContext.Provider value={value}>
@@ -76,29 +66,15 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
           })}
           {...others}
         >
-          {isLeftAddonVisible && leftAddon}
+          {hasLeadingAddon && leadingAddon}
 
-          {isInput ? (
-            <>
-              {input}
+          <InputContainer state={state}>
+            {leadingIcon}
+            {input}
+            {trailingIcon}
+          </InputContainer>
 
-              <InputContainer state={state} />
-
-              {leftElement}
-              {rightElement}
-            </>
-          ) : (
-            cloneElement(input as ReactElement, {
-              elements: (
-                <>
-                  {leftElement}
-                  {rightElement}
-                </>
-              ),
-            })
-          )}
-
-          {isRightAddonVisible && rightAddon}
+          {hasTrailingAddon && trailingAddon}
         </div>
       </InputGroupContext.Provider>
     )

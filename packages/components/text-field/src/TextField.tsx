@@ -55,7 +55,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const isGrouped = !!group
     const isRequired = field.isRequired ?? required
     const isDisabled = group?.isDisabled ?? disabled
-    const isExpanded = isFocused || group?.isLeftAddonVisible || !!placeholder || isValueSet
+    const isExpanded = isFocused || group?.hasLeftAddon || !!placeholder || isValueSet
 
     const handleFocus = (event: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {

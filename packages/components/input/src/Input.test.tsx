@@ -69,9 +69,9 @@ describe('Input', () => {
 
     render(
       <InputGroup>
-        <InputGroup.LeftAddon>{leftText}</InputGroup.LeftAddon>
+        <InputGroup.LeadingAddon>{leftText}</InputGroup.LeadingAddon>
         <Input placeholder={placeholder} />
-        <InputGroup.RightAddon>{rightText}</InputGroup.RightAddon>
+        <InputGroup.TrailingAddon>{rightText}</InputGroup.TrailingAddon>
       </InputGroup>
     )
 
@@ -87,13 +87,13 @@ describe('Input', () => {
 
     render(
       <InputGroup>
-        <InputGroup.LeftElement>
+        <InputGroup.LeadingIcon>
           <Icon>
             <Check data-testid={leftId} />
           </Icon>
-        </InputGroup.LeftElement>
+        </InputGroup.LeadingIcon>
         <Input placeholder={placeholder} />
-        <InputGroup.RightElement>{rightElement}</InputGroup.RightElement>
+        <InputGroup.TrailingIcon>{rightElement}</InputGroup.TrailingIcon>
       </InputGroup>
     )
 

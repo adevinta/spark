@@ -16,6 +16,67 @@ const meta: Meta<typeof Input> = {
 
 export default meta
 
+export const WorstCase: StoryFn = _args => {
+  const [isInvalid, setIsInvalid] = useState(false)
+  const [showLeadingAddon, setShowLeadingAddon] = useState(true)
+  const [showTrailingAddon, setShowTrailingAddon] = useState(true)
+
+  const [showLeadingIcon, setShowLeadingIcon] = useState(true)
+  const [showTrailingIcon, setShowTrailingIcon] = useState(true)
+
+  return (
+    <div className="flex flex-col items-start gap-lg">
+      <Checkbox checked={isInvalid} onClick={() => setIsInvalid(!isInvalid)}>
+        error state
+      </Checkbox>
+
+      <Checkbox checked={showLeadingAddon} onClick={() => setShowLeadingAddon(!showLeadingAddon)}>
+        Leading addon
+      </Checkbox>
+
+      <Checkbox
+        checked={showTrailingAddon}
+        onClick={() => setShowTrailingAddon(!showTrailingAddon)}
+      >
+        Trailing addon
+      </Checkbox>
+
+      <Checkbox checked={showLeadingIcon} onClick={() => setShowLeadingIcon(!showLeadingIcon)}>
+        Leading icon
+      </Checkbox>
+
+      <Checkbox checked={showTrailingIcon} onClick={() => setShowTrailingIcon(!showTrailingIcon)}>
+        Trailing icon
+      </Checkbox>
+
+      <InputGroup state={isInvalid ? 'error' : undefined}>
+        {showLeadingAddon && (
+          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+        )}
+        {showLeadingIcon && (
+          <InputGroup.LeadingIcon>
+            <Icon>
+              <PenOutline />
+            </Icon>
+          </InputGroup.LeadingIcon>
+        )}
+
+        <Input aria-label="Website" />
+
+        {showTrailingIcon && (
+          <InputGroup.TrailingIcon>
+            <Icon>
+              <PenOutline />
+            </Icon>
+          </InputGroup.TrailingIcon>
+        )}
+        {showTrailingAddon && (
+          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
+        )}
+      </InputGroup>
+    </div>
+  )
+}
 export const Default: StoryFn = _args => (
   <Input placeholder="Type here..." aria-label="Phone type" />
 )
@@ -46,7 +107,6 @@ export const State: StoryFn = _args => {
       {states.map(state => (
         <InputGroup state={state}>
           <Input key={state} aria-label="Phone type" />
-          <InputGroup.StateIndicator />
         </InputGroup>
       ))}
     </div>
@@ -62,11 +122,10 @@ export const GroupAddons: StoryFn = _args => {
         Toggle error state
       </Checkbox>
 
-      <InputGroup state={isInvalid ? 'error' : null}>
-        <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
+      <InputGroup state={isInvalid ? 'error' : undefined}>
+        <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
         <Input aria-label="Website" />
-        <InputGroup.StateIndicator />
-        <InputGroup.RightAddon>.com</InputGroup.RightAddon>
+        <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
       </InputGroup>
     </div>
   )
@@ -81,20 +140,19 @@ export const GroupElements: StoryFn = _args => {
         Toggle error state
       </Checkbox>
 
-      <InputGroup state={isInvalid ? 'error' : null}>
-        <InputGroup.LeftElement>
+      <InputGroup state={isInvalid ? 'error' : undefined}>
+        <InputGroup.LeadingIcon>
           <Icon>
             <PenOutline />
           </Icon>
-        </InputGroup.LeftElement>
+        </InputGroup.LeadingIcon>
 
         <Input placeholder="Type here..." />
-        <InputGroup.StateIndicator />
-        <InputGroup.RightElement>
+        <InputGroup.TrailingIcon>
           <Icon>
             <Check />
           </Icon>
-        </InputGroup.RightElement>
+        </InputGroup.TrailingIcon>
       </InputGroup>
     </div>
   )
@@ -102,13 +160,13 @@ export const GroupElements: StoryFn = _args => {
 
 export const GroupDisabled: StoryFn = _args => (
   <InputGroup isDisabled>
-    <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
+    <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
     <Input defaultValue="adevinta.com" aria-label="Website" />
-    <InputGroup.RightElement>
+    <InputGroup.TrailingIcon>
       <Icon>
         <Check />
       </Icon>
-    </InputGroup.RightElement>
+    </InputGroup.TrailingIcon>
   </InputGroup>
 )
 
@@ -164,15 +222,15 @@ export const FieldInvalid: StoryFn = _args => {
       <FormField.Label>Title</FormField.Label>
 
       <InputGroup>
-        <InputGroup.LeftAddon>https://</InputGroup.LeftAddon>
+        <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
 
         <Input defaultValue="adevinta.com" />
 
-        <InputGroup.RightElement>
+        <InputGroup.TrailingIcon>
           <Icon>
             <Check />
           </Icon>
-        </InputGroup.RightElement>
+        </InputGroup.TrailingIcon>
       </InputGroup>
 
       <FormField.ErrorMessage>The URL is invalid</FormField.ErrorMessage>

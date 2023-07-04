@@ -1,9 +1,9 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const inputAddonStyles = cva(['flex', 'items-center'], {
+export const inputAddonStyles = cva(['flex items-center', 'border-sm border-outline'], {
   variants: {
     isDisabled: {
-      true: ['bg-on-surface/dim-5', 'text-on-surface/dim-3', 'cursor-not-allowed'],
+      true: ['opacity-dim-3', 'cursor-not-allowed'],
       false: ['bg-surface', 'text-on-surface'],
     },
   },

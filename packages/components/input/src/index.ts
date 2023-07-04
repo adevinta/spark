@@ -1,40 +1,39 @@
 import { FC } from 'react'
 
+import {
+  InputLeadingAddon,
+  type InputLeadingAddonProps,
+  InputTrailingAddon,
+  type InputTrailingAddonProps,
+} from './InputAddon'
 import { InputGroup as Root, type InputGroupProps } from './InputGroup'
-import { InputLeftAddon, type InputLeftAddonProps } from './InputLeftAddon'
-import { InputLeftElement, type InputLeftElementProps } from './InputLeftElement'
-import { InputRightAddon, type InputRightAddonProps } from './InputRightAddon'
-import { InputRightElement, type InputRightElementProps } from './InputRightElement'
-import { InputStateIndicator, type InputStateIndicatorProps } from './InputStateIndicator'
+import {
+  InputLeadingIcon,
+  type InputLeadingIconProps,
+  InputTrailingIcon,
+  type InputTrailingIconProps,
+} from './InputIcon'
 
 export { useInputGroup } from './InputGroupContext'
 
 export * from './Input'
-export * from './InputPrimitive'
-export * from './InputContainer'
 export { type InputGroupProps } from './InputGroup'
-export { type InputLeftAddonProps } from './InputLeftAddon'
-export { type InputLeftElementProps } from './InputLeftElement'
-export { type InputRightAddonProps } from './InputRightAddon'
-export { type InputRightElementProps } from './InputRightElement'
-export { type InputStateIndicatorProps } from './InputStateIndicator'
+export { type InputLeadingAddonProps, type InputTrailingAddonProps } from './InputAddon'
+export { type InputLeadingIconProps, type InputTrailingIconProps } from './InputIcon'
 
 export const InputGroup: FC<InputGroupProps> & {
-  LeftAddon: FC<InputLeftAddonProps>
-  RightAddon: FC<InputRightAddonProps>
-  LeftElement: FC<InputLeftElementProps>
-  RightElement: FC<InputRightElementProps>
-  StateIndicator: FC<InputStateIndicatorProps>
+  LeadingAddon: FC<InputLeadingAddonProps>
+  TrailingAddon: FC<InputTrailingAddonProps>
+  LeadingIcon: FC<InputLeadingIconProps>
+  TrailingIcon: FC<InputTrailingIconProps>
 } = Object.assign(Root, {
-  LeftAddon: InputLeftAddon,
-  RightAddon: InputRightAddon,
-  LeftElement: InputLeftElement,
-  RightElement: InputRightElement,
-  StateIndicator: InputStateIndicator,
+  LeadingAddon: InputLeadingAddon,
+  TrailingAddon: InputTrailingAddon,
+  LeadingIcon: InputLeadingIcon,
+  TrailingIcon: InputTrailingIcon,
 })
 
-InputGroup.LeftAddon.displayName = 'InputGroup.LeftAddon'
-InputGroup.RightAddon.displayName = 'InputGroup.RightAddon'
-InputGroup.LeftElement.displayName = 'InputGroup.LeftElement'
-InputGroup.RightElement.displayName = 'InputGroup.RightElement'
-InputGroup.StateIndicator.displayName = 'InputGroup.StateIndicator'
+InputGroup.LeadingAddon.displayName = 'InputGroup.LeadingAddon'
+InputGroup.TrailingAddon.displayName = 'InputGroup.TrailingAddon'
+InputGroup.LeadingIcon.displayName = 'InputGroup.LeadingIcon'
+InputGroup.TrailingIcon.displayName = 'InputGroup.TrailingIcon'

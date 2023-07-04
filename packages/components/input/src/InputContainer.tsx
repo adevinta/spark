@@ -17,7 +17,10 @@ export const InputContainer = forwardRef<HTMLDivElement, PropsWithChildren<Input
     return (
       <Component
         ref={ref}
-        className={inputContainerStyles({ intent: state, className })}
+        className={inputContainerStyles({
+          intent: state,
+          className,
+        })}
         {...others}
       />
     )

@@ -2,11 +2,10 @@ import { Icon } from '@spark-ui/icon'
 import { AlertOutline } from '@spark-ui/icons/dist/icons/AlertOutline'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { WarningOutline } from '@spark-ui/icons/dist/icons/WarningOutline'
-import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef } from 'react'
 
 import { useInputGroup } from './InputGroupContext'
-import { InputRightElement } from './InputRightElement'
+import { InputTrailingIcon } from './InputIcon'
 
 export type InputStateIndicatorProps = ComponentPropsWithoutRef<'div'>
 
@@ -24,11 +23,11 @@ export const InputStateIndicator = ({ ...rest }: InputStateIndicatorProps) => {
   }
 
   return (
-    <InputRightElement {...rest}>
+    <InputTrailingIcon {...rest}>
       <Icon intent={state} size="md">
         {stateMap[state].icon}
       </Icon>
-    </InputRightElement>
+    </InputTrailingIcon>
   )
 }
 

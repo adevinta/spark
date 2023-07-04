@@ -1,25 +1,49 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
-import { forwardRef } from 'react'
+import { Slot } from '@spark-ui/slot'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
-import { inputStyles } from './Input.styles'
+import { inputStyles, type InputStylesProps } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
-import { InputPrimitive, InputPrimitiveProps } from './InputPrimitive'
 
-export interface InputProps extends InputPrimitiveProps {
-  state: 'error' | 'alert' | 'success'
+export interface InputProps
+  extends ComponentPropsWithoutRef<'input'>,
+    Omit<
+      InputStylesProps,
+      'hasLeadingAddon' | 'hasTrailingAddon' | 'hasLeadingIcon' | 'hasTrailingIcon' | 'intent'
+    > {
+  state?: 'error' | 'alert' | 'success'
+  asChild?: boolean
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className: classNameProp, state: stateProp, ...others }, ref) => {
+  ({ className, state: stateProp, asChild, ...others }, ref) => {
     const field = useFormFieldControl()
-    const group = useInputGroup()
-    const isGrouped = !!group
+    const group = useInputGroup() || {}
+
+    const { id, name, isInvalid, isRequired, description } = field
+    const { hasLeadingAddon, hasTrailingAddon, hasLeadingIcon, hasTrailingIcon } = group
+    // const isDisabled = group.isDisabled ?? disabledProp
+    // const isGrouped = !!group
+    const Component = asChild ? Slot : 'input'
     const state = field.state ?? stateProp
 
     return (
-      <InputPrimitive
+      <Component
         ref={ref}
-        className={inputStyles({ className: classNameProp, intent: state, isGrouped })}
+        id={id}
+        name={name}
+        className={inputStyles({
+          className,
+          intent: state,
+          hasLeadingAddon: !!hasLeadingAddon,
+          hasTrailingAddon: !!hasTrailingAddon,
+          hasLeadingIcon: !!hasLeadingIcon,
+          hasTrailingIcon: !!hasTrailingIcon,
+        })}
+        disabled={group.isDisabled}
+        required={isRequired}
+        aria-describedby={description}
+        aria-invalid={isInvalid}
         {...others}
       />
     )
