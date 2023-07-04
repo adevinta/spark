@@ -1,3 +1,4 @@
+import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Checkbox } from '@spark-ui/checkbox'
 import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
@@ -8,10 +9,9 @@ import { EyeOutline } from '@spark-ui/icons/dist/icons/EyeOutline'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
-import { Button } from 'packages/components/button/dist'
 import { ChangeEvent, useState } from 'react'
 
-import { Input, InputGroup, InputProps } from '.'
+import { Input, InputGroup } from '.'
 
 const meta: Meta<typeof Input> = {
   title: 'Experimental/Input',
@@ -20,81 +20,64 @@ const meta: Meta<typeof Input> = {
 
 export default meta
 
-export const WorstCase: StoryFn = _args => {
+export const Usage: StoryFn = _args => <Input placeholder="Type here..." aria-label="Phone type" />
+
+export const Uncontrolled: StoryFn = _args => (
+  <Input defaultValue="IPhone 12" aria-label="Phone type" />
+)
+
+export const Controlled: StoryFn = () => {
+  const [value, setValue] = useState('IPhone 13')
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value)
+  }
+
+  return <Input value={value} onChange={handleChange} aria-label="Phone type" />
+}
+
+export const Disabled: StoryFn = _args => (
+  <Input defaultValue="IPhone" disabled aria-label="Phone type" />
+)
+
+export const Addons: StoryFn = _args => {
+  return (
+    <InputGroup>
+      <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+      <Input aria-label="Website" />
+      <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
+    </InputGroup>
+  )
+}
+
+export const Icons: StoryFn = () => {
   const [isInvalid, setIsInvalid] = useState(false)
-  const [disabled, setDisabled] = useState(false)
-  const [showLeadingAddon, setShowLeadingAddon] = useState(true)
-  const [showTrailingAddon, setShowTrailingAddon] = useState(true)
-  const [showLeadingIcon, setShowLeadingIcon] = useState(true)
-  const [showTrailingIcon, setShowTrailingIcon] = useState(true)
 
   return (
     <div className="flex flex-col items-start gap-lg">
-      <Checkbox checked={isInvalid} onClick={() => setIsInvalid(!isInvalid)}>
-        error state
-      </Checkbox>
+      <InputGroup state={isInvalid ? 'error' : undefined}>
+        <InputGroup.LeadingIcon>
+          <Icon>
+            <PenOutline />
+          </Icon>
+        </InputGroup.LeadingIcon>
 
-      <Checkbox checked={showLeadingAddon} onClick={() => setShowLeadingAddon(!showLeadingAddon)}>
-        Leading addon
-      </Checkbox>
-
-      <Checkbox
-        checked={showTrailingAddon}
-        onClick={() => setShowTrailingAddon(!showTrailingAddon)}
-      >
-        Trailing addon
-      </Checkbox>
-
-      <Checkbox checked={showLeadingIcon} onClick={() => setShowLeadingIcon(!showLeadingIcon)}>
-        Leading icon
-      </Checkbox>
-
-      <Checkbox checked={showTrailingIcon} onClick={() => setShowTrailingIcon(!showTrailingIcon)}>
-        Trailing icon
-      </Checkbox>
-
-      <Checkbox checked={disabled} onClick={() => setDisabled(!disabled)}>
-        Disabled
-      </Checkbox>
-
-      <Input value="IPhone" />
-
-      <Input placeholder="IPhone" />
-
-      <Input value="IPhone" disabled />
-
-      <Input placeholder="IPhone" disabled />
-
-      <InputGroup isDisabled={disabled} state={isInvalid ? 'error' : undefined}>
-        {showLeadingAddon && (
-          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
-        )}
-        {showLeadingIcon && (
-          <InputGroup.LeadingIcon>
-            <Icon>
-              <PenOutline />
-            </Icon>
-          </InputGroup.LeadingIcon>
-        )}
-
-        <Input aria-label="Website" />
-
-        {showTrailingIcon && (
-          <InputGroup.TrailingIcon>
-            <Icon>
-              <PenOutline />
-            </Icon>
-          </InputGroup.TrailingIcon>
-        )}
-        {showTrailingAddon && (
-          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
-        )}
+        <Input placeholder="Type here..." />
+        <InputGroup.TrailingIcon>
+          <Icon>
+            <Check />
+          </Icon>
+        </InputGroup.TrailingIcon>
       </InputGroup>
+
+      <Checkbox checked={isInvalid} onClick={() => setIsInvalid(!isInvalid)}>
+        Toggle error state
+      </Checkbox>
     </div>
   )
 }
 
-export const Password: StoryFn = _args => {
+export const PasswordInputExample: StoryFn = _args => {
   const [isVisible, setIsVisible] = useState(false)
 
   const handleToggle = () => {
@@ -121,86 +104,35 @@ export const Password: StoryFn = _args => {
   )
 }
 
-export const Default: StoryFn = _args => (
-  <Input placeholder="Type here..." aria-label="Phone type" />
-)
-
-export const Uncontrolled: StoryFn = _args => (
-  <Input defaultValue="IPhone 12" aria-label="Phone type" />
-)
-
-export const Controlled: StoryFn = () => {
-  const [value, setValue] = useState('IPhone 13')
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value)
-  }
-
-  return <Input value={value} onChange={handleChange} aria-label="Phone type" />
-}
-
-export const Disabled: StoryFn = _args => (
-  <Input defaultValue="IPhone" disabled aria-label="Phone type" />
-)
-
-export const GroupAddons: StoryFn = _args => {
-  const [isInvalid, setIsInvalid] = useState(false)
-
+export const States: StoryFn = _args => {
   return (
-    <div className="flex flex-col items-start gap-lg">
-      <Checkbox checked={isInvalid} onClick={() => setIsInvalid(!isInvalid)}>
-        Toggle error state
-      </Checkbox>
+    <div className="flex flex-col gap-xl">
+      <div>
+        <StoryLabel>error</StoryLabel>
+        <InputGroup state="error">
+          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+          <Input />
+        </InputGroup>
+      </div>
 
-      <InputGroup state={isInvalid ? 'error' : undefined}>
-        <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-        <Input aria-label="Website" />
-        <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
+      <div>
+        <StoryLabel>alert</StoryLabel>
+        <InputGroup state="alert">
+          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+          <Input />
+        </InputGroup>
+      </div>
 
-        <InputGroup.StateIndicator errorIcon={<EyeOffOutline />} />
-      </InputGroup>
+      <div>
+        <StoryLabel>success</StoryLabel>
+        <InputGroup state="success">
+          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+          <Input />
+        </InputGroup>
+      </div>
     </div>
   )
 }
-
-export const GroupElements: StoryFn = _args => {
-  const [isInvalid, setIsInvalid] = useState(false)
-
-  return (
-    <div className="flex flex-col items-start gap-lg">
-      <Checkbox checked={isInvalid} onClick={() => setIsInvalid(!isInvalid)}>
-        Toggle error state
-      </Checkbox>
-
-      <InputGroup state={isInvalid ? 'error' : undefined}>
-        <InputGroup.LeadingIcon>
-          <Icon>
-            <PenOutline />
-          </Icon>
-        </InputGroup.LeadingIcon>
-
-        <Input placeholder="Type here..." />
-        <InputGroup.TrailingIcon>
-          <Icon>
-            <Check />
-          </Icon>
-        </InputGroup.TrailingIcon>
-      </InputGroup>
-    </div>
-  )
-}
-
-export const GroupDisabled: StoryFn = _args => (
-  <InputGroup isDisabled>
-    <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-    <Input defaultValue="adevinta.com" aria-label="Website" />
-    <InputGroup.TrailingIcon>
-      <Icon>
-        <Check />
-      </Icon>
-    </InputGroup.TrailingIcon>
-  </InputGroup>
-)
 
 export const FieldLabel: StoryFn = _args => {
   return (
@@ -253,17 +185,7 @@ export const FieldInvalid: StoryFn = _args => {
     <FormField name="title" state="error">
       <FormField.Label>Title</FormField.Label>
 
-      <InputGroup>
-        <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-
-        <Input defaultValue="adevinta.com" />
-
-        <InputGroup.TrailingIcon>
-          <Icon>
-            <Check />
-          </Icon>
-        </InputGroup.TrailingIcon>
-      </InputGroup>
+      <Input defaultValue="adevinta.com" />
 
       <FormField.ErrorMessage>The URL is invalid</FormField.ErrorMessage>
     </FormField>

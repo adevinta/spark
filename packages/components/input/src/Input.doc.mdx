@@ -12,6 +12,8 @@ import * as stories from './Input.stories'
 
 Component used to get user input in a text field
 
+Use `InputGroup` component to group your input with addons and elements like icons.
+
 ## Install
 
 ```sh
@@ -26,11 +28,20 @@ import { Input, InputGroup } from '@spark-ui/input'
 
 ## Props
 
-<ArgTypes of={Input} />
+<ExtendedArgTypes
+  of={Input}
+  subcomponents={{
+    InputGroup: { of: InputGroup },
+    'InputGroup.LeadingAddon': { of: InputGroup.LeadingAddon },
+    'InputGroup.LeadingIcon': { of: InputGroup.LeadingIcon },
+    'InputGroup.TrailingAddon': { of: InputGroup.TrailingAddon },
+    'InputGroup.TrailingIcon': { of: InputGroup.TrailingIcon },
+  }}
+/>
 
 ## Usage
 
-<Canvas of={stories.Default} />
+<Canvas of={stories.Usage} />
 
 ## Uncontrolled
 
@@ -46,47 +57,45 @@ Use `value` and `onChange` props to control the value of the input.
 
 ## Disabled
 
-Use `disabled` prop to indicate the input is disabled.
+Use `disabled` prop to indicate the input is disabled (set the prop on `InputGroup` instead if you are wrapping your `Input` with it)
 
 <Canvas of={stories.Disabled} />
 
-## InputGroup
-
-Use `InputGroup` component to group your input with addons and elements like icons.
-
-### Props
-
-<ExtendedArgTypes
-  of={InputGroup}
-  subcomponents={{
-    'InputGroup.LeadingAddon': { of: InputGroup.LeadingAddon },
-    'InputGroup.LeadingIcon': { of: InputGroup.LeadingIcon },
-    'InputGroup.TrailingAddon': { of: InputGroup.TrailingAddon },
-    'InputGroup.TrailingIcon': { of: InputGroup.TrailingIcon },
-  }}
-/>
-
-## Password
-
-<Canvas of={stories.Password} />
-
 ### Addons
 
-<Canvas of={stories.GroupAddons} />
+Addons are sections before/after the input itself.
 
-### Elements
+You can use them to achieve more complex custom inputs. Addons can be decorative or interactive.
 
-<Canvas of={stories.GroupElements} />
+Addons are not considered part of the input itself and clicking on them won't move the focus to the input.
 
-### Disabled
+<Canvas of={stories.Addons} />
 
-Use `isDisabled` prop of the `InputGroup` to indicate that the input group is disabled. Use this prop instead of the input's disabled prop when it is within a group.
+### Icons
 
-<Canvas of={stories.GroupDisabled} />
+An `InputGroup` can have a `LeadingIcon` and/or `TrailingIcon`.
 
-## FormField
+Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
 
-Use `FormField` component to provide context to the input.
+<Canvas of={stories.Icons} />
+
+## Password Input Example
+
+Let's use `InputGroup` and its components to create a password input with a show/hide password functionality
+
+<Canvas of={stories.PasswordInputExample} />
+
+## States
+
+When using `InputGroup`, you can apply a state to the group among `error`, `alert` and `success`.
+
+It will update the outline styles and display a state indicator (icon).
+
+<Canvas of={stories.States} />
+
+## Combining with FormField
+
+When using `Input` inside an HTML form, you might want to use it in combination with `FormField` to add a proper label, error message, etc.
 
 ### Label
 
