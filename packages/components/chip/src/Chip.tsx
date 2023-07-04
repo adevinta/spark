@@ -78,26 +78,31 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
     const hasClearButton = findElement('Chip.ClearButton')(children)
 
     return (
-      <ChipContext.Provider value={{ disabled, design, intent }}>
-        <ChipElement
-          ref={forwardedRef}
-          className={chipStyles({
-            className,
-            design,
-            disabled,
-            intent,
+      <ChipElement
+        ref={forwardedRef}
+        className={chipStyles({
+          className,
+          design,
+          disabled,
+          intent,
+        })}
+        {...{
+          ...chipProps,
+          ...otherProps,
+        }}
+        data-spark-component="chip"
+      >
+        <span
+          className={chipContentStyles({
+            hasClearButton: !!hasClearButton,
+            isBordered: design === 'dashed',
           })}
-          {...{
-            ...chipProps,
-            ...otherProps,
-          }}
-          data-spark-component="chip"
         >
-          <span className={chipContentStyles({ hasClearButton: !!hasClearButton })}>
+          <ChipContext.Provider value={{ disabled, design, intent }}>
             {children}
-          </span>
-        </ChipElement>
-      </ChipContext.Provider>
+          </ChipContext.Provider>
+        </span>
+      </ChipElement>
     )
   }
 )
