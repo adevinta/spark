@@ -9,18 +9,15 @@ export const tagStyles = cva(
     'text-caption font-bold',
     'h-sz-20 px-md',
     'ring-inset',
+    'rounded-full',
   ],
   {
     variants: {
       /**
        * Main style of the tag.
-       *
        * - `filled`: Tag will be plain.
-       *
        * - `outlined`: Tag will have a surface background with an colored outline/text.
-       *
        * - `tinted`: Tag will be filled but using a lighter color scheme.
-       *
        */
       design: makeVariants<'design', ['filled', 'outlined', 'tinted']>({
         filled: [],
@@ -42,17 +39,11 @@ export const tagStyles = cva(
         info: [],
         neutral: [],
       }),
-      shape: makeVariants<'shape'>({
-        rounded: ['rounded-lg'],
-        square: ['rounded-none'],
-        pill: ['rounded-full'],
-      }),
     },
     compoundVariants: [...filledVariants, ...outlinedVariants, ...tintedVariants],
     defaultVariants: {
       design: 'filled',
       intent: 'primary',
-      shape: 'rounded',
     },
   }
 )
