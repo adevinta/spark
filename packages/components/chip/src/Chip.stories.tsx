@@ -9,4 +9,9 @@ const meta: Meta<typeof Chip> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Chip>Hello World!</Chip>
+export const Default: StoryFn = _args => (
+  <Chip>
+    Hello World!
+    <Chip.ClearButton onClick={() => console.log('clear')} />
+  </Chip>
+)
