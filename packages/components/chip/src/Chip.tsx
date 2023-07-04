@@ -92,7 +92,12 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
         }}
         data-spark-component="chip"
       >
-        <span className={chipContentStyles({ hasClearButton: !!hasClearButton })}>
+        <span
+          className={chipContentStyles({
+            hasClearButton: !!hasClearButton,
+            isBordered: design === 'dashed',
+          })}
+        >
           <ChipContext.Provider value={{ disabled, design, intent }}>
             {children}
           </ChipContext.Provider>
