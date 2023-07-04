@@ -1,7 +1,7 @@
 import { makeVariants, tw } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-// import { dashedVariants, filledVariants, outlinedVariants, tintedVariants } from './variants'
+import { dashedVariants, filledVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const chipStyles = cva(
   [
@@ -53,10 +53,10 @@ export const chipStyles = cva(
       },
     },
     compoundVariants: [
-      // ...filledVariants,
-      // ...outlinedVariants,
-      // ...tintedVariants,
-      // ...dashedVariants,
+      ...filledVariants,
+      ...outlinedVariants,
+      ...tintedVariants,
+      ...dashedVariants,
     ],
     defaultVariants: {
       design: 'outlined',
@@ -66,12 +66,14 @@ export const chipStyles = cva(
 )
 
 export const chipContentStyles = cva(
-  ['inline-flex h-full items-center justify-center gap-sm whitespace-nowrap'],
+  [
+    'inline-flex h-full items-center justify-center gap-sm overflow-hidden text-ellipsis whitespace-nowrap',
+  ],
   {
     variants: {
       isBordered: {
-        no: ['max-w-sz-240'],
-        yes: ['max-w-[238px]'],
+        false: ['max-w-sz-240'],
+        true: ['max-w-[238px]'],
       },
       hasClearButton: {
         true: [],
@@ -79,28 +81,28 @@ export const chipContentStyles = cva(
       },
     },
     defaultVariants: {
-      isBordered: 'no',
+      isBordered: false,
       hasClearButton: false,
     },
     compoundVariants: [
       {
         hasClearButton: false,
-        isBordered: 'no',
+        isBordered: false,
         class: tw(['px-md']),
       },
       {
         hasClearButton: false,
-        isBordered: 'yes',
+        isBordered: true,
         class: tw(['px-[7px]']),
       },
       {
         hasClearButton: true,
-        isBordered: 'no',
+        isBordered: false,
         class: tw(['pl-md']),
       },
       {
         hasClearButton: true,
-        isBordered: 'yes',
+        isBordered: true,
         class: tw(['pl-[7px]']),
       },
     ],
