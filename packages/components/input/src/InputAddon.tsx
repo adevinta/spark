@@ -1,19 +1,22 @@
-import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
 import { inputAddonStyles, InputAddonStylesProps } from './InputAddon.styles'
 import { useInputGroup } from './InputGroupContext'
 
-interface InputAddonProps
+export interface InputAddonProps
   extends ComponentPropsWithoutRef<'div'>,
-    Omit<InputAddonStylesProps, 'state' | 'isDisabled'> {}
+    Omit<InputAddonStylesProps, 'intent' | 'isDisabled'> {}
 
-const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
+export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
   ({ className, children, ...others }, ref) => {
-    const { isDisabled } = useInputGroup() || {}
+    const { state, isDisabled } = useInputGroup()
 
     return (
-      <div ref={ref} className={inputAddonStyles({ className, isDisabled })} {...others}>
+      <div
+        ref={ref}
+        className={inputAddonStyles({ className, intent: state, isDisabled })}
+        {...others}
+      >
         {children}
       </div>
     )
@@ -21,23 +24,3 @@ const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>
 )
 
 InputAddon.displayName = 'InputAddon'
-
-export type InputTrailingAddonProps = InputAddonProps
-
-export const InputTrailingAddon = forwardRef<HTMLDivElement, InputTrailingAddonProps>(
-  ({ className, ...others }, ref) => (
-    <InputAddon ref={ref} className={cx(className, 'rounded-r-lg border-l-none')} {...others} />
-  )
-)
-
-InputTrailingAddon.displayName = 'InputTrailingAddon'
-
-export type InputLeadingAddonProps = InputAddonProps
-
-export const InputLeadingAddon = forwardRef<HTMLDivElement, InputLeadingAddonProps>(
-  ({ className, ...others }, ref) => (
-    <InputAddon ref={ref} className={cx(className, 'rounded-l-lg border-r-none')} {...others} />
-  )
-)
-
-InputLeadingAddon.displayName = 'InputLeadingAddon'

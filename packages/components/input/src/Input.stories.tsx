@@ -1,10 +1,14 @@
 import { Checkbox } from '@spark-ui/checkbox'
 import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
+import { IconButton } from '@spark-ui/icon-button'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { EyeOffOutline } from '@spark-ui/icons/dist/icons/EyeOffOutline'
+import { EyeOutline } from '@spark-ui/icons/dist/icons/EyeOutline'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
+import { Button } from 'packages/components/button/dist'
 import { ChangeEvent, useState } from 'react'
 
 import { Input, InputGroup, InputProps } from '.'
@@ -18,9 +22,9 @@ export default meta
 
 export const WorstCase: StoryFn = _args => {
   const [isInvalid, setIsInvalid] = useState(false)
+  const [disabled, setDisabled] = useState(false)
   const [showLeadingAddon, setShowLeadingAddon] = useState(true)
   const [showTrailingAddon, setShowTrailingAddon] = useState(true)
-
   const [showLeadingIcon, setShowLeadingIcon] = useState(true)
   const [showTrailingIcon, setShowTrailingIcon] = useState(true)
 
@@ -49,7 +53,19 @@ export const WorstCase: StoryFn = _args => {
         Trailing icon
       </Checkbox>
 
-      <InputGroup state={isInvalid ? 'error' : undefined}>
+      <Checkbox checked={disabled} onClick={() => setDisabled(!disabled)}>
+        Disabled
+      </Checkbox>
+
+      <Input value="IPhone" />
+
+      <Input placeholder="IPhone" />
+
+      <Input value="IPhone" disabled />
+
+      <Input placeholder="IPhone" disabled />
+
+      <InputGroup isDisabled={disabled} state={isInvalid ? 'error' : undefined}>
         {showLeadingAddon && (
           <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
         )}
@@ -77,6 +93,34 @@ export const WorstCase: StoryFn = _args => {
     </div>
   )
 }
+
+export const Password: StoryFn = _args => {
+  const [isVisible, setIsVisible] = useState(false)
+
+  const handleToggle = () => {
+    setIsVisible(isVisible => !isVisible)
+  }
+
+  return (
+    <InputGroup>
+      <Input type={isVisible ? 'text' : 'password'} />
+
+      <InputGroup.TrailingAddon className="px-md">
+        <IconButton
+          className="!text-body-1"
+          intent="neutral"
+          design="ghost"
+          size="sm"
+          aria-label={isVisible ? 'Hide password' : 'Show password'}
+          onClick={handleToggle}
+        >
+          <Icon>{isVisible ? <EyeOffOutline /> : <EyeOutline />}</Icon>
+        </IconButton>
+      </InputGroup.TrailingAddon>
+    </InputGroup>
+  )
+}
+
 export const Default: StoryFn = _args => (
   <Input placeholder="Type here..." aria-label="Phone type" />
 )
@@ -99,20 +143,6 @@ export const Disabled: StoryFn = _args => (
   <Input defaultValue="IPhone" disabled aria-label="Phone type" />
 )
 
-const states: InputProps['state'][] = ['success', 'alert', 'error']
-
-export const State: StoryFn = _args => {
-  return (
-    <div className="flex flex-col gap-md">
-      {states.map(state => (
-        <InputGroup state={state}>
-          <Input key={state} aria-label="Phone type" />
-        </InputGroup>
-      ))}
-    </div>
-  )
-}
-
 export const GroupAddons: StoryFn = _args => {
   const [isInvalid, setIsInvalid] = useState(false)
 
@@ -126,6 +156,8 @@ export const GroupAddons: StoryFn = _args => {
         <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
         <Input aria-label="Website" />
         <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
+
+        <InputGroup.StateIndicator errorIcon={<EyeOffOutline />} />
       </InputGroup>
     </div>
   )

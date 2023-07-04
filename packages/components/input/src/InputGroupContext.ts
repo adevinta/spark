@@ -12,5 +12,5 @@ export interface InputGroupContext {
 export const InputGroupContext = createContext<Partial<InputGroupContext> | null>(null)
 
 export const useInputGroup = () => {
-  return useContext(InputGroupContext)
+  return useContext(InputGroupContext) || {}
 }
