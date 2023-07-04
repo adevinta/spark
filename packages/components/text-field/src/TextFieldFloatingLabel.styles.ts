@@ -1,7 +1,14 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
 export const textFieldFloatingLabelStyles = cva(
-  ['absolute', 'transition-all', 'duration-200', 'cursor-auto'],
+  [
+    'absolute',
+    'transition-all',
+    'duration-200',
+    'cursor-auto',
+    'peer-disabled:text-on-surface/dim-3',
+    'peer-read-only:text-on-surface/dim-3',
+  ],
   {
     variants: {
       isExpanded: {

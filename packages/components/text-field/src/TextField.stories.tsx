@@ -17,7 +17,7 @@ export default meta
 
 export const Default: StoryFn = _args => <TextField label="Title" />
 
-export const Uncontrolled: StoryFn = _args => <TextField label="Title" defaultValue="IPhone 12" />
+export const Uncontrolled: StoryFn = _args => <TextField label="Title" defaultValue="iPhone 12" />
 
 export const Controlled: StoryFn = () => {
   const [value, setValue] = useState('iPhone 13')
@@ -29,7 +29,9 @@ export const Controlled: StoryFn = () => {
   return <TextField label="Title" value={value} onChange={handleChange} />
 }
 
-export const Disabled: StoryFn = _args => <TextField label="Title" defaultValue="IPhone" disabled />
+export const Disabled: StoryFn = _args => <TextField label="Title" defaultValue="iPhone" disabled />
+
+export const ReadOnly: StoryFn = _args => <TextField label="Title" defaultValue="iPhone" readOnly />
 
 const intents: TextFieldProps['intent'][] = ['neutral', 'success', 'alert', 'error']
 
