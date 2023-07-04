@@ -65,3 +65,33 @@ export const Intent: StoryFn = _args => (
     ))}
   </div>
 )
+
+export const Intent: StoryFn = _args => (
+  <div className="flex flex-col flex-wrap gap-md">
+    Default
+    {designs.map(design => (
+      <div key={design} className="flex flex-wrap gap-md">
+        {intents.map(intent => (
+          <Chip design={design} key={`${design}-${intent}`} intent={intent}>
+            {intent} chip
+          </Chip>
+        ))}
+      </div>
+    ))}
+    Actionable
+    {designs.map(design => (
+      <div key={design} className="flex flex-wrap gap-md">
+        {intents.map(intent => (
+          <Chip
+            design={design}
+            key={`${design}-${intent}`}
+            intent={intent}
+            onClick={() => console.log(`click ${design} ${intent}`)}
+          >
+            {intent} chip
+          </Chip>
+        ))}
+      </div>
+    ))}
+  </div>
+)
