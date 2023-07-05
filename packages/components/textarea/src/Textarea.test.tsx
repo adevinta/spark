@@ -1,6 +1,6 @@
 import { FormField } from '@spark-ui/form-field'
-import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { Euro } from '@spark-ui/icons/dist/icons/Euro'
 import { InputGroup } from '@spark-ui/input'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -68,24 +68,24 @@ describe('Textarea', () => {
 
   it('should render elements within group', () => {
     const leftLabel = 'Check'
-    const rightElement = '€'
+    const rightLabel = 'Euro'
     const placeholder = 'Smartphone'
 
     render(
       <InputGroup>
-        <InputGroup.LeftElement>
-          <Icon label={leftLabel}>
-            <Check />
-          </Icon>
-        </InputGroup.LeftElement>
+        <InputGroup.LeadingIcon label={leftLabel}>
+          <Check />
+        </InputGroup.LeadingIcon>
         <Textarea placeholder={placeholder} />
-        <InputGroup.RightElement>{rightElement}</InputGroup.RightElement>
+        <InputGroup.TrailingIcon label={rightLabel}>
+          <Euro />
+        </InputGroup.TrailingIcon>
       </InputGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()
     expect(screen.getByText(leftLabel)).toBeInTheDocument()
-    expect(screen.getByText(rightElement)).toBeInTheDocument()
+    expect(screen.getByText(rightLabel)).toBeInTheDocument()
   })
 
   it.skip('should render label within field', () => {
