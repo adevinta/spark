@@ -67,13 +67,13 @@ export const chipStyles = cva(
 
 export const chipContentStyles = cva(
   [
-    'inline-flex h-full items-center justify-center gap-sm overflow-hidden text-ellipsis whitespace-nowrap',
+    'block h-full items-center justify-center gap-sm overflow-hidden text-ellipsis whitespace-nowrap',
   ],
   {
     variants: {
       isBordered: {
         false: ['max-w-sz-240'],
-        true: ['max-w-[238px]'],
+        true: ['max-w-[calc(var(--sz-240)-var(--border-width-sm))]'],
       },
       hasClearButton: {
         true: [],
