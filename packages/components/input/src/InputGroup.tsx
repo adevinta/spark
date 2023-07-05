@@ -34,7 +34,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const leadingAddon = findElement('InputGroup.LeadingAddon')
     const leadingIcon = findElement('InputGroup.LeadingIcon')
     const stateIndicator = findElement('InputGroup.StateIndicator') || <InputStateIndicator />
-    const input = findElement('Input')
+    const input = findElement('Input', 'Textarea')
     const trailingIcon = state ? stateIndicator : findElement('InputGroup.TrailingIcon')
     const trailingAddon = findElement('InputGroup.TrailingAddon')
 

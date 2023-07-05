@@ -57,16 +57,12 @@ export const Icons: StoryFn = () => {
     <div className="flex flex-col items-start gap-lg">
       <InputGroup state={isInvalid ? 'error' : undefined}>
         <InputGroup.LeadingIcon>
-          <Icon>
-            <PenOutline />
-          </Icon>
+          <PenOutline />
         </InputGroup.LeadingIcon>
 
         <Input placeholder="Type here..." />
         <InputGroup.TrailingIcon>
-          <Icon>
-            <Check />
-          </Icon>
+          <Check />
         </InputGroup.TrailingIcon>
       </InputGroup>
 
@@ -112,6 +108,7 @@ export const States: StoryFn = _args => {
         <InputGroup state="error">
           <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
           <Input />
+          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
 
@@ -120,6 +117,7 @@ export const States: StoryFn = _args => {
         <InputGroup state="alert">
           <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
           <Input />
+          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
 
@@ -128,6 +126,7 @@ export const States: StoryFn = _args => {
         <InputGroup state="success">
           <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
           <Input />
+          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
     </div>
