@@ -90,25 +90,6 @@ export const Orientation: StoryFn = _args => {
   )
 }
 
-const sizes: RadioGroupProps['size'][] = ['sm', 'md']
-
-export const Size: StoryFn = _args => {
-  return (
-    <div className="flex gap-xl">
-      {sizes.map(size => (
-        <div key={size}>
-          <StoryLabel>{size}</StoryLabel>
-          <RadioGroup defaultValue="1" size={size}>
-            <RadioGroup.Radio value="1">First</RadioGroup.Radio>
-            <RadioGroup.Radio value="2">Second</RadioGroup.Radio>
-            <RadioGroup.Radio value="3">Third</RadioGroup.Radio>
-          </RadioGroup>
-        </div>
-      ))}
-    </div>
-  )
-}
-
 export const Disabled: StoryFn = _args => (
   <RadioGroup disabled>
     <RadioGroup.Radio value="1">First</RadioGroup.Radio>

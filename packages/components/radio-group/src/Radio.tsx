@@ -13,7 +13,7 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
     const innerId = useId()
     const innerLabelId = useId()
 
-    const { intent, size, disabled } = useRadioGroup()
+    const { intent, disabled } = useRadioGroup()
 
     return (
       <div className={cx('flex items-center gap-md text-body-1', className)}>
@@ -21,7 +21,6 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
           ref={ref}
           id={id || innerId}
           intent={intent}
-          size={size}
           aria-labelledby={children ? innerLabelId : undefined}
           {...others}
         />

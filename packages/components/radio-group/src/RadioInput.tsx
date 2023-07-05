@@ -27,18 +27,14 @@ export interface RadioInputProps
 }
 
 export const RadioInput = forwardRef<HTMLButtonElement, RadioInputProps>(
-  ({ intent: intentProp, size, className, ...others }, ref) => {
+  ({ intent: intentProp, className, ...others }, ref) => {
     const { state } = useFormFieldControl()
 
     const intent = state ?? intentProp
 
     return (
-      <RadioPrimitive
-        ref={ref}
-        className={radioInputVariants({ size, intent, className })}
-        {...others}
-      >
-        <RadioIndicator intent={intent} size={size} forceMount />
+      <RadioPrimitive ref={ref} className={radioInputVariants({ intent, className })} {...others}>
+        <RadioIndicator intent={intent} forceMount />
       </RadioPrimitive>
     )
   }

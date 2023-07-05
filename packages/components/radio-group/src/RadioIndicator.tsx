@@ -16,11 +16,11 @@ export interface RadioIndicatorProps extends RadioIndicatorStylesProps {
 }
 
 export const RadioIndicator = forwardRef<HTMLSpanElement, RadioIndicatorProps>(
-  ({ intent, size, className, ...others }, ref) => {
+  ({ intent, className, ...others }, ref) => {
     return (
       <RadioIndicatorPrimitive
         ref={ref}
-        className={radioIndicatorStyles({ intent, size, className })}
+        className={radioIndicatorStyles({ intent, className })}
         {...others}
       />
     )
