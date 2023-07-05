@@ -39,11 +39,7 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
         })}
         onClick={onClearHandler}
       >
-        <button
-          type="button"
-          disabled={disabled}
-          className={chipClearButtonStyles({ disabled })}
-        >
+        <button type="button" disabled={!!disabled} className={chipClearButtonStyles({ disabled })}>
           {children}
         </button>
       </span>

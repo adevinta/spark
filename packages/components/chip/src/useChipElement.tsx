@@ -2,6 +2,27 @@ import { Slot } from '@spark-ui/slot'
 import { useCombinedState } from '@spark-ui/use-combined-state'
 import React from 'react'
 
+interface ReturnedValue {
+  Element:
+    | React.ForwardRefExoticComponent<
+        React.HTMLAttributes<HTMLElement> & {
+          children?: React.ReactNode
+        } & React.RefAttributes<HTMLElement>
+      >
+    | React.ElementType
+  chipProps:
+    | {
+        type: 'button'
+        'aria-pressed'?: boolean
+        'data-state'?: 'on' | 'off'
+        onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+        disabled?: boolean
+      }
+    | {
+        'aria-disabled'?: boolean
+      }
+}
+
 export const useChipElement = ({
   onClick,
   asChild,
@@ -17,26 +38,7 @@ export const useChipElement = ({
   pressed?: boolean
   defaultPressed?: boolean
   disabled?: boolean
-}): {
-  Element:
-    | React.ForwardRefExoticComponent<
-        React.HTMLAttributes<HTMLElement> & {
-          children?: React.ReactNode
-        } & React.RefAttributes<HTMLElement>
-      >
-    | React.ElementType
-  chipProps:
-    | {
-        type: 'button'
-        'aria-pressed'?: boolean
-        'data-state'?: 'on' | 'off'
-        onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
-        disabled?: true
-      }
-    | {
-        'aria-disabled'?: true
-      }
-} => {
+}): ReturnedValue => {
   const [isPressed, setIsPressed] = useCombinedState<boolean | undefined>(pressed, defaultPressed)
 
   const isButton = onClick || isPressed
@@ -53,7 +55,7 @@ export const useChipElement = ({
           setIsPressed(!isPressed)
           onClick && onClick(event, { pressed: isPressed as boolean })
         },
-        ...(disabled && { disabled: true }),
+        disabled,
       },
     }
   }
@@ -61,7 +63,7 @@ export const useChipElement = ({
   return {
     Element: asChild ? Slot : 'div',
     chipProps: {
-      ...(disabled && { 'aria-disabled': true }),
+      'aria-disabled': disabled,
     },
   }
 }
