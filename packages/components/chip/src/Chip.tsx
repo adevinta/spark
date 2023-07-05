@@ -3,14 +3,12 @@ import React, {
   Children,
   FC,
   forwardRef,
-  Fragment,
   isValidElement,
   PropsWithChildren,
   ReactElement,
 } from 'react'
 
-import { chipStyles, type ChipStylesProps } from './Chip.styles'
-import { ChipContent } from './ChipContent'
+import { chipContentStyles, chipStyles, type ChipStylesProps } from './Chip.styles'
 import { ChipContext } from './useChipContext'
 import { useChipElement } from './useChipElement'
 
@@ -19,8 +17,8 @@ const getDisplayName = (element?: ReactElement) => {
 }
 
 const findElement =
-  (children: React.ReactNode) =>
-  (...values: string[]) => {
+  (...values: string[]) =>
+  (children: React.ReactNode) => {
     const validChildren = Children.toArray(children).filter(isValidElement)
 
     return validChildren.find(child => values.includes(getDisplayName(child) || ''))
@@ -77,12 +75,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       disabled: !!disabled,
     })
 
-    const findChipElement = findElement(children)
-
-    const hasClearButton = findChipElement('Chip.ClearButton')
-    const hasContent = findChipElement('Chip.Content')
-
-    const ChildrenWrapper = hasContent ? Fragment : ChipContent
+    const hasClearButton = findElement('Chip.ClearButton')(children)
 
     return (
       <ChipContext.Provider value={{ disabled, design, intent }}>
@@ -93,7 +86,6 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
             design,
             disabled,
             intent,
-            hasClearButton: !!hasClearButton,
           })}
           {...{
             ...chipProps,
@@ -101,7 +93,9 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
           }}
           data-spark-component="chip"
         >
-          <ChildrenWrapper>{children}</ChildrenWrapper>
+          <span className={chipContentStyles({ hasClearButton: !!hasClearButton })}>
+            {children}
+          </span>
         </ChipElement>
       </ChipContext.Provider>
     )
