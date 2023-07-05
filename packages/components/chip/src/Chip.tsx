@@ -3,12 +3,14 @@ import React, {
   Children,
   FC,
   forwardRef,
+  Fragment,
   isValidElement,
   PropsWithChildren,
   ReactElement,
 } from 'react'
 
-import { chipContentStyles, chipStyles, type ChipStylesProps } from './Chip.styles'
+import { chipStyles, type ChipStylesProps } from './Chip.styles'
+import { ChipContent } from './ChipContent'
 import { ChipContext } from './useChipContext'
 import { useChipElement } from './useChipElement'
 
@@ -17,8 +19,8 @@ const getDisplayName = (element?: ReactElement) => {
 }
 
 const findElement =
-  (...values: string[]) =>
-  (children: React.ReactNode) => {
+  (children: React.ReactNode) =>
+  (...values: string[]) => {
     const validChildren = Children.toArray(children).filter(isValidElement)
 
     return validChildren.find(child => values.includes(getDisplayName(child) || ''))
@@ -75,34 +77,33 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       disabled: !!disabled,
     })
 
-    const hasClearButton = findElement('Chip.ClearButton')(children)
+    const findChipElement = findElement(children)
+
+    const hasClearButton = findChipElement('Chip.ClearButton')
+    const hasContent = findChipElement('Chip.Content')
+
+    const ChildrenWrapper = hasContent ? Fragment : ChipContent
 
     return (
-      <ChipElement
-        ref={forwardedRef}
-        className={chipStyles({
-          className,
-          design,
-          disabled,
-          intent,
-        })}
-        {...{
-          ...chipProps,
-          ...otherProps,
-        }}
-        data-spark-component="chip"
-      >
-        <span
-          className={chipContentStyles({
+      <ChipContext.Provider value={{ disabled, design, intent }}>
+        <ChipElement
+          ref={forwardedRef}
+          className={chipStyles({
+            className,
+            design,
+            disabled,
+            intent,
             hasClearButton: !!hasClearButton,
-            isBordered: design === 'dashed',
           })}
+          {...{
+            ...chipProps,
+            ...otherProps,
+          }}
+          data-spark-component="chip"
         >
-          <ChipContext.Provider value={{ disabled, design, intent }}>
-            {children}
-          </ChipContext.Provider>
-        </span>
-      </ChipElement>
+          <ChildrenWrapper>{children}</ChildrenWrapper>
+        </ChipElement>
+      </ChipContext.Provider>
     )
   }
 )
