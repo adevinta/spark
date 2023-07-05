@@ -8,7 +8,6 @@ import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, useState } from 'react'
 
 import { Textarea } from '.'
-import { TextareaProps } from './Textarea'
 
 const meta: Meta<typeof Textarea> = {
   title: 'Experimental/Textarea',
@@ -37,51 +36,33 @@ export const Disabled: StoryFn = _args => (
   <Textarea defaultValue="IPhone" aria-label="Message" disabled />
 )
 
-const intents: TextareaProps['intent'][] = ['neutral', 'success', 'alert', 'error']
-
-export const Intent: StoryFn = _args => {
-  return (
-    <div className="flex flex-col gap-md">
-      {intents.map(intent => (
-        <Textarea key={intent} intent={intent} aria-label="Message" />
-      ))}
-    </div>
-  )
-}
-
 export const GroupElements: StoryFn = _args => (
   <InputGroup>
-    <InputGroup.LeftElement>
-      <Icon>
-        <PenOutline />
-      </Icon>
-    </InputGroup.LeftElement>
+    <InputGroup.LeadingIcon>
+      <PenOutline />
+    </InputGroup.LeadingIcon>
 
     <Textarea rows={2} aria-label="Message" />
 
-    <InputGroup.RightElement>
-      <Icon>
-        <Check />
-      </Icon>
-    </InputGroup.RightElement>
+    <InputGroup.TrailingIcon>
+      <Check />
+    </InputGroup.TrailingIcon>
   </InputGroup>
 )
 
 export const GroupDisabled: StoryFn = _args => (
   <InputGroup isDisabled>
-    <InputGroup.LeftElement>
+    <InputGroup.LeadingIcon>
       <Icon>
         <PenOutline />
       </Icon>
-    </InputGroup.LeftElement>
+    </InputGroup.LeadingIcon>
 
     <Textarea rows={2} aria-label="Message" />
 
-    <InputGroup.RightElement>
-      <Icon>
-        <Check />
-      </Icon>
-    </InputGroup.RightElement>
+    <InputGroup.TrailingIcon>
+      <Check />
+    </InputGroup.TrailingIcon>
   </InputGroup>
 )
 

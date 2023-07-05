@@ -10,7 +10,7 @@ export const FloatingLabel = forwardRef<HTMLLabelElement, PropsWithChildren<Floa
     {
       className,
       isExpanded = false,
-      isLeftAddonVisible = false,
+      hasLeftAddon = false,
       isLeftElementVisible = false,
       isDisabled = false,
       ...others
@@ -22,7 +22,7 @@ export const FloatingLabel = forwardRef<HTMLLabelElement, PropsWithChildren<Floa
       className={floatingLabelStyles({
         className,
         isExpanded,
-        isLeftAddonVisible,
+        hasLeftAddon,
         isLeftElementVisible,
         isDisabled,
       })}

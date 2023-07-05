@@ -1,8 +1,6 @@
-/* eslint-disable complexity */
 import { useFormFieldControl } from '@spark-ui/form-field'
 import {
   Children,
-  cloneElement,
   ComponentPropsWithoutRef,
   FC,
   forwardRef,
@@ -12,22 +10,18 @@ import {
   useMemo,
 } from 'react'
 
-import { InputContainer, InputContainerProps } from './InputContainer'
-import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
-export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
-  intent?: InputContainerProps['intent']
+import { InputStateIndicator } from './InputStateIndicator'
+export interface InputGroupProps extends ComponentPropsWithoutRef<'div'> {
+  state?: 'error' | 'alert' | 'success'
   isDisabled?: boolean
 }
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  (
-    { className, children: childrenProp, intent: intentProp = 'neutral', isDisabled, ...others },
-    ref
-  ) => {
-    const { state } = useFormFieldControl()
+  ({ className, children: childrenProp, state: stateProp, isDisabled, ...others }, ref) => {
+    const field = useFormFieldControl()
     const children = Children.toArray(childrenProp).filter(isValidElement)
-    const intent = state ?? intentProp
+    const state = field.state ?? stateProp
 
     const getDisplayName = (element?: ReactElement) => {
       return element ? (element.type as FC).displayName : ''
@@ -37,65 +31,41 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       return children.find(child => values.includes(getDisplayName(child) || ''))
     }
 
-    const input = findElement('Input', 'TextField', 'Textarea')
-    const left = findElement('InputGroup.LeftAddon', 'InputGroup.LeftElement')
-    const right = findElement('InputGroup.RightAddon', 'InputGroup.RightElement')
-    const isLeftAddonVisible = getDisplayName(left) === 'InputGroup.LeftAddon'
-    const isRightAddonVisible = getDisplayName(right) === 'InputGroup.RightAddon'
-    const isLeftElementVisible = getDisplayName(left) === 'InputGroup.LeftElement'
-    const isRightElementVisible = getDisplayName(right) === 'InputGroup.RightElement'
-    const isInput = getDisplayName(input) !== 'TextField'
+    const leadingAddon = findElement('InputGroup.LeadingAddon')
+    const leadingIcon = findElement('InputGroup.LeadingIcon')
+    const stateIndicator = findElement('InputGroup.StateIndicator') || <InputStateIndicator />
+    const input = findElement('Input', 'Textarea')
+    const trailingIcon = state ? stateIndicator : findElement('InputGroup.TrailingIcon')
+    const trailingAddon = findElement('InputGroup.TrailingAddon')
+
+    const hasLeadingAddon = !!leadingAddon
+    const hasTrailingAddon = !!trailingAddon
+    const hasLeadingIcon = !!leadingIcon
+    const hasTrailingIcon = !!trailingIcon || !!state
 
     const value = useMemo(() => {
       return {
+        state,
         isDisabled: !!isDisabled,
-        isLeftElementVisible,
-        isRightElementVisible,
-        isLeftAddonVisible,
-        isRightAddonVisible,
+        hasLeadingIcon,
+        hasTrailingIcon,
+        hasLeadingAddon,
+        hasTrailingAddon,
       }
-    }, [
-      isDisabled,
-      isLeftElementVisible,
-      isRightElementVisible,
-      isLeftAddonVisible,
-      isRightAddonVisible,
-    ])
+    }, [state, isDisabled, hasLeadingIcon, hasTrailingIcon, hasLeadingAddon, hasTrailingAddon])
 
     return (
       <InputGroupContext.Provider value={value}>
-        <div
-          ref={ref}
-          className={inputGroupStyles({
-            className,
-          })}
-          {...others}
-        >
-          {isLeftAddonVisible && left}
+        <div ref={ref} className={'relative inline-flex w-full'} {...others}>
+          {hasLeadingAddon && leadingAddon}
 
-          {isInput ? (
-            <>
-              {input}
+          <div className="relative w-full">
+            {input}
+            {leadingIcon}
+            {trailingIcon}
+          </div>
 
-              <InputContainer intent={intent} />
-
-              {isLeftElementVisible && left}
-
-              {isRightElementVisible && right}
-            </>
-          ) : (
-            cloneElement(input as ReactElement, {
-              elements: (
-                <>
-                  {isLeftElementVisible && left}
-
-                  {isRightElementVisible && right}
-                </>
-              ),
-            })
-          )}
-
-          {isRightAddonVisible && right}
+          {hasTrailingAddon && trailingAddon}
         </div>
       </InputGroupContext.Provider>
     )

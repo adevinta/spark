@@ -8,10 +8,18 @@ export interface InputAddonProps
     Omit<InputAddonStylesProps, 'intent' | 'isDisabled'> {}
 
 export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
-  ({ className, ...others }, ref) => {
-    const { isDisabled } = useInputGroup() || {}
+  ({ className, children, ...others }, ref) => {
+    const { state, isDisabled } = useInputGroup()
 
-    return <div ref={ref} className={inputAddonStyles({ className, isDisabled })} {...others} />
+    return (
+      <div
+        ref={ref}
+        className={inputAddonStyles({ className, intent: state, isDisabled })}
+        {...others}
+      >
+        {children}
+      </div>
+    )
   }
 )
 

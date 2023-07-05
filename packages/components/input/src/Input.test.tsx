@@ -1,6 +1,6 @@
 import { FormField } from '@spark-ui/form-field'
-import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { Euro } from '@spark-ui/icons/dist/icons/Euro'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
@@ -69,9 +69,9 @@ describe('Input', () => {
 
     render(
       <InputGroup>
-        <InputGroup.LeftAddon>{leftText}</InputGroup.LeftAddon>
+        <InputGroup.LeadingAddon>{leftText}</InputGroup.LeadingAddon>
         <Input placeholder={placeholder} />
-        <InputGroup.RightAddon>{rightText}</InputGroup.RightAddon>
+        <InputGroup.TrailingAddon>{rightText}</InputGroup.TrailingAddon>
       </InputGroup>
     )
 
@@ -81,25 +81,25 @@ describe('Input', () => {
   })
 
   it('should render elements within group', () => {
-    const leftId = 'id'
-    const rightElement = '€'
+    const leftLabel = 'Check'
+    const rightLabel = 'Euro'
     const placeholder = 'Smartphone'
 
     render(
       <InputGroup>
-        <InputGroup.LeftElement>
-          <Icon>
-            <Check data-testid={leftId} />
-          </Icon>
-        </InputGroup.LeftElement>
+        <InputGroup.LeadingIcon label={leftLabel}>
+          <Check />
+        </InputGroup.LeadingIcon>
         <Input placeholder={placeholder} />
-        <InputGroup.RightElement>{rightElement}</InputGroup.RightElement>
+        <InputGroup.TrailingIcon label={rightLabel}>
+          <Euro />
+        </InputGroup.TrailingIcon>
       </InputGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()
-    expect(screen.getByTestId(leftId)).toBeInTheDocument()
-    expect(screen.getByText(rightElement)).toBeInTheDocument()
+    expect(screen.getByText(rightLabel)).toBeInTheDocument()
+    expect(screen.getByText(rightLabel)).toBeInTheDocument()
   })
 
   it('should render label within field', () => {
