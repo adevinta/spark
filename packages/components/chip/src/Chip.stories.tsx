@@ -26,10 +26,14 @@ const intents: ChipProps['intent'][] = [
 export default meta
 
 export const Default: StoryFn = _args => (
-  <Chip>
-    Hello World!
-    <Chip.ClearButton onClick={() => console.log('clear')} />
-  </Chip>
+  <div className="flex flex-col items-start gap-md">
+    {designs.map(design => (
+      <Chip design={design} key={design}>
+        <Chip.Content>Hello World!</Chip.Content>
+        <Chip.ClearButton onClick={() => console.log(`clear ${design}`)} />
+      </Chip>
+    ))}
+  </div>
 )
 
 export const Intent: StoryFn = _args => (
