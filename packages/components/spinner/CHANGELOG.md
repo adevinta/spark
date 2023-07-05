@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.3.1...@spark-ui/spinner@0.3.2) (2023-07-05)
+
+### Bug Fixes
+
+- **spinner:** typo in peerdependency package name, from tailwind to tailwindcss ([94ea6bd](https://github.com/adevinta/spark/commit/94ea6bd44b54b39db7406cfab5d5b3908d504a0a))
+
 ## [0.3.1](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.3.0...@spark-ui/spinner@0.3.1) (2023-06-21)
 
 **Note:** Version bump only for package @spark-ui/spinner
