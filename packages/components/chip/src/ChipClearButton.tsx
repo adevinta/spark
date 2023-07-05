@@ -41,7 +41,7 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
       >
         <button
           type="button"
-          {...{ ...(disabled && { disabled }) }}
+          disabled={disabled}
           className={chipClearButtonStyles({ disabled })}
         >
           {children}
