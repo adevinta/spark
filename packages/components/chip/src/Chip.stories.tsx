@@ -80,7 +80,7 @@ export const Intent: StoryFn = _args => (
       <div key={design} className="flex flex-wrap gap-md">
         {intents.map(intent => (
           <Chip design={design} key={`${design}-${intent}`} intent={intent}>
-            {intent} chip
+            {intent} chip huge huge chip long and wrong
           </Chip>
         ))}
       </div>
@@ -95,7 +95,7 @@ export const Intent: StoryFn = _args => (
             intent={intent}
             onClick={() => console.log(`click ${design} ${intent}`)}
           >
-            {intent} chip
+            {intent} chip huge huge chip long and wrong
           </Chip>
         ))}
       </div>
