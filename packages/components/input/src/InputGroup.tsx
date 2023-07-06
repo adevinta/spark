@@ -1,4 +1,5 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
+import { cva, cx } from 'class-variance-authority'
 import {
   Children,
   ComponentPropsWithoutRef,
@@ -14,11 +15,19 @@ import { InputGroupContext } from './InputGroupContext'
 import { InputStateIndicator } from './InputStateIndicator'
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'> {
   state?: 'error' | 'alert' | 'success'
-  isDisabled?: boolean
+  disabled?: boolean
 }
 
+const styles = cva(['relative inline-flex w-full'], {
+  variants: {
+    disabled: {
+      true: 'cursor-not-allowed opacity-dim-3',
+    },
+  },
+})
+
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  ({ className, children: childrenProp, state: stateProp, isDisabled, ...others }, ref) => {
+  ({ className, children: childrenProp, state: stateProp, disabled, ...others }, ref) => {
     const field = useFormFieldControl()
     const children = Children.toArray(childrenProp).filter(isValidElement)
     const state = field.state ?? stateProp
@@ -46,17 +55,17 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const value = useMemo(() => {
       return {
         state,
-        isDisabled: !!isDisabled,
+        disabled: !!disabled,
         hasLeadingIcon,
         hasTrailingIcon,
         hasLeadingAddon,
         hasTrailingAddon,
       }
-    }, [state, isDisabled, hasLeadingIcon, hasTrailingIcon, hasLeadingAddon, hasTrailingAddon])
+    }, [state, disabled, hasLeadingIcon, hasTrailingIcon, hasLeadingAddon, hasTrailingAddon])
 
     return (
       <InputGroupContext.Provider value={value}>
-        <div ref={ref} className="relative inline-flex w-full" {...others}>
+        <div ref={ref} className={styles({ disabled, className })} {...others}>
           {hasLeadingAddon && leadingAddon}
 
           <div className="relative w-full">

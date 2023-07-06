@@ -4,25 +4,32 @@ export const inputAddonStyles = cva(
   [
     'flex',
     'items-center',
-    'border-sm',
+    'ring-1 ring-inset',
     'min-w-fit',
-    '[&>*]:h-full',
-    '[&>*]:rounded-none',
-    '[&>*]:focus-visible:ring-0',
+    'overflow-hidden',
+    '!focus-visible:ring-0',
+    'focus-within:z-raised',
   ],
   {
     variants: {
+      asChild: { false: 'px-lg' },
       intent: {
-        neutral: 'border-outline',
-        error: 'border-error',
-        alert: 'border-alert',
-        success: 'border-success',
+        neutral: 'ring-outline',
+        error: 'ring-error',
+        alert: 'ring-alert',
+        success: 'ring-success',
       },
-      isDisabled: {
-        true: ['opacity-dim-3', 'cursor-not-allowed'],
-        false: ['bg-surface', 'text-on-surface'],
+      disabled: {
+        true: ['pointer-events-none'],
       },
     },
+    compoundVariants: [
+      {
+        disabled: false,
+        asChild: false,
+        class: ['bg-surface', 'text-on-surface'],
+      },
+    ],
     defaultVariants: {
       intent: 'neutral',
     },

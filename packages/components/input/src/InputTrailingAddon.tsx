@@ -9,7 +9,7 @@ export const InputTrailingAddon = forwardRef<HTMLDivElement, InputTrailingAddonP
   ({ className, ...others }, ref) => (
     <InputAddon
       ref={ref}
-      className={cx(className, 'rounded-r-lg focus-within:[&>*]:rounded-r-lg')}
+      className={cx(className, '!rounded-l-none rounded-r-lg ml-[-1px]')}
       {...others}
     />
   )

@@ -27,12 +27,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         className={inputStyles({
           className,
           intent: state,
+          isStandalone: !!group.isStandalone,
           hasLeadingAddon: !!hasLeadingAddon,
           hasTrailingAddon: !!hasTrailingAddon,
           hasLeadingIcon: !!hasLeadingIcon,
           hasTrailingIcon: !!hasTrailingIcon,
         })}
-        disabled={group.isDisabled}
+        disabled={group.disabled}
         required={isRequired}
         aria-describedby={description}
         aria-invalid={isInvalid}

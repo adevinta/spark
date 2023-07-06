@@ -42,7 +42,7 @@ export const Disabled: StoryFn = _args => (
 
 export const Addons: StoryFn = _args => {
   return (
-    <InputGroup>
+    <InputGroup className="max-w-sz-320">
       <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
       <Input aria-label="Website" />
       <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
@@ -55,7 +55,7 @@ export const Icons: StoryFn = () => {
 
   return (
     <div className="flex flex-col items-start gap-lg">
-      <InputGroup state={isInvalid ? 'error' : undefined}>
+      <InputGroup className="max-w-sz-320" state={isInvalid ? 'error' : undefined}>
         <InputGroup.LeadingIcon>
           <PenOutline />
         </InputGroup.LeadingIcon>
@@ -81,10 +81,10 @@ export const PasswordInputExample: StoryFn = _args => {
   }
 
   return (
-    <InputGroup>
+    <InputGroup className="max-w-sz-320">
       <Input type={isVisible ? 'text' : 'password'} />
 
-      <InputGroup.TrailingAddon>
+      <InputGroup.TrailingAddon asChild>
         <IconButton
           intent="neutral"
           design="ghost"
@@ -104,28 +104,28 @@ export const States: StoryFn = _args => {
     <div className="flex flex-col gap-xl">
       <div>
         <StoryLabel>error</StoryLabel>
-        <InputGroup state="error">
-          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+        <InputGroup className="max-w-sz-320" state="error">
+          <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
           <Input />
-          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
+          <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
 
       <div>
         <StoryLabel>alert</StoryLabel>
-        <InputGroup state="alert">
-          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+        <InputGroup className="max-w-sz-320" state="alert">
+          <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
           <Input />
-          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
+          <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
 
       <div>
         <StoryLabel>success</StoryLabel>
-        <InputGroup state="success">
-          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+        <InputGroup className="max-w-sz-320" state="success">
+          <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
           <Input />
-          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
+          <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
     </div>

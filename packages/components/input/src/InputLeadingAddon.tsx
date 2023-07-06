@@ -7,7 +7,11 @@ export type InputLeadingAddonProps = InputAddonProps
 
 export const InputLeadingAddon = forwardRef<HTMLDivElement, InputLeadingAddonProps>(
   ({ className, ...others }, ref) => (
-    <InputAddon ref={ref} className={cx(className, 'rounded-l-lg border-r-none')} {...others} />
+    <InputAddon
+      ref={ref}
+      className={cx(className, 'rounded-l-lg !rounded-r-none mr-[-1px]')}
+      {...others}
+    />
   )
 )
 

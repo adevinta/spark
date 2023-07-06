@@ -2,38 +2,34 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const inputStyles = cva(
   [
-    'border-sm',
+    'ring-1 ring-inset',
     'peer',
     'box-border',
-    'h-sz-44',
-    'w-full',
-    'outline-none',
-    'appearance-none',
+    'h-sz-44 w-full',
+    'appearance-none outline-none',
     'bg-surface',
-    'text-on-surface',
-    'text-body-1',
-    'text-ellipsis',
+    'text-ellipsis text-body-1 text-on-surface',
     'caret-neutral',
-    'focus:ring-1',
-    'ring-inset',
+    'focus:ring-2',
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
-    'disabled:opacity-dim-3',
     'disabled:cursor-not-allowed',
   ],
   {
     variants: {
       intent: {
         neutral: [
-          'border-outline',
-          'ring-outline-high',
-          'hover:border-outline-high',
-          'focus:border-outline-high',
-          'disabled:border-outline',
+          'ring-outline',
+          'hover:ring-outline-high',
+          'focus:ring-outline-high',
+          'disabled:ring-outline',
         ],
-        success: ['border-success', 'ring-success'],
-        alert: ['border-alert', 'ring-alert'],
-        error: ['border-error', 'ring-error'],
+        success: ['ring-success', 'ring-success'],
+        alert: ['ring-alert', 'ring-alert'],
+        error: ['ring-error', 'ring-error'],
+      },
+      isStandalone: {
+        true: 'disabled:opacity-dim-3',
       },
       hasLeadingAddon: {
         false: ['rounded-l-lg'],
