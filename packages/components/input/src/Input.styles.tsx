@@ -15,6 +15,7 @@ export const inputStyles = cva(
     'text-ellipsis',
     'caret-neutral',
     'focus:ring-1',
+    'ring-inset',
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
     'disabled:opacity-dim-3',

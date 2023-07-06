@@ -56,7 +56,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     return (
       <InputGroupContext.Provider value={value}>
-        <div ref={ref} className={'relative inline-flex w-full'} {...others}>
+        <div ref={ref} className="relative inline-flex w-full" {...others}>
           {hasLeadingAddon && leadingAddon}
 
           <div className="relative w-full">

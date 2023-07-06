@@ -84,12 +84,11 @@ export const PasswordInputExample: StoryFn = _args => {
     <InputGroup>
       <Input type={isVisible ? 'text' : 'password'} />
 
-      <InputGroup.TrailingAddon className="px-md">
+      <InputGroup.TrailingAddon>
         <IconButton
-          className="!text-body-1"
           intent="neutral"
           design="ghost"
-          size="sm"
+          size="md"
           aria-label={isVisible ? 'Hide password' : 'Show password'}
           onClick={handleToggle}
         >
