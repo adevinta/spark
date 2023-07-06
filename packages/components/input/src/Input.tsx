@@ -15,7 +15,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const group = useInputGroup()
 
     const { id, name, isInvalid, isRequired, description } = field
-    const { hasLeadingAddon, hasTrailingAddon, hasLeadingIcon, hasTrailingIcon } = group
+    const { hasLeadingAddon, hasTrailingAddon, hasLeadingIcon, hasTrailingIcon, hasClearButton } =
+      group
     const Component = asChild ? Slot : 'input'
     const state = field.state ?? group.state
 
@@ -32,6 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           hasTrailingAddon: !!hasTrailingAddon,
           hasLeadingIcon: !!hasLeadingIcon,
           hasTrailingIcon: !!hasTrailingIcon,
+          hasClearButton: !!hasClearButton,
         })}
         disabled={group.disabled}
         required={isRequired}

@@ -1,11 +1,17 @@
+import { Icon, type IconProps } from '@spark-ui/icon'
 import { cx } from 'class-variance-authority'
 
-import { InputIcon, InputIconProps } from './InputIcon'
+export type InputLeadingIconProps = IconProps
 
-export type InputLeadingIconProps = InputIconProps
-
-export const InputLeadingIcon = ({ className, ...others }: InputLeadingIconProps) => (
-  <InputIcon className={cx(className, 'left-lg')} {...others} />
+export const InputLeadingIcon = ({ className, intent, ...others }: InputLeadingIconProps) => (
+  <Icon
+    className={cx(
+      className,
+      'pointer-events-none absolute top-1/2 -translate-y-1/2 left-lg',
+      intent ? undefined : 'text-neutral peer-focus:text-outline-high'
+    )}
+    {...others}
+  />
 )
 
 InputLeadingIcon.displayName = 'InputGroup.LeadingIcon'

@@ -1,11 +1,18 @@
+import { Icon, type IconProps } from '@spark-ui/icon'
 import { cx } from 'class-variance-authority'
 
-import { InputIcon, InputIconProps } from './InputIcon'
+export type InputTrailingIconProps = IconProps
 
-export type InputTrailingIconProps = InputIconProps
-
-export const InputTrailingIcon = ({ className, ...others }: InputTrailingIconProps) => (
-  <InputIcon className={cx(className, 'right-lg')} {...others} />
+export const InputTrailingIcon = ({ className, intent, ...others }: InputTrailingIconProps) => (
+  <Icon
+    intent={intent}
+    className={cx(
+      className,
+      'pointer-events-none',
+      intent ? undefined : 'text-neutral peer-focus:text-outline-high'
+    )}
+    {...others}
+  />
 )
 
 InputTrailingIcon.displayName = 'InputGroup.TrailingIcon'

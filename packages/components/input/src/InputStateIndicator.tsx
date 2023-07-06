@@ -19,11 +19,9 @@ export const InputStateIndicator = ({
   successIcon = <Check />,
   ...rest
 }: InputStateIndicatorProps) => {
-  const group = useInputGroup()
+  const { state } = useInputGroup()
 
-  if (!group?.state) return null
-
-  const { state } = group
+  if (!state) return null
 
   const icons = {
     error: errorIcon,

@@ -4,11 +4,11 @@ export const inputAddonStyles = cva(
   [
     'flex',
     'items-center',
+    'shrink-0',
     'ring-1 ring-inset',
-    'min-w-fit',
     'overflow-hidden',
     '!focus-visible:ring-0',
-    'focus-within:z-raised',
+    'focus-visible:z-raised',
   ],
   {
     variants: {

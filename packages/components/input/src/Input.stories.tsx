@@ -1,4 +1,5 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
+import { Button } from '@spark-ui/button'
 import { Checkbox } from '@spark-ui/checkbox'
 import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
@@ -61,6 +62,7 @@ export const Icons: StoryFn = () => {
         </InputGroup.LeadingIcon>
 
         <Input placeholder="Type here..." />
+
         <InputGroup.TrailingIcon>
           <Check />
         </InputGroup.TrailingIcon>
@@ -84,7 +86,7 @@ export const PasswordInputExample: StoryFn = _args => {
     <InputGroup className="max-w-sz-320">
       <Input type={isVisible ? 'text' : 'password'} aria-label="Password field" />
 
-      <InputGroup.TrailingAddon asChild>
+      <InputGroup.TrailingAddon>
         <IconButton
           intent="neutral"
           design="ghost"
@@ -94,6 +96,22 @@ export const PasswordInputExample: StoryFn = _args => {
         >
           <Icon>{isVisible ? <EyeOffOutline /> : <EyeOutline />}</Icon>
         </IconButton>
+      </InputGroup.TrailingAddon>
+    </InputGroup>
+  )
+}
+
+export const SearchInputExample: StoryFn = _args => {
+  return (
+    <InputGroup className="max-w-sz-320">
+      {/* <Input type="search" /> */}
+      <Input />
+      <InputGroup.ClearButton aria-label="Clear value" />
+      <InputGroup.TrailingIcon>
+        <Check />
+      </InputGroup.TrailingIcon>
+      <InputGroup.TrailingAddon>
+        <Button design="contrast">Search</Button>
       </InputGroup.TrailingAddon>
     </InputGroup>
   )

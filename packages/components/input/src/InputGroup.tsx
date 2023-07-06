@@ -42,9 +42,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     const leadingAddon = findElement('InputGroup.LeadingAddon')
     const leadingIcon = findElement('InputGroup.LeadingIcon')
-    const stateIndicator = findElement('InputGroup.StateIndicator') || <InputStateIndicator />
     const input = findElement('Input', 'Textarea')
-    const trailingIcon = state ? stateIndicator : findElement('InputGroup.TrailingIcon')
+    const clearButton = findElement('InputGroup.ClearButton')
+    const trailingIcon = state ? <InputStateIndicator /> : findElement('InputGroup.TrailingIcon')
     const trailingAddon = findElement('InputGroup.TrailingAddon')
 
     const hasLeadingAddon = !!leadingAddon
@@ -52,7 +52,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const hasLeadingIcon = !!leadingIcon
     const hasTrailingIcon = !!trailingIcon || !!state
 
-    const value = useMemo(() => {
+    const contextValue = useMemo(() => {
       return {
         state,
         disabled: !!disabled,
@@ -60,18 +60,30 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         hasTrailingIcon,
         hasLeadingAddon,
         hasTrailingAddon,
+        hasClearButton: !!clearButton,
       }
-    }, [state, disabled, hasLeadingIcon, hasTrailingIcon, hasLeadingAddon, hasTrailingAddon])
+    }, [
+      state,
+      disabled,
+      hasLeadingIcon,
+      hasTrailingIcon,
+      hasLeadingAddon,
+      hasTrailingAddon,
+      clearButton,
+    ])
 
     return (
-      <InputGroupContext.Provider value={value}>
+      <InputGroupContext.Provider value={contextValue}>
         <div ref={ref} className={styles({ disabled, className })} {...others}>
           {hasLeadingAddon && leadingAddon}
 
           <div className="relative w-full">
             {input}
             {leadingIcon}
-            {trailingIcon}
+            <div className="pointer-events-none absolute right-lg top-1/2 flex -translate-y-1/2 items-center gap-md">
+              {clearButton}
+              {trailingIcon}
+            </div>
           </div>
 
           {hasTrailingAddon && trailingAddon}

@@ -1,5 +1,5 @@
 import { Slot } from '@spark-ui/slot'
-import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
+import React, { type ComponentPropsWithoutRef, forwardRef, type PropsWithChildren } from 'react'
 
 import { inputAddonStyles, InputAddonStylesProps } from './InputAddon.styles'
 import { useInputGroup } from './InputGroupContext'
@@ -11,10 +11,13 @@ export interface InputAddonProps
 }
 
 export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
-  ({ asChild = false, className, children, ...others }, ref) => {
+  ({ asChild: asChildProp = true, className, children, ...others }, ref) => {
     const { state, disabled } = useInputGroup()
 
-    const Component = asChild ? Slot : 'div'
+    const isRawText = typeof children === 'string'
+    const asChild = isRawText ? false : asChildProp
+    const child = isRawText ? children : React.Children.only(children)
+    const Component = asChild && !isRawText ? Slot : 'div'
 
     return (
       <Component
@@ -23,7 +26,7 @@ export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddo
         {...(disabled && { tabIndex: -1 })}
         {...others}
       >
-        {children}
+        {child}
       </Component>
     )
   }
