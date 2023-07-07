@@ -51,7 +51,7 @@ export const GroupElements: StoryFn = _args => (
 )
 
 export const GroupDisabled: StoryFn = _args => (
-  <InputGroup isDisabled>
+  <InputGroup disabled>
     <InputGroup.LeadingIcon>
       <Icon>
         <PenOutline />
