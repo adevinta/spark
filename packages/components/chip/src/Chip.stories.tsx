@@ -1,3 +1,5 @@
+import { Icon } from '@spark-ui/icon'
+import { Toy } from '@spark-ui/icons/dist/icons/Toy'
 import { Meta, StoryFn } from '@storybook/react'
 import { ComponentProps } from 'react'
 
@@ -29,6 +31,11 @@ export const Default: StoryFn = _args => (
   <div className="flex flex-col items-start gap-md">
     {designs.map(design => (
       <Chip design={design} key={design}>
+        <Chip.LeadingIcon>
+          <Icon label="toy">
+            <Toy />
+          </Icon>
+        </Chip.LeadingIcon>
         <Chip.Content>Hello World!</Chip.Content>
         <Chip.ClearButton onClick={() => console.log(`clear ${design}`)} />
       </Chip>
