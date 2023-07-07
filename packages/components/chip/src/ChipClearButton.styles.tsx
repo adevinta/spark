@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
 export const chipClearButtonWrapperStyles = cva(
-  ['flex h-full items-center justify-center', 'focus-visible:outline-none'],
+  ['flex h-full items-center justify-center', 'ml-md focus-visible:outline-none'],
   {
     variants: {
       disabled: {
