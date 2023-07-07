@@ -1,5 +1,5 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
-import { cva, cx } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import {
   Children,
   ComponentPropsWithoutRef,
