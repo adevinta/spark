@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/adevinta/spark/compare/@spark-ui/button@1.13.5...@spark-ui/button@1.14.0) (2023-07-10)
+
+### Features
+
+- **input:** first iteration of border ([4aeb861](https://github.com/adevinta/spark/commit/4aeb861844d13437c8c1f9b4a97123512083b6b2))
+
 ## [1.13.5](https://github.com/adevinta/spark/compare/@spark-ui/button@1.13.4...@spark-ui/button@1.13.5) (2023-07-10)
 
 **Note:** Version bump only for package @spark-ui/button

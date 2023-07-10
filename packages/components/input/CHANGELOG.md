@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.8.0...@spark-ui/input@0.9.0) (2023-07-10)
+
+### Bug Fixes
+
+- **input:** missing labels on input stories ([9787b57](https://github.com/adevinta/spark/commit/9787b57417d06f613e46f76a9db2208d8c4e76a8))
+
+### Features
+
+- **input:** first iteration of border ([4aeb861](https://github.com/adevinta/spark/commit/4aeb861844d13437c8c1f9b4a97123512083b6b2))
+- **input:** remove not needed import ([9c59223](https://github.com/adevinta/spark/commit/9c5922328b8fd5b63a538a07c595321228ba86fb))
+
 # [0.8.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.7.0...@spark-ui/input@0.8.0) (2023-07-05)
 
 ### Features
