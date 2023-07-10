@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const radioInputVariants = cva(
   [
-    'flex items-center justify-center',
+    'flex shrink-0 items-center justify-center',
     'rounded-full',
     'border-md',
     'outline-none',
