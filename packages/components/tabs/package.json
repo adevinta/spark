@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/tabs",
-  "version": "1.2.19",
+  "version": "1.2.20",
   "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
   "publishConfig": {
     "access": "public"
@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@radix-ui/react-tabs": "1.0.4",
-    "@spark-ui/button": "^1.13.4",
-    "@spark-ui/icon": "^1.7.6",
+    "@spark-ui/button": "^1.13.5",
+    "@spark-ui/icon": "^1.7.7",
     "@spark-ui/icons": "^1.19.0",
     "class-variance-authority": "0.4.0"
   },
