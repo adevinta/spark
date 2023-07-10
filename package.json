@@ -43,7 +43,7 @@
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "1.7.5",
     "@babel/core": "7.21.4",
-    "@commitlint/cli": "17.6.3",
+    "@commitlint/cli": "17.6.6",
     "@commitlint/config-conventional": "17.6.1",
     "@commitlint/config-lerna-scopes": "17.6.3",
     "@commitlint/cz-commitlint": "17.4.4",
