@@ -16,6 +16,17 @@ export default meta
 
 export const Default: StoryFn = _args => <Checkbox>Accept terms and conditions</Checkbox>
 
+export const WithAMultilineLabel: StoryFn = _args => (
+  <Checkbox>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam posuere dictum imperdiet. Vivamus
+    turpis lectus, venenatis at ipsum finibus, condimentum eleifend quam. Cras pellentesque tempor
+    metus, accumsan semper erat imperdiet at. Integer mattis dictum eros, a vulputate sem efficitur
+    et. Aliquam dapibus non augue quis efficitur. Fusce auctor sit amet mauris sed maximus. In hac
+    habitasse platea dictumst. In consectetur, elit at vestibulum condimentum, diam mauris
+    vestibulum nisl, quis cursus arcu massa vitae nisl.
+  </Checkbox>
+)
+
 export const Disabled: StoryFn = _args => <Checkbox disabled>Accept terms and conditions</Checkbox>
 
 export const Uncontrolled: StoryFn = () => {
