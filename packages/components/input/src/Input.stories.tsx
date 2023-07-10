@@ -82,7 +82,7 @@ export const PasswordInputExample: StoryFn = _args => {
 
   return (
     <InputGroup className="max-w-sz-320">
-      <Input type={isVisible ? 'text' : 'password'} />
+      <Input type={isVisible ? 'text' : 'password'} aria-label="Password field" />
 
       <InputGroup.TrailingAddon asChild>
         <IconButton
@@ -106,7 +106,7 @@ export const States: StoryFn = _args => {
         <StoryLabel>error</StoryLabel>
         <InputGroup className="max-w-sz-320" state="error">
           <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-          <Input />
+          <Input aria-label="Error state" />
           <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
@@ -115,7 +115,7 @@ export const States: StoryFn = _args => {
         <StoryLabel>alert</StoryLabel>
         <InputGroup className="max-w-sz-320" state="alert">
           <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-          <Input />
+          <Input aria-label="Alert state" />
           <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
@@ -124,7 +124,7 @@ export const States: StoryFn = _args => {
         <StoryLabel>success</StoryLabel>
         <InputGroup className="max-w-sz-320" state="success">
           <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-          <Input />
+          <Input aria-label="Success state" />
           <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
