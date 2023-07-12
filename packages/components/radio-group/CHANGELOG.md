@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.3.4...@spark-ui/radio-group@1.3.5) (2023-07-12)
+
+### Bug Fixes
+
+- **radio-group:** fix multiline labeled styles ([0a797f1](https://github.com/adevinta/spark/commit/0a797f1dc2302e252ba872e20d56c20fe8b254fd))
+
 ## [1.3.4](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.3.3...@spark-ui/radio-group@1.3.4) (2023-07-05)
 
 **Note:** Version bump only for package @spark-ui/radio-group

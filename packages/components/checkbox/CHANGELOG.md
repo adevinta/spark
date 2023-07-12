@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.11](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.17.10...@spark-ui/checkbox@1.17.11) (2023-07-12)
+
+### Bug Fixes
+
+- **checkbox:** fix multiline labeled styles ([50f6852](https://github.com/adevinta/spark/commit/50f68520e93786e50a2bb5e3c39e0e7d458e0f87))
+
 ## [1.17.10](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.17.9...@spark-ui/checkbox@1.17.10) (2023-07-10)
 
 **Note:** Version bump only for package @spark-ui/checkbox
