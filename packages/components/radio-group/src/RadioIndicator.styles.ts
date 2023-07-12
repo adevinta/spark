@@ -4,7 +4,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const radioIndicatorStyles = cva(
   [
     'relative block',
-    'h-4/6 w-4/6',
+    'h-3/5 w-3/5',
     'after:absolute',
     'after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2',
     'after:h-none',
