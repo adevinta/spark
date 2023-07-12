@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.12](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.17.11...@spark-ui/checkbox@1.17.12) (2023-07-12)
+
+**Note:** Version bump only for package @spark-ui/checkbox
+
 ## [1.17.11](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.17.10...@spark-ui/checkbox@1.17.11) (2023-07-12)
 
 ### Bug Fixes
