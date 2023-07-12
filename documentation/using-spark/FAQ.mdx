@@ -37,18 +37,69 @@ import { FAQ } from '@docs/helpers/FAQ'
     <FAQ.Question
       label="How do I deal with font weights?"
     />
-    <FAQ.Answer>
-      If you have text with the CSS class `text-body-1` applied to it but also wish to give this element a bold font weight, you can add another dedicated class to accomplish this:
+      <FAQ.Answer>
+        If you have text with the CSS class `text-body-1` applied to it but also wish to give this element a bold font weight, you can add another dedicated class to accomplish this:
 
-      ```tsx
-      <div class="text-body-1 font-bold">...</div>
-      ```
+        ```tsx
+        <div class="text-body-1 font-bold">...</div>
+        ```
 
-      In this example, The class `text-body-1` sets the appropriate font size and line height, while `font-bold` sets the appropriate font weight.
+        In this example, The class `text-body-1` sets the appropriate font size and line height, while `font-bold` sets the appropriate font weight.
 
-      Tailwind Spark themes expose a set of font-weight related tokens. Be sure to check those out to see what values you have at your disposal.
+        Tailwind Spark themes expose a set of font-weight related tokens. Be sure to check those out to see what values you have at your disposal.
+      </FAQ.Answer>
 
-</FAQ.Answer>
+  </FAQ.Item>
+
+   <FAQ.Item>
+    <FAQ.Question
+      label="How do I handle multiple themes?"
+    />
+      <FAQ.Answer>
+        1/ To handle multiple themes, you first need to create multiple themes. You can use the `createTheme` helper from the [**@spark-ui/theme-utils**](?path=/docs/utils-theme--docs#createtheme) package to do this.
+        
+        ```tsx
+        import { createTheme } from '@spark-ui/theme-utils'
+
+        export const someTheme = createTheme({...})
+        export const someOtherTheme = createTheme({...})
+        ```
+
+        2/ After creating your themes, add them to the `themes` object when calling the **sparkConfig** plugin inside your `tailwind.config.js` file.
+
+        ```js
+        // tailwind.config.js
+        const themeUtils = require('@spark-ui/theme-utils')
+        const sparkPlugins = require('@spark-ui/tailwind-plugins')
+        
+        const { someTheme, someOtherTheme } = require('your/themes')
+
+
+        module.exports = {
+          content: [...],
+          plugins: [
+            ...sparkPlugins.sparkConfig({
+              themes: {
+                default: themeUtils.defaultTheme,
+                someTheme, // 👈
+                someOtherTheme, // 👈
+              },
+            }),
+          ],
+        }
+        ```
+
+        3/ Finally, to switch between themes, set the appropriate `data-theme` attribute to the element you want to change the theme for and set its value to the field of the theme you want to use
+
+        ```tsx
+        <div data-theme="someTheme">...</div>
+        ```
+
+        It is important to note that the value of `data-theme` should match the field of the theme you passed to the `themes` object.
+        
+        For example, in our present case, The valid values for the `data-theme` attribute are **someTheme** and **someOtherTheme**.
+
+      </FAQ.Answer>
 
   </FAQ.Item>
 </FAQ.Root>
