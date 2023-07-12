@@ -16,7 +16,7 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
     const { intent, disabled } = useRadioGroup()
 
     return (
-      <div className={cx('flex items-center gap-md text-body-1', className)}>
+      <div className={cx('flex items-start gap-md text-body-1', className)}>
         <RadioInput
           ref={ref}
           id={id || innerId}

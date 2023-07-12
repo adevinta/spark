@@ -20,6 +20,16 @@ export const Default: StoryFn = _args => (
   </RadioGroup>
 )
 
+export const WithAMultilineLabel: StoryFn = _args => (
+  <RadioGroup>
+    <RadioGroup.Radio value="lorem-ipsum">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam posuere dictum imperdiet.
+      Vivamus turpis lectus, venenatis at ipsum finibus, condimentum eleifend quam. Cras
+      pellentesque tempor metus, accumsan semper erat imperdiet at.
+    </RadioGroup.Radio>
+  </RadioGroup>
+)
+
 export const Uncontrolled: StoryFn = _args => (
   <RadioGroup defaultValue="1">
     <RadioGroup.Radio value="1">First</RadioGroup.Radio>
