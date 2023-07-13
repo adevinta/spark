@@ -4,7 +4,7 @@ import { cx } from 'class-variance-authority'
 import { FormField } from '.'
 
 const meta: Meta<typeof FormField> = {
-  title: 'Experimental/FormField',
+  title: 'Components/FormField',
   component: FormField,
 }
 
