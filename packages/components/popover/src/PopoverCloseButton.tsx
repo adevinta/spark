@@ -19,7 +19,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
       setHasCloseButton(true)
 
       return () => setHasCloseButton(false)
-    }, [])
+    }, [setHasCloseButton])
 
     return (
       <RadixPopover.Close
