@@ -1,5 +1,4 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
-import { cva } from 'class-variance-authority'
 import {
   Children,
   ComponentPropsWithoutRef,
@@ -11,26 +10,23 @@ import {
   useMemo,
 } from 'react'
 
+import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
 import { InputStateIndicator } from './InputStateIndicator'
-export interface InputGroupProps extends ComponentPropsWithoutRef<'div'> {
+
+export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
   state?: 'error' | 'alert' | 'success'
-  disabled?: boolean
 }
 
-const styles = cva(['relative inline-flex w-full'], {
-  variants: {
-    disabled: {
-      true: 'cursor-not-allowed opacity-dim-3',
-    },
-  },
-})
-
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  ({ className, children: childrenProp, state: stateProp, disabled, ...others }, ref) => {
+  (
+    { className, children: childrenProp, state: stateProp, disabled: disabledProp, ...others },
+    ref
+  ) => {
     const field = useFormFieldControl()
     const children = Children.toArray(childrenProp).filter(isValidElement)
     const state = field.state ?? stateProp
+    const disabled = !!disabledProp
 
     const getDisplayName = (element?: ReactElement) => {
       return element ? (element.type as FC).displayName : ''
@@ -55,7 +51,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const value = useMemo(() => {
       return {
         state,
-        disabled: !!disabled,
+        disabled,
         hasLeadingIcon,
         hasTrailingIcon,
         hasLeadingAddon,
@@ -65,7 +61,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     return (
       <InputGroupContext.Provider value={value}>
-        <div ref={ref} className={styles({ disabled, className })} {...others}>
+        <div ref={ref} className={inputGroupStyles({ disabled, className })} {...others}>
           {hasLeadingAddon && leadingAddon}
 
           <div className="relative w-full">
