@@ -23,16 +23,11 @@ const main = async (pattern = 'assets/**/*.svg') => {
 
       const relativeDir = path.relative('assets', dir)
 
-      // Handle flags differently
-      const isCountryFlag = /^Flag[A-Z]{2}$/.test(name)
-      const svgFill = isCountryFlag ? 'none' : 'currentColor'
-
       const tsxIconCode = componentize({
         componentName: pascalCase(name),
         node: optimize(svgData, {
-          attributes: [{ fill: svgFill }, { stroke: 'none' }],
+          attributes: [{ fill: 'currentColor' }, { stroke: 'none' }],
           title: name,
-          isCountryFlag,
         }).trim(),
         name,
         tags: relativeDir.split('/'),
