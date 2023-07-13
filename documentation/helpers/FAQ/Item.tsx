@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { PropsWithChildren } from 'react'
+import { type PropsWithChildren } from 'react'
 
 import { ItemProvider } from './context'
 

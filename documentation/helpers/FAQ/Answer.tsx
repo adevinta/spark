@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { PropsWithChildren } from 'react'
+import { type PropsWithChildren } from 'react'
 
 import { useFAQItemContext } from './context'
 
@@ -9,11 +9,7 @@ export function Answer({ children }: PropsWithChildren<unknown>) {
   return (
     <dd
       aria-hidden={!state.isOpen}
-      className={cx(
-        'overflow-hidden',
-        state.isOpen ? 'mb-lg' : '',
-        state.isOpen ? '' : 'invisible'
-      )}
+      className={cx('overflow-hidden', state.isOpen ? 'mb-lg' : 'invisible')}
     >
       {children}
     </dd>
