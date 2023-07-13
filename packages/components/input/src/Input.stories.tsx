@@ -73,7 +73,7 @@ export const Icons: StoryFn = () => {
   )
 }
 
-export const PasswordInputExample: StoryFn = _args => {
+export const Password: StoryFn = _args => {
   const [isVisible, setIsVisible] = useState(false)
 
   const handleToggle = () => {
@@ -88,7 +88,6 @@ export const PasswordInputExample: StoryFn = _args => {
         <IconButton
           intent="neutral"
           design="ghost"
-          size="md"
           aria-label={isVisible ? 'Hide password' : 'Show password'}
           onClick={handleToggle}
         >
@@ -99,7 +98,7 @@ export const PasswordInputExample: StoryFn = _args => {
   )
 }
 
-export const States: StoryFn = _args => {
+export const State: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-xl">
       <div>

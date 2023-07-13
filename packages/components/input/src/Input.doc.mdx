@@ -61,7 +61,7 @@ Use `disabled` prop to indicate the input is disabled (set the prop on `InputGro
 
 <Canvas of={stories.Disabled} />
 
-### Addons
+## Addons
 
 Addons are sections before/after the input itself.
 
@@ -71,7 +71,7 @@ Addons are not considered part of the input itself and clicking on them won't mo
 
 <Canvas of={stories.Addons} />
 
-### Icons
+## Icons
 
 An `InputGroup` can have a `LeadingIcon` and/or `TrailingIcon`.
 
@@ -79,19 +79,17 @@ Please note that the `TrailingIcon` will be automatically replaced by the state 
 
 <Canvas of={stories.Icons} />
 
-## Password Input Example
+## State
+
+When using `InputGroup`, you can apply a state to the group among `error`, `alert` and `success`. It will update the outline styles and display a state indicator **automatically**.
+
+<Canvas of={stories.State} />
+
+## Password
 
 Let's use `InputGroup` and its components to create a password input with a show/hide password functionality
 
-<Canvas of={stories.PasswordInputExample} />
-
-## States
-
-When using `InputGroup`, you can apply a state to the group among `error`, `alert` and `success`.
-
-It will update the outline styles and display a state indicator (icon).
-
-<Canvas of={stories.States} />
+<Canvas of={stories.Password} />
 
 ## Combining with FormField
 
