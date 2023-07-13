@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/adevinta/spark/compare/@spark-ui/input@0.10.0...@spark-ui/input@0.10.1) (2023-07-13)
+
+### Bug Fixes
+
+- **input:** input and addon hover styles issue ([854b0dc](https://github.com/adevinta/spark/commit/854b0dc19f2b0b4a5d072edb2976791b99161bf6))
+- **input:** update addon styles ([ddae3e8](https://github.com/adevinta/spark/commit/ddae3e8a507c2c4db613e554b65cdd72424bcd1d))
+
 # [0.10.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.9.0...@spark-ui/input@0.10.0) (2023-07-13)
 
 ### Features
