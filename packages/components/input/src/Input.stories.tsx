@@ -16,7 +16,7 @@ import { ChangeEvent, useState } from 'react'
 import { Input, InputGroup } from '.'
 
 const meta: Meta<typeof Input> = {
-  title: 'Experimental/Input',
+  title: 'Components/Input',
   component: Input,
 }
 
