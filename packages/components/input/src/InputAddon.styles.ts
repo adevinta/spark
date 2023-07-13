@@ -7,8 +7,8 @@ export const inputAddonStyles = cva(
     'ring-1 ring-inset',
     'min-w-fit',
     'overflow-hidden',
-    '!focus-visible:ring-0',
-    'focus-within:z-raised',
+    'focus-visible:relative',
+    'focus-visible:z-raised',
   ],
   {
     variants: {
