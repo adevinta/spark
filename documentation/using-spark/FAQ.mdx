@@ -65,13 +65,14 @@ import { FAQ } from '@docs/helpers/FAQ'
         export const someOtherTheme = createTheme({...})
         ```
 
-        2/ After creating your themes, add them to the `themes` object when calling the **sparkConfig** plugin inside your `tailwind.config.js` file.
+        2/ After creating your themes, add them to the `themes` object when calling the [**sparkConfig**](?path=/docs/utils-tailwind-plugins-spark-config--docs#tailwind-spark-config-plugin) plugin inside your `tailwind.config.js` file.
 
         ```js
         // tailwind.config.js
+
         const themeUtils = require('@spark-ui/theme-utils')
         const sparkPlugins = require('@spark-ui/tailwind-plugins')
-        
+
         const { someTheme, someOtherTheme } = require('your/themes')
 
 
@@ -96,8 +97,13 @@ import { FAQ } from '@docs/helpers/FAQ'
         ```
 
         It is important to note that the value of `data-theme` should match the field of the theme you passed to the `themes` object.
-        
+
         For example, in our present case, The valid values for the `data-theme` attribute are **someTheme** and **someOtherTheme**.
+
+        <Callout marginTop="medium">
+          For a more in-depth explanation, please visit our dedicated [**page**](?path=/docs/using-spark-handling-multiple-themes--docs#handling-multiple-themes)
+        </Callout>
+
 
       </FAQ.Answer>
 
