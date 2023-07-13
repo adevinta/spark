@@ -196,7 +196,7 @@ export const PasswordExample: StoryFn = () => {
     <InputGroup className="max-w-sz-320">
       <Input type={isVisible ? 'text' : 'password'} aria-label="Password" />
 
-      <InputGroup.TrailingAddon asChild>
+      <InputGroup.TrailingAddon>
         <IconButton
           intent="neutral"
           design="ghost"
