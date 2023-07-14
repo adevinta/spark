@@ -82,7 +82,7 @@ describe('Input', () => {
     expect(screen.getByText(rightText)).toBeInTheDocument()
   })
 
-  it('should render elements within group', () => {
+  it('should render icons within group', () => {
     const leftLabel = 'Check'
     const rightLabel = 'Euro'
     const placeholder = 'Smartphone'
@@ -165,6 +165,112 @@ describe('Input', () => {
 
     expect(screen.queryByText(trailingLabel)).not.toBeInTheDocument()
     expect(screen.getByText(stateLabel)).toBeInTheDocument()
+  })
+
+  it('should not focus clear button', async () => {
+    const clearLabel = 'Clear'
+    const defaultValue = 'Smartphone'
+
+    render(
+      <InputGroup>
+        <Input defaultValue={defaultValue} />
+
+        <InputGroup.ClearButton aria-label={clearLabel} />
+      </InputGroup>
+    )
+
+    const inputEl = screen.getByDisplayValue(defaultValue)
+
+    inputEl.focus()
+
+    await userEvent.tab()
+
+    expect(screen.getByRole('button', { name: clearLabel })).not.toHaveFocus()
+  })
+
+  it('should clear input when clear button is clicked in uncontrolled mode', async () => {
+    const clearLabel = 'Clear'
+    const defaultValue = 'Smartphone'
+
+    render(
+      <InputGroup>
+        <Input defaultValue={defaultValue} />
+
+        <InputGroup.ClearButton aria-label={clearLabel} />
+      </InputGroup>
+    )
+
+    const inputEl = screen.getByDisplayValue(defaultValue)
+
+    expect(inputEl).toHaveValue(defaultValue)
+
+    await userEvent.click(screen.getByRole('button', { name: clearLabel }))
+
+    expect(inputEl).not.toHaveValue()
+  })
+
+  it('should clear input when clear button is clicked in controlled mode', async () => {
+    const clearLabel = 'Clear'
+    const value = 'Smartphone'
+    const onClear = vi.fn()
+
+    render(
+      <InputGroup onClear={onClear}>
+        <Input value={value} />
+
+        <InputGroup.ClearButton aria-label={clearLabel} />
+      </InputGroup>
+    )
+
+    const inputEl = screen.getByDisplayValue(value)
+
+    expect(inputEl).toHaveValue(value)
+
+    await userEvent.click(screen.getByRole('button', { name: clearLabel }))
+
+    expect(onClear).toHaveBeenCalled()
+  })
+
+  it('should clear input when esc is pressed and clear button is defined', async () => {
+    const defaultValue = 'Smartphone'
+
+    render(
+      <InputGroup>
+        <Input defaultValue={defaultValue} />
+
+        <InputGroup.ClearButton aria-label="Clear" />
+      </InputGroup>
+    )
+
+    const inputEl = screen.getByDisplayValue(defaultValue)
+
+    expect(inputEl).toHaveValue(defaultValue)
+
+    inputEl.focus()
+
+    await userEvent.keyboard('{Esc}')
+
+    expect(inputEl).not.toHaveValue()
+  })
+
+  it('should not clear input when esc is pressed and clear button is not defined', async () => {
+    const defaultValue = 'Smartphone'
+
+    render(
+      <InputGroup>
+        <Input defaultValue={defaultValue} />
+      </InputGroup>
+    )
+
+    const inputEl = screen.getByDisplayValue(defaultValue)
+
+    expect(inputEl).toHaveValue(defaultValue)
+
+    inputEl.focus()
+
+    await userEvent.keyboard('{Esc}')
+
+    expect(inputEl).toHaveValue()
   })
 
   it('should render label within field', () => {
