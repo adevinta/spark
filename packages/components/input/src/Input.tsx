@@ -18,7 +18,7 @@ export interface InputProps extends InputPrimitiveProps {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, asChild, onValueChange, defaultValue, onChange, onKeyDown, ...others }, ref) => {
+  ({ className, asChild, onValueChange, onChange, onKeyDown, ...others }, ref) => {
     const field = useFormFieldControl()
     const group = useInputGroup()
 

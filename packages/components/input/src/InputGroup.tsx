@@ -133,6 +133,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
             {input &&
               cloneElement(input, {
                 ref,
+                defaultValue: undefined,
                 value: value ?? '',
                 onChange: handleChange,
               })}
