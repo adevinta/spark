@@ -5,6 +5,7 @@ import { type FC, type ReactNode } from 'react'
 interface Props<T> {
   of: T
   description?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   subcomponents?: Record<string, any> | null
 }
 

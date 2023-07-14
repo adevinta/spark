@@ -27,7 +27,7 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react-hooks', 'simple-import-sort', 'prettier'],
+  plugins: ['@nx', '@typescript-eslint', 'react-hooks', 'simple-import-sort', 'prettier'],
   extends: [
     'standard',
     'plugin:@typescript-eslint/recommended',
@@ -45,6 +45,8 @@ module.exports = {
   },
   rules: {
     // Overwrite rules specified from the extended configs or add ones
+    // NX
+    '@nx/enforce-module-boundaries': 2,
     // Prettier
     'prettier/prettier': 1,
     // Typescript

@@ -1,9 +1,17 @@
-import { PropsWithChildren } from 'react'
+import { cx } from 'class-variance-authority'
+import { type PropsWithChildren } from 'react'
 
 import { useFAQItemContext } from './context'
 
 export function Answer({ children }: PropsWithChildren<unknown>) {
   const { state } = useFAQItemContext()
 
-  return <dd className={`${state.isOpen ? 'block' : 'hidden'} mb-lg`}>{children}</dd>
+  return (
+    <dd
+      aria-hidden={!state.isOpen}
+      className={cx('overflow-hidden', state.isOpen ? 'mb-lg' : 'invisible')}
+    >
+      {children}
+    </dd>
+  )
 }

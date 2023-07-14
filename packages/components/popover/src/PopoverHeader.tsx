@@ -17,7 +17,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
       setHeaderId(id)
 
       return () => setHeaderId(null)
-    }, [])
+    }, [id, setHeaderId])
 
     return (
       <header id={id} className="mb-md text-headline-2" {...rest}>

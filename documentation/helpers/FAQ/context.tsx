@@ -1,4 +1,4 @@
-import { createContext, type Dispatch, PropsWithChildren, useContext, useReducer } from 'react'
+import { createContext, type Dispatch, ReactNode, useContext, useReducer } from 'react'
 
 interface Action {
   type: 'TOGGLE_OPEN'
@@ -40,10 +40,15 @@ function useFAQItemContext() {
   return ctx
 }
 
-function ItemProvider({ children }: PropsWithChildren<unknown>) {
-  const [state, dispatch] = useReducer(reducer, initialState)
+interface ItemProviderProps {
+  children: ReactNode | ((value: boolean) => ReactNode)
+}
 
-  return <FAQItemContext.Provider value={{ state, dispatch }}>{children}</FAQItemContext.Provider>
+function ItemProvider({ children }: ItemProviderProps) {
+  const [state, dispatch] = useReducer(reducer, initialState)
+  const content = typeof children === 'function' ? children(state.isOpen) : children
+
+  return <FAQItemContext.Provider value={{ state, dispatch }}>{content}</FAQItemContext.Provider>
 }
 
 export { useFAQItemContext, ItemProvider }
