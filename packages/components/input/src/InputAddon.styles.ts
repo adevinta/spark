@@ -1,18 +1,10 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
 export const inputAddonStyles = cva(
-  [
-    'flex',
-    'items-center',
-    'shrink-0',
-    'ring-1 ring-inset',
-    'overflow-hidden',
-    '!focus-visible:ring-0',
-    'focus-visible:z-raised',
-  ],
+  ['ring-1 ring-inset', 'shrink-0', 'focus-visible:relative', 'focus-visible:z-raised'],
   {
     variants: {
-      asChild: { false: 'px-lg' },
+      asChild: { false: ['flex', 'items-center', 'px-lg'] },
       intent: {
         neutral: 'ring-outline',
         error: 'ring-error',

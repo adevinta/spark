@@ -4,7 +4,6 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { useCombinedState } from '@spark-ui/use-combined-state'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { cva } from 'class-variance-authority'
 import {
   ChangeEventHandler,
   Children,
@@ -23,30 +22,26 @@ import {
 } from 'react'
 
 import { InputProps } from './Input'
+import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
 import { InputStateIndicator } from './InputStateIndicator'
-export interface InputGroupProps extends ComponentPropsWithoutRef<'div'> {
-  state?: 'error' | 'alert' | 'success'
-  disabled?: boolean
-}
 
-const styles = cva(['relative inline-flex w-full'], {
-  variants: {
-    disabled: {
-      true: 'cursor-not-allowed opacity-dim-3',
-    },
-  },
-})
+export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
+  state?: 'error' | 'alert' | 'success'
+}
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
   (
-    { className, children: childrenProp, state: stateProp, disabled, onKeyDown, ...others },
+    {
+      className,
+      children: childrenProp,
+      state: stateProp,
+      disabled: disabledProp,
+      onKeyDown,
+      ...others
+    },
     forwardRef
   ) => {
-    const field = useFormFieldControl()
-    const children = Children.toArray(childrenProp).filter(isValidElement)
-    const state = field.state ?? stateProp
-
     const getDisplayName = (element?: ReactElement) => {
       return element ? (element.type as FC).displayName : ''
     }
@@ -55,10 +50,13 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       return children.find(child => values.includes(getDisplayName(child) || ''))
     }
 
+    const children = Children.toArray(childrenProp).filter(isValidElement)
     const input = findElement('Input', 'Textarea') as
       | DetailedReactHTMLElement<InputProps, HTMLInputElement>
       | undefined
     const props = input?.props || {}
+
+    const field = useFormFieldControl()
     const inputRef = useRef<HTMLInputElement>(null!)
     const ref = useMergeRefs<HTMLInputElement>(input?.ref, inputRef)
     const [value, onChange] = useCombinedState<string | number | readonly string[] | undefined>(
@@ -69,12 +67,14 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const leadingIcon = findElement('InputGroup.LeadingIcon')
     const clearButton = findElement('InputGroup.ClearButton')
     const trailingAddon = findElement('InputGroup.TrailingAddon')
+    const state = field.state ?? stateProp
     const trailingIcon = state ? <InputStateIndicator /> : findElement('InputGroup.TrailingIcon')
     const hasLeadingAddon = !!leadingAddon
     const hasTrailingAddon = !!trailingAddon
     const hasLeadingIcon = !!leadingIcon
     const hasTrailingIcon = !!trailingIcon || !!state
     const hasClearButton = !!value && !!clearButton
+    const disabled = !!disabledProp
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
       onChange(event.target.value)
@@ -95,10 +95,10 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       }
     }
 
-    const contextValue = useMemo(() => {
+    const current = useMemo(() => {
       return {
         state,
-        disabled: !!disabled,
+        disabled,
         hasLeadingIcon,
         hasTrailingIcon,
         hasLeadingAddon,
@@ -118,16 +118,16 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     ])
 
     return (
-      <InputGroupContext.Provider value={contextValue}>
+      <InputGroupContext.Provider value={current}>
         <div
           ref={forwardRef}
-          className={styles({ disabled, className })}
+          className={inputGroupStyles({ disabled, className })}
           onKeyDown={hasClearButton ? handleKeyDown : onKeyDown}
           {...others}
         >
           {hasLeadingAddon && leadingAddon}
 
-          <div className="relative w-full">
+          <div className="relative inline-flex w-full">
             {input &&
               cloneElement(input, {
                 ref,

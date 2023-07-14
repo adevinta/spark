@@ -1,7 +1,7 @@
 import { AlertOutline } from '@spark-ui/icons/dist/icons/AlertOutline'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { WarningOutline } from '@spark-ui/icons/dist/icons/WarningOutline'
-import { ReactElement, ReactNode } from 'react'
+import { ReactElement } from 'react'
 
 import { useInputGroup } from './InputGroupContext'
 import { InputTrailingIcon, InputTrailingIconProps } from './InputTrailingIcon'
@@ -10,14 +10,13 @@ export interface InputStateIndicatorProps extends Omit<InputTrailingIconProps, '
   errorIcon?: ReactElement
   alertIcon?: ReactElement
   successIcon?: ReactElement
-  children?: ReactNode
 }
 
 export const InputStateIndicator = ({
   errorIcon = <AlertOutline />,
   alertIcon = <WarningOutline />,
   successIcon = <Check />,
-  ...rest
+  ...others
 }: InputStateIndicatorProps) => {
   const { state } = useInputGroup()
 
@@ -30,7 +29,7 @@ export const InputStateIndicator = ({
   }
 
   return (
-    <InputTrailingIcon intent={state} {...rest}>
+    <InputTrailingIcon intent={state} {...others}>
       {icons[state]}
     </InputTrailingIcon>
   )
