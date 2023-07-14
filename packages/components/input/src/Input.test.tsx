@@ -1,6 +1,8 @@
 import { FormField } from '@spark-ui/form-field'
-import { Icon } from '@spark-ui/icon'
+import { AlertOutline } from '@spark-ui/icons/dist/icons/AlertOutline'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
+import { Euro } from '@spark-ui/icons/dist/icons/Euro'
+import { WarningOutline } from '@spark-ui/icons/dist/icons/WarningOutline'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
@@ -69,9 +71,9 @@ describe('Input', () => {
 
     render(
       <InputGroup>
-        <InputGroup.LeftAddon>{leftText}</InputGroup.LeftAddon>
+        <InputGroup.LeadingAddon>{leftText}</InputGroup.LeadingAddon>
         <Input placeholder={placeholder} />
-        <InputGroup.RightAddon>{rightText}</InputGroup.RightAddon>
+        <InputGroup.TrailingAddon>{rightText}</InputGroup.TrailingAddon>
       </InputGroup>
     )
 
@@ -81,25 +83,88 @@ describe('Input', () => {
   })
 
   it('should render elements within group', () => {
-    const leftId = 'id'
-    const rightElement = '€'
+    const leftLabel = 'Check'
+    const rightLabel = 'Euro'
     const placeholder = 'Smartphone'
 
     render(
       <InputGroup>
-        <InputGroup.LeftElement>
-          <Icon>
-            <Check data-testid={leftId} />
-          </Icon>
-        </InputGroup.LeftElement>
+        <InputGroup.LeadingIcon label={leftLabel}>
+          <Check />
+        </InputGroup.LeadingIcon>
         <Input placeholder={placeholder} />
-        <InputGroup.RightElement>{rightElement}</InputGroup.RightElement>
+        <InputGroup.TrailingIcon label={rightLabel}>
+          <Euro />
+        </InputGroup.TrailingIcon>
       </InputGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()
-    expect(screen.getByTestId(leftId)).toBeInTheDocument()
-    expect(screen.getByText(rightElement)).toBeInTheDocument()
+    expect(screen.getByText(rightLabel)).toBeInTheDocument()
+    expect(screen.getByText(rightLabel)).toBeInTheDocument()
+  })
+
+  it('should render error state indicator', () => {
+    const label = 'Error'
+    const errorIcon = <AlertOutline title={label} />
+
+    render(
+      <InputGroup state="error">
+        <Input />
+        <InputGroup.StateIndicator errorIcon={errorIcon} />
+      </InputGroup>
+    )
+
+    expect(screen.getByText(label)).toBeInTheDocument()
+  })
+
+  it('should render alert state indicator', () => {
+    const label = 'Alert'
+    const alertIcon = <WarningOutline title={label} />
+
+    render(
+      <InputGroup state="alert">
+        <Input />
+        <InputGroup.StateIndicator alertIcon={alertIcon} />
+      </InputGroup>
+    )
+
+    expect(screen.getByText(label)).toBeInTheDocument()
+  })
+
+  it('should render success state indicator', () => {
+    const label = 'Success'
+    const successIcon = <Check title={label} />
+
+    render(
+      <InputGroup state="success">
+        <Input />
+        <InputGroup.StateIndicator successIcon={successIcon} />
+      </InputGroup>
+    )
+
+    expect(screen.getByText(label)).toBeInTheDocument()
+  })
+
+  it('should render state indicator instead of trailing icon where there is state', () => {
+    const stateLabel = 'Error'
+    const trailingLabel = 'Euro'
+    const errorIcon = <AlertOutline />
+
+    render(
+      <InputGroup state="error">
+        <Input />
+
+        <InputGroup.TrailingIcon label={trailingLabel}>
+          <Euro />
+        </InputGroup.TrailingIcon>
+
+        <InputGroup.StateIndicator label={stateLabel} errorIcon={errorIcon} />
+      </InputGroup>
+    )
+
+    expect(screen.queryByText(trailingLabel)).not.toBeInTheDocument()
+    expect(screen.getByText(stateLabel)).toBeInTheDocument()
   })
 
   it('should render label within field', () => {

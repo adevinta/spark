@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/adevinta/spark/compare/@spark-ui/input@0.10.0...@spark-ui/input@0.10.1) (2023-07-13)
+
+### Bug Fixes
+
+- **input:** input and addon hover styles issue ([854b0dc](https://github.com/adevinta/spark/commit/854b0dc19f2b0b4a5d072edb2976791b99161bf6))
+- **input:** update addon styles ([ddae3e8](https://github.com/adevinta/spark/commit/ddae3e8a507c2c4db613e554b65cdd72424bcd1d))
+
+# [0.10.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.9.0...@spark-ui/input@0.10.0) (2023-07-13)
+
+### Features
+
+- **input:** small code changes ([7b70625](https://github.com/adevinta/spark/commit/7b706259ae06eeb6fbd18461b75c1445b2dea4a3))
+
+# [0.9.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.8.0...@spark-ui/input@0.9.0) (2023-07-10)
+
+### Bug Fixes
+
+- **input:** missing labels on input stories ([9787b57](https://github.com/adevinta/spark/commit/9787b57417d06f613e46f76a9db2208d8c4e76a8))
+
+### Features
+
+- **input:** first iteration of border ([4aeb861](https://github.com/adevinta/spark/commit/4aeb861844d13437c8c1f9b4a97123512083b6b2))
+- **input:** remove not needed import ([9c59223](https://github.com/adevinta/spark/commit/9c5922328b8fd5b63a538a07c595321228ba86fb))
+
+# [0.8.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.7.0...@spark-ui/input@0.8.0) (2023-07-05)
+
+### Features
+
+- **input:** add textarea support ([d9e1e5c](https://github.com/adevinta/spark/commit/d9e1e5cce5706396294c174a8059d611aa1d5387))
+- **input:** improve input ([819745e](https://github.com/adevinta/spark/commit/819745e0ef01b6e40e58527012f77a599e1e1983))
+- **input:** inputgroup status indicator ([ccb8496](https://github.com/adevinta/spark/commit/ccb84969707d84e57e26ced43c372c6dca20b1bf))
+- **input:** update input with specs ([1e70954](https://github.com/adevinta/spark/commit/1e70954db26d242ad575888d456399e3535f51ae))
+
 # [0.7.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.6.2...@spark-ui/input@0.7.0) (2023-06-29)
 
 ### Bug Fixes

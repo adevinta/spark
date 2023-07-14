@@ -1,10 +1,10 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const radioGroupStyles = cva(['flex', 'gap-lg'], {
+export const radioGroupStyles = cva(['flex'], {
   variants: {
     orientation: {
-      horizontal: 'flex-row',
-      vertical: 'flex-col',
+      vertical: ['flex-col', 'gap-lg'],
+      horizontal: ['flex-row', 'gap-xl'],
     },
   },
 })

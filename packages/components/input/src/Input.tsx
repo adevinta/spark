@@ -1,23 +1,42 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
-import { forwardRef } from 'react'
+import { Slot } from '@spark-ui/slot'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
-import { inputStyles, InputStylesProps } from './Input.styles'
+import { inputStyles } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
-import { InputPrimitive, InputPrimitiveProps } from './InputPrimitive'
 
-export interface InputProps extends InputPrimitiveProps, InputStylesProps {}
+export interface InputProps extends ComponentPropsWithoutRef<'input'> {
+  asChild?: boolean
+}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className: classNameProp, intent: intentProp = 'neutral', ...others }, ref) => {
+  ({ className, asChild, ...others }, ref) => {
     const field = useFormFieldControl()
     const group = useInputGroup()
-    const isGrouped = !!group
-    const intent = field.state ?? intentProp
+
+    const { id, name, isInvalid, isRequired, description } = field
+    const { hasLeadingAddon, hasTrailingAddon, hasLeadingIcon, hasTrailingIcon } = group
+    const Component = asChild ? Slot : 'input'
+    const state = field.state ?? group.state
 
     return (
-      <InputPrimitive
+      <Component
         ref={ref}
-        className={inputStyles({ className: classNameProp, intent, isGrouped })}
+        id={id}
+        name={name}
+        className={inputStyles({
+          className,
+          intent: state,
+          isStandalone: !!group.isStandalone,
+          hasLeadingAddon: !!hasLeadingAddon,
+          hasTrailingAddon: !!hasTrailingAddon,
+          hasLeadingIcon: !!hasLeadingIcon,
+          hasTrailingIcon: !!hasTrailingIcon,
+        })}
+        disabled={group.disabled}
+        required={isRequired}
+        aria-describedby={description}
+        aria-invalid={isInvalid}
         {...others}
       />
     )

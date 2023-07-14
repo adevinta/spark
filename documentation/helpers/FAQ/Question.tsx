@@ -24,7 +24,7 @@ export function Question({ label }: Props) {
 
     dispatch({ type: 'TOGGLE_OPEN' })
     btnRef.current.scrollIntoView({ behavior: 'smooth' })
-  }, [])
+  }, [dispatch, slugifiedLabel])
 
   return (
     <dt className="py-lg">

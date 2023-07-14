@@ -12,7 +12,7 @@ export const floatingLabelStyles = cva(['absolute', 'z-base', 'transition-all', 
     /**
      * Boolean indicating there is an addon placed on the left side.
      */
-    isLeftAddonVisible: {
+    hasLeftAddon: {
       true: ['px-md'],
       false: [],
     },
@@ -35,7 +35,7 @@ export const floatingLabelStyles = cva(['absolute', 'z-base', 'transition-all', 
     {
       isExpanded: false,
       isLeftElementVisible: false,
-      isLeftAddonVisible: false,
+      hasLeftAddon: false,
       class: ['px-lg'],
     },
     {

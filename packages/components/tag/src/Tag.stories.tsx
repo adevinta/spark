@@ -24,7 +24,6 @@ const intents: TagProps['intent'][] = [
   'neutral',
 ]
 const designs: TagProps['design'][] = ['filled', 'outlined', 'tinted']
-const shapes: TagProps['shape'][] = ['rounded', 'square', 'pill']
 
 export const Default: StoryFn = _args => <Tag>Default tag</Tag>
 
@@ -45,18 +44,6 @@ export const Intent: StoryFn = _args => (
         {intent} tag
       </Tag>
     ))}
-  </div>
-)
-
-export const Shapes: StoryFn = _args => (
-  <div className="flex items-center gap-md">
-    {shapes.map(shape => {
-      return (
-        <Tag key={shape} shape={shape}>
-          {shape} tag
-        </Tag>
-      )
-    })}
   </div>
 )
 

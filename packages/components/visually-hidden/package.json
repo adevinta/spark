@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/visually-hidden",
-  "version": "0.4.24",
+  "version": "0.4.26",
   "description": "Hides content from the screen in an accessible way",
   "publishConfig": {
     "access": "public"
@@ -17,12 +17,12 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-visually-hidden": "1.0.2"
+    "@radix-ui/react-visually-hidden": "1.0.3"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
-    "tailwind": "^3.0.0"
+    "tailwindcss": "^3.0.0"
   },
   "bugs": {
     "url": "https://github.com/adevinta/spark/issues"

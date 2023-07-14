@@ -37,6 +37,8 @@ import { RadioGroup } from '@spark-ui/radio-group'
 
 ## Usage
 
+Radio label can be multiline. Still you should care of not using elements (for the label) with greater line height than the radio input height, to preserve vertical alignment.
+
 <Canvas of={RadioStories.Default} />
 
 ## Using a FormField
@@ -54,12 +56,6 @@ If you need to provide more context about the Radio group (for example, a helper
 Use `intent` prop to set the color of every radio inside the group. Optionally, you can set the `intent` in each radio component.
 
 <Canvas of={RadioStories.Intent} />
-
-## Size
-
-Use `size` prop to set the size of every radio inside the group. Optionally, you can set the `size` in each radio component.
-
-<Canvas of={RadioStories.Size} />
 
 ## Orientation
 

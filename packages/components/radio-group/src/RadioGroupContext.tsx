@@ -1,8 +1,8 @@
 import { createContext, useContext } from 'react'
 
-import { RadioInputProps } from './RadioInput'
+import type { RadioInputProps } from './RadioInput'
 
-export type RadioGroupContextState = Pick<RadioInputProps, 'intent' | 'size' | 'disabled'>
+export type RadioGroupContextState = Pick<RadioInputProps, 'intent' | 'disabled'>
 
 export const RadioGroupContext = createContext<RadioGroupContextState | null>(null)
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.26](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.4.25...@spark-ui/visually-hidden@0.4.26) (2023-07-10)
+
+**Note:** Version bump only for package @spark-ui/visually-hidden
+
+## [0.4.25](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.4.24...@spark-ui/visually-hidden@0.4.25) (2023-07-05)
+
+### Bug Fixes
+
+- **visually-hidden:** typo in peerdependency package name, from tailwind to tailwindcss ([484dd8d](https://github.com/adevinta/spark/commit/484dd8d8945bf3d981e7f99b68bacc2fb89dd270))
+
 ## [0.4.24](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@0.4.23...@spark-ui/visually-hidden@0.4.24) (2023-05-25)
 
 **Note:** Version bump only for package @spark-ui/visually-hidden

@@ -15,7 +15,7 @@ export const buttonStyles = cva(
     'box-border inline-flex items-center justify-center gap-md whitespace-nowrap',
     'px-lg',
     'text-body-1 font-bold',
-    'ring-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high [&:not(:focus-visible)]:ring-inset',
   ],
   {
     variants: {

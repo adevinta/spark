@@ -13,11 +13,29 @@ const meta: Meta<typeof RadioGroup> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <RadioGroup>
-    <RadioGroup.Radio value="1">First</RadioGroup.Radio>
-    <RadioGroup.Radio value="2">Second</RadioGroup.Radio>
-    <RadioGroup.Radio value="3">Third</RadioGroup.Radio>
-  </RadioGroup>
+  <div className="flex gap-lg">
+    <div className="w-1/2 shrink basis-auto">
+      <RadioGroup value="1">
+        <RadioGroup.Radio value="1">First</RadioGroup.Radio>
+        <RadioGroup.Radio value="2">Second</RadioGroup.Radio>
+        <RadioGroup.Radio value="3">Third</RadioGroup.Radio>
+      </RadioGroup>
+    </div>
+
+    <div className="w-1/2 shrink basis-auto">
+      <RadioGroup value="2">
+        <RadioGroup.Radio value="1">
+          First item from options list. You should choose wisely to avoid bad surprises.
+        </RadioGroup.Radio>
+        <RadioGroup.Radio value="2">
+          Second from options list. You should choose wisely to avoid bad surprises.
+        </RadioGroup.Radio>
+        <RadioGroup.Radio value="3">
+          Third from options list. You should choose wisely to avoid bad surprises.
+        </RadioGroup.Radio>
+      </RadioGroup>
+    </div>
+  </div>
 )
 
 export const Uncontrolled: StoryFn = _args => (
@@ -80,25 +98,6 @@ export const Orientation: StoryFn = _args => {
         <div key={orientation}>
           <StoryLabel>{orientation}</StoryLabel>
           <RadioGroup defaultValue="1" orientation={orientation}>
-            <RadioGroup.Radio value="1">First</RadioGroup.Radio>
-            <RadioGroup.Radio value="2">Second</RadioGroup.Radio>
-            <RadioGroup.Radio value="3">Third</RadioGroup.Radio>
-          </RadioGroup>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-const sizes: RadioGroupProps['size'][] = ['sm', 'md']
-
-export const Size: StoryFn = _args => {
-  return (
-    <div className="flex gap-xl">
-      {sizes.map(size => (
-        <div key={size}>
-          <StoryLabel>{size}</StoryLabel>
-          <RadioGroup defaultValue="1" size={size}>
             <RadioGroup.Radio value="1">First</RadioGroup.Radio>
             <RadioGroup.Radio value="2">Second</RadioGroup.Radio>
             <RadioGroup.Radio value="3">Third</RadioGroup.Radio>

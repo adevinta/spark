@@ -14,7 +14,20 @@ const meta: Meta<typeof Checkbox> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Checkbox>Accept terms and conditions</Checkbox>
+export const Default: StoryFn = _args => (
+  <div className="flex gap-lg">
+    <div className="w-1/2 shrink basis-auto">
+      <Checkbox>Accept terms and conditions</Checkbox>
+    </div>
+
+    <div className="w-1/2 shrink basis-auto">
+      <Checkbox>
+        Refuse terms and conditions, because you are so unhappy with it. There is no reason to
+        accept that, it’s unfair!
+      </Checkbox>
+    </div>
+  </div>
+)
 
 export const Disabled: StoryFn = _args => <Checkbox disabled>Accept terms and conditions</Checkbox>
 
