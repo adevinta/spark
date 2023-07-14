@@ -1,7 +1,11 @@
+/* eslint-disable complexity */
+
 import { useFormFieldControl } from '@spark-ui/form-field'
+import { useCombinedState } from '@spark-ui/use-combined-state'
 import { cva } from 'class-variance-authority'
 import {
   Children,
+  cloneElement,
   ComponentPropsWithoutRef,
   FC,
   forwardRef,
@@ -9,6 +13,7 @@ import {
   PropsWithChildren,
   ReactElement,
   useMemo,
+  useRef,
 } from 'react'
 
 import { InputGroupContext } from './InputGroupContext'
@@ -46,13 +51,22 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const clearButton = findElement('InputGroup.ClearButton')
     const trailingIcon = state ? <InputStateIndicator /> : findElement('InputGroup.TrailingIcon')
     const trailingAddon = findElement('InputGroup.TrailingAddon')
+    const inputRef = useRef<HTMLInputElement>(null!)
+    const [value, onChange] = useCombinedState(input?.props?.value, input?.props?.defaultValue)
 
     const hasLeadingAddon = !!leadingAddon
     const hasTrailingAddon = !!trailingAddon
     const hasLeadingIcon = !!leadingIcon
     const hasTrailingIcon = !!trailingIcon || !!state
+    const hasClearButton = value && !!clearButton
 
     const contextValue = useMemo(() => {
+      const onClear = () => {
+        inputRef.current.value = ''
+        inputRef.current.focus()
+        onChange('')
+      }
+
       return {
         state,
         disabled: !!disabled,
@@ -60,7 +74,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         hasTrailingIcon,
         hasLeadingAddon,
         hasTrailingAddon,
-        hasClearButton: !!clearButton,
+        hasClearButton,
+        onChange,
+        onClear,
       }
     }, [
       state,
@@ -69,7 +85,8 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       hasTrailingIcon,
       hasLeadingAddon,
       hasTrailingAddon,
-      clearButton,
+      hasClearButton,
+      onChange,
     ])
 
     return (
@@ -78,10 +95,10 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
           {hasLeadingAddon && leadingAddon}
 
           <div className="relative w-full">
-            {input}
+            {input && cloneElement(input, { ref: inputRef })}
             {leadingIcon}
             <div className="pointer-events-none absolute right-lg top-1/2 flex -translate-y-1/2 items-center gap-md">
-              {clearButton}
+              {hasClearButton && clearButton}
               {trailingIcon}
             </div>
           </div>

@@ -2,7 +2,9 @@ import { Icon } from '@spark-ui/icon'
 import { IconButton } from '@spark-ui/icon-button'
 import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
 import { cx } from 'class-variance-authority'
-import { forwardRef } from 'react'
+import { forwardRef, MouseEventHandler } from 'react'
+
+import { useInputGroup } from './InputGroupContext'
 
 export interface InputClearButtonProps {
   'aria-label': string
@@ -10,6 +12,7 @@ export interface InputClearButtonProps {
 
 export const InputClearButton = forwardRef<HTMLDivElement, InputClearButtonProps>(
   ({ 'aria-label': ariaLabel, ...others }, ref) => {
+    const group = useInputGroup()
     // const isControlled = true
 
     // const handleClear = () => {
@@ -20,6 +23,10 @@ export const InputClearButton = forwardRef<HTMLDivElement, InputClearButtonProps
     //   }
     // }
 
+    const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
+      group.onClear()
+    }
+
     return (
       <div ref={ref} className={cx('pointer-events-auto')} {...others}>
         <IconButton
@@ -28,9 +35,7 @@ export const InputClearButton = forwardRef<HTMLDivElement, InputClearButtonProps
           design="ghost"
           size="sm"
           aria-label={ariaLabel}
-          onClick={e => {
-            e.preventDefault()
-          }}
+          onClick={handleClick}
         >
           <Icon size="sm">
             <DeleteOutline />
