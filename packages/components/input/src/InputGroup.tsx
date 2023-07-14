@@ -13,10 +13,10 @@ import {
   FC,
   forwardRef,
   isValidElement,
-  KeyboardEventHandler,
   PropsWithChildren,
   ReactElement,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
 } from 'react'
@@ -38,7 +38,6 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       children: childrenProp,
       state: stateProp,
       disabled: disabledProp,
-      onKeyDown,
       onClear,
       ...others
     },
@@ -60,6 +59,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     const field = useFormFieldControl()
     const inputRef = useRef<HTMLInputElement>(null!)
+    const onClearRef = useRef(onClear)
     const ref = useMergeRefs<HTMLInputElement>(input?.ref, inputRef)
     const [value, onChange] = useCombinedState<InputProps['value']>(
       props.value,
@@ -89,24 +89,14 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     }
 
     const handleClear = useCallback(() => {
-      if (onClear) {
-        onClear()
+      if (onClearRef.current) {
+        onClearRef.current()
       }
 
       onChange('')
 
       inputRef.current.focus()
     }, [onChange])
-
-    const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = event => {
-      if (onKeyDown) {
-        onKeyDown(event)
-      }
-
-      if (event.key === 'Escape') {
-        handleClear()
-      }
-    }
 
     const current = useMemo(() => {
       return {
@@ -130,22 +120,20 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       handleClear,
     ])
 
+    useEffect(() => {
+      onClearRef.current = onClear
+    }, [onClear])
+
     return (
       <InputGroupContext.Provider value={current}>
-        <div
-          ref={forwardRef}
-          className={inputGroupStyles({ disabled, className })}
-          onKeyDown={hasClearButton ? handleKeyDown : onKeyDown}
-          {...others}
-        >
+        <div ref={forwardRef} className={inputGroupStyles({ disabled, className })} {...others}>
           {hasLeadingAddon && leadingAddon}
 
           <div className="relative inline-flex w-full">
             {input &&
               cloneElement(input, {
                 ref,
-                value,
-                defaultValue: undefined,
+                value: value ?? '',
                 onChange: handleChange,
               })}
 

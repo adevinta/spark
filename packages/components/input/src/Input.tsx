@@ -1,6 +1,11 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Slot } from '@spark-ui/slot'
-import { ChangeEventHandler, ComponentPropsWithoutRef, forwardRef } from 'react'
+import {
+  ChangeEventHandler,
+  ComponentPropsWithoutRef,
+  forwardRef,
+  KeyboardEventHandler,
+} from 'react'
 
 import { inputStyles } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
@@ -13,13 +18,19 @@ export interface InputProps extends InputPrimitiveProps {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, asChild, onValueChange, onChange, ...others }, ref) => {
+  ({ className, asChild, onValueChange, defaultValue, onChange, onKeyDown, ...others }, ref) => {
     const field = useFormFieldControl()
     const group = useInputGroup()
 
     const { id, name, isInvalid, isRequired, description } = field
-    const { hasLeadingAddon, hasTrailingAddon, hasLeadingIcon, hasTrailingIcon, hasClearButton } =
-      group
+    const {
+      hasLeadingAddon,
+      hasTrailingAddon,
+      hasLeadingIcon,
+      hasTrailingIcon,
+      hasClearButton,
+      onClear,
+    } = group
     const Component = asChild ? Slot : 'input'
     const state = field.state ?? group.state
 
@@ -30,6 +41,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
       if (onValueChange) {
         onValueChange(event.target.value)
+      }
+    }
+
+    const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = event => {
+      if (onKeyDown) {
+        onKeyDown(event)
+      }
+
+      if (hasClearButton && onClear && event.key === 'Escape') {
+        onClear()
       }
     }
 
@@ -53,6 +74,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         aria-describedby={description}
         aria-invalid={isInvalid}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
         {...others}
       />
     )
