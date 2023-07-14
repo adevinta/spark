@@ -21,7 +21,7 @@ export const InputClearButton = forwardRef<HTMLButtonElement, InputClearButtonPr
     },
     ref
   ) => {
-    const { onClear } = useInputGroup()
+    const { onClear, hasTrailingIcon } = useInputGroup()
 
     const handleClick: MouseEventHandler<HTMLButtonElement> = event => {
       if (onClick) {
@@ -36,7 +36,11 @@ export const InputClearButton = forwardRef<HTMLButtonElement, InputClearButtonPr
     return (
       <IconButton
         ref={ref}
-        className={cx(className, 'pointer-events-auto')}
+        className={cx(
+          className,
+          'absolute top-1/2 -translate-y-1/2 pointer-events-auto',
+          hasTrailingIcon ? 'right-3xl' : 'right-md'
+        )}
         tabIndex={tabIndex}
         intent={intent}
         design={design}

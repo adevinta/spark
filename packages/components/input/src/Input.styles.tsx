@@ -59,7 +59,7 @@ export const inputStyles = cva(
       {
         hasTrailingIcon: false,
         hasClearButton: true,
-        class: 'pr-3xl',
+        class: "pr-[calc(theme('spacing.xl')*2)]",
       },
       {
         hasTrailingIcon: true,

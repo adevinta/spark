@@ -138,10 +138,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
             {leadingIcon}
 
-            <div className="pointer-events-none absolute right-lg top-1/2 flex -translate-y-1/2 items-center gap-md">
-              {hasClearButton && clearButton}
-              {trailingIcon}
-            </div>
+            {hasClearButton && clearButton}
+
+            {trailingIcon}
           </div>
 
           {hasTrailingAddon && trailingAddon}

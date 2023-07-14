@@ -102,14 +102,14 @@ export const PasswordInputExample: StoryFn = _args => {
   )
 }
 
-export const SearchInputExample: StoryFn = _args => {
+export const SearchExample: StoryFn = _args => {
   return (
     <InputGroup className="max-w-sz-320">
       <InputGroup.LeadingIcon>
         <Search />
       </InputGroup.LeadingIcon>
 
-      <Input defaultValue="xfwe" />
+      <Input />
 
       <InputGroup.ClearButton aria-label="Clear value" />
 
