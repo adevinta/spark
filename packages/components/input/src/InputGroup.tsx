@@ -28,6 +28,7 @@ import { InputStateIndicator } from './InputStateIndicator'
 
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
   state?: 'error' | 'alert' | 'success'
+  onClear?: () => void
 }
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
@@ -38,6 +39,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       state: stateProp,
       disabled: disabledProp,
       onKeyDown,
+      onClear,
       ...others
     },
     forwardRef
@@ -59,16 +61,18 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const field = useFormFieldControl()
     const inputRef = useRef<HTMLInputElement>(null!)
     const ref = useMergeRefs<HTMLInputElement>(input?.ref, inputRef)
-    const [value, onChange] = useCombinedState<string | number | readonly string[] | undefined>(
+    const [value, onChange] = useCombinedState<InputProps['value']>(
       props.value,
-      props.defaultValue
+      props.defaultValue,
+      props.onValueChange
     )
+    const state = field.state ?? stateProp
     const leadingAddon = findElement('InputGroup.LeadingAddon')
     const leadingIcon = findElement('InputGroup.LeadingIcon')
     const clearButton = findElement('InputGroup.ClearButton')
     const trailingAddon = findElement('InputGroup.TrailingAddon')
-    const state = field.state ?? stateProp
-    const trailingIcon = state ? <InputStateIndicator /> : findElement('InputGroup.TrailingIcon')
+    const stateIndicator = findElement('InputGroup.StateIndicator') || <InputStateIndicator />
+    const trailingIcon = state ? stateIndicator : findElement('InputGroup.TrailingIcon')
     const hasLeadingAddon = !!leadingAddon
     const hasTrailingAddon = !!trailingAddon
     const hasLeadingIcon = !!leadingIcon
@@ -77,11 +81,20 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const disabled = !!disabledProp
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
+      if (props.onChange) {
+        props.onChange(event)
+      }
+
       onChange(event.target.value)
     }
 
     const handleClear = useCallback(() => {
+      if (onClear) {
+        onClear()
+      }
+
       onChange('')
+
       inputRef.current.focus()
     }, [onChange])
 

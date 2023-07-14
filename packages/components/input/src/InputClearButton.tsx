@@ -1,6 +1,6 @@
 import { Icon } from '@spark-ui/icon'
 import { IconButton, IconButtonProps } from '@spark-ui/icon-button'
-import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
+import { DeleteFill } from '@spark-ui/icons/dist/icons/DeleteFill'
 import { cx } from 'class-variance-authority'
 import { forwardRef, MouseEventHandler } from 'react'
 
@@ -49,7 +49,7 @@ export const InputClearButton = forwardRef<HTMLButtonElement, InputClearButtonPr
         {...others}
       >
         <Icon size="sm">
-          <DeleteOutline />
+          <DeleteFill />
         </Icon>
       </IconButton>
     )
