@@ -8,6 +8,7 @@ import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { EyeOffOutline } from '@spark-ui/icons/dist/icons/EyeOffOutline'
 import { EyeOutline } from '@spark-ui/icons/dist/icons/EyeOutline'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
+import { Search } from '@spark-ui/icons/dist/icons/Search'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, useState } from 'react'
@@ -104,12 +105,14 @@ export const PasswordInputExample: StoryFn = _args => {
 export const SearchInputExample: StoryFn = _args => {
   return (
     <InputGroup className="max-w-sz-320">
-      {/* <Input type="search" /> */}
-      <Input />
+      <InputGroup.LeadingIcon>
+        <Search />
+      </InputGroup.LeadingIcon>
+
+      <Input defaultValue="xfwe" />
+
       <InputGroup.ClearButton aria-label="Clear value" />
-      <InputGroup.TrailingIcon>
-        <Check />
-      </InputGroup.TrailingIcon>
+
       <InputGroup.TrailingAddon>
         <Button design="contrast">Search</Button>
       </InputGroup.TrailingAddon>

@@ -1,21 +1,28 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable complexity */
 
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { useCombinedState } from '@spark-ui/use-combined-state'
+import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cva } from 'class-variance-authority'
 import {
+  ChangeEventHandler,
   Children,
   cloneElement,
   ComponentPropsWithoutRef,
+  DetailedReactHTMLElement,
   FC,
   forwardRef,
   isValidElement,
+  KeyboardEventHandler,
   PropsWithChildren,
   ReactElement,
+  useCallback,
   useMemo,
   useRef,
 } from 'react'
 
+import { InputProps } from './Input'
 import { InputGroupContext } from './InputGroupContext'
 import { InputStateIndicator } from './InputStateIndicator'
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'> {
@@ -32,7 +39,10 @@ const styles = cva(['relative inline-flex w-full'], {
 })
 
 export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  ({ className, children: childrenProp, state: stateProp, disabled, ...others }, ref) => {
+  (
+    { className, children: childrenProp, state: stateProp, disabled, onKeyDown, ...others },
+    forwardRef
+  ) => {
     const field = useFormFieldControl()
     const children = Children.toArray(childrenProp).filter(isValidElement)
     const state = field.state ?? stateProp
@@ -45,28 +55,47 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       return children.find(child => values.includes(getDisplayName(child) || ''))
     }
 
+    const input = findElement('Input', 'Textarea') as
+      | DetailedReactHTMLElement<InputProps, HTMLInputElement>
+      | undefined
+    const props = input?.props || {}
+    const inputRef = useRef<HTMLInputElement>(null!)
+    const ref = useMergeRefs<HTMLInputElement>(input?.ref, inputRef)
+    const [value, onChange] = useCombinedState<string | number | readonly string[] | undefined>(
+      props.value,
+      props.defaultValue
+    )
     const leadingAddon = findElement('InputGroup.LeadingAddon')
     const leadingIcon = findElement('InputGroup.LeadingIcon')
-    const input = findElement('Input', 'Textarea')
     const clearButton = findElement('InputGroup.ClearButton')
-    const trailingIcon = state ? <InputStateIndicator /> : findElement('InputGroup.TrailingIcon')
     const trailingAddon = findElement('InputGroup.TrailingAddon')
-    const inputRef = useRef<HTMLInputElement>(null!)
-    const [value, onChange] = useCombinedState(input?.props?.value, input?.props?.defaultValue)
-
+    const trailingIcon = state ? <InputStateIndicator /> : findElement('InputGroup.TrailingIcon')
     const hasLeadingAddon = !!leadingAddon
     const hasTrailingAddon = !!trailingAddon
     const hasLeadingIcon = !!leadingIcon
     const hasTrailingIcon = !!trailingIcon || !!state
-    const hasClearButton = value && !!clearButton
+    const hasClearButton = !!value && !!clearButton
 
-    const contextValue = useMemo(() => {
-      const onClear = () => {
-        inputRef.current.value = ''
-        inputRef.current.focus()
-        onChange('')
+    const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
+      onChange(event.target.value)
+    }
+
+    const handleClear = useCallback(() => {
+      onChange('')
+      inputRef.current.focus()
+    }, [onChange])
+
+    const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = event => {
+      if (onKeyDown) {
+        onKeyDown(event)
       }
 
+      if (event.key === 'Escape') {
+        handleClear()
+      }
+    }
+
+    const contextValue = useMemo(() => {
       return {
         state,
         disabled: !!disabled,
@@ -75,8 +104,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         hasLeadingAddon,
         hasTrailingAddon,
         hasClearButton,
-        onChange,
-        onClear,
+        onClear: handleClear,
       }
     }, [
       state,
@@ -86,17 +114,30 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       hasLeadingAddon,
       hasTrailingAddon,
       hasClearButton,
-      onChange,
+      handleClear,
     ])
 
     return (
       <InputGroupContext.Provider value={contextValue}>
-        <div ref={ref} className={styles({ disabled, className })} {...others}>
+        <div
+          ref={forwardRef}
+          className={styles({ disabled, className })}
+          onKeyDown={hasClearButton ? handleKeyDown : onKeyDown}
+          {...others}
+        >
           {hasLeadingAddon && leadingAddon}
 
           <div className="relative w-full">
-            {input && cloneElement(input, { ref: inputRef })}
+            {input &&
+              cloneElement(input, {
+                ref,
+                value,
+                defaultValue: undefined,
+                onChange: handleChange,
+              })}
+
             {leadingIcon}
+
             <div className="pointer-events-none absolute right-lg top-1/2 flex -translate-y-1/2 items-center gap-md">
               {hasClearButton && clearButton}
               {trailingIcon}

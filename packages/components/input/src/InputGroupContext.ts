@@ -9,6 +9,7 @@ export interface InputGroupContext {
   hasClearButton: boolean
   state: null | undefined | 'error' | 'alert' | 'success'
   isStandalone?: boolean
+  onClear: () => void
 }
 
 export const InputGroupContext = createContext<Partial<InputGroupContext> | null>(null)
