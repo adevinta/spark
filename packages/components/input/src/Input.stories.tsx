@@ -76,7 +76,7 @@ export const Icons: StoryFn = () => {
   )
 }
 
-export const Password: StoryFn = _args => {
+export const PasswordExample: StoryFn = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   const handleToggle = () => {
@@ -85,7 +85,7 @@ export const Password: StoryFn = _args => {
 
   return (
     <InputGroup className="max-w-sz-320">
-      <Input type={isVisible ? 'text' : 'password'} aria-label="Password field" />
+      <Input type={isVisible ? 'text' : 'password'} aria-label="Password" />
 
       <InputGroup.TrailingAddon>
         <IconButton
@@ -108,7 +108,7 @@ export const SearchExample: StoryFn = _args => {
         <Search />
       </InputGroup.LeadingIcon>
 
-      <Input />
+      <Input aria-label="Searcher" />
 
       <InputGroup.ClearButton aria-label="Clear value" />
 
