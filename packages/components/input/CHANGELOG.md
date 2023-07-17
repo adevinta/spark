@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/adevinta/spark/compare/@spark-ui/input@0.10.1...@spark-ui/input@0.10.2) (2023-07-17)
+
+### Bug Fixes
+
+- **input:** minor safari style bug ([2019f3d](https://github.com/adevinta/spark/commit/2019f3de3a235fa3c87007e13b0a652a3882f400))
+
 ## [0.10.1](https://github.com/adevinta/spark/compare/@spark-ui/input@0.10.0...@spark-ui/input@0.10.1) (2023-07-13)
 
 ### Bug Fixes
