@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/label@1.4.4...@spark-ui/label@1.5.0) (2023-07-17)
+
+### Features
+
+- **label:** remove floating label ([05288a8](https://github.com/adevinta/spark/commit/05288a89793097fa5b5122aab66fa48a4d76e1a4))
+
 ## [1.4.4](https://github.com/adevinta/spark/compare/@spark-ui/label@1.4.3...@spark-ui/label@1.4.4) (2023-07-05)
 
 **Note:** Version bump only for package @spark-ui/label
