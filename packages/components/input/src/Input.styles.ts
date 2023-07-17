@@ -49,7 +49,7 @@ export const inputStyles = cva(
       {
         hasTrailingIcon: false,
         hasClearButton: false,
-        class: 'pr-none',
+        class: 'pr-lg',
       },
       {
         hasTrailingIcon: true,
