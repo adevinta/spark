@@ -39,7 +39,7 @@ export const InputClearButton = forwardRef<HTMLButtonElement, InputClearButtonPr
         className={cx(
           className,
           'absolute top-1/2 -translate-y-1/2 pointer-events-auto',
-          hasTrailingIcon ? 'right-3xl' : 'right-md'
+          hasTrailingIcon ? 'right-3xl' : 'right-sm'
         )}
         tabIndex={tabIndex}
         intent={intent}

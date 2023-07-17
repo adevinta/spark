@@ -61,9 +61,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const inputRef = useRef<HTMLInputElement>(null!)
     const onClearRef = useRef(onClear)
     const ref = useMergeRefs<HTMLInputElement>(input?.ref, inputRef)
-    const [value, onChange] = useCombinedState<InputProps['value']>(
-      props.value,
-      props.defaultValue,
+    const [value, onChange] = useCombinedState(
+      props.value as string,
+      props.defaultValue as string,
       props.onValueChange
     )
     const state = field.state ?? stateProp

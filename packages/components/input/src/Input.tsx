@@ -14,7 +14,7 @@ type InputPrimitiveProps = ComponentPropsWithoutRef<'input'>
 
 export interface InputProps extends InputPrimitiveProps {
   asChild?: boolean
-  onValueChange?: (value: InputPrimitiveProps['value']) => void
+  onValueChange?: (value: string) => void
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
