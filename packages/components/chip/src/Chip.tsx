@@ -82,7 +82,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
     const hasClearButton = findChipElement('Chip.ClearButton')
     const hasContent = findChipElement('Chip.Content')
 
-    const ChildrenWrapper = hasContent ? Fragment : ChipContent
+    const Content = hasContent ? Fragment : ChipContent
 
     return (
       <ChipContext.Provider value={{ disabled, design, intent }}>
@@ -101,7 +101,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
           }}
           data-spark-component="chip"
         >
-          <ChildrenWrapper>{children}</ChildrenWrapper>
+          <Content>{children}</Content>
         </ChipElement>
       </ChipContext.Provider>
     )
