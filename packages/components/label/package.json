@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/label",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "Renders an accessible label associated with controls",
   "publishConfig": {
     "access": "public"
