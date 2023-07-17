@@ -33,9 +33,11 @@ export const inputStyles = cva(
         true: 'disabled:opacity-dim-3',
       },
       hasLeadingAddon: {
+        true: ['rounded-l-none'],
         false: ['rounded-l-lg'],
       },
       hasTrailingAddon: {
+        true: ['rounded-r-none'],
         false: ['rounded-r-lg'],
       },
       hasLeadingIcon: {
