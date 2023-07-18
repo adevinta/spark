@@ -1,5 +1,6 @@
 import { FC } from 'react'
 
+import { InputClearButton } from './InputClearButton'
 import { InputGroup as Root, type InputGroupProps } from './InputGroup'
 import { InputLeadingAddon } from './InputLeadingAddon'
 import { InputLeadingIcon } from './InputLeadingIcon'
@@ -15,6 +16,7 @@ export { type InputTrailingIconProps } from './InputTrailingIcon'
 export { type InputLeadingAddonProps } from './InputLeadingAddon'
 export { type InputTrailingAddonProps } from './InputTrailingAddon'
 export { type InputStateIndicatorProps } from './InputStateIndicator'
+export { type InputClearButtonProps } from './InputClearButton'
 
 export const InputGroup: FC<InputGroupProps> & {
   LeadingAddon: typeof InputLeadingAddon
@@ -22,12 +24,14 @@ export const InputGroup: FC<InputGroupProps> & {
   LeadingIcon: typeof InputLeadingIcon
   TrailingIcon: typeof InputTrailingIcon
   StateIndicator: typeof InputStateIndicator
+  ClearButton: typeof InputClearButton
 } = Object.assign(Root, {
   LeadingAddon: InputLeadingAddon,
   TrailingAddon: InputTrailingAddon,
   LeadingIcon: InputLeadingIcon,
   TrailingIcon: InputTrailingIcon,
   StateIndicator: InputStateIndicator,
+  ClearButton: InputClearButton,
 })
 
 InputGroup.LeadingAddon.displayName = 'InputGroup.LeadingAddon'
@@ -35,3 +39,4 @@ InputGroup.TrailingAddon.displayName = 'InputGroup.TrailingAddon'
 InputGroup.LeadingIcon.displayName = 'InputGroup.LeadingIcon'
 InputGroup.TrailingIcon.displayName = 'InputGroup.TrailingIcon'
 InputGroup.StateIndicator.displayName = 'InputGroup.StateIndicator'
+InputGroup.ClearButton.displayName = 'InputGroup.ClearButton'
