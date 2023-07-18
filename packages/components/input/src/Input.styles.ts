@@ -2,6 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const inputStyles = cva(
   [
+    'relative',
     'ring-1 ring-inset',
     'peer',
     'box-border',
@@ -32,20 +33,42 @@ export const inputStyles = cva(
         true: 'disabled:opacity-dim-3',
       },
       hasLeadingAddon: {
+        true: ['rounded-l-none'],
         false: ['rounded-l-lg'],
       },
       hasTrailingAddon: {
+        true: ['rounded-r-none'],
         false: ['rounded-r-lg'],
       },
       hasLeadingIcon: {
         true: ['pl-3xl'],
         false: ['pl-lg'],
       },
-      hasTrailingIcon: {
-        true: ['pr-3xl'],
-        false: ['pr-lg'],
-      },
+      hasTrailingIcon: { true: '' },
+      hasClearButton: { true: '' },
     },
+    compoundVariants: [
+      {
+        hasTrailingIcon: false,
+        hasClearButton: false,
+        class: 'pr-lg',
+      },
+      {
+        hasTrailingIcon: true,
+        hasClearButton: false,
+        class: 'pr-3xl',
+      },
+      {
+        hasTrailingIcon: false,
+        hasClearButton: true,
+        class: 'pr-3xl',
+      },
+      {
+        hasTrailingIcon: true,
+        hasClearButton: true,
+        class: "pr-[calc(theme('spacing.3xl')*2)]",
+      },
+    ],
     defaultVariants: {
       intent: 'neutral',
     },
