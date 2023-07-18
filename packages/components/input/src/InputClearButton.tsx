@@ -5,7 +5,9 @@ import { ComponentPropsWithoutRef, forwardRef, MouseEventHandler } from 'react'
 
 import { useInputGroup } from './InputGroupContext'
 
-export type InputClearButtonProps = ComponentPropsWithoutRef<'button'>
+export interface InputClearButtonProps extends ComponentPropsWithoutRef<'button'> {
+  'aria-label': string
+}
 
 export const InputClearButton = forwardRef<HTMLButtonElement, InputClearButtonProps>(
   ({ className, tabIndex = -1, onClick, ...others }, ref) => {
