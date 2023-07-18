@@ -112,6 +112,27 @@ export const FieldHelperMessage: StoryFn = _args => {
   )
 }
 
+export const FieldCharacterCounter: StoryFn = _args => {
+  const MAX_LENGTH = 120
+  const [count, setCount] = useState(0)
+
+  return (
+    <FormField className="!gap-sm" name="title">
+      <FormField.Label>Title</FormField.Label>
+
+      <Textarea
+        rows={2}
+        maxLength={MAX_LENGTH}
+        onChange={event => {
+          setCount(event.target.value ? event.target.value.length : 0)
+        }}
+      />
+
+      <FormField.CharacterCounter count={count} maxCount={MAX_LENGTH} />
+    </FormField>
+  )
+}
+
 export const FieldInvalid: StoryFn = _args => {
   return (
     <FormField className="!gap-sm" name="title" state="error">
