@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.10.2...@spark-ui/input@0.11.0) (2023-07-17)
+
+### Features
+
+- **input:** add clear function ([838b177](https://github.com/adevinta/spark/commit/838b17739fb728fa354f52db28223eacb2313f5b))
+- **input:** add missing space ([b3bdac5](https://github.com/adevinta/spark/commit/b3bdac5f68f983b5f6530c6a78b1ec6768ae1f41))
+- **input:** clear button ([2471dea](https://github.com/adevinta/spark/commit/2471dea9b10cac379e05b8a65523c7b0681fd2b9))
+- **input:** finish on clear functionality ([212c46f](https://github.com/adevinta/spark/commit/212c46f3094f662d9c8aef846aacd6606c1ae70f))
+- **input:** improve clear button ([7786695](https://github.com/adevinta/spark/commit/77866959ed39dfd452d173e0fcf0bc22892ac327))
+- **input:** minor updates ([a84140c](https://github.com/adevinta/spark/commit/a84140cbf69af0905f24359eb0b04f50ff3712b9))
+- **input:** remove react warning ([2bb6d83](https://github.com/adevinta/spark/commit/2bb6d83100dcbbda818e2b0b0a0f8372b05a240e))
+- **input:** update dependencies ([2fe8319](https://github.com/adevinta/spark/commit/2fe8319a6a61fecb8dcc0d9152ddb897e08bcd86))
+- **input:** update group and add missing deps ([e31b5b0](https://github.com/adevinta/spark/commit/e31b5b0442e9f66e6800c0b3c523967f49578fc3))
+- **input:** update some minor issues ([2ae7708](https://github.com/adevinta/spark/commit/2ae770823cd28aad93367693c26d04999017e30e))
+
 ## [0.10.2](https://github.com/adevinta/spark/compare/@spark-ui/input@0.10.1...@spark-ui/input@0.10.2) (2023-07-17)
 
 ### Bug Fixes

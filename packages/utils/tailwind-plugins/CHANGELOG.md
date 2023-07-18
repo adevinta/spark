@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.13.0...@spark-ui/tailwind-plugins@2.14.0) (2023-07-17)
+
+### Features
+
+- **input:** clear button ([2471dea](https://github.com/adevinta/spark/commit/2471dea9b10cac379e05b8a65523c7b0681fd2b9))
+
 # [2.13.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@2.12.0...@spark-ui/tailwind-plugins@2.13.0) (2023-06-19)
 
 ### Features
