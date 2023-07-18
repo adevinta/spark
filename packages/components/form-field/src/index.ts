@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import { FormField as Root, FormFieldProps } from './FormField'
 import { FormFieldAlertMessage } from './FormFieldAlertMessage'
+import { FormFieldCharacterCounter } from './FormFieldCharacterCounter'
 import { FormFieldControl } from './FormFieldControl'
 import { FormFieldErrorMessage } from './FormFieldErrorMessage'
 import { FormFieldHelperMessage } from './FormFieldHelperMessage'
@@ -19,6 +20,7 @@ export { type FormFieldAlertMessageProps } from './FormFieldAlertMessage'
 export { type FormFieldErrorMessageProps } from './FormFieldErrorMessage'
 export { type FormFieldLabelProps } from './FormFieldLabel'
 export { type FormFieldRequiredIndicatorProps } from './FormFieldRequiredIndicator'
+export { type FormFieldCharacterCounterProps } from './FormFieldCharacterCounter'
 
 FormFieldLabel.displayName = 'FormField.Label'
 FormFieldControl.displayName = 'FormField.Control'
@@ -28,6 +30,7 @@ FormFieldAlertMessage.displayName = 'FormField.AlertMessage'
 FormFieldErrorMessage.displayName = 'FormField.ErrorMessage'
 FormFieldHelperMessage.displayName = 'FormField.HelperMessage'
 FormFieldRequiredIndicator.displayName = 'FormField.RequiredIndicator'
+FormFieldCharacterCounter.displayName = 'FormField.CharacterCounter'
 
 export const FormField: FC<FormFieldProps> & {
   Label: typeof FormFieldLabel
@@ -38,6 +41,7 @@ export const FormField: FC<FormFieldProps> & {
   ErrorMessage: typeof FormFieldErrorMessage
   HelperMessage: typeof FormFieldHelperMessage
   RequiredIndicator: typeof FormFieldRequiredIndicator
+  CharacterCounter: typeof FormFieldCharacterCounter
 } = Object.assign(Root, {
   Label: FormFieldLabel,
   Control: FormFieldControl,
@@ -47,4 +51,5 @@ export const FormField: FC<FormFieldProps> & {
   ErrorMessage: FormFieldErrorMessage,
   HelperMessage: FormFieldHelperMessage,
   RequiredIndicator: FormFieldRequiredIndicator,
+  CharacterCounter: FormFieldCharacterCounter,
 })
