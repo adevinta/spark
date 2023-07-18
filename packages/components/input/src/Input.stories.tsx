@@ -1,4 +1,5 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
+import { Button } from '@spark-ui/button'
 import { Checkbox } from '@spark-ui/checkbox'
 import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
@@ -7,6 +8,7 @@ import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { EyeOffOutline } from '@spark-ui/icons/dist/icons/EyeOffOutline'
 import { EyeOutline } from '@spark-ui/icons/dist/icons/EyeOutline'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
+import { Search } from '@spark-ui/icons/dist/icons/Search'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, useState } from 'react'
@@ -61,6 +63,7 @@ export const Icons: StoryFn = () => {
         </InputGroup.LeadingIcon>
 
         <Input placeholder="Type here..." />
+
         <InputGroup.TrailingIcon>
           <Check />
         </InputGroup.TrailingIcon>
@@ -73,7 +76,7 @@ export const Icons: StoryFn = () => {
   )
 }
 
-export const Password: StoryFn = _args => {
+export const PasswordExample: StoryFn = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   const handleToggle = () => {
@@ -82,9 +85,9 @@ export const Password: StoryFn = _args => {
 
   return (
     <InputGroup className="max-w-sz-320">
-      <Input type={isVisible ? 'text' : 'password'} aria-label="Password field" />
+      <Input type={isVisible ? 'text' : 'password'} aria-label="Password" />
 
-      <InputGroup.TrailingAddon asChild>
+      <InputGroup.TrailingAddon>
         <IconButton
           intent="neutral"
           design="ghost"
@@ -93,6 +96,24 @@ export const Password: StoryFn = _args => {
         >
           <Icon>{isVisible ? <EyeOffOutline /> : <EyeOutline />}</Icon>
         </IconButton>
+      </InputGroup.TrailingAddon>
+    </InputGroup>
+  )
+}
+
+export const SearchExample: StoryFn = _args => {
+  return (
+    <InputGroup className="max-w-sz-320">
+      <InputGroup.LeadingIcon>
+        <Search />
+      </InputGroup.LeadingIcon>
+
+      <Input aria-label="Searcher" />
+
+      <InputGroup.ClearButton aria-label="Clear value" />
+
+      <InputGroup.TrailingAddon>
+        <Button design="contrast">Search</Button>
       </InputGroup.TrailingAddon>
     </InputGroup>
   )
