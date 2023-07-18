@@ -112,7 +112,7 @@ export const FieldHelperMessage: StoryFn = _args => {
   )
 }
 
-export const FieldCharacterCounter: StoryFn = _args => {
+export const FieldCharactersCount: StoryFn = _args => {
   const MAX_LENGTH = 90
   const [value, setValue] = useState('')
 
