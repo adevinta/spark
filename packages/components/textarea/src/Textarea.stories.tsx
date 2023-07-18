@@ -116,7 +116,7 @@ export const FieldCharactersCount: StoryFn = _args => {
   const MAX_LENGTH = 90
   const [value, setValue] = useState('')
 
-  const handleChange = event => {
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value)
   }
 
