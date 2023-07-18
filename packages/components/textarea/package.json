@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/textarea",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "The textarea component allows you to easily create multi-line text inputs",
   "publishConfig": {
     "access": "public"
@@ -17,7 +17,7 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "@spark-ui/input": "^0.10.2"
+    "@spark-ui/input": "^0.11.0"
   },
   "repository": {
     "type": "git",
