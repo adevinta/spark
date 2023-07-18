@@ -11,7 +11,7 @@ interface Props<T> {
 
 const ComponentDescription = ({ name, children }: { name: string; children: ReactNode }) => {
   return (
-    <div className="rounded-t-lg bg-surface bg-gradient-to-b from-info via-transparent via-80% to-transparent p-[16px] pb-none text-on-surface">
+    <div className="rounded-t-lg bg-surface bg-gradient-to-b from-info p-lg pb-none text-on-surface">
       <div className="rounded-lg bg-surface px-lg py-md shadow-sm">
         <p className="mb-md text-body-1 font-bold">{`<${name} />`}</p>
         <p className="text-body-2 italic">{children}</p>
