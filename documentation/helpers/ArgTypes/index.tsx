@@ -9,11 +9,14 @@ interface Props<T> {
   subcomponents?: Record<string, any> | null
 }
 
-const ComponentDescription = ({ children }: { children: ReactNode }) => {
+const ComponentDescription = ({ name, children }: { name: string; children: ReactNode }) => {
   return (
-    <p className="rounded-md bg-primary-container px-lg py-md text-body-2 text-on-primary-container">
-      {children}
-    </p>
+    <div className="rounded-t-lg bg-surface bg-gradient-to-b from-info via-transparent via-80% to-transparent p-[16px] pb-none text-on-surface">
+      <div className="rounded-lg bg-surface px-lg py-md shadow-sm">
+        <p className="mb-md text-body-1 font-bold">{`<${name} />`}</p>
+        <p className="text-body-2 italic">{children}</p>
+      </div>
+    </div>
   )
 }
 
@@ -39,14 +42,14 @@ export const ArgTypes = <T extends FC>({ of, description, subcomponents = null }
       </Tabs.List>
 
       <Tabs.Content key={name} value={name} className="py-none">
-        {description && <ComponentDescription>{description}</ComponentDescription>}
+        {description && <ComponentDescription name={name}>{description}</ComponentDescription>}
         <StorybookArgTypes of={of} />
       </Tabs.Content>
 
       {subComponentsList.map(([name, { of, description }]) => {
         return (
           <Tabs.Content key={name} value={name} className="py-none">
-            {description && <ComponentDescription>{description}</ComponentDescription>}
+            {description && <ComponentDescription name={name}>{description}</ComponentDescription>}
             <StorybookArgTypes of={of} />
           </Tabs.Content>
         )
