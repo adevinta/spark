@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.11.1...@spark-ui/input@0.12.0) (2023-07-18)
+
+### Features
+
+- **input:** change icon button to be custom ([32d5928](https://github.com/adevinta/spark/commit/32d59283e35d1d1f18f01ea832c171791fb5c6db))
+- **input:** clear button aria label should be mandatory ([b548f79](https://github.com/adevinta/spark/commit/b548f7934a877251677a106b70186e60aced7e29))
+
 ## [0.11.1](https://github.com/adevinta/spark/compare/@spark-ui/input@0.11.0...@spark-ui/input@0.11.1) (2023-07-18)
 
 **Note:** Version bump only for package @spark-ui/input
