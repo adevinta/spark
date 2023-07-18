@@ -113,22 +113,29 @@ export const FieldHelperMessage: StoryFn = _args => {
 }
 
 export const FieldCharacterCounter: StoryFn = _args => {
-  const MAX_LENGTH = 120
-  const [count, setCount] = useState(0)
+  const MAX_LENGTH = 90
+  const [value, setValue] = useState('')
+
+  const handleChange = event => {
+    setValue(event.target.value)
+  }
 
   return (
-    <FormField className="!gap-sm" name="title">
-      <FormField.Label>Title</FormField.Label>
+    <FormField className="!gap-sm" name="Textarea with a characters count">
+      <FormField.Label>Textarea with a characters count</FormField.Label>
 
-      <Textarea
-        rows={2}
-        maxLength={MAX_LENGTH}
-        onChange={event => {
-          setCount(event.target.value ? event.target.value.length : 0)
-        }}
-      />
+      <Textarea value={value} onChange={handleChange} maxLength={MAX_LENGTH} />
 
-      <FormField.CharacterCounter count={count} maxCount={MAX_LENGTH} />
+      <div className="flex justify-between gap-md">
+        <div className="grow">
+          <FormField.HelperMessage>
+            Type the text but take into account the max length
+          </FormField.HelperMessage>
+          <FormField.ErrorMessage>This is an error</FormField.ErrorMessage>
+        </div>
+
+        <FormField.CharactersCount value={value} maxLength={MAX_LENGTH} />
+      </div>
     </FormField>
   )
 }
