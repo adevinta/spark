@@ -121,7 +121,7 @@ export const FieldCharactersCount: StoryFn = _args => {
   }
 
   return (
-    <FormField className="!gap-sm" name="Textarea with a characters count">
+    <FormField className="!gap-sm" name="textarea-with-a-characters-count">
       <FormField.Label>Textarea with a characters count</FormField.Label>
 
       <Textarea value={value} onChange={handleChange} maxLength={MAX_LENGTH} />
