@@ -198,6 +198,31 @@ export const FieldHelperMessage: StoryFn = _args => {
   )
 }
 
+export const FieldCharactersCount: StoryFn = _args => {
+  const MAX_LENGTH = 90
+  const [value, setValue] = useState('')
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <FormField className="!gap-sm" name="input-with-a-characters-count">
+      <FormField.Label>Input with a characters count</FormField.Label>
+
+      <Input value={value} onChange={handleChange} maxLength={MAX_LENGTH} />
+
+      <div className="flex justify-between gap-md">
+        <FormField.HelperMessage>
+          Type the text but take into account the max length
+        </FormField.HelperMessage>
+
+        <FormField.CharactersCount value={value} maxLength={MAX_LENGTH} />
+      </div>
+    </FormField>
+  )
+}
+
 export const FieldInvalid: StoryFn = _args => {
   return (
     <FormField name="title" state="error">
