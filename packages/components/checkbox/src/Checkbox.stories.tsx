@@ -1,10 +1,13 @@
 import { FormField } from '@spark-ui/form-field'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
 import { Plus } from '@spark-ui/icons/dist/icons/Plus'
+import { Label } from '@spark-ui/label'
+import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
+import { cx } from 'class-variance-authority'
 import { useState } from 'react'
 
-import { Checkbox } from './Checkbox'
+import { Checkbox, CheckboxProps } from './Checkbox'
 import { CheckboxGroup } from './CheckboxGroup'
 
 const meta: Meta<typeof Checkbox> = {
@@ -172,4 +175,90 @@ export const GroupImproved: StoryFn = () => {
       <FormField.ErrorMessage>The sport field is required.</FormField.ErrorMessage>
     </FormField>
   )
+}
+
+export const CustomImplementation: StoryFn = () => {
+  const CustomCheckbox = ({ children, checked, ...others }: CheckboxProps) => {
+    return (
+      <Label
+        className={cx(
+          'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
+          checked ? 'bg-success/dim-3' : '',
+          'focus-within:ring-1 focus-within:ring-outline-high',
+          'cursor-pointer'
+        )}
+      >
+        <Checkbox checked={checked} {...others} />
+        {children}
+      </Label>
+    )
+  }
+
+  const Example = () => {
+    const [checked, setChecked] = useState(['A'])
+
+    const values = ['A', 'B', 'C']
+
+    return (
+      <CheckboxGroup value={checked} name="sport" onCheckedChange={setChecked}>
+        {values.map(value => {
+          return (
+            <CustomCheckbox key={value} value={value} checked={checked.includes(value)}>
+              <div className="flex grow justify-between">
+                <span className="font-bold">{value}</span>
+                <span>this is {value}</span>
+              </div>
+              <div className="w-full text-right italic">some text</div>
+            </CustomCheckbox>
+          )
+        })}
+      </CheckboxGroup>
+    )
+  }
+
+  return <Example />
+}
+
+export const Invisible: StoryFn = () => {
+  const CustomCheckbox = ({ children, checked, ...others }: CheckboxProps) => {
+    return (
+      <Label
+        className={cx(
+          'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
+          checked ? 'bg-success/dim-3' : '',
+          'focus-within:ring-1 focus-within:ring-outline-high',
+          'cursor-pointer'
+        )}
+      >
+        <VisuallyHidden>
+          <Checkbox checked={checked} {...others} />
+        </VisuallyHidden>
+        {children}
+      </Label>
+    )
+  }
+
+  const Example = () => {
+    const [checked, setChecked] = useState(['A'])
+
+    const values = ['A', 'B', 'C']
+
+    return (
+      <CheckboxGroup value={checked} name="sport" onCheckedChange={setChecked}>
+        {values.map(value => {
+          return (
+            <CustomCheckbox key={value} value={value} checked={checked.includes(value)}>
+              <div className="flex grow justify-between">
+                <span className="font-bold">{value}</span>
+                <span>this is {value}</span>
+              </div>
+              <div className="w-full text-right italic">some text</div>
+            </CustomCheckbox>
+          )
+        })}
+      </CheckboxGroup>
+    )
+  }
+
+  return <Example />
 }
