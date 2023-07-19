@@ -207,7 +207,7 @@ export const FieldCharactersCount: StoryFn = _args => {
   }
 
   return (
-    <FormField className="!gap-sm" name="input-with-a-characters-count">
+    <FormField name="input-with-a-characters-count">
       <FormField.Label>Input with a characters count</FormField.Label>
 
       <Input value={value} onChange={handleChange} maxLength={MAX_LENGTH} />
