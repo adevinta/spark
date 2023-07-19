@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.6.5...@spark-ui/form-field@0.7.0) (2023-07-19)
+
+### Features
+
+- **form-field:** add character count subcomponent ([afef166](https://github.com/adevinta/spark/commit/afef1665a15560eeb80db24677ebd7210d50d11b))
+- **form-field:** update the characters count component ([5280a01](https://github.com/adevinta/spark/commit/5280a01c86bfeb10c463ead6df05b6671cf67aa4))
+
 ## [0.6.5](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.6.4...@spark-ui/form-field@0.6.5) (2023-07-19)
 
 **Note:** Version bump only for package @spark-ui/form-field
