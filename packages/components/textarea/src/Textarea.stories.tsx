@@ -68,7 +68,7 @@ export const GroupDisabled: StoryFn = _args => (
 
 export const FieldLabel: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title">
+    <FormField name="title">
       <FormField.Label>Title</FormField.Label>
 
       <Textarea rows={2} />
@@ -78,7 +78,7 @@ export const FieldLabel: StoryFn = _args => {
 
 export const FieldHiddenLabel: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title">
+    <FormField name="title">
       <FormField.Label>
         <VisuallyHidden>Title</VisuallyHidden>
       </FormField.Label>
@@ -90,7 +90,7 @@ export const FieldHiddenLabel: StoryFn = _args => {
 
 export const FieldRequired: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" isRequired>
+    <FormField name="title" isRequired>
       <FormField.Label>Title</FormField.Label>
 
       <Textarea rows={2} />
@@ -100,7 +100,7 @@ export const FieldRequired: StoryFn = _args => {
 
 export const FieldHelperMessage: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title">
+    <FormField name="title">
       <FormField.Label>Title</FormField.Label>
 
       <Textarea rows={2} />
@@ -121,7 +121,7 @@ export const FieldCharactersCount: StoryFn = _args => {
   }
 
   return (
-    <FormField className="!gap-sm" name="textarea-with-a-characters-count">
+    <FormField name="textarea-with-a-characters-count">
       <FormField.Label>Textarea with a characters count</FormField.Label>
 
       <Textarea value={value} onChange={handleChange} maxLength={MAX_LENGTH} />
@@ -142,7 +142,7 @@ export const FieldCharactersCount: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField className="!gap-sm" name="title" state="error">
+    <FormField name="title" state="error">
       <FormField.Label>Title</FormField.Label>
 
       <Textarea rows={2} />
