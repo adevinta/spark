@@ -4,8 +4,12 @@ import React, { ComponentPropsWithoutRef, forwardRef } from 'react'
 export type ChipContentProps = ComponentPropsWithoutRef<'span'>
 
 export const ChipContent = forwardRef<HTMLSpanElement, ChipContentProps>(
-  ({ children, className }) => {
-    return <span className={cx('inline-block grow truncate', className)}>{children}</span>
+  ({ children, className }, forwardedRef) => {
+    return (
+      <span className={cx('inline-block grow truncate', className)} ref={forwardedRef}>
+        {children}
+      </span>
+    )
   }
 )
 
