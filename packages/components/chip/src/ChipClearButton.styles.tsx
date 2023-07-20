@@ -1,7 +1,10 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
+// eslint-disable-next-line tailwindcss/no-custom-classname
 export const chipClearButtonWrapperStyles = cva(
-  ['flex h-full items-center justify-center', 'ml-md focus-visible:outline-none'],
+  [
+    'ml-md flex h-full items-center justify-center opacity-dim-3 hover:opacity-none focus-visible:outline-none',
+  ],
   {
     variants: {
       disabled: {
