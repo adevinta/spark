@@ -5,7 +5,7 @@ import { Label } from '@spark-ui/label'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
-import { useState } from 'react'
+import { useId, useState } from 'react'
 
 import { Checkbox, CheckboxProps } from './Checkbox'
 import { CheckboxGroup } from './CheckboxGroup'
@@ -179,16 +179,21 @@ export const GroupImproved: StoryFn = () => {
 
 export const CustomImplementation: StoryFn = () => {
   const CustomCheckbox = ({ children, checked, ...others }: CheckboxProps) => {
+    const id = useId()
+    const { value } = others
+
     return (
       <Label
+        id={id}
+        htmlFor={value}
         className={cx(
           'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
-          checked ? 'bg-success/dim-3' : '',
+          checked ? 'bg-success/dim-4' : '',
           'focus-within:ring-1 focus-within:ring-outline-high',
           'cursor-pointer'
         )}
       >
-        <Checkbox checked={checked} {...others} />
+        <Checkbox aria-labelledby={id} id={value} checked={checked} {...others} />
         {children}
       </Label>
     )
@@ -206,9 +211,9 @@ export const CustomImplementation: StoryFn = () => {
             <CustomCheckbox key={value} value={value} checked={checked.includes(value)}>
               <div className="flex grow justify-between">
                 <span className="font-bold">{value}</span>
-                <span>this is {value}</span>
+                <span>this is a custom</span>
               </div>
-              <div className="w-full text-right italic">some text</div>
+              <div className="w-full text-right italic">implementation of a checkbox</div>
             </CustomCheckbox>
           )
         })}
@@ -219,10 +224,15 @@ export const CustomImplementation: StoryFn = () => {
   return <Example />
 }
 
-export const Invisible: StoryFn = () => {
+export const InvisibleCheckbox: StoryFn = () => {
   const CustomCheckbox = ({ children, checked, ...others }: CheckboxProps) => {
+    const id = useId()
+    const { value } = others
+
     return (
       <Label
+        id={id}
+        htmlFor={value}
         className={cx(
           'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
           checked ? 'bg-success/dim-3' : '',
@@ -231,7 +241,7 @@ export const Invisible: StoryFn = () => {
         )}
       >
         <VisuallyHidden>
-          <Checkbox checked={checked} {...others} />
+          <Checkbox aria-labelledby={id} id={value} checked={checked} {...others} />
         </VisuallyHidden>
         {children}
       </Label>
@@ -239,9 +249,9 @@ export const Invisible: StoryFn = () => {
   }
 
   const Example = () => {
-    const [checked, setChecked] = useState(['A'])
+    const [checked, setChecked] = useState(['D'])
 
-    const values = ['A', 'B', 'C']
+    const values = ['D', 'E', 'F']
 
     return (
       <CheckboxGroup value={checked} name="sport" onCheckedChange={setChecked}>
@@ -250,9 +260,9 @@ export const Invisible: StoryFn = () => {
             <CustomCheckbox key={value} value={value} checked={checked.includes(value)}>
               <div className="flex grow justify-between">
                 <span className="font-bold">{value}</span>
-                <span>this is {value}</span>
+                <span>this is a custom</span>
               </div>
-              <div className="w-full text-right italic">some text</div>
+              <div className="w-full text-right italic">implementation of a checkbox</div>
             </CustomCheckbox>
           )
         })}
