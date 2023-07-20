@@ -16,14 +16,18 @@ export interface ChipClearButtonProps
 }
 
 export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>(
-  ({
-    onClick,
-    children = (
-      <Icon label="close" className="opacity-dim-3">
-        <DeleteFill />
-      </Icon>
-    ),
-  }) => {
+  (
+    {
+      onClick,
+      children = (
+        <Icon label="close" className="opacity-dim-3">
+          <DeleteFill />
+        </Icon>
+      ),
+      tabIndex = -1,
+    },
+    forwardedRef
+  ) => {
     const { design, disabled } = useChipContext()
 
     const onClearHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -38,8 +42,14 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
           disabled: !!disabled,
         })}
         onClick={onClearHandler}
+        ref={forwardedRef}
       >
-        <button type="button" disabled={!!disabled} className={chipClearButtonStyles({ disabled })}>
+        <button
+          tabIndex={tabIndex}
+          type="button"
+          disabled={!!disabled}
+          className={chipClearButtonStyles({ disabled })}
+        >
           {children}
         </button>
       </span>
