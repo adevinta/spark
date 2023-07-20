@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.12.2...@spark-ui/input@0.13.0) (2023-07-20)
+
+### Features
+
+- **input:** disabled input styles ([d7f876d](https://github.com/adevinta/spark/commit/d7f876da8f1eb89d65aae1d13ee56bf749a8fdf2))
+
 ## [0.12.2](https://github.com/adevinta/spark/compare/@spark-ui/input@0.12.1...@spark-ui/input@0.12.2) (2023-07-19)
 
 **Note:** Version bump only for package @spark-ui/input
