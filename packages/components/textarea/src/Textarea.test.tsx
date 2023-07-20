@@ -1,12 +1,11 @@
 import { FormField } from '@spark-ui/form-field'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Euro } from '@spark-ui/icons/dist/icons/Euro'
-import { InputGroup } from '@spark-ui/input'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 
-import { Textarea } from '.'
+import { Textarea, TextareaGroup } from '.'
 
 describe('Textarea', () => {
   it('should render', () => {
@@ -72,15 +71,17 @@ describe('Textarea', () => {
     const placeholder = 'Smartphone'
 
     render(
-      <InputGroup>
-        <InputGroup.LeadingIcon label={leftLabel}>
+      <TextareaGroup>
+        <TextareaGroup.LeadingIcon label={leftLabel}>
           <Check />
-        </InputGroup.LeadingIcon>
+        </TextareaGroup.LeadingIcon>
+
         <Textarea placeholder={placeholder} />
-        <InputGroup.TrailingIcon label={rightLabel}>
+
+        <TextareaGroup.TrailingIcon label={rightLabel}>
           <Euro />
-        </InputGroup.TrailingIcon>
-      </InputGroup>
+        </TextareaGroup.TrailingIcon>
+      </TextareaGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()

@@ -1,13 +1,11 @@
 import { FormField } from '@spark-ui/form-field'
-import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
-import { InputGroup } from '@spark-ui/input'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, useState } from 'react'
 
-import { Textarea } from '.'
+import { Textarea, TextareaGroup } from '.'
 
 const meta: Meta<typeof Textarea> = {
   title: 'Experimental/Textarea',
@@ -37,33 +35,31 @@ export const Disabled: StoryFn = _args => (
 )
 
 export const GroupElements: StoryFn = _args => (
-  <InputGroup>
-    <InputGroup.LeadingIcon>
-      <PenOutline />
-    </InputGroup.LeadingIcon>
+  <TextareaGroup>
+    <TextareaGroup.LeadingIcon>
+      <Check />
+    </TextareaGroup.LeadingIcon>
 
     <Textarea rows={2} aria-label="Message" />
 
-    <InputGroup.TrailingIcon>
+    <TextareaGroup.TrailingIcon>
       <Check />
-    </InputGroup.TrailingIcon>
-  </InputGroup>
+    </TextareaGroup.TrailingIcon>
+  </TextareaGroup>
 )
 
 export const GroupDisabled: StoryFn = _args => (
-  <InputGroup disabled>
-    <InputGroup.LeadingIcon>
-      <Icon>
-        <PenOutline />
-      </Icon>
-    </InputGroup.LeadingIcon>
+  <TextareaGroup disabled>
+    <TextareaGroup.LeadingIcon>
+      <PenOutline />
+    </TextareaGroup.LeadingIcon>
 
     <Textarea rows={2} aria-label="Message" />
 
-    <InputGroup.TrailingIcon>
+    <TextareaGroup.TrailingIcon>
       <Check />
-    </InputGroup.TrailingIcon>
-  </InputGroup>
+    </TextareaGroup.TrailingIcon>
+  </TextareaGroup>
 )
 
 export const FieldLabel: StoryFn = _args => {
