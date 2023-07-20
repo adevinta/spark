@@ -15,6 +15,7 @@ export const inputStyles = cva(
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
     'disabled:cursor-not-allowed',
+    'disabled:bg-on-surface/dim-5 disabled:text-on-surface/dim-3',
   ],
   {
     variants: {
@@ -28,9 +29,6 @@ export const inputStyles = cva(
         success: ['ring-success', 'ring-success'],
         alert: ['ring-alert', 'ring-alert'],
         error: ['ring-error', 'ring-error'],
-      },
-      isStandalone: {
-        true: 'disabled:opacity-dim-3',
       },
       hasLeadingAddon: {
         true: ['rounded-l-none'],
