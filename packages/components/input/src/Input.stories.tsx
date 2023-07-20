@@ -43,7 +43,7 @@ export const Disabled: StoryFn = _args => {
 
   return (
     <div className="flex flex-col gap-xl">
-      <Checkbox checked={isDisabled} onClick={() => setIsDisabled(!isDisabled)}>
+      <Checkbox checked={isDisabled} onClick={() => setIsDisabled(isDisabled => !isDisabled)}>
         Disabled
       </Checkbox>
 
@@ -53,7 +53,7 @@ export const Disabled: StoryFn = _args => {
           className="max-w-sz-320"
           aria-label="Website"
           disabled={isDisabled}
-          value="Hello world"
+          defaultValue="Hello world"
         />
       </div>
 
@@ -71,7 +71,7 @@ export const Disabled: StoryFn = _args => {
           <InputGroup.LeadingIcon>
             <PenOutline />
           </InputGroup.LeadingIcon>
-          <Input aria-label="Website" value="Hello world" />
+          <Input aria-label="Website" defaultValue="Hello world" />
           <InputGroup.TrailingAddon asChild>
             <IconButton intent="neutral" design="ghost" aria-label="Search">
               <Icon>
@@ -89,7 +89,7 @@ export const Disabled: StoryFn = _args => {
           <InputGroup.LeadingIcon>
             <PenOutline />
           </InputGroup.LeadingIcon>
-          <Input aria-label="Website" value="Hello world" />
+          <Input aria-label="Website" defaultValue="Hello world" />
           <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
         </InputGroup>
       </div>
@@ -100,7 +100,7 @@ export const Disabled: StoryFn = _args => {
           <InputGroup.LeadingIcon>
             <PenOutline />
           </InputGroup.LeadingIcon>
-          <Input aria-label="Website" value="Hello world" />
+          <Input aria-label="Website" defaultValue="Hello world" />
           <InputGroup.TrailingAddon>
             <Button size="sm">Button</Button>
           </InputGroup.TrailingAddon>
