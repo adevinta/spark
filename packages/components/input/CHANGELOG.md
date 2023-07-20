@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.13.0...@spark-ui/input@1.1.0) (2023-07-20)
+
+### Features
+
+- **input:** as child in addon should be optional ([646ee96](https://github.com/adevinta/spark/commit/646ee966e19311c4645ba4b8fed2ebbdbbe32f39))
+- **input:** release input ([68f9054](https://github.com/adevinta/spark/commit/68f9054328540a146b6a728393da93dcb8d48b98))
+
 # [0.13.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.12.2...@spark-ui/input@0.13.0) (2023-07-20)
 
 ### Features
