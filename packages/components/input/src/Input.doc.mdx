@@ -80,19 +80,13 @@ Use `value` and `onChange` props to control the value of the input.
 
 <Canvas of={stories.Controlled} />
 
-## Disabled
-
-Use `disabled` prop to indicate the input is disabled (set the prop on `InputGroup` instead if you are wrapping your `Input` with it)
-
-<Canvas of={stories.Disabled} />
-
 ## Addons
 
-Addons are sections before/after the input itself.
+Each `InputGroup` can have a `LeadingAddon` and a `TrailingAddon`.
 
 You can use them to achieve more complex custom inputs. Addons can be decorative or interactive.
 
-Addons are not considered part of the input itself and clicking on them won't move the focus to the input.
+**Note: we advise to use `solid` addons when possible to give the user a better clickable area**
 
 <Canvas of={stories.Addons} />
 
@@ -103,6 +97,12 @@ An `InputGroup` can have a `LeadingIcon` and/or `TrailingIcon`.
 Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
 
 <Canvas of={stories.Icons} />
+
+## Disabled
+
+To indicate that an input is disabled, use the `disabled` prop. If you're wrapping your `Input` with an `InputGroup`, set the prop on the `InputGroup` instead.
+
+<Canvas of={stories.Disabled} />
 
 ## State
 
