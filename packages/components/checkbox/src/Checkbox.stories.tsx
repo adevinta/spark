@@ -189,7 +189,6 @@ export const CustomImplementation: StoryFn = () => {
         className={cx(
           'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
           checked ? 'bg-success/dim-4' : '',
-          'focus-within:ring-1 focus-within:ring-outline-high',
           'cursor-pointer'
         )}
       >
@@ -236,7 +235,8 @@ export const InvisibleCheckbox: StoryFn = () => {
         className={cx(
           'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
           checked ? 'bg-success/dim-3' : '',
-          'focus-within:ring-1 focus-within:ring-outline-high',
+          'focus-within:ring-outline-high',
+          '[&:has(:focus-visible)]:focus-within:ring-2',
           'cursor-pointer'
         )}
       >
