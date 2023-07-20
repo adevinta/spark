@@ -1,9 +1,12 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { FormField } from '@spark-ui/form-field'
+import { Label } from '@spark-ui/label'
+import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
-import { useState } from 'react'
+import { cx } from 'class-variance-authority'
+import { useId, useState } from 'react'
 
-import { RadioGroup, RadioGroupProps } from '.'
+import { RadioGroup, RadioGroupProps, RadioProps } from '.'
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Components/RadioGroup',
@@ -115,6 +118,118 @@ export const Disabled: StoryFn = _args => (
     <RadioGroup.Radio value="3">Third</RadioGroup.Radio>
   </RadioGroup>
 )
+
+export const CustomImplementation: StoryFn = () => {
+  const CustomRadio = ({
+    children,
+    selectedValue,
+    ...others
+  }: RadioProps & { selectedValue: string }) => {
+    const id = useId()
+    const { value } = others
+
+    return (
+      <Label
+        id={id}
+        htmlFor={value}
+        className={cx(
+          'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
+          value === selectedValue ? 'bg-success/dim-4' : '',
+          'cursor-pointer'
+        )}
+      >
+        <RadioGroup.Radio aria-labelledby={id} id={value} {...others} />
+        {children}
+      </Label>
+    )
+  }
+
+  const Example = () => {
+    const [value, setValue] = useState<string>('')
+
+    function onValueChange(current: string) {
+      setValue(current)
+    }
+
+    const radios = ['A', 'B', 'C']
+
+    return (
+      <RadioGroup value={value} name="sport" onValueChange={onValueChange}>
+        {radios.map(radio => {
+          return (
+            <CustomRadio selectedValue={value} key={radio} value={radio}>
+              <div className="flex grow justify-between">
+                <span className="font-bold">{radio}</span>
+                <span>this is a custom</span>
+              </div>
+              <div className="w-full text-right italic">implementation of a radio</div>
+            </CustomRadio>
+          )
+        })}
+      </RadioGroup>
+    )
+  }
+
+  return <Example />
+}
+
+export const InvisibleRadioGroup: StoryFn = () => {
+  const CustomRadio = ({
+    children,
+    selectedValue,
+    ...others
+  }: RadioProps & { selectedValue: string }) => {
+    const id = useId()
+    const { value } = others
+
+    return (
+      <Label
+        id={id}
+        htmlFor={value}
+        className={cx(
+          'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
+          value === selectedValue ? 'bg-success/dim-4' : '',
+          'cursor-pointer',
+          'focus-within:ring-outline-high',
+          '[&:has(:focus-visible)]:focus-within:ring-2'
+        )}
+      >
+        <VisuallyHidden>
+          <RadioGroup.Radio aria-labelledby={id} id={value} {...others} />
+        </VisuallyHidden>
+        {children}
+      </Label>
+    )
+  }
+
+  const Example = () => {
+    const [value, setValue] = useState<string>('')
+
+    function onValueChange(current: string) {
+      setValue(current)
+    }
+
+    const radios = ['D', 'E', 'F']
+
+    return (
+      <RadioGroup value={value} name="sport" onValueChange={onValueChange}>
+        {radios.map(radio => {
+          return (
+            <CustomRadio selectedValue={value} key={radio} value={radio}>
+              <div className="flex grow justify-between">
+                <span className="font-bold">{radio}</span>
+                <span>this is a custom</span>
+              </div>
+              <div className="w-full text-right italic">implementation of a radio</div>
+            </CustomRadio>
+          )
+        })}
+      </RadioGroup>
+    )
+  }
+
+  return <Example />
+}
 
 export const WithFormField: StoryFn = _args => {
   const [value, setValue] = useState<string>()
