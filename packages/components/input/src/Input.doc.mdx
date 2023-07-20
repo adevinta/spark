@@ -82,11 +82,11 @@ Use `value` and `onChange` props to control the value of the input.
 
 ## Addons
 
-Addons are sections before/after the input itself.
+Each `InputGroup` can have a `LeadingAddon` and a `TrailingAddon`.
 
 You can use them to achieve more complex custom inputs. Addons can be decorative or interactive.
 
-Addons are not considered part of the input itself and clicking on them won't move the focus to the input.
+**Note: we advise to use `solid` addons when possible to give the user a better cliackable area**
 
 <Canvas of={stories.Addons} />
 

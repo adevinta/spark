@@ -1,21 +1,15 @@
 import { Slot } from '@spark-ui/slot'
 import { Children, type ComponentPropsWithoutRef, forwardRef, type PropsWithChildren } from 'react'
 
-import {
-  inputAddonContainerStyles,
-  inputAddonStyles,
-  type InputAddonStylesProps,
-} from './InputAddon.styles'
+import { inputAddonStyles, type InputAddonStylesProps } from './InputAddon.styles'
 import { useInputGroup } from './InputGroupContext'
 
 export interface InputAddonProps
   extends ComponentPropsWithoutRef<'div'>,
-    Omit<InputAddonStylesProps, 'intent' | 'disabled'> {
-  placement: 'left' | 'right'
-}
+    Omit<InputAddonStylesProps, 'intent' | 'disabled'> {}
 
 export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
-  ({ asChild: asChildProp = true, className, placement, children, ...others }, ref) => {
+  ({ asChild: asChildProp = true, className, children, ...others }, ref) => {
     const { state, disabled } = useInputGroup()
 
     const isRawText = typeof children === 'string'
@@ -32,22 +26,20 @@ export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddo
     const design = getDesign()
 
     return (
-      <div className={inputAddonContainerStyles({ disabled, placement })}>
-        <Component
-          ref={ref}
-          className={inputAddonStyles({
-            className,
-            intent: state,
-            disabled,
-            asChild,
-            design,
-          })}
-          {...(disabled && { tabIndex: -1 })}
-          {...others}
-        >
-          {child}
-        </Component>
-      </div>
+      <Component
+        ref={ref}
+        className={inputAddonStyles({
+          className,
+          intent: state,
+          disabled,
+          asChild,
+          design,
+        })}
+        {...(disabled && { tabIndex: -1 })}
+        {...others}
+      >
+        {child}
+      </Component>
     )
   }
 )

@@ -1,26 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const inputAddonContainerStyles = cva([''], {
-  variants: {
-    disabled: {
-      true: [
-        'relative',
-        'after:absolute',
-        'after:top-none',
-        'after:h-full',
-        // 'after:w-[calc(100%+1px)]',
-        'after:content-[""]',
-        'bg-on-surface/dim-5',
-      ],
-      false: 'after:hidden',
-    },
-    placement: {
-      left: ['rounded-l-lg', 'after:!right-[-1px]', 'after:rounded-l-lg'],
-      right: ['rounded-r-lg', 'after:!left-[-1px]', 'after:rounded-r-lg'],
-    },
-  },
-})
-
 export const inputAddonStyles = cva(
   [
     'overflow-hidden',
