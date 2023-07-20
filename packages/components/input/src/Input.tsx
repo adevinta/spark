@@ -62,7 +62,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         className={inputStyles({
           className,
           intent: state,
-          isStandalone: !!group.isStandalone,
           hasLeadingAddon: !!hasLeadingAddon,
           hasTrailingAddon: !!hasTrailingAddon,
           hasLeadingIcon: !!hasLeadingIcon,

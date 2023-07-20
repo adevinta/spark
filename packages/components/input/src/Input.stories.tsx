@@ -38,9 +38,77 @@ export const Controlled: StoryFn = () => {
   return <Input value={value} onChange={handleChange} aria-label="Phone type" />
 }
 
-export const Disabled: StoryFn = _args => (
-  <Input defaultValue="IPhone" disabled aria-label="Phone type" />
-)
+export const Disabled: StoryFn = _args => {
+  const [isDisabled, setIsDisabled] = useState(true)
+
+  return (
+    <div className="flex flex-col gap-xl">
+      <Checkbox checked={isDisabled} onClick={() => setIsDisabled(!isDisabled)}>
+        Disabled
+      </Checkbox>
+
+      <div>
+        <StoryLabel>Standalone input</StoryLabel>
+        <Input
+          className="max-w-sz-320"
+          aria-label="Website"
+          disabled={isDisabled}
+          value="Hello world"
+        />
+      </div>
+
+      <div>
+        <StoryLabel>Addons - solid</StoryLabel>
+        <InputGroup className="max-w-sz-320" disabled={isDisabled}>
+          <InputGroup.LeadingAddon asChild>
+            <IconButton intent="primary" design="filled" aria-label="Search">
+              <Icon>
+                <EyeOutline />
+              </Icon>
+            </IconButton>
+          </InputGroup.LeadingAddon>
+          <InputGroup.ClearButton aria-label="clear" />
+          <InputGroup.LeadingIcon>
+            <PenOutline />
+          </InputGroup.LeadingIcon>
+          <Input aria-label="Website" value="Hello world" />
+          <InputGroup.TrailingAddon asChild>
+            <IconButton intent="neutral" design="ghost" aria-label="Search">
+              <Icon>
+                <EyeOutline />
+              </Icon>
+            </IconButton>
+          </InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+
+      <div>
+        <StoryLabel>Addons - text</StoryLabel>
+        <InputGroup className="max-w-sz-320" disabled={isDisabled}>
+          <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
+          <InputGroup.LeadingIcon>
+            <PenOutline />
+          </InputGroup.LeadingIcon>
+          <Input aria-label="Website" value="Hello world" />
+          <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+
+      <div>
+        <StoryLabel>Addons - inline</StoryLabel>
+        <InputGroup className="max-w-sz-320" disabled={isDisabled}>
+          <InputGroup.LeadingIcon>
+            <PenOutline />
+          </InputGroup.LeadingIcon>
+          <Input aria-label="Website" value="Hello world" />
+          <InputGroup.TrailingAddon>
+            <Button size="sm">Button</Button>
+          </InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+    </div>
+  )
+}
 
 export const Addons: StoryFn = _args => {
   return (
@@ -87,7 +155,7 @@ export const PasswordExample: StoryFn = () => {
     <InputGroup className="max-w-sz-320">
       <Input type={isVisible ? 'text' : 'password'} aria-label="Password" />
 
-      <InputGroup.TrailingAddon>
+      <InputGroup.TrailingAddon asChild>
         <IconButton
           intent="neutral"
           design="ghost"
@@ -112,7 +180,7 @@ export const SearchExample: StoryFn = _args => {
 
       <InputGroup.ClearButton aria-label="Clear value" />
 
-      <InputGroup.TrailingAddon>
+      <InputGroup.TrailingAddon asChild>
         <Button design="contrast">Search</Button>
       </InputGroup.TrailingAddon>
     </InputGroup>
