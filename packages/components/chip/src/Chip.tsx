@@ -9,7 +9,6 @@ import React, {
 } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
-import { ChipContent } from './ChipContent'
 import { ChipContext } from './useChipContext'
 import { useChipElement } from './useChipElement'
 
@@ -21,8 +20,14 @@ const findElement =
   (children: React.ReactNode) =>
   (...values: string[]) => {
     const validChildren = Children.toArray(children).filter(isValidElement)
+    debugger
 
-    return validChildren.find(child => values.includes(getDisplayName(child) || ''))
+    return validChildren.find(child => {
+      const displayName = getDisplayName(child)
+      debugger
+
+      return values.includes(displayName || '')
+    })
   }
 
 export interface ChipProps
@@ -78,10 +83,11 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
 
     const findChipElement = findElement(children)
 
-    const hasClearButton = findChipElement('Chip.ClearButton')
-    const hasContent = findChipElement('Chip.Content')
+    const leadingIcon = findChipElement('Chip.LeadingIcon')
+    const content = findChipElement('Chip.Content')
+    const clearButton = findChipElement('Chip.ClearButton')
 
-    const Content = hasContent ? Fragment : ChipContent
+    console.log({ leadingIcon, content, clearButton })
 
     return (
       <ChipContext.Provider value={{ disabled, design, intent }}>
@@ -92,7 +98,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
             design,
             disabled,
             intent,
-            hasClearButton: !!hasClearButton,
+            hasClearButton: !!clearButton,
           })}
           {...{
             ...chipProps,
@@ -100,7 +106,9 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
           }}
           data-spark-component="chip"
         >
-          <Content>{children}</Content>
+          {leadingIcon}
+          {content || <span className="inline-block grow truncate">{children}</span>}
+          {clearButton}
         </ChipElement>
       </ChipContext.Provider>
     )
