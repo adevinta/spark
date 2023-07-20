@@ -112,11 +112,52 @@ export const Disabled: StoryFn = _args => {
 
 export const Addons: StoryFn = _args => {
   return (
-    <InputGroup className="max-w-sz-320">
-      <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
-      <Input aria-label="Website" />
-      <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
-    </InputGroup>
+    <div className="flex flex-col gap-xl">
+      <div className="flex flex-col gap-sm">
+        <StoryLabel>Solid</StoryLabel>
+        <InputGroup className="max-w-sz-320">
+          <InputGroup.LeadingAddon asChild>
+            <Button design="ghost" intent="neutral">
+              Click
+            </Button>
+          </InputGroup.LeadingAddon>
+          <Input aria-label="Website" />
+          <InputGroup.TrailingAddon asChild>
+            <IconButton intent="neutral" design="ghost" aria-label="Search">
+              <Icon>
+                <Search />
+              </Icon>
+            </IconButton>
+          </InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+
+      <div className="flex flex-col gap-sm">
+        <StoryLabel>Inline</StoryLabel>
+        <InputGroup className="max-w-sz-320">
+          <InputGroup.LeadingAddon className="px-lg">
+            <Button size="sm">Click</Button>
+          </InputGroup.LeadingAddon>
+          <Input aria-label="Website" />
+          <InputGroup.TrailingAddon className="px-lg">
+            <IconButton size="sm" aria-label="Search">
+              <Icon size="sm">
+                <Search />
+              </Icon>
+            </IconButton>
+          </InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+
+      <div className="flex flex-col gap-sm">
+        <StoryLabel>Raw text</StoryLabel>
+        <InputGroup className="max-w-sz-320">
+          <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
+          <Input aria-label="Website" />
+          <InputGroup.TrailingAddon className="px-lg">.com</InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+    </div>
   )
 }
 
