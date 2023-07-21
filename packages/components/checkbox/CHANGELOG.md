@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.17.18...@spark-ui/checkbox@1.18.0) (2023-07-21)
+
+### Features
+
+- **checkbox:** update checkbox styles to allow full label width ([db13bf0](https://github.com/adevinta/spark/commit/db13bf05be9c485c1859b6574cc96c651f204c33))
+
 ## [1.17.18](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.17.17...@spark-ui/checkbox@1.17.18) (2023-07-21)
 
 **Note:** Version bump only for package @spark-ui/checkbox
