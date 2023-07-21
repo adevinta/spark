@@ -6,4 +6,5 @@ export const TextareaTrailingIcon = (props: InputTrailingIconProps) => {
   return <InputGroup.TrailingIcon {...props} />
 }
 
-TextareaTrailingIcon.type = 'TrailingIcon'
+TextareaTrailingIcon.id = InputGroup.TrailingIcon.id
+TextareaTrailingIcon.displayName = 'TextareaGroup.TrailingIcon'

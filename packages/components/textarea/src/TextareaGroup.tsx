@@ -5,3 +5,5 @@ export type TextareaGroupProps = InputGroupProps
 export const TextareaGroup = (props: InputGroupProps) => {
   return <InputGroup {...props} />
 }
+
+TextareaGroup.displayName = 'TextareaGroup'

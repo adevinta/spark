@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
 export type TextareaProps = ComponentPropsWithoutRef<'textarea'>
 
-export const Textarea = forwardRef<HTMLTextAreaElement, PropsWithChildren<TextareaProps>>(
+const Root = forwardRef<HTMLTextAreaElement, PropsWithChildren<TextareaProps>>(
   ({ className, disabled, rows = 1, ...others }, ref) => {
     return (
       <Input className={cx(className, 'py-[var(--sz-10)] resize-y')} disabled={disabled} asChild>
@@ -13,5 +13,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, PropsWithChildren<Textar
     )
   }
 )
+
+export const Textarea = Object.assign(Root, {
+  id: Input.id,
+})
 
 Textarea.displayName = 'Textarea'

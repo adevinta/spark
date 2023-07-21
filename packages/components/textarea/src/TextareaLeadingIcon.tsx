@@ -6,4 +6,5 @@ export const TextareaLeadingIcon = (props: InputLeadingIconProps) => {
   return <InputGroup.LeadingIcon {...props} />
 }
 
-TextareaLeadingIcon.type = 'LeadingIcon'
+TextareaLeadingIcon.id = InputGroup.LeadingIcon.id
+TextareaLeadingIcon.displayName = 'TextareaGroup.LeadingIcon'
