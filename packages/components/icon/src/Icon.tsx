@@ -1,9 +1,9 @@
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
-import { Children, cloneElement, ReactNode } from 'react'
+import { Children, cloneElement, ComponentPropsWithoutRef, ReactNode } from 'react'
 
 import { iconStyles, IconVariantsProps } from './Icon.styles'
 
-export interface IconProps extends IconVariantsProps, React.SVGProps<SVGElement> {
+export interface IconProps extends IconVariantsProps, ComponentPropsWithoutRef<'svg'> {
   /**
    * The svg icon that will be wrapped
    */
@@ -15,14 +15,14 @@ export interface IconProps extends IconVariantsProps, React.SVGProps<SVGElement>
   label?: string
 }
 
-export function Icon({
+export const Icon = ({
   label,
   className,
   size = 'current',
   intent = 'current',
   children,
   ...others
-}: IconProps) {
+}: IconProps) => {
   const child = Children.only(children)
 
   return (
