@@ -30,12 +30,37 @@ import { Input, InputGroup } from '@spark-ui/input'
 
 <ExtendedArgTypes
   of={Input}
+  description="Input component is a component that is used to get user input in a text field."
   subcomponents={{
-    InputGroup: { of: InputGroup },
-    'InputGroup.LeadingAddon': { of: InputGroup.LeadingAddon },
-    'InputGroup.LeadingIcon': { of: InputGroup.LeadingIcon },
-    'InputGroup.TrailingAddon': { of: InputGroup.TrailingAddon },
-    'InputGroup.TrailingIcon': { of: InputGroup.TrailingIcon },
+    InputGroup: {
+      of: InputGroup,
+      description:
+        'Use this wrapper whenever you need a more complex text input. For example if you need to have leading/trailing icons or addons.',
+    },
+    'InputGroup.LeadingAddon': {
+      of: InputGroup.LeadingAddon,
+      description:
+        'Add any type of component that will be displayed before the input field.\n This provides flexibility to include additional elements, such as buttons or dropdowns, to enhance the user interface and provide clear context or guidance to the user.',
+    },
+    'InputGroup.LeadingIcon': {
+      of: InputGroup.LeadingIcon,
+      description: 'Prepend a decorative icon inside the input (to the left).',
+    },
+    'InputGroup.TrailingAddon': {
+      of: InputGroup.TrailingAddon,
+      description:
+        'Add any type of component that will be displayed after the input field. This provides flexibility to include additional elements, such as buttons or dropdowns, to enhance the user interface and provide clear context or guidance to the user.',
+    },
+    'InputGroup.TrailingIcon': {
+      of: InputGroup.TrailingIcon,
+      description:
+        'Append a decorative icon inside the input (to the right). This element will be replaced by a status indicator whenever the input is in error/alert/success state.',
+    },
+    'InputGroup.ClearButton': {
+      of: InputGroup.ClearButton,
+      description:
+        'Clears the input value. Only for search inputs. This button will be shown when the user has typed something in the input.',
+    },
   }}
 />
 
@@ -55,19 +80,13 @@ Use `value` and `onChange` props to control the value of the input.
 
 <Canvas of={stories.Controlled} />
 
-## Disabled
-
-Use `disabled` prop to indicate the input is disabled (set the prop on `InputGroup` instead if you are wrapping your `Input` with it)
-
-<Canvas of={stories.Disabled} />
-
 ## Addons
 
-Addons are sections before/after the input itself.
+Each `InputGroup` can have a `LeadingAddon` and a `TrailingAddon`.
 
 You can use them to achieve more complex custom inputs. Addons can be decorative or interactive.
 
-Addons are not considered part of the input itself and clicking on them won't move the focus to the input.
+**Note: we advise to use `solid` addons when possible to give the user a better clickable area**
 
 <Canvas of={stories.Addons} />
 
@@ -78,6 +97,12 @@ An `InputGroup` can have a `LeadingIcon` and/or `TrailingIcon`.
 Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
 
 <Canvas of={stories.Icons} />
+
+## Disabled
+
+To indicate that an input is disabled, use the `disabled` prop. If you're wrapping your `Input` with an `InputGroup`, set the prop on the `InputGroup` instead.
+
+<Canvas of={stories.Disabled} />
 
 ## State
 
@@ -124,6 +149,12 @@ Use the `isRequired` prop of the `FormField` to indicate that the input is requi
 Use the `FormField.HelperMessage` component to provide a description to the input.
 
 <Canvas of={stories.FieldHelperMessage} />
+
+### Characters count
+
+Use the `FormField.CharactersCount` component to display the actual text count and the max length allowed.
+
+<Canvas of={stories.FieldCharactersCount} />
 
 ### Validation
 

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.13.0...@spark-ui/input@1.1.0) (2023-07-20)
+
+### Features
+
+- **input:** as child in addon should be optional ([646ee96](https://github.com/adevinta/spark/commit/646ee966e19311c4645ba4b8fed2ebbdbbe32f39))
+- **input:** release input ([68f9054](https://github.com/adevinta/spark/commit/68f9054328540a146b6a728393da93dcb8d48b98))
+
+# [0.13.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.12.2...@spark-ui/input@0.13.0) (2023-07-20)
+
+### Features
+
+- **input:** disabled input styles ([d7f876d](https://github.com/adevinta/spark/commit/d7f876da8f1eb89d65aae1d13ee56bf749a8fdf2))
+
+## [0.12.2](https://github.com/adevinta/spark/compare/@spark-ui/input@0.12.1...@spark-ui/input@0.12.2) (2023-07-19)
+
+**Note:** Version bump only for package @spark-ui/input
+
+## [0.12.1](https://github.com/adevinta/spark/compare/@spark-ui/input@0.12.0...@spark-ui/input@0.12.1) (2023-07-19)
+
+**Note:** Version bump only for package @spark-ui/input
+
 # [0.12.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.11.1...@spark-ui/input@0.12.0) (2023-07-18)
 
 ### Features
