@@ -25,11 +25,11 @@ export default meta
 export const Usage: StoryFn = _args => <Input placeholder="Type here..." aria-label="Phone type" />
 
 export const Uncontrolled: StoryFn = _args => (
-  <Input defaultValue="IPhone 12" aria-label="Phone type" />
+  <Input defaultValue="iPhone 12" aria-label="Phone type" />
 )
 
 export const Controlled: StoryFn = () => {
-  const [value, setValue] = useState('IPhone 13')
+  const [value, setValue] = useState('iPhone 13')
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
@@ -37,6 +37,16 @@ export const Controlled: StoryFn = () => {
 
   return <Input value={value} onChange={handleChange} aria-label="Phone type" />
 }
+
+export const ReadOnly: StoryFn = _args => (
+  <InputGroup className="max-w-sz-320">
+    <InputGroup.LeadingIcon>
+      <PenOutline />
+    </InputGroup.LeadingIcon>
+
+    <Input defaultValue="iPhone" readOnly aria-label="Phone type" />
+  </InputGroup>
+)
 
 export const Disabled: StoryFn = _args => {
   const [isDisabled, setIsDisabled] = useState(true)

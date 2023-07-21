@@ -16,6 +16,8 @@ export const inputStyles = cva(
     'autofill:shadow-[inset_0_0_0px_1000px]',
     'disabled:cursor-not-allowed',
     'disabled:bg-on-surface/dim-5 disabled:text-on-surface/dim-3',
+    'read-only:cursor-text',
+    'read-only:border-on-surface/dim-3 read-only:bg-on-surface/dim-5',
   ],
   {
     variants: {
