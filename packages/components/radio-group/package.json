@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/radio-group",
-  "version": "1.3.9",
+  "version": "1.3.10",
   "description": "Component used when only one choice may be selected in a series of options",
   "publishConfig": {
     "access": "public"
