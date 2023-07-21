@@ -30,4 +30,4 @@ export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddo
   }
 )
 
-InputAddon.displayName = 'InputAddon'
+InputAddon.displayName = 'InputGroup.Addon'

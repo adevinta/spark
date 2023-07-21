@@ -35,4 +35,5 @@ export const InputStateIndicator = ({
   )
 }
 
+InputStateIndicator.id = 'StateIndicator'
 InputStateIndicator.displayName = 'InputGroup.StateIndicator'

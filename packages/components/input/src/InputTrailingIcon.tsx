@@ -8,4 +8,5 @@ export const InputTrailingIcon = ({ className, ...others }: InputTrailingIconPro
   <InputIcon className={cx(className, 'right-lg')} {...others} />
 )
 
+InputTrailingIcon.id = 'TrailingIcon'
 InputTrailingIcon.displayName = 'InputGroup.TrailingIcon'

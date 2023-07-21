@@ -5,7 +5,7 @@ import { InputAddon, InputAddonProps } from './InputAddon'
 
 export type InputTrailingAddonProps = InputAddonProps
 
-export const InputTrailingAddon = forwardRef<HTMLDivElement, InputTrailingAddonProps>(
+const Root = forwardRef<HTMLDivElement, InputTrailingAddonProps>(
   ({ className, ...others }, ref) => (
     <InputAddon
       ref={ref}
@@ -14,5 +14,9 @@ export const InputTrailingAddon = forwardRef<HTMLDivElement, InputTrailingAddonP
     />
   )
 )
+
+export const InputTrailingAddon = Object.assign(Root, {
+  id: 'TrailingAddon',
+})
 
 InputTrailingAddon.displayName = 'InputGroup.TrailingAddon'
