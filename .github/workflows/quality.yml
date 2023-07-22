@@ -1,7 +1,11 @@
 name: quality
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - 'canary/**'
+
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
