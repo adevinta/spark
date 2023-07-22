@@ -1,34 +1,8 @@
-import React, {
-  ButtonHTMLAttributes,
-  Children,
-  FC,
-  forwardRef,
-  isValidElement,
-  PropsWithChildren,
-  ReactElement,
-} from 'react'
+import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
 import { ChipContext } from './useChipContext'
 import { useChipElement } from './useChipElement'
-
-const getDisplayName = (element?: ReactElement) => {
-  return element ? (element.type as FC).displayName : ''
-}
-
-const findElement =
-  (children: React.ReactNode) =>
-  (...values: string[]) => {
-    const validChildren = Children.toArray(children).filter(isValidElement)
-    debugger
-
-    return validChildren.find(child => {
-      const displayName = getDisplayName(child)
-      debugger
-
-      return values.includes(displayName || '')
-    })
-  }
 
 export interface ChipProps
   extends PropsWithChildren<
@@ -52,9 +26,8 @@ export interface ChipProps
    */
   onClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    args: { pressed: boolean }
+    args: { pressed: boolean; value?: number | string | readonly string[] }
   ) => void
-  onClose?: React.MouseEventHandler<HTMLSpanElement>
 }
 
 export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
@@ -73,21 +46,22 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
     },
     forwardedRef
   ) => {
-    const { Element: ChipElement, chipProps } = useChipElement({
+    const {
+      Element: ChipElement,
+      chipProps: { children: formattedChildren, ...chipProps },
+      compoundElements,
+    } = useChipElement({
       asChild,
       pressed,
       defaultPressed,
       onClick,
       disabled: !!disabled,
+      value: otherProps.value,
+      defaultValue: otherProps.defaultValue,
+      children,
     })
 
-    const findChipElement = findElement(children)
-
-    const leadingIcon = findChipElement('Chip.LeadingIcon')
-    const content = findChipElement('Chip.Content')
-    const clearButton = findChipElement('Chip.ClearButton')
-
-    console.log({ leadingIcon, content, clearButton })
+    const { clearButton } = compoundElements
 
     return (
       <ChipContext.Provider value={{ disabled, design, intent }}>
@@ -106,9 +80,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
           }}
           data-spark-component="chip"
         >
-          {leadingIcon}
-          {content || <span className="inline-block grow truncate">{children}</span>}
-          {clearButton}
+          {formattedChildren}
         </ChipElement>
       </ChipContext.Provider>
     )
