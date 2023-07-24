@@ -1,7 +1,7 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
 
-import { Textarea } from '.'
+import { Textarea, TextareaGroup } from '.'
 
 import * as stories from './Textarea.stories'
 
@@ -25,7 +25,26 @@ import { Textarea } from '@spark-ui/textarea'
 
 ## Props
 
-<ArgTypes of={Textarea} />
+<ExtendedArgTypes
+  of={Textarea}
+  description="The textarea component allows you to easily create multi-line text inputs."
+  subcomponents={{
+    TextareaGroup: {
+      of: TextareaGroup,
+      description:
+        'Use this wrapper whenever you need a more complex textarea. For example if you need to have leading/trailing icons.',
+    },
+    'TextareaGroup.LeadingIcon': {
+      of: TextareaGroup.LeadingIcon,
+      description: 'Prepend a decorative icon inside the textarea (to the left).',
+    },
+    'TextareaGroup.TrailingIcon': {
+      of: TextareaGroup.TrailingIcon,
+      description:
+        'Append a decorative icon inside the textarea (to the right). This element will be replaced by a status indicator whenever the textarea is in error/alert/success state.',
+    },
+  }}
+/>
 
 ## Usage
 
@@ -49,17 +68,23 @@ Use `disabled` prop to indicate the textarea is disabled.
 
 <Canvas of={stories.Disabled} />
 
-## InputGroup
+## TextareaGroup
 
-Use `InputGroup` component to group your textarea with elements like icons.
+Use `TextareaGroup` component to group your textarea with elements like icons.
 
 ### Elements
 
-<Canvas of={stories.GroupElements} />
+<Canvas of={stories.GroupIcons} />
+
+### State
+
+Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
+
+<Canvas of={stories.GroupState} />
 
 ### Disabled
 
-Use `isDisabled` prop of the `InputGroup` to indicate that the input group is disabled. Use this prop instead of the textarea's disabled prop when it is within a group.
+Use `disabled` prop of the `TextareaGroup` to indicate that the textarea group is disabled. Use this prop instead of the textarea's disabled prop when it is within a group.
 
 <Canvas of={stories.GroupDisabled} />
 
