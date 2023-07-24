@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/input@1.1.0...@spark-ui/input@1.1.1) (2023-07-24)
+
+### Bug Fixes
+
+- updating deprecated formField versions ([a8aacc8](https://github.com/adevinta/spark/commit/a8aacc87818dcf7c7e5ca1ad75e9cd42bedeb4df))
+
 # [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.13.0...@spark-ui/input@1.1.0) (2023-07-20)
 
 ### Features
