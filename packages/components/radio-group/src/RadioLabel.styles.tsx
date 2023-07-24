@@ -1,6 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const radioLabelStyles = cva('', {
+export const radioLabelStyles = cva('grow', {
   variants: {
     disabled: {
       true: ['text-neutral/dim-2', 'cursor-not-allowed'],

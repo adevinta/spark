@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.4.0...@spark-ui/radio-group@1.4.1) (2023-07-24)
+
+### Bug Fixes
+
+- updating deprecated formField versions ([a8aacc8](https://github.com/adevinta/spark/commit/a8aacc87818dcf7c7e5ca1ad75e9cd42bedeb4df))
+
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.3.10...@spark-ui/radio-group@1.4.0) (2023-07-21)
+
+### Features
+
+- **radio-group:** update radio styles to allow full label width ([d6303d5](https://github.com/adevinta/spark/commit/d6303d5bf406ec54f9668cea298ff9490868a7b8)), closes [#1039](https://github.com/adevinta/spark/issues/1039)
+
+## [1.3.10](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.3.9...@spark-ui/radio-group@1.3.10) (2023-07-21)
+
+**Note:** Version bump only for package @spark-ui/radio-group
+
 ## [1.3.9](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@1.3.8...@spark-ui/radio-group@1.3.9) (2023-07-19)
 
 **Note:** Version bump only for package @spark-ui/radio-group
