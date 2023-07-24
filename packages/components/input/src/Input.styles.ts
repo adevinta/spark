@@ -6,7 +6,7 @@ export const inputStyles = cva(
     'ring-1 ring-inset',
     'peer',
     'box-border',
-    'h-sz-44 min-h-sz-44 w-full',
+    'min-h-sz-44 w-full',
     'appearance-none outline-none',
     'bg-surface',
     'text-ellipsis text-body-1 text-on-surface',

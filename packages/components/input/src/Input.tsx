@@ -1,4 +1,4 @@
-import { useFormFieldControl } from '@spark-ui/form-field/dist/index'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { Slot } from '@spark-ui/slot'
 import {
   ChangeEventHandler,
