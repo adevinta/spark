@@ -5,7 +5,7 @@ import { dashedVariants, filledVariants, outlinedVariants, tintedVariants } from
 
 export const chipStyles = cva(
   [
-    'box-border flex h-sz-32 flex-nowrap items-center justify-center truncate rounded-md text-body-1 font-regular',
+    'box-border inline-flex h-sz-32 flex-nowrap items-center justify-center rounded-md text-body-1 font-regular',
     'max-w-sz-240 ring-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
   ],
   {
