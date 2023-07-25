@@ -106,6 +106,19 @@ export const Disabled: StoryFn = _args => {
           </InputGroup.TrailingAddon>
         </InputGroup>
       </div>
+
+      <div>
+        <StoryLabel>With FormField label</StoryLabel>
+        <FormField disabled={isDisabled}>
+          <FormField.Label>My label</FormField.Label>
+          <Input
+            className="max-w-sz-320"
+            aria-label="Website"
+            disabled={isDisabled}
+            defaultValue="Hello world"
+          />
+        </FormField>
+      </div>
     </div>
   )
 }
