@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/badge",
-  "version": "0.1.10",
+  "version": "1.0.0",
   "description": "Badge component is a visual indicator for numeric values such as tallies and scores.",
   "publishConfig": {
     "access": "public"
