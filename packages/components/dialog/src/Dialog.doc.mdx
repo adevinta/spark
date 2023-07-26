@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Dialog } from '.'
+
+import * as stories from './Dialog.stories'
+
+<Meta of={stories} />
+
+# Dialog
+
+A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+
+## Install
+
+```sh
+npm install @spark-ui/dialog
+```
+
+## Import
+
+```tsx
+import { Dialog } from "@spark-ui/dialog"
+```
+
+## Props
+
+<ArgTypes of={Dialog} />
+
+## Variants
+<Canvas of={stories.Default} />
