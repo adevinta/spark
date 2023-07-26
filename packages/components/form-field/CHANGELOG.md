@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.1.0...@spark-ui/form-field@1.2.0) (2023-07-26)
+
+### Features
+
+- **form-field:** disabled styles on label ([70aa1a0](https://github.com/adevinta/spark/commit/70aa1a05e0e5225dd0b6a5f93d8cc57119e76559))
+
 # [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@0.7.0...@spark-ui/form-field@1.1.0) (2023-07-20)
 
 ### Features

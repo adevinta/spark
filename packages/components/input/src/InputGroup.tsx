@@ -78,7 +78,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const hasLeadingIcon = !!leadingIcon
     const hasTrailingIcon = !!trailingIcon || !!state
     const hasClearButton = !!value && !!clearButton
-    const disabled = !!disabledProp
+    const disabled = field.disabled || !!disabledProp
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
       if (props.onChange) {

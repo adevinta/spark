@@ -27,7 +27,7 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
   ) => {
     const control = useFormField()
 
-    const { labelId, isRequired } = control
+    const { disabled, labelId, isRequired } = control
     const htmlFor = asChild ? undefined : htmlForProp || control.id
 
     return (
@@ -36,7 +36,11 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
         id={labelId}
         data-spark-component="form-field-label"
         htmlFor={htmlFor}
-        className={cx(className, 'flex items-center gap-sm')}
+        className={cx(
+          className,
+          'flex items-center gap-sm',
+          disabled ? 'text-on-surface/dim-3 pointer-events-none' : undefined
+        )}
         asChild={asChild}
         {...others}
       >
