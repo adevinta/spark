@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.1](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.14.0...@spark-ui/switch@1.14.1) (2023-07-26)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+# [1.14.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.13.16...@spark-ui/switch@1.14.0) (2023-07-26)
+
+### Features
+
+- update form field version ([738b1b3](https://github.com/adevinta/spark/commit/738b1b3f86e541e10aa2499d5840972208370703))
+
+## [1.13.16](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.13.15...@spark-ui/switch@1.13.16) (2023-07-26)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.13.15](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.13.14...@spark-ui/switch@1.13.15) (2023-07-24)
+
+### Bug Fixes
+
+- updating deprecated formField versions ([a8aacc8](https://github.com/adevinta/spark/commit/a8aacc87818dcf7c7e5ca1ad75e9cd42bedeb4df))
+
 ## [1.13.14](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.13.13...@spark-ui/switch@1.13.14) (2023-07-19)
 
 **Note:** Version bump only for package @spark-ui/switch

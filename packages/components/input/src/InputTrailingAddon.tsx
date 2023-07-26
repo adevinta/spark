@@ -6,15 +6,14 @@ import { useInputGroup } from './InputGroupContext'
 
 export type InputTrailingAddonProps = InputAddonProps
 
-export const InputTrailingAddon = forwardRef<HTMLDivElement, InputTrailingAddonProps>(
-  ({ asChild = false, className, ...others }, ref) => {
+const Root = forwardRef<HTMLDivElement, InputTrailingAddonProps>(
+  ({ className, ...others }, ref) => {
     const { disabled } = useInputGroup()
 
     return (
       <div className={cx('rounded-r-lg', disabled ? 'bg-on-surface/dim-5' : null)}>
         <InputAddon
           ref={ref}
-          asChild={asChild}
           className={cx(className, '!rounded-l-none rounded-r-lg ml-[-1px]')}
           {...others}
         />
@@ -22,5 +21,9 @@ export const InputTrailingAddon = forwardRef<HTMLDivElement, InputTrailingAddonP
     )
   }
 )
+
+export const InputTrailingAddon = Object.assign(Root, {
+  id: 'TrailingAddon',
+})
 
 InputTrailingAddon.displayName = 'InputGroup.TrailingAddon'

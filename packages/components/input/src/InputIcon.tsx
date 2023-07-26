@@ -13,7 +13,7 @@ export const InputIcon = ({ className, intent, children, ...others }: InputIconP
       intent={intent}
       className={cx(
         className,
-        'pointer-events-none absolute top-1/2 -translate-y-1/2',
+        'pointer-events-none absolute top-[calc(var(--sz-44)/2)] -translate-y-1/2',
         intent ? undefined : 'text-neutral peer-focus:text-outline-high',
         disabled ? 'opacity-dim-3' : undefined
       )}
@@ -24,4 +24,4 @@ export const InputIcon = ({ className, intent, children, ...others }: InputIconP
   )
 }
 
-InputIcon.displayName = 'InputIcon'
+InputIcon.displayName = 'InputGroup.Icon'

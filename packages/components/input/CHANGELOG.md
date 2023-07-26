@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/adevinta/spark/compare/@spark-ui/input@1.3.0...@spark-ui/input@1.3.1) (2023-07-26)
+
+**Note:** Version bump only for package @spark-ui/input
+
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/input@1.2.0...@spark-ui/input@1.3.0) (2023-07-26)
+
+### Features
+
+- **input:** improve styles when as child ([086460c](https://github.com/adevinta/spark/commit/086460cb7418746197a344729c95723f8c6b473f))
+- **input:** update styles to be used as textarea ([9084269](https://github.com/adevinta/spark/commit/9084269f9ed06f0cd6c9626c087397da5e8158ed))
+- **input:** use id instead of display name ([cea1398](https://github.com/adevinta/spark/commit/cea1398327a8e4e6d34c46621d425b5e9443695b))
+- **textarea:** enable textarea support ([37d228c](https://github.com/adevinta/spark/commit/37d228caf02b146383ccaa4f5d00a00ee83922cf))
+- update form field version ([738b1b3](https://github.com/adevinta/spark/commit/738b1b3f86e541e10aa2499d5840972208370703))
+
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/input@1.1.1...@spark-ui/input@1.2.0) (2023-07-26)
+
+### Features
+
+- **form-field:** disabled styles on label ([70aa1a0](https://github.com/adevinta/spark/commit/70aa1a05e0e5225dd0b6a5f93d8cc57119e76559))
+
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/input@1.1.0...@spark-ui/input@1.1.1) (2023-07-24)
+
+### Bug Fixes
+
+- updating deprecated formField versions ([a8aacc8](https://github.com/adevinta/spark/commit/a8aacc87818dcf7c7e5ca1ad75e9cd42bedeb4df))
+
 # [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/input@0.13.0...@spark-ui/input@1.1.0) (2023-07-20)
 
 ### Features

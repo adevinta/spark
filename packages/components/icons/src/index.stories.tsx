@@ -7,7 +7,7 @@ import { ChangeEvent, FC, useEffect, useState } from 'react'
 import { Check as IconCheck } from './icons/Check'
 
 const meta: Meta = {
-  title: 'components/Icons',
+  title: 'Components/Icons',
   component: IconCheck,
 }
 

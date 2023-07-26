@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.17.1...@spark-ui/theme-utils@2.18.0) (2023-07-26)
+
+### Features
+
+- **theme-utils:** add "basic" and "accents" color tokens to the Spark theme's color structure ([eed8a96](https://github.com/adevinta/spark/commit/eed8a96f9489cc331c41dc6aff3579a5bde3bb28)), closes [#1073](https://github.com/adevinta/spark/issues/1073)
+
+## [2.17.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.17.0...@spark-ui/theme-utils@2.17.1) (2023-07-25)
+
+**Note:** Version bump only for package @spark-ui/theme-utils
+
 # [2.17.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@2.16.1...@spark-ui/theme-utils@2.17.0) (2023-06-12)
 
 ### Features
