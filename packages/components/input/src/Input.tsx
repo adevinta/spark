@@ -33,6 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     } = group
     const Component = asChild ? Slot : 'input'
     const state = field.state ?? group.state
+    const disabled = field.disabled || group.disabled
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
       if (onChange) {
@@ -68,7 +69,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           hasTrailingIcon: !!hasTrailingIcon,
           hasClearButton: !!hasClearButton,
         })}
-        disabled={group.disabled}
+        disabled={disabled}
         required={isRequired}
         aria-describedby={description}
         aria-invalid={isInvalid}
