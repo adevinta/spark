@@ -25,5 +25,8 @@
     "url": "https://github.com/adevinta/spark/issues"
   },
   "homepage": "https://sparkui.vercel.app",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.4"
+  }
 }

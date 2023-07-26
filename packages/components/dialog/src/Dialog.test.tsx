@@ -1,27 +1,38 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { Dialog } from './Dialog'
 
 describe('Dialog', () => {
-  it('should render', () => {
-    render(<Dialog>Hello World!</Dialog>)
-
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
-  })
-
-  it('should trigger click event', async () => {
+  it('should render', async () => {
     const user = userEvent.setup()
-    const clickEvent = vi.fn()
 
-    // Given
-    render(<div onClick={clickEvent}>Hello World!</div>)
+    render(
+      <Dialog>
+        <Dialog.Trigger asChild>
+          <button>Edit profile</button>
+        </Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Overlay />
+          <Dialog.Content>
+            <Dialog.Title>Edit profile</Dialog.Title>
+            <Dialog.Description>
+              Make changes to your profile here. Click save when you are done.
+            </Dialog.Description>
 
-    // When
-    await user.click(screen.getByText('Hello World!'))
+            <p>Dialog contents</p>
 
-    // Then
-    expect(clickEvent).toHaveBeenCalledTimes(1)
+            <Dialog.CloseButton />
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog>
+    )
+
+    expect(screen.queryByText('Dialog contents')).not.toBeInTheDocument()
+
+    await user.click(screen.getByText('Edit profile'))
+
+    expect(screen.getByText('Dialog contents')).toBeInTheDocument()
   })
 })
