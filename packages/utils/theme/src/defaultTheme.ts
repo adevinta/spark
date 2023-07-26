@@ -23,6 +23,32 @@ export const defaultTheme: Theme = {
     none: 'none',
   },
   colors: {
+    // Basic
+    basic: '#35376A',
+    onBasic: '#FFFFFF',
+    basicContainer: '#DCDCE5',
+    onBasicContainer: '#1D1F2A',
+    basicHovered: '#4D4E7B',
+    basicPressed: '#4D4E7B',
+    basicFocused: '#4D4E7B',
+    // Accent
+    accent: '#CC99FF',
+    onAccent: '#1D1F2A',
+    accentHovered: '#DBB7FF',
+    accentPressed: '#DBB7FF',
+    accentFocused: '#DBB7FF',
+    // Accent Container
+    accentContainer: '#F9F3FF',
+    onAccentContainer: '#362555',
+    accentContainerHovered: '#F9F3FF',
+    accentContainerPressed: '#F9F3FF',
+    accentContainerFocused: '#F9F3FF',
+    // Accent Variant
+    accentVariant: '#513877',
+    onAccentVariant: '#FFFFFF',
+    accentVariantHovered: '#6E4D99',
+    accentVariantPressed: '#6E4D99',
+    accentVariantFocused: '#6E4D99',
     // Primary
     primary: '#2118C9',
     onPrimary: '#FFFFFF',

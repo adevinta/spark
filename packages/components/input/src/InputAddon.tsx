@@ -9,7 +9,7 @@ export interface InputAddonProps
     Omit<InputAddonStylesProps, 'intent' | 'disabled'> {}
 
 export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
-  ({ asChild: asChildProp = true, className, children, ...others }, ref) => {
+  ({ asChild: asChildProp, className, children, ...others }, ref) => {
     const { state, disabled } = useInputGroup()
 
     const isRawText = typeof children === 'string'
@@ -44,4 +44,4 @@ export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddo
   }
 )
 
-InputAddon.displayName = 'InputAddon'
+InputAddon.displayName = 'InputGroup.Addon'

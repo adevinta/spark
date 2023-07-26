@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.3.3...@spark-ui/spinner@1.1.0) (2023-07-26)
+
+### Features
+
+- got some beta packages out of beta ([599e348](https://github.com/adevinta/spark/commit/599e3487d1fee532d93015dbac495cf230452c8a))
+
 ## [0.3.3](https://github.com/adevinta/spark/compare/@spark-ui/spinner@0.3.2...@spark-ui/spinner@0.3.3) (2023-07-10)
 
 **Note:** Version bump only for package @spark-ui/spinner

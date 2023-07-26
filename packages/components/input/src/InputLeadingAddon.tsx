@@ -6,21 +6,22 @@ import { useInputGroup } from './InputGroupContext'
 
 export type InputLeadingAddonProps = InputAddonProps
 
-export const InputLeadingAddon = forwardRef<HTMLDivElement, InputLeadingAddonProps>(
-  ({ asChild = false, className, ...others }, ref) => {
-    const { disabled } = useInputGroup()
+const Root = forwardRef<HTMLDivElement, InputLeadingAddonProps>(({ className, ...others }, ref) => {
+  const { disabled } = useInputGroup()
 
-    return (
-      <div className={cx('rounded-l-lg', disabled ? 'bg-on-surface/dim-5' : null)}>
-        <InputAddon
-          ref={ref}
-          asChild={asChild}
-          className={cx(className, 'rounded-l-lg !rounded-r-none mr-[-1px]')}
-          {...others}
-        />
-      </div>
-    )
-  }
-)
+  return (
+    <div className={cx('rounded-l-lg', disabled ? 'bg-on-surface/dim-5' : null)}>
+      <InputAddon
+        ref={ref}
+        className={cx(className, 'rounded-l-lg !rounded-r-none mr-[-1px]')}
+        {...others}
+      />
+    </div>
+  )
+})
+
+export const InputLeadingAddon = Object.assign(Root, {
+  id: 'LeadingAddon',
+})
 
 InputLeadingAddon.displayName = 'InputGroup.LeadingAddon'

@@ -3,6 +3,32 @@ import { type Theme } from './types'
 
 export const defaultThemeDark: Theme = createTheme({
   colors: {
+    // Basic
+    basic: '#DCDCE5',
+    onBasic: '#1D1F2A',
+    basicContainer: '#4D4E7B',
+    onBasicContainer: '#FFFFFF',
+    basicHovered: '#C4C5D3',
+    basicPressed: '#C4C5D3',
+    basicFocused: '#C4C5D3',
+    // Accent
+    accent: '#CC99FF',
+    onAccent: '#1D1F2A',
+    accentHovered: '#AC7DDD',
+    accentPressed: '#AC7DDD',
+    accentFocused: '#AC7DDD',
+    // Accent Container
+    accentContainer: '#8D64BB',
+    onAccentContainer: '#FFFFFF',
+    accentContainerHovered: '#6E4D99',
+    accentContainerPressed: '#6E4D99',
+    accentContainerFocused: '#6E4D99',
+    // Accent Variant
+    accentVariant: '#DBB7FF',
+    onAccentVariant: '#1D1F2A',
+    accentVariantHovered: '#CC99FF',
+    accentVariantPressed: '#CC99FF',
+    accentVariantFocused: '#CC99FF',
     // Primary
     primary: '#7583FF',
     onPrimary: '#000000',

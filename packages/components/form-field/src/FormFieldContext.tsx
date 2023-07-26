@@ -18,6 +18,10 @@ export interface FormFieldContextState {
    */
   description?: string
   /**
+   * Disables the field and its associated input
+   */
+  disabled?: boolean
+  /**
    * The validation state of the input.
    */
   state?: 'error' | 'success' | 'alert'
