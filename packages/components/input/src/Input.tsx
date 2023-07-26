@@ -19,7 +19,15 @@ export interface InputProps extends InputPrimitiveProps {
 
 const Root = forwardRef<HTMLInputElement, InputProps>(
   (
-    { className, asChild, onValueChange, onChange, onKeyDown, disabled: disabledProp, ...others },
+    {
+      className,
+      asChild = false,
+      onValueChange,
+      onChange,
+      onKeyDown,
+      disabled: disabledProp,
+      ...others
+    },
     ref
   ) => {
     const field = useFormFieldControl()
@@ -64,6 +72,7 @@ const Root = forwardRef<HTMLInputElement, InputProps>(
         id={id}
         name={name}
         className={inputStyles({
+          asChild,
           className,
           intent: state,
           hasLeadingAddon: !!hasLeadingAddon,
