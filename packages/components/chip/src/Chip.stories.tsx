@@ -8,7 +8,7 @@ import { Input as SparkInput, InputGroup } from '@spark-ui/input'
 import { Label } from '@spark-ui/label'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
-import { ComponentProps, useRef, useState } from 'react'
+import { ChangeEvent, ComponentProps, useState } from 'react'
 
 import { Chip } from '.'
 
@@ -36,13 +36,31 @@ export default meta
 
 export const Default: StoryFn = _args => <Chip>default chip</Chip>
 
-export const SingleSelectionFilter: StoryFn = _args => {
-  const [activeFilter, setActive] = useState<undefined | string>('number')
+const singleSet = Array.from(
+  new Map(
+    Object.entries({
+      '🥝': ['fruit'],
+      '🍎': ['fruit'],
+      '🍇': ['fruit'],
+      '🍌': ['fruit'],
+      '🍆': ['tubercle'],
+      '🧅': ['tubercle'],
+      '🥔': ['tubercle'],
+      '🌶': ['tubercle'],
+      '🥕': ['tubercle'],
+    })
+  )
+).sort(() => 0.5 - Math.random())
+
+export const SingleSelectionFilter: StoryFn = () => {
+  const [activeFilter, setActive] = useState<undefined | string>('fruit')
+
+  console.log(singleSet)
 
   return (
     <div className="flex flex-col gap-md">
       <div className="flex flex-row items-start gap-md">
-        {['vowel', 'consonant', 'number', 'symbol'].map(filter => {
+        {['fruit', 'tubercle'].map(filter => {
           const isActive = activeFilter === filter
 
           return (
@@ -67,23 +85,13 @@ export const SingleSelectionFilter: StoryFn = _args => {
           )
         })}
       </div>
-      <div className="flex flex-row gap-md">
-        {Object.entries({
-          1: ['number'],
-          A: ['vowel'],
-          B: ['consonant'],
-          C: ['consonant'],
-          '!': ['symbol'],
-          6: ['number'],
-          '∞': ['number', 'symbol'],
-          U: ['vowel'],
-          '†': ['symbol'],
-        }).map(([color, types]) => {
+      <div className="flex flex-row gap-x-lg">
+        {singleSet.map(([element, types]) => {
           const Element = [undefined, ...types].includes(activeFilter) ? 'span' : VisuallyHidden
 
           return (
-            <Element key={color} className="flex h-sz-32 rounded-md p-md">
-              <span className="text-caption">{color}</span>
+            <Element key={element} className="flex">
+              <span className="text-headline-1-expanded">{element}</span>
             </Element>
           )
         })}
@@ -92,13 +100,33 @@ export const SingleSelectionFilter: StoryFn = _args => {
   )
 }
 
-export const UnionFilter: StoryFn = _args => {
-  const [activeFilters, setActiveFilters] = useState<string[]>(['consonant', 'symbol'])
+//  :dog2: :dolphin: :hibiscus: :evergreen_tree: :palm_tree: :cactus: :apple: :strawberry: :hot_pepper: :carrot:
+const multipleUnionSet = Array.from(
+  new Map(
+    Object.entries({
+      '🦍': ['animal'],
+      '🦒': ['animal'],
+      '🦌': ['animal'],
+      '🐄': ['animal'],
+      '🐕': ['animal'],
+      '🐬': ['animal'],
+      '🌺': ['flower'],
+      '🌼': ['flower'],
+      '🌻': ['flower'],
+      '🪷': ['flower'],
+      '🌳': ['tree'],
+      '🌴': ['tree'],
+      '🌲': ['tree'],
+    })
+  )
+).sort(() => 0.5 - Math.random())
+export const UnionFilter: StoryFn = () => {
+  const [activeFilters, setActiveFilters] = useState<string[]>(['animal', 'tree'])
 
   return (
     <div className="flex flex-col gap-md">
       <div className="flex flex-row items-start gap-md">
-        {['vowel', 'consonant', 'number', 'symbol'].map(filter => {
+        {['animal', 'flower', 'tree'].map(filter => {
           const isActive = activeFilters?.includes(filter)
 
           return (
@@ -127,18 +155,8 @@ export const UnionFilter: StoryFn = _args => {
           )
         })}
       </div>
-      <div className="flex flex-row gap-md">
-        {Object.entries({
-          1: ['number'],
-          A: ['vowel'],
-          B: ['consonant'],
-          C: ['consonant'],
-          '!': ['symbol'],
-          6: ['number'],
-          '∞': ['number', 'symbol'],
-          U: ['vowel'],
-          '†': ['symbol'],
-        }).map(([color, types]) => {
+      <div className="flex flex-row gap-x-lg">
+        {multipleUnionSet.map(([element, types]) => {
           const Element = types.some(
             type => activeFilters.includes(type) || activeFilters.length === 0
           )
@@ -146,8 +164,8 @@ export const UnionFilter: StoryFn = _args => {
             : VisuallyHidden
 
           return (
-            <Element key={color} className="flex h-sz-32 rounded-md p-md">
-              <span className="text-caption">{color}</span>
+            <Element key={element} className="flex">
+              <span className="text-headline-1-expanded">{element}</span>
             </Element>
           )
         })}
@@ -156,13 +174,35 @@ export const UnionFilter: StoryFn = _args => {
   )
 }
 
-export const IntersectionFilter: StoryFn = _args => {
-  const [activeFilters, setActiveFilters] = useState<string[]>(['number', 'symbol'])
+const multipleintersectionSet = Array.from(
+  new Map(
+    Object.entries({
+      '🦍': ['land', 'wild'],
+      '🦒': ['land', 'wild'],
+      '🦌': ['land', 'wild'],
+      '🐄': ['land', 'domestic'],
+      '🐕': ['land', 'domestic'],
+      '🐬': ['sea', 'wild'],
+      '🐓': ['land', 'domestic'],
+      '🐿️': ['land', 'wild'],
+      '🦧': ['land', 'wild'],
+      '🐳': ['sea', 'wild'],
+      '🦈': ['sea', 'wild'],
+      '🦭': ['sea', 'land', 'wild'],
+      '🦆': ['sea', 'land', 'air', 'wild'],
+      '🐡': ['sea', 'wild'],
+      '🐟': ['sea', 'wild'],
+      '🐞': ['land', 'air', 'wild'],
+    })
+  )
+).sort(() => 0.5 - Math.random())
+export const IntersectionFilter: StoryFn = () => {
+  const [activeFilters, setActiveFilters] = useState<string[]>(['land', 'wild'])
 
   return (
     <div className="flex flex-col gap-md">
       <div className="flex flex-row items-start gap-md">
-        {['vowel', 'consonant', 'number', 'symbol'].map(filter => {
+        {['land', 'sea', 'air', 'wild', 'domestic'].map(filter => {
           const isActive = activeFilters?.includes(filter)
 
           return (
@@ -191,25 +231,15 @@ export const IntersectionFilter: StoryFn = _args => {
           )
         })}
       </div>
-      <div className="flex flex-row gap-md">
-        {Object.entries({
-          1: ['number'],
-          A: ['vowel'],
-          B: ['consonant'],
-          C: ['consonant'],
-          '!': ['symbol'],
-          6: ['number'],
-          '∞': ['number', 'symbol'],
-          U: ['vowel'],
-          '†': ['symbol'],
-        }).map(([color, types]) => {
+      <div className="flex flex-row gap-x-lg">
+        {multipleintersectionSet.map(([element, types]) => {
           const Element = activeFilters.every(filter => types.includes(filter))
             ? 'span'
             : VisuallyHidden
 
           return (
-            <Element key={color} className="flex h-sz-32 rounded-md p-md">
-              <span className="text-caption">{color}</span>
+            <Element key={element} className="flex">
+              <span className="text-headline-1-expanded">{element}</span>
             </Element>
           )
         })}
@@ -224,18 +254,22 @@ export const Input: StoryFn = _args => {
 
   return (
     <div className="flex flex-col gap-md">
-      <InputGroup>
-        <SparkInput
-          value={value}
-          onChange={event => setValue(event.target.value)}
-          onKeyPress={event => {
-            if (event.key === 'Enter') {
-              !tags.includes(value) && setTags([...tags, value])
-              setValue('')
-            }
-          }}
-        />
-      </InputGroup>
+      <div className="flex flex-col">
+        <Label htmlFor="content">Value</Label>
+        <InputGroup>
+          <SparkInput
+            aria-label="value"
+            value={value}
+            onChange={event => setValue(event.target.value)}
+            onKeyPress={event => {
+              if (event.key === 'Enter') {
+                !tags.includes(value) && setTags([...tags, value])
+                setValue('')
+              }
+            }}
+          />
+        </InputGroup>
+      </div>
       <span className="flex gap-md">
         {tags.map(tag => (
           <Chip key={tag} design="dashed">
@@ -251,19 +285,61 @@ export const Input: StoryFn = _args => {
   )
 }
 
-export const Intent: StoryFn = _args => (
+export const MaxLength: StoryFn = () => {
+  const [content, setContent] = useState<string>(
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+  )
+
+  return (
+    <div className="flex flex-col gap-md">
+      <div className="flex flex-col">
+        <Label htmlFor="content">Content</Label>
+        <SparkInput
+          aria-label="content"
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setContent(event.target.value)}
+          value={content}
+        />
+      </div>
+      <div className="flex flex-col items-start justify-start gap-md">
+        <Chip>{content}</Chip>
+        <Chip>
+          <Chip.LeadingIcon aria-label="label">
+            <Icon>
+              <Check />
+            </Icon>
+          </Chip.LeadingIcon>
+          <Chip.Content>{content}</Chip.Content>
+          <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+        </Chip>
+        <Chip>
+          <Chip.Content>{content}</Chip.Content>
+        </Chip>
+        <Chip>
+          <Chip.Content>{content}</Chip.Content>
+          <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+        </Chip>
+      </div>
+    </div>
+  )
+}
+
+export const DefaultIntent: StoryFn = _args => (
   <div className="flex flex-col flex-wrap gap-md">
-    Default
     {designs.map(design => (
       <div key={design} className="flex flex-wrap gap-md">
         {intents.map(intent => (
           <Chip design={design} key={`${design}-${intent}`} intent={intent}>
-            {intent} chip huge huge chip long and wrong
+            <Chip.Content>{intent}</Chip.Content>
+            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
           </Chip>
         ))}
       </div>
     ))}
-    Actionable
+  </div>
+)
+
+export const ActionIntent: StoryFn = _args => (
+  <div className="flex flex-col flex-wrap gap-md">
     {designs.map(design => (
       <div key={design} className="flex flex-wrap gap-md">
         {intents.map(intent => (
@@ -273,7 +349,8 @@ export const Intent: StoryFn = _args => (
             intent={intent}
             onClick={() => console.log(`click ${design} ${intent}`)}
           >
-            {intent} chip huge huge chip long and wrong
+            <Chip.Content>{intent}</Chip.Content>
+            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
           </Chip>
         ))}
       </div>

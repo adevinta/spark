@@ -45,22 +45,22 @@ import { Chip } from '@spark-ui/chip'
 ## Props
 
 <ExtendedArgTypes
-of={Chip}
-description="Component for offering information"
-subcomponents={{
-  'Chip.Content': {
-    of: Chip.Content,
-    description: '',
-  },
-  'Chip.LeadingIcon': {
-    of: Chip.LeadingIcon,
-    description: '',
-  },
-  'Chip.ClearButton': {
-    of: Chip.ClearButton,
-    description: '',
-  },
-}}
+  of={Chip}
+  description="Component for offering information"
+  subcomponents={{
+    'Chip.Content': {
+      of: Chip.Content,
+      description: '',
+    },
+    'Chip.LeadingIcon': {
+      of: Chip.LeadingIcon,
+      description: '',
+    },
+    'Chip.ClearButton': {
+      of: Chip.ClearButton,
+      description: '',
+    },
+  }}
 />
 
 ## Types
@@ -74,8 +74,8 @@ Chips handle 4 different features:
 
 Use chips to show options for a specific context combining those features.
 
-
 ## Usages
+
 Four types of usages:
 
 - [Assist](#assist)
@@ -83,8 +83,7 @@ Four types of usages:
 - [Input](#input)
 - [Suggestion](#suggestion)
 
-
-## Variants
+## Default
 
 <Canvas of={stories.Default} />
 
@@ -146,8 +145,25 @@ They enable user input and verify that input by converting text into chips.
 <Canvas of={stories.Input} />
 
 ## Suggestion
+
 Suggestion chips help narrow a user’s intent by presenting dynamically generated suggestions, such as possible responses or search filters.
 
 <Canvas of={stories.Suggestion} />
 
 Suggestion chips can offer quick-reply options in a chat or email app, or It can help the user start a search.
+
+## Max Length
+
+The max length of any Chip is 240px including its borders, icons, and clear button.
+
+<Canvas of={stories.MaxLength} />
+
+## Intent
+
+All intents are available
+
+<Canvas of={stories.DefaultIntent} />
+
+When there is an action declared to the chip, it also applies hover and focus intents.
+
+<Canvas of={stories.ActionIntent} />
