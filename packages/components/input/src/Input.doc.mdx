@@ -100,7 +100,11 @@ Please note that the `TrailingIcon` will be automatically replaced by the state 
 
 ## Disabled
 
-To indicate that an input is disabled, use the `disabled` prop. If you're wrapping your `Input` with an `InputGroup`, set the prop on the `InputGroup` instead.
+To indicate that an input is disabled, use the `disabled` prop.
+
+If you're wrapping your `Input` with an `InputGroup`, set the prop on the `InputGroup` instead.
+
+If you're wrapping your `Input/InputGroup` with a `FormField`, set the prop on the `Form` instead to also disable its associated label.
 
 <Canvas of={stories.Disabled} />
 
