@@ -33,10 +33,29 @@ export const Controlled: StoryFn = () => {
 }
 
 export const Disabled: StoryFn = _args => (
-  <Textarea rows={2} defaultValue="IPhone 12 in good condition" aria-label="Description" disabled />
+  <div className="flex flex-col gap-md">
+    <Textarea
+      rows={2}
+      defaultValue="IPhone 12 in good condition"
+      aria-label="Description"
+      disabled
+    />
+
+    <TextareaGroup disabled>
+      <TextareaGroup.LeadingIcon>
+        <PenOutline />
+      </TextareaGroup.LeadingIcon>
+
+      <Textarea rows={2} defaultValue="IPhone 12 in good condition" aria-label="Message" />
+
+      <TextareaGroup.TrailingIcon>
+        <Check />
+      </TextareaGroup.TrailingIcon>
+    </TextareaGroup>
+  </div>
 )
 
-export const GroupIcons: StoryFn = _args => (
+export const Icon: StoryFn = _args => (
   <TextareaGroup>
     <TextareaGroup.LeadingIcon>
       <PenOutline />
@@ -50,7 +69,7 @@ export const GroupIcons: StoryFn = _args => (
   </TextareaGroup>
 )
 
-export const GroupState: StoryFn = _args => {
+export const State: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-xl">
       <TextareaGroup state="error">
@@ -79,20 +98,6 @@ export const GroupState: StoryFn = _args => {
     </div>
   )
 }
-
-export const GroupDisabled: StoryFn = _args => (
-  <TextareaGroup disabled>
-    <TextareaGroup.LeadingIcon>
-      <PenOutline />
-    </TextareaGroup.LeadingIcon>
-
-    <Textarea rows={2} defaultValue="IPhone 12 in good condition" aria-label="Message" />
-
-    <TextareaGroup.TrailingIcon>
-      <Check />
-    </TextareaGroup.TrailingIcon>
-  </TextareaGroup>
-)
 
 export const FieldLabel: StoryFn = _args => {
   return (

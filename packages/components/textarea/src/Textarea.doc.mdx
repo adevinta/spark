@@ -20,7 +20,7 @@ npm install @spark-ui/textarea
 ## Import
 
 ```tsx
-import { Textarea } from '@spark-ui/textarea'
+import { Textarea, TextareaGroup } from '@spark-ui/textarea'
 ```
 
 ## Props
@@ -62,35 +62,27 @@ Use `value` and `onChange` props to control the value of the textarea.
 
 <Canvas of={stories.Controlled} />
 
+## Icons
+
+A `TextareaGroup` can have a `LeadingIcon` and/or `TrailingIcon`. Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
+
+<Canvas of={stories.Icon} />
+
 ## Disabled
 
-Use `disabled` prop to indicate the textarea is disabled.
+To indicate that a textarea is disabled, use the `disabled` prop. If you're wrapping your `Textarea` with a `TextareaGroup`, set the prop on the group instead.
 
 <Canvas of={stories.Disabled} />
 
-## TextareaGroup
-
-Use `TextareaGroup` component to group your textarea with elements like icons.
-
-### Elements
-
-<Canvas of={stories.GroupIcons} />
-
-### State
+## State
 
 Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
 
-<Canvas of={stories.GroupState} />
-
-### Disabled
-
-Use `disabled` prop of the `TextareaGroup` to indicate that the textarea group is disabled. Use this prop instead of the textarea's disabled prop when it is within a group.
-
-<Canvas of={stories.GroupDisabled} />
+<Canvas of={stories.State} />
 
 ## FormField
 
-Use `FormField` component to provide context to the textarea.
+When using the `Textarea` component you might want to use it in combination with `FormField` to add a proper label, error message, etc.
 
 ### Label
 
