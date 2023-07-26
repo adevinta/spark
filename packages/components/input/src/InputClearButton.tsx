@@ -9,7 +9,7 @@ export interface InputClearButtonProps extends ComponentPropsWithoutRef<'button'
   'aria-label': string
 }
 
-export const InputClearButton = forwardRef<HTMLButtonElement, InputClearButtonProps>(
+const Root = forwardRef<HTMLButtonElement, InputClearButtonProps>(
   ({ className, tabIndex = -1, onClick, ...others }, ref) => {
     const { disabled, onClear, hasTrailingIcon } = useInputGroup()
 
@@ -46,5 +46,9 @@ export const InputClearButton = forwardRef<HTMLButtonElement, InputClearButtonPr
     )
   }
 )
+
+export const InputClearButton = Object.assign(Root, {
+  id: 'ClearButton',
+})
 
 InputClearButton.displayName = 'InputGroup.ClearButton'

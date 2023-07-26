@@ -43,16 +43,16 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     },
     forwardRef
   ) => {
-    const getDisplayName = (element?: ReactElement) => {
-      return element ? (element.type as FC).displayName : ''
+    const getElementId = (element?: ReactElement) => {
+      return element ? (element.type as FC & { id?: string }).id : ''
     }
 
     const findElement = (...values: string[]) => {
-      return children.find(child => values.includes(getDisplayName(child) || ''))
+      return children.find(child => values.includes(getElementId(child) || ''))
     }
 
     const children = Children.toArray(childrenProp).filter(isValidElement)
-    const input = findElement('Input', 'Textarea') as
+    const input = findElement('Input') as
       | DetailedReactHTMLElement<InputProps, HTMLInputElement>
       | undefined
     const props = input?.props || {}
@@ -67,12 +67,12 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       props.onValueChange
     )
     const state = field.state ?? stateProp
-    const leadingAddon = findElement('InputGroup.LeadingAddon')
-    const leadingIcon = findElement('InputGroup.LeadingIcon')
-    const clearButton = findElement('InputGroup.ClearButton')
-    const trailingAddon = findElement('InputGroup.TrailingAddon')
-    const stateIndicator = findElement('InputGroup.StateIndicator') || <InputStateIndicator />
-    const trailingIcon = state ? stateIndicator : findElement('InputGroup.TrailingIcon')
+    const leadingAddon = findElement('LeadingAddon')
+    const leadingIcon = findElement('LeadingIcon')
+    const clearButton = findElement('ClearButton')
+    const trailingAddon = findElement('TrailingAddon')
+    const stateIndicator = findElement('StateIndicator') || <InputStateIndicator />
+    const trailingIcon = state ? stateIndicator : findElement('TrailingIcon')
     const hasLeadingAddon = !!leadingAddon
     const hasTrailingAddon = !!trailingAddon
     const hasLeadingIcon = !!leadingIcon

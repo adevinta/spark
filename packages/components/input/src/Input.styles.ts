@@ -6,7 +6,7 @@ export const inputStyles = cva(
     'ring-1 ring-inset',
     'peer',
     'box-border',
-    'h-sz-44 w-full',
+    'w-full',
     'appearance-none outline-none',
     'bg-surface',
     'text-ellipsis text-body-1 text-on-surface',
@@ -19,6 +19,10 @@ export const inputStyles = cva(
   ],
   {
     variants: {
+      asChild: {
+        true: ['min-h-sz-44'],
+        false: ['h-sz-44'],
+      },
       intent: {
         neutral: [
           'ring-outline',

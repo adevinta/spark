@@ -8,4 +8,5 @@ export const InputLeadingIcon = ({ className, ...others }: InputLeadingIconProps
   <InputIcon className={cx(className, 'left-lg')} {...others} />
 )
 
+InputLeadingIcon.id = 'LeadingIcon'
 InputLeadingIcon.displayName = 'InputGroup.LeadingIcon'
