@@ -38,6 +38,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       children: childrenProp,
       state: stateProp,
       disabled: disabledProp,
+      readOnly: readOnlyProp,
       onClear,
       ...others
     },
@@ -77,8 +78,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const hasTrailingAddon = !!trailingAddon
     const hasLeadingIcon = !!leadingIcon
     const hasTrailingIcon = !!trailingIcon || !!state
-    const hasClearButton = !!value && !!clearButton
     const disabled = field.disabled || !!disabledProp
+    const readOnly = field.readOnly || !!readOnlyProp
+    const hasClearButton = !!value && !!clearButton && !disabled && !readOnly
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
       if (props.onChange) {
@@ -102,6 +104,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       return {
         state,
         disabled,
+        readOnly,
         hasLeadingIcon,
         hasTrailingIcon,
         hasLeadingAddon,
@@ -112,6 +115,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     }, [
       state,
       disabled,
+      readOnly,
       hasLeadingIcon,
       hasTrailingIcon,
       hasLeadingAddon,
@@ -126,7 +130,11 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     return (
       <InputGroupContext.Provider value={current}>
-        <div ref={forwardRef} className={inputGroupStyles({ disabled, className })} {...others}>
+        <div
+          ref={forwardRef}
+          className={inputGroupStyles({ disabled, readOnly, className })}
+          {...others}
+        >
           {hasLeadingAddon && leadingAddon}
 
           <div className="relative inline-flex w-full">

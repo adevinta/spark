@@ -10,7 +10,7 @@ export interface InputAddonProps
 
 export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddonProps>>(
   ({ asChild: asChildProp = true, className, children, ...others }, ref) => {
-    const { state, disabled } = useInputGroup()
+    const { state, disabled, readOnly } = useInputGroup()
 
     const isRawText = typeof children === 'string'
     const asChild = !!(isRawText ? false : asChildProp)
@@ -32,6 +32,7 @@ export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddo
           className,
           intent: state,
           disabled,
+          readOnly,
           asChild,
           design,
         })}

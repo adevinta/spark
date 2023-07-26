@@ -8,10 +8,11 @@ export type InputLeadingAddonProps = InputAddonProps
 
 export const InputLeadingAddon = forwardRef<HTMLDivElement, InputLeadingAddonProps>(
   ({ asChild = false, className, ...others }, ref) => {
-    const { disabled } = useInputGroup()
+    const { disabled, readOnly } = useInputGroup()
+    const isInactive = disabled || readOnly
 
     return (
-      <div className={cx('rounded-l-lg', disabled ? 'bg-on-surface/dim-5' : null)}>
+      <div className={cx('rounded-l-lg', isInactive ? 'bg-on-surface/dim-5' : null)}>
         <InputAddon
           ref={ref}
           asChild={asChild}

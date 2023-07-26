@@ -6,7 +6,8 @@ import { useInputGroup } from './InputGroupContext'
 export type InputIconProps = IconProps
 
 export const InputIcon = ({ className, intent, children, ...others }: InputIconProps) => {
-  const { disabled } = useInputGroup()
+  const { disabled, readOnly } = useInputGroup()
+  const isInactive = disabled || readOnly
 
   return (
     <Icon
@@ -15,7 +16,7 @@ export const InputIcon = ({ className, intent, children, ...others }: InputIconP
         className,
         'pointer-events-none absolute top-1/2 -translate-y-1/2',
         intent ? undefined : 'text-neutral peer-focus:text-outline-high',
-        disabled ? 'opacity-dim-3' : undefined
+        isInactive ? 'opacity-dim-3' : undefined
       )}
       {...others}
     >

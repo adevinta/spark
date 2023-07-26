@@ -8,10 +8,11 @@ export type InputTrailingAddonProps = InputAddonProps
 
 export const InputTrailingAddon = forwardRef<HTMLDivElement, InputTrailingAddonProps>(
   ({ asChild = false, className, ...others }, ref) => {
-    const { disabled } = useInputGroup()
+    const { disabled, readOnly } = useInputGroup()
+    const isInactive = disabled || readOnly
 
     return (
-      <div className={cx('rounded-r-lg', disabled ? 'bg-on-surface/dim-5' : null)}>
+      <div className={cx('rounded-r-lg', isInactive ? 'bg-on-surface/dim-5' : null)}>
         <InputAddon
           ref={ref}
           asChild={asChild}

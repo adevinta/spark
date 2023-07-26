@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Button } from '@spark-ui/button'
 import { Checkbox } from '@spark-ui/checkbox'
@@ -37,16 +38,6 @@ export const Controlled: StoryFn = () => {
 
   return <Input value={value} onChange={handleChange} aria-label="Phone type" />
 }
-
-export const ReadOnly: StoryFn = _args => (
-  <InputGroup className="max-w-sz-320">
-    <InputGroup.LeadingIcon>
-      <PenOutline />
-    </InputGroup.LeadingIcon>
-
-    <Input defaultValue="iPhone" readOnly aria-label="Phone type" />
-  </InputGroup>
-)
 
 export const Disabled: StoryFn = _args => {
   const [isDisabled, setIsDisabled] = useState(true)
@@ -125,6 +116,103 @@ export const Disabled: StoryFn = _args => {
             className="max-w-sz-320"
             aria-label="Website"
             disabled={isDisabled}
+            defaultValue="Hello world"
+          />
+        </FormField>
+      </div>
+    </div>
+  )
+}
+
+export const ReadOnly: StoryFn = _args => {
+  const [isReadOnly, setIsReadOnly] = useState(true)
+
+  return (
+    <div className="flex flex-col gap-xl">
+      <Checkbox checked={isReadOnly} onClick={() => setIsReadOnly(isReadOnly => !isReadOnly)}>
+        Read Only
+      </Checkbox>
+
+      <div>
+        <StoryLabel>Standalone input</StoryLabel>
+
+        <Input
+          className="max-w-sz-320"
+          aria-label="Website"
+          readOnly={isReadOnly}
+          defaultValue="Hello world"
+        />
+      </div>
+
+      <div>
+        <StoryLabel>Addons - solid</StoryLabel>
+
+        <InputGroup className="max-w-sz-320" readOnly={isReadOnly}>
+          <InputGroup.LeadingAddon asChild>
+            <IconButton intent="primary" design="filled" aria-label="Search">
+              <Icon>
+                <EyeOutline />
+              </Icon>
+            </IconButton>
+          </InputGroup.LeadingAddon>
+
+          <InputGroup.ClearButton aria-label="clear" />
+
+          <InputGroup.LeadingIcon>
+            <PenOutline />
+          </InputGroup.LeadingIcon>
+
+          <Input aria-label="Website" defaultValue="Hello world" />
+
+          <InputGroup.TrailingAddon asChild>
+            <IconButton intent="neutral" design="ghost" aria-label="Search">
+              <Icon>
+                <EyeOutline />
+              </Icon>
+            </IconButton>
+          </InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+
+      <div>
+        <StoryLabel>Addons - text</StoryLabel>
+        <InputGroup className="max-w-sz-320" readOnly={isReadOnly}>
+          <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
+
+          <InputGroup.LeadingIcon>
+            <PenOutline />
+          </InputGroup.LeadingIcon>
+
+          <Input aria-label="Website" defaultValue="Hello world" />
+
+          <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+
+      <div>
+        <StoryLabel>Addons - inline</StoryLabel>
+        <InputGroup className="max-w-sz-320" readOnly={isReadOnly}>
+          <InputGroup.LeadingIcon>
+            <PenOutline />
+          </InputGroup.LeadingIcon>
+
+          <Input aria-label="Website" defaultValue="Hello world" />
+
+          <InputGroup.TrailingAddon>
+            <Button size="sm">Button</Button>
+          </InputGroup.TrailingAddon>
+        </InputGroup>
+      </div>
+
+      <div>
+        <StoryLabel>With FormField label</StoryLabel>
+        <FormField readOnly={isReadOnly}>
+          <FormField.Label>My label</FormField.Label>
+
+          <Input
+            className="max-w-sz-320"
+            aria-label="Website"
+            readOnly={isReadOnly}
             defaultValue="Hello world"
           />
         </FormField>

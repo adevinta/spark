@@ -22,6 +22,9 @@ export const inputAddonStyles = cva(
       disabled: {
         true: ['pointer-events-none'],
       },
+      readOnly: {
+        true: ['pointer-events-none'],
+      },
       design: {
         text: '',
         solid: '',
@@ -35,12 +38,27 @@ export const inputAddonStyles = cva(
         class: ['bg-surface', 'text-on-surface'],
       },
       {
+        readOnly: false,
+        design: 'text',
+        class: ['bg-surface', 'text-on-surface'],
+      },
+      {
         disabled: true,
         design: 'text',
         class: ['text-on-surface/dim-3'],
       },
       {
+        readOnly: true,
+        design: 'text',
+        class: ['text-on-surface/dim-3'],
+      },
+      {
         disabled: true,
+        design: ['solid', 'inline'],
+        class: ['opacity-dim-3'],
+      },
+      {
+        readOnly: true,
         design: ['solid', 'inline'],
         class: ['opacity-dim-3'],
       },

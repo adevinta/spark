@@ -34,6 +34,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const Component = asChild ? Slot : 'input'
     const state = field.state ?? group.state
     const disabled = field.disabled || group.disabled
+    const readOnly = field.readOnly || group.readOnly
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
       if (onChange) {
@@ -70,6 +71,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           hasClearButton: !!hasClearButton,
         })}
         disabled={disabled}
+        readOnly={readOnly}
         required={isRequired}
         aria-describedby={description}
         aria-invalid={isInvalid}
