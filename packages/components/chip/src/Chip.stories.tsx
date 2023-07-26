@@ -1,10 +1,14 @@
 import { Icon } from '@spark-ui/icon'
-// import { Toy } from '@spark-ui/icons/dist/icons/Toy'
+import { AccountFill } from '@spark-ui/icons/dist/icons/AccountFill'
+import { CalendarOutline } from '@spark-ui/icons/dist/icons/CalendarOutline'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
-import { InputGroup } from '@spark-ui/input'
+import { EyeOutline } from '@spark-ui/icons/dist/icons/EyeOutline'
+import { MailOutline } from '@spark-ui/icons/dist/icons/MailOutline'
+import { Input as SparkInput, InputGroup } from '@spark-ui/input'
+import { Label } from '@spark-ui/label'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
-import { ComponentProps, useState } from 'react'
+import { ComponentProps, useRef, useState } from 'react'
 
 import { Chip } from '.'
 
@@ -214,13 +218,38 @@ export const IntersectionFilter: StoryFn = _args => {
   )
 }
 
-export const Input: StoryFn = _args => (
-  <div className="flex flex-col">
-    <InputGroup>
-      <Input />
-    </InputGroup>
-  </div>
-)
+export const Input: StoryFn = _args => {
+  const [value, setValue] = useState<string>('third')
+  const [tags, setTags] = useState<string[]>(['first', 'second'])
+
+  return (
+    <div className="flex flex-col gap-md">
+      <InputGroup>
+        <SparkInput
+          value={value}
+          onChange={event => setValue(event.target.value)}
+          onKeyPress={event => {
+            if (event.key === 'Enter') {
+              !tags.includes(value) && setTags([...tags, value])
+              setValue('')
+            }
+          }}
+        />
+      </InputGroup>
+      <span className="flex gap-md">
+        {tags.map(tag => (
+          <Chip key={tag} design="dashed">
+            <Chip.Content>{tag}</Chip.Content>
+            <Chip.ClearButton
+              onClick={() => setTags(tags.filter(currentTag => tag !== currentTag))}
+              label="clear"
+            />
+          </Chip>
+        ))}
+      </span>
+    </div>
+  )
+}
 
 export const Intent: StoryFn = _args => (
   <div className="flex flex-col flex-wrap gap-md">
@@ -251,3 +280,95 @@ export const Intent: StoryFn = _args => (
     ))}
   </div>
 )
+
+export const AssistEvent: StoryFn = _args => {
+  return (
+    <div className="flex max-w-sz-320 flex-col gap-sm rounded-md border-md bg-gradient-to-br from-primary to-secondary p-lg text-surface shadow">
+      <div className="flex min-h-sz-128 flex-col items-start justify-between">
+        <span className="font-mono text-small uppercase">Passed Event</span>
+        <span className="flex flex-col">
+          <span className="text-headline-1">WWDC23</span>
+          <span className="text-body-1">Worldwide Developers Conference</span>
+        </span>
+      </div>
+      <hr className="bg-surface" />
+      <div className="flex flex-col gap-md">
+        <span className="text-small">June 6, 2023</span>
+        <div className="flex flex-row gap-md">
+          <Chip intent="surface" onClick={() => console.log('Add to iCal')}>
+            <Chip.LeadingIcon>
+              <Icon label="calendar">
+                <CalendarOutline />
+              </Icon>
+            </Chip.LeadingIcon>
+            <Chip.Content>Add to iCal</Chip.Content>
+          </Chip>
+          <Chip intent="surface" onClick={() => console.log('Join the meet')}>
+            <Chip.LeadingIcon>
+              <Icon label="join the meet">
+                <EyeOutline />
+              </Icon>
+            </Chip.LeadingIcon>
+            <Chip.Content>Join the meet</Chip.Content>
+          </Chip>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export const Suggestion: StoryFn = _args => {
+  const [isBlurred, setIsBlurred] = useState<boolean>(false)
+  const [content, setContent] = useState<string>('')
+  const blurHandler = () => setTimeout(() => setIsBlurred(false), 200)
+  const focusHandler = () => setIsBlurred(true)
+
+  const Component = isBlurred ? 'div' : VisuallyHidden
+
+  return (
+    <div className="relative flex flex-col gap-sm rounded-md p-lg">
+      <div className="flex min-h-sz-112 flex-col items-start justify-start">
+        <Label htmlFor="email">From</Label>
+        <InputGroup aria-label="email">
+          <InputGroup.LeadingIcon>
+            <Icon label="mail">
+              <MailOutline />
+            </Icon>
+          </InputGroup.LeadingIcon>
+          <SparkInput onBlur={blurHandler} onFocus={focusHandler} value={content} />
+          <InputGroup.ClearButton aria-label="clear" onClick={() => setContent('')} />
+        </InputGroup>
+      </div>
+      <Component className="absolute bottom-none right-none flex w-full justify-start gap-md px-lg pb-lg">
+        <Chip
+          tabIndex={-1}
+          design={content === 'john.doe@email.com' ? 'tinted' : 'dashed'}
+          onClick={() => {
+            setContent('john.doe@email.com')
+          }}
+        >
+          <Chip.LeadingIcon>
+            <Icon label="icon">
+              <AccountFill />
+            </Icon>
+          </Chip.LeadingIcon>
+          <Chip.Content>John Doe</Chip.Content>
+        </Chip>
+        <Chip
+          tabIndex={-1}
+          design={content === 'jane.doe@email.com' ? 'tinted' : 'dashed'}
+          onClick={() => {
+            setContent('jane.doe@email.com')
+          }}
+        >
+          <Chip.LeadingIcon>
+            <Icon label="icon">
+              <AccountFill />
+            </Icon>
+          </Chip.LeadingIcon>
+          <Chip.Content>Jane Doe</Chip.Content>
+        </Chip>
+      </Component>
+    </div>
+  )
+}
