@@ -248,7 +248,7 @@ export const IntersectionFilter: StoryFn = () => {
   )
 }
 
-export const Input: StoryFn = _args => {
+export const Input: StoryFn = () => {
   const [value, setValue] = useState<string>('third')
   const [tags, setTags] = useState<string[]>(['first', 'second'])
 
@@ -394,7 +394,7 @@ export const AssistEvent: StoryFn = _args => {
   )
 }
 
-export const Suggestion: StoryFn = _args => {
+export const Suggestion: StoryFn = () => {
   const [isBlurred, setIsBlurred] = useState<boolean>(false)
   const [content, setContent] = useState<string>('')
   const blurHandler = () => setTimeout(() => setIsBlurred(false), 200)
