@@ -11,6 +11,8 @@ const intents = [
   'danger',
   'neutral',
   'surface',
+  'accent',
+  'basic',
 ] as const
 
 const designs = ['filled', 'outlined', 'tinted', 'ghost', 'contrast'] as const
