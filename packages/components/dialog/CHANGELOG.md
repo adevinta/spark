@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.1.0...@spark-ui/dialog@1.2.0) (2023-07-27)
+
+### Features
+
+- **dialog:** close button styles ([d05edc4](https://github.com/adevinta/spark/commit/d05edc43bc85948227539cd0115cc137509deb8e))
+- **dialog:** introduced sizes ([bf79c0f](https://github.com/adevinta/spark/commit/bf79c0f2ce7cab03afad42a3bd443771e76ca28e))
+
 # 1.1.0 (2023-07-27)
 
 ### Features
