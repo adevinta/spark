@@ -404,13 +404,18 @@ export const Suggestion: StoryFn = () => {
     <div className="relative flex flex-col gap-sm rounded-md p-lg">
       <div className="flex min-h-sz-112 flex-col items-start justify-start">
         <Label htmlFor="email">From</Label>
-        <InputGroup aria-label="email">
+        <InputGroup>
           <InputGroup.LeadingIcon>
             <Icon label="mail">
               <MailOutline />
             </Icon>
           </InputGroup.LeadingIcon>
-          <SparkInput onBlur={blurHandler} onFocus={focusHandler} value={content} />
+          <SparkInput
+            aria-label="email"
+            onBlur={blurHandler}
+            onFocus={focusHandler}
+            value={content}
+          />
           <InputGroup.ClearButton aria-label="clear" onClick={() => setContent('')} />
         </InputGroup>
       </div>
