@@ -57,46 +57,40 @@ export interface Theme {
     accentVariantHovered: string
     accentVariantPressed: string
     accentVariantFocused: string
-    // Primary
-    primary: string
-    onPrimary: string
-    primaryHovered: string
-    primaryPressed: string
-    primaryDisabled: string
-    primaryFocused: string
-    primaryContainer: string
-    onPrimaryContainer: string
-    primaryContainerHovered: string
-    primaryContainerPressed: string
-    primaryContainerDisabled: string
-    primaryContainerFocused: string
-    // Secondary
-    secondary: string
-    onSecondary: string
-    secondaryHovered: string
-    secondaryPressed: string
-    secondaryDisabled: string
-    secondaryFocused: string
-    secondaryContainer: string
-    onSecondaryContainer: string
-    secondaryContainerHovered: string
-    secondaryContainerPressed: string
-    secondaryContainerDisabled: string
-    secondaryContainerFocused: string
-    // Primary Variant
-    primaryVariant: string
-    onPrimaryVariant: string
-    primaryVariantHovered: string
-    primaryVariantPressed: string
-    primaryVariantDisabled: string
-    primaryVariantFocused: string
-    // Secondary Variant
-    secondaryVariant: string
-    onSecondaryVariant: string
-    secondaryVariantHovered: string
-    secondaryVariantPressed: string
-    secondaryVariantDisabled: string
-    secondaryVariantFocused: string
+    // Main
+    main: string
+    onMain: string
+    mainHovered: string
+    mainPressed: string
+    mainFocused: string
+    mainContainer: string
+    onMainContainer: string
+    mainContainerHovered: string
+    mainContainerPressed: string
+    mainContainerFocused: string
+    // Support
+    support: string
+    onSupport: string
+    supportHovered: string
+    supportPressed: string
+    supportFocused: string
+    supportContainer: string
+    onSupportContainer: string
+    supportContainerHovered: string
+    supportContainerPressed: string
+    supportContainerFocused: string
+    // Main Variant
+    mainVariant: string
+    onMainVariant: string
+    mainVariantHovered: string
+    mainVariantPressed: string
+    mainVariantFocused: string
+    // Support Variant
+    supportVariant: string
+    onSupportVariant: string
+    supportVariantHovered: string
+    supportVariantPressed: string
+    supportVariantFocused: string
     // Success
     success: string
     onSuccess: string
