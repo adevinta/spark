@@ -273,7 +273,7 @@ export const Input: StoryFn = () => {
       </div>
       <span className="flex gap-md">
         {tags.map(tag => (
-          <Chip key={tag} design="dashed">
+          <Chip intent="neutral" key={tag} design="dashed">
             <Chip.Content>{tag}</Chip.Content>
             <Chip.ClearButton
               onClick={() => setTags(tags.filter(currentTag => tag !== currentTag))}
