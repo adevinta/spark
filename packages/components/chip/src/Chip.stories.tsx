@@ -449,6 +449,7 @@ export const Suggestion: StoryFn = () => {
           onClick={() => {
             setContent('john.doe@email.com')
           }}
+          intent="neutral"
         >
           <Chip.LeadingIcon>
             <Icon label="icon">
@@ -463,6 +464,7 @@ export const Suggestion: StoryFn = () => {
           onClick={() => {
             setContent('jane.doe@email.com')
           }}
+          intent="neutral"
         >
           <Chip.LeadingIcon>
             <Icon label="icon">
