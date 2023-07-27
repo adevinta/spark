@@ -17,7 +17,7 @@
     "directory": "packages/components/badge"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "^1.6.1",
+    "@spark-ui/internal-utils": "colours",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
