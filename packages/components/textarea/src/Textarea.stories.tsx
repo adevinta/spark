@@ -8,7 +8,7 @@ import { ChangeEvent, useState } from 'react'
 import { Textarea, TextareaGroup } from '.'
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Experimental/Textarea',
+  title: 'Components/Textarea',
   component: Textarea,
 }
 
