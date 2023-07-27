@@ -191,6 +191,8 @@ const multipleintersectionSet = Array.from(
       '🐡': ['sea', 'wild'],
       '🐟': ['sea', 'wild'],
       '🐞': ['land', 'air', 'wild'],
+      '🐢': ['land', 'sea', 'wild', 'domestic'],
+      '🦜': ['land', 'air', 'wild', 'domestic'],
     })
   )
 ).sort(() => 0.5 - Math.random())
