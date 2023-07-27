@@ -14,9 +14,7 @@ export const Overlay = forwardRef(
         className
       )}
       {...rest}
-    >
-      {children}
-    </RadixDialog.Overlay>
+    />
   )
 )
 

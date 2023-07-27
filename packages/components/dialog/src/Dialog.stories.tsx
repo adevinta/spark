@@ -26,7 +26,7 @@ export const Usage: StoryFn = _args => {
 
           <p>Dialog contents</p>
 
-          <Dialog.CloseButton />
+          <Dialog.CloseButton aria-label="Close edit profile" />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog>
