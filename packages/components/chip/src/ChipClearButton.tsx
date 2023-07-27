@@ -35,7 +35,7 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
 
     const onClearHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
       event.stopPropagation()
-      onClick && onClick(event)
+      !disabled && onClick && onClick(event)
     }
 
     return (
