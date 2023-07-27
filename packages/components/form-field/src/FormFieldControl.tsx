@@ -5,7 +5,15 @@ import { FormFieldContext, FormFieldContextState } from './FormFieldContext'
 type State = Partial<
   Pick<
     FormFieldContextState,
-    'id' | 'name' | 'description' | 'labelId' | 'disabled' | 'state' | 'isInvalid' | 'isRequired'
+    | 'id'
+    | 'name'
+    | 'description'
+    | 'labelId'
+    | 'disabled'
+    | 'readOnly'
+    | 'state'
+    | 'isInvalid'
+    | 'isRequired'
   >
 >
 
@@ -14,10 +22,20 @@ export interface FormFieldControlProps {
 }
 
 export const useFormFieldControl = () => {
-  const { id, name, description, disabled, state, labelId, isInvalid, isRequired } =
+  const { id, name, description, disabled, readOnly, state, labelId, isInvalid, isRequired } =
     useContext(FormFieldContext) || {}
 
-  return { id, name, description, disabled, state, labelId, isInvalid, isRequired } as State
+  return {
+    id,
+    name,
+    description,
+    disabled,
+    readOnly,
+    state,
+    labelId,
+    isInvalid,
+    isRequired,
+  } as State
 }
 
 export const FormFieldControl = ({ children }: FormFieldControlProps) => {

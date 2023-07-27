@@ -14,11 +14,21 @@ export interface FormFieldProps
    */
   asChild?: boolean
   disabled?: boolean
+  readOnly?: boolean
 }
 
 export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
   (
-    { className, disabled = false, name, state, isRequired = false, asChild = false, ...others },
+    {
+      className,
+      disabled = false,
+      readOnly = false,
+      name,
+      state,
+      isRequired = false,
+      asChild = false,
+      ...others
+    },
     ref
   ) => {
     const id = useId()
@@ -30,6 +40,7 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         name={name}
         isRequired={isRequired}
         disabled={disabled}
+        readOnly={readOnly}
         state={state}
       >
         <Component

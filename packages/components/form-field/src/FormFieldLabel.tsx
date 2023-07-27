@@ -27,7 +27,8 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
   ) => {
     const control = useFormField()
 
-    const { disabled, labelId, isRequired } = control
+    const { disabled, readOnly, labelId, isRequired } = control
+    const isInactive = disabled || readOnly
     const htmlFor = asChild ? undefined : htmlForProp || control.id
 
     return (
@@ -39,7 +40,7 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
         className={cx(
           className,
           'flex items-center gap-sm',
-          disabled ? 'text-on-surface/dim-3 pointer-events-none' : undefined
+          isInactive ? 'text-on-surface/dim-3 pointer-events-none' : undefined
         )}
         asChild={asChild}
         {...others}
