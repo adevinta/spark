@@ -270,7 +270,7 @@ export const Input: StoryFn = () => {
       </div>
       <span className="flex gap-md">
         {tags.map(tag => (
-          <Chip key={tag} design="dashed">
+          <Chip intent="neutral" key={tag} design="dashed">
             <Chip.Content>{tag}</Chip.Content>
             <Chip.ClearButton
               onClick={() => setTags(tags.filter(currentTag => tag !== currentTag))}
@@ -342,6 +342,27 @@ export const ActionIntent: StoryFn = _args => (
       <div key={design} className="flex flex-wrap gap-md">
         {intents.map(intent => (
           <Chip
+            design={design}
+            key={`${design}-${intent}`}
+            intent={intent}
+            onClick={() => console.log(`click ${design} ${intent}`)}
+          >
+            <Chip.Content>{intent}</Chip.Content>
+            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+          </Chip>
+        ))}
+      </div>
+    ))}
+  </div>
+)
+
+export const Disabled: StoryFn = _args => (
+  <div className="flex flex-col flex-wrap gap-md">
+    {designs.map(design => (
+      <div key={design} className="flex flex-wrap gap-md">
+        {intents.map(intent => (
+          <Chip
+            disabled
             design={design}
             key={`${design}-${intent}`}
             intent={intent}
