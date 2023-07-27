@@ -1,0 +1,65 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+
+import { Dialog } from '.'
+
+import * as stories from './Dialog.stories'
+
+<Meta of={stories} />
+
+# Dialog
+
+A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+
+## Install
+
+```sh
+npm install @spark-ui/dialog
+```
+
+## Import
+
+```tsx
+import { Dialog } from '@spark-ui/dialog'
+```
+
+## Props
+
+<ArgTypes
+  of={Dialog}
+  description="Contains all the parts of a dialog."
+  subcomponents={{
+    'Dialog.Trigger': {
+      of: Dialog.Trigger,
+      description: 'The button that opens the dialog.',
+    },
+    'Dialog.Portal': {
+      of: Dialog.Portal,
+      description: 'When used, portals your overlay and content parts into the body.',
+    },
+    'Dialog.Overlay': {
+      of: Dialog.Overlay,
+      description: 'A layer that covers the inert portion of the view when the dialog is open.',
+    },
+    'Dialog.Content': {
+      of: Dialog.Content,
+      description: 'Contains content to be rendered in the open dialog.',
+    },
+    'Dialog.CloseButton': {
+      of: Dialog.CloseButton,
+      description: 'The button that closes the dialog.',
+    },
+    'Dialog.Title': {
+      of: Dialog.Title,
+      description: 'An accessible title to be announced when the dialog is opened.',
+    },
+    'Dialog.Description': {
+      of: Dialog.Description,
+      description: 'An optional accessible description to be announced when the dialog is opened.',
+    },
+  }}
+/>
+
+## Usage
+
+<Canvas of={stories.Usage} />
