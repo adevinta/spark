@@ -2,8 +2,8 @@ const sizes = ['current', 'sm', 'md', 'lg', 'xl'] as const
 
 const intents = [
   'current',
-  'primary',
-  'secondary',
+  'main',
+  'support',
   'success',
   'error',
   'info',
