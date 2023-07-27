@@ -32,6 +32,31 @@ export interface Theme {
    * Spark color specifications: https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3
    */
   colors: {
+    // Basic
+    basic: string
+    onBasic: string
+    basicContainer: string
+    onBasicContainer: string
+    basicHovered: string
+    basicPressed: string
+    basicFocused: string
+    // Accent
+    accent: string
+    onAccent: string
+    accentHovered: string
+    accentPressed: string
+    accentFocused: string
+    accentContainer: string
+    onAccentContainer: string
+    accentContainerHovered: string
+    accentContainerPressed: string
+    accentContainerFocused: string
+    // Accent Variant
+    accentVariant: string
+    onAccentVariant: string
+    accentVariantHovered: string
+    accentVariantPressed: string
+    accentVariantFocused: string
     // Primary
     primary: string
     onPrimary: string
