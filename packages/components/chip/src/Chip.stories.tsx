@@ -55,8 +55,6 @@ const singleSet = Array.from(
 export const SingleSelectionFilter: StoryFn = () => {
   const [activeFilter, setActive] = useState<undefined | string>('fruit')
 
-  console.log(singleSet)
-
   return (
     <div className="flex flex-col gap-md">
       <div className="flex flex-row items-start gap-md">

@@ -52,6 +52,7 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
           type="button"
           disabled={!!disabled}
           className={chipClearButtonStyles({ disabled })}
+          aria-label={label}
         >
           <Slot aria-label={label}>{children}</Slot>
         </button>
