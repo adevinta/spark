@@ -1,70 +1,103 @@
 import { FormField } from '@spark-ui/form-field'
-import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
-import { InputGroup } from '@spark-ui/input'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, useState } from 'react'
 
-import { Textarea } from '.'
+import { Textarea, TextareaGroup } from '.'
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Experimental/Textarea',
+  title: 'Components/Textarea',
   component: Textarea,
 }
 
 export default meta
 
-export const Default: StoryFn = _args => <Textarea rows={2} aria-label="Message" />
+export const Default: StoryFn = _args => (
+  <Textarea rows={2} placeholder="Describe what you want to sell" aria-label="Description" />
+)
 
 export const Uncontrolled: StoryFn = _args => (
-  <Textarea defaultValue="IPhone 12" aria-label="Message" />
+  <Textarea rows={2} defaultValue="IPhone 12 in good condition" aria-label="Description" />
 )
 
 export const Controlled: StoryFn = () => {
-  const [value, setValue] = useState('IPhone 13')
+  const [value, setValue] = useState('IPhone 12 in good condition')
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value)
   }
 
-  return <Textarea value={value} onChange={handleChange} aria-label="Message" />
+  return <Textarea rows={2} value={value} onChange={handleChange} aria-label="Description" />
 }
 
 export const Disabled: StoryFn = _args => (
-  <Textarea defaultValue="IPhone" aria-label="Message" disabled />
-)
+  <div className="flex flex-col gap-md">
+    <Textarea
+      rows={2}
+      defaultValue="IPhone 12 in good condition"
+      aria-label="Description"
+      disabled
+    />
 
-export const GroupElements: StoryFn = _args => (
-  <InputGroup>
-    <InputGroup.LeadingIcon>
-      <PenOutline />
-    </InputGroup.LeadingIcon>
-
-    <Textarea rows={2} aria-label="Message" />
-
-    <InputGroup.TrailingIcon>
-      <Check />
-    </InputGroup.TrailingIcon>
-  </InputGroup>
-)
-
-export const GroupDisabled: StoryFn = _args => (
-  <InputGroup disabled>
-    <InputGroup.LeadingIcon>
-      <Icon>
+    <TextareaGroup disabled>
+      <TextareaGroup.LeadingIcon>
         <PenOutline />
-      </Icon>
-    </InputGroup.LeadingIcon>
+      </TextareaGroup.LeadingIcon>
+
+      <Textarea rows={2} defaultValue="IPhone 12 in good condition" aria-label="Message" />
+
+      <TextareaGroup.TrailingIcon>
+        <Check />
+      </TextareaGroup.TrailingIcon>
+    </TextareaGroup>
+  </div>
+)
+
+export const Icon: StoryFn = _args => (
+  <TextareaGroup>
+    <TextareaGroup.LeadingIcon>
+      <PenOutline />
+    </TextareaGroup.LeadingIcon>
 
     <Textarea rows={2} aria-label="Message" />
 
-    <InputGroup.TrailingIcon>
+    <TextareaGroup.TrailingIcon>
       <Check />
-    </InputGroup.TrailingIcon>
-  </InputGroup>
+    </TextareaGroup.TrailingIcon>
+  </TextareaGroup>
 )
+
+export const State: StoryFn = _args => {
+  return (
+    <div className="flex flex-col gap-xl">
+      <TextareaGroup state="error">
+        <Textarea rows={2} aria-label="Description" />
+      </TextareaGroup>
+
+      <TextareaGroup state="alert">
+        <TextareaGroup.LeadingIcon>
+          <PenOutline />
+        </TextareaGroup.LeadingIcon>
+
+        <Textarea rows={2} aria-label="Description" />
+      </TextareaGroup>
+
+      <TextareaGroup state="success">
+        <TextareaGroup.LeadingIcon>
+          <PenOutline />
+        </TextareaGroup.LeadingIcon>
+
+        <Textarea rows={2} aria-label="Description" />
+
+        <TextareaGroup.TrailingIcon>
+          <Check />
+        </TextareaGroup.TrailingIcon>
+      </TextareaGroup>
+    </div>
+  )
+}
 
 export const FieldLabel: StoryFn = _args => {
   return (
@@ -100,20 +133,20 @@ export const FieldRequired: StoryFn = _args => {
 
 export const FieldHelperMessage: StoryFn = _args => {
   return (
-    <FormField name="title">
-      <FormField.Label>Title</FormField.Label>
+    <FormField name="description">
+      <FormField.Label>Description</FormField.Label>
 
       <Textarea rows={2} />
 
       <FormField.HelperMessage>
-        An effective title significantly increases your chances of making a sale
+        An effective description significantly increases your chances of making a sale
       </FormField.HelperMessage>
     </FormField>
   )
 }
 
-export const FieldCharactersCount: StoryFn = _args => {
-  const MAX_LENGTH = 90
+export const FieldCharactersCount: StoryFn = () => {
+  const maxLength = 90
   const [value, setValue] = useState('')
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -121,20 +154,21 @@ export const FieldCharactersCount: StoryFn = _args => {
   }
 
   return (
-    <FormField name="textarea-with-a-characters-count">
-      <FormField.Label>Textarea with a characters count</FormField.Label>
+    <FormField name="description">
+      <FormField.Label>Description</FormField.Label>
 
-      <Textarea value={value} onChange={handleChange} maxLength={MAX_LENGTH} />
+      <Textarea rows={2} value={value} onChange={handleChange} maxLength={maxLength} />
 
       <div className="flex justify-between gap-md">
         <div className="grow">
           <FormField.HelperMessage>
-            Type the text but take into account the max length
+            An effective description significantly increases your chances of making a sale
           </FormField.HelperMessage>
-          <FormField.ErrorMessage>This is an error</FormField.ErrorMessage>
+
+          <FormField.ErrorMessage>The description is invalid</FormField.ErrorMessage>
         </div>
 
-        <FormField.CharactersCount value={value} maxLength={MAX_LENGTH} />
+        <FormField.CharactersCount value={value} maxLength={maxLength} />
       </div>
     </FormField>
   )
@@ -142,12 +176,12 @@ export const FieldCharactersCount: StoryFn = _args => {
 
 export const FieldInvalid: StoryFn = _args => {
   return (
-    <FormField name="title" state="error">
-      <FormField.Label>Title</FormField.Label>
+    <FormField name="description" state="error">
+      <FormField.Label>Description</FormField.Label>
 
       <Textarea rows={2} />
 
-      <FormField.ErrorMessage>The title is invalid</FormField.ErrorMessage>
+      <FormField.ErrorMessage>The description is invalid</FormField.ErrorMessage>
     </FormField>
   )
 }

@@ -17,8 +17,20 @@ export interface InputProps extends InputPrimitiveProps {
   onValueChange?: (value: string) => void
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, asChild, onValueChange, onChange, onKeyDown, ...others }, ref) => {
+const Root = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      className,
+      asChild = false,
+      onValueChange,
+      onChange,
+      onKeyDown,
+      disabled: disabledProp,
+      readOnly: readOnlyProp,
+      ...others
+    },
+    ref
+  ) => {
     const field = useFormFieldControl()
     const group = useInputGroup()
 
@@ -33,8 +45,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     } = group
     const Component = asChild ? Slot : 'input'
     const state = field.state ?? group.state
-    const disabled = field.disabled || group.disabled
-    const readOnly = field.readOnly || group.readOnly
+    const disabled = group.disabled ?? disabledProp
+    const readOnly = group.readOnly ?? readOnlyProp
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
       if (onChange) {
@@ -62,6 +74,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         id={id}
         name={name}
         className={inputStyles({
+          asChild,
           className,
           intent: state,
           hasLeadingAddon: !!hasLeadingAddon,
@@ -82,5 +95,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     )
   }
 )
+
+export const Input = Object.assign(Root, {
+  id: 'Input',
+})
 
 Input.displayName = 'Input'

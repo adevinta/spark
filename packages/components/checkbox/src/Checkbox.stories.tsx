@@ -11,7 +11,7 @@ import { Checkbox, CheckboxProps } from './Checkbox'
 import { CheckboxGroup } from './CheckboxGroup'
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'components/Checkbox',
+  title: 'Components/Checkbox',
   component: Checkbox,
 }
 
