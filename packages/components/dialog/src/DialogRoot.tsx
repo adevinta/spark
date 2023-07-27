@@ -4,9 +4,7 @@ import { type ReactElement } from 'react'
 export type RootProps = RadixDialog.DialogProps
 
 export const Root = ({ children, ...rest }: RootProps): ReactElement => (
-  <RadixDialog.Root data-spark-component="dialog" {...rest}>
-    {children}
-  </RadixDialog.Root>
+  <RadixDialog.Root {...rest}>{children}</RadixDialog.Root>
 )
 
 Root.displayName = 'Dialog.Root'

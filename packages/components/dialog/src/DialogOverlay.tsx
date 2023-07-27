@@ -5,7 +5,7 @@ export type OverlayProps = RadixDialog.DialogOverlayProps
 
 export const Overlay = forwardRef(
   ({ children, ...rest }: OverlayProps, ref: Ref<HTMLDivElement>): ReactElement => (
-    <RadixDialog.Overlay data-spark-component="dialog-overlay" ref={ref} {...rest}>
+    <RadixDialog.Overlay ref={ref} {...rest}>
       {children}
     </RadixDialog.Overlay>
   )
