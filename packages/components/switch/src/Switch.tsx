@@ -9,7 +9,7 @@ import { Label } from './SwitchLabel'
 export type SwitchProps = InputProps
 
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
-  ({ value = 'on', size = 'md', children, className, id, disabled, ...rest }, ref) => {
+  ({ size = 'md', children, className, id, disabled, ...rest }, ref) => {
     const field = useFormFieldControl()
 
     const innerId = useId(id)
