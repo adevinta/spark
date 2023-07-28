@@ -40,7 +40,7 @@ export const defaultThemeDark: Theme = createTheme({
     mainPressed: '#0052FF',
     mainFocused: '#0052FF',
     // Main container
-    mainContainer: '#001766',
+    mainContainer: '#002799',
     onMainContainer: '#FFFFFF',
     mainContainerHovered: '#000A33',
     mainContainerPressed: '#000A33',
