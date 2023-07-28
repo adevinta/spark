@@ -26,11 +26,15 @@ export const defaultTheme: Theme = {
     // Basic
     basic: '#35376A',
     onBasic: '#FFFFFF',
-    basicContainer: '#DCDCE5',
-    onBasicContainer: '#1D1F2A',
     basicHovered: '#4D4E7B',
     basicPressed: '#4D4E7B',
     basicFocused: '#4D4E7B',
+    // Basic Container
+    basicContainer: '#DCDCE5',
+    onBasicContainer: '#1D1F2A',
+    basicContainerHovered: '#F4F4F7',
+    basicContainerPressed: '#F4F4F7',
+    basicContainerFocused: '#F4F4F7',
     // Accent
     accent: '#CC99FF',
     onAccent: '#1D1F2A',
@@ -38,7 +42,7 @@ export const defaultTheme: Theme = {
     accentPressed: '#DBB7FF',
     accentFocused: '#DBB7FF',
     // Accent Container
-    accentContainer: '#F9F3FF',
+    accentContainer: '#EAD5FF',
     onAccentContainer: '#362555',
     accentContainerHovered: '#F9F3FF',
     accentContainerPressed: '#F9F3FF',
@@ -68,17 +72,17 @@ export const defaultTheme: Theme = {
     mainVariantPressed: '#003BCC',
     mainVariantFocused: '#003BCC',
     // Support
-    support: '#FD398A',
+    support: '#35376A',
     onSupport: '#FFFFFF',
-    supportHovered: '#FE6BA7',
-    supportPressed: '#FE6BA7',
-    supportFocused: '#FE6BA7',
+    supportHovered: '#4D4E7B',
+    supportPressed: '#4D4E7B',
+    supportFocused: '#4D4E7B',
     // Support Container
-    supportContainer: '#FFE1ED',
-    onSupportContainer: '#982253',
-    supportContainerHovered: '#FFF5F9',
-    supportContainerPressed: '#FFF5F9',
-    supportContainerFocused: '#FFF5F9',
+    supportContainer: '#DCDCE5',
+    onSupportContainer: '#1D1F58',
+    supportContainerHovered: '#F4F4F7',
+    supportContainerPressed: '#F4F4F7',
+    supportContainerFocused: '#F4F4F7',
     // Support Variant
     supportVariant: '#982253',
     onSupportVariant: '#FFFFFF',

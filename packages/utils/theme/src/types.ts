@@ -35,17 +35,22 @@ export interface Theme {
     // Basic
     basic: string
     onBasic: string
-    basicContainer: string
-    onBasicContainer: string
     basicHovered: string
     basicPressed: string
     basicFocused: string
+    // Basic Container
+    basicContainer: string
+    onBasicContainer: string
+    basicContainerHovered: string
+    basicContainerPressed: string
+    basicContainerFocused: string
     // Accent
     accent: string
     onAccent: string
     accentHovered: string
     accentPressed: string
     accentFocused: string
+    // Accent Container
     accentContainer: string
     onAccentContainer: string
     accentContainerHovered: string
