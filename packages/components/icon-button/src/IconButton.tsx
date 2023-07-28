@@ -12,7 +12,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     {
       design = 'filled',
       disabled = false,
-      intent = 'primary',
+      intent = 'main',
       shape = 'rounded',
       size = 'md',
       className,
