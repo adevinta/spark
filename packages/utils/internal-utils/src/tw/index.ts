@@ -7,7 +7,7 @@
  * @example
  *
  * // before
- * const styles: cva(['flex bg-primary', 'cursor-pointer'], {
+ * const styles: cva(['flex bg-main', 'cursor-pointer'], {
  *   variants: {
  *     size: {
  *       small: "h-sz-24",
@@ -17,7 +17,7 @@
  * })
  *
  * // after
- * const styles = cva(tw(['flex bg-primary', 'cursor-pointer']), {
+ * const styles = cva(tw(['flex bg-main', 'cursor-pointer']), {
  *   variants: {
  *     size: {
  *       small: tw("h-sz-24"),
