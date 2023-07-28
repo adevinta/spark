@@ -77,6 +77,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
           ref={ref}
           disabled={disabled}
           orientation={orientation}
+          loop={loop}
           required={required}
           aria-labelledby={labelId}
           aria-invalid={isInvalid}
