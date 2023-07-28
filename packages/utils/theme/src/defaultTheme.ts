@@ -60,7 +60,7 @@ export const defaultTheme: Theme = {
     mainPressed: '#3878FF',
     mainFocused: '#3878FF',
     // Main container
-    mainContainer: '##C2D6FF',
+    mainContainer: '#C2D6FF',
     onMainContainer: '#002799',
     mainContainerHovered: '#F2F6FF',
     mainContainerPressed: '#F2F6FF',
