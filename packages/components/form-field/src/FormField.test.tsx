@@ -240,11 +240,8 @@ describe('FormField error message', () => {
       </FormField>
     )
 
-    const inputEl = screen.getByLabelText('Text')
-    const charsCountEl = screen.getByText('5/6')
-
-    expect(inputEl).toHaveValue('Hello')
-    expect(charsCountEl).toBeVisible()
+    expect(screen.getByLabelText('Text')).toHaveValue('Hello')
+    expect(screen.getByText('5/6')).toBeVisible()
   })
 
   it('should render the characters count component properly when `value` is undefined', () => {
@@ -275,10 +272,7 @@ describe('FormField error message', () => {
       </FormField>
     )
 
-    const inputEl = screen.getByLabelText('Text')
-    const charsCountEl = screen.getByText('0/6')
-
-    expect(inputEl).toHaveValue('')
-    expect(charsCountEl).toBeVisible()
+    expect(screen.getByLabelText('Text')).toHaveValue('')
+    expect(screen.getByText('0/6')).toBeVisible()
   })
 })
