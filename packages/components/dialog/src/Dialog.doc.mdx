@@ -43,7 +43,21 @@ import { Dialog } from '@spark-ui/dialog'
     },
     'Dialog.Content': {
       of: Dialog.Content,
-      description: 'Contains content to be rendered in the open dialog.',
+      description: 'Contains Header/Body/Footer to be rendered in the open dialog.',
+    },
+    'Dialog.Header': {
+      of: Dialog.Header,
+      description: 'To use inside of Popover.Content. Sticky header inside the dialog.',
+    },
+    'Dialog.Body': {
+      of: Dialog.Body,
+      description:
+        'To use inside of Popover.Content. Main content of the dialog. Becomes scrollable when content is overflowing the screen.',
+    },
+    'Dialog.Footer': {
+      of: Dialog.Footer,
+      description:
+        'To use inside of Popover.Content. Sticky footer to be rendered in the open dialog. Use it to render CTAs and make them accessible in every condition.',
     },
     'Dialog.CloseButton': {
       of: Dialog.CloseButton,
