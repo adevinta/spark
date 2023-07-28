@@ -4,11 +4,10 @@ import { parseSync, stringify } from 'svgson'
 const componentize = ({ name = 'componentName', node = '<svg />', tags = [] }) => {
   const {
     children,
-    attributes: { fill, stroke, 'data-title': dataTitle, ...otherAttributes } = {
+    attributes: { fill, stroke, ...otherAttributes } = {
       fill: 'currentColor',
       stroke: 'currentColor',
     },
-    ...others
   } = parseSync(node)
   const nameTags = [name]
 

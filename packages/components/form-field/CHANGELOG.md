@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.2.0...@spark-ui/form-field@1.2.1) (2023-07-28)
+
+### Bug Fixes
+
+- **form-field:** fix type ([e1f8f15](https://github.com/adevinta/spark/commit/e1f8f156c6126b106fe29351fdbd3b41fbc2e4d8))
+- **form-field:** fix undefined values when accessing length property ([bb8493f](https://github.com/adevinta/spark/commit/bb8493fdf725208664804c71836cb84dc8ac78b9))
+
 # [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.1.0...@spark-ui/form-field@1.2.0) (2023-07-26)
 
 ### Features
