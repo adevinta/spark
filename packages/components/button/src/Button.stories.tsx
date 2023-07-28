@@ -18,8 +18,10 @@ type ButtonProps = ComponentProps<typeof Button>
 
 const sizes: ButtonProps['size'][] = ['sm', 'md', 'lg']
 const intents: ButtonProps['intent'][] = [
-  'primary',
-  'secondary',
+  'main',
+  'support',
+  'accent',
+  'basic',
   'success',
   'alert',
   'danger',

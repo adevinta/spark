@@ -2,23 +2,43 @@ import { tw } from '@spark-ui/internal-utils'
 
 export const contrastVariants = [
   {
-    intent: 'primary',
+    intent: 'main',
     design: 'contrast',
     class: tw([
-      'text-primary',
-      'hover:bg-primary-container-hovered',
-      'enabled:active:bg-primary-container-pressed',
-      'focus-visible:bg-primary-container-focused',
+      'text-main',
+      'hover:bg-main-container-hovered',
+      'enabled:active:bg-main-container-pressed',
+      'focus-visible:bg-main-container-focused',
     ]),
   },
   {
-    intent: 'secondary',
+    intent: 'support',
     design: 'contrast',
     class: tw([
-      'text-secondary',
-      'hover:bg-secondary-container-hovered',
-      'enabled:active:bg-secondary-container-pressed',
-      'focus-visible:bg-secondary-container-focused',
+      'text-support',
+      'hover:bg-support-container-hovered',
+      'enabled:active:bg-support-container-pressed',
+      'focus-visible:bg-support-container-focused',
+    ]),
+  },
+  {
+    intent: 'accent',
+    design: 'contrast',
+    class: tw([
+      'text-accent',
+      'hover:bg-accent-container-hovered',
+      'enabled:active:bg-accent-container-pressed',
+      'focus-visible:bg-accent-container-focused',
+    ]),
+  },
+  {
+    intent: 'basic',
+    design: 'contrast',
+    class: tw([
+      'text-basic',
+      'hover:bg-basic-container-hovered',
+      'enabled:active:bg-basic-container-pressed',
+      'focus-visible:bg-basic-container-focused',
     ]),
   },
   {
