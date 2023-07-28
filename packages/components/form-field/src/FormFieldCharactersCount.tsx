@@ -5,7 +5,7 @@ export type FormFieldCharactersCountProps = ComponentPropsWithoutRef<'span'> & {
   /**
    * Current value for the input this component belongs to.
    */
-  value: string
+  value?: string
   /**
    * Maximum numeric value to be displayed.
    */
