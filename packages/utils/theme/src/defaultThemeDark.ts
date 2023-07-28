@@ -6,11 +6,15 @@ export const defaultThemeDark: Theme = createTheme({
     // Basic
     basic: '#DCDCE5',
     onBasic: '#1D1F2A',
-    basicContainer: '#4D4E7B',
-    onBasicContainer: '#FFFFFF',
     basicHovered: '#C4C5D3',
     basicPressed: '#C4C5D3',
     basicFocused: '#C4C5D3',
+    // Basic Container
+    basicContainer: '#4D4E7B',
+    onBasicContainer: '#FFFFFF',
+    basicContainerHovered: '#35376A',
+    basicContainerPressed: '#35376A',
+    basicContainerFocused: '#35376A',
     // Accent
     accent: '#CC99FF',
     onAccent: '#1D1F2A',
