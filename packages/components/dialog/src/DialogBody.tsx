@@ -10,7 +10,6 @@ export const Body = forwardRef(
   ({ children, className, ...rest }: BodyProps, ref: Ref<HTMLDivElement>): ReactElement => (
     <div
       ref={ref}
-      tabIndex={0}
       className={cx(
         className,
         ['px-xl', 'py-md', 'flex-grow', 'overflow-y-auto'],
