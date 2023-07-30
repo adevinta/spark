@@ -15,8 +15,10 @@ export default meta
 type TagProps = ComponentProps<typeof Tag>
 
 const intents: TagProps['intent'][] = [
-  'primary',
-  'secondary',
+  'main',
+  'support',
+  'accent',
+  'basic',
   'success',
   'alert',
   'danger',
@@ -38,11 +40,15 @@ export const Design: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-row gap-md">
-    {intents.map(intent => (
-      <Tag key={intent} intent={intent}>
-        {intent} tag
-      </Tag>
+  <div className="flex flex-col gap-md">
+    {designs.map(design => (
+      <div key={design} className="flex flex-row gap-md">
+        {intents.map(intent => (
+          <Tag key={intent} design={design} intent={intent}>
+            {intent} tag
+          </Tag>
+        ))}
+      </div>
     ))}
   </div>
 )
