@@ -1,0 +1,33 @@
+{
+  "name": "@spark-ui/alert-dialog",
+  "version": "1.0.0",
+  "description": "A modal dialog that interrupts the user with important content and expects a response.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "class-variance-authority": "0.4.0",
+    "@spark-ui/dialog": "^1.2.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/alert-dialog"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
+}

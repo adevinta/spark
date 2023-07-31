@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { AlertDialog } from '.'
+
+import * as stories from './AlertDialog.stories'
+
+<Meta of={stories} />
+
+# AlertDialog
+
+A modal dialog that interrupts the user with important content and expects a response.
+
+## Install
+
+```sh
+npm install @spark-ui/alert-dialog
+```
+
+## Import
+
+```tsx
+import { AlertDialog } from "@spark-ui/alert-dialog"
+```
+
+## Props
+
+<ArgTypes of={AlertDialog} />
+
+## Variants
+<Canvas of={stories.Default} />
