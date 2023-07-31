@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const dialogContentStyles = cva([['fixed', 'z-modal', 'flex', 'flex-col'], ['bg-surface']], {
   variants: {
     size: {
-      fullscreen: ['w-screen', 'h-screen'],
+      fullscreen: ['inset-none'],
       sm: ['max-w-sz-480'],
       md: ['max-w-sz-640'],
       lg: ['max-w-sz-768'],
