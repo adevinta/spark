@@ -1,3 +1,4 @@
+import { Button } from '@spark-ui/button'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { Dialog } from '.'
@@ -13,7 +14,7 @@ export const Usage: StoryFn = _args => {
   return (
     <Dialog>
       <Dialog.Trigger asChild>
-        <button>Edit profile</button>
+        <Button>Edit profile</Button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay />
@@ -25,7 +26,7 @@ export const Usage: StoryFn = _args => {
 
           <p>Dialog contents</p>
 
-          <Dialog.CloseButton />
+          <Dialog.CloseButton aria-label="Close edit profile" />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog>

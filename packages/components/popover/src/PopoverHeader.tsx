@@ -1,5 +1,6 @@
 import { useId } from '@radix-ui/react-id'
-import { forwardRef, ReactNode, useLayoutEffect } from 'react'
+import { cx } from 'class-variance-authority'
+import { forwardRef, type ReactNode, useLayoutEffect } from 'react'
 
 import { usePopover } from './PopoverContext'
 
@@ -20,7 +21,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
     }, [id, setHeaderId])
 
     return (
-      <header id={id} className="mb-md text-headline-2" {...rest}>
+      <header id={id} className={cx('mb-md text-headline-2', className)} {...rest}>
         {children}
       </header>
     )
