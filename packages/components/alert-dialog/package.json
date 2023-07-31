@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "class-variance-authority": "0.4.0",
-    "@spark-ui/dialog": "^1.2.1"
+    "@spark-ui/dialog": "^1.2.1",
+    "@spark-ui/use-merge-refs": "^0.3.4"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
