@@ -5,7 +5,7 @@ export type FormFieldCharactersCountProps = ComponentPropsWithoutRef<'span'> & {
   /**
    * Current value for the input this component belongs to.
    */
-  value: string
+  value?: string
   /**
    * Maximum numeric value to be displayed.
    */
@@ -13,8 +13,8 @@ export type FormFieldCharactersCountProps = ComponentPropsWithoutRef<'span'> & {
 }
 
 export const FormFieldCharactersCount = forwardRef<HTMLSpanElement, FormFieldCharactersCountProps>(
-  ({ className, value, maxLength, ...others }, ref) => {
-    const count = value.length ?? 0
+  ({ className, value = '', maxLength, ...others }, ref) => {
+    const count = value.length
 
     return (
       <span
