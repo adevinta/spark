@@ -37,7 +37,7 @@ export const Resizable: StoryFn = _args => (
     rows={2}
     aria-label="Description"
     placeholder="Describe what you want to sell"
-    isResizeDisabled
+    isResizable={false}
   />
 )
 

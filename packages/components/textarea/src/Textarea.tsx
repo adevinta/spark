@@ -4,20 +4,16 @@ import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
 export interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
   /**
-   * If true, the textarea won't be resizable.
+   * If false, the textarea won't be resizable.
    */
-  isResizeDisabled?: boolean
+  isResizable?: boolean
 }
 
 const Root = forwardRef<HTMLTextAreaElement, PropsWithChildren<TextareaProps>>(
-  ({ className, disabled, rows = 1, isResizeDisabled = false, ...others }, ref) => {
+  ({ className, disabled, rows = 1, isResizable = true, ...others }, ref) => {
     return (
       <Input
-        className={cx(
-          className,
-          'py-[var(--sz-10)]',
-          isResizeDisabled ? 'resize-none' : 'resize-y'
-        )}
+        className={cx(className, 'py-[var(--sz-10)]', isResizable ? 'resize-none' : 'resize-y')}
         data-spark-component="textarea"
         disabled={disabled}
         asChild
