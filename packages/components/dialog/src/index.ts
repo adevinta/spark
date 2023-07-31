@@ -5,5 +5,8 @@ export { type OverlayProps } from './DialogOverlay'
 export { type PortalProps } from './DialogPortal'
 export { type TitleProps } from './DialogTitle'
 export { type TriggerProps } from './DialogTrigger'
+export { type HeaderProps } from './DialogHeader'
+export { type BodyProps } from './DialogBody'
+export { type FooterProps } from './DialogFooter'
 
 export { Dialog } from './Dialog'
