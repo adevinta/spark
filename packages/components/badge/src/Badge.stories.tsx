@@ -14,8 +14,10 @@ const meta: Meta<typeof Badge> = {
 }
 const sizes: BadgeProps['size'][] = ['sm', 'md']
 const intents: BadgeProps['intent'][] = [
-  'primary',
-  'secondary',
+  'main',
+  'support',
+  'accent',
+  'basic',
   'success',
   'alert',
   'danger',

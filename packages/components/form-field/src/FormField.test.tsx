@@ -240,10 +240,39 @@ describe('FormField error message', () => {
       </FormField>
     )
 
-    const inputEl = screen.getByLabelText('Text')
-    const charsCountEl = screen.getByText('5/6')
+    expect(screen.getByLabelText('Text')).toHaveValue('Hello')
+    expect(screen.getByText('5/6')).toBeVisible()
+  })
 
-    expect(inputEl).toHaveValue('Hello')
-    expect(charsCountEl).toBeVisible()
+  it('should render the characters count component properly when `value` is undefined', () => {
+    const MAX_LENGTH = 6
+    const DEFAULT_VALUE = undefined
+
+    render(
+      <FormField name="text">
+        <FormField.Label>Text</FormField.Label>
+
+        <FormField.Control>
+          {({ id, name }) => (
+            <input
+              type="text"
+              id={id}
+              name={name}
+              defaultValue={DEFAULT_VALUE}
+              maxLength={MAX_LENGTH}
+            />
+          )}
+        </FormField.Control>
+
+        <div className="flex justify-between gap-md">
+          <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
+
+          <FormField.CharactersCount value={DEFAULT_VALUE} maxLength={MAX_LENGTH} />
+        </div>
+      </FormField>
+    )
+
+    expect(screen.getByLabelText('Text')).toHaveValue('')
+    expect(screen.getByText('0/6')).toBeVisible()
   })
 })

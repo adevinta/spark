@@ -1,11 +1,9 @@
-import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { camelCase } from 'camel-case'
 import glob from 'glob'
 import { pascalCase } from 'pascal-case'
 
-import { System } from '../../core/index.mjs'
 import { Generator } from './Generator.mjs'
 
 export class TemplateGenerator extends Generator {
