@@ -32,7 +32,7 @@ export const Controlled: StoryFn = () => {
   return <Textarea rows={2} value={value} onChange={handleChange} aria-label="Description" />
 }
 
-export const Resizable: StoryFn = _args => (
+export const Resizable: StoryFn = () => (
   <Textarea
     rows={2}
     aria-label="Description"

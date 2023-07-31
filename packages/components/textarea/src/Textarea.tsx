@@ -13,7 +13,7 @@ const Root = forwardRef<HTMLTextAreaElement, PropsWithChildren<TextareaProps>>(
   ({ className, disabled, rows = 1, isResizable = true, ...others }, ref) => {
     return (
       <Input
-        className={cx(className, 'py-[var(--sz-10)]', isResizable ? 'resize-none' : 'resize-y')}
+        className={cx(className, 'py-[var(--sz-10)]', isResizable ? 'resize-y' : 'resize-none')}
         data-spark-component="textarea"
         disabled={disabled}
         asChild
