@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 
 import { Body } from './DialogBody'
+import { Close } from './DialogClose'
 import { CloseButton } from './DialogCloseButton'
 import { Content } from './DialogContent'
 import { Description } from './DialogDescription' // aria-describedby
@@ -31,6 +32,7 @@ export const Dialog: FC<RootProps> & {
   Header: typeof Header
   Body: typeof Body
   Footer: typeof Footer
+  Close: typeof Close
   CloseButton: typeof CloseButton
   Title: typeof Title
   Description: typeof Description
@@ -42,6 +44,7 @@ export const Dialog: FC<RootProps> & {
   Header,
   Body,
   Footer,
+  Close,
   CloseButton,
   Title,
   Description,
