@@ -2,23 +2,43 @@ import { tw } from '@spark-ui/internal-utils'
 
 export const ghostVariants = [
   {
-    intent: 'primary',
+    intent: 'main',
     design: 'ghost',
     class: tw([
-      'text-primary',
-      'hover:bg-primary/dim-5',
-      'enabled:active:bg-primary/dim-5',
-      'focus-visible:bg-primary/dim-5',
+      'text-main',
+      'hover:bg-main/dim-5',
+      'enabled:active:bg-main/dim-5',
+      'focus-visible:bg-main/dim-5',
     ]),
   },
   {
-    intent: 'secondary',
+    intent: 'support',
     design: 'ghost',
     class: tw([
-      'text-secondary',
-      'hover:bg-secondary/dim-5',
-      'enabled:active:bg-secondary/dim-5',
-      'focus-visible:bg-secondary/dim-5',
+      'text-support',
+      'hover:bg-support/dim-5',
+      'enabled:active:bg-support/dim-5',
+      'focus-visible:bg-support/dim-5',
+    ]),
+  },
+  {
+    intent: 'accent',
+    design: 'ghost',
+    class: tw([
+      'text-accent',
+      'hover:bg-accent/dim-5',
+      'enabled:active:bg-accent/dim-5',
+      'focus-visible:bg-accent/dim-5',
+    ]),
+  },
+  {
+    intent: 'basic',
+    design: 'ghost',
+    class: tw([
+      'text-basic',
+      'hover:bg-basic/dim-5',
+      'enabled:active:bg-basic/dim-5',
+      'focus-visible:bg-basic/dim-5',
     ]),
   },
   {
