@@ -14,23 +14,33 @@
 
   .sbdocs-wrapper {
     padding: 30px 20px !important;
+    margin-left: 10px;
+    
+  }
+
+  .sbdocs-content {
+    display: flex !important;
+    gap: 24px;
+    max-width: 1200px !important;
+    height: 100%;
   }
 
   .docblock-source {
-    border: 1px solid #D1D0D5 !important;
+    border: 1px solid #ebebed7f !important;
     box-shadow: none !important;
+    background-color: #ebebed7f !important;
   }
 
   .sbdocs-wrapper:has(iframe#tcv) > div {
     max-width: unset;
   }
 
-  .sbdocs > h1 {
+  #spark-doc-container > h1 {
     color: #140E79 !important;
     font-weight: 700 !important;
   }
 
-  .sbdocs > h2, .sbdocs > h3, .sbdocs > h4, .sbdocs > h5 {
+  #spark-doc-container > h2, #spark-doc-container > h3, #spark-doc-container > h4, #spark-doc-container > h5 {
     color: #982253 !important;
     font-weight: 700 !important;
   }
