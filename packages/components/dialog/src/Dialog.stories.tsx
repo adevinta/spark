@@ -3,7 +3,7 @@ import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
-import { type ContentProps, Dialog } from '.'
+import { Dialog, type DialogContentProps } from '.'
 
 const meta: Meta<typeof Dialog> = {
   title: 'Experimental/Dialog',
@@ -61,7 +61,7 @@ export const Usage: StoryFn = () => {
 }
 
 export const Sizes = () => {
-  const [size, setSizes] = useState<ExcludeNull<ContentProps>['size']>('md')
+  const [size, setSizes] = useState<ExcludeNull<DialogContentProps>['size']>('md')
   const [open, setOpen] = useState(false)
 
   return (
@@ -85,7 +85,7 @@ export const Sizes = () => {
               <RadioGroup
                 className="flex gap-md"
                 value={size}
-                onValueChange={value => setSizes(value as ExcludeNull<ContentProps>['size'])}
+                onValueChange={value => setSizes(value as ExcludeNull<DialogContentProps>['size'])}
               >
                 <RadioGroup.Radio value="sm">Small</RadioGroup.Radio>
                 <RadioGroup.Radio value="md">Medium</RadioGroup.Radio>
