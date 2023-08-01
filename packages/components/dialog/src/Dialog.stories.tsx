@@ -1,8 +1,9 @@
 import { Button } from '@spark-ui/button'
+import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
-import { Dialog } from '.'
+import { type ContentProps, Dialog } from '.'
 
 const meta: Meta<typeof Dialog> = {
   title: 'Experimental/Dialog',
@@ -56,5 +57,54 @@ export const Usage: StoryFn = () => {
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog>
+  )
+}
+
+export const Sizes = () => {
+  const [size, setSizes] = useState<ExcludeNull<ContentProps>['size']>('md')
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <Dialog.Trigger asChild>
+          <Button>Edit size</Button>
+        </Dialog.Trigger>
+
+        <Dialog.Portal>
+          <Dialog.Overlay />
+
+          <Dialog.Content size={size}>
+            <Dialog.Header>
+              <Dialog.Title>Edit size</Dialog.Title>
+            </Dialog.Header>
+
+            <Dialog.Body className="flex flex-col gap-lg">
+              <Dialog.Description>Please select a dialog size</Dialog.Description>
+
+              <RadioGroup
+                className="flex gap-md"
+                value={size}
+                onValueChange={value => setSizes(value as ExcludeNull<ContentProps>['size'])}
+              >
+                <RadioGroup.Radio value="sm">Small</RadioGroup.Radio>
+                <RadioGroup.Radio value="md">Medium</RadioGroup.Radio>
+                <RadioGroup.Radio value="lg">Large</RadioGroup.Radio>
+                <RadioGroup.Radio value="fullscreen">Fullscreen</RadioGroup.Radio>
+              </RadioGroup>
+            </Dialog.Body>
+
+            <Dialog.Footer className="flex justify-end gap-md">
+              <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
+                Cancel
+              </Button>
+              <Button>Submit</Button>
+            </Dialog.Footer>
+
+            <Dialog.CloseButton aria-label="Close edit size" />
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog>
+    </>
   )
 }

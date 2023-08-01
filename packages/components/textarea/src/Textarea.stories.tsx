@@ -32,6 +32,15 @@ export const Controlled: StoryFn = () => {
   return <Textarea rows={2} value={value} onChange={handleChange} aria-label="Description" />
 }
 
+export const Resizable: StoryFn = () => (
+  <Textarea
+    rows={2}
+    aria-label="Description"
+    placeholder="Describe what you want to sell"
+    isResizable={false}
+  />
+)
+
 export const Disabled: StoryFn = _args => (
   <div className="flex flex-col gap-md">
     <Textarea
