@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.1.2...@spark-ui/textarea@1.2.0) (2023-07-31)
+
+### Features
+
+- **textarea:** add resize prop ([81d2e92](https://github.com/adevinta/spark/commit/81d2e92d89424cd3f85ea7f8ca2bdcaf58b77737))
+- **textarea:** change resizable prop ([3074c96](https://github.com/adevinta/spark/commit/3074c96ab2289be34c1dee1202ded1021a246e8d))
+- **textarea:** update resizable ([b05463c](https://github.com/adevinta/spark/commit/b05463cd7fe6fc1746f37bf63159dd9ddc1447e1))
+
 ## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.1.1...@spark-ui/textarea@1.1.2) (2023-07-28)
 
 **Note:** Version bump only for package @spark-ui/textarea
