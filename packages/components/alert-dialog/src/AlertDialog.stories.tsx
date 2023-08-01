@@ -1,6 +1,5 @@
 import { Button } from '@spark-ui/button'
 import { Meta, StoryFn } from '@storybook/react'
-import { useState } from 'react'
 
 import { AlertDialog } from '.'
 
@@ -11,11 +10,9 @@ const meta: Meta<typeof AlertDialog> = {
 
 export default meta
 
-export const Default: StoryFn = () => {
-  const [open, setOpen] = useState(false)
-
+export const Usage: StoryFn = () => {
   return (
-    <AlertDialog open={open} onOpenChange={setOpen}>
+    <AlertDialog>
       <AlertDialog.Trigger asChild>
         <Button intent="danger">Delete</Button>
       </AlertDialog.Trigger>
@@ -25,7 +22,7 @@ export const Default: StoryFn = () => {
 
         <AlertDialog.Content>
           <AlertDialog.Header>
-            <AlertDialog.Title>Delete Customer</AlertDialog.Title>
+            <AlertDialog.Title>Delete account</AlertDialog.Title>
           </AlertDialog.Header>
 
           <AlertDialog.Body>
