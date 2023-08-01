@@ -28,7 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "@radix-ui/react-dialog": "1.0.4",
-    "class-variance-authority": "0.4.0",
+    "class-variance-authority": "0.5.2",
     "@spark-ui/icon": "^1.8.0",
     "@spark-ui/icon-button": "^1.3.10",
     "@spark-ui/icons": "^1.19.4"
