@@ -2,6 +2,8 @@ import { addons } from '@storybook/manager-api'
 import { create } from '@storybook/theming/create'
 import logoUrl from './spark-logo.svg'
 
+import React from 'react'
+
 const storybookTheme = create({
   base: 'light',
   fontBase: '"Nunito", sans-serif',
@@ -14,4 +16,8 @@ const storybookTheme = create({
 
 addons.setConfig({
   theme: storybookTheme,
+  sidebar: {
+    showRoots: true,
+    collapsedRoots: ['using-spark', 'hooks', 'contributing', 'experimental', 'utils'],
+  },
 })

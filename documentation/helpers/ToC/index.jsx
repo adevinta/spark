@@ -8,7 +8,7 @@ const itemStyle = cva(['block', 'py-sm', ['hover:bg-primary-container-hovered']]
   variants: {
     active: {
       true: ['text-primary', 'shadow-[inset_2px_0px_0px]'],
-      false: ['text-on-surface'],
+      false: ['text-on-surface', 'shadow-[inset_1px_0px_0px_#D1D0D5]'],
     },
     tagName: {
       H2: 'pl-md text-body-1',
@@ -22,15 +22,20 @@ export const ToC = () => {
   const [headings, setHeadings] = useState(null)
 
   useEffect(() => {
-    setHeadings(document.querySelectorAll('h2, h3'))
+    const list = document.querySelectorAll('h2, h3')
+
+    if ([...list].length) {
+      setHeadings(document.querySelectorAll('h2, h3'))
+    }
   }, [])
 
+  console.log(headings)
   const activeAnchor = useActiveAnchor(headings)
 
   return headings ? (
     <div
       className={cx('sb-unstyled', [
-        ['flex', 'flex-col', 'shrink-0', 'grow-0', 'basis-[250px]'],
+        ['flex', 'flex-col', 'shrink-0', 'grow-0', 'basis-[200px]'],
         ['hidden', 'lg:block'],
         [
           'sticky',
