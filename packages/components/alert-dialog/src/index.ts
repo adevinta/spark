@@ -52,3 +52,15 @@ export const AlertDialog: FC<AlertDialogProps> & {
   Title: AlertDialogTitle,
   Trigger: AlertDialogTrigger,
 })
+
+AlertDialog.Action.displayName = 'AlertDialog.Action'
+AlertDialog.Body.displayName = 'AlertDialog.Body'
+AlertDialog.Cancel.displayName = 'AlertDialog.Cancel'
+AlertDialog.Content.displayName = 'AlertDialog.Content'
+AlertDialog.Description.displayName = 'AlertDialog.Description'
+AlertDialog.Footer.displayName = 'AlertDialog.Footer'
+AlertDialog.Header.displayName = 'AlertDialog.Header'
+AlertDialog.Overlay.displayName = 'AlertDialog.Overlay'
+AlertDialog.Portal.displayName = 'AlertDialog.Portal'
+AlertDialog.Title.displayName = 'AlertDialog.Title'
+AlertDialog.Trigger.displayName = 'AlertDialog.Trigger'
