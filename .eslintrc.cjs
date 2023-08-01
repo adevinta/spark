@@ -57,7 +57,7 @@ module.exports = {
     '@typescript-eslint/no-object-literal-type-assertion': 0,
     '@typescript-eslint/no-shadow': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': [2, { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
     '@typescript-eslint/no-use-before-define': [
       2,
       { functions: false, classes: true, variables: false },

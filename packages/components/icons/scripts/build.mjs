@@ -17,7 +17,7 @@ const main = async (pattern = 'assets/**/*.svg') => {
   await Promise.all(
     files.map(async filepath => {
       const relativePath = path.relative(path.join(process.cwd()), filepath)
-      const { root, dir, base, ext, name } = path.parse(relativePath)
+      const { dir, base, name } = path.parse(relativePath)
 
       const svgData = await pathSVG(readFile(path.join(dir, base)))
 
@@ -37,7 +37,7 @@ const main = async (pattern = 'assets/**/*.svg') => {
     })
   )
 
-  data.forEach(({ value, dir }, name) => {
+  data.forEach(({ value }, name) => {
     writeFile(path.join('src/icons', `${name}.tsx`), value)
   })
 

@@ -1,21 +1,21 @@
 import { pascalCase } from 'pascal-case'
 
-export default ({ name, description }) => {
+export default ({ name }) => {
   const componentName = pascalCase(name)
 
-  return `import { Meta, StoryFn } from '@storybook/react'
+  return `
+    import { Meta, StoryFn } from '@storybook/react'
+    import { ${componentName} } from '.'
 
-import { ${componentName} } from '.'
+    const meta: Meta<typeof ${componentName}> = {
+      title: 'Components/${componentName}',
+      component: ${componentName},
+    }
 
-const meta: Meta<typeof ${componentName}> = {
-  title: 'Components/${componentName}',
-  component: ${componentName},
-}
+    export default meta
 
-export default meta
-
-export const Default: StoryFn = _args => (
-  <${componentName}>Hello World!</${componentName}>
-)
-`
+    export const Default: StoryFn = _args => (
+      <${componentName}>Hello World!</${componentName}>
+    )
+  `
 }

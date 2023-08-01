@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.4](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.19.3...@spark-ui/icons@1.19.4) (2023-07-28)
+
+### Bug Fixes
+
+- fix errors after eslint update ([3dae947](https://github.com/adevinta/spark/commit/3dae947dc169d9db3c7252f54a6224ded335980e))
+
 ## [1.19.3](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.19.2...@spark-ui/icons@1.19.3) (2023-07-26)
 
 **Note:** Version bump only for package @spark-ui/icons

@@ -30,7 +30,7 @@ describe('CLI `spark generate` (component package)', () => {
       '/.npmignore',
       '/package.json',
       '/src/index.ts',
-      '/src/Bar.styles.tsx',
+      '/src/Bar.styles.ts',
       '/src/Bar.tsx',
       '/vite.config.ts',
       '/src/Bar.doc.mdx',
@@ -38,6 +38,7 @@ describe('CLI `spark generate` (component package)', () => {
       '/src/Bar.stories.tsx',
       '/tsconfig.json',
     ]
+
     const assertExpectedFiles = (filePath: string) => {
       expect(response).toContain(`Created ${packagePath}${filePath}`)
       expect(fse.pathExistsSync(`${packagePath}${filePath}`)).toBe(true)
