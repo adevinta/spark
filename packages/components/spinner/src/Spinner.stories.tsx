@@ -14,8 +14,10 @@ export default meta
 export const Default: StoryFn = _args => <Spinner />
 
 const intents: ComponentProps<typeof Spinner>['intent'][] = [
-  'primary',
-  'secondary',
+  'main',
+  'support',
+  'accent',
+  'basic',
   'success',
   'alert',
   'error',
