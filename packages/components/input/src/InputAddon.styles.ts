@@ -22,6 +22,9 @@ export const inputAddonStyles = cva(
       disabled: {
         true: ['pointer-events-none'],
       },
+      readOnly: {
+        true: [],
+      },
       design: {
         text: '',
         solid: '',
