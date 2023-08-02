@@ -1,7 +1,7 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
 
-import { Textarea } from '.'
+import { Textarea, TextareaGroup } from '.'
 
 import * as stories from './Textarea.stories'
 
@@ -20,12 +20,31 @@ npm install @spark-ui/textarea
 ## Import
 
 ```tsx
-import { Textarea } from '@spark-ui/textarea'
+import { Textarea, TextareaGroup } from '@spark-ui/textarea'
 ```
 
 ## Props
 
-<ArgTypes of={Textarea} />
+<ExtendedArgTypes
+  of={Textarea}
+  description="The textarea component allows you to easily create multi-line text inputs."
+  subcomponents={{
+    TextareaGroup: {
+      of: TextareaGroup,
+      description:
+        'Use this wrapper whenever you need a more complex textarea. For example if you need to have leading/trailing icons.',
+    },
+    'TextareaGroup.LeadingIcon': {
+      of: TextareaGroup.LeadingIcon,
+      description: 'Prepend a decorative icon inside the textarea (to the left).',
+    },
+    'TextareaGroup.TrailingIcon': {
+      of: TextareaGroup.TrailingIcon,
+      description:
+        'Append a decorative icon inside the textarea (to the right). This element will be replaced by a status indicator whenever the textarea is in error/alert/success state.',
+    },
+  }}
+/>
 
 ## Usage
 
@@ -43,29 +62,33 @@ Use `value` and `onChange` props to control the value of the textarea.
 
 <Canvas of={stories.Controlled} />
 
+## Icons
+
+A `TextareaGroup` can have a `LeadingIcon` and/or `TrailingIcon`. Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
+
+<Canvas of={stories.Icon} />
+
+## Resizable
+
+By default, the textarea component is resizable. However, you can set the `isResizable` prop to `false` to disable this feature and prevent resizing.
+
+<Canvas of={stories.Resizable} />
+
 ## Disabled
 
-Use `disabled` prop to indicate the textarea is disabled.
+To indicate that a textarea is disabled, use the `disabled` prop. If you're wrapping your `Textarea` with a `TextareaGroup`, set the prop on the group instead.
 
 <Canvas of={stories.Disabled} />
 
-## InputGroup
+## State
 
-Use `InputGroup` component to group your textarea with elements like icons.
+Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
 
-### Elements
-
-<Canvas of={stories.GroupElements} />
-
-### Disabled
-
-Use `isDisabled` prop of the `InputGroup` to indicate that the input group is disabled. Use this prop instead of the textarea's disabled prop when it is within a group.
-
-<Canvas of={stories.GroupDisabled} />
+<Canvas of={stories.State} />
 
 ## FormField
 
-Use `FormField` component to provide context to the textarea.
+When using the `Textarea` component you might want to use it in combination with `FormField` to add a proper label, error message, etc.
 
 ### Label
 

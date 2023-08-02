@@ -1,0 +1,114 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Kbd } from '@spark-ui/kbd'
+
+import { Dialog } from '.'
+
+import * as stories from './Dialog.stories'
+
+<Meta of={stories} />
+
+# Dialog
+
+A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+
+- ✅ Supports modal and non-modal modes.
+- ✅ Focus is automatically trapped when modal.
+- ✅ Can be controlled or uncontrolled.
+- ✅ Manages screen reader announcements with `Title` and `Description` components.
+- ✅ Esc closes the component automatically.
+
+## Install
+
+Install the component from your command line.
+
+```sh
+npm install @spark-ui/dialog
+```
+
+## Import
+
+Import all parts and piece them together.
+
+```tsx
+import { Dialog } from '@spark-ui/dialog'
+```
+
+## Props
+
+<ArgTypes
+  of={Dialog}
+  description="Contains all the parts of a dialog."
+  subcomponents={{
+    'Dialog.Trigger': {
+      of: Dialog.Trigger,
+      description: 'The button that opens the dialog.',
+    },
+    'Dialog.Portal': {
+      of: Dialog.Portal,
+      description: 'When used, portals your overlay and content parts into the body.',
+    },
+    'Dialog.Overlay': {
+      of: Dialog.Overlay,
+      description: 'A layer that covers the inert portion of the view when the dialog is open.',
+    },
+    'Dialog.Content': {
+      of: Dialog.Content,
+      description: 'Contains Header/Body/Footer to be rendered in the open dialog.',
+    },
+    'Dialog.Header': {
+      of: Dialog.Header,
+      description: 'To use inside of Popover.Content. Sticky header inside the dialog.',
+    },
+    'Dialog.Body': {
+      of: Dialog.Body,
+      description:
+        'To use inside of Popover.Content. Main content of the dialog. Becomes scrollable when content is overflowing the screen.',
+    },
+    'Dialog.Footer': {
+      of: Dialog.Footer,
+      description:
+        'To use inside of Popover.Content. Sticky footer to be rendered in the open dialog. Use it to render CTAs and make them accessible in every condition.',
+    },
+    'Dialog.CloseButton': {
+      of: Dialog.CloseButton,
+      description: 'The button that closes the dialog.',
+    },
+    'Dialog.Title': {
+      of: Dialog.Title,
+      description: 'An accessible title to be announced when the dialog is opened.',
+    },
+    'Dialog.Description': {
+      of: Dialog.Description,
+      description: 'An optional accessible description to be announced when the dialog is opened.',
+    },
+  }}
+/>
+
+## Usage
+
+<Canvas of={stories.Usage} />
+
+## Sizes
+
+Pick a size among `sm`, `md`, `lg` and `fullscreen`.
+
+<Canvas of={stories.Sizes} />
+
+## Accessibility
+
+Adheres to the [Dialog WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal).
+
+### Guidelines
+
+- **Usage of `Dialog.Title` is mandatory**. It serves as the accessible name for the dialog. If you prefer not to display the title, you can wrap it with `VisuallyHidden`.
+- **`Dialog.CloseButton` must be rendered as the last child of `Dialog.Content`**. When opening, the dialog forwards the focus to the first interactive element inside of it, it shouldn't be the close button. User can use `Shift + Tab` to easily access the close button after the dialog has been opened.
+- Be careful not to overlap content with `Dialog.CloseButton`, which has a large clickable area.
+
+### Keyboard Interactions
+
+- <Kbd>Space</Kbd> - Opens/closes the dialog.
+- <Kbd>Enter</Kbd> - Opens/closes the dialog.
+- <Kbd>Tab</Kbd> - Moves focus to the next focusable element.
+- <Kbd>Shift + Tab</Kbd> - Moves focus to the previous focusable element.
+- <Kbd>Esc</Kbd> - Closes the dialog and moves focus to `Dialog.Trigger`.

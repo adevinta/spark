@@ -15,7 +15,11 @@ const impactColor = {
 }
 
 const { stories } = JSON.parse(readFileSync('dist/stories.json', 'utf8'))
-const pkgFilter = process.argv.slice(2).map((pkgPath) => `./${pkgPath.split('/src')[0]}`) ?? []
+
+const hasFilter = process.argv.indexOf('-f') > -1
+const pkgFilter = hasFilter
+  ? process.argv.slice(process.argv.indexOf('-f') + 1).map((pkgPath) => `./${pkgPath.split('/src')[0]}`) ?? []
+  : []
 
 const storiesList = Object.keys(stories).reduce((acc, cur) => {
   const isComponentStory = (story) => (story.importPath).startsWith('./packages/components/') && !(story.id).endsWith('--docs')
@@ -26,6 +30,7 @@ const storiesList = Object.keys(stories).reduce((acc, cur) => {
       return acc
     }
 
+    // We'll test the whole stories collection if no filter is provided.
     acc.push(stories[cur].id)
   }
 
@@ -41,12 +46,16 @@ let issues = {
 
 const checkA11y = async () => {
   const driver = new Builder()
-    .forBrowser('firefox')
-    .setFirefoxOptions(new Options().headless())
-    .build()
+  .forBrowser('firefox')
+  .setFirefoxOptions(new Options().headless())
+  .build()
+  
+  let testedStory
 
   for (const storyId of storiesList) {
-    console.log(`Checking accessibility for ${stories[storyId].title}...`)
+    if (testedStory !== stories[storyId].title) console.log(`Checking accessibility for ${stories[storyId].title}...`)
+
+    testedStory = stories[storyId].title
 
     try {
       await driver.get(`http://localhost:6006/iframe.html?viewMode=story&id=${storyId}`)
@@ -77,26 +86,29 @@ const checkA11y = async () => {
           serious: 0,
           critical: 0,
         })
-          
-        console.log(chalk.bold(`${stories[storyId].title} issues (${Object.values(issues).reduce((a, b) => a + b, 0)}): ${impactColor.minor(issues.minor)} minor, ${impactColor.moderate(issues.moderate)} moderate, ${impactColor.serious(issues.serious)} serious, ${impactColor.critical(issues.critical)} critical`))
         
+        const totalIssues = Object.values(issues).reduce((a, b) => a + b, 0)
+        console.log(chalk.red(`Found ${totalIssues} ${stories[storyId].title} issue(s)):`))
+
         results.violations.forEach((issue) => {
-          console.log(`- ${issue.help} (${impactColor[issue.impact](`${issue.nodes.length}`)})`)
+          console.log(impactColor[issue.impact](`- [${issue.impact}] ${issue.help} (${issue.nodes.length})`))
         })
-  
-        console.log()
       }
     } catch (e) {
       console.error(chalk.bold.red(e.message))
+      return
     }
   }
 
   const totalIssues = Object.values(issues).reduce((a, b) => a + b, 0)
-  if (totalIssues === 0) {
+  if (totalIssues > 0 && issues.critical) {
+    console.error()
+    console.error(chalk.bold.red(`Exiting with ${issues.critical} critical issue(s)`))
+    process.exit(1)
+  } else {
     console.log()
-    console.log(chalk.bold.green('🎉 Congratulations, no accessibility issue has been found!'))
+    console.log(chalk.bold.green('🎉 Congratulations, no critical accessibility issue has been found!'))
   }
-  if (issues.critical) process.exit(1)
 
   await driver.quit()
 }

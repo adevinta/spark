@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.3](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.14.2...@spark-ui/switch@1.14.3) (2023-07-28)
+
+### Bug Fixes
+
+- fix errors after eslint update ([3dae947](https://github.com/adevinta/spark/commit/3dae947dc169d9db3c7252f54a6224ded335980e))
+
+## [1.14.2](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.14.1...@spark-ui/switch@1.14.2) (2023-07-28)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+## [1.14.1](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.14.0...@spark-ui/switch@1.14.1) (2023-07-26)
+
+**Note:** Version bump only for package @spark-ui/switch
+
+# [1.14.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.13.16...@spark-ui/switch@1.14.0) (2023-07-26)
+
+### Features
+
+- update form field version ([738b1b3](https://github.com/adevinta/spark/commit/738b1b3f86e541e10aa2499d5840972208370703))
+
+## [1.13.16](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.13.15...@spark-ui/switch@1.13.16) (2023-07-26)
+
+**Note:** Version bump only for package @spark-ui/switch
+
 ## [1.13.15](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.13.14...@spark-ui/switch@1.13.15) (2023-07-24)
 
 ### Bug Fixes

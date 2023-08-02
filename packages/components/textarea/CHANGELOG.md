@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.2.0...@spark-ui/textarea@1.2.1) (2023-08-01)
+
+**Note:** Version bump only for package @spark-ui/textarea
+
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.1.2...@spark-ui/textarea@1.2.0) (2023-07-31)
+
+### Features
+
+- **textarea:** add resize prop ([81d2e92](https://github.com/adevinta/spark/commit/81d2e92d89424cd3f85ea7f8ca2bdcaf58b77737))
+- **textarea:** change resizable prop ([3074c96](https://github.com/adevinta/spark/commit/3074c96ab2289be34c1dee1202ded1021a246e8d))
+- **textarea:** update resizable ([b05463c](https://github.com/adevinta/spark/commit/b05463cd7fe6fc1746f37bf63159dd9ddc1447e1))
+
+## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.1.1...@spark-ui/textarea@1.1.2) (2023-07-28)
+
+**Note:** Version bump only for package @spark-ui/textarea
+
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.1.0...@spark-ui/textarea@1.1.1) (2023-07-28)
+
+**Note:** Version bump only for package @spark-ui/textarea
+
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/textarea@0.5.1...@spark-ui/textarea@1.1.0) (2023-07-27)
+
+### Features
+
+- **textarea:** release first version ([c3dc3f6](https://github.com/adevinta/spark/commit/c3dc3f69538c8aad31acb8b1b56d31a291478dd6))
+
+## [0.5.1](https://github.com/adevinta/spark/compare/@spark-ui/textarea@0.5.0...@spark-ui/textarea@0.5.1) (2023-07-26)
+
+**Note:** Version bump only for package @spark-ui/textarea
+
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/textarea@0.4.2...@spark-ui/textarea@0.5.0) (2023-07-26)
+
+### Features
+
+- **textarea:** improve textarea props and doc ([af8cce2](https://github.com/adevinta/spark/commit/af8cce23ce98240549cb71e4ce4ec4e8ebfe7d99))
+- **textarea:** update textarea ([efab349](https://github.com/adevinta/spark/commit/efab3499ecb7c46a24e856a0bb5f211f85df6eda))
+- **textarea:** update using id ([dfc2d29](https://github.com/adevinta/spark/commit/dfc2d293153a20282a3f8f90208c4c9d21e794e9))
+
+## [0.4.2](https://github.com/adevinta/spark/compare/@spark-ui/textarea@0.4.1...@spark-ui/textarea@0.4.2) (2023-07-26)
+
+**Note:** Version bump only for package @spark-ui/textarea
+
 ## [0.4.1](https://github.com/adevinta/spark/compare/@spark-ui/textarea@0.4.0...@spark-ui/textarea@0.4.1) (2023-07-24)
 
 **Note:** Version bump only for package @spark-ui/textarea

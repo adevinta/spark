@@ -19,9 +19,10 @@ const playStates = ['running', 'paused']
 const commonValuesObj = arrToObj(commonValues)
 
 function removeKeyFromObj(obj, key) {
-  const { [key]: _, ...rest } = obj
+  const copyObj = obj
+  delete copyObj[key]
 
-  return rest
+  return copyObj
 }
 
 module.exports = plugin.withOptions(
@@ -36,7 +37,7 @@ module.exports = plugin.withOptions(
    * @returns {Function} The PostCSS plugin function.
    */
   options =>
-    ({ addUtilities, addVariant, matchUtilities, theme }) => {
+    ({ addUtilities, matchUtilities, theme }) => {
       const opts = options || {}
 
       const { variantPrefix = 'spark-anime' } = opts
