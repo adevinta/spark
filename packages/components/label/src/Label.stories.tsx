@@ -16,7 +16,7 @@ export const Default: StoryFn = _args => (
       type="text"
       id="label-default"
       placeholder="IPhone 14"
-      className="rounded-sm border-md border-neutral p-md active:border-primary"
+      className="rounded-sm border-md border-neutral p-md active:border-main"
     />
   </div>
 )
@@ -32,7 +32,7 @@ export const Required: StoryFn = _args => (
       type="text"
       id="label-required"
       placeholder="IPhone 14"
-      className="rounded-sm border-md border-neutral p-md active:border-primary"
+      className="rounded-sm border-md border-neutral p-md active:border-main"
       required
     />
   </div>
@@ -49,7 +49,7 @@ export const RequiredIndicator: StoryFn = _args => (
       type="text"
       id="label-indicator"
       placeholder="IPhone 14"
-      className="rounded-sm border-md border-neutral p-md active:border-primary"
+      className="rounded-sm border-md border-neutral p-md active:border-main"
       required
     />
   </div>

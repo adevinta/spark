@@ -15,7 +15,7 @@ export const Usage: StoryFn = () => {
 
   return (
     <div className="flex gap-lg">
-      <div className="h-sz-160 w-1/2 rounded-md bg-primary-container p-lg text-on-primary-container">
+      <div className="h-sz-160 w-1/2 rounded-md bg-main-container p-lg text-on-main-container">
         <p>Element is located here in the JSX...</p>
         <Portal container={portalContainer}>
           <p className="rounded-sm bg-surface p-md text-current hover:bg-surface-hovered">
@@ -25,7 +25,7 @@ export const Usage: StoryFn = () => {
       </div>
 
       <div
-        className=" h-sz-160 w-1/2 rounded-md bg-secondary-container p-lg text-on-secondary-container"
+        className=" h-sz-160 w-1/2 rounded-md bg-support-container p-lg text-on-support-container"
         ref={setPortalContainer}
       >
         <p>...but rendered here thanks to the Portal</p>
