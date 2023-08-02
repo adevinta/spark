@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "class-variance-authority": "0.5.2",
+    "@radix-ui/primitive": "1.0.1",
     "@spark-ui/dialog": "^1.2.1",
     "@spark-ui/use-merge-refs": "^0.3.4"
   },

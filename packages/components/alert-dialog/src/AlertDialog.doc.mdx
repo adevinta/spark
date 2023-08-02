@@ -90,6 +90,36 @@ import { AlertDialog } from '@spark-ui/alert-dialog'
 
 <Canvas of={stories.Usage} />
 
+## Uncontrolled
+
+Use `defaultOpen` prop to set the default state of the dialog. Optionally `onOpenChange` prop can be used to know when the state of the dialog changes.
+
+<Canvas of={stories.Uncontrolled} />
+
+## Controlled
+
+Use `open` and `onOpenChange` props to control the state of the dialog.
+
+<Canvas of={stories.Controlled} />
+
+## Escape
+
+Use `onEscapeKeyDown` prop to listen to when the escape key is pressed. Optionally, the dialog could be prevented from closing by calling `event.preventDefault`.
+
+<Canvas of={stories.Escape} />
+
+## Open focus
+
+Use `onOpenAutoFocus` prop to listen to when focus moves to the less destructive action after opening. Optionally, the autofocus behavior could be prevented by calling `event.preventDefault`.
+
+<Canvas of={stories.OpenFocus} />
+
+## Close focus
+
+Use `onOpenAutoFocus` prop to listen to when focus moves to the trigger after closing. Optionally, the autofocus behavior could be prevented by calling `event.preventDefault`.
+
+<Canvas of={stories.CloseFocus} />
+
 ## Accessibility
 
 Adheres to the [Alert and Message Dialogs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog).
