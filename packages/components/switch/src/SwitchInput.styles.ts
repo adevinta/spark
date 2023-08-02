@@ -21,14 +21,12 @@ export const styles = cva(
       }),
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+        ['main', 'support', 'accent', 'basic', 'success', 'alert', 'error', 'info', 'neutral']
       >({
-        primary: ['spark-state-checked:bg-primary', 'hover:ring-primary-container', 'text-primary'],
-        secondary: [
-          'spark-state-checked:bg-secondary',
-          'hover:ring-secondary-container',
-          'text-secondary',
-        ],
+        main: ['spark-state-checked:bg-main', 'hover:ring-main-container', 'text-main'],
+        support: ['spark-state-checked:bg-support', 'hover:ring-support-container', 'text-support'],
+        accent: ['spark-state-checked:bg-accent', 'hover:ring-accent-container', 'text-accent'],
+        basic: ['spark-state-checked:bg-basic', 'hover:ring-basic-container', 'text-basic'],
         success: ['spark-state-checked:bg-success', 'hover:ring-success-container', 'text-success'],
         alert: ['spark-state-checked:bg-alert', 'hover:ring-alert-container', 'text-alert'],
         error: ['spark-state-checked:bg-error', 'hover:ring-error-container', 'text-error'],
@@ -37,7 +35,7 @@ export const styles = cva(
       }),
     },
     defaultVariants: {
-      intent: 'primary',
+      intent: 'basic',
       size: 'sm',
     },
   }

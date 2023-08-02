@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.3.1...@spark-ui/dialog@1.4.0) (2023-08-01)
+
+### Bug Fixes
+
+- update cva ([bd00ba5](https://github.com/adevinta/spark/commit/bd00ba5804311ba21e7685903487f18bf7968efd))
+
+### Features
+
+- **dialog:** update minor changes ([b31946a](https://github.com/adevinta/spark/commit/b31946a4582fcdefd47c040c953051a5de88ffcd))
+
+## [1.3.1](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.3.0...@spark-ui/dialog@1.3.1) (2023-07-31)
+
+**Note:** Version bump only for package @spark-ui/dialog
+
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.2.1...@spark-ui/dialog@1.3.0) (2023-07-31)
+
+### Features
+
+- **dialog:** header footer and body behaviour ([3b1ab25](https://github.com/adevinta/spark/commit/3b1ab259084edbb8e34e5ce7d9dc43f929ecf0c5))
+
 ## [1.2.1](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.2.0...@spark-ui/dialog@1.2.1) (2023-07-28)
 
 **Note:** Version bump only for package @spark-ui/dialog
