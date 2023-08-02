@@ -15,6 +15,7 @@ export type CheckboxProps = CheckboxInputProps
 export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
   (
     {
+      id: idProp,
       className,
       intent: intentProp,
       checked: checkedProp,
@@ -26,7 +27,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     },
     forwardedRef
   ) => {
-    const innerId = useId()
+    const innerId = useId(idProp)
     const innerLabelId = useId()
 
     const field = useFormFieldControl()
