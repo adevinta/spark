@@ -73,7 +73,7 @@ interface TitleProps {
 }
 
 const Title = styled.h1<TitleProps>`
-  color: ${props => (props.isActive ? props.theme.colors.main : props.theme.colors.secondary)};
+  color: ${props => (props.isActive ? props.theme.colors.main : props.theme.colors.support)};
 `
 
 function SomeComponent() {
@@ -90,7 +90,7 @@ interface Props {
 }
 
 function SomeComponent({ isActive }: Props) {
-  return <h1 className={isActive ? 'bg-main' : 'bg-secondary'}>{...}</h1>
+  return <h1 className={isActive ? 'bg-main' : 'bg-support'}>{...}</h1>
 }
 ```
 
@@ -320,12 +320,12 @@ const StyledCard = styled.div<TitleProps>`
   background-color: ${({ theme }) => theme.colors.primary};
 `
 
-const StyledSecondaryCard = styled(Card)`
-  background-color: ${({ theme }) => theme.colors.secondary)};
+const StyledSupportCard = styled(Card)`
+  background-color: ${({ theme }) => theme.colors.support)};
 `
 
-function SecondaryCard({ kind }: RoundedCardProps) {
-  return <StyledSecondaryCard kind={kind}>{...}</StyledSecondaryCard>
+function SupportCard({ kind }: RoundedCardProps) {
+  return <StyledSupportCard kind={kind}>{...}</StyledSupportCard>
 }
 ```
 
@@ -348,8 +348,8 @@ function Card({ kind, className }: RoundedCardProps) {
 }
 
 // It would have been better to use CVA variants to address that case, but let's set that aside for the sake of illustration purposes
-function SecondaryCard({ kind, className }: RoundedCardProps) {
-  return <Card className="!bg-secondary">{...}</Card>
+function SupportCard({ kind, className }: RoundedCardProps) {
+  return <Card className="!bg-support">{...}</Card>
 }
 ```
 

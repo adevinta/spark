@@ -6,16 +6,34 @@ export const checkboxInputStyles = cva(
     'h-sz-24 w-sz-24 shrink-0 items-center justify-center rounded-sm border-md bg-transparent outline-none',
     'spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3 spark-disabled:hover:ring-0',
     'focus-visible:ring-2 focus-visible:ring-outline-high',
-    'hover:border-primary-container hover:ring-2',
+    'hover:border-main-container hover:ring-2',
     'u-shadow-border-transition',
   ],
   {
     variants: {
-      intent: makeVariants<'intent', ['primary', 'success', 'alert', 'error', 'info', 'neutral']>({
-        primary: [
+      intent: makeVariants<
+        'intent',
+        ['main', 'support', 'accent', 'basic', 'success', 'alert', 'error', 'info', 'neutral']
+      >({
+        main: [
           'spark-state-unchecked:border-outline',
-          'spark-state-indeterminate:border-primary spark-state-indeterminate:bg-primary',
-          'spark-state-checked:border-primary spark-state-checked:bg-primary',
+          'spark-state-indeterminate:border-main spark-state-indeterminate:bg-main',
+          'spark-state-checked:border-main spark-state-checked:bg-main',
+        ],
+        support: [
+          'spark-state-unchecked:border-outline',
+          'spark-state-indeterminate:border-support spark-state-indeterminate:bg-support',
+          'spark-state-checked:border-support spark-state-checked:bg-support',
+        ],
+        accent: [
+          'spark-state-unchecked:border-outline',
+          'spark-state-indeterminate:border-accent spark-state-indeterminate:bg-accent',
+          'spark-state-checked:border-accent spark-state-checked:bg-accent',
+        ],
+        basic: [
+          'spark-state-unchecked:border-outline',
+          'spark-state-indeterminate:border-basic spark-state-indeterminate:bg-basic',
+          'spark-state-checked:border-basic spark-state-checked:bg-basic',
         ],
         success: [
           'spark-state-unchecked:border-success',
@@ -45,7 +63,7 @@ export const checkboxInputStyles = cva(
       }),
     },
     defaultVariants: {
-      intent: 'primary',
+      intent: 'basic',
     },
   }
 )
