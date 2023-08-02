@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.5](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.19.4...@spark-ui/icons@1.19.5) (2023-08-02)
+
+**Note:** Version bump only for package @spark-ui/icons
+
 ## [1.19.4](https://github.com/adevinta/spark/compare/@spark-ui/icons@1.19.3...@spark-ui/icons@1.19.4) (2023-07-28)
 
 ### Bug Fixes
