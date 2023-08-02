@@ -5,11 +5,24 @@ export const iconStyles = cva(['fill-current'], {
   variants: {
     intent: makeVariants<
       'intent',
-      ['current', 'primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+      [
+        'current',
+        'main',
+        'support',
+        'accent',
+        'basic',
+        'success',
+        'alert',
+        'error',
+        'info',
+        'neutral'
+      ]
     >({
       current: ['text-current'],
-      primary: ['text-primary'],
-      secondary: ['text-secondary'],
+      main: ['text-main'],
+      support: ['text-support'],
+      accent: ['text-accent'],
+      basic: ['text-basic'],
       success: ['text-success'],
       alert: ['text-alert'],
       error: ['text-error'],

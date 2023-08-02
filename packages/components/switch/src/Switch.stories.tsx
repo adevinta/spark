@@ -73,8 +73,10 @@ export const Sizes: StoryFn = _args => (
 )
 
 const switchColors: ComponentProps<typeof Switch>['intent'][] = [
-  'primary',
-  'secondary',
+  'main',
+  'support',
+  'accent',
+  'basic',
   'success',
   'alert',
   'error',

@@ -1,3 +1,4 @@
+import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 export const triggerVariants = cva(
@@ -20,12 +21,13 @@ export const triggerVariants = cva(
     variants: {
       /**
        * Change the color scheme of the tabs
-       * @default primary
+       * @default basic
        */
-      intent: {
-        primary: ['spark-state-active:text-primary spark-state-active:after:bg-primary'],
-        secondary: ['spark-state-active:text-secondary spark-state-active:after:bg-secondary'],
-      },
+      intent: makeVariants<'intent', ['main', 'support', 'basic']>({
+        main: ['spark-state-active:text-main spark-state-active:after:bg-main'],
+        support: ['spark-state-active:text-support spark-state-active:after:bg-support'],
+        basic: ['spark-state-active:text-basic spark-state-active:after:bg-basic'],
+      }),
       /**
        * Change the size of the tabs
        * @default md
@@ -37,7 +39,7 @@ export const triggerVariants = cva(
       },
     },
     defaultVariants: {
-      intent: 'primary',
+      intent: 'basic',
       size: 'md',
     },
   }

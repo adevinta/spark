@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 
-export interface InputGroupContext {
+export interface InputGroupContextValue {
   disabled?: boolean
   hasLeadingIcon: boolean
   hasTrailingIcon: boolean
@@ -12,7 +12,7 @@ export interface InputGroupContext {
   onClear: () => void
 }
 
-export const InputGroupContext = createContext<Partial<InputGroupContext> | null>(null)
+export const InputGroupContext = createContext<Partial<InputGroupContextValue> | null>(null)
 
 export const useInputGroup = () => {
   const context = useContext(InputGroupContext)

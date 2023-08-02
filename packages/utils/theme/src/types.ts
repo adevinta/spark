@@ -101,65 +101,64 @@ export interface Theme {
     onSuccess: string
     successHovered: string
     successPressed: string
-    successDisabled: string
     successFocused: string
     successContainer: string
     onSuccessContainer: string
     successContainerHovered: string
     successContainerPressed: string
-    successContainerDisabled: string
+
     successContainerFocused: string
     // Alert
     alert: string
     onAlert: string
     alertHovered: string
     alertPressed: string
-    alertDisabled: string
+
     alertFocused: string
     alertContainer: string
     onAlertContainer: string
     alertContainerHovered: string
     alertContainerPressed: string
-    alertContainerDisabled: string
+
     alertContainerFocused: string
     // Error
     error: string
     onError: string
     errorHovered: string
     errorPressed: string
-    errorDisabled: string
+
     errorFocused: string
     errorContainer: string
     onErrorContainer: string
     errorContainerHovered: string
     errorContainerPressed: string
-    errorContainerDisabled: string
+
     errorContainerFocused: string
     // Info
     info: string
     onInfo: string
     infoHovered: string
     infoPressed: string
-    infoDisabled: string
+
     infoFocused: string
     infoContainer: string
     onInfoContainer: string
     infoContainerHovered: string
     infoContainerPressed: string
-    infoContainerDisabled: string
+
     infoContainerFocused: string
     // Neutral
     neutral: string
     onNeutral: string
     neutralHovered: string
     neutralPressed: string
-    neutralDisabled: string
+
     neutralFocused: string
     neutralContainer: string
     onNeutralContainer: string
     neutralContainerHovered: string
     neutralContainerPressed: string
-    neutralContainerDisabled: string
+
     neutralContainerFocused: string
     // Background
     background: string
@@ -172,21 +171,21 @@ export interface Theme {
     onSurface: string
     surfaceHovered: string
     surfacePressed: string
-    surfaceDisabled: string
+
     surfaceFocused: string
     // Surface Inverse
     surfaceInverse: string
     onSurfaceInverse: string
     surfaceInverseHovered: string
     surfaceInversePressed: string
-    surfaceInverseDisabled: string
+
     surfaceInverseFocused: string
     // Outline
     outline: string
     outlineHigh: string
     outlineHovered: string
     outlinePressed: string
-    outlineDisabled: string
+
     outlineFocused: string
     // Overlay
     overlay: string

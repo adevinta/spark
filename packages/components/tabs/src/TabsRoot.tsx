@@ -18,7 +18,7 @@ export interface TabsRootProps
 export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
   (
     {
-      intent = 'primary',
+      intent = 'basic',
       size = 'md',
       /**
        * Default Radix Primitive values
