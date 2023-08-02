@@ -84,7 +84,7 @@ export const Intent: StoryFn = _args => (
   <div className="flex gap-lg">
     {intent.map(color => {
       return (
-        <Checkbox className="capitalize" key={color} intent={color}>
+        <Checkbox className="capitalize" key={color} intent={color} defaultChecked>
           {color}
         </Checkbox>
       )
