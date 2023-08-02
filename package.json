@@ -27,7 +27,7 @@
     "prettier": "prettier --config .prettierrc.json --write \"{packages,documentation,src}/**/*.{ts,tsx,js}\"",
     "prettify": "npm run lint && npm run prettier",
     "node:check": "node bin/check-node-version.js",
-    "a11y:check": "node bin/check-a11y.js",
+    "a11y:check": "concurrently -P --kill-others -g -s first -n storybook,a11y \"storybook build -o dist --loglevel silent && npx http-server dist -p 6006 -s\" \"wait-on tcp:6006 && node bin/check-a11y.js -- {@} \"",
     "generate": "spark-generate"
   },
   "repository": {
@@ -82,6 +82,7 @@
     "chalk": "^5.2.0",
     "class-variance-authority": "0.5.2",
     "commitizen": "4.3.0",
+    "concurrently": "^8.2.0",
     "copy-to-clipboard": "3.3.3",
     "deepmerge": "4.3.1",
     "eslint": "8.41.0",
@@ -120,7 +121,8 @@
     "vite-plugin-dts": "2.3.0",
     "vite-plugin-turbosnap": "1.0.1",
     "vite-tsconfig-paths": "4.2.0",
-    "vitest": "^0.32.0"
+    "vitest": "^0.32.0",
+    "wait-on": "^7.0.1"
   },
   "workspaces": [
     "packages/components/*",

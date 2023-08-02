@@ -46,10 +46,23 @@ export const buttonStyles = cva(
        */
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'danger', 'info', 'neutral', 'surface']
+        [
+          'main',
+          'support',
+          'accent',
+          'basic',
+          'success',
+          'alert',
+          'danger',
+          'info',
+          'neutral',
+          'surface'
+        ]
       >({
-        primary: [],
-        secondary: [],
+        main: [],
+        support: [],
+        accent: [],
+        basic: [],
         success: [],
         alert: [],
         danger: [],
@@ -86,7 +99,7 @@ export const buttonStyles = cva(
     ],
     defaultVariants: {
       design: 'filled',
-      intent: 'primary',
+      intent: 'main',
       size: 'md',
       shape: 'rounded',
     },

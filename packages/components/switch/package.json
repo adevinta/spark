@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/switch",
-  "version": "1.14.3",
+  "version": "1.14.3-colours.0",
   "description": "A control that allows the user to toggle between checked and not checked.",
   "publishConfig": {
     "access": "public"
@@ -21,7 +21,7 @@
     "@radix-ui/react-switch": "1.0.3",
     "@spark-ui/form-field": "^1.2.1",
     "@spark-ui/icons": "^1.19.4",
-    "@spark-ui/internal-utils": "^1.6.1",
+    "@spark-ui/internal-utils": "colours",
     "@spark-ui/label": "^1.5.0",
     "@spark-ui/slot": "^1.6.1",
     "@spark-ui/use-combined-state": "^0.5.0",
