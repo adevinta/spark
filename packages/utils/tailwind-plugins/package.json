@@ -1,13 +1,13 @@
 {
   "name": "@spark-ui/tailwind-plugins",
-  "version": "2.14.2-colours.0",
+  "version": "3.0.0",
   "description": "Spark Tailwind plugins",
   "publishConfig": {
     "access": "public"
   },
   "main": "index.js",
   "dependencies": {
-    "@spark-ui/theme-utils": "colours",
+    "@spark-ui/theme-utils": "3.0.0",
     "tailwindcss-radix": "2.8.0"
   },
   "peerDependencies": {
