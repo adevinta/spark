@@ -14,7 +14,7 @@ export const cardStyles = cva(
     variants: {
       disabled: {
         true: 'opacity-dim-3 hover:cursor-not-allowed',
-        false: 'hover:cursor-pointer hover:from-[#5952D6] hover:to-[#FE6BA7] hover:shadow-lg',
+        false: 'hover:cursor-pointer hover:from-main-hovered hover:to-support-hovered hover:shadow-lg',
       },
     },
     defaultVariants: {
