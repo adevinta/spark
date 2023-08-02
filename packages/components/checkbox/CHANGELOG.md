@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.4](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.19.3...@spark-ui/checkbox@1.19.4) (2023-07-31)
+
+### Bug Fixes
+
+- **checkbox:** id not being link to label ([031a59a](https://github.com/adevinta/spark/commit/031a59a006c2a437449fbc97f42f137affd5a78f))
+
 ## [1.19.3](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@1.19.2...@spark-ui/checkbox@1.19.3) (2023-07-28)
 
 **Note:** Version bump only for package @spark-ui/checkbox
