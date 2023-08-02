@@ -1,8 +1,6 @@
 import { Meta } from '@storybook/blocks'
 import { Callout } from '@docs/helpers/Callout'
 
-import ArgstableImg from '@docs/assets/argstable.png'
-
 <Meta title="Contributing/Writing packages/Documentation" />
 
 # Writing stories
@@ -19,113 +17,181 @@ Each component must have a `doc` and a `stories` file. For example:
   - This file contains every example (story) for your component.
   - It is using the CSF format.
 
-## Docs
+**Only the `docs` file will be visible in the sidebar**
 
-### Docs guidelines
+## Docs page
 
-- Every Docs file must have the following extension: `*.doc.mdx`.
-- You must write the following sections in the same order for every component.
+- Every Docs file must have the following extension: `*.doc.mdx` (ex: `Input.doc.mdx`).
+- **You must write the following sections in the same order for every component.**
 
-### 1. Referencing the Meta
+### 1. Title
 
-The meta is the semantic information about the documented component.
-It must be located in the `*stories.tsx` file, but must be referenced in this one to link both files.
+Every page must have an `h1` heading, followed by the description of the component.
 
 ```
-// Radio.doc.mdx
+# Input
 
+Component used to get user input in a text field, etc.
+```
+
+### 2. Meta
+
+The meta is the semantic information about the documented component. Storybook needs it to properly link the `docs` page to its stories.
+
+The meta itself must be declared in the `*stories.tsx` file, but must be referenced in this one to link both files.
+
+```
 import { Meta } from '@storybook/addon-docs'
 
-import * as RadioStories from './Radio.stories'
+import * as stories from './Input.stories'
 
-<Meta of={RadioStories} />
+<Meta of={stories} />
 ```
 
-### 2. Install
+### 3. Install
 
 Add a section to show developers how to install this component on their repository.
 
 ````
-// Radio.doc.mdx
-
 ## Install
 
-\```sh
-npm install @spark-ui/radio-group
-\```
+Install the component from your command line.
+
+```sh
+npm install @spark-ui/input
+```
 ````
 
-### 3. Import
+### 4. Import
 
 Add a section to show developers how to import this component from their repository.
 
 ````
-// Radio.doc.mdx
-
 ## Import
 
-\```ts
-import { RadioGroup, Radio } from '@spark-ui/radio-group'
-\```
+Import all parts and piece them together.
+
+```tsx
+import { Input, InputGroup } from '@spark-ui/input'
+```
 ````
 
-### 4. Props
+### 5. Props table
 
-#### Props for single components
+We provide a custom `ArgTypes` component to display the component's props. This component also works for compound components, as opposed to Storybook native one.
 
-For prop, we rely on `ArgTypes` to read TS files and generate them automatically.
+**For compound components, you can use `subcomponent` key to also showcase props for each.**
 
 ```
-// Radio.doc.mdx
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
-import { ArgTypes } from '@storybook/blocks';
-
-import { Radio } from '.'
-
-## Props
-
-<ArgTypes of={Radio} />
+<ArgTypes
+  of={Input}
+  description="Input component is a component that is used to get user input in a text field."
+  subcomponents={{
+    InputGroup: {
+      of: InputGroup,
+      description:
+        'Use this wrapper whenever you need a more complex text input. For example if you need to have leading/trailing icons or addons.',
+    },
+    'InputGroup.LeadingAddon': {
+      of: InputGroup.LeadingAddon,
+      description:
+        'Add any type of component that will be displayed before the input field.\n This provides flexibility to include additional elements, such as buttons or dropdowns, to enhance the user interface and provide clear context or guidance to the user.',
+    },
+    etc...
+  }}
+/>
 ```
 
-**Here is what the ArgTypes looks like for a simple component:**
+### 5. Usage
 
-<img width={800} src={ArgstableImg} alt="ArgTypes shows a table of the component's props" />
+From here you will showcase examples of how to use your component in a "feature by feature" way.
 
-#### Props for compound components
-
-TODO
-
-### 5. Linking stories
-
-Stories are imported from the associated `*.stories.tsx` file, which is written with CSF format.
-
-`Canvas` is used to allow preview of source code for each story.
+- **Each story should come with an explicit description preceding the interactive canvas**
+- **Each story displayed under this section should be in a very specific order (for consistency)**
+  - "Default" (a minimal story showcasing how to use your component for the most common case)
+  - "Uncontrolled" (stateful example where you don't use props but rely on internal state)
+  - "Controlled" (stateless example where you use props instead of internal state)
+  - **Every other example should be sorted in alphabetical order**
 
 <Callout kind="warning">
   Each story should showcase a single prop/feature of your component. **Avoid stories mixing many
   properties at once to keep things simple**.
 </Callout>
 
+Example `input` "Usage" section:
+
 ```
-// RadioGroup.doc.mdx
 
 import { Canvas, Story } from '@storybook/addon-docs'
 
-## Default
+## Usage
 
-Compound `RadioGroup` and `Radio` components to create a radio group.
+### Default
 
-<Canvas>
-  <Story of={RadioStories.Default} />
-</Canvas>
+<Canvas of={stories.Default} />
+
+### Uncontrolled
+
+Use `defaultValue` prop to set the default value of the input. Optionally `onChange` prop can be used to know when the value of the input changes.
+
+<Canvas of={stories.Uncontrolled} />
+
+### Controlled
+
+Use `value` and `onChange` props to control the value of the input.
+
+<Canvas of={stories.Controlled} />
+
+### Addons
+
+Each `InputGroup` can have a `LeadingAddon` and a `TrailingAddon`. You can use them to achieve more complex custom inputs. Addons can be decorative or interactive.
+
+**Note: we advise to use `solid` addons when possible to give the user a better clickable area**
+
+<Canvas of={stories.Addons} />
+
+### Disabled
+
+To indicate that an input is disabled, use the `disabled` prop. If you're wrapping your `Input` with an `InputGroup`, set the prop on the group instead.
+
+<Canvas of={stories.Disabled} />
+
+### etc. (be careful about alphabetical order)
 ```
 
-### 6. Accessibility
+### 6. Advanced Usage
+
+Same as previous section, but this is where you should move more advanced examples:
+
+- Combination with other Spark components
+- Highly customized styles to showcase alternate use
+- Obscure features that are reserved for edge-cases or should not be encouraged
+
+The goal of this section is to keep "Usage" clean and focused on most generic usage of the component.
+
+```
+## Advanced usage
+
+### Search
+
+Let's use `InputGroup` and its components to create a search input with a clear button
+
+<Canvas of={stories.SearchExample} />
+
+### Password
+
+Let's use `InputGroup` and its components to create a password input with a show/hide password functionality
+
+<Canvas of={stories.PasswordExample} />
+```
+
+### 7. Accessibility
 
 It is nice to add an `Accessibility` section at the end to summarize keyboard interactions and important a11y requirements of the component.
 
 ```
-// Radio.doc.mdx
 
 ## Accessibility
 
@@ -176,8 +242,8 @@ export default meta
 Please refer to [official Storybook documentation](https://storybook.js.org/docs/7.0/react/writing-stories/introduction#defining-stories) to see how you can write stories
 
 <Callout kind="warning">
-  Each story must use the `_args` parameter, otherwise the `show source` button of the Canvas will
-  show raw js code instead of dynamic JSX.
+  Avoid using `_args` if you story has some JS logic (`useState`, etc). When using `_args`, only JSX
+  will be visible when interacting the `show source` button of the Canvas.
 </Callout>
 
 ```tsx
