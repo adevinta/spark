@@ -20,7 +20,6 @@ export const inputGroupStyles = cva(['relative inline-flex w-full'], {
     },
     readOnly: {
       true: [
-        'cursor-not-allowed',
         'relative',
         'after:absolute',
         'after:top-none',
