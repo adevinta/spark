@@ -98,7 +98,6 @@ export const SingleSelectionFilter: StoryFn = () => {
   )
 }
 
-//  :dog2: :dolphin: :hibiscus: :evergreen_tree: :palm_tree: :cactus: :apple: :strawberry: :hot_pepper: :carrot:
 const multipleUnionSet = Array.from(
   new Map(
     Object.entries({
