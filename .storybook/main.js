@@ -69,5 +69,6 @@ module.exports = {
   },
   docs: {
     autodocs: true,
+    docsMode: true,
   },
 }
