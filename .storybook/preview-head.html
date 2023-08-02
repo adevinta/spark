@@ -14,7 +14,6 @@
 
   .sbdocs-wrapper {
     padding: 30px 20px !important;
-    margin-left: 10px;
   }
 
   .sbdocs-content {
@@ -24,6 +23,10 @@
     height: 100%;
   }
 
+  #spark-doc-container{
+    width: 100%;
+  }
+
   .docblock-source {
     border: 1px solid #ebebed7f !important;
     box-shadow: none !important;
@@ -31,7 +34,8 @@
   }
 
   .sbdocs-wrapper:has(iframe#tcv) > div {
-    max-width: unset;
+    max-width: unset !important;
+    height: auto;
   }
 
   #spark-doc-container > h1 {

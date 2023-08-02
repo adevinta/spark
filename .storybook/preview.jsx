@@ -4,8 +4,6 @@ import { ToC } from '@docs/helpers/ToC'
 
 import { DocsContainer } from '@storybook/blocks'
 import { withThemeByDataAttribute } from '@storybook/addon-styling'
-import { useEffect } from 'react'
-import { useState } from 'react'
 
 const ExampleContainer = ({ children, ...props }) => {
   return (
