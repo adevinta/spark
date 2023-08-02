@@ -7,7 +7,7 @@ export const cardStyles = cva(
     'inline-flex min-h-sz-96 w-sz-224 flex-col justify-between overflow-hidden rounded-md p-lg',
     'transition-all duration-200',
     'text-left text-body-1 font-bold text-on-support',
-    'bg-gradient-to-br from-[#2118C9] to-[#FD398A] shadow',
+    'bg-gradient-to-br from-main to-support shadow',
     'outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
   ],
   {
