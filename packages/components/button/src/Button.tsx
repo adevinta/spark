@@ -34,7 +34,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       design = 'filled',
       disabled = false,
-      intent = 'primary',
+      intent = 'main',
       isLoading = false,
       loadingLabel,
       loadingText,
