@@ -1,10 +1,10 @@
 import * as RadixDrawer from '@radix-ui/react-dialog'
 import { type ReactElement } from 'react'
 
-export type RootProps = RadixDrawer.DialogProps
+export type DrawerRootProps = RadixDrawer.DialogProps
 
-export const Root = ({ children, ...rest }: RootProps): ReactElement => (
+export const DrawerRoot = ({ children, ...rest }: DrawerRootProps): ReactElement => (
   <RadixDrawer.Root {...rest}>{children}</RadixDrawer.Root>
 )
 
-Root.displayName = 'Drawer.Root'
+DrawerRoot.displayName = 'Drawer.Root'

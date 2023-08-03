@@ -2,10 +2,10 @@ import * as RadixDrawer from '@radix-ui/react-dialog'
 import { cx } from 'class-variance-authority'
 import { forwardRef, type ReactElement, type Ref } from 'react'
 
-export type OverlayProps = RadixDrawer.DialogOverlayProps
+export type DrawerOverlayProps = RadixDrawer.DialogOverlayProps
 
-export const Overlay = forwardRef(
-  ({ className, ...rest }: OverlayProps, ref: Ref<HTMLDivElement>): ReactElement => (
+export const DrawerOverlay = forwardRef(
+  ({ className, ...rest }: DrawerOverlayProps, ref: Ref<HTMLDivElement>): ReactElement => (
     <RadixDrawer.Overlay
       ref={ref}
       className={cx(
@@ -18,4 +18,4 @@ export const Overlay = forwardRef(
   )
 )
 
-Overlay.displayName = 'Drawer.Overlay'
+DrawerOverlay.displayName = 'Drawer.Overlay'

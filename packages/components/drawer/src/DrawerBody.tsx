@@ -1,13 +1,13 @@
 import { cx } from 'class-variance-authority'
 import { forwardRef, type ReactNode, type Ref } from 'react'
 
-export interface BodyProps {
+export interface DrawerBodyProps {
   children: ReactNode
   className?: string
 }
 
-export const Body = forwardRef(
-  ({ children, className, ...rest }: BodyProps, ref: Ref<HTMLDivElement>) => (
+export const DrawerBody = forwardRef(
+  ({ children, className, ...rest }: DrawerBodyProps, ref: Ref<HTMLDivElement>) => (
     <div
       ref={ref}
       className={cx(
@@ -22,4 +22,4 @@ export const Body = forwardRef(
   )
 )
 
-Body.displayName = 'Drawer.Body'
+DrawerBody.displayName = 'Drawer.Body'

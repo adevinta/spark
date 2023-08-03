@@ -4,13 +4,13 @@ import { Close as CloseSVG } from '@spark-ui/icons/dist/icons/Close'
 import { cx } from 'class-variance-authority'
 import { ElementRef, forwardRef } from 'react'
 
-import { Close, CloseProps } from './DrawerClose'
+import { DrawerClose, type DrawerCloseProps } from './DrawerClose'
 
-type CloseButtonElement = ElementRef<typeof Close>
-export type CloseButtonProps = CloseProps &
+type CloseButtonElement = ElementRef<typeof DrawerClose>
+export type DrawerCloseButtonProps = DrawerCloseProps &
   Pick<IconButtonProps, 'size' | 'intent' | 'design' | 'aria-label'>
 
-export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
+export const DrawerCloseButton = forwardRef<CloseButtonElement, DrawerCloseButtonProps>(
   (
     {
       'aria-label': ariaLabel,
@@ -23,7 +23,7 @@ export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
     },
     ref
   ) => (
-    <Close
+    <DrawerClose
       ref={ref}
       className={cx(['absolute', 'top-sm', 'right-sm'], className)}
       asChild
@@ -32,8 +32,8 @@ export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
       <IconButton intent={intent} size={size} design={design} aria-label={ariaLabel}>
         <Icon>{children}</Icon>
       </IconButton>
-    </Close>
+    </DrawerClose>
   )
 )
 
-CloseButton.displayName = 'Drawer.CloseButton'
+DrawerCloseButton.displayName = 'Drawer.CloseButton'

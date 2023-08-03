@@ -3,11 +3,11 @@ import { forwardRef, type ReactElement, type Ref } from 'react'
 
 import { drawerContentStyles, type DrawerContentStylesProps } from './DrawerContent.styles'
 
-export type ContentProps = RadixDrawer.DialogContentProps & DrawerContentStylesProps
+export type DrawerContentProps = RadixDrawer.DialogContentProps & DrawerContentStylesProps
 
-export const Content = forwardRef(
+export const DrawerContent = forwardRef(
   (
-    { children, className, size = 'md', side = 'right', ...rest }: ContentProps,
+    { children, className, size = 'md', side = 'right', ...rest }: DrawerContentProps,
     ref: Ref<HTMLDivElement>
   ): ReactElement => (
     <RadixDrawer.Content
@@ -25,4 +25,4 @@ export const Content = forwardRef(
   )
 )
 
-Content.displayName = 'Drawer.Content'
+DrawerContent.displayName = 'Drawer.Content'

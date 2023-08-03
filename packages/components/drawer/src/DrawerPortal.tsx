@@ -1,10 +1,10 @@
 import * as RadixDrawer from '@radix-ui/react-dialog'
 import { type ReactElement } from 'react'
 
-export type PortalProps = RadixDrawer.DialogPortalProps
+export type DrawerPortalProps = RadixDrawer.DialogPortalProps
 
-export const Portal = ({ children, ...rest }: PortalProps): ReactElement => (
+export const DrawerPortal = ({ children, ...rest }: DrawerPortalProps): ReactElement => (
   <RadixDrawer.Portal {...rest}>{children}</RadixDrawer.Portal>
 )
 
-Portal.displayName = 'Drawer.Portal'
+DrawerPortal.displayName = 'Drawer.Portal'
