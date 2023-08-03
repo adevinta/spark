@@ -20,7 +20,7 @@
     "@radix-ui/react-tabs": "1.0.4",
     "@spark-ui/button": "latest",
     "@spark-ui/icon": "latest",
-    "@spark-ui/icons": "^1.19.4",
+    "@spark-ui/icons": "latest",
     "class-variance-authority": "0.5.2"
   },
   "devDependencies": {

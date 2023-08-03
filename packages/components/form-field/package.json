@@ -29,7 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "@radix-ui/react-id": "1.0.1",
-    "@spark-ui/label": "^1.5.1",
-    "@spark-ui/slot": "^1.6.1"
+    "@spark-ui/label": "latest",
+    "@spark-ui/slot": "latest"
   }
 }

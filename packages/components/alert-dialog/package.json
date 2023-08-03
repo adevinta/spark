@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@spark-ui/dialog": "latest",
-    "@spark-ui/use-merge-refs": "^0.3.4",
+    "@spark-ui/use-merge-refs": "latest",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {

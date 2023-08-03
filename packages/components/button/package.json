@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@spark-ui/internal-utils": "latest",
-    "@spark-ui/slot": "^1.6.1",
+    "@spark-ui/slot": "latest",
     "@spark-ui/spinner": "latest",
     "class-variance-authority": "0.5.2"
   },
