@@ -7,7 +7,7 @@ export type ContentProps = RadixDrawer.DialogContentProps & DrawerContentStylesP
 
 export const Content = forwardRef(
   (
-    { children, className, size = 'md', placement = 'right', ...rest }: ContentProps,
+    { children, className, size = 'md', side = 'right', ...rest }: ContentProps,
     ref: Ref<HTMLDivElement>
   ): ReactElement => (
     <RadixDrawer.Content
@@ -15,7 +15,7 @@ export const Content = forwardRef(
       ref={ref}
       className={drawerContentStyles({
         size,
-        placement,
+        side,
         className,
       })}
       {...rest}

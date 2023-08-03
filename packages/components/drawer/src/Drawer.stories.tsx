@@ -116,8 +116,8 @@ export const Sizes = () => {
   )
 }
 
-export const Placement = () => {
-  const [placement, setPlacement] = useState<ExcludeNull<DrawerContentProps>['placement']>('right')
+export const Side = () => {
+  const [side, setSide] = useState<ExcludeNull<DrawerContentProps>['side']>('right')
   const [open, setOpen] = useState(false)
 
   return (
@@ -125,32 +125,32 @@ export const Placement = () => {
       <Drawer open={open} onOpenChange={setOpen}>
         <div className="flex gap-md">
           <Drawer.Trigger asChild>
-            <Button onClick={() => setPlacement('right')}>Right</Button>
+            <Button onClick={() => setSide('right')}>Right</Button>
           </Drawer.Trigger>
 
           <Drawer.Trigger asChild>
-            <Button onClick={() => setPlacement('left')}>Left</Button>
+            <Button onClick={() => setSide('left')}>Left</Button>
           </Drawer.Trigger>
 
           <Drawer.Trigger asChild>
-            <Button onClick={() => setPlacement('top')}>Top</Button>
+            <Button onClick={() => setSide('top')}>Top</Button>
           </Drawer.Trigger>
 
           <Drawer.Trigger asChild>
-            <Button onClick={() => setPlacement('bottom')}>Bottom</Button>
+            <Button onClick={() => setSide('bottom')}>Bottom</Button>
           </Drawer.Trigger>
         </div>
 
         <Drawer.Portal>
           <Drawer.Overlay />
 
-          <Drawer.Content placement={placement} size="sm">
+          <Drawer.Content side={side} size="sm">
             <Drawer.Header>
-              <Drawer.Title>Edit placement</Drawer.Title>
+              <Drawer.Title>Edit side</Drawer.Title>
             </Drawer.Header>
 
             <Drawer.Body className="flex flex-col gap-lg">
-              <Drawer.Description>Please select a drawer placement</Drawer.Description>
+              <Drawer.Description>Please select a drawer side</Drawer.Description>
 
               {Array.from({ length: 10 }, (_, index) => (
                 <p key={index}>
@@ -171,7 +171,7 @@ export const Placement = () => {
               <Button>Submit</Button>
             </Drawer.Footer>
 
-            <Drawer.CloseButton aria-label="Close edit placement" />
+            <Drawer.CloseButton aria-label="Close edit side" />
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer>

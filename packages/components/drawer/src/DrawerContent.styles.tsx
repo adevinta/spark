@@ -12,7 +12,7 @@ export const drawerContentStyles = cva(
         md: '',
         lg: '',
       },
-      placement: {
+      side: {
         right: ['top-none', 'right-none', 'h-screen'],
         left: ['top-none', 'left-none', 'h-screen'],
         top: ['top-none', 'left-none', 'w-screen'],
@@ -21,38 +21,38 @@ export const drawerContentStyles = cva(
     },
     compoundVariants: [
       {
-        placement: ['right', 'left'],
+        side: ['right', 'left'],
         size: 'sm',
         class: ['w-sz-480', 'max-w-full'],
       },
       {
-        placement: ['right', 'left'],
+        side: ['right', 'left'],
         size: 'md',
         class: ['w-sz-640', 'max-w-full'],
       },
       {
-        placement: ['right', 'left'],
+        side: ['right', 'left'],
         size: 'lg',
         class: ['w-sz-768', 'max-w-full'],
       },
       {
-        placement: ['top', 'bottom'],
+        side: ['top', 'bottom'],
         size: 'sm',
         class: ['h-sz-480', 'max-h-full'],
       },
       {
-        placement: ['top', 'bottom'],
+        side: ['top', 'bottom'],
         size: 'md',
         class: ['h-sz-640', 'max-h-full'],
       },
       {
-        placement: ['top', 'bottom'],
+        side: ['top', 'bottom'],
         size: 'lg',
         class: ['h-sz-768', 'max-h-full'],
       },
     ],
     defaultVariants: {
-      placement: 'right',
+      side: 'right',
       size: 'md',
     },
   }
