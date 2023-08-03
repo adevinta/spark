@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/portal",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Renders a React subtree in a different part of the DOM.",
   "publishConfig": {
     "access": "public"
@@ -16,10 +16,10 @@
     "@radix-ui/react-primitive": "1.0.3"
   },
   "peerDependencies": {
+    "@spark-ui/theme-utils": "latest",
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
-    "tailwindcss": "^3.0.0",
-    "@spark-ui/theme-utils": "^3.0.0"
+    "tailwindcss": "^3.0.0"
   },
   "repository": {
     "type": "git",

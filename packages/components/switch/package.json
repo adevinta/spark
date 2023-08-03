@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/switch",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A control that allows the user to toggle between checked and not checked.",
   "publishConfig": {
     "access": "public"
@@ -19,19 +19,19 @@
   "dependencies": {
     "@radix-ui/react-id": "1.0.1",
     "@radix-ui/react-switch": "1.0.3",
-    "@spark-ui/form-field": "^1.2.1",
+    "@spark-ui/form-field": "latest",
     "@spark-ui/icons": "^1.19.4",
-    "@spark-ui/internal-utils": "^2.0.0",
-    "@spark-ui/label": "^1.5.0",
+    "@spark-ui/internal-utils": "latest",
+    "@spark-ui/label": "latest",
     "@spark-ui/slot": "^1.6.1",
     "@spark-ui/use-combined-state": "^0.5.0",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
+    "@spark-ui/theme-utils": "latest",
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
-    "tailwindcss": "^3.0.0",
-    "@spark-ui/theme-utils": "^3.0.0"
+    "tailwindcss": "^3.0.0"
   },
   "bugs": {
     "url": "https://github.com/adevinta/spark/issues"
