@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/switch",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A control that allows the user to toggle between checked and not checked.",
   "publishConfig": {
     "access": "public"
