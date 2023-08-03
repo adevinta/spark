@@ -48,8 +48,10 @@ export const Sizes: StoryFn = _args => (
 )
 
 const intents: ComponentProps<typeof Icon>['intent'][] = [
-  'primary',
-  'secondary',
+  'main',
+  'support',
+  'accent',
+  'basic',
   'success',
   'alert',
   'error',
@@ -57,7 +59,7 @@ const intents: ComponentProps<typeof Icon>['intent'][] = [
   'neutral',
 ]
 
-export const Colors: StoryFn = _args => (
+export const Intent: StoryFn = _args => (
   <div className="flex gap-lg">
     {intents.map(intent => (
       <div key={intent} className="flex flex-col items-center">

@@ -16,22 +16,35 @@
     padding: 30px 20px !important;
   }
 
+  .sbdocs-content {
+    display: flex !important;
+    gap: 24px;
+    max-width: 1200px !important;
+    height: 100%;
+  }
+
+  #spark-doc-container{
+    width: 100%;
+  }
+
   .docblock-source {
-    border: 1px solid #D1D0D5 !important;
+    border: 1px solid #ebebed7f !important;
     box-shadow: none !important;
+    background-color: #ebebed7f !important;
   }
 
   .sbdocs-wrapper:has(iframe#tcv) > div {
-    max-width: unset;
+    max-width: unset !important;
+    height: auto;
   }
 
-  .sbdocs > h1 {
-    color: #140E79 !important;
+  #spark-doc-container > h1 {
+    color: #0052FF !important;
     font-weight: 700 !important;
   }
 
-  .sbdocs > h2, .sbdocs > h3, .sbdocs > h4, .sbdocs > h5 {
-    color: #982253 !important;
+  #spark-doc-container > h2, #spark-doc-container > h3, #spark-doc-container > h4, #spark-doc-container > h5 {
+    color: #35376A !important;
     font-weight: 700 !important;
   }
 </style>

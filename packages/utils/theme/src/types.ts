@@ -35,17 +35,22 @@ export interface Theme {
     // Basic
     basic: string
     onBasic: string
-    basicContainer: string
-    onBasicContainer: string
     basicHovered: string
     basicPressed: string
     basicFocused: string
+    // Basic Container
+    basicContainer: string
+    onBasicContainer: string
+    basicContainerHovered: string
+    basicContainerPressed: string
+    basicContainerFocused: string
     // Accent
     accent: string
     onAccent: string
     accentHovered: string
     accentPressed: string
     accentFocused: string
+    // Accent Container
     accentContainer: string
     onAccentContainer: string
     accentContainerHovered: string
@@ -57,110 +62,103 @@ export interface Theme {
     accentVariantHovered: string
     accentVariantPressed: string
     accentVariantFocused: string
-    // Primary
-    primary: string
-    onPrimary: string
-    primaryHovered: string
-    primaryPressed: string
-    primaryDisabled: string
-    primaryFocused: string
-    primaryContainer: string
-    onPrimaryContainer: string
-    primaryContainerHovered: string
-    primaryContainerPressed: string
-    primaryContainerDisabled: string
-    primaryContainerFocused: string
-    // Secondary
-    secondary: string
-    onSecondary: string
-    secondaryHovered: string
-    secondaryPressed: string
-    secondaryDisabled: string
-    secondaryFocused: string
-    secondaryContainer: string
-    onSecondaryContainer: string
-    secondaryContainerHovered: string
-    secondaryContainerPressed: string
-    secondaryContainerDisabled: string
-    secondaryContainerFocused: string
-    // Primary Variant
-    primaryVariant: string
-    onPrimaryVariant: string
-    primaryVariantHovered: string
-    primaryVariantPressed: string
-    primaryVariantDisabled: string
-    primaryVariantFocused: string
-    // Secondary Variant
-    secondaryVariant: string
-    onSecondaryVariant: string
-    secondaryVariantHovered: string
-    secondaryVariantPressed: string
-    secondaryVariantDisabled: string
-    secondaryVariantFocused: string
+    // Main
+    main: string
+    onMain: string
+    mainHovered: string
+    mainPressed: string
+    mainFocused: string
+    mainContainer: string
+    onMainContainer: string
+    mainContainerHovered: string
+    mainContainerPressed: string
+    mainContainerFocused: string
+    // Support
+    support: string
+    onSupport: string
+    supportHovered: string
+    supportPressed: string
+    supportFocused: string
+    supportContainer: string
+    onSupportContainer: string
+    supportContainerHovered: string
+    supportContainerPressed: string
+    supportContainerFocused: string
+    // Main Variant
+    mainVariant: string
+    onMainVariant: string
+    mainVariantHovered: string
+    mainVariantPressed: string
+    mainVariantFocused: string
+    // Support Variant
+    supportVariant: string
+    onSupportVariant: string
+    supportVariantHovered: string
+    supportVariantPressed: string
+    supportVariantFocused: string
     // Success
     success: string
     onSuccess: string
     successHovered: string
     successPressed: string
-    successDisabled: string
     successFocused: string
     successContainer: string
     onSuccessContainer: string
     successContainerHovered: string
     successContainerPressed: string
-    successContainerDisabled: string
+
     successContainerFocused: string
     // Alert
     alert: string
     onAlert: string
     alertHovered: string
     alertPressed: string
-    alertDisabled: string
+
     alertFocused: string
     alertContainer: string
     onAlertContainer: string
     alertContainerHovered: string
     alertContainerPressed: string
-    alertContainerDisabled: string
+
     alertContainerFocused: string
     // Error
     error: string
     onError: string
     errorHovered: string
     errorPressed: string
-    errorDisabled: string
+
     errorFocused: string
     errorContainer: string
     onErrorContainer: string
     errorContainerHovered: string
     errorContainerPressed: string
-    errorContainerDisabled: string
+
     errorContainerFocused: string
     // Info
     info: string
     onInfo: string
     infoHovered: string
     infoPressed: string
-    infoDisabled: string
+
     infoFocused: string
     infoContainer: string
     onInfoContainer: string
     infoContainerHovered: string
     infoContainerPressed: string
-    infoContainerDisabled: string
+
     infoContainerFocused: string
     // Neutral
     neutral: string
     onNeutral: string
     neutralHovered: string
     neutralPressed: string
-    neutralDisabled: string
+
     neutralFocused: string
     neutralContainer: string
     onNeutralContainer: string
     neutralContainerHovered: string
     neutralContainerPressed: string
-    neutralContainerDisabled: string
+
     neutralContainerFocused: string
     // Background
     background: string
@@ -173,21 +171,21 @@ export interface Theme {
     onSurface: string
     surfaceHovered: string
     surfacePressed: string
-    surfaceDisabled: string
+
     surfaceFocused: string
     // Surface Inverse
     surfaceInverse: string
     onSurfaceInverse: string
     surfaceInverseHovered: string
     surfaceInversePressed: string
-    surfaceInverseDisabled: string
+
     surfaceInverseFocused: string
     // Outline
     outline: string
     outlineHigh: string
     outlineHovered: string
     outlinePressed: string
-    outlineDisabled: string
+
     outlineFocused: string
     // Overlay
     overlay: string
