@@ -11,7 +11,7 @@ export const FormFieldHelperMessage = forwardRef<HTMLSpanElement, FormFieldHelpe
       <FormFieldMessage
         ref={ref}
         data-spark-component="form-field-helper-message"
-        className={cx(className, 'text-neutral')}
+        className={cx('text-on-surface/dim-1', className)}
         {...others}
       />
     )
