@@ -1,5 +1,5 @@
 import * as RadixDrawer from '@radix-ui/react-dialog'
-import { forwardRef, type ReactElement, type Ref } from 'react'
+import { forwardRef, type Ref } from 'react'
 
 import { drawerContentStyles, type DrawerContentStylesProps } from './DrawerContent.styles'
 
@@ -7,9 +7,9 @@ export type DrawerContentProps = RadixDrawer.DialogContentProps & DrawerContentS
 
 export const DrawerContent = forwardRef(
   (
-    { children, className, size = 'md', side = 'right', ...rest }: DrawerContentProps,
+    { className, size = 'md', side = 'right', ...rest }: DrawerContentProps,
     ref: Ref<HTMLDivElement>
-  ): ReactElement => (
+  ) => (
     <RadixDrawer.Content
       data-spark-component="drawer-content"
       ref={ref}
@@ -19,9 +19,7 @@ export const DrawerContent = forwardRef(
         className,
       })}
       {...rest}
-    >
-      {children}
-    </RadixDrawer.Content>
+    />
   )
 )
 
