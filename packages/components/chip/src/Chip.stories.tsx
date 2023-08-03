@@ -22,8 +22,10 @@ type ChipProps = ComponentProps<typeof Chip>
 const designs: ChipProps['design'][] = ['outlined', 'filled', 'dashed', 'tinted']
 
 const intents: ChipProps['intent'][] = [
-  'primary',
-  'secondary',
+  'basic',
+  'main',
+  'support',
+  'accent',
   'success',
   'alert',
   'danger',
@@ -271,7 +273,7 @@ export const Input: StoryFn = () => {
       </div>
       <span className="flex gap-md">
         {tags.map(tag => (
-          <Chip intent="neutral" key={tag} design="dashed">
+          <Chip key={tag} design="dashed">
             <Chip.Content>{tag}</Chip.Content>
             <Chip.ClearButton
               onClick={() => setTags(tags.filter(currentTag => tag !== currentTag))}
@@ -284,7 +286,7 @@ export const Input: StoryFn = () => {
   )
 }
 
-export const MaxLength: StoryFn = () => {
+export const MaxWidth: StoryFn = () => {
   const [content, setContent] = useState<string>(
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
   )
@@ -380,7 +382,7 @@ export const Disabled: StoryFn = _args => (
 
 export const AssistEvent: StoryFn = _args => {
   return (
-    <div className="flex max-w-sz-320 flex-col gap-sm rounded-md border-md bg-gradient-to-br from-primary to-secondary p-lg text-surface shadow">
+    <div className="flex max-w-sz-320 flex-col gap-sm rounded-md border-md bg-gradient-to-br from-main to-support-variant p-lg text-surface shadow">
       <div className="flex min-h-sz-128 flex-col items-start justify-between">
         <span className="font-mono text-small uppercase">Passed Event</span>
         <span className="flex flex-col">

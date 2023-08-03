@@ -36,7 +36,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       design = 'outlined',
       disabled,
       children,
-      intent = 'primary',
+      intent = 'basic',
       defaultPressed,
       pressed,
       asChild,

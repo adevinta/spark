@@ -1,28 +1,52 @@
 import { tw } from '@spark-ui/internal-utils'
 
 export const filledVariants = [
-  // Primary
+  // Main
   {
-    intent: 'primary',
+    intent: 'main',
     design: 'filled',
     class: tw([
-      'bg-primary',
-      'text-on-primary',
-      'enabled:hover:bg-primary-hovered',
-      'enabled:active:bg-primary-pressed',
-      'focus-visible:bg-primary-focused',
+      'bg-main',
+      'text-on-main',
+      'enabled:hover:bg-main-hovered',
+      'enabled:active:bg-main-pressed',
+      'focus-visible:bg-main-focused',
     ]),
   },
-  // Secondary
+  // Support
   {
-    intent: 'secondary',
+    intent: 'support',
     design: 'filled',
     class: tw([
-      'bg-secondary',
-      'text-on-secondary',
-      'enabled:hover:bg-secondary-hovered',
-      'enabled:active:bg-secondary-pressed',
-      'focus-visible:bg-secondary-focused',
+      'bg-support',
+      'text-on-support',
+      'enabled:hover:bg-support-hovered',
+      'enabled:active:bg-support-pressed',
+      'focus-visible:bg-support-focused',
+    ]),
+  },
+  // Basic
+  {
+    intent: 'basic',
+    design: 'filled',
+    class: tw([
+      'bg-basic',
+      'text-on-basic',
+      'enabled:hover:bg-basic-hovered',
+      'enabled:active:bg-basic-pressed',
+      'focus-visible:bg-basic-focused',
+    ]),
+  },
+  // Accent
+  {
+    intent: 'accent',
+    design: 'filled',
+    class: tw([
+      'bg-accent',
+      'text-on-accent',
+      'enabled:hover:bg-accent-hovered',
+      'enabled:active:bg-accent-pressed',
+      'focus-visible:bg-accent-focused',
     ]),
   },
   // Success

@@ -2,23 +2,43 @@ import { tw } from '@spark-ui/internal-utils'
 
 export const dashedVariants = [
   {
-    intent: 'primary',
+    intent: 'main',
     design: 'dashed',
     class: tw([
-      'enabled:hover:bg-primary/dim-5',
-      'enabled:active:bg-primary/dim-5',
-      'focus-visible:bg-primary/dim-5',
-      'text-primary',
+      'enabled:hover:bg-main/dim-5',
+      'enabled:active:bg-main/dim-5',
+      'focus-visible:bg-main/dim-5',
+      'text-main',
     ]),
   },
   {
-    intent: 'secondary',
+    intent: 'support',
     design: 'dashed',
     class: tw([
-      'enabled:hover:bg-secondary/dim-5',
-      'enabled:active:bg-secondary/dim-5',
-      'focus-visible:bg-secondary/dim-5',
-      'text-secondary',
+      'enabled:hover:bg-support/dim-5',
+      'enabled:active:bg-support/dim-5',
+      'focus-visible:bg-support/dim-5',
+      'text-support',
+    ]),
+  },
+  {
+    intent: 'basic',
+    design: 'dashed',
+    class: tw([
+      'enabled:hover:bg-basic/dim-5',
+      'enabled:active:bg-basic/dim-5',
+      'focus-visible:bg-basic/dim-5',
+      'text-basic',
+    ]),
+  },
+  {
+    intent: 'accent',
+    design: 'dashed',
+    class: tw([
+      'enabled:hover:bg-accent/dim-5',
+      'enabled:active:bg-accent/dim-5',
+      'focus-visible:bg-accent/dim-5',
+      'text-accent',
     ]),
   },
   {

@@ -2,25 +2,47 @@ import { tw } from '@spark-ui/internal-utils'
 
 export const tintedVariants = [
   {
-    intent: 'primary',
+    intent: 'main',
     design: 'tinted',
     class: tw([
-      'bg-primary-container',
-      'text-on-primary-container',
-      'enabled:hover:bg-primary-container-hovered',
-      'enabled:active:bg-primary-container-pressed',
-      'focus-visible:bg-primary-container-focused',
+      'bg-main-container',
+      'text-on-main-container',
+      'enabled:hover:bg-main-container-hovered',
+      'enabled:active:bg-main-container-pressed',
+      'focus-visible:bg-main-container-focused',
     ]),
   },
   {
-    intent: 'secondary',
+    intent: 'support',
     design: 'tinted',
     class: tw([
-      'bg-secondary-container',
-      'text-on-secondary-container',
-      'enabled:hover:bg-secondary-container-hovered',
-      'enabled:active:bg-secondary-container-pressed',
-      'focus-visible:bg-secondary-container-focused',
+      'bg-support-container',
+      'text-on-support-container',
+      'enabled:hover:bg-support-container-hovered',
+      'enabled:active:bg-support-container-pressed',
+      'focus-visible:bg-support-container-focused',
+    ]),
+  },
+  {
+    intent: 'basic',
+    design: 'tinted',
+    class: tw([
+      'bg-basic-container',
+      'text-on-basic-container',
+      'enabled:hover:bg-basic-container-hovered',
+      'enabled:active:bg-basic-container-pressed',
+      'focus-visible:bg-basic-container-focused',
+    ]),
+  },
+  {
+    intent: 'accent',
+    design: 'tinted',
+    class: tw([
+      'bg-accent-container',
+      'text-on-accent-container',
+      'enabled:hover:bg-accent-container-hovered',
+      'enabled:active:bg-accent-container-pressed',
+      'focus-visible:bg-accent-container-focused',
     ]),
   },
   {
