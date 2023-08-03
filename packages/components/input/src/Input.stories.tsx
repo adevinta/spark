@@ -22,7 +22,9 @@ const meta: Meta<typeof Input> = {
 
 export default meta
 
-export const Usage: StoryFn = _args => <Input placeholder="Type here..." aria-label="Phone type" />
+export const Default: StoryFn = _args => (
+  <Input placeholder="Type here..." aria-label="Phone type" />
+)
 
 export const Uncontrolled: StoryFn = _args => (
   <Input defaultValue="IPhone 12" aria-label="Phone type" />
