@@ -2,8 +2,8 @@ const sizes = ['current', 'sm', 'md', 'lg', 'xl'] as const
 
 const intents = [
   'current',
-  'primary',
-  'secondary',
+  'main',
+  'support',
   'success',
   'error',
   'info',
@@ -11,6 +11,8 @@ const intents = [
   'danger',
   'neutral',
   'surface',
+  'accent',
+  'basic',
 ] as const
 
 const designs = ['filled', 'outlined', 'tinted', 'ghost', 'contrast'] as const

@@ -15,8 +15,10 @@ export default meta
 
 const sizes: IconButtonProps['size'][] = ['sm', 'md', 'lg']
 const intents: IconButtonProps['intent'][] = [
-  'primary',
-  'secondary',
+  'main',
+  'support',
+  'accent',
+  'basic',
   'success',
   'alert',
   'danger',

@@ -13,7 +13,7 @@ export interface TagProps
 }
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
-  ({ design = 'filled', intent = 'primary', asChild, className, ...others }, ref) => {
+  ({ design = 'filled', intent = 'basic', asChild, className, ...others }, ref) => {
     const Component = asChild ? Slot : 'span'
 
     return (

@@ -68,13 +68,23 @@ export const Controlled: StoryFn = () => {
   )
 }
 
-const intent = ['primary', 'success', 'alert', 'error', 'info', 'neutral'] as const
+const intent = [
+  'main',
+  'support',
+  'accent',
+  'basic',
+  'success',
+  'alert',
+  'error',
+  'info',
+  'neutral',
+] as const
 
 export const Intent: StoryFn = _args => (
   <div className="flex gap-lg">
     {intent.map(color => {
       return (
-        <Checkbox className="capitalize" key={color} intent={color}>
+        <Checkbox className="capitalize" key={color} intent={color} defaultChecked>
           {color}
         </Checkbox>
       )
@@ -135,7 +145,7 @@ export const GroupUncontrolled: StoryFn = () => {
 
 export const GroupOrientation: StoryFn = _args => {
   return (
-    <CheckboxGroup orientation="horizontal" intent="neutral">
+    <CheckboxGroup orientation="horizontal">
       <Checkbox value="soccer">Soccer</Checkbox>
       <Checkbox value="tennis">Tennis</Checkbox>
       <Checkbox value="baseball">Baseball</Checkbox>
@@ -145,7 +155,7 @@ export const GroupOrientation: StoryFn = _args => {
 
 export const GroupIntent: StoryFn = _args => {
   return (
-    <CheckboxGroup intent="neutral">
+    <CheckboxGroup>
       <Checkbox value="soccer">Soccer</Checkbox>
       <Checkbox value="tennis">Tennis</Checkbox>
       <Checkbox value="baseball">Baseball</Checkbox>

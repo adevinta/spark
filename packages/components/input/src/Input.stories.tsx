@@ -58,10 +58,10 @@ export const Disabled: StoryFn = _args => {
       </div>
 
       <div>
-        <StoryLabel>Addons - solid</StoryLabel>
+        <StoryLabel>Addons - solide</StoryLabel>
         <InputGroup className="max-w-sz-320" disabled={isDisabled}>
           <InputGroup.LeadingAddon asChild>
-            <IconButton intent="primary" design="filled" aria-label="Search">
+            <IconButton intent="main" design="filled" aria-label="Search">
               <Icon>
                 <EyeOutline />
               </Icon>
