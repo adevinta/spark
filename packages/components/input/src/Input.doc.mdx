@@ -89,17 +89,23 @@ Each `InputGroup` can have a `LeadingAddon` and a `TrailingAddon`. You can use t
 
 <Canvas of={stories.Addons} />
 
+### Icons
+
+An `InputGroup` can have a `LeadingIcon` and/or `TrailingIcon`. Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
+
+<Canvas of={stories.Icons} />
+
 ### Disabled
 
 To indicate that an input is disabled, use the `disabled` prop. If you're wrapping your `Input` with an `InputGroup`, set the prop on the group instead.
 
 <Canvas of={stories.Disabled} />
 
-### Icons
+### Read Only
 
-An `InputGroup` can have a `LeadingIcon` and/or `TrailingIcon`. Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
+Use `readOnly` prop to indicate the input is only readable.
 
-<Canvas of={stories.Icons} />
+<Canvas of={stories.ReadOnly} />
 
 ### State
 

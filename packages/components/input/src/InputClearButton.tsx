@@ -11,9 +11,7 @@ export interface InputClearButtonProps extends ComponentPropsWithoutRef<'button'
 
 const Root = forwardRef<HTMLButtonElement, InputClearButtonProps>(
   ({ className, tabIndex = -1, onClick, ...others }, ref) => {
-    const { disabled, onClear, hasTrailingIcon } = useInputGroup()
-
-    if (disabled) return null
+    const { onClear, hasTrailingIcon } = useInputGroup()
 
     const handleClick: MouseEventHandler<HTMLButtonElement> = event => {
       if (onClick) {

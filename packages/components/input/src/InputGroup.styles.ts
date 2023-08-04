@@ -18,6 +18,21 @@ export const inputGroupStyles = cva(['relative inline-flex w-full'], {
       ],
       false: 'after:hidden',
     },
+    readOnly: {
+      true: [
+        'relative',
+        'after:absolute',
+        'after:top-none',
+        'after:h-full',
+        'after:w-full',
+        'after:ring-1',
+        'after:ring-inset',
+        'after:ring-outline',
+        'after:content-[""]',
+        'after:rounded-lg',
+      ],
+      false: 'after:hidden',
+    },
   },
 })
 

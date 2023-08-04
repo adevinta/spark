@@ -22,6 +22,10 @@ export interface FormFieldContextState {
    */
   disabled?: boolean
   /**
+   * Marks the field and its associated input as read only
+   */
+  readOnly?: boolean
+  /**
    * The validation state of the input.
    */
   state?: 'error' | 'success' | 'alert'
