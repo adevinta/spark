@@ -2,14 +2,24 @@ import { tw } from './default'
 
 export const tintedVariants = [
   {
-    intent: 'primary',
+    intent: 'main',
     design: 'tinted',
-    class: tw(['bg-primary-container', 'text-on-primary-container']),
+    class: tw(['bg-main-container', 'text-on-main-container']),
   },
   {
-    intent: 'secondary',
+    intent: 'support',
     design: 'tinted',
-    class: tw(['bg-secondary-container', 'text-on-secondary-container']),
+    class: tw(['bg-support-container', 'text-on-support-container']),
+  },
+  {
+    intent: 'accent',
+    design: 'tinted',
+    class: tw(['bg-accent-container', 'text-on-accent-container']),
+  },
+  {
+    intent: 'basic',
+    design: 'tinted',
+    class: tw(['bg-basic-container', 'text-on-basic-container']),
   },
   {
     intent: 'success',

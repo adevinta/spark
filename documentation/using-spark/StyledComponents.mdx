@@ -5,14 +5,6 @@ import { Callout } from '@docs/helpers/Callout'
 
 # Migrating from styled-components
 
-- [using a Theme Provider](#using-a-theme-provider)
-- [using dynamic props](#using-dynamic-props)
-- [using multiple props (more complexe case)](#using-multiple-props-more-complexe-case)
-- [using arbitrary values](#using-arbitrary-values)
-- [composing styles](#composing-styles)
-- ["as" polymorphic prop](#as-polymorphic-prop)
-- [overriding styles](#overriding-styles)
-
 If you've recently switched from using **styled-components** to **Spark** for styling your application.
 
 This guide can help you understand how to adapt your styling workflow to Spark, showing you how to achieve the same styling results with Spark that you had with styled-components.
@@ -73,7 +65,7 @@ interface TitleProps {
 }
 
 const Title = styled.h1<TitleProps>`
-  color: ${props => (props.isActive ? props.theme.colors.main : props.theme.colors.secondary)};
+  color: ${props => (props.isActive ? props.theme.colors.main : props.theme.colors.support)};
 `
 
 function SomeComponent() {
@@ -90,7 +82,7 @@ interface Props {
 }
 
 function SomeComponent({ isActive }: Props) {
-  return <h1 className={isActive ? 'bg-main' : 'bg-secondary'}>{...}</h1>
+  return <h1 className={isActive ? 'bg-main' : 'bg-support'}>{...}</h1>
 }
 ```
 
@@ -320,12 +312,12 @@ const StyledCard = styled.div<TitleProps>`
   background-color: ${({ theme }) => theme.colors.primary};
 `
 
-const StyledSecondaryCard = styled(Card)`
-  background-color: ${({ theme }) => theme.colors.secondary)};
+const StyledSupportCard = styled(Card)`
+  background-color: ${({ theme }) => theme.colors.support)};
 `
 
-function SecondaryCard({ kind }: RoundedCardProps) {
-  return <StyledSecondaryCard kind={kind}>{...}</StyledSecondaryCard>
+function SupportCard({ kind }: RoundedCardProps) {
+  return <StyledSupportCard kind={kind}>{...}</StyledSupportCard>
 }
 ```
 
@@ -348,8 +340,8 @@ function Card({ kind, className }: RoundedCardProps) {
 }
 
 // It would have been better to use CVA variants to address that case, but let's set that aside for the sake of illustration purposes
-function SecondaryCard({ kind, className }: RoundedCardProps) {
-  return <Card className="!bg-secondary">{...}</Card>
+function SupportCard({ kind, className }: RoundedCardProps) {
+  return <Card className="!bg-support">{...}</Card>
 }
 ```
 

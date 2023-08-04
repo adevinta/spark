@@ -23,7 +23,9 @@ const meta: Meta<typeof Input> = {
 
 export default meta
 
-export const Usage: StoryFn = _args => <Input placeholder="Type here..." aria-label="Phone type" />
+export const Default: StoryFn = _args => (
+  <Input placeholder="Type here..." aria-label="Phone type" />
+)
 
 export const Uncontrolled: StoryFn = _args => (
   <Input defaultValue="iPhone 12" aria-label="Phone type" />
@@ -59,10 +61,10 @@ export const Disabled: StoryFn = _args => {
       </div>
 
       <div>
-        <StoryLabel>Addons - solid</StoryLabel>
+        <StoryLabel>Addons - solide</StoryLabel>
         <InputGroup className="max-w-sz-320" disabled={isDisabled}>
           <InputGroup.LeadingAddon asChild>
-            <IconButton intent="primary" design="filled" aria-label="Search">
+            <IconButton intent="main" design="filled" aria-label="Search">
               <Icon>
                 <EyeOutline />
               </Icon>

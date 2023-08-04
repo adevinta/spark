@@ -9,16 +9,29 @@ export const styles = cva(
     variants: {
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'danger', 'info', 'neutral', 'surface']
+        [
+          'main',
+          'support',
+          'accent',
+          'success',
+          'alert',
+          'danger',
+          'info',
+          'neutral',
+          'surface',
+          'basic'
+        ]
       >({
-        primary: ['bg-primary', 'text-on-primary', 'ring-on-primary'],
-        secondary: ['bg-secondary', 'text-on-secondary', 'ring-on-secondary'],
+        main: ['bg-main', 'text-on-main', 'ring-on-main'],
+        support: ['bg-support', 'text-on-support', 'ring-on-support'],
+        accent: ['bg-accent', 'text-on-accent', 'ring-on-accent'],
         success: ['bg-success', 'text-on-success', 'ring-on-success'],
         alert: ['bg-alert', 'text-on-alert', 'ring-on-alert'],
         danger: ['bg-error', 'text-on-error', 'ring-on-error'],
         info: ['bg-info', 'text-on-info', 'ring-on-info'],
         neutral: ['bg-neutral', 'text-on-neutral', 'ring-on-neutral'],
         surface: ['bg-surface', 'text-on-surface', 'ring-on-surface'],
+        basic: ['bg-basic', 'text-on-basic', 'ring-on-basic'],
       }),
       size: makeVariants<'size', ['sm', 'md']>({
         sm: ['text-small', 'px-[var(--sz-6)] py-[var(--sz-2)]', 'empty:h-sz-12 empty:w-sz-12'],

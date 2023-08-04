@@ -174,12 +174,16 @@ export const Default: StoryFn = _args => (
 export const Intent: StoryFn = _args => (
   <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">
-      <StoryLabel>primary (default)</StoryLabel>
+      <StoryLabel>basic (default)</StoryLabel>
       {createTabs()}
     </div>
     <div className="shrink basis-auto overflow-auto">
-      <StoryLabel>secondary</StoryLabel>
-      {createTabs({ rootProps: { intent: 'secondary' } })}
+      <StoryLabel>main</StoryLabel>
+      {createTabs({ rootProps: { intent: 'main' } })}
+    </div>
+    <div className="shrink basis-auto overflow-auto">
+      <StoryLabel>support</StoryLabel>
+      {createTabs({ rootProps: { intent: 'support' } })}
     </div>
   </div>
 )
