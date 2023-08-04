@@ -151,7 +151,7 @@ export const ReadOnly: StoryFn = _args => {
 
         <InputGroup className="max-w-sz-320" readOnly={isReadOnly}>
           <InputGroup.LeadingAddon asChild>
-            <IconButton intent="primary" design="filled" aria-label="Search">
+            <IconButton intent="main" design="filled" aria-label="Search">
               <Icon>
                 <EyeOutline />
               </Icon>
@@ -208,6 +208,7 @@ export const ReadOnly: StoryFn = _args => {
 
       <div>
         <StoryLabel>With FormField label</StoryLabel>
+
         <FormField readOnly={isReadOnly}>
           <FormField.Label>My label</FormField.Label>
 
