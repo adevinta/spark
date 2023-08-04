@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/input@1.3.8...@spark-ui/input@1.4.0) (2023-08-04)
+
+### Bug Fixes
+
+- **input:** fix type intent ([96d7c2e](https://github.com/adevinta/spark/commit/96d7c2ed9c233290c30c453a8c09dfa61530bd44))
+- **input:** fix types ([45550ce](https://github.com/adevinta/spark/commit/45550ce4cc0eece73527fedc59715181ddac9869))
+
+### Features
+
+- **input:** add readonly styles ([d2d7640](https://github.com/adevinta/spark/commit/d2d76408ccc8df8cabc97b27293f8e45289395fc))
+- **input:** make readonly addons styles not looking as disabled ([e6fcd03](https://github.com/adevinta/spark/commit/e6fcd03e3b3afd6b44474c1579be4b61e8ec3d56))
+- **input:** switch to cursor default ([34ff8dd](https://github.com/adevinta/spark/commit/34ff8ddba85a7a5bcdc1e5dc0cc27aa7e4a9f888))
+- **input:** update styles on input group elements ([ad46342](https://github.com/adevinta/spark/commit/ad46342b9785798ecbd2a32f68bc35560e67f842))
+
 ## [1.3.8](https://github.com/adevinta/spark/compare/@spark-ui/input@1.3.7...@spark-ui/input@1.3.8) (2023-08-03)
 
 **Note:** Version bump only for package @spark-ui/input

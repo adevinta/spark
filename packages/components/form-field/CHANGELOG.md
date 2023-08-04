@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.2.4...@spark-ui/form-field@1.3.0) (2023-08-04)
+
+### Features
+
+- **form-field:** adapt styles ([d7c85d3](https://github.com/adevinta/spark/commit/d7c85d36e458e34aa9cba68c25a45247d167b84b))
+- **form-field:** add readonly prop ([8bdbdfb](https://github.com/adevinta/spark/commit/8bdbdfbf7ddb8798c4ef601e22dfde6e2a52b517))
+
 ## [1.2.4](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.2.3...@spark-ui/form-field@1.2.4) (2023-08-04)
 
 **Note:** Version bump only for package @spark-ui/form-field
