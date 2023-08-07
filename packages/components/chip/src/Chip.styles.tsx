@@ -65,8 +65,8 @@ export const chipStyles = cva(
         true: ['cursor-not-allowed', 'opacity-dim-3'],
       },
       hasClearButton: {
-        true: ['pl-md'],
-        false: ['px-md'],
+        true: [],
+        false: [],
       },
       // 'pl-[calc(theme(spacing.md)-theme(borderWidth.sm))]'
     },
