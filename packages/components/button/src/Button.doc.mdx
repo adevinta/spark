@@ -26,47 +26,37 @@ import { Button } from '@spark-ui/button'
 
 <ArgTypes of={Button} />
 
-## Default
+## Usage
+
+### Default
 
 <Canvas of={ButtonStories.Default} />
 
-## Disabled
-
-Use `disable` prop to disable the element.
-
-<Canvas of={ButtonStories.Disabled} />
-
-## Sizes
-
-Use `size` prop to set the size of a button.
-
-<Canvas of={ButtonStories.Sizes} />
-
-## Shapes
-
-Use `shape` prop to set the shape of a button.
-
-<Canvas of={ButtonStories.Shapes} />
-
-## Design
+### Design
 
 Use `design` prop to set the different look and feels of a button.
 
 <Canvas of={ButtonStories.Design} />
 
-## Intent
+### Disabled
 
-Use `intent` prop to set the color intent of a button.
+Use `disable` prop to disable the element.
 
-<Canvas of={ButtonStories.Intent} />
+<Canvas of={ButtonStories.Disabled} />
 
-## Icons
+### Icons
 
 Compose the content of the button using the `Icon` component to add an icon to the left or right.
 
 <Canvas of={ButtonStories.Icons} />
 
-## Loading
+### Intent
+
+Use `intent` prop to set the color intent of a button.
+
+<Canvas of={ButtonStories.Intent} />
+
+### Loading
 
 Use the `isLoading` prop to render the button in loading state.
 This will prepend a spinner inside the button.
@@ -77,13 +67,27 @@ It preserves the width of your button to avoid content layout shifting.
 
 <Canvas of={ButtonStories.Loading} />
 
-### Loading with text
+#### Loading with text
 
 Alternatively, use `loadingText` if you prefer the loading text to be visible to the user (**Warning: using this might cause layout shifting**)
 
 <Canvas of={ButtonStories.LoadingWithText} />
 
-## Link
+### Shapes
+
+Use `shape` prop to set the shape of a button.
+
+<Canvas of={ButtonStories.Shapes} />
+
+### Sizes
+
+Use `size` prop to set the size of a button.
+
+<Canvas of={ButtonStories.Sizes} />
+
+## Advanced usage
+
+### Link
 
 Use `asChild` so that the button takes the html tag and props of its direct child element.
 In this example, if you need your button to be a link.
