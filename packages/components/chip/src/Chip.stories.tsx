@@ -45,14 +45,14 @@ const singleSet = Array.from(
       '🍎': ['fruit'],
       '🍇': ['fruit'],
       '🍌': ['fruit'],
-      '🍆': ['tubercle'],
-      '🧅': ['tubercle'],
-      '🥔': ['tubercle'],
-      '🌶': ['tubercle'],
-      '🥕': ['tubercle'],
+      '🍆': ['vegetable'],
+      '🧅': ['vegetable'],
+      '🥔': ['vegetable'],
+      '🌶': ['vegetable'],
+      '🥕': ['vegetable'],
     })
   )
-).sort(() => 0.5 - Math.random())
+)
 
 export const SingleSelectionFilter: StoryFn = () => {
   const [activeFilter, setActive] = useState<undefined | string>('fruit')
@@ -60,7 +60,7 @@ export const SingleSelectionFilter: StoryFn = () => {
   return (
     <div className="flex flex-col gap-md">
       <div className="flex flex-row items-start gap-md">
-        {['fruit', 'tubercle'].map(filter => {
+        {['fruit', 'vegetable'].map(filter => {
           const isActive = activeFilter === filter
 
           return (
@@ -118,7 +118,7 @@ const multipleUnionSet = Array.from(
       '🌲': ['tree'],
     })
   )
-).sort(() => 0.5 - Math.random())
+)
 export const UnionFilter: StoryFn = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>(['animal', 'tree'])
 
@@ -196,7 +196,7 @@ const multipleintersectionSet = Array.from(
       '🦜': ['land', 'air', 'wild', 'domestic'],
     })
   )
-).sort(() => 0.5 - Math.random())
+)
 export const IntersectionFilter: StoryFn = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>(['land', 'wild'])
 
@@ -273,12 +273,16 @@ export const Input: StoryFn = () => {
       </div>
       <span className="flex gap-md">
         {tags.map(tag => (
-          <Chip intent="neutral" key={tag} design="dashed">
+          <Chip
+            intent="neutral"
+            key={tag}
+            design="dashed"
+            onClear={() => {
+              setTags(tags.filter(currentTag => tag !== currentTag))
+            }}
+          >
             <Chip.Content>{tag}</Chip.Content>
-            <Chip.ClearButton
-              onClick={() => setTags(tags.filter(currentTag => tag !== currentTag))}
-              label="clear"
-            />
+            <Chip.ClearButton label="clear" />
           </Chip>
         ))}
       </span>
@@ -303,21 +307,21 @@ export const MaxWidth: StoryFn = () => {
       </div>
       <div className="flex flex-col items-start justify-start gap-md">
         <Chip>{content}</Chip>
-        <Chip>
+        <Chip onClear={() => console.log('clear')}>
           <Chip.LeadingIcon aria-label="label">
             <Icon>
               <Check />
             </Icon>
           </Chip.LeadingIcon>
           <Chip.Content>{content}</Chip.Content>
-          <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+          <Chip.ClearButton label="clear" />
         </Chip>
         <Chip>
           <Chip.Content>{content}</Chip.Content>
         </Chip>
-        <Chip>
+        <Chip onClear={() => console.log('clear')}>
           <Chip.Content>{content}</Chip.Content>
-          <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+          <Chip.ClearButton label="clear" />
         </Chip>
       </div>
     </div>
@@ -329,9 +333,14 @@ export const DefaultIntent: StoryFn = _args => (
     {designs.map(design => (
       <div key={design} className="flex flex-wrap gap-md">
         {intents.map(intent => (
-          <Chip design={design} key={`${design}-${intent}`} intent={intent}>
+          <Chip
+            onClear={() => console.log('clear')}
+            design={design}
+            key={`${design}-${intent}`}
+            intent={intent}
+          >
             <Chip.Content>{intent}</Chip.Content>
-            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+            <Chip.ClearButton label="clear" />
           </Chip>
         ))}
       </div>
@@ -349,9 +358,10 @@ export const ActionIntent: StoryFn = _args => (
             key={`${design}-${intent}`}
             intent={intent}
             onClick={() => console.log(`click ${design} ${intent}`)}
+            onClear={() => console.log('clear')}
           >
             <Chip.Content>{intent}</Chip.Content>
-            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+            <Chip.ClearButton label="clear" />
           </Chip>
         ))}
       </div>
@@ -370,9 +380,10 @@ export const Disabled: StoryFn = _args => (
             key={`${design}-${intent}`}
             intent={intent}
             onClick={() => console.log(`click ${design} ${intent}`)}
+            onClear={() => console.log('clear')}
           >
             <Chip.Content>{intent}</Chip.Content>
-            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+            <Chip.ClearButton label="clear" />
           </Chip>
         ))}
       </div>
@@ -438,6 +449,7 @@ export const Suggestion: StoryFn = () => {
             aria-label="email"
             onBlur={blurHandler}
             onFocus={focusHandler}
+            onChange={event => setContent(event.target.value)}
             value={content}
           />
           <InputGroup.ClearButton aria-label="clear" onClick={() => setContent('')} />

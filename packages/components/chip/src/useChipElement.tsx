@@ -1,5 +1,6 @@
 import { Slot } from '@spark-ui/slot'
 import { useCombinedState } from '@spark-ui/use-combined-state'
+import { emulateTab } from 'emulate-tab'
 import React, { Children, FC, isValidElement, ReactElement } from 'react'
 
 interface ReturnedValue {
@@ -16,12 +17,14 @@ interface ReturnedValue {
         'aria-pressed'?: boolean
         'data-state'?: 'on' | 'off'
         onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+        onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void
         disabled?: boolean
         children: React.ReactNode
       }
     | {
         'aria-disabled'?: boolean
         children: React.ReactNode
+        onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void
       }
   compoundElements: {
     leadingIcon: React.ReactNode
@@ -55,11 +58,13 @@ export const useChipElement = ({
   value,
   defaultValue,
   children,
+  onClear,
 }: {
   onClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     args: { pressed: boolean; value?: string | number | readonly string[] }
   ) => void
+  onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void
   asChild?: boolean
   pressed?: boolean
   defaultPressed?: boolean
@@ -67,6 +72,7 @@ export const useChipElement = ({
   defaultValue?: string | number | readonly string[]
   disabled?: boolean
   children?: React.ReactNode
+  onClear?: (event?: React.MouseEvent<HTMLButtonElement>) => void
 }): ReturnedValue => {
   const [isPressed, setIsPressed] = useCombinedState<boolean | undefined>(pressed, defaultPressed)
   const [innerValue] = useCombinedState<string | number | readonly string[] | undefined>(
@@ -94,6 +100,16 @@ export const useChipElement = ({
     </>
   )
 
+  const onKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>): void => {
+    console.log(event.key)
+    if (!!clearButton && !disabled && ['Delete', 'Backspace'].includes(event.key)) {
+      if (onClear) {
+        onClear()
+        event.key === 'Delete' ? emulateTab() : emulateTab.backwards()
+      }
+    }
+  }
+
   if (isButton) {
     return {
       Element: asChild ? Slot : 'button',
@@ -107,6 +123,7 @@ export const useChipElement = ({
           setIsPressed(!isPressed)
           onClick && onClick(event, { pressed: isPressed as boolean, value: innerValue })
         },
+        onKeyDown,
         disabled,
         children: formattedChildren,
       },
@@ -123,6 +140,7 @@ export const useChipElement = ({
     chipProps: {
       'aria-disabled': disabled,
       children: formattedChildren,
+      onKeyDown,
     },
     compoundElements: {
       leadingIcon,

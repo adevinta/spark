@@ -28,9 +28,10 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/internal-utils": "^2.0.2",
     "@spark-ui/icon": "^2.0.2",
     "@spark-ui/icons": "^1.19.5",
-    "@spark-ui/slot": "^1.6.1"
+    "@spark-ui/internal-utils": "^2.0.2",
+    "@spark-ui/slot": "^1.6.1",
+    "emulate-tab": "^1.2.1"
   }
 }
