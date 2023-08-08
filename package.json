@@ -75,7 +75,7 @@
     "@typescript-eslint/parser": "5.60.0",
     "@vitejs/plugin-react": "3.1.0",
     "@vitest/coverage-istanbul": "^0.33.0",
-    "@vitest/ui": "0.32.0",
+    "@vitest/ui": "0.34.1",
     "autoprefixer": "10.4.14",
     "babel-loader": "8.3.0",
     "browserslist-to-esbuild": "1.2.0",
