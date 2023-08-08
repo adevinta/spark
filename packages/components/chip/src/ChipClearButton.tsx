@@ -44,6 +44,7 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
         className={chipClearButtonWrapperStyles({
           isBordered: design === 'dashed',
           disabled: !!disabled,
+          design,
         })}
         onClick={onClearHandler}
         ref={forwardedRef}
