@@ -1,7 +1,7 @@
 import { Icon } from '@spark-ui/icon'
 import { DeleteFill } from '@spark-ui/icons/dist/icons/DeleteFill'
 import { Slot } from '@spark-ui/slot'
-import React, { ComponentPropsWithoutRef, forwardRef } from 'react'
+import React, { ComponentPropsWithoutRef, forwardRef, useCallback } from 'react'
 
 import {
   chipClearButtonStyles,
@@ -13,14 +13,12 @@ import { useChipContext } from './useChipContext'
 export interface ChipClearButtonProps
   extends ComponentPropsWithoutRef<'span'>,
     ChipClearButtonStylesProps {
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
   label: string
 }
 
 export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>(
   (
     {
-      onClick,
       children = (
         <Icon className="opacity-dim-3">
           <DeleteFill />
@@ -31,12 +29,15 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
     },
     forwardedRef
   ) => {
-    const { design, disabled } = useChipContext()
+    const { design, disabled, onClear } = useChipContext()
 
-    const onClearHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.stopPropagation()
-      !disabled && onClick && onClick(event)
-    }
+    const onClearHandler = useCallback(
+      (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.stopPropagation()
+        !disabled && onClear && onClear(event)
+      },
+      [disabled, onClear]
+    )
 
     return (
       <span
