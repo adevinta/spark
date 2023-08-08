@@ -2,6 +2,7 @@ import { cva, cx } from 'class-variance-authority'
 import { useEffect, useState } from 'react'
 
 import { useActiveAnchor } from './useActiveAnchor'
+import { usePerformanceObserver } from './usePerformanceObserver'
 import { scrollToAnchor } from './utils'
 
 const itemStyle = cva(['block', 'py-sm', ['hover:bg-[#F2F6FF]']], {
@@ -27,6 +28,18 @@ export const ToC = () => {
   useEffect(() => {
     setHeadings([...(document.querySelectorAll<HTMLHeadingElement>('h2, h3') || [])])
   }, [])
+
+  usePerformanceObserver({
+    callback() {
+      const scrollTarget = headings.find(
+        ({ id }) => id === window.top?.location.hash.replace('#', '')
+      )
+
+      scrollTarget?.scrollIntoView({
+        behavior: 'smooth',
+      })
+    },
+  })
 
   const activeAnchor = useActiveAnchor(headings)
   const activeIndex = headings.findIndex(heading => heading.id === activeAnchor?.id)
