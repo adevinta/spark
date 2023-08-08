@@ -1,8 +1,8 @@
 import { cva, cx } from 'class-variance-authority'
 import { useEffect, useState } from 'react'
+import scrollIntoView from 'scroll-into-view-if-needed'
 
 import { useActiveAnchor } from './useActiveAnchor'
-import { usePerformanceObserver } from './usePerformanceObserver'
 import { scrollToAnchor } from './utils'
 
 const itemStyle = cva(['block', 'py-sm', ['hover:bg-[#F2F6FF]']], {
@@ -29,17 +29,21 @@ export const ToC = () => {
     setHeadings([...(document.querySelectorAll<HTMLHeadingElement>('h2, h3') || [])])
   }, [])
 
-  usePerformanceObserver({
-    callback() {
-      const scrollTarget = headings.find(
-        ({ id }) => id === window.top?.location.hash.replace('#', '')
-      )
+  // scroll to the targeted section based on the URL hash on mount
+  useEffect(() => {
+    const scrollTarget = headings.find(
+      ({ id }) => id === window.top?.location.hash.replace('#', '')
+    )
 
-      scrollTarget?.scrollIntoView({
+    if (!scrollTarget) return
+
+    setTimeout(() => {
+      scrollIntoView(scrollTarget, {
+        block: 'start',
         behavior: 'smooth',
       })
-    },
-  })
+    }, 500)
+  }, [headings])
 
   const activeAnchor = useActiveAnchor(headings)
   const activeIndex = headings.findIndex(heading => heading.id === activeAnchor?.id)
