@@ -101,7 +101,6 @@ export const useChipElement = ({
   )
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>): void => {
-    console.log(event.key)
     if (!!clearButton && !disabled && ['Delete', 'Backspace'].includes(event.key)) {
       if (onClear) {
         onClear()
