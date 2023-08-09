@@ -1,10 +1,11 @@
 import { tw } from '@spark-ui/internal-utils'
 
 export const filledVariants = [
+  /** Intents **/
   // Main
   {
-    intent: 'main',
     design: 'filled',
+    intent: 'main',
     class: tw([
       'bg-main',
       'text-on-main',
@@ -15,8 +16,8 @@ export const filledVariants = [
   },
   // Support
   {
-    intent: 'support',
     design: 'filled',
+    intent: 'support',
     class: tw([
       'bg-support',
       'text-on-support',
@@ -27,8 +28,8 @@ export const filledVariants = [
   },
   // Basic
   {
-    intent: 'basic',
     design: 'filled',
+    intent: 'basic',
     class: tw([
       'bg-basic',
       'text-on-basic',
@@ -39,8 +40,8 @@ export const filledVariants = [
   },
   // Accent
   {
-    intent: 'accent',
     design: 'filled',
+    intent: 'accent',
     class: tw([
       'bg-accent',
       'text-on-accent',
@@ -51,8 +52,8 @@ export const filledVariants = [
   },
   // Success
   {
-    intent: 'success',
     design: 'filled',
+    intent: 'success',
     class: tw([
       'bg-success',
       'text-on-success',
@@ -63,8 +64,8 @@ export const filledVariants = [
   },
   // Alert
   {
-    intent: 'alert',
     design: 'filled',
+    intent: 'alert',
     class: tw([
       'bg-alert',
       'text-on-alert',
@@ -85,8 +86,8 @@ export const filledVariants = [
   },
   // Info
   {
-    intent: 'info',
     design: 'filled',
+    intent: 'info',
     class: tw([
       'text-on-error bg-info',
       'enabled:hover:bg-info-hovered enabled:active:bg-info-pressed',
@@ -95,8 +96,8 @@ export const filledVariants = [
   },
   // Neutral
   {
-    intent: 'neutral',
     design: 'filled',
+    intent: 'neutral',
     class: tw([
       'bg-neutral',
       'text-on-neutral',
@@ -107,8 +108,8 @@ export const filledVariants = [
   },
   // Surface
   {
-    intent: 'surface',
     design: 'filled',
+    intent: 'surface',
     class: tw([
       'bg-surface',
       'text-on-surface',
@@ -116,5 +117,16 @@ export const filledVariants = [
       'enabled:active:bg-surface-pressed',
       'focus-visible:bg-surface-focused',
     ]),
+  },
+  /** Spacings **/
+  {
+    design: 'filled',
+    hasClearButton: false,
+    class: tw(['px-md']),
+  },
+  {
+    design: 'filled',
+    hasClearButton: true,
+    class: tw(['pl-md']),
   },
 ] as const

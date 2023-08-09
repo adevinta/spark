@@ -1,9 +1,10 @@
 import { tw } from '@spark-ui/internal-utils'
 
 export const tintedVariants = [
+  /** Intents **/
   {
-    intent: 'main',
     design: 'tinted',
+    intent: 'main',
     class: tw([
       'bg-main-container',
       'text-on-main-container',
@@ -13,8 +14,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'support',
     design: 'tinted',
+    intent: 'support',
     class: tw([
       'bg-support-container',
       'text-on-support-container',
@@ -24,8 +25,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'basic',
     design: 'tinted',
+    intent: 'basic',
     class: tw([
       'bg-basic-container',
       'text-on-basic-container',
@@ -35,8 +36,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'accent',
     design: 'tinted',
+    intent: 'accent',
     class: tw([
       'bg-accent-container',
       'text-on-accent-container',
@@ -46,8 +47,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'success',
     design: 'tinted',
+    intent: 'success',
     class: tw([
       'bg-success-container',
       'text-on-success-container',
@@ -57,8 +58,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'alert',
     design: 'tinted',
+    intent: 'alert',
     class: tw([
       'bg-alert-container',
       'text-on-alert-container',
@@ -68,8 +69,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'danger',
     design: 'tinted',
+    intent: 'danger',
     class: tw([
       'bg-error-container',
       'text-on-error-container',
@@ -79,8 +80,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'info',
     design: 'tinted',
+    intent: 'info',
     class: tw([
       'bg-info-container',
       'text-on-info-container',
@@ -90,8 +91,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'neutral',
     design: 'tinted',
+    intent: 'neutral',
     class: tw([
       'bg-neutral-container',
       'text-on-neutral-container',
@@ -101,8 +102,8 @@ export const tintedVariants = [
     ]),
   },
   {
-    intent: 'surface',
     design: 'tinted',
+    intent: 'surface',
     class: tw([
       'bg-surface',
       'text-on-surface',
@@ -110,5 +111,16 @@ export const tintedVariants = [
       'enabled:active:bg-surface-pressed',
       'focus-visible:bg-surface-focused',
     ]),
+  },
+  /** Spacings **/
+  {
+    design: 'tinted',
+    hasClearButton: false,
+    class: tw(['px-md']),
+  },
+  {
+    design: 'tinted',
+    hasClearButton: true,
+    class: tw(['pl-md']),
   },
 ] as const

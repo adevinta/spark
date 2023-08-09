@@ -38,21 +38,17 @@ export default meta
 
 export const Default: StoryFn = _args => <Chip>default chip</Chip>
 
-const singleSet = Array.from(
-  new Map(
-    Object.entries({
-      '🥝': ['fruit'],
-      '🍎': ['fruit'],
-      '🍇': ['fruit'],
-      '🍌': ['fruit'],
-      '🍆': ['tubercle'],
-      '🧅': ['tubercle'],
-      '🥔': ['tubercle'],
-      '🌶': ['tubercle'],
-      '🥕': ['tubercle'],
-    })
-  )
-).sort(() => 0.5 - Math.random())
+const singleSet = Object.entries({
+  '🥝': ['fruit'],
+  '🍎': ['fruit'],
+  '🍇': ['fruit'],
+  '🍌': ['fruit'],
+  '🍆': ['vegetable'],
+  '🧅': ['vegetable'],
+  '🥔': ['vegetable'],
+  '🌶': ['vegetable'],
+  '🥕': ['vegetable'],
+})
 
 export const SingleSelectionFilter: StoryFn = () => {
   const [activeFilter, setActive] = useState<undefined | string>('fruit')
@@ -60,7 +56,7 @@ export const SingleSelectionFilter: StoryFn = () => {
   return (
     <div className="flex flex-col gap-md">
       <div className="flex flex-row items-start gap-md">
-        {['fruit', 'tubercle'].map(filter => {
+        {['fruit', 'vegetable'].map(filter => {
           const isActive = activeFilter === filter
 
           return (
@@ -100,25 +96,22 @@ export const SingleSelectionFilter: StoryFn = () => {
   )
 }
 
-const multipleUnionSet = Array.from(
-  new Map(
-    Object.entries({
-      '🦍': ['animal'],
-      '🦒': ['animal'],
-      '🦌': ['animal'],
-      '🐄': ['animal'],
-      '🐕': ['animal'],
-      '🐬': ['animal'],
-      '🌺': ['flower'],
-      '🌼': ['flower'],
-      '🌻': ['flower'],
-      '🪷': ['flower'],
-      '🌳': ['tree'],
-      '🌴': ['tree'],
-      '🌲': ['tree'],
-    })
-  )
-).sort(() => 0.5 - Math.random())
+const multipleUnionSet = Object.entries({
+  '🦍': ['animal'],
+  '🦒': ['animal'],
+  '🦌': ['animal'],
+  '🐄': ['animal'],
+  '🐕': ['animal'],
+  '🐬': ['animal'],
+  '🌺': ['flower'],
+  '🌼': ['flower'],
+  '🌻': ['flower'],
+  '🪷': ['flower'],
+  '🌳': ['tree'],
+  '🌴': ['tree'],
+  '🌲': ['tree'],
+})
+
 export const UnionFilter: StoryFn = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>(['animal', 'tree'])
 
@@ -173,30 +166,27 @@ export const UnionFilter: StoryFn = () => {
   )
 }
 
-const multipleintersectionSet = Array.from(
-  new Map(
-    Object.entries({
-      '🦍': ['land', 'wild'],
-      '🦒': ['land', 'wild'],
-      '🦌': ['land', 'wild'],
-      '🐄': ['land', 'domestic'],
-      '🐕': ['land', 'domestic'],
-      '🐬': ['sea', 'wild'],
-      '🐓': ['land', 'domestic'],
-      '🐿️': ['land', 'wild'],
-      '🦧': ['land', 'wild'],
-      '🐳': ['sea', 'wild'],
-      '🦈': ['sea', 'wild'],
-      '🦭': ['sea', 'land', 'wild'],
-      '🦆': ['sea', 'land', 'air', 'wild'],
-      '🐡': ['sea', 'wild'],
-      '🐟': ['sea', 'wild'],
-      '🐞': ['land', 'air', 'wild'],
-      '🐢': ['land', 'sea', 'wild', 'domestic'],
-      '🦜': ['land', 'air', 'wild', 'domestic'],
-    })
-  )
-).sort(() => 0.5 - Math.random())
+const multipleIntersectionSet = Object.entries({
+  '🦍': ['land', 'wild'],
+  '🦒': ['land', 'wild'],
+  '🦌': ['land', 'wild'],
+  '🐄': ['land', 'domestic'],
+  '🐕': ['land', 'domestic'],
+  '🐬': ['sea', 'wild'],
+  '🐓': ['land', 'domestic'],
+  '🐿️': ['land', 'wild'],
+  '🦧': ['land', 'wild'],
+  '🐳': ['sea', 'wild'],
+  '🦈': ['sea', 'wild'],
+  '🦭': ['sea', 'land', 'wild'],
+  '🦆': ['sea', 'land', 'air', 'wild'],
+  '🐡': ['sea', 'wild'],
+  '🐟': ['sea', 'wild'],
+  '🐞': ['land', 'air', 'wild'],
+  '🐢': ['land', 'sea', 'wild', 'domestic'],
+  '🦜': ['land', 'air', 'wild', 'domestic'],
+})
+
 export const IntersectionFilter: StoryFn = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>(['land', 'wild'])
 
@@ -233,7 +223,7 @@ export const IntersectionFilter: StoryFn = () => {
         })}
       </div>
       <div className="flex flex-row gap-x-lg">
-        {multipleintersectionSet.map(([element, types]) => {
+        {multipleIntersectionSet.map(([element, types]) => {
           const Element = activeFilters.every(filter => types.includes(filter))
             ? 'span'
             : VisuallyHidden
@@ -273,12 +263,16 @@ export const Input: StoryFn = () => {
       </div>
       <span className="flex gap-md">
         {tags.map(tag => (
-          <Chip intent="neutral" key={tag} design="dashed">
+          <Chip
+            intent="neutral"
+            key={tag}
+            design="dashed"
+            onClear={() => {
+              setTags(tags.filter(currentTag => tag !== currentTag))
+            }}
+          >
             <Chip.Content>{tag}</Chip.Content>
-            <Chip.ClearButton
-              onClick={() => setTags(tags.filter(currentTag => tag !== currentTag))}
-              label="clear"
-            />
+            <Chip.ClearButton label="clear" />
           </Chip>
         ))}
       </span>
@@ -303,21 +297,21 @@ export const MaxWidth: StoryFn = () => {
       </div>
       <div className="flex flex-col items-start justify-start gap-md">
         <Chip>{content}</Chip>
-        <Chip>
+        <Chip onClear={() => console.log('clear')}>
           <Chip.LeadingIcon aria-label="label">
             <Icon>
               <Check />
             </Icon>
           </Chip.LeadingIcon>
           <Chip.Content>{content}</Chip.Content>
-          <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+          <Chip.ClearButton label="clear" />
         </Chip>
         <Chip>
           <Chip.Content>{content}</Chip.Content>
         </Chip>
-        <Chip>
+        <Chip onClear={() => console.log('clear')}>
           <Chip.Content>{content}</Chip.Content>
-          <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+          <Chip.ClearButton label="clear" />
         </Chip>
       </div>
     </div>
@@ -329,9 +323,14 @@ export const DefaultIntent: StoryFn = _args => (
     {designs.map(design => (
       <div key={design} className="flex flex-wrap gap-md">
         {intents.map(intent => (
-          <Chip design={design} key={`${design}-${intent}`} intent={intent}>
+          <Chip
+            onClear={() => console.log('clear')}
+            design={design}
+            key={`${design}-${intent}`}
+            intent={intent}
+          >
             <Chip.Content>{intent}</Chip.Content>
-            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+            <Chip.ClearButton label="clear" />
           </Chip>
         ))}
       </div>
@@ -349,9 +348,10 @@ export const ActionIntent: StoryFn = _args => (
             key={`${design}-${intent}`}
             intent={intent}
             onClick={() => console.log(`click ${design} ${intent}`)}
+            onClear={() => console.log('clear')}
           >
             <Chip.Content>{intent}</Chip.Content>
-            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+            <Chip.ClearButton label="clear" />
           </Chip>
         ))}
       </div>
@@ -370,9 +370,10 @@ export const Disabled: StoryFn = _args => (
             key={`${design}-${intent}`}
             intent={intent}
             onClick={() => console.log(`click ${design} ${intent}`)}
+            onClear={() => console.log('clear')}
           >
             <Chip.Content>{intent}</Chip.Content>
-            <Chip.ClearButton onClick={() => console.log('clear')} label="clear" />
+            <Chip.ClearButton label="clear" />
           </Chip>
         ))}
       </div>
@@ -438,6 +439,7 @@ export const Suggestion: StoryFn = () => {
             aria-label="email"
             onBlur={blurHandler}
             onFocus={focusHandler}
+            onChange={event => setContent(event.target.value)}
             value={content}
           />
           <InputGroup.ClearButton aria-label="clear" onClick={() => setContent('')} />

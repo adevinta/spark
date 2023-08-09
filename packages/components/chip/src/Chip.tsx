@@ -28,6 +28,10 @@ export interface ChipProps
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     args: { pressed: boolean; value?: number | string | readonly string[] }
   ) => void
+  /**
+   * Clear chip handler
+   */
+  onClear?: (event?: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
@@ -42,6 +46,7 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       asChild,
       className,
       onClick,
+      onClear,
       ...otherProps
     },
     forwardedRef
@@ -59,12 +64,13 @@ export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
       value: otherProps.value,
       defaultValue: otherProps.defaultValue,
       children,
+      onClear,
     })
 
     const { clearButton } = compoundElements
 
     return (
-      <ChipContext.Provider value={{ disabled, design, intent }}>
+      <ChipContext.Provider value={{ disabled, design, intent, onClear }}>
         <ChipElement
           ref={forwardedRef}
           className={chipStyles({
