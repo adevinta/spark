@@ -38,21 +38,17 @@ export default meta
 
 export const Default: StoryFn = _args => <Chip>default chip</Chip>
 
-const singleSet = Array.from(
-  new Map(
-    Object.entries({
-      '🥝': ['fruit'],
-      '🍎': ['fruit'],
-      '🍇': ['fruit'],
-      '🍌': ['fruit'],
-      '🍆': ['vegetable'],
-      '🧅': ['vegetable'],
-      '🥔': ['vegetable'],
-      '🌶': ['vegetable'],
-      '🥕': ['vegetable'],
-    })
-  )
-)
+const singleSet = Object.entries({
+  '🥝': ['fruit'],
+  '🍎': ['fruit'],
+  '🍇': ['fruit'],
+  '🍌': ['fruit'],
+  '🍆': ['vegetable'],
+  '🧅': ['vegetable'],
+  '🥔': ['vegetable'],
+  '🌶': ['vegetable'],
+  '🥕': ['vegetable'],
+})
 
 export const SingleSelectionFilter: StoryFn = () => {
   const [activeFilter, setActive] = useState<undefined | string>('fruit')
@@ -100,25 +96,22 @@ export const SingleSelectionFilter: StoryFn = () => {
   )
 }
 
-const multipleUnionSet = Array.from(
-  new Map(
-    Object.entries({
-      '🦍': ['animal'],
-      '🦒': ['animal'],
-      '🦌': ['animal'],
-      '🐄': ['animal'],
-      '🐕': ['animal'],
-      '🐬': ['animal'],
-      '🌺': ['flower'],
-      '🌼': ['flower'],
-      '🌻': ['flower'],
-      '🪷': ['flower'],
-      '🌳': ['tree'],
-      '🌴': ['tree'],
-      '🌲': ['tree'],
-    })
-  )
-)
+const multipleUnionSet = Object.entries({
+  '🦍': ['animal'],
+  '🦒': ['animal'],
+  '🦌': ['animal'],
+  '🐄': ['animal'],
+  '🐕': ['animal'],
+  '🐬': ['animal'],
+  '🌺': ['flower'],
+  '🌼': ['flower'],
+  '🌻': ['flower'],
+  '🪷': ['flower'],
+  '🌳': ['tree'],
+  '🌴': ['tree'],
+  '🌲': ['tree'],
+})
+
 export const UnionFilter: StoryFn = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>(['animal', 'tree'])
 
@@ -173,30 +166,27 @@ export const UnionFilter: StoryFn = () => {
   )
 }
 
-const multipleintersectionSet = Array.from(
-  new Map(
-    Object.entries({
-      '🦍': ['land', 'wild'],
-      '🦒': ['land', 'wild'],
-      '🦌': ['land', 'wild'],
-      '🐄': ['land', 'domestic'],
-      '🐕': ['land', 'domestic'],
-      '🐬': ['sea', 'wild'],
-      '🐓': ['land', 'domestic'],
-      '🐿️': ['land', 'wild'],
-      '🦧': ['land', 'wild'],
-      '🐳': ['sea', 'wild'],
-      '🦈': ['sea', 'wild'],
-      '🦭': ['sea', 'land', 'wild'],
-      '🦆': ['sea', 'land', 'air', 'wild'],
-      '🐡': ['sea', 'wild'],
-      '🐟': ['sea', 'wild'],
-      '🐞': ['land', 'air', 'wild'],
-      '🐢': ['land', 'sea', 'wild', 'domestic'],
-      '🦜': ['land', 'air', 'wild', 'domestic'],
-    })
-  )
-)
+const multipleIntersectionSet = Object.entries({
+  '🦍': ['land', 'wild'],
+  '🦒': ['land', 'wild'],
+  '🦌': ['land', 'wild'],
+  '🐄': ['land', 'domestic'],
+  '🐕': ['land', 'domestic'],
+  '🐬': ['sea', 'wild'],
+  '🐓': ['land', 'domestic'],
+  '🐿️': ['land', 'wild'],
+  '🦧': ['land', 'wild'],
+  '🐳': ['sea', 'wild'],
+  '🦈': ['sea', 'wild'],
+  '🦭': ['sea', 'land', 'wild'],
+  '🦆': ['sea', 'land', 'air', 'wild'],
+  '🐡': ['sea', 'wild'],
+  '🐟': ['sea', 'wild'],
+  '🐞': ['land', 'air', 'wild'],
+  '🐢': ['land', 'sea', 'wild', 'domestic'],
+  '🦜': ['land', 'air', 'wild', 'domestic'],
+})
+
 export const IntersectionFilter: StoryFn = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>(['land', 'wild'])
 
@@ -233,7 +223,7 @@ export const IntersectionFilter: StoryFn = () => {
         })}
       </div>
       <div className="flex flex-row gap-x-lg">
-        {multipleintersectionSet.map(([element, types]) => {
+        {multipleIntersectionSet.map(([element, types]) => {
           const Element = activeFilters.every(filter => types.includes(filter))
             ? 'span'
             : VisuallyHidden
