@@ -17,18 +17,20 @@ export const radioInputVariants = cva(
     variants: {
       intent: makeVariants<
         'intent',
-        ['primary', 'secondary', 'success', 'alert', 'error', 'info', 'neutral']
+        ['main', 'support', 'accent', 'basic', 'success', 'alert', 'error', 'info', 'neutral']
       >({
-        primary: [
+        main: ['border-outline', 'spark-state-checked:border-main', 'hover:ring-main-container'],
+        support: [
           'border-outline',
-          'spark-state-checked:border-primary',
-          'hover:ring-primary-container',
+          'spark-state-checked:border-support',
+          'hover:ring-support-container',
         ],
-        secondary: [
+        accent: [
           'border-outline',
-          'spark-state-checked:border-secondary',
-          'hover:ring-secondary-container',
+          'spark-state-checked:border-accent',
+          'hover:ring-accent-container',
         ],
+        basic: ['border-outline', 'spark-state-checked:border-basic', 'hover:ring-basic-container'],
         neutral: [
           'border-outline',
           'spark-state-checked:border-neutral',
@@ -41,7 +43,7 @@ export const radioInputVariants = cva(
       }),
     },
     defaultVariants: {
-      intent: 'primary',
+      intent: 'basic',
     },
   }
 )

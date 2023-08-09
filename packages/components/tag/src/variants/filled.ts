@@ -2,14 +2,24 @@ import { tw } from './default'
 
 export const filledVariants = [
   {
-    intent: 'primary',
+    intent: 'main',
     design: 'filled',
-    class: tw(['bg-primary', 'text-on-primary']),
+    class: tw(['bg-main', 'text-on-main']),
   },
   {
-    intent: 'secondary',
+    intent: 'support',
     design: 'filled',
-    class: tw(['bg-secondary', 'text-on-secondary']),
+    class: tw(['bg-support', 'text-on-support']),
+  },
+  {
+    intent: 'accent',
+    design: 'filled',
+    class: tw(['bg-accent', 'text-on-accent']),
+  },
+  {
+    intent: 'basic',
+    design: 'filled',
+    class: tw(['bg-basic', 'text-on-basic']),
   },
   {
     intent: 'success',

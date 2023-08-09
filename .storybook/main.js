@@ -53,13 +53,16 @@ module.exports = {
       shouldExtractLiteralValuesFromEnum: true,
       shouldRemoveUndefinedFromOptional: true,
       propFilter: prop => {
-        const prohibitedPropsRegexes = [/node_modules\/\@types\/react\/index.d.ts/]
+        const prohibitedPropsRegexesNew = [new RegExp('/node_modules/@types/react/.*.d.ts')]
+
         if (prop.declarations?.length > 0) {
           const isProhibitedProps = prop.declarations.some(declaration =>
-            prohibitedPropsRegexes.some(regex => regex.test(declaration.fileName))
+            prohibitedPropsRegexesNew.some(regex => regex.test(declaration.fileName))
           )
+
           return !isProhibitedProps
         }
+
         return true
       },
       componentNameResolver: expression => {
@@ -69,5 +72,6 @@ module.exports = {
   },
   docs: {
     autodocs: true,
+    docsMode: true,
   },
 }

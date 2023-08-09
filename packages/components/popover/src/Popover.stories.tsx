@@ -23,7 +23,7 @@ const ShowcaseContainer = forwardRef<
   <div
     ref={ref}
     className={cx(
-      'h-sz-240 bg-primary-container border-md border-primary flex items-center justify-center rounded-sm border-dashed p-lg',
+      'h-sz-240 bg-main-container border-md border-main flex items-center justify-center rounded-sm border-dashed p-lg',
       className
     )}
   >
@@ -87,7 +87,7 @@ export const Anchored: StoryFn = _args => {
         </Popover.Trigger>
 
         <Popover.Anchor asChild>
-          <Button intent="secondary">Anchor element</Button>
+          <Button intent="support">Anchor element</Button>
         </Popover.Anchor>
 
         <Popover.Portal>

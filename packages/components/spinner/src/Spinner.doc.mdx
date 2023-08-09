@@ -9,46 +9,48 @@ import * as stories from './Spinner.stories'
 
 Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
 
-# Install
+## Install
 
 ```sh
 npm install @spark-ui/spinner
 ```
 
-# Import
+## Import
 
 ```tsx
 import { Spinner } from '@spark-ui/spinner'
 ```
 
-# Props
+## Props
 
 <ArgTypes of={Spinner} />
 
-# Default
+## Usage
+
+### Default
 
 <Canvas of={stories.Default} />
 
-# Intent
+### Background
+
+Set `isBackgroundVisible` prop to `true` to display a background under the spinner.
+
+<Canvas of={stories.Background} />
+
+### Intent
 
 Use `intent` prop to set the color of the spinner.
 
 <Canvas of={stories.Intents} />
 
-# Size
-
-Use `size` prop to set the size of the spinner.
-
-<Canvas of={stories.Sizes} />
-
-# Label
+### Label
 
 Use `label` prop for accessibility, it is important to add a fallback loading text. This text will be visible to screen readers.
 
 <Canvas of={stories.Label} />
 
-# Background
+### Size
 
-Set `isBackgroundVisible` prop to `true` to display a background under the spinner.
+Use `size` prop to set the size of the spinner.
 
-<Canvas of={stories.Background} />
+<Canvas of={stories.Sizes} />

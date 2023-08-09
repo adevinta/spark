@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react'
 
 export interface InputGroupContextValue {
   disabled?: boolean
+  readOnly?: boolean
   hasLeadingIcon: boolean
   hasTrailingIcon: boolean
   hasLeadingAddon: boolean

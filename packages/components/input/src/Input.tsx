@@ -26,6 +26,7 @@ const Root = forwardRef<HTMLInputElement, InputProps>(
       onChange,
       onKeyDown,
       disabled: disabledProp,
+      readOnly: readOnlyProp,
       ...others
     },
     ref
@@ -45,6 +46,7 @@ const Root = forwardRef<HTMLInputElement, InputProps>(
     const Component = asChild ? Slot : 'input'
     const state = field.state ?? group.state
     const disabled = group.disabled ?? disabledProp
+    const readOnly = group.readOnly ?? readOnlyProp
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
       if (onChange) {
@@ -82,6 +84,7 @@ const Root = forwardRef<HTMLInputElement, InputProps>(
           hasClearButton: !!hasClearButton,
         })}
         disabled={disabled}
+        readOnly={readOnly}
         required={isRequired}
         aria-describedby={description}
         aria-invalid={isInvalid}

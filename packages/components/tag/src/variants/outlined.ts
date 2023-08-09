@@ -2,14 +2,24 @@ import { tw } from './default'
 
 export const outlinedVariants = [
   {
-    intent: 'primary',
+    intent: 'main',
     design: 'outlined',
-    class: tw(['text-primary']),
+    class: tw(['text-main']),
   },
   {
-    intent: 'secondary',
+    intent: 'support',
     design: 'outlined',
-    class: tw(['text-secondary']),
+    class: tw(['text-support']),
+  },
+  {
+    intent: 'accent',
+    design: 'outlined',
+    class: tw(['text-accent']),
+  },
+  {
+    intent: 'basic',
+    design: 'outlined',
+    class: tw(['text-basic']),
   },
   {
     intent: 'success',

@@ -22,6 +22,9 @@ export const inputAddonStyles = cva(
       disabled: {
         true: ['pointer-events-none'],
       },
+      readOnly: {
+        true: [],
+      },
       design: {
         text: '',
         solid: '',
@@ -31,6 +34,7 @@ export const inputAddonStyles = cva(
     compoundVariants: [
       {
         disabled: false,
+        readOnly: false,
         design: 'text',
         class: ['bg-surface', 'text-on-surface'],
       },
