@@ -106,37 +106,6 @@ The max width of any Chip is 240px including its borders, icons, and clear butto
 
 <Canvas of={stories.MaxWidth} />
 
-## Accessibility
-
-- Focusable for **Clickable**, **Selectable**.
-- Clear button keyboard accessible by default when appearing.
-
-### Keyboard Interactions
-
-#### Clickable
-
-- Chip is **focusable**.
-
-- <Kbd>Space</Kbd>: Activates the Chip.
-- <Kbd>Enter</Kbd>: Activates the Chip.
-
-#### Selectable
-
-- <Kbd>Space</Kbd>: Toggle its on/off state.
-- <Kbd>Enter</Kbd>: Toggle its on/off state.
-
-#### Cleanable
-
-When the Chip is focused
-
-- <Kbd>Del</Kbd>: Removes the Chip and focus the next focusable element.
-- <Kbd>Backspace</Kbd>: Removes the Chip and focus the previous focusable element.
-
-When the ClearButton is focused
-
-- <Kbd>Space</Kbd>: fires the onClear handler.
-- <Kbd>Enter</Kbd>: fires the onClear handler.
-
 ## Advanced usage
 
 ### Assist
@@ -203,3 +172,34 @@ Suggestion chips help narrow a user’s intent by presenting dynamically generat
 <Canvas of={stories.Suggestion} />
 
 Suggestion chips can offer quick-reply options in a chat or email app, or It can help the user start a search.
+
+## Accessibility
+
+- Focusable for **Clickable**, **Selectable**.
+- Clear button keyboard accessible by default when appearing.
+
+### Keyboard Interactions
+
+#### Clickable
+
+- Chip is **focusable**.
+
+- <Kbd>Space</Kbd>: Activates the Chip.
+- <Kbd>Enter</Kbd>: Activates the Chip.
+
+#### Selectable
+
+- <Kbd>Space</Kbd>: Toggle its on/off state.
+- <Kbd>Enter</Kbd>: Toggle its on/off state.
+
+#### Cleanable
+
+When the Chip is focused
+
+- <Kbd>Del</Kbd>: Removes the Chip and focus the next focusable element.
+- <Kbd>Backspace</Kbd>: Removes the Chip and focus the previous focusable element.
+
+When the ClearButton is focused
+
+- <Kbd>Space</Kbd>: fires the onClear handler.
+- <Kbd>Enter</Kbd>: fires the onClear handler.
