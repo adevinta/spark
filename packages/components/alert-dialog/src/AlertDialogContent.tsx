@@ -1,3 +1,4 @@
+import { composeEventHandlers } from '@radix-ui/primitive'
 import { Dialog, DialogContentProps } from '@spark-ui/dialog'
 import { ElementRef, forwardRef, useMemo, useRef } from 'react'
 
@@ -19,7 +20,6 @@ export const AlertDialogContent = forwardRef<AlertDialogContentElement, AlertDia
 
     const handleOpenAutoFocus = (event: Event) => {
       event.preventDefault()
-      onOpenAutoFocus?.(event)
       cancelRef.current?.focus({ preventScroll: true })
     }
 
@@ -38,7 +38,7 @@ export const AlertDialogContent = forwardRef<AlertDialogContentElement, AlertDia
           data-spark-component="alert-dialog-content"
           {...others}
           role="alertdialog"
-          onOpenAutoFocus={handleOpenAutoFocus}
+          onOpenAutoFocus={composeEventHandlers(onOpenAutoFocus, handleOpenAutoFocus)}
           onPointerDownOutside={handlePointerDownOutside}
           onInteractOutside={handleInteractOutside}
         />
