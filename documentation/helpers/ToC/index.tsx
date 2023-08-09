@@ -53,8 +53,7 @@ export const ToC = () => {
   return (
     <div
       className={cx('sb-unstyled', [
-        ['flex', 'flex-col', 'shrink-0', 'grow-0', 'basis-[200px]'],
-        ['hidden', 'lg:block'],
+        ['flex', 'flex-col', 'shrink-0', 'grow-0'],
         [
           'sticky',
           'top-none',

@@ -17,15 +17,21 @@
   }
 
   .sbdocs-content {
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: 100% 0;
     gap: 24px;
     max-width: 1200px !important;
     height: 100%;
   }
 
+  @media (min-width: 1024px) {
+    .sbdocs-content {
+      grid-template-columns: minmax(0, auto) 200px;
+    }
+  }
+
   #spark-doc-container {
     width: 100%;
-    display: grid;
   }
 
   .docblock-source {
@@ -37,6 +43,7 @@
   .sbdocs-wrapper:has(iframe#tcv) > div {
     max-width: unset !important;
     height: auto;
+    grid-template-columns: 100%;
   }
 
   #spark-doc-container > h1 {
