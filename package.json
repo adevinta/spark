@@ -51,6 +51,7 @@
     "@nx/devkit": "^16.5.3",
     "@nx/eslint-plugin": "^16.5.3",
     "@radix-ui/react-switch": "*",
+    "scroll-into-view-if-needed": "^3.0.10",
     "@spark-ui/cli-utils": "*",
     "@storybook/addon-a11y": "^7.1.1",
     "@storybook/addon-actions": "^7.1.1",
