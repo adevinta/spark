@@ -64,16 +64,25 @@ import { Popover } from '@spark-ui/popover'
   }}
 />
 
-## Anatomy
+## Usage
+
+### Default
 
 A basic popover should have a trigger element and a content element.
 
 The trigger is the element that should toggle the popover.
 The content is the popover itself.
 
-<Canvas of={stories.Default} sourceState="shown" />
+<Canvas of={stories.Default} />
 
-## Controlled
+### Uncontrolled
+
+By default, `Popover` doesn't need external state to open/close itself.
+You can use `defaultOpen` if you need to make it open by default.
+
+<Canvas of={stories.Uncontrolled} />
+
+### Controlled
 
 You can use state to have better control over the behaviour of the Popover.
 It allows you to open/close it from the outside.
@@ -82,7 +91,7 @@ Please note that is example is using `Popover.Anchor` to attach the Popover to a
 
 <Canvas of={stories.Controlled} />
 
-## Anchored
+### Anchored
 
 When you need to attach the popover to a different element than its `Popover.Trigger`, you must use `Popover.Anchor`.
 
@@ -92,13 +101,7 @@ When using `Popover.Anchor`, you can have multiple `Popover.Trigger` to trigger 
 
 <Canvas of={stories.Anchored} />
 
-## Match trigger width
-
-Use this prop to make the Popover width match its trigger element width.
-
-<Canvas of={stories.MatchTriggerWidth} />
-
-## Boundaries
+### Boundaries
 
 You can restrict the popover to stay inside a container (ref).
 In this example, the Popover remains inside the grey container.
@@ -107,7 +110,13 @@ In this example, the Popover remains inside the grey container.
 
 <Canvas of={stories.Boundaries} />
 
-## Positionning
+### Match trigger width
+
+Use this prop to make the Popover width match its trigger element width.
+
+<Canvas of={stories.MatchTriggerWidth} />
+
+### Positionning
 
 By combining `side` and `align` you can achieve many positions for the popover.
 
