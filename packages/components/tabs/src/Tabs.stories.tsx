@@ -153,18 +153,20 @@ export const createTabs = ({
 }
 
 export const Default: StoryFn = _args => (
-  <div className="flex flex-row gap-lg">
-    <div className="shrink basis-auto overflow-auto">
-      <StoryLabel>basic</StoryLabel>
-      {createTabs()}
-    </div>
+  <div>
+    <StoryLabel>basic</StoryLabel>
+    {createTabs()}
+  </div>
+)
 
-    <div className="shrink basis-auto overflow-auto">
+export const Icons: StoryFn = _args => (
+  <div className="flex flex-col gap-lg">
+    <div>
       <StoryLabel>with icons</StoryLabel>
       {createTabs({ tabs: withIconTabs, rootProps: { defaultValue: 'tab2' } })}
     </div>
 
-    <div className="shrink basis-auto overflow-auto">
+    <div>
       <StoryLabel>with icons only</StoryLabel>
       {createTabs({ tabs: withIconOnlyTabs, rootProps: { defaultValue: 'tab3' } })}
     </div>
@@ -172,35 +174,90 @@ export const Default: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-row gap-lg">
-    <div className="shrink basis-auto overflow-auto">
+  <div className="flex flex-col gap-lg">
+    <div>
       <StoryLabel>basic (default)</StoryLabel>
       {createTabs()}
     </div>
-    <div className="shrink basis-auto overflow-auto">
+    <div>
       <StoryLabel>main</StoryLabel>
       {createTabs({ rootProps: { intent: 'main' } })}
     </div>
-    <div className="shrink basis-auto overflow-auto">
+    <div>
       <StoryLabel>support</StoryLabel>
       {createTabs({ rootProps: { intent: 'support' } })}
     </div>
   </div>
 )
 
+export const Orientation: StoryFn = _args => (
+  <div className="flex flex-col gap-lg">
+    <div>
+      <StoryLabel>horizontal (default)</StoryLabel>
+      {createTabs({ rootProps: { orientation: 'horizontal' } })}
+    </div>
+
+    <div>
+      <StoryLabel>vertical</StoryLabel>
+      {createTabs({ rootProps: { orientation: 'vertical' } })}
+    </div>
+  </div>
+)
+
+export const Overflow: StoryFn = _args => {
+  const overflowTabs = [
+    ...defaultTabs,
+    {
+      children: <span>Pending</span>,
+      value: 'tab4',
+      disabled: false,
+      content: 'Wait for your coffee',
+    },
+    {
+      children: <span>Blocked</span>,
+      value: 'tab5',
+      disabled: false,
+      content: 'Something went wrong',
+    },
+    {
+      children: <span>Sandbox</span>,
+      value: 'tab6',
+      disabled: false,
+      content: 'Imagine your coffee',
+    },
+  ]
+
+  return (
+    <div className="flex flex-col gap-lg">
+      <div className="max-w-sz-464 shrink basis-auto overflow-auto">
+        <StoryLabel>with loop</StoryLabel>
+        {createTabs({
+          listProps: { loop: true },
+          tabs: overflowTabs,
+        })}
+      </div>
+
+      <div className="max-w-sz-464 shrink basis-auto overflow-auto">
+        <StoryLabel>without loop (default)</StoryLabel>
+        {createTabs({ tabs: overflowTabs })}
+      </div>
+    </div>
+  )
+}
+
 export const Size: StoryFn = _args => (
-  <div className="flex flex-row gap-lg">
-    <div className="shrink basis-auto overflow-auto">
+  <div className="flex flex-col gap-lg">
+    <div>
       <StoryLabel>xs</StoryLabel>
       {createTabs({ rootProps: { size: 'xs' } })}
     </div>
 
-    <div className="shrink basis-auto overflow-auto">
+    <div>
       <StoryLabel>sm</StoryLabel>
       {createTabs({ rootProps: { size: 'sm' } })}
     </div>
 
-    <div className="shrink basis-auto overflow-auto">
+    <div>
       <StoryLabel>md (default)</StoryLabel>
       {createTabs({ rootProps: { size: 'md' } })}
     </div>
@@ -236,58 +293,3 @@ export const State: StoryFn = _args => (
     </div>
   </div>
 )
-
-export const Orientation: StoryFn = _args => (
-  <div className="flex flex-row gap-lg">
-    <div className="shrink basis-auto overflow-auto">
-      <StoryLabel>horizontal (default)</StoryLabel>
-      {createTabs({ rootProps: { orientation: 'horizontal' } })}
-    </div>
-
-    <div className="shrink basis-auto overflow-auto">
-      <StoryLabel>vertical</StoryLabel>
-      {createTabs({ rootProps: { orientation: 'vertical' } })}
-    </div>
-  </div>
-)
-
-export const Overflow: StoryFn = _args => {
-  const overflowTabs = [
-    ...defaultTabs,
-    {
-      children: <span>Pending</span>,
-      value: 'tab4',
-      disabled: false,
-      content: 'Wait for your coffee',
-    },
-    {
-      children: <span>Blocked</span>,
-      value: 'tab5',
-      disabled: false,
-      content: 'Something went wrong',
-    },
-    {
-      children: <span>Sandbox</span>,
-      value: 'tab6',
-      disabled: false,
-      content: 'Imagine your coffee',
-    },
-  ]
-
-  return (
-    <div className="flex flex-row gap-lg">
-      <div className="shrink basis-auto overflow-auto">
-        <StoryLabel>with loop</StoryLabel>
-        {createTabs({
-          listProps: { loop: true },
-          tabs: overflowTabs,
-        })}
-      </div>
-
-      <div className="shrink basis-auto overflow-auto">
-        <StoryLabel>without loop (default)</StoryLabel>
-        {createTabs({ tabs: overflowTabs })}
-      </div>
-    </div>
-  )
-}
