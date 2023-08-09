@@ -1,5 +1,6 @@
 import { cva, cx } from 'class-variance-authority'
 import { useEffect, useState } from 'react'
+import scrollIntoView from 'scroll-into-view-if-needed'
 
 import { useActiveAnchor } from './useActiveAnchor'
 import { scrollToAnchor } from './utils'
@@ -27,6 +28,22 @@ export const ToC = () => {
   useEffect(() => {
     setHeadings([...(document.querySelectorAll<HTMLHeadingElement>('h2, h3') || [])])
   }, [])
+
+  // scroll to the targeted section based on the URL hash on mount
+  useEffect(() => {
+    const scrollTarget = headings.find(
+      ({ id }) => id === window.top?.location.hash.replace('#', '')
+    )
+
+    if (!scrollTarget) return
+
+    setTimeout(() => {
+      scrollIntoView(scrollTarget, {
+        block: 'start',
+        behavior: 'smooth',
+      })
+    }, 500)
+  }, [headings])
 
   const activeAnchor = useActiveAnchor(headings)
   const activeIndex = headings.findIndex(heading => heading.id === activeAnchor?.id)

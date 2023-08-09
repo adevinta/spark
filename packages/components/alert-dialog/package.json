@@ -12,9 +12,10 @@
     "build": "vite build"
   },
   "dependencies": {
+    "class-variance-authority": "0.5.2",
+    "@radix-ui/primitive": "1.0.1",
     "@spark-ui/dialog": "latest",
-    "@spark-ui/use-merge-refs": "latest",
-    "class-variance-authority": "0.5.2"
+    "@spark-ui/use-merge-refs": "latest"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",

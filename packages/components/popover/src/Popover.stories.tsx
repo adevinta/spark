@@ -23,7 +23,7 @@ const ShowcaseContainer = forwardRef<
   <div
     ref={ref}
     className={cx(
-      'h-sz-240 bg-main-container border-md border-main flex items-center justify-center rounded-sm border-dashed p-lg',
+      'h-sz-240 bg-neutral-container border-md border-neutral flex items-center justify-center rounded-sm border-dashed p-lg',
       className
     )}
   >
@@ -44,6 +44,25 @@ export const Default: StoryFn = _args => {
             <p>Are you sure you want to have that cookie now ?</p>
             <Popover.Arrow />
             <Popover.CloseButton aria-label="Close the popover" />
+          </Popover.Content>
+        </Popover.Portal>
+      </Popover>
+    </ShowcaseContainer>
+  )
+}
+
+export const Uncontrolled: StoryFn = () => {
+  return (
+    <ShowcaseContainer>
+      <Popover defaultOpen>
+        <Popover.Trigger asChild>
+          <Button>Open popover</Button>
+        </Popover.Trigger>
+        <Popover.Portal>
+          <Popover.Content onInteractOutside={e => e.preventDefault()}>
+            <Popover.Header>Title</Popover.Header>
+            <p>Are you sure you want to have that cookie now ?</p>
+            <Popover.Arrow />
           </Popover.Content>
         </Popover.Portal>
       </Popover>

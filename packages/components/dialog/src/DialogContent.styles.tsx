@@ -14,7 +14,7 @@ export const dialogContentStyles = cva([['fixed', 'z-modal', 'flex', 'flex-col']
       size: ['sm', 'md', 'lg'],
       class: [
         ['top-1/2', 'left-1/2', '-translate-x-1/2', '-translate-y-1/2'],
-        ['w-full', 'max-h-[90%]', 'min-h-sz-240'],
+        ['w-full', 'max-h-[90%]'],
         ['shadow-md', 'rounded-lg'],
       ],
     },
