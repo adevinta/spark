@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/adevinta/spark/compare/@spark-ui/label@1.5.2...@spark-ui/label@1.5.3) (2023-08-10)
+
+**Note:** Version bump only for package @spark-ui/label
+
 # [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/label@1.4.4...@spark-ui/label@1.5.0) (2023-07-17)
 
 ### Features
