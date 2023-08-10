@@ -18,7 +18,7 @@ export default meta
 export const Default: StoryFn = _args => (
   <div className="flex gap-lg">
     <div className="w-1/2 shrink basis-auto">
-      <RadioGroup value="1">
+      <RadioGroup defaultValue="1">
         <RadioGroup.Radio value="1">First</RadioGroup.Radio>
         <RadioGroup.Radio value="2">Second</RadioGroup.Radio>
         <RadioGroup.Radio value="3">Third</RadioGroup.Radio>
@@ -26,7 +26,7 @@ export const Default: StoryFn = _args => (
     </div>
 
     <div className="w-1/2 shrink basis-auto">
-      <RadioGroup value="2">
+      <RadioGroup defaultValue="2">
         <RadioGroup.Radio value="1">
           First item from options list. You should choose wisely to avoid bad surprises.
         </RadioGroup.Radio>
@@ -79,10 +79,10 @@ const intents: RadioGroupProps['intent'][] = [
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="flex gap-xl">
+    <div className="flex flex-wrap gap-xl">
       {intents.map(intent => (
         <div key={intent}>
-          <StoryLabel>{intent}</StoryLabel>
+          <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
           <RadioGroup defaultValue="1" intent={intent}>
             <RadioGroup.Radio value="1">First</RadioGroup.Radio>
             <RadioGroup.Radio value="2">Second</RadioGroup.Radio>
@@ -98,7 +98,7 @@ const orientations: RadioGroupProps['orientation'][] = ['horizontal', 'vertical'
 
 export const Orientation: StoryFn = _args => {
   return (
-    <div className="flex gap-xl">
+    <div className="flex flex-col gap-xl">
       {orientations.map(orientation => (
         <div key={orientation}>
           <StoryLabel>{orientation}</StoryLabel>
@@ -254,6 +254,82 @@ export const WithFormField: StoryFn = _args => {
       </RadioGroup>
 
       <FormField.ErrorMessage>The condition is required</FormField.ErrorMessage>
+    </FormField>
+  )
+}
+
+export const FieldLabel: StoryFn = _args => {
+  return (
+    <FormField name="sport">
+      <FormField.Label>Sports</FormField.Label>
+
+      <RadioGroup>
+        <RadioGroup.Radio value="soccer">Soccer</RadioGroup.Radio>
+        <RadioGroup.Radio value="tennis">Tennis</RadioGroup.Radio>
+        <RadioGroup.Radio value="baseball">Baseball</RadioGroup.Radio>
+      </RadioGroup>
+    </FormField>
+  )
+}
+
+export const FieldHiddenLabel: StoryFn = _args => {
+  return (
+    <FormField name="sport">
+      <VisuallyHidden>
+        <FormField.Label>Sports</FormField.Label>
+      </VisuallyHidden>
+
+      <RadioGroup>
+        <RadioGroup.Radio value="soccer">Soccer</RadioGroup.Radio>
+        <RadioGroup.Radio value="tennis">Tennis</RadioGroup.Radio>
+        <RadioGroup.Radio value="baseball">Baseball</RadioGroup.Radio>
+      </RadioGroup>
+    </FormField>
+  )
+}
+
+export const FieldRequired: StoryFn = _args => {
+  return (
+    <FormField name="sport" isRequired>
+      <FormField.Label>Sports</FormField.Label>
+
+      <RadioGroup>
+        <RadioGroup.Radio value="soccer">Soccer</RadioGroup.Radio>
+        <RadioGroup.Radio value="tennis">Tennis</RadioGroup.Radio>
+        <RadioGroup.Radio value="baseball">Baseball</RadioGroup.Radio>
+      </RadioGroup>
+    </FormField>
+  )
+}
+
+export const FieldHelperMessage: StoryFn = _args => {
+  return (
+    <FormField name="title">
+      <FormField.Label>Sports</FormField.Label>
+
+      <RadioGroup>
+        <RadioGroup.Radio value="soccer">Soccer</RadioGroup.Radio>
+        <RadioGroup.Radio value="tennis">Tennis</RadioGroup.Radio>
+        <RadioGroup.Radio value="baseball">Baseball</RadioGroup.Radio>
+      </RadioGroup>
+
+      <FormField.HelperMessage>Practicing sports is good for your health</FormField.HelperMessage>
+    </FormField>
+  )
+}
+
+export const FieldInvalid: StoryFn = _args => {
+  return (
+    <FormField name="title" state="error">
+      <FormField.Label>Sports</FormField.Label>
+
+      <RadioGroup>
+        <RadioGroup.Radio value="soccer">Soccer</RadioGroup.Radio>
+        <RadioGroup.Radio value="tennis">Tennis</RadioGroup.Radio>
+        <RadioGroup.Radio value="baseball">Baseball</RadioGroup.Radio>
+      </RadioGroup>
+
+      <FormField.ErrorMessage>You must chose a sport among the list</FormField.ErrorMessage>
     </FormField>
   )
 }
