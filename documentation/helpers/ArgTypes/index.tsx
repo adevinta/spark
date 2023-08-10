@@ -1,4 +1,4 @@
-import { Tabs } from '@spark-ui/tabs'
+import { Tabs, type TabsRootProps } from '@spark-ui/tabs'
 import { ArgTypes as StorybookArgTypes } from '@storybook/blocks'
 import { type FC, type ReactNode, useEffect, useState } from 'react'
 
@@ -20,12 +20,14 @@ const ComponentDescription = ({ name, children }: { name: string; children: Reac
   )
 }
 
-function useWindowWidth() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+function useTabsOrientation() {
+  const [tabsOrientation, setTabsOrientation] = useState<TabsRootProps['orientation']>(
+    window.innerWidth < 640 ? 'horizontal' : 'vertical'
+  )
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth)
+      setTabsOrientation(window.innerWidth < 640 ? 'horizontal' : 'vertical')
     }
 
     window.addEventListener('resize', handleResize)
@@ -35,18 +37,16 @@ function useWindowWidth() {
     }
   }, [])
 
-  return windowWidth
+  return tabsOrientation
 }
 
 export const ArgTypes = <T extends FC>({ of, description, subcomponents = null }: Props<T>) => {
-  const windowWidth = useWindowWidth()
+  const tabsOrientation = useTabsOrientation()
 
   if (!subcomponents) return <StorybookArgTypes of={of} />
 
   const { displayName: name = 'Root' } = of // "Root" in case the root component is missing a displayName
   const subComponentsList = Object.entries(subcomponents)
-
-  const tabsOrientation = windowWidth < 640 ? 'horizontal' : 'vertical'
 
   return (
     <Tabs
