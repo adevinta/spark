@@ -1,6 +1,6 @@
-import { Tabs } from '@spark-ui/tabs'
+import { Tabs, type TabsRootProps } from '@spark-ui/tabs'
 import { ArgTypes as StorybookArgTypes } from '@storybook/blocks'
-import { type FC, type ReactNode } from 'react'
+import { type FC, type ReactNode, useEffect, useState } from 'react'
 
 interface Props<T> {
   of: T
@@ -20,15 +20,41 @@ const ComponentDescription = ({ name, children }: { name: string; children: Reac
   )
 }
 
+function useTabsOrientation() {
+  const [tabsOrientation, setTabsOrientation] = useState<TabsRootProps['orientation']>(
+    window.innerWidth < 640 ? 'horizontal' : 'vertical'
+  )
+
+  useEffect(() => {
+    const handleResize = () => {
+      setTabsOrientation(window.innerWidth < 640 ? 'horizontal' : 'vertical')
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  return tabsOrientation
+}
+
 export const ArgTypes = <T extends FC>({ of, description, subcomponents = null }: Props<T>) => {
+  const tabsOrientation = useTabsOrientation()
+
   if (!subcomponents) return <StorybookArgTypes of={of} />
 
   const { displayName: name = 'Root' } = of // "Root" in case the root component is missing a displayName
   const subComponentsList = Object.entries(subcomponents)
 
   return (
-    <Tabs defaultValue={name} orientation="vertical" className="sb-unstyled mt-xl">
-      <Tabs.List>
+    <Tabs
+      defaultValue={name}
+      orientation={tabsOrientation}
+      className="sb-unstyled mt-xl overflow-hidden"
+    >
+      <Tabs.List className={tabsOrientation === 'horizontal' ? 'mb-md' : ''}>
         <Tabs.Trigger key={name} value={name}>
           {name}
         </Tabs.Trigger>
