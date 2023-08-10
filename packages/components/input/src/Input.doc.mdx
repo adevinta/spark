@@ -131,23 +131,11 @@ Let's use `InputGroup` and its components to create a password input with a show
 
 When using the `Input` component you might want to use it in combination with `FormField` to add a proper label, error message, etc.
 
-### Label
+### Characters count
 
-Use `FormField.Label` to add a label to the input.
+Use the `FormField.CharactersCount` component to display the actual text count and the max length allowed.
 
-<Canvas of={stories.FieldLabel} />
-
-#### Hidden label
-
-In certain cases, a visible label may not be necessary, such as when using an input as a searcher. To achieve this behavior, use the `VisuallyHidden` component.
-
-<Canvas of={stories.FieldHiddenLabel} />
-
-### Required
-
-Use the `isRequired` prop of the `FormField` to indicate that the input is required.
-
-<Canvas of={stories.FieldRequired} />
+<Canvas of={stories.FieldCharactersCount} />
 
 ### Helper message
 
@@ -155,11 +143,23 @@ Use the `FormField.HelperMessage` component to provide a description to the inpu
 
 <Canvas of={stories.FieldHelperMessage} />
 
-### Characters count
+#### Hidden label
 
-Use the `FormField.CharactersCount` component to display the actual text count and the max length allowed.
+In certain cases, a visible label may not be necessary, such as when using an input as a searcher. To achieve this behavior, use the `VisuallyHidden` component.
 
-<Canvas of={stories.FieldCharactersCount} />
+<Canvas of={stories.FieldHiddenLabel} />
+
+### Label
+
+Use `FormField.Label` to add a label to the input.
+
+<Canvas of={stories.FieldLabel} />
+
+### Required
+
+Use the `isRequired` prop of the `FormField` to indicate that the input is required.
+
+<Canvas of={stories.FieldRequired} />
 
 ### Validation
 

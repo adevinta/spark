@@ -50,63 +50,51 @@ import { Textarea, TextareaGroup } from '@spark-ui/textarea'
 
 <Canvas of={stories.Default} />
 
-## Uncontrolled
+### Uncontrolled
 
 Use `defaultValue` prop to set the default value of the textarea. Optionally `onChange` prop can be used to know when the value of the textarea changes.
 
 <Canvas of={stories.Uncontrolled} />
 
-## Controlled
+### Controlled
 
 Use `value` and `onChange` props to control the value of the textarea.
 
 <Canvas of={stories.Controlled} />
 
-## Icons
-
-A `TextareaGroup` can have a `LeadingIcon` and/or `TrailingIcon`. Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
-
-<Canvas of={stories.Icon} />
-
-## Resizable
-
-By default, the textarea component is resizable. However, you can set the `isResizable` prop to `false` to disable this feature and prevent resizing.
-
-<Canvas of={stories.Resizable} />
-
-## Disabled
+### Disabled
 
 To indicate that a textarea is disabled, use the `disabled` prop. If you're wrapping your `Textarea` with a `TextareaGroup`, set the prop on the group instead.
 
 <Canvas of={stories.Disabled} />
 
-## State
+### Icons
+
+A `TextareaGroup` can have a `LeadingIcon` and/or `TrailingIcon`. Please note that the `TrailingIcon` will be automatically replaced by the state indicator if the input has one (`error`, `alert` or `success`).
+
+<Canvas of={stories.Icon} />
+
+### Resizable
+
+By default, the textarea component is resizable. However, you can set the `isResizable` prop to `false` to disable this feature and prevent resizing.
+
+<Canvas of={stories.Resizable} />
+
+### State
 
 Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
 
 <Canvas of={stories.State} />
 
-## FormField
+## Form field
 
 When using the `Textarea` component you might want to use it in combination with `FormField` to add a proper label, error message, etc.
 
-### Label
+### Characters count
 
-Use `FormField.Label` to add a label to the textarea.
+Use the `FormField.CharactersCount` component to display the actual text count and the max length allowed.
 
-<Canvas of={stories.FieldLabel} />
-
-#### Hidden label
-
-In certain cases, a visible label may not be necessary. To achieve this behavior, use the `VisuallyHidden` component.
-
-<Canvas of={stories.FieldHiddenLabel} />
-
-### Required
-
-Use the `isRequired` prop of the `FormField` to indicate that the textarea is required.
-
-<Canvas of={stories.FieldRequired} />
+<Canvas of={stories.FieldCharactersCount} />
 
 ### Helper message
 
@@ -114,11 +102,23 @@ Use the `FormField.HelperMessage` component to provide a description to the text
 
 <Canvas of={stories.FieldHelperMessage} />
 
-### Characters count
+#### Hidden label
 
-Use the `FormField.CharactersCount` component to display the actual text count and the max length allowed.
+In certain cases, a visible label may not be necessary. To achieve this behavior, use the `VisuallyHidden` component.
 
-<Canvas of={stories.FieldCharactersCount} />
+<Canvas of={stories.FieldHiddenLabel} />
+
+### Label
+
+Use `FormField.Label` to add a label to the textarea.
+
+<Canvas of={stories.FieldLabel} />
+
+### Required
+
+Use the `isRequired` prop of the `FormField` to indicate that the textarea is required.
+
+<Canvas of={stories.FieldRequired} />
 
 ### Validation
 

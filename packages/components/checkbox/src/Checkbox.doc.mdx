@@ -132,11 +132,11 @@ When implementing a custom checkbox, it is important to be careful to properly h
 
 When using the `Checkbox` component you might want to use it in combination with `FormField` to add a proper label, error message, etc.
 
-### Label
+### Helper message
 
-Use `FormField.Label` to add a label to the input.
+Use the `FormField.HelperMessage` component to provide a description to the input.
 
-<Canvas of={stories.FieldLabel} />
+<Canvas of={stories.FieldHelperMessage} />
 
 #### Hidden label
 
@@ -144,17 +144,17 @@ In certain cases, a visible label may not be necessary, such as when using an in
 
 <Canvas of={stories.FieldHiddenLabel} />
 
+### Label
+
+Use `FormField.Label` to add a label to the input.
+
+<Canvas of={stories.FieldLabel} />
+
 ### Required
 
 Use the `isRequired` prop of the `FormField` to indicate that the input is required.
 
 <Canvas of={stories.FieldRequired} />
-
-### Helper message
-
-Use the `FormField.HelperMessage` component to provide a description to the input.
-
-<Canvas of={stories.FieldHelperMessage} />
 
 ### Validation
 
