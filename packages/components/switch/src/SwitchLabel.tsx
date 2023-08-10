@@ -1,11 +1,8 @@
-import { Label as SparkLabel } from '@spark-ui/label'
-import type { PropsWithChildren } from 'react'
+import { Label, LabelProps } from '@spark-ui/label'
 
 import { labelStyles, LabelStylesProps } from './SwitchLabel.styles'
 
-export interface LabelProps
-  extends LabelStylesProps,
-    PropsWithChildren<React.HTMLAttributes<HTMLLabelElement>> {
+export interface SwitchLabelProps extends LabelStylesProps, LabelProps {
   /**
    * Change the component to the HTML tag or custom component of the only child.
    */
@@ -20,6 +17,6 @@ export interface LabelProps
   disabled?: boolean
 }
 
-export const Label = ({ className, disabled, ...others }: LabelProps) => (
-  <SparkLabel className={labelStyles({ disabled, className })} {...others} />
+export const SwitchLabel = ({ className, disabled, ...others }: SwitchLabelProps) => (
+  <Label className={labelStyles({ disabled, className })} {...others} />
 )

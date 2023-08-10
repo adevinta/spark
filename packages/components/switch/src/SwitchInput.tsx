@@ -8,7 +8,7 @@ import React, { ReactNode } from 'react'
 
 import { styles, type StylesProps, thumbCheckSVGStyles, thumbStyles } from './SwitchInput.styles'
 
-export interface InputProps
+export interface SwitchInputProps
   extends StylesProps,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {
   /**
@@ -52,13 +52,13 @@ export interface InputProps
   uncheckedIcon?: ReactNode
 }
 
-export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
+export const SwitchInput = React.forwardRef<HTMLButtonElement, SwitchInputProps>(
   (
     {
       checked,
       checkedIcon = <Check />,
       defaultChecked,
-      intent,
+      intent: intentProp,
       uncheckedIcon = <Close />,
       size = 'md',
       value = 'on',
@@ -70,7 +70,8 @@ export const Input = React.forwardRef<HTMLButtonElement, InputProps>(
     ref
   ) => {
     const [isChecked, setIsChecked] = useCombinedState(checked, defaultChecked)
-    const { name, description, isRequired, isInvalid } = useFormFieldControl()
+    const { name, description, state, isRequired, isInvalid } = useFormFieldControl()
+    const intent = state ?? intentProp
 
     const handleCheckedChange = (updatedValue: boolean): void => {
       setIsChecked(updatedValue)

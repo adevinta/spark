@@ -3,10 +3,10 @@ import { useFormFieldControl } from '@spark-ui/form-field'
 import { cx } from 'class-variance-authority'
 import { forwardRef } from 'react'
 
-import { Input, type InputProps } from './SwitchInput'
-import { Label } from './SwitchLabel'
+import { SwitchInput, SwitchInputProps } from './SwitchInput'
+import { SwitchLabel } from './SwitchLabel'
 
-export type SwitchProps = InputProps
+export type SwitchProps = SwitchInputProps
 
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
   ({ size = 'md', children, className, id, disabled, ...rest }, ref) => {
@@ -20,7 +20,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         data-spark-component="switch"
         className={cx('gap-md text-body-1 flex items-center', className)}
       >
-        <Input
+        <SwitchInput
           ref={ref}
           size={size}
           id={field.id || innerId}
@@ -35,9 +35,9 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         />
 
         {children && (
-          <Label disabled={disabled} htmlFor={field.id || innerId} id={innerLabelId}>
+          <SwitchLabel disabled={disabled} htmlFor={field.id || innerId} id={innerLabelId}>
             {children}
-          </Label>
+          </SwitchLabel>
         )}
       </div>
     )

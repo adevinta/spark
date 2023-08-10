@@ -1,8 +1,7 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
-import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
-import { EyeFill } from '@spark-ui/icons/dist/icons/EyeFill'
-import { EyeOffFill } from '@spark-ui/icons/dist/icons/EyeOffFill'
+import { StarOutline } from '@spark-ui/icons/dist/icons/StarOutline'
+import { Sun } from '@spark-ui/icons/dist/icons/Sun'
 import type { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps, useState } from 'react'
 
@@ -15,53 +14,41 @@ const meta: Meta<typeof Switch> = {
 
 export default meta
 
-export const Default: StoryFn = _args => (
-  <div className="flex gap-lg">
-    <div>
-      <StoryLabel>basic</StoryLabel>
-      <Switch>Agreed</Switch>
-    </div>
+export const Default: StoryFn = _args => <Switch>Agreed</Switch>
 
-    <div>
-      <StoryLabel>defaultChecked</StoryLabel>
-      <Switch defaultChecked>Agreed</Switch>
-    </div>
-  </div>
-)
+export const Uncontrolled: StoryFn = _args => <Switch defaultChecked>Agreed</Switch>
 
-export const ImprovedField: StoryFn = _args => (
-  <FormField name="agreement" isRequired>
-    <FormField.Label asChild>
-      <p>Agreement</p>
-    </FormField.Label>
+export const Controlled: StoryFn = () => {
+  const [checked, setChecked] = useState(true)
 
-    <Switch>I agree</Switch>
+  return (
+    <Switch checked={checked} onCheckedChange={setChecked}>
+      Agreed
+    </Switch>
+  )
+}
 
-    <FormField.HelperMessage>Your agreement is important to us.</FormField.HelperMessage>
-  </FormField>
+export const Icons: StoryFn = _args => (
+  <Switch checkedIcon={<Sun />} uncheckedIcon={<StarOutline />}>
+    Mode
+  </Switch>
 )
 
 export const Disabled: StoryFn = _args => (
   <div className="flex gap-lg">
-    <div>
-      <StoryLabel>disabled</StoryLabel>
-      <Switch disabled>Agreed</Switch>
-    </div>
+    <Switch disabled>Agreed</Switch>
 
-    <div>
-      <StoryLabel>disabled + defaultChecked</StoryLabel>
-      <Switch defaultChecked disabled>
-        Agreed
-      </Switch>
-    </div>
+    <Switch defaultChecked disabled>
+      Agreed
+    </Switch>
   </div>
 )
 
-const switchSizes: ComponentProps<typeof Switch>['size'][] = ['sm', 'md']
+const sizes: ComponentProps<typeof Switch>['size'][] = ['sm', 'md']
 
 export const Sizes: StoryFn = _args => (
   <div className="flex gap-lg">
-    {switchSizes.map(size => (
+    {sizes.map(size => (
       <div key={size}>
         <StoryLabel>{size}</StoryLabel>
         <Switch name="small" size={size}>
@@ -72,7 +59,7 @@ export const Sizes: StoryFn = _args => (
   </div>
 )
 
-const switchColors: ComponentProps<typeof Switch>['intent'][] = [
+const intents: ComponentProps<typeof Switch>['intent'][] = [
   'main',
   'support',
   'accent',
@@ -84,50 +71,37 @@ const switchColors: ComponentProps<typeof Switch>['intent'][] = [
   'neutral',
 ]
 
-export const Colors: StoryFn = _args => (
+export const Intent: StoryFn = _args => (
   <div className="flex gap-lg">
-    {switchColors.map(color => (
-      <div key={color}>
-        <StoryLabel>{color}</StoryLabel>
-        <Switch intent={color} defaultChecked aria-label={`My ${color} switch`} />
+    {intents.map(intent => (
+      <div key={intent}>
+        <StoryLabel>{intent}</StoryLabel>
+        <Switch intent={intent} defaultChecked aria-label={`My ${intent} switch`} />
       </div>
     ))}
   </div>
 )
 
-export const Icons: StoryFn = _args => (
-  <div className="flex gap-lg">
-    <div>
-      <StoryLabel>without icons</StoryLabel>
-      <Switch checkedIcon={null} uncheckedIcon={null} aria-label="My switch without icon" />
-    </div>
+export const FieldHelperMessage: StoryFn = _args => (
+  <FormField name="agreement">
+    <Switch>Gifts only</Switch>
 
-    <div>
-      <StoryLabel>with custom icons</StoryLabel>
-      <Switch
-        checkedIcon={<EyeFill />}
-        uncheckedIcon={<EyeOffFill />}
-        aria-label="My switch with custom icon"
-      />
-    </div>
-  </div>
+    <FormField.HelperMessage>Display free items only</FormField.HelperMessage>
+  </FormField>
 )
 
-export const ControlledMode: StoryFn = () => {
-  const [checked, setChecked] = useState(true)
+export const FieldInvalid: StoryFn = () => {
+  const [isChecked, setIsChecked] = useState(false)
 
   return (
-    <div className="flex flex-col gap-lg">
-      <div className="flex gap-md">
-        <Button intent="danger" onClick={() => setChecked(false)}>
-          Toggle off
-        </Button>
-        <Button intent="success" onClick={() => setChecked(true)}>
-          Toggle on
-        </Button>
-      </div>
+    <FormField name="agreement" state={!isChecked ? 'error' : undefined}>
+      <Switch checked={isChecked} onCheckedChange={setIsChecked}>
+        Third-party recommendations
+      </Switch>
 
-      <Switch checked={checked}>controlled switch</Switch>
-    </div>
+      <FormField.ErrorMessage>
+        You must agree with third-party recommendations
+      </FormField.ErrorMessage>
+    </FormField>
   )
 }
