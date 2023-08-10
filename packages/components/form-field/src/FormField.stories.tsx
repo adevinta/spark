@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
+import { ChangeEvent, useState } from 'react'
 
 import { FormField } from '.'
 
@@ -148,3 +149,41 @@ export const State: StoryFn = () => (
     </FormField>
   </div>
 )
+
+export const CharactersCount: StoryFn = _args => {
+  const MAX_LENGTH = 90
+  const [value, setValue] = useState('')
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value)
+  }
+
+  return (
+    <FormField name="input-with-a-characters-count">
+      <FormField.Label>Input with a characters count</FormField.Label>
+
+      <FormField.Control>
+        {({ id, name, description }) => (
+          <input
+            type="email"
+            id={id}
+            name={name}
+            value={value}
+            onChange={handleChange}
+            maxLength={MAX_LENGTH}
+            aria-describedby={description}
+            className="rounded-sm border-md border-neutral p-md outline-none"
+          />
+        )}
+      </FormField.Control>
+
+      <div className="flex justify-between gap-md">
+        <FormField.HelperMessage>
+          Type the text but take into account the max length
+        </FormField.HelperMessage>
+
+        <FormField.CharactersCount value={value} maxLength={MAX_LENGTH} />
+      </div>
+    </FormField>
+  )
+}
