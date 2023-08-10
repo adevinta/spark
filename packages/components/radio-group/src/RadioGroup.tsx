@@ -57,7 +57,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
     {
       orientation = 'vertical',
       loop = true,
-      intent,
+      intent = 'basic',
       disabled,
       className,
       required: requiredProp,

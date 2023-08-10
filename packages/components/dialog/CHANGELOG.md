@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.4.3...@spark-ui/dialog@1.4.4) (2023-08-09)
+
+### Bug Fixes
+
+- **dialog:** remove min h ([fdab549](https://github.com/adevinta/spark/commit/fdab549ac6e2e3803c89efe8e4e036e87770483f))
+
 ## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.4.0...@spark-ui/dialog@1.4.1) (2023-08-02)
 
 **Note:** Version bump only for package @spark-ui/dialog
