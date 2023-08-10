@@ -3,7 +3,7 @@ import { FormField } from '@spark-ui/form-field'
 import { Input } from '@spark-ui/input'
 import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import { Dialog, type DialogContentProps } from '.'
 
@@ -169,7 +169,43 @@ export const HTMLForm = () => {
             </Dialog.Footer>
           </form>
 
-          <Dialog.CloseButton aria-label="Close edit size" />
+          <Dialog.CloseButton aria-label="Close dialog" />
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog>
+  )
+}
+
+export const ForwardFocus = () => {
+  const fieldToFocus = useRef<HTMLInputElement>(null)
+
+  return (
+    <Dialog>
+      <Dialog.Trigger asChild>
+        <Button>Forward focus</Button>
+      </Dialog.Trigger>
+
+      <Dialog.Portal>
+        <Dialog.Overlay />
+
+        <Dialog.Content
+          className="pb-xl"
+          onOpenAutoFocus={e => {
+            e.preventDefault()
+            fieldToFocus.current?.focus()
+          }}
+        >
+          <Dialog.Header>
+            <Dialog.Title>Forward focus</Dialog.Title>
+          </Dialog.Header>
+
+          <Dialog.Body className="flex flex-col gap-lg">
+            <Input placeholder="First field" />
+            <Input placeholder="Second field (focused)" ref={fieldToFocus} />
+            <Input placeholder="Third field" />
+          </Dialog.Body>
+
+          <Dialog.CloseButton aria-label="Close dialog" />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog>
