@@ -338,12 +338,14 @@ export const FieldHelperMessage: StoryFn = _args => {
   )
 }
 
-export const FieldInvalid: StoryFn = _args => {
+export const FieldInvalid: StoryFn = () => {
+  const [value, setValue] = useState<string[]>([])
+
   return (
-    <FormField name="title" state="error">
+    <FormField name="sports" state={!value.length ? 'error' : undefined}>
       <FormField.Label>Sports</FormField.Label>
 
-      <CheckboxGroup>
+      <CheckboxGroup value={value} onCheckedChange={setValue}>
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="tennis">Tennis</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
