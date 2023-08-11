@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@spark-ui/theme-utils": "latest",
+    "@spark-ui/theme-utils": "^3.0.2",
     "tailwindcss-radix": "2.8.0"
   },
   "peerDependencies": {
