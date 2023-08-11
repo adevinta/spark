@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.0.2...@spark-ui/switch@2.0.3) (2023-08-11)
+
+### Bug Fixes
+
+- **switch:** add state support and update docs ([556abbf](https://github.com/adevinta/spark/commit/556abbf000a9f5d5ff9e25b18e2619356896970c))
+
 ## [1.14.4](https://github.com/adevinta/spark/compare/@spark-ui/switch@1.14.3...@spark-ui/switch@1.14.4) (2023-08-02)
 
 **Note:** Version bump only for package @spark-ui/switch
