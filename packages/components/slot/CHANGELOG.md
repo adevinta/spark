@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.6.1...@spark-ui/slot@1.6.2) (2023-08-16)
+
+### Bug Fixes
+
+- **slot:** update deps ([8923cb7](https://github.com/adevinta/spark/commit/8923cb7ee0ea36b2322c938cad421b3529035b64))
+
 ## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.6.0...@spark-ui/slot@1.6.1) (2023-06-23)
 
 **Note:** Version bump only for package @spark-ui/slot
