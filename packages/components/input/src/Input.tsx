@@ -68,6 +68,8 @@ const Root = forwardRef<HTMLInputElement, InputProps>(
       }
     }
 
+    console.log('LOCAL INPUT')
+
     return (
       <Component
         ref={ref}

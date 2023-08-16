@@ -12,8 +12,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "latest",
-    "@spark-ui/slot": "latest",
+    "@spark-ui/internal-utils": "^2.0.2",
+    "@spark-ui/slot": "^1.6.1",
     "class-variance-authority": "0.5.2"
   },
   "peerDependencies": {
