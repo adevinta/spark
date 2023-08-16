@@ -15,6 +15,7 @@ export const spinnerStyles = cva(
         current: ['u-current-font-size'],
         sm: ['w-sz-20', 'h-sz-20'],
         md: ['w-sz-28', 'h-sz-28'],
+        full: ['w-full', 'h-full'],
       },
       intent: makeVariants<
         'intent',
