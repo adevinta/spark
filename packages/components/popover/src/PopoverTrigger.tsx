@@ -1,11 +1,17 @@
 import * as RadixPopover from '@radix-ui/react-popover'
-import { forwardRef } from 'react'
+import { type ElementRef, forwardRef } from 'react'
 
+type TriggerElement = ElementRef<typeof RadixPopover.Trigger>
 export type TriggerProps = RadixPopover.PopoverTriggerProps
 
-export const Trigger = forwardRef<HTMLDivElement, TriggerProps>(
-  ({ asChild = false, children, ...rest }) => (
-    <RadixPopover.Trigger data-spark-component="popover-trigger" asChild={asChild} {...rest}>
+export const Trigger = forwardRef<TriggerElement, TriggerProps>(
+  ({ asChild = false, children, ...rest }, ref) => (
+    <RadixPopover.Trigger
+      data-spark-component="popover-trigger"
+      ref={ref}
+      asChild={asChild}
+      {...rest}
+    >
       {children}
     </RadixPopover.Trigger>
   )
