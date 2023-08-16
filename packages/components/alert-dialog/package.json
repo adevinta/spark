@@ -15,7 +15,7 @@
     "@radix-ui/primitive": "1.0.1",
     "@spark-ui/dialog": "^1.4.7",
     "@spark-ui/use-merge-refs": "^0.3.4",
-    "class-variance-authority": "0.5.2"
+    "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
