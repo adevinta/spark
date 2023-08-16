@@ -25,7 +25,7 @@
     "@spark-ui/label": "^1.5.4",
     "@spark-ui/slot": "^1.6.2",
     "@spark-ui/use-combined-state": "^0.5.2",
-    "class-variance-authority": "0.5.2"
+    "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "^3.0.2",

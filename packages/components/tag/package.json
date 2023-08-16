@@ -14,7 +14,7 @@
   "dependencies": {
     "@spark-ui/internal-utils": "^2.0.2",
     "@spark-ui/slot": "^1.6.2",
-    "class-variance-authority": "0.5.2"
+    "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
