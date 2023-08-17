@@ -1,0 +1,29 @@
+{
+  "name": "@spark-ui/colors",
+  "version": "1.0.0",
+  "description": "easy manage colors",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/utils/colors"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT",
+  "dependencies": {
+    "chroma-js": "^2.4.2",
+    "css-color-keywords": "^1.0.0",
+    "culori": "^3.2.0"
+  }
+}
