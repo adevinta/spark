@@ -1,0 +1,34 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+
+import { Progress } from '.'
+
+import * as stories from './Progress.stories'
+
+<Meta of={stories} />
+
+# Progress
+
+Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+## Install
+
+```sh
+npm install @spark-ui/progress
+```
+
+## Import
+
+```tsx
+import { Progress } from '@spark-ui/progress'
+```
+
+## Props
+
+<ArgTypes of={Progress} />
+
+## Usage
+
+### Default
+
+<Canvas of={stories.Default} />
