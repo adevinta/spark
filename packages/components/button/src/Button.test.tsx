@@ -22,13 +22,10 @@ describe('Button', () => {
   describe('Loading state', () => {
     it('should display spinner and replace accessible name with hidden loading label', () => {
       // Given
-      render(
-        <Button isLoading loadingLabel="Loading...">
-          Hello World!
-        </Button>
-      )
+      const props = { isLoading: true, loadingText: 'Loading...', children: 'Hello World!' }
 
-      screen.debug(screen.getByText('Hello World!'))
+      // When
+      render(<Button {...props} />)
 
       // Then
       expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()
@@ -38,13 +35,10 @@ describe('Button', () => {
 
     it('should display spinner and replace accessible name with visible loading text', () => {
       // Given
-      render(
-        <Button isLoading loadingText="Loading...">
-          Hello World!
-        </Button>
-      )
+      const props = { isLoading: true, loadingText: 'Loading...', children: 'Hello World!' }
 
-      screen.debug(screen.getByText('Hello World!'))
+      // When
+      render(<Button {...props} />)
 
       // Then
       expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()

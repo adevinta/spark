@@ -23,7 +23,7 @@ export default defineConfig({
     css: true,
     coverage: {
       provider: 'istanbul',
-      exclude: ['**/packages/**/*.doc.mdx', '**/packages/**/*.stories.tsx'],
+      exclude: ['**/packages/**/*.doc.mdx', '**/packages/**/*.stories.tsx', '**/documentation/*'],
       reportsDirectory: 'dist/coverage',
       reporter: [['lcovonly', {}], ['json', { file: 'coverage.json' }], ['html'], ['text']],
     },
