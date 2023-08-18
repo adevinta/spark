@@ -21,7 +21,7 @@ export const Progress = forwardRef<
       {...others}
     >
       <ProgressPrimitiveIndicator
-        className="h-full w-full bg-main"
+        className="h-full w-full bg-basic"
         style={{ transform: `translateX(-${100 - value}%)` }}
       />
     </ProgressPrimitive>
