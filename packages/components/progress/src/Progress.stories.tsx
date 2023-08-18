@@ -9,4 +9,4 @@ const meta: Meta<typeof Progress> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Progress />
+export const Default: StoryFn = _args => <Progress value={50} max={100} />
