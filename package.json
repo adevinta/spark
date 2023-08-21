@@ -18,7 +18,7 @@
     "test": "vitest",
     "test:ui": "vitest watch --ui",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "rm -rf ./dist/coverage && vitest run --coverage",
     "test:coverage:open": "npx open-cli ./dist/coverage/index.html",
     "typecheck": "tsc --noEmit",
     "commit": "git-cz",
