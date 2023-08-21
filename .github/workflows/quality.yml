@@ -53,9 +53,6 @@ jobs:
       - name: Install
         uses: ./.github/composite-actions/install
 
-      - name: Clean coverage
-        uses: rm -rf .dist/coverage/
-
       - name: Test
         run: npm run test:coverage
 
