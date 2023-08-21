@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.6...@spark-ui/input@1.4.7) (2023-08-18)
+
+**Note:** Version bump only for package @spark-ui/input
+
+## [1.4.6](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.5...@spark-ui/input@1.4.6) (2023-08-17)
+
+### Bug Fixes
+
+- **input:** removing console log from input ([ba2b899](https://github.com/adevinta/spark/commit/ba2b8992bde64b82415305c747e6ba9f6cf8562c))
+
+## [1.4.5](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.4...@spark-ui/input@1.4.5) (2023-08-16)
+
+**Note:** Version bump only for package @spark-ui/input
+
+## [1.4.4](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.3...@spark-ui/input@1.4.4) (2023-08-16)
+
+**Note:** Version bump only for package @spark-ui/input
+
 ## [1.4.3](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.2...@spark-ui/input@1.4.3) (2023-08-16)
 
 **Note:** Version bump only for package @spark-ui/input

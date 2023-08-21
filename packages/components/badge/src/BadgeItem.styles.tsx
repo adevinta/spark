@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { DEFAULT_INTENT, DEFAULT_SIZE, DEFAULT_TYPE } from './config'
 
 export const styles = cva(
-  ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full ring-2'],
+  ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full'],
   {
     variants: {
       intent: makeVariants<
@@ -38,7 +38,7 @@ export const styles = cva(
         md: ['text-caption', 'px-md py-sm', 'empty:h-sz-16 empty:w-sz-16'],
       }),
       type: {
-        relative: ['relative -translate-x-2/4 -translate-y-2/4'],
+        relative: ['relative -translate-x-2/4 -translate-y-2/4 ring-2'],
         standalone: [],
       },
     },
