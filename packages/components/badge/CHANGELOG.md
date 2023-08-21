@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.0.4...@spark-ui/badge@2.0.5) (2023-08-18)
+
+### Bug Fixes
+
+- **badge:** do not display outline when badge is standalone ([62a4c0f](https://github.com/adevinta/spark/commit/62a4c0fb4706ad098ff4d798fdb5d7566042a170))
+
+## [2.0.4](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.0.3...@spark-ui/badge@2.0.4) (2023-08-16)
+
+**Note:** Version bump only for package @spark-ui/badge
+
 ## [2.0.3](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.0.2...@spark-ui/badge@2.0.3) (2023-08-16)
 
 **Note:** Version bump only for package @spark-ui/badge

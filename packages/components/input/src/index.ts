@@ -18,6 +18,13 @@ export { type InputTrailingAddonProps } from './InputTrailingAddon'
 export { type InputStateIndicatorProps } from './InputStateIndicator'
 export { type InputClearButtonProps } from './InputClearButton'
 
+InputLeadingAddon.displayName = 'InputGroup.LeadingAddon'
+InputTrailingAddon.displayName = 'InputGroup.TrailingAddon'
+InputLeadingIcon.displayName = 'InputGroup.LeadingIcon'
+InputTrailingIcon.displayName = 'InputGroup.TrailingIcon'
+InputStateIndicator.displayName = 'InputGroup.StateIndicator'
+InputClearButton.displayName = 'InputGroup.ClearButton'
+
 export const InputGroup: FC<InputGroupProps> & {
   LeadingAddon: typeof InputLeadingAddon
   TrailingAddon: typeof InputTrailingAddon

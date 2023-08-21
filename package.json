@@ -41,7 +41,7 @@
     "selenium-webdriver": "^4.10.0"
   },
   "devDependencies": {
-    "@adevinta/tailwind-config-viewer": "1.7.9",
+    "@adevinta/tailwind-config-viewer": "1.8.0",
     "@babel/core": "7.21.4",
     "@commitlint/cli": "17.6.6",
     "@commitlint/config-conventional": "17.6.1",
@@ -100,7 +100,7 @@
     "eslint-plugin-standard": "5.0.0",
     "eslint-plugin-storybook": "0.6.13",
     "eslint-plugin-tailwindcss": "3.12.1",
-    "eslint-plugin-testing-library": "5.10.3",
+    "eslint-plugin-testing-library": "5.11.1",
     "husky": "8.0.3",
     "jsdom": "21.1.1",
     "lerna": "^7.1.1",
