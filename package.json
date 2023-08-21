@@ -86,7 +86,7 @@
     "concurrently": "^8.2.0",
     "copy-to-clipboard": "3.3.3",
     "deepmerge": "4.3.1",
-    "eslint": "8.41.0",
+    "eslint": "8.47.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.27.5",
