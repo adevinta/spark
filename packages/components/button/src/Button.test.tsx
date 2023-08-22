@@ -22,34 +22,28 @@ describe('Button', () => {
   describe('Loading state', () => {
     it('should display spinner and replace accessible name with hidden loading label', () => {
       // Given
-      render(
-        <Button isLoading loadingLabel="Loading...">
-          Hello World!
-        </Button>
-      )
+      const props = { isLoading: true, loadingLabel: 'Loading...', children: 'Hello World!' }
 
-      screen.debug(screen.getByText('Hello World!'))
+      // When
+      render(<Button {...props} />)
 
       // Then
       expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()
-      expect(screen.getByRole('button', { name: 'Loading...' })).toBeInTheDocument()
-      expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
+      expect(screen.getByRole('button', { name: props.loadingLabel })).toBeInTheDocument()
+      expect(screen.queryByText(props.loadingLabel)).not.toBeInTheDocument()
     })
 
     it('should display spinner and replace accessible name with visible loading text', () => {
       // Given
-      render(
-        <Button isLoading loadingText="Loading...">
-          Hello World!
-        </Button>
-      )
+      const props = { isLoading: true, loadingText: 'Loading...', children: 'Hello World!' }
 
-      screen.debug(screen.getByText('Hello World!'))
+      // When
+      render(<Button {...props} />)
 
       // Then
       expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()
-      expect(screen.getByRole('button', { name: 'Loading...' })).toBeInTheDocument()
-      expect(screen.getByText('Loading...')).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: props.loadingText })).toBeInTheDocument()
+      expect(screen.getByText(props.loadingText)).toBeInTheDocument()
     })
   })
 
