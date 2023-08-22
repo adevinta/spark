@@ -1,7 +1,7 @@
 import { Slot, wrapPolymorphicSlot } from '@spark-ui/slot'
-import { Spinner } from '@spark-ui/spinner'
+import { Spinner, type SpinnerProps } from '@spark-ui/spinner'
 import { cx } from 'class-variance-authority'
-import React, { MouseEvent, PropsWithChildren } from 'react'
+import React, { type MouseEvent, type PropsWithChildren } from 'react'
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
@@ -49,24 +49,28 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const Component = asChild ? Slot : 'button'
-    const isDisabled = !!disabled || isLoading
+
+    const shouldNotInteract = !!disabled || isLoading
 
     /**
      * When using `asChild` (polymorphic) it's possible that the button becomes another HTML element.
      * Depending on its tag, it could break the `disabled` html attribute preventing the clicks on a disabled button.
      */
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-      if (isDisabled) event.preventDefault()
-      if (onClick) onClick(event)
+      if (shouldNotInteract) {
+        event.preventDefault()
+        // eslint-disable-next-line newline-before-return
+        return
+      }
+
+      onClick?.(event)
     }
 
-    const spinner = isLoading ? (
-      <Spinner
-        size="current"
-        className={loadingText ? 'inline-block' : 'absolute'}
-        {...(loadingLabel && { 'aria-label': loadingLabel })}
-      />
-    ) : null
+    const spinnerProps = {
+      size: 'current' as SpinnerProps['size'],
+      className: loadingText ? 'inline-block' : 'absolute',
+      ...(loadingLabel && { 'aria-label': loadingLabel }),
+    }
 
     return (
       <Component
@@ -75,12 +79,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={buttonStyles({
           className,
           design,
-          disabled: isDisabled,
+          disabled: shouldNotInteract,
           intent,
           shape,
           size,
         })}
-        disabled={isDisabled}
+        disabled={!!disabled}
+        aria-busy={isLoading}
         aria-live={isLoading ? 'assertive' : 'off'}
         onClick={handleClick}
         {...others}
@@ -88,9 +93,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {wrapPolymorphicSlot(asChild, children, slotted =>
           isLoading ? (
             <>
-              {spinnerPlacement === 'left' && spinner}
+              {spinnerPlacement === 'left' && <Spinner {...spinnerProps} />}
               {loadingText && loadingText}
-              {spinnerPlacement === 'right' && spinner}
+              {spinnerPlacement === 'right' && <Spinner {...spinnerProps} />}
+
               <div
                 aria-hidden
                 className={cx('inline-flex gap-md', loadingText ? 'hidden' : 'opacity-0')}

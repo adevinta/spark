@@ -4,96 +4,112 @@ import { describe, expect, it, vi } from 'vitest'
 
 import { Button } from './Button'
 
+const defaultProps = {
+  children: 'Hello World!',
+}
+
+const clickEvent = vi.fn()
+
 describe('Button', () => {
+  beforeEach(() => vi.clearAllMocks())
+
   it('should render', () => {
-    // Given
-    const props = { children: 'Hello World!' }
+    render(<Button {...defaultProps} />)
 
-    // When
-    render(<Button {...props} />)
-    const element = screen.getByRole('button', { name: props.children })
-
-    // Then
-    expect(element).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: defaultProps.children })).toBeInTheDocument()
     expect(document.querySelector('[data-spark-component="button"]')).toBeInTheDocument()
     expect(document.querySelector('[data-spark-component="spinner"]')).not.toBeInTheDocument()
   })
 
+  it('should render as link', () => {
+    const props = {
+      asChild: true,
+      children: <a href="/">Link</a>,
+    }
+
+    render(<Button {...props} />)
+
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveAttribute('href', '/')
+  })
+
+  it('should trigger click event', async () => {
+    const user = userEvent.setup()
+
+    const props = {
+      ...defaultProps,
+      onClick: clickEvent,
+    }
+
+    render(<Button {...props} />)
+
+    await user.click(screen.getByRole('button', { name: props.children }))
+
+    expect(clickEvent).toHaveBeenCalledTimes(1)
+  })
+
+  it('should not trigger events when disabled', async () => {
+    const user = userEvent.setup()
+    const props = {
+      ...defaultProps,
+      onClick: clickEvent,
+      disabled: true,
+    }
+
+    render(<Button {...props} />)
+    const element = screen.getByRole('button', { name: props.children })
+
+    await user.click(element)
+
+    expect(clickEvent).toHaveBeenCalledTimes(0)
+    expect(element).toHaveAttribute('disabled')
+  })
+
   describe('Loading state', () => {
     it('should display spinner and replace accessible name with hidden loading label', () => {
-      // Given
-      const props = { isLoading: true, loadingLabel: 'Loading...', children: 'Hello World!' }
+      const props = {
+        ...defaultProps,
+        isLoading: true,
+        loadingLabel: 'Loading...',
+      }
 
-      // When
       render(<Button {...props} />)
 
-      // Then
       expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()
       expect(screen.getByRole('button', { name: props.loadingLabel })).toBeInTheDocument()
       expect(screen.queryByText(props.loadingLabel)).not.toBeInTheDocument()
     })
 
     it('should display spinner and replace accessible name with visible loading text', () => {
-      // Given
-      const props = { isLoading: true, loadingText: 'Loading...', children: 'Hello World!' }
+      const props = {
+        ...defaultProps,
+        isLoading: true,
+        loadingText: 'Loading...',
+      }
 
-      // When
       render(<Button {...props} />)
 
-      // Then
       expect(document.querySelector('[data-spark-component="spinner"]')).toBeInTheDocument()
       expect(screen.getByRole('button', { name: props.loadingText })).toBeInTheDocument()
       expect(screen.getByText(props.loadingText)).toBeInTheDocument()
     })
-  })
 
-  it('should render as link', async () => {
-    // Given
-    const props = { asChild: true, children: <a href="/">Link</a> }
+    it('should not trigger events when loading', async () => {
+      const user = userEvent.setup()
 
-    // When
-    render(<Button {...props} />)
-    const element = screen.getByRole('link', { name: 'Link' })
+      const props = {
+        onClick: clickEvent,
+        isLoading: true,
+        loadingText: 'Loading...',
+        children: 'Hello World!',
+      }
 
-    // Then
-    expect(element).toHaveAttribute('href', '/')
-  })
+      render(<Button {...props} />)
 
-  it('should trigger click event', async () => {
-    // Given
-    const user = userEvent.setup()
-    const clickEvent = vi.fn()
-    const props = {
-      onClick: clickEvent,
-      children: 'Hello World!',
-    }
+      const element = screen.getByRole('button', { name: props.loadingText })
+      await user.click(element)
 
-    // When
-    render(<Button {...props} />)
-    const element = screen.getByRole('button', { name: props.children })
-    await user.click(element)
-
-    // Then
-    expect(clickEvent).toHaveBeenCalledTimes(1)
-  })
-
-  it('should not trigger events when disabled', async () => {
-    // Given
-    const user = userEvent.setup()
-    const clickEvent = vi.fn()
-    const props = {
-      onClick: clickEvent,
-      disabled: true,
-      children: 'Hello World!',
-    }
-
-    // When
-    render(<Button {...props} />)
-    const element = screen.getByRole('button', { name: props.children })
-    await user.click(element)
-
-    // Then
-    expect(clickEvent).toHaveBeenCalledTimes(0)
-    expect(element).toHaveAttribute('disabled')
+      expect(clickEvent).toHaveBeenCalledTimes(0)
+      expect(element).toHaveAttribute('aria-busy', 'true')
+    })
   })
 })
