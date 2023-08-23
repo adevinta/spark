@@ -1,7 +1,6 @@
 import { Icon } from '@spark-ui/icon'
 import { DeleteFill } from '@spark-ui/icons/dist/icons/DeleteFill'
-import { Slot } from '@spark-ui/slot'
-import React, { ComponentPropsWithoutRef, forwardRef, useCallback } from 'react'
+import React, { cloneElement, ComponentPropsWithoutRef, forwardRef, useCallback } from 'react'
 
 import {
   chipClearButtonStyles,
@@ -56,7 +55,7 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
           className={chipClearButtonStyles({ disabled })}
           aria-label={label}
         >
-          <Slot aria-label={label}>{children}</Slot>
+          {children && cloneElement(children as React.ReactElement, { 'aria-label': label })}
         </button>
       </span>
     )

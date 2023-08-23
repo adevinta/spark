@@ -86,7 +86,7 @@ export const useChipElement = ({
   const content = findChipElement('Chip.Content')
   const clearButton = findChipElement('Chip.ClearButton')
 
-  const isButton = onClick || isPressed
+  const isButton = Boolean(onClick || isPressed)
 
   const formattedChildren = [leadingIcon, content, clearButton].every(
     element => element === undefined
