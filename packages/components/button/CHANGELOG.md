@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/button@2.0.9...@spark-ui/button@2.1.0) (2023-08-23)
+
+### Features
+
+- **button:** filter the proper design constants adopted by the button ([2b210a7](https://github.com/adevinta/spark/commit/2b210a7d4199baa76a91449b654fbeffe960df3c))
+
 ## [2.0.9](https://github.com/adevinta/spark/compare/@spark-ui/button@2.0.8...@spark-ui/button@2.0.9) (2023-08-23)
 
 **Note:** Version bump only for package @spark-ui/button
