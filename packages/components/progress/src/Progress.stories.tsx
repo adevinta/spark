@@ -54,7 +54,7 @@ export const Max: StoryFn = _args => {
   )
 }
 
-export const ValueLabel: StoryFn = _args => {
+export const ValueLabel: StoryFn = () => {
   return (
     <Progress value={1} max={4} getValueLabel={(value, max) => `Step ${value} of ${max}`}>
       <Progress.Bar />
