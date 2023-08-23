@@ -8,34 +8,49 @@ import { ElementRef, forwardRef, PropsWithChildren, useMemo, useState } from 're
 
 import { ProgressContext } from './ProgressContext'
 
-export type ProgressProps = ProgressPrimitiveProps
+export interface ProgressProps extends ProgressPrimitiveProps {
+  isIndeterminate?: boolean
+}
 
 export const Progress = forwardRef<
   ElementRef<typeof ProgressPrimitive>,
   PropsWithChildren<ProgressProps>
->(({ id: idProp, className, value: valueProp, 'aria-label': ariaLabel, ...others }, ref) => {
-  const id = useId(idProp)
-  const [labelId, setLabelId] = useState<string | undefined>()
-  const value = valueProp ?? 0
-  const labeledby = [ariaLabel ? id : undefined, labelId].filter(Boolean).join(' ') || undefined
+>(
+  (
+    {
+      id: idProp,
+      className,
+      value: valueProp,
+      max = 100,
+      'aria-label': ariaLabel,
+      isIndeterminate = false,
+      ...others
+    },
+    ref
+  ) => {
+    const id = useId(idProp)
+    const [labelId, setLabelId] = useState<string | undefined>()
+    const labeledby = [ariaLabel ? id : undefined, labelId].filter(Boolean).join(' ') || undefined
 
-  const current = useMemo(() => {
-    return { onLabelId: setLabelId, value }
-  }, [value, setLabelId])
+    const value = useMemo(() => {
+      return { value: valueProp ?? 0, max, isIndeterminate, onLabelId: setLabelId }
+    }, [max, valueProp, isIndeterminate, setLabelId])
 
-  return (
-    <ProgressContext.Provider data-spark-component="progress" value={current}>
-      <ProgressPrimitive
-        ref={ref}
-        className={cx('flex flex-col gap-sm', className)}
-        id={id}
-        value={value}
-        aria-label={ariaLabel}
-        aria-labelledby={labeledby}
-        {...others}
-      />
-    </ProgressContext.Provider>
-  )
-})
+    return (
+      <ProgressContext.Provider data-spark-component="progress" value={value}>
+        <ProgressPrimitive
+          ref={ref}
+          className={cx('flex flex-col gap-sm', className)}
+          id={id}
+          value={valueProp}
+          aria-label={ariaLabel}
+          aria-labelledby={labeledby}
+          max={max}
+          {...others}
+        />
+      </ProgressContext.Provider>
+    )
+  }
+)
 
 Progress.displayName = 'Progress'

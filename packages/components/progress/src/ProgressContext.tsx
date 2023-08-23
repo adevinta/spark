@@ -2,6 +2,8 @@ import { createContext, useContext } from 'react'
 
 export interface ProgressContextValue {
   value: number
+  max: number
+  isIndeterminate: boolean
   onLabelId: (id: string | undefined) => void
 }
 

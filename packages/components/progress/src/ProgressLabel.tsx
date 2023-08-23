@@ -17,7 +17,7 @@ export const ProgressLabel = forwardRef<HTMLSpanElement, ProgressLabelProps>(
     )
 
     return (
-      <span id={id} className="text-body-1" ref={ref} {...others}>
+      <span id={id} className="text-body-1 text-on-surface" ref={ref} {...others}>
         {children}
       </span>
     )
