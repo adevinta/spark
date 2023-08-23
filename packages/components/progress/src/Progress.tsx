@@ -17,20 +17,11 @@ export const Progress = forwardRef<
   PropsWithChildren<ProgressProps>
 >(
   (
-    {
-      id: idProp,
-      className,
-      value: valueProp,
-      max = 100,
-      'aria-label': ariaLabel,
-      isIndeterminate = false,
-      ...others
-    },
+    { id: idProp, className, value: valueProp, max = 100, isIndeterminate = false, ...others },
     ref
   ) => {
     const id = useId(idProp)
     const [labelId, setLabelId] = useState<string | undefined>()
-    const labeledby = [ariaLabel ? id : undefined, labelId].filter(Boolean).join(' ') || undefined
 
     const value = useMemo(() => {
       return { value: valueProp ?? 0, max, isIndeterminate, onLabelId: setLabelId }
@@ -43,8 +34,7 @@ export const Progress = forwardRef<
           className={cx('flex flex-col gap-sm', className)}
           id={id}
           value={valueProp}
-          aria-label={ariaLabel}
-          aria-labelledby={labeledby}
+          aria-labelledby={labelId}
           max={max}
           {...others}
         />

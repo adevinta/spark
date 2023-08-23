@@ -12,7 +12,10 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-progress": "1.0.3"
+    "@radix-ui/react-progress": "1.0.3",
+    "@radix-ui/react-id": "1.0.1",
+    "class-variance-authority": "0.7.0",
+    "@spark-ui/use-merge-refs": "^0.3.4"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
