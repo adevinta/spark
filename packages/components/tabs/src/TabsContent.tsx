@@ -32,7 +32,7 @@ export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
       className,
       ...rest
     },
-    ref
+    ref,
   ) => {
     return (
       <RadixTabs.Content
@@ -44,7 +44,7 @@ export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
         {children}
       </RadixTabs.Content>
     )
-  }
+  },
 )
 
 TabsContent.displayName = 'Tabs.Content'

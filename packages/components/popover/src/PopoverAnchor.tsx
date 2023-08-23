@@ -8,7 +8,7 @@ export const Anchor = forwardRef<HTMLDivElement, AnchorProps>(
     <RadixPopover.Anchor data-spark-component="popover-anchor" asChild={asChild} {...rest}>
       {children}
     </RadixPopover.Anchor>
-  )
+  ),
 )
 
 Anchor.displayName = 'Popover.Anchor'

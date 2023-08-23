@@ -29,7 +29,7 @@ export const spinnerStyles = cva(
           'alert',
           'error',
           'info',
-          'neutral'
+          'neutral',
         ]
       >({
         current: ['border-current'],
@@ -49,7 +49,7 @@ export const spinnerStyles = cva(
       },
     },
     defaultVariants,
-  }
+  },
 )
 
 export type SpinnerStylesProps = VariantProps<typeof spinnerStyles>

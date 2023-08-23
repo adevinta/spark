@@ -14,7 +14,7 @@ export const FormFieldAlertMessage = forwardRef<HTMLSpanElement, FormFieldAlertM
         {...props}
       />
     )
-  }
+  },
 )
 
 FormFieldAlertMessage.displayName = 'FormField.AlertMessage'

@@ -8,11 +8,11 @@ export const Kbd = forwardRef<HTMLElement, PropsWithChildren<KbdProps>>(
       <kbd
         ref={ref}
         className={[
-          'border-sm border-b-md bg-neutral-container ps-md pe-md border-outline text-caption whitespace-nowrap rounded-sm font-mono font-bold leading-4',
+          'whitespace-nowrap rounded-sm border-sm border-b-md border-outline bg-neutral-container pe-md ps-md font-mono text-caption font-bold leading-4',
           className,
         ].join(' ')}
         {...props}
       />
     )
-  }
+  },
 )

@@ -14,7 +14,7 @@ describe('VisuallyHidden', () => {
           <Check />
         </i>
         <VisuallyHidden>Checkmark</VisuallyHidden>
-      </button>
+      </button>,
     )
 
     // Then

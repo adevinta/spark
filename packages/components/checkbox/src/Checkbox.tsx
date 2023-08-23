@@ -25,7 +25,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       children,
       ...others
     },
-    forwardedRef
+    forwardedRef,
   ) => {
     const innerId = useId(idProp)
     const innerLabelId = useId()
@@ -79,7 +79,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     return (
       <div
         data-spark-component="checkbox"
-        className={cx('gap-md text-body-1 flex items-start', className)}
+        className={cx('flex items-start gap-md text-body-1', className)}
       >
         <CheckboxInput
           ref={ref}
@@ -104,7 +104,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
         )}
       </div>
     )
-  }
+  },
 )
 
 Checkbox.displayName = 'Checkbox'

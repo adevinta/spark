@@ -7,7 +7,7 @@ export type AlertDialogFooterProps = DialogFooterProps
 export const AlertDialogFooter = forwardRef<AlertDialogFooterElement, AlertDialogFooterProps>(
   (props, ref) => {
     return <Dialog.Footer ref={ref} data-spark-component="alert-dialog-footer" {...props} />
-  }
+  },
 )
 
 AlertDialogFooter.displayName = 'AlertDialog.Footer'
