@@ -9,6 +9,7 @@ const defaultProps = {
 }
 
 const clickEvent = vi.fn()
+const keyboardEvent = vi.fn()
 
 describe('Button', () => {
   beforeEach(() => vi.clearAllMocks())
@@ -52,15 +53,21 @@ describe('Button', () => {
     const props = {
       ...defaultProps,
       onClick: clickEvent,
+      onKeyDown: keyboardEvent,
       disabled: true,
     }
 
     render(<Button {...props} />)
     const element = screen.getByRole('button', { name: props.children })
 
+    element.focus()
+    await user.keyboard('{Enter}')
+
     await user.click(element)
 
-    expect(clickEvent).toHaveBeenCalledTimes(0)
+    expect(clickEvent).not.toHaveBeenCalled()
+    expect(keyboardEvent).not.toHaveBeenCalled()
+
     expect(element).toHaveAttribute('disabled')
   })
 
@@ -98,17 +105,23 @@ describe('Button', () => {
 
       const props = {
         onClick: clickEvent,
+        onKeyDown: keyboardEvent,
         isLoading: true,
         loadingText: 'Loading...',
         children: 'Hello World!',
       }
 
       render(<Button {...props} />)
-
       const element = screen.getByRole('button', { name: props.loadingText })
+
+      element.focus()
+      await user.keyboard('{Enter}')
+
       await user.click(element)
 
-      expect(clickEvent).toHaveBeenCalledTimes(0)
+      expect(clickEvent).not.toHaveBeenCalled()
+      expect(keyboardEvent).not.toHaveBeenCalled()
+
       expect(element).toHaveAttribute('aria-busy', 'true')
     })
   })

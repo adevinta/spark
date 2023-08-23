@@ -1,7 +1,7 @@
 import { Slot, wrapPolymorphicSlot } from '@spark-ui/slot'
 import { Spinner, type SpinnerProps } from '@spark-ui/spinner'
 import { cx } from 'class-variance-authority'
-import React, { type MouseEvent, type PropsWithChildren } from 'react'
+import React, { type PropsWithChildren, useEffect, useRef } from 'react'
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
@@ -38,7 +38,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       isLoading = false,
       loadingLabel,
       loadingText,
-      onClick,
       shape = 'rounded',
       size = 'md',
       spinnerPlacement = 'left',
@@ -48,23 +47,52 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
+    const innerRef = useRef(null)
+    const buttonRef = ref || innerRef
+
     const Component = asChild ? Slot : 'button'
 
     const shouldNotInteract = !!disabled || isLoading
 
-    /**
-     * When using `asChild` (polymorphic) it's possible that the button becomes another HTML element.
-     * Depending on its tag, it could break the `disabled` html attribute preventing the clicks on a disabled button.
-     */
-    const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-      if (shouldNotInteract) {
+    useEffect(() => {
+      /*
+       * While button is loading, we want to block interactions just as `disabled` HTML attribute would do,
+       * but still preserving focus interactions.
+       * For this reason we kind of recreate the disabled events blockage, but with some specifics.
+       */
+      if (typeof buttonRef === 'function' || !buttonRef?.current) return
+
+      const buttonElement = buttonRef.current
+
+      const blockEvent: EventListener = event => {
         event.preventDefault()
-        // eslint-disable-next-line newline-before-return
-        return
+        event.stopPropagation()
       }
 
-      onClick?.(event)
-    }
+      const blockedEvents: (keyof GlobalEventHandlersEventMap)[] = [
+        'click',
+        'mousedown',
+        'mouseup',
+        'mouseenter',
+        'mouseleave',
+        'mouseover',
+        'mouseout',
+        'keydown',
+        'keypress',
+        'keyup',
+        'submit',
+      ]
+
+      if (shouldNotInteract) {
+        blockedEvents.forEach(eventName => buttonElement.addEventListener(eventName, blockEvent))
+      } else {
+        blockedEvents.forEach(eventName => buttonElement.removeEventListener(eventName, blockEvent))
+      }
+
+      return () => {
+        blockedEvents.forEach(eventName => buttonElement.removeEventListener(eventName, blockEvent))
+      }
+    }, [shouldNotInteract, buttonRef])
 
     const spinnerProps = {
       size: 'current' as SpinnerProps['size'],
@@ -75,7 +103,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Component
         data-spark-component="button"
-        ref={ref}
+        ref={buttonRef}
         className={buttonStyles({
           className,
           design,
@@ -87,7 +115,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={!!disabled}
         aria-busy={isLoading}
         aria-live={isLoading ? 'assertive' : 'off'}
-        onClick={handleClick}
         {...others}
       >
         {wrapPolymorphicSlot(asChild, children, slotted =>

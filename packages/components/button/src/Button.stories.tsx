@@ -115,13 +115,7 @@ export const Loading: StoryFn = () => {
         Toggle loading state
       </Checkbox>
 
-      <Button
-        isLoading={isLoading}
-        loadingLabel="Loading..."
-        onKeyDown={() => {
-          console.log('totokeydown')
-        }}
-      >
+      <Button isLoading={isLoading} loadingLabel="Loading...">
         <Icon>
           <FavoriteOutline />
         </Icon>
