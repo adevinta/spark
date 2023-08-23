@@ -9,7 +9,7 @@ import { ChipClearButton } from './ChipClearButton'
 import { ChipContent } from './ChipContent'
 import { ChipLeadingIcon } from './ChipLeadingIcon'
 
-describe.only('Chip', () => {
+describe('Chip', () => {
   it('should render', () => {
     // Given
     const props = { children: 'Hello World!' }
