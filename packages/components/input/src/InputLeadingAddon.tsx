@@ -14,7 +14,7 @@ const Root = forwardRef<HTMLDivElement, InputLeadingAddonProps>(({ className, ..
     <div className={cx('rounded-l-lg', isInactive ? 'bg-on-surface/dim-5' : null)}>
       <InputAddon
         ref={ref}
-        className={cx(className, 'rounded-l-lg !rounded-r-none mr-[-1px]')}
+        className={cx(className, 'mr-[-1px] !rounded-r-none rounded-l-lg')}
         {...others}
       />
     </div>

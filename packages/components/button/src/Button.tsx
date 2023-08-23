@@ -46,7 +46,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       ...others
     },
-    ref
+    ref,
   ) => {
     const Component = asChild ? Slot : 'button'
     const isDisabled = !!disabled || isLoading
@@ -93,18 +93,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               {spinnerPlacement === 'right' && spinner}
               <div
                 aria-hidden
-                className={cx('gap-md inline-flex', loadingText ? 'hidden' : 'opacity-0')}
+                className={cx('inline-flex gap-md', loadingText ? 'hidden' : 'opacity-0')}
               >
                 {slotted}
               </div>
             </>
           ) : (
             slotted
-          )
+          ),
         )}
       </Component>
     )
-  }
+  },
 )
 
 Button.displayName = 'Button'

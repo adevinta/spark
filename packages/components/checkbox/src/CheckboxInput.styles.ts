@@ -65,7 +65,7 @@ export const checkboxInputStyles = cva(
     defaultVariants: {
       intent: 'basic',
     },
-  }
+  },
 )
 
 export type CheckboxInputStylesProps = VariantProps<typeof checkboxInputStyles>

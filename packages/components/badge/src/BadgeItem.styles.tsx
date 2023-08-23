@@ -19,7 +19,7 @@ export const styles = cva(
           'info',
           'neutral',
           'surface',
-          'basic'
+          'basic',
         ]
       >({
         main: ['bg-main', 'text-on-main', 'ring-on-main'],
@@ -47,7 +47,7 @@ export const styles = cva(
       size: DEFAULT_SIZE,
       type: DEFAULT_TYPE,
     },
-  }
+  },
 )
 
 export type StylesProps = VariantProps<typeof styles>

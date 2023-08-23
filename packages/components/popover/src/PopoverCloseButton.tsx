@@ -25,7 +25,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
       <RadixPopover.Close
         data-spark-component="popover-close-button"
         ref={ref}
-        className={cx('absolute top-md right-md', className)}
+        className={cx('absolute right-md top-md', className)}
         asChild
         {...rest}
       >
@@ -36,7 +36,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
         </IconButton>
       </RadixPopover.Close>
     )
-  }
+  },
 )
 
 CloseButton.displayName = 'Popover.CloseButton'

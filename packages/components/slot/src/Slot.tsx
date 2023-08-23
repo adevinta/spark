@@ -16,7 +16,7 @@ export const Slot = forwardRef<HTMLElement, SlotProps>((props, ref) => {
 export const wrapPolymorphicSlot = (
   asChild: boolean | undefined,
   children: ReactNode,
-  callback: (children: ReactNode) => ReactNode
+  callback: (children: ReactNode) => ReactNode,
 ) => {
   if (!asChild) return callback(children) // If polymorphic behaviour is not used, we keep the original children
 

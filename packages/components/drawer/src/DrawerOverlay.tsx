@@ -11,11 +11,11 @@ export const DrawerOverlay = forwardRef(
       className={cx(
         ['fixed', 'top-none', 'left-none', 'w-screen', 'h-screen', 'z-overlay'],
         ['bg-overlay/dim-3'],
-        className
+        className,
       )}
       {...rest}
     />
-  )
+  ),
 )
 
 DrawerOverlay.displayName = 'Drawer.Overlay'

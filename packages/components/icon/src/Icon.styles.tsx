@@ -15,7 +15,7 @@ export const iconStyles = cva(['fill-current'], {
         'alert',
         'error',
         'info',
-        'neutral'
+        'neutral',
       ]
     >({
       current: ['text-current'],

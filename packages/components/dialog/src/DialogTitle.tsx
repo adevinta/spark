@@ -8,7 +8,7 @@ export type TitleProps = RadixDialog.DialogTitleProps
 export const Title = forwardRef<TitleElement, TitleProps>(({ className, ...others }, ref) => (
   <RadixDialog.Title
     ref={ref}
-    className={cx('text-on-surface text-headline-2', className)}
+    className={cx('text-headline-2 text-on-surface', className)}
     {...others}
   />
 ))
