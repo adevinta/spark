@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.10...@spark-ui/portal@1.2.11) (2023-08-23)
+
+**Note:** Version bump only for package @spark-ui/portal
+
 ## [1.2.10](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.9...@spark-ui/portal@1.2.10) (2023-08-16)
 
 **Note:** Version bump only for package @spark-ui/portal
