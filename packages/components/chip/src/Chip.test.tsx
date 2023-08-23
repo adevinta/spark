@@ -50,6 +50,8 @@ describe('Chip', () => {
     )
 
     expect(screen.getByText(contentProps.children)).toBeInTheDocument()
+    expect(screen.getByLabelText(clearProps.label, { selector: 'button' })).toBeInTheDocument()
+    expect(screen.getByText('info')).toBeInTheDocument()
   })
 
   describe('role', () => {
