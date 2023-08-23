@@ -32,7 +32,7 @@ export const ToC = () => {
   // scroll to the targeted section based on the URL hash on mount
   useEffect(() => {
     const scrollTarget = headings.find(
-      ({ id }) => id === window.top?.location.hash.replace('#', '')
+      ({ id }) => id === window.top?.location.hash.replace('#', ''),
     )
 
     if (!scrollTarget) return

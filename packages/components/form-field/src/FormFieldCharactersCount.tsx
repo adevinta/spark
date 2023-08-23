@@ -26,7 +26,7 @@ export const FormFieldCharactersCount = forwardRef<HTMLSpanElement, FormFieldCha
         {count}/{maxLength}
       </span>
     )
-  }
+  },
 )
 
 FormFieldCharactersCount.displayName = 'FormField.CharactersCount'

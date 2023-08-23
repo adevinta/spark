@@ -13,13 +13,13 @@ export const DrawerBody = forwardRef(
       className={cx(
         className,
         ['px-xl', 'py-md', 'flex-grow', 'overflow-y-auto'],
-        ['outline-none', 'focus-visible:ring-2', 'focus-visible:ring-outline-high']
+        ['outline-none', 'focus-visible:ring-2', 'focus-visible:ring-outline-high'],
       )}
       {...rest}
     >
       {children}
     </div>
-  )
+  ),
 )
 
 DrawerBody.displayName = 'Drawer.Body'

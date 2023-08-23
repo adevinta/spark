@@ -27,14 +27,14 @@ describe('AlertDialog', () => {
             </AlertDialog.Footer>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     const dialogEl = screen.getByRole('alertdialog', { name: 'Delete account' })
 
     expect(dialogEl).toBeInTheDocument()
     expect(dialogEl).toHaveAccessibleDescription(
-      'Are you sure? You can not undo this action afterwards.'
+      'Are you sure? You can not undo this action afterwards.',
     )
     expect(within(dialogEl).getByRole('button', { name: 'Cancel' }))
     expect(within(dialogEl).getByRole('button', { name: 'Delete' }))
@@ -55,7 +55,7 @@ describe('AlertDialog', () => {
             <AlertDialog.Cancel onClick={onClick}>Cancel</AlertDialog.Cancel>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     const dialogEl = screen.getByRole('alertdialog', { name: 'Delete account' })
@@ -84,7 +84,7 @@ describe('AlertDialog', () => {
             <AlertDialog.Cancel onClick={onClick}>Cancel</AlertDialog.Cancel>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     const dialogEl = screen.getByRole('alertdialog', { name: 'Delete account' })
@@ -113,7 +113,7 @@ describe('AlertDialog', () => {
             <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     expect(screen.queryByRole('alertdialog', { name: 'Delete account' })).not.toBeInTheDocument()
@@ -144,7 +144,7 @@ describe('AlertDialog', () => {
             </AlertDialog.Footer>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     expect(screen.getByRole('alertdialog', { name: 'Delete account' })).toBeInTheDocument()
@@ -167,7 +167,7 @@ describe('AlertDialog', () => {
             <AlertDialog.Title>Delete account</AlertDialog.Title>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     expect(screen.getByRole('alertdialog', { name: 'Delete account' })).toBeInTheDocument()
@@ -190,7 +190,7 @@ describe('AlertDialog', () => {
             <AlertDialog.Title>Delete account</AlertDialog.Title>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     expect(screen.getByRole('alertdialog', { name: 'Delete account' })).toBeInTheDocument()
@@ -215,13 +215,13 @@ describe('AlertDialog', () => {
             </AlertDialog.Footer>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     expect(
       within(screen.getByRole('alertdialog', { name: 'Delete account' })).getByRole('button', {
         name: 'Cancel',
-      })
+      }),
     ).toHaveFocus()
   })
 
@@ -241,13 +241,13 @@ describe('AlertDialog', () => {
             <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
           </AlertDialog.Content>
         </AlertDialog.Portal>
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     await user.click(
       within(screen.getByRole('alertdialog', { name: 'Delete account' })).getByRole('button', {
         name: 'Cancel',
-      })
+      }),
     )
 
     expect(screen.getByRole('button', { name: 'Delete' })).toHaveFocus()

@@ -52,7 +52,7 @@ export const inputAddonStyles = cva(
     defaultVariants: {
       intent: 'neutral',
     },
-  }
+  },
 )
 
 export type InputAddonStylesProps = VariantProps<typeof inputAddonStyles>

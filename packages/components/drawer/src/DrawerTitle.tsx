@@ -9,10 +9,10 @@ export const DrawerTitle = forwardRef<TitleElement, DrawerTitleProps>(
   ({ className, ...others }, ref) => (
     <RadixDrawer.Title
       ref={ref}
-      className={cx('text-on-surface text-headline-2', className)}
+      className={cx('text-headline-2 text-on-surface', className)}
       {...others}
     />
-  )
+  ),
 )
 
 DrawerTitle.displayName = 'Drawer.Title'

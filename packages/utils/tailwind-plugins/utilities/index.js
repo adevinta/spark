@@ -9,7 +9,7 @@ module.exports = plugin.withOptions(() => ({ addUtilities, theme }) => {
     },
     '.u-shadow-border-transition': {
       transition: `box-shadow ${theme('transitionDuration.100')} ${theme(
-        'transitionTimingFunction.in'
+        'transitionTimingFunction.in',
       )}, border-color ${theme('transitionDuration.300')} ${theme('transitionTimingFunction.in')}`,
     },
     '.u-no-scrollbar': {

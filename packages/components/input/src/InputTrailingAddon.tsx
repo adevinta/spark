@@ -15,12 +15,12 @@ const Root = forwardRef<HTMLDivElement, InputTrailingAddonProps>(
       <div className={cx('rounded-r-lg', isInactive ? 'bg-on-surface/dim-5' : null)}>
         <InputAddon
           ref={ref}
-          className={cx(className, '!rounded-l-none rounded-r-lg ml-[-1px]')}
+          className={cx(className, 'ml-[-1px] !rounded-l-none rounded-r-lg')}
           {...others}
         />
       </div>
     )
-  }
+  },
 )
 
 export const InputTrailingAddon = Object.assign(Root, {

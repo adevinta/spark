@@ -56,7 +56,7 @@ export const buttonStyles = cva(
           'danger',
           'info',
           'neutral',
-          'surface'
+          'surface',
         ]
       >({
         main: [],
@@ -103,7 +103,7 @@ export const buttonStyles = cva(
       size: 'md',
       shape: 'rounded',
     },
-  }
+  },
 )
 
 export type ButtonStylesProps = VariantProps<typeof buttonStyles>

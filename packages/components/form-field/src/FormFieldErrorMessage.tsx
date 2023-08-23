@@ -14,7 +14,7 @@ export const FormFieldErrorMessage = forwardRef<HTMLSpanElement, FormFieldErrorM
         {...props}
       />
     )
-  }
+  },
 )
 
 FormFieldErrorMessage.displayName = 'FormField.ErrorMessage'
