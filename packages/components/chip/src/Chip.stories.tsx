@@ -13,7 +13,7 @@ import { ChangeEvent, ComponentProps, useState } from 'react'
 import { Chip } from '.'
 
 const meta: Meta<typeof Chip> = {
-  title: 'Components/Chip',
+  title: 'Experimental/Chip',
   component: Chip,
 }
 
