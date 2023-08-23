@@ -61,10 +61,10 @@
     </td></tr>
 <tr>
     <td align="center">
-        <a href="https://github.com/DanArthurGallagher">
-            <img src="https://avatars.githubusercontent.com/u/8526031?v=4" width="50;" alt="DanArthurGallagher"/>
+        <a href="https://github.com/danieleloscozzese">
+            <img src="https://avatars.githubusercontent.com/u/8526031?v=4" width="50;" alt="danieleloscozzese"/>
             <br />
-            <sub><b>DanArthurGallagher</b></sub>
+            <sub><b>danieleloscozzese</b></sub>
         </a>
     </td>
     <td align="center">
