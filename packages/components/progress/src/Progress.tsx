@@ -30,7 +30,7 @@ export const Progress = forwardRef<
     ref
   ) => {
     const id = useId(idProp)
-    const [labelId, setLabelId] = useState<string | undefined>()
+    const [labelId, setLabelId] = useState<string>()
 
     const value = useMemo(() => {
       return { value: valueProp ?? 0, max, isIndeterminate, onLabelId: setLabelId }

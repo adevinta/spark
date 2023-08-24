@@ -4,7 +4,7 @@ export interface ProgressContextValue {
   value: number
   max: number
   isIndeterminate: boolean
-  onLabelId: (id: string | undefined) => void
+  onLabelId: (id?: string) => void
 }
 
 export const ProgressContext = createContext<ProgressContextValue | null>(null)
