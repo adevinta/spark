@@ -120,15 +120,23 @@ jobs:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
       url: ${{ steps.deployment.outputs.url }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Install
         uses: ./.github/composite-actions/install
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest --no-save --no-fund --no-audit --no-scripts
+
       - name: Build Storybook
         run: npm run storybook:build
+
       - name: Build tailwind config viewer
         run: npm run tailwind-config-viewer:build
+
       - name: Deploy Storybook to Vercel
         id: deployment
         run: |

@@ -16,6 +16,13 @@ runs:
         path: ./node_modules
         key: node-cache-${{ hashFiles('package-lock.json') }}
 
+    - name: Cache NX .cache directory
+      id: nx-cache
+      uses: actions/cache@v3
+      with:
+        path: ./.cache
+        key: nx-cache-${{ hashFiles('nx.json') }}
+
     - name: Cache hit
       if: ${{ steps.node-cache.outputs.cache-hit == 'true' }}
       shell: bash
