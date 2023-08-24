@@ -6,6 +6,7 @@ import {
 import { cx } from 'class-variance-authority'
 import { ElementRef, forwardRef, PropsWithChildren, useMemo, useState } from 'react'
 
+import { ProgressBar } from './ProgressBar'
 import { ProgressContext } from './ProgressContext'
 
 export interface ProgressProps extends ProgressPrimitiveProps {
@@ -17,7 +18,15 @@ export const Progress = forwardRef<
   PropsWithChildren<ProgressProps>
 >(
   (
-    { id: idProp, className, value: valueProp, max = 100, isIndeterminate = false, ...others },
+    {
+      id: idProp,
+      className,
+      value: valueProp,
+      max = 100,
+      isIndeterminate = false,
+      children = <ProgressBar />,
+      ...others
+    },
     ref
   ) => {
     const id = useId(idProp)
@@ -37,7 +46,9 @@ export const Progress = forwardRef<
           aria-labelledby={labelId}
           max={max}
           {...others}
-        />
+        >
+          {children}
+        </ProgressPrimitive>
       </ProgressContext.Provider>
     )
   }
