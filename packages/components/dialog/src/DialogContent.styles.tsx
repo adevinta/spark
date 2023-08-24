@@ -1,9 +1,13 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const dialogContentStyles = cva([['fixed', 'z-modal', 'flex', 'flex-col'], ['bg-surface']], {
+export const dialogContentWrapperStyles = cva([
+  'fixed inset-none z-modal flex items-center justify-center',
+])
+
+export const dialogContentStyles = cva([['relative', 'flex', 'flex-col'], ['bg-surface']], {
   variants: {
     size: {
-      fullscreen: ['inset-none'],
+      fullscreen: ['w-full', 'h-full'],
       sm: ['max-w-sz-480'],
       md: ['max-w-sz-640'],
       lg: ['max-w-sz-768'],
@@ -13,9 +17,10 @@ export const dialogContentStyles = cva([['fixed', 'z-modal', 'flex', 'flex-col']
     {
       size: ['sm', 'md', 'lg'],
       class: [
-        ['top-1/2', 'left-1/2', '-translate-x-1/2', '-translate-y-1/2'],
         ['w-full', 'max-h-[90%]'],
         ['shadow-md', 'rounded-lg'],
+        ['data-[state=open]:animate-fade-in'],
+        ['data-[state=closed]:animate-fade-out'],
       ],
     },
   ],
