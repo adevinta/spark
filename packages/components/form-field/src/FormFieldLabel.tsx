@@ -44,9 +44,10 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
         asChild={asChild}
         {...others}
       >
-        <Slottable>{children}</Slottable>
-
-        {isRequired && requiredIndicator}
+        <Slottable>
+          {children}
+          {isRequired && requiredIndicator}
+        </Slottable>
       </Label>
     )
   },
