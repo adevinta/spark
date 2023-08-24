@@ -151,7 +151,7 @@ module.exports = plugin.withOptions(
           'slide-right': 'slideRight 0.5s ease-in-out',
           'slide-bottom': 'slideBottom 0.5s ease-in-out',
           'slide-left': 'slideLeft 0.5s ease-in-out',
-          'indeterminate-bar':
+          'standalone-indeterminate-bar':
             'indeterminateBar 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite normal none running',
         },
       },
