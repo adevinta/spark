@@ -5,7 +5,7 @@ export const progressIndicatorStyles = cva(
   {
     variants: {
       isIndeterminate: {
-        true: ['absolute', 'origin-left', 'animate-indeterminate-bar'],
+        true: ['absolute', 'origin-left', 'animate-standalone-indeterminate-bar'],
         false: [],
       },
     },
