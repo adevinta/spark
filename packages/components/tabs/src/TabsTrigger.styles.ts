@@ -42,7 +42,7 @@ export const triggerVariants = cva(
       intent: 'basic',
       size: 'md',
     },
-  }
+  },
 )
 
 export type TabsTriggerVariantsProps = VariantProps<typeof triggerVariants>

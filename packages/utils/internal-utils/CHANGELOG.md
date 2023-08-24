@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.0.3...@spark-ui/internal-utils@2.1.0) (2023-08-23)
+
+### Features
+
+- **internal-utils:** add dashed design to internal utils constants ([e814c5e](https://github.com/adevinta/spark/commit/e814c5e142dd51285e05a88783b135153f03e78d))
+
+## [2.0.3](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.0.2...@spark-ui/internal-utils@2.0.3) (2023-08-23)
+
+**Note:** Version bump only for package @spark-ui/internal-utils
+
 ## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@1.6.0...@spark-ui/internal-utils@1.6.1) (2023-06-01)
 
 **Note:** Version bump only for package @spark-ui/internal-utils

@@ -28,10 +28,10 @@ const Root = forwardRef<HTMLButtonElement, InputClearButtonProps>(
         ref={ref}
         className={cx(
           className,
-          'absolute top-1/2 -translate-y-1/2 pointer-events-auto',
-          'inline-flex items-center justify-center h-full outline-none',
+          'pointer-events-auto absolute top-1/2 -translate-y-1/2',
+          'inline-flex h-full items-center justify-center outline-none',
           'text-neutral hover:text-neutral-hovered',
-          hasTrailingIcon ? 'right-3xl px-[var(--sz-12)]' : 'right-none pr-lg pl-md'
+          hasTrailingIcon ? 'right-3xl px-[var(--sz-12)]' : 'right-none pl-md pr-lg',
         )}
         tabIndex={tabIndex}
         onClick={handleClick}
@@ -42,7 +42,7 @@ const Root = forwardRef<HTMLButtonElement, InputClearButtonProps>(
         </Icon>
       </button>
     )
-  }
+  },
 )
 
 export const InputClearButton = Object.assign(Root, {

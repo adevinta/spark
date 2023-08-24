@@ -8,12 +8,12 @@ import { SetStateAction, useCallback, useRef, useState } from 'react'
 export function useCombinedState<T>(
   controlledValue?: T,
   defaultValue?: T,
-  onChange?: (nextValue: T) => void
+  onChange?: (nextValue: T) => void,
 ): [
   T | undefined,
   (newValue: T, forceFlag?: (prev: T, next: T) => boolean) => void,
   boolean,
-  T | undefined
+  T | undefined,
 ] {
   const isControlled = controlledValue !== undefined
   const { current: initialValue } = useRef(isControlled ? controlledValue : defaultValue)
@@ -24,7 +24,7 @@ export function useCombinedState<T>(
   const updater = useCallback(
     (
       next: SetStateAction<T>,
-      shouldUpdateProp = (prevValue: T, nextValue: T) => !isEqual(prevValue, nextValue)
+      shouldUpdateProp = (prevValue: T, nextValue: T) => !isEqual(prevValue, nextValue),
     ) => {
       const nextValue = typeof next !== 'function' ? next : (next as (value: T) => T)(value)
       const shouldUpdate = shouldUpdateProp(value, nextValue)
@@ -33,7 +33,7 @@ export function useCombinedState<T>(
       }
       onChange && onChange(nextValue)
     },
-    [isControlled, value]
+    [isControlled, value],
   )
 
   return [value, updater, isControlled, initialValue]

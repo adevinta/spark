@@ -11,7 +11,7 @@ export const Header = forwardRef(
     <header ref={ref} className={cx(className, ['px-xl', 'py-lg'])} {...rest}>
       {children}
     </header>
-  )
+  ),
 )
 
 Header.displayName = 'Dialog.Header'

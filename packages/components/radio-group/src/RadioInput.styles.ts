@@ -45,7 +45,7 @@ export const radioInputVariants = cva(
     defaultVariants: {
       intent: 'basic',
     },
-  }
+  },
 )
 
 export type RadioInputVariantsProps = VariantProps<typeof radioInputVariants>

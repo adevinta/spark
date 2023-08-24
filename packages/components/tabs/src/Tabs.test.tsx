@@ -129,7 +129,7 @@ describe('Tabs', () => {
         createTabs({
           tabs: tabsWithOverflow,
           rootProps: { orientation: 'vertical' },
-        })
+        }),
       )
 
       expect(screen.queryByLabelText('Scroll left')).not.toBeInTheDocument()
@@ -142,7 +142,7 @@ describe('Tabs', () => {
           tabs: tabsWithOverflow,
           rootProps: { defaultValue: 'tab1' },
           listProps: { loop: false },
-        })
+        }),
       )
 
       expect(screen.getByLabelText('Scroll left')).toBeDisabled()
@@ -159,7 +159,7 @@ describe('Tabs', () => {
           tabs: tabsWithOverflow,
           rootProps: { defaultValue: 'tab1' },
           listProps: { loop: false },
-        })
+        }),
       )
 
       expect(screen.getByLabelText('Scroll right')).toBeDisabled()
@@ -173,7 +173,7 @@ describe('Tabs', () => {
             tabs: tabsWithOverflow,
             rootProps: { defaultValue: 'tab1' },
             listProps: { loop: true },
-          })
+          }),
         )
 
         await user.click(screen.getByLabelText('Scroll left'))
@@ -198,7 +198,7 @@ describe('Tabs', () => {
             tabs: tabsWithOverflow,
             rootProps: { defaultValue: 'tab1' },
             listProps: { loop: true },
-          })
+          }),
         )
 
         await user.click(screen.getByLabelText('Scroll right'))

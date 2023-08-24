@@ -42,7 +42,7 @@ export const InputAddon = forwardRef<HTMLDivElement, PropsWithChildren<InputAddo
         {child}
       </Component>
     )
-  }
+  },
 )
 
 InputAddon.displayName = 'InputGroup.Addon'

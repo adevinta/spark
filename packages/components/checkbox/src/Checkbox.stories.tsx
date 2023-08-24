@@ -192,9 +192,9 @@ export const CustomImplementation: StoryFn = () => {
         id={id}
         htmlFor={value}
         className={cx(
-          'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
+          'flex max-w-sz-320 flex-wrap gap-md rounded-md p-lg shadow',
           checked ? 'bg-success/dim-4' : '',
-          'cursor-pointer'
+          'cursor-pointer',
         )}
       >
         <Checkbox aria-labelledby={id} id={value} checked={checked} {...others} />
@@ -238,11 +238,11 @@ export const InvisibleCheckbox: StoryFn = () => {
         id={id}
         htmlFor={value}
         className={cx(
-          'flex flex-wrap shadow rounded-md gap-md p-lg max-w-sz-320',
+          'flex max-w-sz-320 flex-wrap gap-md rounded-md p-lg shadow',
           checked ? 'bg-success/dim-3' : '',
           'focus-within:ring-outline-high',
           '[&:has(:focus-visible)]:focus-within:ring-2',
-          'cursor-pointer'
+          'cursor-pointer',
         )}
       >
         <VisuallyHidden>

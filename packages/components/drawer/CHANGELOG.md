@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.7...@spark-ui/drawer@0.1.8) (2023-08-23)
+
+**Note:** Version bump only for package @spark-ui/drawer
+
+## [0.1.7](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.6...@spark-ui/drawer@0.1.7) (2023-08-23)
+
+**Note:** Version bump only for package @spark-ui/drawer
+
+## [0.1.6](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.5...@spark-ui/drawer@0.1.6) (2023-08-22)
+
+**Note:** Version bump only for package @spark-ui/drawer
+
 ## [0.1.5](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.4...@spark-ui/drawer@0.1.5) (2023-08-16)
 
 **Note:** Version bump only for package @spark-ui/drawer

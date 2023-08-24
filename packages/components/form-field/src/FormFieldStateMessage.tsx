@@ -28,7 +28,7 @@ export const FormFieldStateMessage = forwardRef<HTMLSpanElement, FormFieldStateM
         {...others}
       />
     )
-  }
+  },
 )
 
 FormFieldStateMessage.displayName = 'FormField.StateMessage'

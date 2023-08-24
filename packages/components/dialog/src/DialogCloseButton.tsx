@@ -21,7 +21,7 @@ export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
       children = <CloseSVG />,
       ...rest
     },
-    ref
+    ref,
   ) => (
     <Close
       ref={ref}
@@ -33,7 +33,7 @@ export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
         <Icon>{children}</Icon>
       </IconButton>
     </Close>
-  )
+  ),
 )
 
 CloseButton.displayName = 'Dialog.CloseButton'

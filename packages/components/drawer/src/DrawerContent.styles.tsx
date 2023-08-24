@@ -55,7 +55,7 @@ export const drawerContentStyles = cva(
       side: 'right',
       size: 'md',
     },
-  }
+  },
 )
 
 export type DrawerContentStylesProps = VariantProps<typeof drawerContentStyles>
