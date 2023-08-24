@@ -38,7 +38,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       className,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const wrapperRef = useRef(null)
     const innerRef = useRef(null)
@@ -91,12 +91,12 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       toggleArrowsVisibility(currentList)
 
       currentList.addEventListener('scroll', ({ target }) =>
-        toggleArrowsVisibility(target as HTMLDivElement)
+        toggleArrowsVisibility(target as HTMLDivElement),
       )
 
       return () =>
         currentList.removeEventListener('scroll', ({ target }) =>
-          toggleArrowsVisibility(target as HTMLDivElement)
+          toggleArrowsVisibility(target as HTMLDivElement),
         )
     }, [listRef, arrows.prev, loop])
 
@@ -175,7 +175,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         )}
       </div>
     )
-  }
+  },
 )
 
 TabsList.displayName = 'Tabs.List'

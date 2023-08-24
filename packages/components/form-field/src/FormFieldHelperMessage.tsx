@@ -15,7 +15,7 @@ export const FormFieldHelperMessage = forwardRef<HTMLSpanElement, FormFieldHelpe
         {...others}
       />
     )
-  }
+  },
 )
 
 FormFieldHelperMessage.displayName = 'FormField.HelperMessage'

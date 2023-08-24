@@ -96,8 +96,8 @@ export const State: StoryFn = () => (
             name={name}
             aria-describedby={description}
             className={cx(
-              'p-md border-md rounded-sm outline-none',
-              state === 'error' ? 'border-error' : 'border-neutral'
+              'rounded-sm border-md p-md outline-none',
+              state === 'error' ? 'border-error' : 'border-neutral',
             )}
           />
         )}
@@ -117,8 +117,8 @@ export const State: StoryFn = () => (
             name={name}
             aria-describedby={description}
             className={cx(
-              'p-md border-md rounded-sm outline-none',
-              state === 'success' ? 'border-success' : 'border-neutral'
+              'rounded-sm border-md p-md outline-none',
+              state === 'success' ? 'border-success' : 'border-neutral',
             )}
           />
         )}
@@ -138,8 +138,8 @@ export const State: StoryFn = () => (
             name={name}
             aria-describedby={description}
             className={cx(
-              'p-md border-md rounded-sm outline-none',
-              state === 'alert' ? 'border-alert' : 'border-neutral'
+              'rounded-sm border-md p-md outline-none',
+              state === 'alert' ? 'border-alert' : 'border-neutral',
             )}
           />
         )}

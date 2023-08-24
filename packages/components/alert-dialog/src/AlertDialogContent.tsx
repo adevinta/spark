@@ -44,7 +44,7 @@ export const AlertDialogContent = forwardRef<AlertDialogContentElement, AlertDia
         />
       </AlertDialogContext.Provider>
     )
-  }
+  },
 )
 
 AlertDialogContent.displayName = 'AlertDialog.Content'

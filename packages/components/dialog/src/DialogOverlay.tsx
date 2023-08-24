@@ -11,11 +11,11 @@ export const Overlay = forwardRef(
       className={cx(
         ['fixed', 'top-none', 'left-none', 'w-screen', 'h-screen', 'z-overlay'],
         ['bg-overlay/dim-3'],
-        className
+        className,
       )}
       {...rest}
     />
-  )
+  ),
 )
 
 Overlay.displayName = 'Dialog.Overlay'

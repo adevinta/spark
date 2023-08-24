@@ -48,7 +48,7 @@ module.exports = {
     // NX
     '@nx/enforce-module-boundaries': 2,
     // Prettier
-    'prettier/prettier': 1,
+    "prettier/prettier": [1, { "endOfLine": "auto" }],
     // Typescript
     '@typescript-eslint/consistent-type-definitions': [1, 'interface'],
     '@typescript-eslint/array-type': [2, { default: 'array', readonly: 'array' }],
@@ -72,6 +72,7 @@ module.exports = {
     'react/jsx-key': 0,
     'react/display-name': [0, { ignoreTranspilerName: false }],
     // Tailwind
+    'tailwindcss/classnames-order': 0,
     'tailwindcss/no-custom-classname': [
       2,
       {

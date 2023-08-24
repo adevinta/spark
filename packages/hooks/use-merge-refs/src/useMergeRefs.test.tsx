@@ -79,7 +79,7 @@ describe('useMergeRefs', () => {
         null,
         undefined,
         secondRef,
-        thirdRef
+        thirdRef,
       )
 
       useEffect(() => {

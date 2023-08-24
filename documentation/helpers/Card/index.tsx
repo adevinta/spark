@@ -21,7 +21,7 @@ export const cardStyles = cva(
     defaultVariants: {
       disabled: false,
     },
-  }
+  },
 )
 
 export const descriptionStyles = cva(
@@ -39,7 +39,7 @@ export const descriptionStyles = cva(
     defaultVariants: {
       disabled: false,
     },
-  }
+  },
 )
 
 interface Props {

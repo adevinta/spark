@@ -7,7 +7,7 @@ export type AlertDialogActionProps = DialogCloseProps
 export const AlertDialogAction = forwardRef<AlertDialogActionElement, AlertDialogActionProps>(
   (props, ref) => {
     return <Dialog.Close ref={ref} data-spark-component="alert-dialog-action" {...props} />
-  }
+  },
 )
 
 AlertDialogAction.displayName = 'AlertDialog.Action'

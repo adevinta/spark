@@ -8,7 +8,7 @@ export type ContentProps = RadixDialog.DialogContentProps & DialogContentStylesP
 export const Content = forwardRef(
   (
     { children, className, size = 'md', ...rest }: ContentProps,
-    ref: Ref<HTMLDivElement>
+    ref: Ref<HTMLDivElement>,
   ): ReactElement => (
     <RadixDialog.Content
       data-spark-component="dialog-content"
@@ -21,7 +21,7 @@ export const Content = forwardRef(
     >
       {children}
     </RadixDialog.Content>
-  )
+  ),
 )
 
 Content.displayName = 'Dialog.Content'

@@ -29,7 +29,7 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
       asChild = false,
       ...others
     },
-    ref
+    ref,
   ) => {
     const id = useId()
     const Component = asChild ? Slot : 'div'
@@ -51,7 +51,7 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         />
       </FormFieldProvider>
     )
-  }
+  },
 )
 
 FormField.displayName = 'FormField'

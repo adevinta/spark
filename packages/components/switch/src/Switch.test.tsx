@@ -37,7 +37,7 @@ describe('Switch', () => {
     rerender(<Switch aria-label="My worst effort accessible label" />)
 
     expect(
-      screen.getByRole('switch', { name: 'My worst effort accessible label' })
+      screen.getByRole('switch', { name: 'My worst effort accessible label' }),
     ).toBeInTheDocument()
 
     // On using the FormField we also could be using the related subcomponent
@@ -46,7 +46,7 @@ describe('Switch', () => {
         <FormField.Label>My accessible field label</FormField.Label>
 
         <Switch />
-      </FormField>
+      </FormField>,
     )
 
     expect(screen.getByRole('switch', { name: 'My accessible field label' })).toBeInTheDocument()
@@ -138,7 +138,7 @@ describe('Switch', () => {
           </FormField.Label>
 
           <Switch />
-        </FormField>
+        </FormField>,
       )
 
       expect(screen.getByRole('switch', { name: 'Agreement' })).toBeInTheDocument()
@@ -154,22 +154,22 @@ describe('Switch', () => {
           <Switch />
 
           <FormField.ErrorMessage>Agreement is required</FormField.ErrorMessage>
-        </FormField>
+        </FormField>,
       )
 
       expect(screen.getByRole('switch', { name: 'Agreement' })).toHaveAttribute(
         'aria-required',
-        'true'
+        'true',
       )
 
       expect(screen.getByRole('switch', { name: 'Agreement' })).toHaveAttribute(
         'aria-invalid',
-        'true'
+        'true',
       )
 
       expect(screen.getByRole('switch', { name: 'Agreement' })).toHaveAttribute(
         'aria-describedby',
-        screen.getByText('Agreement is required').getAttribute('id')
+        screen.getByText('Agreement is required').getAttribute('id'),
       )
     })
   })

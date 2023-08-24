@@ -18,7 +18,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
     return (
       <div
         data-spark-component="switch"
-        className={cx('gap-md text-body-1 flex items-center', className)}
+        className={cx('flex items-center gap-md text-body-1', className)}
       >
         <SwitchInput
           ref={ref}
@@ -41,5 +41,5 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         )}
       </div>
     )
-  }
+  },
 )

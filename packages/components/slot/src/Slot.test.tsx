@@ -12,7 +12,7 @@ describe('Slot', () => {
     render(
       <Slot {...props}>
         <button>Button</button>
-      </Slot>
+      </Slot>,
     )
 
     // Then
@@ -28,7 +28,7 @@ describe('Slot', () => {
     render(
       <Slot {...slotProps}>
         <button {...childProps}>Button</button>
-      </Slot>
+      </Slot>,
     )
     const element = screen.getByRole('button', { name: 'Button' })
     const {
@@ -38,7 +38,7 @@ describe('Slot', () => {
     } = Object.fromEntries(
       [].slice.call(element.attributes).map(function (attr: HTMLElement) {
         return [attr.nodeName, element.getAttribute(attr.nodeName)]
-      })
+      }),
     )
 
     // Then
@@ -58,7 +58,7 @@ describe('Slot', () => {
     render(
       <Slot {...slotProps}>
         <button {...childProps}>Button</button>
-      </Slot>
+      </Slot>,
     )
     fireEvent.click(screen.getByRole('button', { name: 'Button' }))
 
@@ -79,7 +79,7 @@ describe('Slot', () => {
     render(
       <Slot {...slotProps}>
         <button {...childProps}>Button</button>
-      </Slot>
+      </Slot>,
     )
     const element = screen.getByRole('button', { name: 'Button' })
     const classList = element.classList
@@ -100,14 +100,14 @@ describe('Slot', () => {
     render(
       <Slot {...slotProps}>
         <button {...childProps}>Button</button>
-      </Slot>
+      </Slot>,
     )
     const element = screen.getByRole('button', { name: 'Button' })
     const styles = Object.fromEntries(
       Array.from(element.style).map(styleRule => [
         styleRule,
         element.style[styleRule as unknown as number],
-      ])
+      ]),
     )
 
     // Then
@@ -127,7 +127,7 @@ describe('Slot', () => {
     render(
       <Slot ref={slotRef}>
         <button ref={childRef}>Button</button>
-      </Slot>
+      </Slot>,
     )
 
     // Then

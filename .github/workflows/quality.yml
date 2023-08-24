@@ -54,7 +54,13 @@ jobs:
         uses: ./.github/composite-actions/install
 
       - name: Test
-        run: npm run test
+        run: npm run test:coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          files: ./dist/coverage/coverage.json
   a11y:
     runs-on: ubuntu-latest
     name: Accessibility
