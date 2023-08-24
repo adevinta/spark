@@ -9,15 +9,15 @@ export const dialogContentStyles = cva([['relative', 'flex', 'flex-col'], ['bg-s
     size: {
       fullscreen: ['w-full', 'h-full'],
       sm: ['max-w-sz-480'],
-      md: ['max-w-sz-640'],
-      lg: ['max-w-sz-768'],
+      md: ['max-w-sz-672'],
+      lg: ['max-w-sz-864'],
     },
   },
   compoundVariants: [
     {
       size: ['sm', 'md', 'lg'],
       class: [
-        ['w-full', 'max-h-[90%]'],
+        ['w-full', 'max-h-[80%]'],
         ['shadow-md', 'rounded-lg'],
         ['data-[state=open]:animate-fade-in'],
         ['data-[state=closed]:animate-fade-out'],
