@@ -10,7 +10,6 @@ runs:
         cache: 'npm'
 
     - name: Install dependencies
-      if: ${{ steps.node-cache.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
         echo 'Dependencies cache miss'
