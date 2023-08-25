@@ -25,7 +25,7 @@ export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
   ) => (
     <Close
       ref={ref}
-      className={cx(['absolute', 'top-sm', 'right-sm'], className)}
+      className={cx(['absolute', 'top-md', 'right-xl'], className)}
       asChild
       {...rest}
     >
