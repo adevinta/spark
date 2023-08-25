@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Progress } from '.'
 
@@ -25,10 +25,73 @@ import { Progress } from '@spark-ui/progress'
 
 ## Props
 
-<ArgTypes of={Progress} />
+<ArgTypes
+  of={Progress}
+  description="Contains all of the progress parts. It also makes progress accessible to assistive technologies."
+  subcomponents={{
+    'Progress.Bar': {
+      of: Progress.Bar,
+      description: 'Used to show the progress bar.',
+    },
+    'Progress.Label': {
+      of: Progress.Label,
+      description: 'Used to display a label for the progress.',
+    },
+    'Progress.Indicator': {
+      of: Progress.Indicator,
+      description: 'Used to show the progress. Automatically added by the progress bar.',
+    },
+  }}
+/>
 
 ## Usage
 
 ### Default
 
 <Canvas of={stories.Default} />
+
+### Label
+
+Use `Progress.Label` component to display a label for the progress. If this component is used there is not need of passing the `aria-label` prop.
+
+<Canvas of={stories.Label} />
+
+### Value
+
+Use the `value` prop to represent the current percentage of progress. The minimum and maximum values default to `0` and `100`, respectively.
+
+<Canvas of={stories.Value} />
+
+### Max
+
+Use the `max` prop to set a different scale for the progress.
+
+<Canvas of={stories.Max} />
+
+### Value label
+
+Use the `getValueLabel` prop to define an accessible label text representing the current value in a human-readable format. If not provided, the value label will be read as the numeric value as a percentage of the max value.
+
+<Canvas of={stories.ValueLabel} />
+
+### Indeterminate
+
+Use `isIndeterminate` prop to represent an interdeterminate operation.
+
+<Canvas of={stories.Indeterminate} />
+
+## Advanced usage
+
+### Visible value
+
+Displaying the progress value as text is possible by composing the different components.
+
+<Canvas of={stories.VisibleValue} />
+
+## Accessibility
+
+Adheres to the [Meter WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/meter/).
+
+### Guidelines
+
+- Usage of `aria-label` or `Progress.Label` is **mandatory**. It serves as the accessible name for the progress.
