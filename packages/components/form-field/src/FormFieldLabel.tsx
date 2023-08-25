@@ -44,7 +44,7 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
     const control = useFormField()
 
     const { disabled, labelId, isRequired } = control
-    const htmlFor = htmlForProp || control.id
+    const htmlFor = asChild ? undefined : htmlForProp || control.id
 
     const child = asChild ? (
       append(children, isRequired ? requiredIndicator : null)
