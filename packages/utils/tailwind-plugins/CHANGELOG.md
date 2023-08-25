@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.0.5...@spark-ui/tailwind-plugins@3.1.0) (2023-08-25)
+
+### Features
+
+- **tailwind-plugins:** add progress bar animation ([5e101a8](https://github.com/adevinta/spark/commit/5e101a8715a0320aba85ebaef3d6e524780267d5))
+- **tailwind-plugins:** update indeterminate bar animation name ([bcf64eb](https://github.com/adevinta/spark/commit/bcf64eb0e22343e4dc4f43cd09f79772a4e7cfc8))
+- **tailwind-plugins:** update indeterminate bar name ([f22ed12](https://github.com/adevinta/spark/commit/f22ed120fef197c5240090a891af9e12186140e8))
+
 ## [3.0.5](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.0.4...@spark-ui/tailwind-plugins@3.0.5) (2023-08-23)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins
