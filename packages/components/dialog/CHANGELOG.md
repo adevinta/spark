@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.4.12...@spark-ui/dialog@1.5.0) (2023-08-25)
+
+### Features
+
+- **dialog:** dialog disclosure animation ([1f9cad8](https://github.com/adevinta/spark/commit/1f9cad8b2668ba5fe3a81204d8633751cddb9310))
+
 ## [1.4.12](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.4.11...@spark-ui/dialog@1.4.12) (2023-08-23)
 
 **Note:** Version bump only for package @spark-ui/dialog
