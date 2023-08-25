@@ -1,4 +1,3 @@
-import { useId } from '@radix-ui/react-id'
 import {
   Progress as ProgressPrimitive,
   ProgressProps as ProgressPrimitiveProps,
@@ -19,7 +18,6 @@ export const Progress = forwardRef<
 >(
   (
     {
-      id: idProp,
       className,
       value: valueProp,
       max = 100,
@@ -27,9 +25,8 @@ export const Progress = forwardRef<
       children = <ProgressBar />,
       ...others
     },
-    ref
+    ref,
   ) => {
-    const id = useId(idProp)
     const [labelId, setLabelId] = useState<string>()
 
     const value = useMemo(() => {
@@ -41,7 +38,6 @@ export const Progress = forwardRef<
         <ProgressPrimitive
           ref={ref}
           className={cx('flex flex-col gap-sm', className)}
-          id={id}
           value={valueProp}
           aria-labelledby={labelId}
           max={max}
@@ -51,7 +47,7 @@ export const Progress = forwardRef<
         </ProgressPrimitive>
       </ProgressContext.Provider>
     )
-  }
+  },
 )
 
 Progress.displayName = 'Progress'
