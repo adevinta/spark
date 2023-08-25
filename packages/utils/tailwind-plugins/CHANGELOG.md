@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.1.0...@spark-ui/tailwind-plugins@3.2.0) (2023-08-25)
+
+### Features
+
+- **tailwind-plugins:** added base missing keyframe animations ([fcfaf65](https://github.com/adevinta/spark/commit/fcfaf651b09ee9e414c171771b64e48b65b1aa4f))
+
 # [3.1.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.0.5...@spark-ui/tailwind-plugins@3.1.0) (2023-08-25)
 
 ### Features
