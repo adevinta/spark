@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/progress",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   "publishConfig": {
     "access": "public"
@@ -12,10 +12,10 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-progress": "1.0.3",
     "@radix-ui/react-id": "1.0.1",
-    "class-variance-authority": "0.7.0",
-    "@spark-ui/use-merge-refs": "^0.3.4"
+    "@radix-ui/react-progress": "1.0.3",
+    "@spark-ui/use-merge-refs": "^0.3.4",
+    "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "^3.0.2",
