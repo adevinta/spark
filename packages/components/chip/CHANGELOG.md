@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.1.0...@spark-ui/chip@0.2.0) (2023-08-25)
+
+### Features
+
+- **chip:** update deps ([54c163d](https://github.com/adevinta/spark/commit/54c163d5ee93c6aab946e7225fd0d8828fd1f657))
+
 # 0.1.0 (2023-08-23)
 
 ### Bug Fixes
