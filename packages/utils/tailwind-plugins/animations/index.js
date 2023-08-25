@@ -137,7 +137,7 @@ module.exports = plugin.withOptions(
             '0%': { transform: 'translateX(0)' },
             '100%': { transform: 'translateX(-100px)' },
           },
-          indeterminateBar: {
+          standaloneIndeterminateBar: {
             '0%': {
               transform: 'translateX(0%) scaleX(0.2)',
             },
@@ -152,7 +152,7 @@ module.exports = plugin.withOptions(
           'slide-bottom': 'slideBottom 0.5s ease-in-out',
           'slide-left': 'slideLeft 0.5s ease-in-out',
           'standalone-indeterminate-bar':
-            'indeterminateBar 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite normal none running',
+            'standaloneIndeterminateBar 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite normal none running',
         },
       },
     },
