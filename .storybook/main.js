@@ -1,6 +1,8 @@
 const turbosnap = require('vite-plugin-turbosnap')
 const { mergeConfig } = require('vite')
 
+import remarkGfm from 'remark-gfm'
+
 module.exports = {
   async viteFinal(config, { configType }) {
     // This is where we can override vite config for storybook
@@ -25,7 +27,16 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-links',
-    // '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
     {
       name: '@storybook/addon-essentials',
       options: {
@@ -35,7 +46,6 @@ module.exports = {
     },
     '@storybook/addon-interactions',
     '@storybook/addon-styling',
-    '@storybook/addon-mdx-gfm',
     '@storybook/addon-a11y',
   ],
   staticDirs: ['../public'],
