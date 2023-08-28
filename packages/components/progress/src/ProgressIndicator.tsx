@@ -16,7 +16,7 @@ export const ProgressIndicator = forwardRef<
   return (
     <ProgressIndicatorPrimitive
       className={progressIndicatorStyles({ isIndeterminate, className })}
-      style={{ ...style, transform: `translateX(-${x}%)` }}
+      style={{ ...style, ...(!isIndeterminate && { transform: `translateX(-${x}%)` }) }}
       ref={ref}
       {...others}
     />
