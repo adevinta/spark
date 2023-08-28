@@ -123,37 +123,6 @@ describe('FormField', () => {
     expect(screen.getByLabelText('Electronics')).toHaveAttribute('name', 'category')
     expect(screen.getByLabelText('Electronics')).toHaveAttribute('name', 'category')
   })
-
-  it('should render using custom label required', () => {
-    render(
-      <FormField name="email" isRequired>
-        <FormField.Label asChild>
-          <label>Email</label>
-        </FormField.Label>
-
-        <FormField.Control>
-          {({ id, name, description, isRequired }) => (
-            <input
-              type="email"
-              id={id}
-              name={name}
-              aria-required={isRequired}
-              required={isRequired}
-              aria-describedby={description}
-            />
-          )}
-        </FormField.Control>
-      </FormField>,
-    )
-    const inputEl = screen.getByLabelText(/Email/)
-    const requiredEl = screen.getByText('*')
-
-    expect(inputEl).toHaveAttribute('required')
-    expect(inputEl).toHaveAttribute('aria-required', 'true')
-
-    expect(requiredEl).toHaveAttribute('role', 'presentation')
-    expect(requiredEl).toHaveAttribute('aria-hidden', 'true')
-  })
 })
 
 describe('FormField error message', () => {

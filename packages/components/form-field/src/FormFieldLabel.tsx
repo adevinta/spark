@@ -1,8 +1,7 @@
 import { Label, LabelProps } from '@spark-ui/label'
 import { Slottable } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
-import { Children, cloneElement, forwardRef, ReactElement, ReactNode } from 'react'
-import { isElement } from 'react-is'
+import { forwardRef, ReactNode } from 'react'
 
 import { useFormField } from './FormFieldContext'
 import { FormFieldRequiredIndicator } from './FormFieldRequiredIndicator'
@@ -12,21 +11,6 @@ export interface FormFieldLabelProps extends LabelProps {
    * Element shown when the input is required inside the label.
    */
   requiredIndicator?: ReactNode
-}
-
-const append = (children: ReactNode, requiredIndicator: ReactNode) => {
-  if (!isElement(children)) {
-    return null
-  }
-
-  const { props } = children as ReactElement
-
-  const childChildren = Children.map(
-    [...Children.toArray(props?.children), requiredIndicator],
-    (child, index) => <Slottable key={index}>{child}</Slottable>,
-  )
-
-  return cloneElement(children as ReactElement, { children: childChildren })
 }
 
 export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
@@ -44,16 +28,7 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
     const control = useFormField()
 
     const { disabled, labelId, isRequired } = control
-    const htmlFor = htmlForProp || control.id
-
-    const child = asChild ? (
-      append(children, isRequired ? requiredIndicator : null)
-    ) : (
-      <>
-        {children}
-        {isRequired && requiredIndicator}
-      </>
-    )
+    const htmlFor = asChild ? undefined : htmlForProp || control.id
 
     return (
       <Label
@@ -69,7 +44,9 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
         asChild={asChild}
         {...others}
       >
-        {child}
+        <Slottable>{children}</Slottable>
+
+        {isRequired && requiredIndicator}
       </Label>
     )
   },
