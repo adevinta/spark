@@ -14,16 +14,16 @@ export const ProgressLabel = forwardRef<HTMLSpanElement, ProgressLabelProps>(
       (el: HTMLSpanElement) => {
         onLabelId(el ? id : undefined)
       },
-      [id, onLabelId]
+      [id, onLabelId],
     )
     const ref = useMergeRefs(forwardedRef, rootRef)
 
     return (
-      <span id={id} className="text-body-1 text-on-surface" ref={ref} {...others}>
+      <span id={id} className="text-body-2 text-on-surface" ref={ref} {...others}>
         {children}
       </span>
     )
-  }
+  },
 )
 
 ProgressLabel.displayName = 'Progress.Label'
