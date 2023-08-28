@@ -13,10 +13,34 @@ export const drawerContentStyles = cva(
         lg: '',
       },
       side: {
-        right: ['top-none', 'right-none', 'h-screen'],
-        left: ['top-none', 'left-none', 'h-screen'],
-        top: ['top-none', 'left-none', 'w-screen'],
-        bottom: ['bottom-none', 'left-none', 'w-screen'],
+        right: [
+          'top-none',
+          'right-none',
+          'h-screen',
+          'data-[state=open]:animate-slide-in-right',
+          'data-[state=closed]:animate-slide-out-right',
+        ],
+        left: [
+          'top-none',
+          'left-none',
+          'h-screen',
+          'data-[state=open]:animate-slide-in-left',
+          'data-[state=closed]:animate-slide-out-left',
+        ],
+        top: [
+          'top-none',
+          'left-none',
+          'w-screen',
+          'data-[state=open]:animate-slide-in-top',
+          'data-[state=closed]:animate-slide-out-top',
+        ],
+        bottom: [
+          'bottom-none',
+          'left-none',
+          'w-screen',
+          'data-[state=open]:animate-slide-in-bottom',
+          'data-[state=closed]:animate-slide-out-bottom',
+        ],
       },
     },
     compoundVariants: [
