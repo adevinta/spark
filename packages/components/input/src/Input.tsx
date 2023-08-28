@@ -44,9 +44,9 @@ const Root = forwardRef<HTMLInputElement, InputProps>(
       onClear,
     } = group
     const Component = asChild ? Slot : 'input'
-    const state = field.state ?? group.state
-    const disabled = group.disabled ?? disabledProp
-    const readOnly = group.readOnly ?? readOnlyProp
+    const state = field.state || group.state
+    const disabled = field.disabled || group.disabled || disabledProp
+    const readOnly = field.readOnly || group.readOnly || readOnlyProp
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
       if (onChange) {

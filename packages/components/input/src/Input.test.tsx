@@ -95,6 +95,30 @@ describe('Input', () => {
     expect(screen.getByText(rightText)).toBeInTheDocument()
   })
 
+  it('should be read only when group is read only', () => {
+    const placeholder = 'Smartphone'
+
+    render(
+      <InputGroup readOnly>
+        <Input placeholder={placeholder} />
+      </InputGroup>,
+    )
+
+    expect(screen.getByPlaceholderText(placeholder)).toHaveAttribute('readOnly')
+  })
+
+  it('should be disabled when group is disabled', () => {
+    const placeholder = 'Smartphone'
+
+    render(
+      <InputGroup disabled>
+        <Input placeholder={placeholder} />
+      </InputGroup>,
+    )
+
+    expect(screen.getByPlaceholderText(placeholder)).toBeDisabled()
+  })
+
   it('should render icons within group', () => {
     const leftLabel = 'Check'
     const rightLabel = 'Euro'
@@ -353,5 +377,33 @@ describe('Input', () => {
 
     expect(inputEl).toBeInvalid()
     expect(inputEl).toHaveAccessibleDescription(errorText)
+  })
+
+  it('should be read only when field is read only', () => {
+    const label = 'Title'
+
+    render(
+      <FormField readOnly>
+        <FormField.Label>{label}</FormField.Label>
+
+        <Input />
+      </FormField>,
+    )
+
+    expect(screen.getByLabelText(label)).toHaveAttribute('readOnly')
+  })
+
+  it('should be disabled when field is disabled', () => {
+    const label = 'Title'
+
+    render(
+      <FormField disabled>
+        <FormField.Label>{label}</FormField.Label>
+
+        <Input />
+      </FormField>,
+    )
+
+    expect(screen.getByLabelText(label)).toBeDisabled()
   })
 })

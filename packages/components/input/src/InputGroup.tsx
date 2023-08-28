@@ -102,9 +102,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     const current = useMemo(() => {
       return {
-        state,
-        disabled,
-        readOnly,
+        state: stateProp,
+        disabled: !!disabledProp,
+        readOnly: !!readOnlyProp,
         hasLeadingIcon,
         hasTrailingIcon,
         hasLeadingAddon,
@@ -113,9 +113,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         onClear: handleClear,
       }
     }, [
-      state,
-      disabled,
-      readOnly,
+      stateProp,
+      disabledProp,
+      readOnlyProp,
       hasLeadingIcon,
       hasTrailingIcon,
       hasLeadingAddon,
