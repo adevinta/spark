@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/blocks'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Kbd } from '@spark-ui/kbd'
 
 import { Popover } from '.'
 
@@ -131,8 +132,8 @@ Adheres to the [`Dialog WAI-ARIA design pattern`](https://www.w3.org/WAI/ARIA/ap
 
 ### Keyboard Interactions
 
-- `Space`: Open/Closes the popover.
-- `Enter`: Open/Closes the popover.
-- `Tab`: Moves focus to the next focusable element.
-- `Shift + Tab`: Moves focus to the previous focusable element.
-- `Esc`: Closes the popover and moves focus back to `Popover.Trigger`.
+- <Kbd>Space</Kbd>: Open/Closes the popover.
+- <Kbd>Enter</Kbd>: Open/Closes the popover.
+- <Kbd>Tab</Kbd>: Moves focus to the next focusable element.
+- <Kbd>Shift</Kbd> + <Kbd>Tab</Kbd>: Moves focus to the previous focusable element.
+- <Kbd>Esc</Kbd>: Closes the popover and moves focus back to `Popover.Trigger`.

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.10](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.9...@spark-ui/input@1.4.10) (2023-08-28)
+
+### Bug Fixes
+
+- **input:** readOnly and disabled within form field not being propagated ([936dc4d](https://github.com/adevinta/spark/commit/936dc4dabd9c2105a0b1915e7d07cac9356c6904))
+
 ## [1.4.9](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.8...@spark-ui/input@1.4.9) (2023-08-23)
 
 **Note:** Version bump only for package @spark-ui/input
