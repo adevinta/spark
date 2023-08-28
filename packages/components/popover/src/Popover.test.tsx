@@ -40,7 +40,7 @@ describe('Popover', () => {
             <Popover.Arrow />
             Popover content
           </Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // ...by default, only trigger elements are rendered
@@ -69,7 +69,7 @@ describe('Popover', () => {
             <button type="button">Click me</button>
           </Popover.Trigger>
           <Popover.Content forceMount>Popover content</Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // Then the content is rendered in the DOM
@@ -103,7 +103,7 @@ describe('Popover', () => {
             Popover content
             <input type="text" placeholder="First focusable element" />
           </Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // Then first focusable child has focus and event has been called
@@ -127,7 +127,7 @@ describe('Popover', () => {
             Popover content
             <input type="text" placeholder="First focusable element" />
           </Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // Then the first focusable child does not get the focus because the event handler cancels it
@@ -150,7 +150,7 @@ describe('Popover', () => {
           <Popover.Content onPointerDownOutside={onPointerDownOutside}>
             Popover content
           </Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // ...by default, content is rendered
@@ -175,7 +175,7 @@ describe('Popover', () => {
             <button type="button">Click me</button>
           </Popover.Trigger>
           <Popover.Content onEscapeKeyDown={onEscapeKeyDown}>Popover content</Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // ...by default, content is rendered
@@ -202,7 +202,7 @@ describe('Popover', () => {
             Popover content
             <Popover.CloseButton aria-label="Close the popover" />
           </Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // ...by default, content is rendered
@@ -225,7 +225,7 @@ describe('Popover', () => {
             <button type="button">Click me</button>
           </Popover.Trigger>
           <Popover.Content>Popover content</Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // ...by default, content is rendered
@@ -284,7 +284,7 @@ describe('Popover', () => {
             Popover content
             <input type="text" placeholder="First focusable element" />
           </Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // When the user open the popover
@@ -313,7 +313,7 @@ describe('Popover', () => {
             Popover content
             <input type="text" placeholder="First focusable element" />
           </Popover.Content>
-        </Popover>,
+        </Popover>
       )
 
       // When the user open the popover
@@ -341,7 +341,7 @@ describe('Popover', () => {
             <Popover.Content>Popover content</Popover.Content>
           </Popover.Portal>
         </Popover>
-      </div>,
+      </div>
     )
 
     // When we search for the popover inside of its original container

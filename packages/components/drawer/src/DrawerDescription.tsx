@@ -5,7 +5,7 @@ export type DescriptionElement = ElementRef<typeof RadixDrawer.Description>
 export type DrawerDescriptionProps = RadixDrawer.DialogDescriptionProps
 
 export const DrawerDescription = forwardRef<DescriptionElement, DrawerDescriptionProps>(
-  (props, ref) => <RadixDrawer.Description ref={ref} {...props} />,
+  (props, ref) => <RadixDrawer.Description ref={ref} {...props} />
 )
 
 DrawerDescription.displayName = 'Drawer.Description'

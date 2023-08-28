@@ -9,7 +9,7 @@ type ResizeCallback = (entry?: ResizeObserverEntry) => void
 
 export const useResizeObserver = <T extends HTMLElement>(
   target: RefObject<T> | T | null,
-  onResize?: ResizeCallback,
+  onResize?: ResizeCallback
 ): Size => {
   const [size, setSize] = useState<Size>({ width: undefined, height: undefined })
   const resizeObserverRef = useRef<ResizeObserver>()

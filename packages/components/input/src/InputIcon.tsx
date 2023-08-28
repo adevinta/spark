@@ -16,7 +16,7 @@ export const InputIcon = ({ className, intent, children, ...others }: InputIconP
         className,
         'pointer-events-none absolute top-[calc(var(--sz-44)/2)] -translate-y-1/2',
         intent ? undefined : 'text-neutral peer-focus:text-outline-high',
-        isInactive ? 'opacity-dim-3' : undefined,
+        isInactive ? 'opacity-dim-3' : undefined
       )}
       {...others}
     >

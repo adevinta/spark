@@ -137,7 +137,7 @@ export const CustomImplementation: StoryFn = () => {
         className={cx(
           'flex max-w-sz-320 flex-wrap gap-md rounded-md p-lg shadow',
           value === selectedValue ? 'bg-success/dim-4' : '',
-          'cursor-pointer',
+          'cursor-pointer'
         )}
       >
         <RadioGroup.Radio aria-labelledby={id} id={value} {...others} />
@@ -193,7 +193,7 @@ export const InvisibleRadioGroup: StoryFn = () => {
           value === selectedValue ? 'bg-success/dim-4' : '',
           'cursor-pointer',
           'focus-within:ring-outline-high',
-          '[&:has(:focus-visible)]:focus-within:ring-2',
+          '[&:has(:focus-visible)]:focus-within:ring-2'
         )}
       >
         <VisuallyHidden>

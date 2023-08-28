@@ -38,7 +38,7 @@ export const styles = cva(
       intent: 'basic',
       size: 'sm',
     },
-  },
+  }
 )
 
 export type StylesProps = VariantProps<typeof styles>
@@ -68,7 +68,7 @@ export const thumbStyles = cva(
       size: 'sm',
       checked: false,
     },
-  },
+  }
 )
 
 export const thumbCheckSVGStyles = cva(['transition-opacity duration-200'], {

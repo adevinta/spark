@@ -12,7 +12,7 @@ export type ContentProps = RadixDialog.DialogContentProps & DialogContentStylesP
 export const Content = forwardRef(
   (
     { children, className, size = 'md', ...rest }: ContentProps,
-    ref: Ref<HTMLDivElement>,
+    ref: Ref<HTMLDivElement>
   ): ReactElement => (
     <div className={dialogContentWrapperStyles()}>
       <RadixDialog.Content
@@ -27,7 +27,7 @@ export const Content = forwardRef(
         {children}
       </RadixDialog.Content>
     </div>
-  ),
+  )
 )
 
 Content.displayName = 'Dialog.Content'

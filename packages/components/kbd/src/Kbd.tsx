@@ -14,5 +14,5 @@ export const Kbd = forwardRef<HTMLElement, PropsWithChildren<KbdProps>>(
         {...props}
       />
     )
-  },
+  }
 )

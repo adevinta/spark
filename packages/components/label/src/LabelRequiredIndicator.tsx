@@ -17,7 +17,7 @@ export const LabelRequiredIndicator = forwardRef<HTMLSpanElement, LabelRequiredI
         {children}
       </span>
     )
-  },
+  }
 )
 
 LabelRequiredIndicator.displayName = 'Label.RequiredIndicator'

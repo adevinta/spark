@@ -4,6 +4,7 @@ const config = {
   semi: false,
   singleQuote: true,
   arrowParens: 'avoid',
+  trailingComma: 'es5'
 }
 
 module.exports = config

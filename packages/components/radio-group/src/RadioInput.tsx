@@ -37,7 +37,7 @@ export const RadioInput = forwardRef<HTMLButtonElement, RadioInputProps>(
         <RadioIndicator intent={intent} forceMount />
       </RadioPrimitive>
     )
-  },
+  }
 )
 
 RadioInput.displayName = 'RadioGroup.RadioInput'

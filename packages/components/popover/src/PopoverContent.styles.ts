@@ -30,7 +30,7 @@ export const styles = cva(
       enforceBoundaries: false,
       hasCloseButton: false,
     },
-  },
+  }
 )
 
 export type StylesProps = VariantProps<typeof styles>

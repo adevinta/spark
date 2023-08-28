@@ -36,7 +36,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
         </IconButton>
       </RadixPopover.Close>
     )
-  },
+  }
 )
 
 CloseButton.displayName = 'Popover.CloseButton'

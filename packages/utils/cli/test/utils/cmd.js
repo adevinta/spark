@@ -34,7 +34,7 @@ function createProcess(processPath, args = [], env = null) {
         preventAutoStart: false,
         PATH, // This is needed in order to get all the binaries in your current terminal
       },
-      env,
+      env
     ),
     stdio: [null, null, null, 'ipc'], // This enables interprocess communication (IPC)
   })
@@ -131,7 +131,7 @@ function executeWithInput(processPath, args, inputs, opts = {}) {
         }
 
         resolve(result.toString())
-      }),
+      })
     )
   })
 

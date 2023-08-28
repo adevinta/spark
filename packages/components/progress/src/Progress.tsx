@@ -25,7 +25,7 @@ export const Progress = forwardRef<
       children = <ProgressBar />,
       ...others
     },
-    ref,
+    ref
   ) => {
     const [labelId, setLabelId] = useState<string>()
 
@@ -47,7 +47,7 @@ export const Progress = forwardRef<
         </ProgressPrimitive>
       </ProgressContext.Provider>
     )
-  },
+  }
 )
 
 Progress.displayName = 'Progress'

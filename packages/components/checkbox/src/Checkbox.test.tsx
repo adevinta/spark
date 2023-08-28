@@ -71,7 +71,7 @@ describe('Checkbox', () => {
     render(
       <Checkbox defaultChecked onCheckedChange={onCheckedChange}>
         {label}
-      </Checkbox>,
+      </Checkbox>
     )
 
     const checkboxEl = screen.getByRole('checkbox', { name: label })
@@ -90,7 +90,7 @@ describe('Checkbox', () => {
     render(
       <Checkbox checked onCheckedChange={onCheckedChange}>
         {label}
-      </Checkbox>,
+      </Checkbox>
     )
 
     const checkboxEl = screen.getByRole('checkbox', { name: label })
@@ -124,7 +124,7 @@ describe('CheckboxGroup', () => {
       <CheckboxGroup aria-label="Sports">
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
-      </CheckboxGroup>,
+      </CheckboxGroup>
     )
 
     const groupEl = screen.getByRole('group', { name: 'Sports' })
@@ -149,7 +149,7 @@ describe('CheckboxGroup', () => {
       >
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
-      </CheckboxGroup>,
+      </CheckboxGroup>
     )
 
     const groupEl = screen.getByRole('group', { name: 'Sports' })
@@ -178,7 +178,7 @@ describe('CheckboxGroup', () => {
       >
         <Checkbox value="soccer">Soccer</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
-      </CheckboxGroup>,
+      </CheckboxGroup>
     )
 
     const groupEl = screen.getByRole('group', { name: 'Sports' })
@@ -199,7 +199,7 @@ describe('CheckboxGroup', () => {
     const { rerender } = render(
       <CheckboxGroup>
         <Checkbox value="accessible">My accessible label</Checkbox>
-      </CheckboxGroup>,
+      </CheckboxGroup>
     )
 
     expect(screen.getByRole('checkbox', { name: 'My accessible label' })).toBeInTheDocument()
@@ -208,11 +208,11 @@ describe('CheckboxGroup', () => {
     rerender(
       <CheckboxGroup>
         <Checkbox value="accessible" aria-label="My worst effort accessible label" />
-      </CheckboxGroup>,
+      </CheckboxGroup>
     )
 
     expect(
-      screen.getByRole('checkbox', { name: 'My worst effort accessible label' }),
+      screen.getByRole('checkbox', { name: 'My worst effort accessible label' })
     ).toBeInTheDocument()
 
     // On using the FormField we also could be using the related subcomponent
@@ -223,7 +223,7 @@ describe('CheckboxGroup', () => {
         <CheckboxGroup>
           <Checkbox value="accessible" />
         </CheckboxGroup>
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByRole('checkbox', { name: 'My accessible field label' })).toBeInTheDocument()
@@ -239,7 +239,7 @@ describe('CheckboxGroup', () => {
             <Checkbox value="soccer">Soccer</Checkbox>
             <Checkbox value="baseball">Baseball</Checkbox>
           </CheckboxGroup>
-        </FormField>,
+        </FormField>
       )
 
       expect(screen.getByRole('group', { name: 'Sports' })).toBeInTheDocument()
@@ -256,11 +256,11 @@ describe('CheckboxGroup', () => {
           </CheckboxGroup>
 
           <FormField.HelperMessage>Choose which sports you like</FormField.HelperMessage>
-        </FormField>,
+        </FormField>
       )
 
       const checkboxEls = within(screen.getByRole('group', { name: 'Sports' })).getAllByRole(
-        'checkbox',
+        'checkbox'
       )
 
       expect(checkboxEls[0]).toHaveAttribute('aria-required', 'true')
@@ -273,7 +273,7 @@ describe('CheckboxGroup', () => {
         screen.getByRole('group', {
           name: 'Sports',
           description: 'Choose which sports you like',
-        }),
+        })
       ).toBeInTheDocument()
     })
   })

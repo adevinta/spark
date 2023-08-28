@@ -11,7 +11,7 @@ export const Footer = forwardRef(
     <footer ref={ref} className={cx(className, ['px-xl', 'py-lg'])} {...rest}>
       {children}
     </footer>
-  ),
+  )
 )
 
 Footer.displayName = 'Dialog.Footer'

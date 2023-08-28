@@ -14,7 +14,7 @@ export const Trigger = forwardRef<TriggerElement, TriggerProps>(
     >
       {children}
     </RadixPopover.Trigger>
-  ),
+  )
 )
 
 Trigger.displayName = 'Popover.Trigger'

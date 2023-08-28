@@ -32,7 +32,7 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
         )}
       </div>
     )
-  },
+  }
 )
 
 Radio.displayName = 'RadioGroup.Radio'

@@ -12,7 +12,7 @@ export const DrawerTitle = forwardRef<TitleElement, DrawerTitleProps>(
       className={cx('text-headline-2 text-on-surface', className)}
       {...others}
     />
-  ),
+  )
 )
 
 DrawerTitle.displayName = 'Drawer.Title'

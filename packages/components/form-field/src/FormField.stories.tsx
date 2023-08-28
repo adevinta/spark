@@ -97,7 +97,7 @@ export const State: StoryFn = () => (
             aria-describedby={description}
             className={cx(
               'rounded-sm border-md p-md outline-none',
-              state === 'error' ? 'border-error' : 'border-neutral',
+              state === 'error' ? 'border-error' : 'border-neutral'
             )}
           />
         )}
@@ -118,7 +118,7 @@ export const State: StoryFn = () => (
             aria-describedby={description}
             className={cx(
               'rounded-sm border-md p-md outline-none',
-              state === 'success' ? 'border-success' : 'border-neutral',
+              state === 'success' ? 'border-success' : 'border-neutral'
             )}
           />
         )}
@@ -139,7 +139,7 @@ export const State: StoryFn = () => (
             aria-describedby={description}
             className={cx(
               'rounded-sm border-md p-md outline-none',
-              state === 'alert' ? 'border-alert' : 'border-neutral',
+              state === 'alert' ? 'border-alert' : 'border-neutral'
             )}
           />
         )}

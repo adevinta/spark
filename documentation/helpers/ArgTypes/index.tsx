@@ -22,7 +22,7 @@ const ComponentDescription = ({ name, children }: { name: string; children: Reac
 
 function useTabsOrientation() {
   const [tabsOrientation, setTabsOrientation] = useState<TabsRootProps['orientation']>(
-    window.innerWidth < 640 ? 'horizontal' : 'vertical',
+    window.innerWidth < 640 ? 'horizontal' : 'vertical'
   )
 
   useEffect(() => {

@@ -39,7 +39,7 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
       className,
       ...others
     },
-    ref,
+    ref
   ) => {
     const hasOverflow = count && count > overflowCount
     const ariaLabel = typeof label === 'function' ? label({ count, overflowCount }) : label
@@ -61,7 +61,7 @@ export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
         {hasOverflow ? `${overflowCount}+` : count}
       </span>
     )
-  },
+  }
 )
 
 BadgeItem.displayName = 'BadgeItem'

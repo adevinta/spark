@@ -13,7 +13,7 @@ export const AlertDialogCancel = forwardRef<AlertDialogCancelElement, AlertDialo
     const ref = useMergeRefs(forwardedRef, cancelRef)
 
     return <Dialog.Close ref={ref} data-spark-component="alert-dialog-cancel" {...props} />
-  },
+  }
 )
 
 AlertDialogCancel.displayName = 'AlertDialog.Cancel'

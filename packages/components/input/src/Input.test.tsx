@@ -87,7 +87,7 @@ describe('Input', () => {
         <InputGroup.LeadingAddon>{leftText}</InputGroup.LeadingAddon>
         <Input placeholder={placeholder} />
         <InputGroup.TrailingAddon>{rightText}</InputGroup.TrailingAddon>
-      </InputGroup>,
+      </InputGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()
@@ -101,7 +101,7 @@ describe('Input', () => {
     render(
       <InputGroup readOnly>
         <Input placeholder={placeholder} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toHaveAttribute('readOnly')
@@ -113,7 +113,7 @@ describe('Input', () => {
     render(
       <InputGroup disabled>
         <Input placeholder={placeholder} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toBeDisabled()
@@ -133,7 +133,7 @@ describe('Input', () => {
         <InputGroup.TrailingIcon label={rightLabel}>
           <Euro />
         </InputGroup.TrailingIcon>
-      </InputGroup>,
+      </InputGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()
@@ -149,7 +149,7 @@ describe('Input', () => {
       <InputGroup state="error">
         <Input />
         <InputGroup.StateIndicator errorIcon={errorIcon} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     expect(screen.getByText(label)).toBeInTheDocument()
@@ -163,7 +163,7 @@ describe('Input', () => {
       <InputGroup state="alert">
         <Input />
         <InputGroup.StateIndicator alertIcon={alertIcon} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     expect(screen.getByText(label)).toBeInTheDocument()
@@ -177,7 +177,7 @@ describe('Input', () => {
       <InputGroup state="success">
         <Input />
         <InputGroup.StateIndicator successIcon={successIcon} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     expect(screen.getByText(label)).toBeInTheDocument()
@@ -197,7 +197,7 @@ describe('Input', () => {
         </InputGroup.TrailingIcon>
 
         <InputGroup.StateIndicator label={stateLabel} errorIcon={errorIcon} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     expect(screen.queryByText(trailingLabel)).not.toBeInTheDocument()
@@ -213,7 +213,7 @@ describe('Input', () => {
         <Input defaultValue={defaultValue} />
 
         <InputGroup.ClearButton aria-label={clearLabel} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     const inputEl = screen.getByDisplayValue(defaultValue)
@@ -234,7 +234,7 @@ describe('Input', () => {
         <Input defaultValue={defaultValue} />
 
         <InputGroup.ClearButton aria-label={clearLabel} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     const inputEl = screen.getByDisplayValue(defaultValue)
@@ -256,7 +256,7 @@ describe('Input', () => {
         <Input value={value} />
 
         <InputGroup.ClearButton aria-label={clearLabel} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     const inputEl = screen.getByDisplayValue(value)
@@ -276,7 +276,7 @@ describe('Input', () => {
         <Input defaultValue={defaultValue} />
 
         <InputGroup.ClearButton aria-label="Clear" />
-      </InputGroup>,
+      </InputGroup>
     )
 
     const inputEl = screen.getByDisplayValue(defaultValue)
@@ -296,7 +296,7 @@ describe('Input', () => {
     render(
       <InputGroup>
         <Input defaultValue={defaultValue} />
-      </InputGroup>,
+      </InputGroup>
     )
 
     const inputEl = screen.getByDisplayValue(defaultValue)
@@ -319,7 +319,7 @@ describe('Input', () => {
         <FormField.Label>{label}</FormField.Label>
 
         <Input />
-      </FormField>,
+      </FormField>
     )
 
     const inputEl = screen.getByLabelText(label)
@@ -334,7 +334,7 @@ describe('Input', () => {
         <FormField.Label>Title</FormField.Label>
 
         <Input />
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText(/Title/)).toBeRequired()
@@ -352,7 +352,7 @@ describe('Input', () => {
         <Input />
 
         <FormField.HelperMessage>{helperText}</FormField.HelperMessage>
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText(label)).toHaveAccessibleDescription(helperText)
@@ -370,7 +370,7 @@ describe('Input', () => {
         <Input />
 
         <FormField.ErrorMessage>{errorText}</FormField.ErrorMessage>
-      </FormField>,
+      </FormField>
     )
 
     const inputEl = screen.getByLabelText(label)
@@ -387,7 +387,7 @@ describe('Input', () => {
         <FormField.Label>{label}</FormField.Label>
 
         <Input />
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText(label)).toHaveAttribute('readOnly')
@@ -401,7 +401,7 @@ describe('Input', () => {
         <FormField.Label>{label}</FormField.Label>
 
         <Input />
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText(label)).toBeDisabled()

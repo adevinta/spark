@@ -49,7 +49,7 @@ export const spinnerStyles = cva(
       },
     },
     defaultVariants,
-  },
+  }
 )
 
 export type SpinnerStylesProps = VariantProps<typeof spinnerStyles>

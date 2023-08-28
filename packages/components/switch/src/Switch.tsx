@@ -41,5 +41,5 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         )}
       </div>
     )
-  },
+  }
 )

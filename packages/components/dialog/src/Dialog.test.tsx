@@ -26,7 +26,7 @@ describe('Dialog', () => {
             <Dialog.CloseButton aria-label="Close edit profile" />
           </Dialog.Content>
         </Dialog.Portal>
-      </Dialog>,
+      </Dialog>
     )
 
     expect(screen.queryByText('Dialog contents')).not.toBeInTheDocument()

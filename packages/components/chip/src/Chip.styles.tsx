@@ -44,7 +44,7 @@ export const chipStyles = cva(
           'danger',
           'info',
           'neutral',
-          'surface'
+          'surface',
         ]
       >({
         main: [],

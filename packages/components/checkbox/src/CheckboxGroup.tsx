@@ -32,7 +32,7 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
       children,
       ...others
     },
-    ref,
+    ref
   ) => {
     const [value, setValue] = useCombinedState(valueProp, defaultValue)
     const field = useFormFieldControl()
@@ -84,7 +84,7 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
         </div>
       </CheckboxGroupContext.Provider>
     )
-  },
+  }
 )
 
 CheckboxGroup.displayName = 'CheckboxGroup'

@@ -25,7 +25,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
         {children}
       </header>
     )
-  },
+  }
 )
 
 Header.displayName = 'Popover.Header'

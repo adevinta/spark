@@ -52,7 +52,7 @@ describe('useResizeObserver', () => {
     expect(onResize).toHaveBeenCalledWith(
       expect.objectContaining({
         target: element,
-      }),
+      })
     )
   })
 })

@@ -81,7 +81,7 @@ describe('Textarea', () => {
         <TextareaGroup.TrailingIcon label={rightLabel}>
           <Euro />
         </TextareaGroup.TrailingIcon>
-      </TextareaGroup>,
+      </TextareaGroup>
     )
 
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument()
@@ -98,7 +98,7 @@ describe('Textarea', () => {
         <FormField.Label>{label}</FormField.Label>
 
         <Textarea />
-      </FormField>,
+      </FormField>
     )
 
     const textareaEl = screen.getByLabelText(label)
@@ -113,7 +113,7 @@ describe('Textarea', () => {
         <FormField.Label>Title</FormField.Label>
 
         <Textarea />
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText(/Title/)).toBeRequired()
@@ -131,7 +131,7 @@ describe('Textarea', () => {
         <Textarea />
 
         <FormField.HelperMessage>{helperText}</FormField.HelperMessage>
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText(label)).toHaveAccessibleDescription(helperText)
@@ -149,7 +149,7 @@ describe('Textarea', () => {
         <Textarea />
 
         <FormField.ErrorMessage>{errorText}</FormField.ErrorMessage>
-      </FormField>,
+      </FormField>
     )
 
     const textareaEl = screen.getByLabelText(label)

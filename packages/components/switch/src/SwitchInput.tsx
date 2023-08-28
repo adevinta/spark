@@ -67,7 +67,7 @@ export const SwitchInput = React.forwardRef<HTMLButtonElement, SwitchInputProps>
       required,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const [isChecked, setIsChecked] = useCombinedState(checked, defaultChecked)
     const { name, description, state, isRequired, isInvalid } = useFormFieldControl()
@@ -102,5 +102,5 @@ export const SwitchInput = React.forwardRef<HTMLButtonElement, SwitchInputProps>
         </SwitchPrimitive.Thumb>
       </SwitchPrimitive.Root>
     )
-  },
+  }
 )

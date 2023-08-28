@@ -66,5 +66,5 @@ module.exports = plugin.withOptions(
         translate: getCSSVariableReferences(),
       },
     },
-  }),
+  })
 )
