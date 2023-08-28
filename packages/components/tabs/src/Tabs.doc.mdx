@@ -1,6 +1,8 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Tabs } from '.'
+import { Kbd } from '@spark-ui/kbd'
+
 import * as stories from './Tabs.stories'
 
 <Meta of={stories} />
@@ -90,10 +92,15 @@ Adheres to the [Tabs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/pa
 
 ### Keyboard Interactions
 
-- `Tab`: When focus moves onto the tabs, focuses the active trigger. When a trigger is focused, moves focus to the active content.
-- `ArrowDown`: Moves focus to the next trigger depending on `orientation` and activates its associated content.
-- `ArrowRight`: Moves focus to the next trigger depending on `orientation` and activates its associated content.
-- `ArrowUp`: Moves focus to the previous trigger depending on `orientation` and activates its associated content.
-- `ArrowLeft`: Moves focus to the previous trigger depending on `orientation` and activates its associated content.
-- `Home`: Moves focus to the first trigger and activates its associated content.
-- `End`: Moves focus to the last trigger and activates its associated content.
+- <Kbd>Tab</Kbd>: When focus moves onto the tabs, focuses the active trigger. When a trigger is
+  focused, moves focus to the active content.
+- <Kbd>ArrowDown</Kbd>: Moves focus to the next trigger depending on `orientation` and activates its
+  associated content.
+- <Kbd>ArrowRight</Kbd>: Moves focus to the next trigger depending on `orientation` and activates
+  its associated content.
+- <Kbd>ArrowUp</Kbd>: Moves focus to the previous trigger depending on `orientation` and activates
+  its associated content.
+- <Kbd>ArrowLeft</Kbd>: Moves focus to the previous trigger depending on `orientation` and activates
+  its associated content.
+- <Kbd>Home</Kbd>: Moves focus to the first trigger and activates its associated content.
+- <Kbd>End</Kbd>: Moves focus to the last trigger and activates its associated content.

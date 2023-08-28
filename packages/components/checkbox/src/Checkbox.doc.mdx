@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { Kbd } from '@spark-ui/kbd'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Checkbox, CheckboxGroup } from '.'
@@ -172,6 +173,6 @@ Adheres to the [tri-state Checkbox WAI-ARIA design pattern](https://www.w3.org/W
 
 ### Keyboard Interactions
 
-- `Space`: Checks/unchecks the checkbox.
-- `Tab`: Inside a `CheckboxGroup`, goes to the next checkbox.
-- `Shift + Tab`: Inside a `CheckboxGroup`, goes to the previous checkbox.
+- <Kbd>Space</Kbd>: Checks/unchecks the checkbox.
+- <Kbd>Tab</Kbd>: Inside a `CheckboxGroup`, goes to the next checkbox.
+- <Kbd>Shift</Kbd> + <Kbd>Tab</Kbd>: Inside a `CheckboxGroup`, goes to the previous checkbox.
