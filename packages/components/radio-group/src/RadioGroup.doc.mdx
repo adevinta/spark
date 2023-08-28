@@ -3,6 +3,7 @@ import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { RadioGroup } from '.'
 import * as stories from './RadioGroup.stories'
+import { Kbd } from '@spark-ui/kbd'
 
 <Meta of={stories} />
 
@@ -131,9 +132,10 @@ Adheres to the [Radio Group WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA
 
 ### Keyboard Interactions
 
-- `Tab`: Moves focus to either the checked radio item or the first radio item in the group.
-- `Space`: When focus is on an unchecked radio item, checks it.
-- `ArrowDown`: Moves focus and checks the next radio item in the group.
-- `ArrowRight`: Moves focus and checks the next radio item in the group.
-- `ArrowUp`: Moves focus to the previous radio item in the group.
-- `ArrowLeft`: Moves focus to the previous radio item in the group.
+- <Kbd>Tab</Kbd>: Moves focus to either the checked radio item or the first radio item in the group.
+- <Kbd>Shift</Kbd> + <Kbd>Tab</Kbd>: Moves focus forward to either the checked radio item or the first radio item in the group.
+- <Kbd>Space</Kbd>: When focus is on an unchecked radio item, checks it.
+- <Kbd>ArrowDown</Kbd>: Moves focus and checks the next radio item in the group.
+- <Kbd>ArrowRight</Kbd>: Moves focus and checks the next radio item in the group.
+- <Kbd>ArrowUp</Kbd>: Moves focus to the previous radio item in the group.
+- <Kbd>ArrowLeft</Kbd>: Moves focus to the previous radio item in the group.
