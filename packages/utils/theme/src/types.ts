@@ -183,10 +183,6 @@ export interface Theme {
     // Outline
     outline: string
     outlineHigh: string
-    outlineHovered: string
-    outlinePressed: string
-
-    outlineFocused: string
     // Overlay
     overlay: string
     onOverlay: string
