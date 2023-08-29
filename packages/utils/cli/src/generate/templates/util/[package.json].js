@@ -5,6 +5,11 @@ export default ({ name, description }) => `{
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "util",
+    "utility"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

@@ -5,6 +5,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "util",
+    "utility",
+    "plugin",
+    "tailwind",
+    "tailwindcss"
+  ],
   "main": "index.js",
   "dependencies": {
     "@spark-ui/theme-utils": "^3.0.2",
