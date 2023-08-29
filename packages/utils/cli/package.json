@@ -5,6 +5,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "util",
+    "utility"
+  ],
   "bin": {
     "spark": "./bin/spark.mjs",
     "spark-generate": "./bin/spark-generate.mjs"

@@ -1,10 +1,19 @@
-export default ({ name, description }) => `{
+export default ({ name, description }) => {
+  const meta = name.replace('use-', '')
+
+  return `{
   "name": "@spark-ui/${name}",
   "version": "1.0.0",
   "description": "${description}",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "hook",
+    "${meta}"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -27,3 +36,4 @@ export default ({ name, description }) => `{
   "license": "MIT"
 }
 `
+}
