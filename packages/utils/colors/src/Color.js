@@ -9,9 +9,10 @@ export class Color {
   #mode = undefined
 
   constructor(value) {
+    const mode = Mode.getFormat(value)
     const result = parse(value)
     if (result) {
-      const { mode, alpha, ...rest } = result
+      const { mode: _mode, alpha, ...rest } = result
 
       this.#mode = mode
       this.#alpha = alpha
