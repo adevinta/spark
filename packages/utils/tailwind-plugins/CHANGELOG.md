@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.2.0...@spark-ui/tailwind-plugins@3.2.1) (2023-08-29)
+
+### Bug Fixes
+
+- **tailwind-plugins:** progress animation ([85d92e4](https://github.com/adevinta/spark/commit/85d92e4c6791c23a7e916b3b3e30947f082ec6c6))
+- **tailwind-plugins:** update progress animation ([46f9ce0](https://github.com/adevinta/spark/commit/46f9ce031fb6518763d92e7d9e1029b82a02e6cc))
+
 # [3.2.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.1.0...@spark-ui/tailwind-plugins@3.2.0) (2023-08-25)
 
 ### Features

@@ -165,10 +165,20 @@ module.exports = plugin.withOptions(
           },
           standaloneIndeterminateBar: {
             '0%': {
-              transform: 'translateX(0%) scaleX(0.2)',
+              left: '0',
+              width: '0',
+            },
+            '50%': {
+              left: '50%',
+              width: '50%',
+            },
+            '75%': {
+              left: '100%',
+              width: '0',
             },
             '100%': {
-              transform: 'translateX(100%) scaleX(1)',
+              left: '0',
+              width: '0',
             },
           },
         },
@@ -186,7 +196,7 @@ module.exports = plugin.withOptions(
           'slide-out-bottom': 'slideOutBottom 0.4s cubic-bezier(0.05, 0.7, 0.1, 1)',
           'slide-out-left': 'slideOutLeft 0.4s cubic-bezier(0.05, 0.7, 0.1, 1)',
           'standalone-indeterminate-bar':
-            'standaloneIndeterminateBar 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite normal none running',
+            'standaloneIndeterminateBar 1s ease-out infinite normal none running',
         },
       },
     },
