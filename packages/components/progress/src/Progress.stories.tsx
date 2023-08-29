@@ -100,7 +100,7 @@ export const VisibleValue: StoryFn = () => {
       <div className="flex justify-between">
         <Progress.Label>Loading</Progress.Label>
 
-        <span className="text-body-1 text-on-surface">{value}%</span>
+        <span className="text-body-2 text-on-surface">{value}%</span>
       </div>
     </Progress>
   )
