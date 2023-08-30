@@ -9,7 +9,7 @@ import { RadioInputVariantsProps } from './RadioInput.styles'
 export interface RadioGroupProps
   extends RadioGroupVariantsProps,
     Pick<RadioInputVariantsProps, 'intent'>,
-    Omit<HTMLAttributes<HTMLDivElement>, 'value' | 'defaultValue' | 'dir'> {
+    Omit<HTMLAttributes<HTMLDivElement>, 'value' | 'defaultValue' | 'dir' | 'onChange'> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
    */

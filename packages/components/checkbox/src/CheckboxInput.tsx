@@ -11,7 +11,7 @@ type CheckedStatus = boolean | 'indeterminate'
 
 export interface CheckboxInputProps
   extends CheckboxInputStylesProps,
-    Omit<ComponentPropsWithoutRef<'button'>, 'value' | 'checked' | 'defaultChecked'> {
+    Omit<ComponentPropsWithoutRef<'button'>, 'onChange' | 'value' | 'checked' | 'defaultChecked'> {
   /**
    * The checked icon to use.
    */
