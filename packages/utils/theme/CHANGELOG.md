@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@3.0.3...@spark-ui/theme-utils@4.0.0) (2023-08-30)
+
+### Features
+
+- **theme-utils:** remove outline-related tokens from our Theme interface ([eb7bd95](https://github.com/adevinta/spark/commit/eb7bd95bc17bca4732c349b35f5156383d763116)), closes [#1351](https://github.com/adevinta/spark/issues/1351)
+
+### BREAKING CHANGES
+
+- **theme-utils:** remove outline-related tokens from our Theme interface
+
 ## [3.0.3](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@3.0.2...@spark-ui/theme-utils@3.0.3) (2023-08-29)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
