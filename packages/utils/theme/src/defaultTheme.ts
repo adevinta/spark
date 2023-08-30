@@ -172,9 +172,6 @@ export const defaultTheme: Theme = {
     // Outline
     outline: '#D1D0D5',
     outlineHigh: '#000000',
-    outlineHovered: '#2118C9',
-    outlinePressed: '#2118C9',
-    outlineFocused: '#D1D0D5',
     // Overlay
     overlay: '#313036', // use with dim-1 opacity
     onOverlay: '#FFFFFF',
