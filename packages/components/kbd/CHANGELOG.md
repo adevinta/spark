@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.7](https://github.com/adevinta/spark/compare/@spark-ui/kbd@1.1.6...@spark-ui/kbd@1.1.7) (2023-08-29)
+
+**Note:** Version bump only for package @spark-ui/kbd
+
 ## [1.1.6](https://github.com/adevinta/spark/compare/@spark-ui/kbd@1.1.5...@spark-ui/kbd@1.1.6) (2023-08-23)
 
 **Note:** Version bump only for package @spark-ui/kbd

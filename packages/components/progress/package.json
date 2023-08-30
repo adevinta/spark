@@ -1,10 +1,21 @@
 {
   "name": "@spark-ui/progress",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "progress"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -14,7 +25,7 @@
   "dependencies": {
     "@radix-ui/react-id": "1.0.1",
     "@radix-ui/react-progress": "1.0.3",
-    "@spark-ui/use-merge-refs": "^0.3.4",
+    "@spark-ui/use-merge-refs": "^0.3.6",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {

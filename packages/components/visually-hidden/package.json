@@ -1,10 +1,22 @@
 {
   "name": "@spark-ui/visually-hidden",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Hides content from the screen in an accessible way",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "visually-hidden",
+    "hidden"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

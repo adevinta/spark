@@ -1,10 +1,21 @@
 {
   "name": "@spark-ui/slot",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Merges its props onto its immediate child",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "slot"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
