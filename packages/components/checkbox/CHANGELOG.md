@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.0.13...@spark-ui/checkbox@2.0.14) (2023-08-30)
+
+### Bug Fixes
+
+- **checkbox:** remove misleading onChange props from types as it is not actually supported ([a83cc44](https://github.com/adevinta/spark/commit/a83cc44e22f1b319cc8fa805962fd17bea7dee03)), closes [#1320](https://github.com/adevinta/spark/issues/1320)
+
 ## [2.0.13](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.0.12...@spark-ui/checkbox@2.0.13) (2023-08-29)
 
 **Note:** Version bump only for package @spark-ui/checkbox
