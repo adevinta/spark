@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useEffect, useRef, useState } from 'react'
 
-import { Slot } from '.'
+import { Slot, Slottable } from '.'
 
 const meta: Meta<typeof Slot> = {
   title: 'Components/Slot',
@@ -113,3 +113,16 @@ export const Ref: StoryFn = _args => {
     </div>
   )
 }
+
+export const Append = () => (
+  <div className="flex flex-col">
+    slottable
+    <Slot data-prop="slotted">
+      <Slottable>
+        <ul className="list-disc"></ul>
+      </Slottable>
+      <li>1</li>
+      <li>2</li>
+    </Slot>
+  </div>
+)
