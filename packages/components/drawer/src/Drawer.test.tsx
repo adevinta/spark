@@ -26,7 +26,7 @@ describe('Drawer', () => {
             <Drawer.CloseButton aria-label="Close edit profile" />
           </Drawer.Content>
         </Drawer.Portal>
-      </Drawer>,
+      </Drawer>
     )
 
     expect(screen.queryByText('Drawer contents')).not.toBeInTheDocument()

@@ -13,7 +13,7 @@ describe('Portal', () => {
         <Portal>
           <p>Wrapped JSX element</p>
         </Portal>
-      </section>,
+      </section>
     )
 
     const articleBlock = screen.getByRole('region', { name: 'Article title' })

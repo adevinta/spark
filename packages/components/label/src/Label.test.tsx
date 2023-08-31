@@ -8,7 +8,7 @@ describe('Label', () => {
     render(
       <Label>
         Title <input type="text" name="title" />
-      </Label>,
+      </Label>
     )
 
     expect(screen.getByLabelText('Title')).toBeInTheDocument()
@@ -19,7 +19,7 @@ describe('Label', () => {
       <>
         <Label htmlFor="id">Title</Label>
         <input id="id" type="text" name="title" />
-      </>,
+      </>
     )
 
     expect(screen.getByLabelText('Title')).toBeInTheDocument()
@@ -33,7 +33,7 @@ describe('Label', () => {
           <Label.RequiredIndicator />
         </Label>
         <input id="id" type="text" name="title" />
-      </>,
+      </>
     )
 
     expect(screen.getByLabelText(/Title/)).toBeInTheDocument()
@@ -52,7 +52,7 @@ describe('Label', () => {
           <Label.RequiredIndicator>Required</Label.RequiredIndicator>
         </Label>
         <input id="id" type="text" name="title" />
-      </>,
+      </>
     )
 
     expect(screen.getByLabelText(/Title/)).toBeInTheDocument()

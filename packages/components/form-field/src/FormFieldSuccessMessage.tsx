@@ -14,7 +14,7 @@ export const FormFieldSuccessMessage = forwardRef<HTMLSpanElement, FormFieldSucc
         {...props}
       />
     )
-  },
+  }
 )
 
 FormFieldSuccessMessage.displayName = 'FormField.SuccessMessage'

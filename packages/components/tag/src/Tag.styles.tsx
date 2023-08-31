@@ -47,7 +47,7 @@ export const tagStyles = cva(
       design: 'filled',
       intent: 'basic',
     },
-  },
+  }
 )
 
 export type TagStylesProps = VariantProps<typeof tagStyles>

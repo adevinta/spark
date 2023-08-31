@@ -25,7 +25,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       children,
       ...others
     },
-    forwardedRef,
+    forwardedRef
   ) => {
     const innerId = useId(idProp)
     const innerLabelId = useId()
@@ -104,7 +104,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
         )}
       </div>
     )
-  },
+  }
 )
 
 Checkbox.displayName = 'Checkbox'

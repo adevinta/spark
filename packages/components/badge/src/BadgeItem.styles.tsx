@@ -47,7 +47,7 @@ export const styles = cva(
       size: DEFAULT_SIZE,
       type: DEFAULT_TYPE,
     },
-  },
+  }
 )
 
 export type StylesProps = VariantProps<typeof styles>

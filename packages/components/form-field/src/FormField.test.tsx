@@ -14,7 +14,7 @@ describe('FormField', () => {
             <input type="email" id={id} name={name} aria-describedby={description} />
           )}
         </FormField.Control>
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText('Email')).toHaveAttribute('name', 'email')
@@ -37,7 +37,7 @@ describe('FormField', () => {
             />
           )}
         </FormField.Control>
-      </FormField>,
+      </FormField>
     )
 
     const inputEl = screen.getByLabelText(/Email/)
@@ -64,7 +64,7 @@ describe('FormField', () => {
             <input type="email" id={id} name={name} aria-describedby={description} />
           )}
         </FormField.Control>
-      </FormField>,
+      </FormField>
     )
 
     const requiredEl = screen.getByText('Required')
@@ -85,7 +85,7 @@ describe('FormField', () => {
         </FormField.Control>
 
         <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
-      </FormField>,
+      </FormField>
     )
 
     const inputEl = screen.getByLabelText('Email')
@@ -116,7 +116,7 @@ describe('FormField', () => {
             </div>
           )}
         </FormField.Control>
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByRole('radiogroup', { name: 'Category' })).toBeInTheDocument()
@@ -144,7 +144,7 @@ describe('FormField error message', () => {
         </FormField.Control>
 
         <FormField.ErrorMessage>We will never share your email</FormField.ErrorMessage>
-      </FormField>,
+      </FormField>
     )
 
     const inputEl = screen.getByLabelText('Email')
@@ -172,7 +172,7 @@ describe('FormField error message', () => {
         </FormField.Control>
 
         <FormField.ErrorMessage>Email is required</FormField.ErrorMessage>
-      </FormField>,
+      </FormField>
     )
 
     const inputEl = screen.getByLabelText('Email')
@@ -197,7 +197,7 @@ describe('FormField error message', () => {
         <FormField.ErrorMessage>Email is required</FormField.ErrorMessage>
 
         <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
-      </FormField>,
+      </FormField>
     )
 
     const inputEl = screen.getByLabelText('Email')
@@ -237,7 +237,7 @@ describe('FormField error message', () => {
 
           <FormField.CharactersCount value={DEFAULT_VALUE} maxLength={MAX_LENGTH} />
         </div>
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText('Text')).toHaveValue('Hello')
@@ -269,7 +269,7 @@ describe('FormField error message', () => {
 
           <FormField.CharactersCount value={DEFAULT_VALUE} maxLength={MAX_LENGTH} />
         </div>
-      </FormField>,
+      </FormField>
     )
 
     expect(screen.getByLabelText('Text')).toHaveValue('')

@@ -7,7 +7,7 @@ export type AlertDialogOverlayProps = DialogOverlayProps
 export const AlertDialogOverlay = forwardRef<AlertDialogOverlayElement, AlertDialogOverlayProps>(
   (props, ref) => {
     return <Dialog.Overlay ref={ref} data-spark-component="alert-dialog-overlay" {...props} />
-  },
+  }
 )
 
 AlertDialogOverlay.displayName = 'AlertDialog.Overlay'

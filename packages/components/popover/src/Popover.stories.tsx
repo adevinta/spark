@@ -24,7 +24,7 @@ const ShowcaseContainer = forwardRef<
     ref={ref}
     className={cx(
       'flex h-sz-240 items-center justify-center rounded-sm border-md border-dashed border-neutral bg-neutral-container p-lg',
-      className,
+      className
     )}
   >
     {children}

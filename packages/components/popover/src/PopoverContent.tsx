@@ -27,7 +27,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
       sticky = 'partial',
       ...rest
     },
-    ref,
+    ref
   ) => {
     const { hasCloseButton, headerId } = usePopover()
 
@@ -59,7 +59,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
         {children}
       </RadixPopover.Content>
     )
-  },
+  }
 )
 
 Content.displayName = 'Popover.Content'

@@ -23,7 +23,7 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
       asChild,
       ...others
     },
-    ref,
+    ref
   ) => {
     const control = useFormField()
 
@@ -39,7 +39,7 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
         className={cx(
           className,
           'flex items-center gap-sm',
-          disabled ? 'pointer-events-none text-on-surface/dim-3' : undefined,
+          disabled ? 'pointer-events-none text-on-surface/dim-3' : undefined
         )}
         asChild={asChild}
         {...others}
@@ -49,7 +49,7 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
         {isRequired && requiredIndicator}
       </Label>
     )
-  },
+  }
 )
 
 FormFieldLabel.displayName = 'FormField.Label'

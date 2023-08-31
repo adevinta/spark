@@ -11,7 +11,7 @@ export function Item({ children }: PropsWithChildren<unknown>) {
           className={cx(
             isOpen ? '[grid-template-rows:auto_1fr]' : '[grid-template-rows:auto_0fr]',
             'grid border-t-outline transition-all duration-250 ease-in',
-            '[&:not(:first-child)]:border-t-sm',
+            '[&:not(:first-child)]:border-t-sm'
           )}
         >
           {children}

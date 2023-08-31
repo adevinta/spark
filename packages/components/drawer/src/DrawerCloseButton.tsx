@@ -21,7 +21,7 @@ export const DrawerCloseButton = forwardRef<CloseButtonElement, DrawerCloseButto
       children = <CloseSVG />,
       ...rest
     },
-    ref,
+    ref
   ) => (
     <DrawerClose
       ref={ref}
@@ -33,7 +33,7 @@ export const DrawerCloseButton = forwardRef<CloseButtonElement, DrawerCloseButto
         <Icon>{children}</Icon>
       </IconButton>
     </DrawerClose>
-  ),
+  )
 )
 
 DrawerCloseButton.displayName = 'Drawer.CloseButton'

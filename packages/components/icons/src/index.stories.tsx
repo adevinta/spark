@@ -23,7 +23,7 @@ export const Default: StoryFn = _args => {
 
 export const List: StoryFn = _args => {
   const [icons, setIcons] = useState<[originalName: string, lowercaseName: string, iconElm: FC][]>(
-    [],
+    []
   )
   const [value, setValue] = useState<string>('')
 
@@ -32,7 +32,7 @@ export const List: StoryFn = _args => {
   }
 
   const filteredIcons = icons.filter(([, lowercaseName]) =>
-    lowercaseName.includes(value.toLowerCase()),
+    lowercaseName.includes(value.toLowerCase())
   )
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export const List: StoryFn = _args => {
           name,
           name.toLowerCase(),
           iconElm,
-        ]),
+        ])
       )
     })
   }, [])

@@ -14,7 +14,7 @@ describe('RadioGroup', () => {
         <RadioGroup.Radio value="1">1</RadioGroup.Radio>
         <RadioGroup.Radio value="2">2</RadioGroup.Radio>
         <RadioGroup.Radio value="3">3</RadioGroup.Radio>
-      </RadioGroup>,
+      </RadioGroup>
     )
 
     const element = screen.getByRole('radiogroup')
@@ -32,7 +32,7 @@ describe('RadioGroup', () => {
         <RadioGroup.Radio value="1">1</RadioGroup.Radio>
         <RadioGroup.Radio value="2">2</RadioGroup.Radio>
         <RadioGroup.Radio value="3">3</RadioGroup.Radio>
-      </RadioGroup>,
+      </RadioGroup>
     )
 
     expect(screen.getByRole('radiogroup')).toHaveAttribute('aria-required', 'true')
@@ -46,7 +46,7 @@ describe('RadioGroup', () => {
         <RadioGroup.Radio value="1">1</RadioGroup.Radio>
         <RadioGroup.Radio value="2">2</RadioGroup.Radio>
         <RadioGroup.Radio value="3">3</RadioGroup.Radio>
-      </RadioGroup>,
+      </RadioGroup>
     )
 
     const element = screen.getByRole('radiogroup')
@@ -68,7 +68,7 @@ describe('RadioGroup', () => {
         <RadioGroup.Radio value="1">1</RadioGroup.Radio>
         <RadioGroup.Radio value="2">2</RadioGroup.Radio>
         <RadioGroup.Radio value="3">3</RadioGroup.Radio>
-      </RadioGroup>,
+      </RadioGroup>
     )
 
     const element = screen.getByRole('radiogroup')
@@ -91,7 +91,7 @@ describe('RadioGroup', () => {
         <RadioGroup.Radio value="1">1</RadioGroup.Radio>
         <RadioGroup.Radio value="2">2</RadioGroup.Radio>
         <RadioGroup.Radio value="3">3</RadioGroup.Radio>
-      </RadioGroup>,
+      </RadioGroup>
     )
 
     expect(screen.getByLabelText('1')).toBeChecked()
@@ -113,7 +113,7 @@ describe('RadioGroup', () => {
             <RadioGroup.Radio value="electronics">Electronics</RadioGroup.Radio>
             <RadioGroup.Radio value="furnitures">Furnitures</RadioGroup.Radio>
           </RadioGroup>
-        </FormField>,
+        </FormField>
       )
 
       expect(screen.getByRole('radiogroup', { name: 'Category' })).toBeInTheDocument()
@@ -132,7 +132,7 @@ describe('RadioGroup', () => {
           </RadioGroup>
 
           <FormField.HelperMessage>The category is required</FormField.HelperMessage>
-        </FormField>,
+        </FormField>
       )
 
       const groupEl = screen.getByRole('radiogroup', { name: 'Category' })
@@ -144,7 +144,7 @@ describe('RadioGroup', () => {
         screen.getByRole('radiogroup', {
           name: 'Category',
           description: 'The category is required',
-        }),
+        })
       ).toBeInTheDocument()
     })
   })

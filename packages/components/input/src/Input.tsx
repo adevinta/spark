@@ -29,7 +29,7 @@ const Root = forwardRef<HTMLInputElement, InputProps>(
       readOnly: readOnlyProp,
       ...others
     },
-    ref,
+    ref
   ) => {
     const field = useFormFieldControl()
     const group = useInputGroup()
@@ -93,7 +93,7 @@ const Root = forwardRef<HTMLInputElement, InputProps>(
         {...others}
       />
     )
-  },
+  }
 )
 
 export const Input = Object.assign(Root, {

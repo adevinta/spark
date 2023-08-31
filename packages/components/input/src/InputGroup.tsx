@@ -42,7 +42,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       onClear,
       ...others
     },
-    forwardRef,
+    forwardRef
   ) => {
     const getElementId = (element?: ReactElement) => {
       return element ? (element.type as FC & { id?: string }).id : ''
@@ -65,7 +65,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const [value, onChange] = useCombinedState(
       props.value as string,
       props.defaultValue as string,
-      props.onValueChange,
+      props.onValueChange
     )
     const state = field.state ?? stateProp
     const leadingAddon = findElement('LeadingAddon')
@@ -157,7 +157,7 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         </div>
       </InputGroupContext.Provider>
     )
-  },
+  }
 )
 
 InputGroup.displayName = 'InputGroup'

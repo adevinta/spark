@@ -64,7 +64,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       ...others
     },
-    ref,
+    ref
   ) => {
     const Component = asChild ? Slot : 'button'
 
@@ -120,11 +120,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             </>
           ) : (
             slotted
-          ),
+          )
         )}
       </Component>
     )
-  },
+  }
 )
 
 Button.displayName = 'Button'

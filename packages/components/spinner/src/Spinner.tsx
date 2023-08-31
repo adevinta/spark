@@ -10,7 +10,7 @@ export interface SpinnerProps extends ComponentPropsWithoutRef<'div'>, SpinnerSt
 export const Spinner = forwardRef<HTMLDivElement, PropsWithChildren<SpinnerProps>>(
   (
     { className, size = 'current', intent = 'current', label, isBackgroundVisible, ...others },
-    ref,
+    ref
   ) => {
     return (
       <div
@@ -23,5 +23,5 @@ export const Spinner = forwardRef<HTMLDivElement, PropsWithChildren<SpinnerProps
         {label && <VisuallyHidden>{label}</VisuallyHidden>}
       </div>
     )
-  },
+  }
 )

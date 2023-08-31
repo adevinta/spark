@@ -13,7 +13,7 @@ export const CheckboxIndicator = forwardRef<HTMLSpanElement, CheckboxIndicatorPr
       className="flex h-full w-full items-center justify-center text-surface"
       {...props}
     />
-  ),
+  )
 )
 
 CheckboxIndicator.displayName = 'CheckboxIndicator'

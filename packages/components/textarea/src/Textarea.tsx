@@ -21,7 +21,7 @@ const Root = forwardRef<HTMLTextAreaElement, PropsWithChildren<TextareaProps>>(
         <textarea ref={ref} rows={rows} {...others} />
       </Input>
     )
-  },
+  }
 )
 
 export const Textarea = Object.assign(Root, {

@@ -30,7 +30,7 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
       className,
       ...rest
     },
-    ref,
+    ref
   ) => {
     return (
       <TabsContext.Provider
@@ -53,7 +53,7 @@ export const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
         </RadixTabs.Root>
       </TabsContext.Provider>
     )
-  },
+  }
 )
 
 TabsRoot.displayName = 'Tabs'

@@ -8,7 +8,7 @@ export type DrawerContentProps = RadixDrawer.DialogContentProps & DrawerContentS
 export const DrawerContent = forwardRef(
   (
     { className, size = 'md', side = 'right', ...rest }: DrawerContentProps,
-    ref: Ref<HTMLDivElement>,
+    ref: Ref<HTMLDivElement>
   ) => (
     <RadixDrawer.Content
       data-spark-component="drawer-content"
@@ -20,7 +20,7 @@ export const DrawerContent = forwardRef(
       })}
       {...rest}
     />
-  ),
+  )
 )
 
 DrawerContent.displayName = 'Drawer.Content'

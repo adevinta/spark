@@ -28,5 +28,5 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         {...others}
       />
     )
-  },
+  }
 )

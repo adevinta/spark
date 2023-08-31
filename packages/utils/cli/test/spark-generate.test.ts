@@ -20,7 +20,7 @@ describe('CLI `spark generate` (component package)', () => {
     // WHEN we execute the `spark generate` command
     const response = await cliProcess.execute(
       ['generate'],
-      [packageName, ENTER, packageType, ENTER, 'This is my foo component', ENTER],
+      [packageName, ENTER, packageType, ENTER, 'This is my foo component', ENTER]
     )
     const contextPath = TemplateGenerator.CONTEXTS[packageType] as string
     const packagePath = path.join(process.cwd(), 'packages', contextPath, packageName)
@@ -62,7 +62,7 @@ describe('CLI `spark generate` (component package)', () => {
 
     // THEN it throws an error and fails to create files for this package
     expect(response).toContain(
-      'Name name must contain letters and dash symbols only (ex: "my-package")',
+      'Name name must contain letters and dash symbols only (ex: "my-package")'
     )
     expect(fse.pathExistsSync(packagePath)).toBe(false)
   })

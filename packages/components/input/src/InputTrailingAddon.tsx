@@ -20,7 +20,7 @@ const Root = forwardRef<HTMLDivElement, InputTrailingAddonProps>(
         />
       </div>
     )
-  },
+  }
 )
 
 export const InputTrailingAddon = Object.assign(Root, {

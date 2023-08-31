@@ -35,7 +35,7 @@ export const radioIndicatorStyles = cva(
     defaultVariants: {
       intent: 'basic',
     },
-  },
+  }
 )
 
 export type RadioIndicatorStylesProps = VariantProps<typeof radioIndicatorStyles>

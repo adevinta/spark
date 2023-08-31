@@ -22,7 +22,7 @@ export const Arrow = forwardRef<HTMLDivElement, ArrowProps>(
         {...rest}
       />
     )
-  },
+  }
 )
 
 Arrow.displayName = 'Popover.Arrow'

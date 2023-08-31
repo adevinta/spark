@@ -35,7 +35,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
       className,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const { intent, size } = useTabsContext()
 
@@ -59,7 +59,7 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         {children}
       </RadixTabs.Trigger>
     )
-  },
+  }
 )
 
 TabsTrigger.displayName = 'Tabs.Trigger'

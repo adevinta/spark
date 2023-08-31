@@ -62,7 +62,7 @@ describe('Badge', () => {
       <Badge
         count={100}
         aria-label={({ overflowCount }) => `More than ${overflowCount} notifications`}
-      />,
+      />
     )
 
     expect(screen.getByLabelText('More than 99 notifications')).toBeInTheDocument()

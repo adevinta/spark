@@ -13,11 +13,11 @@ export const Overlay = forwardRef(
         ['bg-overlay/dim-3'],
         ['data-[state=open]:animate-fade-in'],
         ['data-[state=closed]:animate-fade-out'],
-        className,
+        className
       )}
       {...rest}
     />
-  ),
+  )
 )
 
 Overlay.displayName = 'Dialog.Overlay'

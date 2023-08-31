@@ -63,7 +63,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
       required: requiredProp,
       ...others
     },
-    ref,
+    ref
   ) => {
     const { labelId, isInvalid, isRequired, description, name } = useFormFieldControl()
     const required = requiredProp !== undefined ? requiredProp : isRequired
@@ -87,7 +87,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         />
       </RadioGroupProvider>
     )
-  },
+  }
 )
 
 RadioGroup.displayName = 'RadioGroup'

@@ -53,7 +53,7 @@ module.exports = plugin.withOptions(
             ...removeKeyFromObj(theme('transitionDuration'), 'DEFAULT'),
             ...commonValuesObj,
           },
-        },
+        }
       )
 
       matchUtilities(
@@ -67,7 +67,7 @@ module.exports = plugin.withOptions(
             ...removeKeyFromObj(theme('transitionDuration'), 'DEFAULT'),
             ...commonValuesObj,
           },
-        },
+        }
       )
 
       matchUtilities(
@@ -76,7 +76,7 @@ module.exports = plugin.withOptions(
             animationIterationCount: value,
           }),
         },
-        { values: { ...arrToObj(iterations), ...commonValuesObj } },
+        { values: { ...arrToObj(iterations), ...commonValuesObj } }
       )
 
       matchUtilities(
@@ -90,7 +90,7 @@ module.exports = plugin.withOptions(
             ...removeKeyFromObj(theme('transitionTimingFunction'), 'DEFAULT'),
             ...commonValuesObj,
           },
-        },
+        }
       )
 
       fillModes.forEach(mode => {
@@ -200,5 +200,5 @@ module.exports = plugin.withOptions(
         },
       },
     },
-  }),
+  })
 )

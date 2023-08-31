@@ -11,12 +11,12 @@ const missingDefaultThemeErrorMsg =
 
 const additionalItemsErrorMsg = (themeLabel, keys) =>
   `The following keys: ${JSON.stringify(
-    keys,
+    keys
   )} do not adhere to our Spark Theme interface and should be removed from the ${themeLabel} theme`
 
 const missingItemsErrorMsg = (themeLabel, keys) =>
   `The following keys: ${JSON.stringify(
-    keys,
+    keys
   )} are missing from the ${themeLabel} theme, but required to comply with our Spark Theme interface`
 
 module.exports = plugin.withOptions(
@@ -72,7 +72,7 @@ module.exports = plugin.withOptions(
         addBase({
           [`[data-theme="${key}"]`]: getObjectDifferences(
             getCSSVariableDeclarations(themes.default, htmlFontSize),
-            getCSSVariableDeclarations(value, htmlFontSize),
+            getCSSVariableDeclarations(value, htmlFontSize)
           ),
         })
       })
@@ -87,5 +87,5 @@ module.exports = plugin.withOptions(
     if (!themes.default) throw new Error(missingDefaultThemeErrorMsg)
 
     return { theme: getCSSVariableReferences(themes.default) }
-  },
+  }
 )
