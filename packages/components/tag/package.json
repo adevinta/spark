@@ -1,10 +1,22 @@
 {
   "name": "@spark-ui/tag",
-  "version": "2.0.8",
+  "version": "2.0.10",
   "description": "Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "tag",
+    "lozenge"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -12,8 +24,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "^2.1.0",
-    "@spark-ui/slot": "^1.6.3",
+    "@spark-ui/internal-utils": "^2.1.1",
+    "@spark-ui/slot": "^1.6.5",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {

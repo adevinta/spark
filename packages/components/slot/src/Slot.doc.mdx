@@ -1,5 +1,7 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
 import * as SlotStories from './Slot.stories'
+import { Slot, Slottable } from '.'
 
 <Meta of={SlotStories} />
 
@@ -18,6 +20,20 @@ npm install @spark-ui/slot
 ```
 import { Slot } from "@spark-ui/slot"
 ```
+
+## Props
+
+<ExtendedArgTypes
+  of={Slot}
+  description="Merges its props onto its immediate child."
+  subcomponents={{
+    Slottable: {
+      of: Slottable,
+      description:
+        'Wraps the elements on a fragment appending all other slot descendant elements not wrapped into it.',
+    },
+  }}
+/>
 
 ## Default
 
@@ -74,3 +90,10 @@ The Slot-n-Child defined `style` prop merging object technique is the `join` pro
 In case of collision, it will preserve the most declarative (child value)
 
 <Canvas of={SlotStories.Ref} />
+
+### Append
+
+A `Slot` can have multiple descendant elements as children, but only one of them can be a `Slottable`.
+All non Slottable direct Slot children descendant elements will be appended to the Slottable unique children Element.
+
+<Canvas of={SlotStories.Append} />

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.0.10...@spark-ui/radio-group@2.0.11) (2023-08-30)
+
+**Note:** Version bump only for package @spark-ui/radio-group
+
+## [2.0.10](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.0.9...@spark-ui/radio-group@2.0.10) (2023-08-30)
+
+### Bug Fixes
+
+- **radio-group:** remove misleading onChange props from types as it is not actually supported ([de01078](https://github.com/adevinta/spark/commit/de01078d47ae0dc5ef70be022a3a51aa6504a243)), closes [#1320](https://github.com/adevinta/spark/issues/1320)
+
+## [2.0.9](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.0.8...@spark-ui/radio-group@2.0.9) (2023-08-29)
+
+**Note:** Version bump only for package @spark-ui/radio-group
+
 ## [2.0.8](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.0.7...@spark-ui/radio-group@2.0.8) (2023-08-28)
 
 **Note:** Version bump only for package @spark-ui/radio-group

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/adevinta/spark/compare/@spark-ui/progress@0.2.1...@spark-ui/progress@0.2.2) (2023-08-29)
+
+**Note:** Version bump only for package @spark-ui/progress
+
+## [0.2.1](https://github.com/adevinta/spark/compare/@spark-ui/progress@0.2.0...@spark-ui/progress@0.2.1) (2023-08-29)
+
+### Bug Fixes
+
+- **progress:** improve animation ([5ffcb1d](https://github.com/adevinta/spark/commit/5ffcb1dddebf1feb1f5634832ad0ca91a639ac10))
+- **progress:** update styles ([4532c10](https://github.com/adevinta/spark/commit/4532c100361a6314e6de5be76f0e13b1017701a0))
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/progress@0.1.0...@spark-ui/progress@0.2.0) (2023-08-25)
 
 ### Features

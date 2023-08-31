@@ -1,10 +1,16 @@
 {
   "name": "@spark-ui/use-mounted-state",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "check the component's mount state",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "hook",
+    "mounted-state"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

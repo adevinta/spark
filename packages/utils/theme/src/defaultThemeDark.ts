@@ -150,9 +150,6 @@ export const defaultThemeDark: Theme = createTheme({
     // Outline
     outline: '#4A4950',
     outlineHigh: '#FFFFFF',
-    outlineHovered: '#7583FF',
-    outlinePressed: '#7583FF',
-    outlineFocused: '#4A4950',
     // Overlay
     overlay: '#313036', // use with dim-1 opacity
     onOverlay: '#FFFFFF',

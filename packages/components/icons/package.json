@@ -1,10 +1,21 @@
 {
   "name": "@spark-ui/icons",
-  "version": "1.20.1",
+  "version": "1.20.2",
   "description": "spark-ui icons",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "icons"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
