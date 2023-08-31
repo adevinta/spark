@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Progress } from '.'
 
 const meta: Meta<typeof Progress> = {
-  title: 'Experimental/Progress',
+  title: 'Components/Progress',
   component: Progress,
 }
 
