@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/adevinta/spark/compare/@spark-ui/progress@0.2.3...@spark-ui/progress@0.2.4) (2023-08-31)
+
+### Bug Fixes
+
+- **progress:** add missing border radius to progress component ([0f2ec85](https://github.com/adevinta/spark/commit/0f2ec85382a694cf24eb9aab0bbc0f202b6945dd))
+
 ## [0.2.3](https://github.com/adevinta/spark/compare/@spark-ui/progress@0.2.2...@spark-ui/progress@0.2.3) (2023-08-31)
 
 **Note:** Version bump only for package @spark-ui/progress
