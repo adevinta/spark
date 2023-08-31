@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/progress@0.2.4...@spark-ui/progress@0.3.0) (2023-08-31)
+
+### Features
+
+- **progress:** release stable version ([dfbf577](https://github.com/adevinta/spark/commit/dfbf577681e51851065b88a96f20c406bfaf6976))
+
+### BREAKING CHANGES
+
+- **progress:** component
+
 ## [0.2.4](https://github.com/adevinta/spark/compare/@spark-ui/progress@0.2.3...@spark-ui/progress@0.2.4) (2023-08-31)
 
 ### Bug Fixes
