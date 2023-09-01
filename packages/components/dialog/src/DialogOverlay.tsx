@@ -13,6 +13,7 @@ export const Overlay = forwardRef(
         ['bg-overlay/dim-3'],
         ['data-[state=open]:animate-fade-in'],
         ['data-[state=closed]:animate-fade-out'],
+        ['[body.modal-is-fullscreen_&]:[animation:none]'],
         className
       )}
       {...rest}
