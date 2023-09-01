@@ -1,12 +1,12 @@
 import { Slot, wrapPolymorphicSlot } from '@spark-ui/slot'
 import { Spinner, type SpinnerProps } from '@spark-ui/spinner'
 import { cx } from 'class-variance-authority'
-import React, { type DOMAttributes, type PropsWithChildren, useMemo } from 'react'
+import React, { ComponentPropsWithoutRef, type DOMAttributes, forwardRef, useMemo } from 'react'
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
 export interface ButtonProps
-  extends PropsWithChildren<Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>>,
+  extends Omit<ComponentPropsWithoutRef<'button'>, 'disabled'>,
     ButtonStylesProps {
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -47,7 +47,7 @@ const blockedEventHandlers: DOMAttributesEventHandler[] = [
   'onSubmit',
 ]
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,

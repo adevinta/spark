@@ -6,6 +6,8 @@ import browserslistToEsbuild from 'browserslist-to-esbuild'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'vite-plugin-dts'
 
+import sparkDocgen from './plugins/sparkDocgen'
+
 const require = createRequire(import.meta.url)
 
 const rootPkg = require('../package.json')
@@ -27,7 +29,7 @@ export function buildComponentConfig(path: string, preserveModules: boolean) {
       },
       rollupOptions: {
         external: [...deps, ...rootDeps, ...devDeps, ...rootDevDeps],
-        plugins: [terser()],
+        plugins: [terser(), sparkDocgen()],
         preserveModules,
       },
     },
