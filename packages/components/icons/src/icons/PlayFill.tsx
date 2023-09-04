@@ -16,7 +16,7 @@ export const PlayFill = React.forwardRef(
       dangerouslySetInnerHTML={{
         __html:
           (title === undefined ? '' : `<title>${title}</title>`) +
-          '<path d="m12,22c5.52,0,10-4.48,10-10S17.52,2,12,2,2,6.48,2,12s4.48,10,10,10Z"/><path d="m9.69,8.15l6.15,3.85-6.15,3.85v-7.69Z"/>',
+          '<path d="m2,11.97c0,5.52,4.48,10,10,10s10-4.48,10-10c-.53-13.26-19.48-13.26-20,0Zm7.69,3.85v-7.69l6.15,3.85-6.15,3.85Z"/>',
       }}
     />
   )
