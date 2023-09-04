@@ -24,7 +24,7 @@ jobs:
         with:
           ref: chore-updated-icons
           fetch-depth: 0
-      - run: gh pr create --fill
+      - run: gh pr create --title "chore(icons): icons updated" --body "Check Spark Tokens for a full changelog." --reviewer adevinta/spark-dev
         continue-on-error: true
       - name: Install
         uses: ./.github/composite-actions/install
