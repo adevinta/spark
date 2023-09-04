@@ -2,7 +2,7 @@ import React, { type Ref } from 'react'
 
 import { IconProps } from '../Types'
 
-export const ShopingCartFill = React.forwardRef(
+export const ShoppingCartFill = React.forwardRef(
   (
     { title, fill = 'currentColor', stroke = 'none', ...props }: IconProps,
     ref: Ref<SVGSVGElement>
@@ -11,7 +11,7 @@ export const ShopingCartFill = React.forwardRef(
       ref={ref}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      data-title="ShopingCartFill"
+      data-title="ShoppingCartFill"
       {...{ ...(title && { 'data-title': title }), fill, stroke, ...props }}
       dangerouslySetInnerHTML={{
         __html:
@@ -22,6 +22,6 @@ export const ShopingCartFill = React.forwardRef(
   )
 )
 
-ShopingCartFill.displayName = 'ShopingCartFill'
+ShoppingCartFill.displayName = 'ShoppingCartFill'
 
-export const tags = ['ShopingCartFill', '']
+export const tags = ['ShoppingCartFill', '']
