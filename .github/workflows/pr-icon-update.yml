@@ -10,11 +10,14 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  FOLDER: 'packages/components/icons/src'
+  FOLDER: 'src'
 
 jobs:
   pr-icon-updates:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/components/icons
     steps:
       - uses: actions/checkout@v3
         with:
@@ -25,7 +28,7 @@ jobs:
       - name: Install
         uses: ./.github/composite-actions/install
       - name: Generate Icons
-        run: cd packages/components/icons && npm run generate
+        run: npm run generate
       - name: Commit and Push Changes
         run: |
           if ! git diff --quiet --exit-code -- "$FOLDER" ;
