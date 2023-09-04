@@ -2,7 +2,7 @@ name: 'PR-icon-updates'
 
 on:
   push:
-    branches: [ "chore-updated-icons" ]
+    branches: ['chore-updated-icons']
   workflow_dispatch:
 
 concurrency:
@@ -24,7 +24,7 @@ jobs:
         with:
           ref: chore-updated-icons
           fetch-depth: 0
-      - run: gh pr create --title "chore(icons)&#58; icons updated" --body "Check Spark Tokens for a full changelog."
+      - run: gh pr create --title "chore(icons)&#58; update icons" --body "Check Spark Tokens for a full changelog."
         continue-on-error: true
       - name: Install
         uses: ./.github/composite-actions/install
