@@ -10,6 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  GH_TOKEN: ${{ github.token }}
   FOLDER: 'src'
 
 jobs:
