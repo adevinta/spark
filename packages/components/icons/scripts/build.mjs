@@ -1,4 +1,5 @@
 import { pascalCase } from 'change-case'
+import fs from 'fs'
 import path from 'path'
 
 import componentize from './utils/componentize.mjs'
@@ -11,6 +12,15 @@ import tagify from './utils/tagify.mjs'
 import writeFile from './utils/writeFile.mjs'
 
 const main = async (pattern = 'assets/**/*.svg') => {
+  // Clean the output folder before generating icons
+  const outputDir = path.join(process.cwd(), 'src/icons')
+
+  // Remove existing files from the output directory
+  fs.readdirSync(outputDir).forEach(file => {
+    const filePath = path.join(outputDir, file)
+    fs.unlinkSync(filePath)
+  })
+
   const files = matchFileRoute(undefined, pattern)
   const data = new Map()
 

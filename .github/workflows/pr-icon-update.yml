@@ -1,0 +1,42 @@
+name: '🎨 PR icon updates'
+
+on:
+  push:
+    branches: [ "chore-updated-icons" ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+env:
+  FOLDER: 'packages/components/icons/src'
+
+jobs:
+  pr-icon-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: chore-updated-icons
+          fetch-depth: 0
+      - run: gh pr create --fill
+        continue-on-error: true
+      - name: Install
+        uses: ./.github/composite-actions/install
+      - name: Generate Icons
+        run: cd packages/components/icons && npm run generate
+      - name: Commit and Push Changes
+        run: |
+          if ! git diff --quiet --exit-code -- "$FOLDER" ;
+          then
+            git config user.name 'spark-ui-bot'
+            git config user.email 'spark-ui-bot@users.noreply.github.com'
+            git add "$FOLDER"
+            git commit -m "chore: update icons in $FOLDER"
+            git show
+            git push
+            echo "::notice::UPDATED"
+          else
+            echo "::notice::UP-TO-DATE"
+          fi
