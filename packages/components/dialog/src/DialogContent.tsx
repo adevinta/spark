@@ -16,9 +16,9 @@ export const Content = forwardRef(
   ): ReactElement => {
     useEffect(() => {
       if (size !== 'fullscreen') return
-      document.body.classList.add('modal-is-fullscreen')
+      document.body.classList.add('dialog-is-fullscreen')
 
-      return () => document.body.classList.remove('modal-is-fullscreen')
+      return () => document.body.classList.remove('dialog-is-fullscreen')
     }, [size])
 
     return (

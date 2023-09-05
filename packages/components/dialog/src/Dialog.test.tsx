@@ -53,8 +53,8 @@ describe('Dialog', () => {
       </Dialog>
     )
 
-    const fullscreenClass = 'modal-is-fullscreen'
-    const animationPreventionSelector = '[body.modal-is-fullscreen_&]:[animation:none]'
+    const fullscreenClass = 'dialog-is-fullscreen'
+    const animationPreventionSelector = '[body.dialog-is-fullscreen_&]:[animation:none]'
 
     const user = userEvent.setup()
     const { rerender } = render(<MakeDialog size="md" />)
