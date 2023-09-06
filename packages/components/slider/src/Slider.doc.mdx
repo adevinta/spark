@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Slider } from '.'
+
+import * as stories from './Slider.stories'
+
+<Meta of={stories} />
+
+# Slider
+
+An input where the user selects a value from within a given range.
+
+## Install
+
+```sh
+npm install @spark-ui/slider
+```
+
+## Import
+
+```tsx
+import { Slider } from "@spark-ui/slider"
+```
+
+## Props
+
+<ArgTypes of={Slider} />
+
+## Variants
+<Canvas of={stories.Default} />
