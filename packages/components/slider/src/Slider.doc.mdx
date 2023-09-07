@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks';
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Slider } from '.'
 
@@ -25,7 +25,22 @@ import { Slider } from "@spark-ui/slider"
 
 ## Props
 
-<ArgTypes of={Slider} />
+<ArgTypes
+  of={Slider}
+  description="Contains all the slider component parts. It will render an input for each thumb when used within a form to ensure events propagate correctly."
+  subcomponents={{
+    'Slider.Thumb': {
+      of: Slider.Thumb,
+      description: 'A draggable thumb. You can render multiple thumbs.',
+    },
+    'Slider.Track': {
+      of: Slider.Track,
+      description: 'The track shows the range available for user selection.',
+    }
+  }}
+/>
 
-## Variants
+## Usage
+
+### Default
 <Canvas of={stories.Default} />

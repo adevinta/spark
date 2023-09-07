@@ -9,4 +9,11 @@ const meta: Meta<typeof Slider> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Slider>Hello World!</Slider>
+export const Default: StoryFn = _args => (
+  <div>
+    <Slider defaultValue={[50]}>
+      <Slider.Track />
+      <Slider.Thumb />
+    </Slider>
+  </div>
+)

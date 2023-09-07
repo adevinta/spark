@@ -1,7 +1,16 @@
-import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
+import type { FC } from 'react'
 
-export type SliderProps = ComponentPropsWithoutRef<'div'>
+import { SliderRoot as Root, type SliderRootProps } from './SliderRoot'
+import { SliderThumb as Thumb } from './SliderThumb'
+import { SliderTrack as Track } from './SliderTrack'
 
-export const Slider = forwardRef<HTMLDivElement, PropsWithChildren<SliderProps>>((props, ref) => {
-  return <div ref={ref} {...props} />
+Thumb.displayName = 'Slider.Thumb'
+Track.displayName = 'Slider.Track'
+
+export const Slider: FC<SliderRootProps> & {
+  Thumb: typeof Thumb
+  Track: typeof Track
+} = Object.assign(Root, {
+  Thumb,
+  Track,
 })
