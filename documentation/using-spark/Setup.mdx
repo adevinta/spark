@@ -94,22 +94,21 @@ However, if your application uses a different base font size, such as **10 pixel
 
 ## Extending Spark config
 
-In cases where you need to tackle uncommon situations, it's important to note that our theme configuration can be extended or overridden using the standard Tailwind approach, as illustrated in the example below:
+If you require tokens that are not part of the Spark theme, you can use our [**token extender plugin**](?path=/docs/utils-tailwind-plugins-token-extender--docs) to achieve this, as illustrated in the example below:
 
 ```js
 // tailwind.config.js
 
+const sparkPlugins = require('@spark-ui/tailwind-plugins')
+
 module.exports = {
-  content: [...],
-  plugins: [...],
-   theme: {
-    extend: {
-      screens: {
-        customScreen: '218px', // ⬅️ extending our Spark theme configuration
-        ...
-      }
+  ...,
+  plugins: sparkPlugins.tokenExtender({
+    'custom-screen': {
+      value: '218px',
+      keys: ['screens']
     }
-  },
+  })]
 }
 ```
 
@@ -121,7 +120,7 @@ That's all there is to it! 🎉
   of these class names.
 </Callout>
 
-<div className="flex justify-end mt-md">
+<div className="mt-md flex justify-end">
   <Card
     href="/?path=/docs/using-spark-styling-overview--docs#overview-of-spark-styling-solution"
     description="Spark styling solution overview"

@@ -1,0 +1,136 @@
+import { Meta } from '@storybook/blocks'
+import { Callout } from '@docs/helpers/Callout'
+
+<Meta title="utils/Tailwind plugins/token extender" />
+
+# Tailwind token extender plugin
+
+## Installation
+
+To use our Tailwind sizing plugin, simply install the `@spark-ui/tailwind-plugins` package and add the token extender plugin to your `tailwind.config.js` file
+
+```bash
+$ npm i @spark-ui/tailwind-plugins
+```
+
+```js
+// tailwind.config.js
+
+const sparkPlugins = require('@spark-ui/tailwind-plugins')
+
+module.exports = {
+  ...,
+  plugins: [
+    sparkPlugins.tokenExtender({
+      'some-token': { value: '60px', keys: ['width', 'maxWidth'] },
+      'other-token': { value: '60px', keys: ['width', 'minWidth'] },
+    })
+  ],
+}
+
+```
+
+## Usage
+
+The **token extender** plugin allows you to define and manage custom tokens, such as the height of your header or some exotic breakpoints, with ease.
+
+The plugin will:
+
+- Generates CSS variables for each declared value
+- Based on the provided keys, makes the corresponding Tailwind classes available.
+
+<Callout kind="info">
+  You can check this [**link**](https://tailwindcss.com/docs/theme#configuration-reference) for a
+  list of available **keys**.
+</Callout>
+
+## Example
+
+Suppose you want to create a token for the height of your header:
+
+```js
+// tailwind.config.js
+
+const sparkPlugins = require('@spark-ui/tailwind-plugins')
+
+module.exports = {
+  ...,
+  plugins: [
+    sparkPlugins.tokenExtender({
+      'header-height': { value: '60px', keys: ['height', 'minHeight', 'maxHeight'] },
+    })
+  ],
+}
+```
+
+Under the hood, this plugin will create the following CSS variable:
+
+```css
+:root {
+  --header-height: 60px;
+}
+```
+
+And the values specified in the `keys` array will ensure that the corresponding Tailwind classes are available.
+
+In our example, we've defined the **header-height** token for _height_-related classes, _min-height_-related classes, and _max-height_-related classes.
+
+Which mean you will be able to use these classes as follows:
+
+```tsx
+<div className="h-header-height">...</div> // height: 60px;
+<div className="min-h-header-height">...</div> // min-height: 60px;
+<div className="max-h-header-height">...</div> // max-height: 60px;
+```
+
+Without this plugin, achieving the same result would require a more cumbersome configuration:
+
+```js
+// tailwind.config.js
+
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  ...,
+  theme: {
+    extend: {
+      height: {
+        'header-height': 'var(--header-height)'
+      },
+      minHeight: {
+        'header-height': 'var(--header-height)'
+      },
+      maxHeight: {
+        'header-height': 'var(--header-height)'
+      }
+    }
+  },
+  plugins: [
+    plugin(function({ addBase }) {
+      addBase({
+        ':root': {
+          '--header-height': '64px'
+        },
+      })
+    })
+  ]
+}
+```
+
+As you can see, the **token extender** plugin simplifies the process significantly.
+
+## Configuration
+
+The plugin expects an `object` with keys representing the names of your custom tokens. Each key should hold an object with the following structure:
+
+```js
+tokenExtender({
+  // my-token is the name of your token
+  'my-token': {
+    value: '10px' // the value of your token
+    keys: ['spacing', '...'] // the keys you want to use as Tailwind classes
+  }
+  ...
+})
+
+```

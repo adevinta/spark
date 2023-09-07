@@ -114,27 +114,29 @@ import { FAQ } from '@docs/helpers/FAQ'
       label="Can I extend the Spark theme with additional tokens?"
     />
       <FAQ.Answer>
-        If you require tokens that are not part of the Spark theme, you can use the [Tailwind API](https://tailwindcss.com/docs/theme#extending-the-default-theme) to achieve this.
-        
-        Since Spark uses Tailwind under the hood, you have access to all its APIs.
+        If you require tokens that are not part of the Spark theme, you can use our [token extender plugin](?path=/docs/utils-tailwind-plugins-token-extender--docs#tailwind-token-extender-plugin) to achieve this.
         
         For example, to add a new breakpoint, you can do the following:
         ```js
         // tailwind.config.js
 
+        const sparkPlugins = require('@spark-ui/tailwind-plugins')
+
         module.exports = {
-          content: [...],
-          plugins: [...],
-          theme: {
-            extend: {
-              screens: {
-                customScreen: '218px', // ⬅️ extending our Spark theme configuration
-                ...
-              }
+          plugins: sparkPlugins.tokenExtender({
+            'custom-screen': {
+              value: '218px',
+              keys: ['screens']
             }
-          },
+          })],
         }
         ```
+
+        <Callout>
+          Here, each item included inside **keys** will enable the availability of its corresponding Tailwind classes.
+
+          You can check this [link](https://tailwindcss.com/docs/theme#configuration-reference) for a list of available keys.
+        </Callout>
       </FAQ.Answer>
 
   </FAQ.Item>
