@@ -1,7 +1,8 @@
 import * as RadixSlider from '@radix-ui/react-slider'
 import { forwardRef } from 'react'
 
-import { thumbStyles } from './SliderThumb.styles'
+import { useSliderContext } from './SliderContext'
+import { thumbVariants } from './SliderThumb.styles'
 
 export interface SliderThumbProps extends RadixSlider.SliderThumbProps {
   /**
@@ -12,14 +13,18 @@ export interface SliderThumbProps extends RadixSlider.SliderThumbProps {
 }
 
 export const SliderThumb = forwardRef<HTMLDivElement, SliderThumbProps>(
-  ({ asChild = false, className, ...rest }, ref) => (
-    <RadixSlider.Thumb
-      ref={ref}
-      asChild={asChild}
-      className={thumbStyles({ className })}
-      {...rest}
-    />
-  )
+  ({ asChild = false, className, ...rest }, ref) => {
+    const { intent } = useSliderContext()
+
+    return (
+      <RadixSlider.Thumb
+        ref={ref}
+        asChild={asChild}
+        className={thumbVariants({ intent, className })}
+        {...rest}
+      />
+    )
+  }
 )
 
 SliderThumb.displayName = 'Slider.Thumb'
