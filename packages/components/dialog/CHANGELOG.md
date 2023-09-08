@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.11](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.10...@spark-ui/dialog@1.5.11) (2023-09-08)
+
+### Bug Fixes
+
+- **dialog:** improved focus styles when focusable children disappear ([d417850](https://github.com/adevinta/spark/commit/d417850e7d78b572b9be72ede3a248b8cdc9d4d1))
+
 ## [1.5.10](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.9...@spark-ui/dialog@1.5.10) (2023-09-05)
 
 **Note:** Version bump only for package @spark-ui/dialog
