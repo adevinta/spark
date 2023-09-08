@@ -1,5 +1,5 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
-import { forwardRef, type ReactElement, type Ref, useLayoutEffect } from 'react'
+import { forwardRef, type ReactElement, type Ref, useEffect } from 'react'
 
 import {
   dialogContentStyles,
@@ -17,7 +17,7 @@ export const Content = forwardRef(
   ): ReactElement => {
     const { setIsFullScreen } = useDialog()
 
-    useLayoutEffect(() => {
+    useEffect(() => {
       if (size === 'fullscreen') setIsFullScreen(true)
 
       return () => setIsFullScreen(false)
