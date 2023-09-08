@@ -67,7 +67,7 @@ module.exports = {
 
         if (prop.declarations?.length > 0) {
           const isProhibitedProps = prop.declarations.some(declaration =>
-            prohibitedPropsRegexesNew.some(regex => regex.test(declaration.fileName))
+            prohibitedPropsRegexesNew.some(regex => regex.test(declaration.fileName)),
           )
 
           return !isProhibitedProps

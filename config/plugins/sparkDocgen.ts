@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import reactDocgenTS, { ComponentDoc } from 'react-docgen-typescript'
+import reactDocgenTS from 'react-docgen-typescript'
 import { OutputOptions } from 'rollup'
 
 type PackageDocgen = Omit<reactDocgenTS.ComponentDoc, 'filePath'>
@@ -43,13 +43,12 @@ function getDocgen(path: string | string[]): SparkDocgen {
     savePropValueAsString: true,
     shouldExtractLiteralValuesFromEnum: true,
     shouldRemoveUndefinedFromOptional: true,
-
     propFilter: prop => {
       const prohibitedPropsRegexesNew = [/\/node_modules\/@types\/react\/.*.d.ts/]
 
       if (prop.declarations && prop.declarations?.length > 0) {
         const isProhibitedProps = prop.declarations.some(declaration =>
-          prohibitedPropsRegexesNew.some(regex => regex.test(declaration.fileName)),
+          prohibitedPropsRegexesNew.some(regex => regex.test(declaration.fileName))
         )
 
         return !isProhibitedProps
@@ -59,19 +58,12 @@ function getDocgen(path: string | string[]): SparkDocgen {
     },
   })
 
-  return removeDuplicatesByDisplayName(docs).reduce<SparkDocgen>((accum, doc) => {
+  return docs.reduce<SparkDocgen>((accum, doc) => {
     return {
       ...accum,
       [doc.displayName]: removeObjectKey(doc, 'filePath'),
     }
   }, {})
-}
-
-function removeDuplicatesByDisplayName(arr: ComponentDoc[]): ComponentDoc[] {
-  const uniqueObjects: { [key: string]: ComponentDoc } = {}
-  arr.forEach(obj => (uniqueObjects[obj.displayName] = obj))
-
-  return Object.values(uniqueObjects)
 }
 
 function findPackageBasePath(filePath: string): string | null {
