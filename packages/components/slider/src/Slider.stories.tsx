@@ -11,12 +11,12 @@ const meta: Meta<typeof Slider> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <div>
+  <form>
     <Slider defaultValue={[50]}>
       <Slider.Track />
       <Slider.Thumb />
     </Slider>
-  </div>
+  </form>
 )
 
 export const Range: StoryFn = _args => (
@@ -54,5 +54,14 @@ export const Intent: StoryFn = _args => (
         </Slider>
       </div>
     ))}
+  </div>
+)
+
+export const Disabled: StoryFn = _args => (
+  <div>
+    <Slider defaultValue={[50]} disabled>
+      <Slider.Track />
+      <Slider.Thumb />
+    </Slider>
   </div>
 )
