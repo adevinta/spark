@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.19](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.18...@spark-ui/input@1.4.19) (2023-09-11)
+
+### Bug Fixes
+
+- **input:** harmonize input displayNames ([9e3e5eb](https://github.com/adevinta/spark/commit/9e3e5ebd2e4314b5dd89ea2b46790d7564951322))
+
 ## [1.4.18](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.17...@spark-ui/input@1.4.18) (2023-09-11)
 
 **Note:** Version bump only for package @spark-ui/input

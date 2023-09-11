@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.22](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.0.21...@spark-ui/tabs@2.0.22) (2023-09-11)
+
+### Bug Fixes
+
+- fixing broken docgen because of forwardRef ([4fac93f](https://github.com/adevinta/spark/commit/4fac93f76f0405a29613b12bddee474bf62be0e3))
+- **tabs:** harmonize tabs displayNames ([c031c03](https://github.com/adevinta/spark/commit/c031c03ad32d89e3c0c3dd2521477f8044c5c007))
+- typechecks ([75c3262](https://github.com/adevinta/spark/commit/75c32621298ad8160233af8e062b47760e3c3c5a))
+
 ## [2.0.21](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.0.20...@spark-ui/tabs@2.0.21) (2023-09-05)
 
 **Note:** Version bump only for package @spark-ui/tabs

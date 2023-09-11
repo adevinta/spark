@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.15](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.0.14...@spark-ui/radio-group@2.0.15) (2023-09-11)
+
+### Bug Fixes
+
+- **radio-group:** harmonize radio displayNames ([1c1aaa9](https://github.com/adevinta/spark/commit/1c1aaa9067ec45720dc5561184a54147199029a6))
+
 ## [2.0.14](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.0.13...@spark-ui/radio-group@2.0.14) (2023-09-11)
 
 **Note:** Version bump only for package @spark-ui/radio-group

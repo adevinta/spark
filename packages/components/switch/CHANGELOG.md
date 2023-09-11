@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.0.16...@spark-ui/switch@2.0.17) (2023-09-11)
+
+### Bug Fixes
+
+- fixing broken docgen because of forwardRef ([4fac93f](https://github.com/adevinta/spark/commit/4fac93f76f0405a29613b12bddee474bf62be0e3))
+
 ## [2.0.16](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.0.15...@spark-ui/switch@2.0.16) (2023-09-11)
 
 **Note:** Version bump only for package @spark-ui/switch
