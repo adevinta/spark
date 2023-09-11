@@ -15,6 +15,11 @@ export interface TabsProps
   asChild?: boolean
 }
 
+/**
+ * @deprecated
+ */
+export type TabsRootProps = TabsProps
+
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
   (
     {

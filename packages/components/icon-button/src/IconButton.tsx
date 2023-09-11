@@ -1,5 +1,5 @@
 import { Button, ButtonProps } from '@spark-ui/button'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import { iconButtonStyles } from './IconButton.styles'
 
@@ -7,7 +7,7 @@ export interface IconButtonProps extends Omit<ButtonProps, 'loadingText'> {
   'aria-label': string
 }
 
-export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     {
       design = 'filled',

@@ -22,5 +22,5 @@ Content.displayName = 'Tabs.Content'
 
 export { type TabsContentProps } from './TabsContent'
 export { type TabsListProps } from './TabsList'
-export { type TabsProps } from './Tabs'
+export { type TabsProps, type TabsRootProps } from './Tabs'
 export { type TabsTriggerProps } from './TabsTrigger'
