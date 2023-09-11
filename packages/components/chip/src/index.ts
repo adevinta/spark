@@ -18,3 +18,8 @@ export const Chip: FC<ChipProps> & {
   LeadingIcon: ChipLeadingIcon,
   ClearButton: ChipClearButton,
 })
+
+Chip.displayName = 'Chip'
+Chip.ClearButton.displayName = 'Chip.ClearButton'
+Chip.Content.displayName = 'Chip.Content'
+Chip.LeadingIcon.displayName = 'Chip.LeadingIcon'

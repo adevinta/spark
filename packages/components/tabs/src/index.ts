@@ -15,6 +15,11 @@ export const Tabs: FC<TabsProps> & {
   Content,
 })
 
+Tabs.displayName = 'Tabs'
+List.displayName = 'Tabs.List'
+Trigger.displayName = 'Tabs.Trigger'
+Content.displayName = 'Tabs.Content'
+
 export { type TabsContentProps } from './TabsContent'
 export { type TabsListProps } from './TabsList'
 export { type TabsProps } from './Tabs'

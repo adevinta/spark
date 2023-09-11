@@ -14,6 +14,10 @@ export const TextareaGroup: FC<TextareaGroupProps> & {
   TrailingIcon: TextareaTrailingIcon,
 })
 
+TextareaGroup.displayName = 'TextareaGroup'
+TextareaLeadingIcon.displayName = 'TextareaGroup.LeadingIcon'
+TextareaTrailingIcon.displayName = 'TextareaGroup.TrailingIcon'
+
 export { type TextareaGroupProps } from './TextareaGroup'
 export { type TextareaLeadingIconProps } from './TextareaLeadingIcon'
 export { type TextareaTrailingIconProps } from './TextareaTrailingIcon'

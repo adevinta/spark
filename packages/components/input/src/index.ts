@@ -26,6 +26,14 @@ export const InputGroup: FC<InputGroupProps> & {
   ClearButton: InputClearButton,
 })
 
+InputGroup.displayName = 'InputGroup'
+InputLeadingAddon.displayName = 'InputGroup.LeadingAddon'
+InputTrailingAddon.displayName = 'InputGroup.TrailingAddon'
+InputLeadingIcon.displayName = 'InputGroup.LeadingIcon'
+InputTrailingIcon.displayName = 'InputGroup.TrailingIcon'
+InputStateIndicator.displayName = 'InputGroup.StateIndicator'
+InputClearButton.displayName = 'InputGroup.ClearButton'
+
 export { useInputGroup } from './InputGroupContext'
 export { type InputGroupProps } from './InputGroup'
 export { type InputLeadingIconProps } from './InputLeadingIcon'

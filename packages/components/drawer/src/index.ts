@@ -36,6 +36,18 @@ export const Drawer: FC<DrawerProps> & {
   Description: DrawerDescription,
 })
 
+Drawer.displayName = 'Drawer'
+DrawerTrigger.displayName = 'Drawer.Trigger'
+DrawerPortal.displayName = 'Drawer.Portal'
+DrawerOverlay.displayName = 'Drawer.Overlay'
+DrawerContent.displayName = 'Drawer.Content'
+DrawerHeader.displayName = 'Drawer.Header'
+DrawerBody.displayName = 'Drawer.Body'
+DrawerFooter.displayName = 'Drawer.Footer'
+DrawerCloseButton.displayName = 'Drawer.CloseButton'
+DrawerTitle.displayName = 'Drawer.Title'
+DrawerDescription.displayName = 'Drawer.Description'
+
 export { type DrawerProps } from './Drawer'
 export { type DrawerContentProps } from './DrawerContent'
 export { type DrawerHeaderProps } from './DrawerHeader'

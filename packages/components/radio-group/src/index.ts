@@ -9,5 +9,8 @@ export const RadioGroup: FC<RadioGroupProps> & {
   Radio,
 })
 
+RadioGroup.displayName = 'RadioGroup'
+Radio.displayName = 'RadioGroup.Radio'
+
 export { type RadioGroupProps } from './RadioGroup'
 export { type RadioProps } from './Radio'

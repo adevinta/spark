@@ -26,3 +26,12 @@ export const Popover: FC<PopoverProps> & {
   Portal,
   Trigger,
 })
+
+Popover.displayName = 'Popover'
+Anchor.displayName = 'Popover.Anchor'
+Arrow.displayName = 'Popover.Arrow'
+CloseButton.displayName = 'Popover.CloseButton'
+Content.displayName = 'Popover.Content'
+Header.displayName = 'Popover.Header'
+Portal.displayName = 'Popover.Portal'
+Trigger.displayName = 'Popover.Trigger'

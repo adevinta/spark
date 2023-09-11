@@ -3,6 +3,8 @@ const { mergeConfig } = require('vite')
 
 import remarkGfm from 'remark-gfm'
 
+import { docgenConfig } from '../config/plugins/sparkDocgen/constants'
+
 module.exports = {
   async viteFinal(config, { configType }) {
     // This is where we can override vite config for storybook
@@ -60,21 +62,11 @@ module.exports = {
     check: true,
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      shouldRemoveUndefinedFromOptional: true,
-      propFilter: prop => {
-        const prohibitedPropsRegexesNew = [new RegExp('/node_modules/@types/react/.*.d.ts')]
-
-        if (prop.declarations?.length > 0) {
-          const isProhibitedProps = prop.declarations.some(declaration =>
-            prohibitedPropsRegexesNew.some(regex => regex.test(declaration.fileName))
-          )
-
-          return !isProhibitedProps
-        }
-
-        return true
-      },
+      ...docgenConfig,
+      /**
+       * There is a bug in storybook.
+       * StoryFn declared using `_args` won't use the displayName by default.
+       */
       componentNameResolver: expression => {
         return expression.getName()
       },

@@ -7,5 +7,8 @@ export const Label: typeof Root & {
   RequiredIndicator: LabelRequiredIndicator,
 })
 
+Label.displayName = 'Label'
+LabelRequiredIndicator.displayName = 'Label.RequiredIndicator'
+
 export type { LabelProps } from './Label'
 export type { LabelRequiredIndicatorProps } from './LabelRequiredIndicator'

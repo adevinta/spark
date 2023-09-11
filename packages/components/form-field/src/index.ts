@@ -33,6 +33,17 @@ export const FormField: FC<FormFieldProps> & {
   CharactersCount: FormFieldCharactersCount,
 })
 
+FormField.displayName = 'FormField'
+FormFieldLabel.displayName = 'FormField.Label'
+FormFieldControl.displayName = 'FormField.Control'
+FormFieldStateMessage.displayName = 'FormField.StateMessage'
+FormFieldSuccessMessage.displayName = 'FormField.SuccessMessage'
+FormFieldAlertMessage.displayName = 'FormField.AlertMessage'
+FormFieldErrorMessage.displayName = 'FormField.ErrorMessage'
+FormFieldHelperMessage.displayName = 'FormField.HelperMessage'
+FormFieldRequiredIndicator.displayName = 'FormField.RequiredIndicator'
+FormFieldCharactersCount.displayName = 'FormField.CharactersCount'
+
 export { type FormFieldProps } from './FormField'
 export { type FormFieldStateMessageProps } from './FormFieldStateMessage'
 export { type FormFieldControl, useFormFieldControl } from './FormFieldControl'
