@@ -7,8 +7,8 @@ import type { Meta, StoryFn } from '@storybook/react'
 import type { ReactNode } from 'react'
 
 import { Tabs } from '.'
+import type { TabsRootProps } from './Tabs'
 import type { TabsListProps } from './TabsList'
-import type { TabsRootProps } from './TabsRoot'
 
 const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
