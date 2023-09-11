@@ -37,7 +37,7 @@ const intents: SliderRootProps['intent'][] = [
   'basic',
   'success',
   'alert',
-  'danger',
+  'error',
   'info',
   'neutral',
 ]

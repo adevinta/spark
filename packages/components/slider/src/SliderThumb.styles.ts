@@ -11,7 +11,7 @@ export const thumbVariants = cva(['block h-xl w-xl rounded-full'], {
       neutral: ['bg-neutral'],
       success: ['bg-success'],
       alert: ['bg-alert'],
-      danger: ['bg-error'],
+      error: ['bg-error'],
     },
   },
   defaultVariants: {

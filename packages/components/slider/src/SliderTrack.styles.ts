@@ -13,7 +13,7 @@ export const rangeVariants = cva(['absolute rounded-sm h-full'], {
       neutral: ['bg-neutral'],
       success: ['bg-success'],
       alert: ['bg-alert'],
-      danger: ['bg-error'],
+      error: ['bg-error'],
     },
   },
   defaultVariants: {
