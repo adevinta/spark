@@ -1,36 +1,17 @@
-import type { FC } from 'react'
+import * as RadixPopover from '@radix-ui/react-popover'
 
-import { Anchor } from './PopoverAnchor'
-import { Arrow } from './PopoverArrow'
-import { CloseButton } from './PopoverCloseButton'
-import { Content } from './PopoverContent'
-import { Header } from './PopoverHeader'
-import { Portal } from './PopoverPortal'
-import { Root, type RootProps } from './PopoverRoot'
-import { Trigger } from './PopoverTrigger'
+import { PopoverProvider } from './PopoverContext'
 
-Anchor.displayName = 'Popover.Anchor'
-Arrow.displayName = 'Popover.Arrow'
-CloseButton.displayName = 'Popover.CloseButton'
-Content.displayName = 'Popover.Content'
-Header.displayName = 'Popover.Header'
-Portal.displayName = 'Popover.Portal'
-Trigger.displayName = 'Popover.Trigger'
+export type PopoverProps = RadixPopover.PopoverProps
 
-export const Popover: FC<RootProps> & {
-  Anchor: typeof Anchor
-  Arrow: typeof Arrow
-  CloseButton: typeof CloseButton
-  Content: typeof Content
-  Header: typeof Header
-  Portal: typeof Portal
-  Trigger: typeof Trigger
-} = Object.assign(Root, {
-  Anchor,
-  Arrow,
-  CloseButton,
-  Content,
-  Header,
-  Portal,
-  Trigger,
-})
+export const Popover = ({ children, modal = false, ...rest }: PopoverProps) => {
+  return (
+    <PopoverProvider>
+      <RadixPopover.Root data-spark-component="popover" modal={modal} {...rest}>
+        {children}
+      </RadixPopover.Root>
+    </PopoverProvider>
+  )
+}
+
+Popover.displayName = 'Popover'

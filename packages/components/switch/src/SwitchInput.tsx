@@ -4,13 +4,13 @@ import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
 import { Slot } from '@spark-ui/slot'
 import { useCombinedState } from '@spark-ui/use-combined-state'
-import React, { ReactNode } from 'react'
+import React, { type ComponentPropsWithoutRef, forwardRef, type ReactNode } from 'react'
 
 import { styles, type StylesProps, thumbCheckSVGStyles, thumbStyles } from './SwitchInput.styles'
 
 export interface SwitchInputProps
   extends StylesProps,
-    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {
+    Omit<ComponentPropsWithoutRef<'button'>, 'value'> {
   /**
    * The state of the switch when it is initially rendered. Use when you do not need to control its state.
    */
@@ -52,7 +52,7 @@ export interface SwitchInputProps
   uncheckedIcon?: ReactNode
 }
 
-export const SwitchInput = React.forwardRef<HTMLButtonElement, SwitchInputProps>(
+export const SwitchInput = forwardRef<HTMLButtonElement, SwitchInputProps>(
   (
     {
       checked,
@@ -104,3 +104,5 @@ export const SwitchInput = React.forwardRef<HTMLButtonElement, SwitchInputProps>
     )
   }
 )
+
+SwitchInput.displayName = 'SwitchInput'
