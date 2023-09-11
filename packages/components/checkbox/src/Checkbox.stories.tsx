@@ -351,7 +351,7 @@ export const FieldInvalid: StoryFn = () => {
         <Checkbox value="baseball">Baseball</Checkbox>
       </CheckboxGroup>
 
-      <FormField.ErrorMessage>You must chose a sport among the list</FormField.ErrorMessage>
+      <FormField.ErrorMessage>You must choose a sport among the list</FormField.ErrorMessage>
     </FormField>
   )
 }
