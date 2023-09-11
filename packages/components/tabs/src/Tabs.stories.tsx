@@ -6,8 +6,7 @@ import { MailFill } from '@spark-ui/icons/dist/icons/MailFill'
 import type { Meta, StoryFn } from '@storybook/react'
 import type { ReactNode } from 'react'
 
-import { Tabs } from '.'
-import type { TabsRootProps } from './Tabs'
+import { Tabs, type TabsProps } from '.'
 import type { TabsListProps } from './TabsList'
 
 const meta: Meta<typeof Tabs> = {
@@ -129,7 +128,7 @@ export const createTabs = ({
   listProps = {},
   tabs = defaultTabs,
 }: {
-  rootProps?: TabsRootProps
+  rootProps?: TabsProps
   listProps?: Omit<TabsListProps, 'children'>
   tabs?: TabItem[]
 } = {}) => {

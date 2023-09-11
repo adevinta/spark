@@ -40,7 +40,7 @@ export const Dialog: FC<DialogProps> & {
 })
 
 Dialog.displayName = 'Dialog'
-Trigger.displayName = 'Dialog.Trigger'
+Dialog.Trigger.displayName = 'Dialog.Trigger'
 Trigger.displayName = 'Dialog.Trigger'
 Portal.displayName = 'Dialog.Portal'
 Overlay.displayName = 'Dialog.Overlay'
