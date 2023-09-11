@@ -1,7 +1,7 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { Slider, type SliderRootProps } from '.'
+import { Slider, type SliderProps } from '.'
 
 const meta: Meta<typeof Slider> = {
   title: 'Components/Slider',
@@ -30,7 +30,7 @@ export const Range: StoryFn = _args => (
   </div>
 )
 
-const intents: SliderRootProps['intent'][] = [
+const intents: SliderProps['intent'][] = [
   'main',
   'support',
   'accent',

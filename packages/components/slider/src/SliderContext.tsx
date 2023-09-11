@@ -1,8 +1,8 @@
 import { createContext, useContext } from 'react'
 
-import type { SliderRootProps } from './SliderRoot'
+import type { SliderProps } from './Slider'
 
-export type SliderContextInterface = Pick<SliderRootProps, 'intent'>
+export type SliderContextInterface = Pick<SliderProps, 'intent'>
 
 export const SliderContext = createContext<SliderContextInterface>({} as SliderContextInterface)
 

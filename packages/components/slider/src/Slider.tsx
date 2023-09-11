@@ -1,16 +1,41 @@
-import type { FC } from 'react'
+import * as RadixSlider from '@radix-ui/react-slider'
+import { forwardRef, type PropsWithChildren } from 'react'
 
-import { SliderRoot as Root, type SliderRootProps } from './SliderRoot'
-import { SliderThumb as Thumb } from './SliderThumb'
-import { SliderTrack as Track } from './SliderTrack'
+import { rootStyles } from './Slider.styles'
+import { SliderContext } from './SliderContext'
+import type { SliderRangeVariantsProps } from './SliderTrack.styles'
 
-Thumb.displayName = 'Slider.Thumb'
-Track.displayName = 'Slider.Track'
+export interface SliderProps
+  extends Omit<
+      RadixSlider.SliderProps,
+      'dir' | 'orientation' | 'inverted' | 'minStepsBetweenThumbs'
+    >,
+    PropsWithChildren<SliderRangeVariantsProps> {
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   * @default false
+   */
+  asChild?: boolean
+}
 
-export const Slider: FC<SliderRootProps> & {
-  Thumb: typeof Thumb
-  Track: typeof Track
-} = Object.assign(Root, {
-  Thumb,
-  Track,
-})
+export const Slider = forwardRef<HTMLDivElement, SliderProps>(
+  ({ asChild = false, intent = 'basic', children, className, ...rest }, ref) => (
+    <SliderContext.Provider value={{ intent }}>
+      <RadixSlider.Root
+        ref={ref}
+        data-spark-component="slider"
+        asChild={asChild}
+        className={rootStyles({ className })}
+        dir="ltr"
+        orientation="horizontal"
+        inverted={false}
+        minStepsBetweenThumbs={0}
+        {...rest}
+      >
+        {children}
+      </RadixSlider.Root>
+    </SliderContext.Provider>
+  )
+)
+
+Slider.displayName = 'Slider'
