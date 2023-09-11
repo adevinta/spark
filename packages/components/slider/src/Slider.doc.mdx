@@ -61,13 +61,18 @@ Use `disabled` prop to indicate that slider is disabled.
 
 <Canvas of={stories.Disabled} />
 
+### Prevent thumb overlap
+Use `minStepsBetweenThumbs` to avoid thumbs with equal values.
+
+<Canvas of={stories.ThumbOverlapp} />
+
 ## Accessibility
 Adheres to the [Slider WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/).
 
 ### Keyboard Interactions
 
-- <Kbd>ArrowRight</Kbd>: Increments/decrements by the `step` value.
-- <Kbd>ArrowLeft</Kbd>: Increments/decrements by the `step` value.
+- <Kbd>ArrowRight</Kbd>: Increments by the `step` value.
+- <Kbd>ArrowLeft</Kbd>: Decrements by the `step` value.
 - <Kbd>ArrowUp</Kbd>: Increases the value by the `step` amount.
 - <Kbd>ArrowDown</Kbd>: Decreases the value by the `step` amount.
 - <Kbd>PageUp</Kbd>: Increases the value by a larger `step`.
