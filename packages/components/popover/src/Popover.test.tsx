@@ -4,7 +4,7 @@ import { mockResizeObserver } from 'jsdom-testing-mocks'
 import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { Popover } from './Popover'
+import { Popover } from '.'
 
 const ControlledImplementation = ({ defaultOpen = true } = {}) => {
   const [open] = useState(defaultOpen)

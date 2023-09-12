@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.8](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.2.7...@spark-ui/chip@0.2.8) (2023-09-11)
+
+### Bug Fixes
+
+- **dialog:** fixing dialog displayNames for docgen ([b905ed1](https://github.com/adevinta/spark/commit/b905ed1dd482ed0ec3523d9bf7a77bb74625228d))
+
 ## [0.2.7](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.2.6...@spark-ui/chip@0.2.7) (2023-09-05)
 
 **Note:** Version bump only for package @spark-ui/chip

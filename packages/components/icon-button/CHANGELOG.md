@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.19](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@2.0.18...@spark-ui/icon-button@2.0.19) (2023-09-12)
+
+### Bug Fixes
+
+- **icon-button:** update small IconButton icon size to 16x16 ([50b9f86](https://github.com/adevinta/spark/commit/50b9f865fa73b18f4a10ec710227204631d9824c))
+
+## [2.0.18](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@2.0.17...@spark-ui/icon-button@2.0.18) (2023-09-11)
+
+### Bug Fixes
+
+- fixing broken docgen because of forwardRef ([4fac93f](https://github.com/adevinta/spark/commit/4fac93f76f0405a29613b12bddee474bf62be0e3))
+
 ## [2.0.17](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@2.0.16...@spark-ui/icon-button@2.0.17) (2023-09-04)
 
 **Note:** Version bump only for package @spark-ui/icon-button
