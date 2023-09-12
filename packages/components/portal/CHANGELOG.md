@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.15](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.14...@spark-ui/portal@1.2.15) (2023-09-11)
+
+### Bug Fixes
+
+- fixing broken docgen because of forwardRef ([4fac93f](https://github.com/adevinta/spark/commit/4fac93f76f0405a29613b12bddee474bf62be0e3))
+
 ## [1.2.14](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.13...@spark-ui/portal@1.2.14) (2023-09-04)
 
 **Note:** Version bump only for package @spark-ui/portal
