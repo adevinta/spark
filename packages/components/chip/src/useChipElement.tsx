@@ -106,7 +106,8 @@ export const useChipElement = ({
     if (!!clearButton && !disabled && ['Delete', 'Backspace'].includes(event.key)) {
       if (onClear) {
         onClear()
-        event.key === 'Delete' ? emulateTab() : emulateTab.backwards()
+        event.key === 'Delete' && emulateTab()
+        event.key === 'Backspace' && emulateTab.backwards()
       }
     }
   }
