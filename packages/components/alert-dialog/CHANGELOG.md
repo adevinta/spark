@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.24](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@0.2.23...@spark-ui/alert-dialog@0.2.24) (2023-09-12)
+
+**Note:** Version bump only for package @spark-ui/alert-dialog
+
 ## [0.2.23](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@0.2.22...@spark-ui/alert-dialog@0.2.23) (2023-09-11)
 
 ### Bug Fixes
