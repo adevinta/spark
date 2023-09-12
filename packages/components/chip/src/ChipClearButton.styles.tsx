@@ -24,7 +24,7 @@ export const chipClearButtonWrapperStyles = cva(
       {
         design: 'outlined',
         disabled: false,
-        class: tw(['hover:opacity-dim-3']),
+        class: tw(['hover:opacity-dim-1']),
       },
       {
         design: 'outlined',
@@ -34,7 +34,7 @@ export const chipClearButtonWrapperStyles = cva(
       {
         design: 'tinted',
         disabled: false,
-        class: tw(['hover:opacity-dim-3']),
+        class: tw(['hover:opacity-dim-1']),
       },
       {
         design: 'tinted',
@@ -44,7 +44,7 @@ export const chipClearButtonWrapperStyles = cva(
       {
         design: 'dashed',
         disabled: false,
-        class: tw(['hover:opacity-dim-3']),
+        class: tw(['hover:opacity-dim-1']),
       },
       {
         design: 'dashed',

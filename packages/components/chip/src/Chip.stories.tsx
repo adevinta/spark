@@ -1,13 +1,16 @@
 import { Icon } from '@spark-ui/icon'
 import { AccountFill } from '@spark-ui/icons/dist/icons/AccountFill'
+import { ArrowHorizontalUp } from '@spark-ui/icons/dist/icons/ArrowHorizontalUp'
 import { CalendarOutline } from '@spark-ui/icons/dist/icons/CalendarOutline'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { EyeOutline } from '@spark-ui/icons/dist/icons/EyeOutline'
 import { MailOutline } from '@spark-ui/icons/dist/icons/MailOutline'
 import { Input as SparkInput, InputGroup } from '@spark-ui/input'
 import { Label } from '@spark-ui/label'
+import { Popover } from '@spark-ui/popover'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
+import { cx } from 'class-variance-authority'
 import { ChangeEvent, ComponentProps, useState } from 'react'
 
 import { Chip } from '.'
@@ -389,6 +392,27 @@ export const ActionIntent: StoryFn = _args => (
   </div>
 )
 
+export const SelectionIntent: StoryFn = _args => (
+  <div className="flex flex-col flex-wrap gap-md">
+    {designs.map(design => (
+      <div key={design} className="flex flex-wrap gap-md">
+        {intents.map(intent => (
+          <Chip
+            defaultPressed={true}
+            design={design}
+            key={`${design}-${intent}`}
+            intent={intent}
+            onClear={() => console.log('clear')}
+          >
+            <Chip.Content>{intent}</Chip.Content>
+            <Chip.ClearButton label="clear" />
+          </Chip>
+        ))}
+      </div>
+    ))}
+  </div>
+)
+
 export const Disabled: StoryFn = _args => (
   <div className="flex flex-col flex-wrap gap-md">
     {designs.map(design => (
@@ -508,5 +532,76 @@ export const Suggestion: StoryFn = () => {
         </Chip>
       </Component>
     </div>
+  )
+}
+
+const animals = ['Cat', 'Dog', 'Bird', 'Snake']
+export const Selection: StoryFn = () => {
+  const [isPressed, setIsPressed] = useState(false)
+  const [isOpened, setIsOpened] = useState(false)
+  const [value, setValue] = useState<string[]>([])
+  const hasValues = Boolean(value.length)
+  const content = value.length === animals.length ? 'All' : value.join(', ')
+
+  return (
+    <Popover open={isOpened}>
+      <Popover.Trigger asChild>
+        <Chip
+          pressed={isPressed || hasValues}
+          onClick={(_, { pressed }) => {
+            setIsOpened(!isOpened)
+            setIsPressed(!pressed)
+          }}
+          onClear={() => {
+            setValue([])
+            setIsPressed(false)
+          }}
+        >
+          <Chip.Content>{hasValues ? content : 'Animals'}</Chip.Content>
+          {value.length ? <Chip.ClearButton label="clear" /> : null}
+          <Chip.TrailingIcon>
+            <Icon
+              size="sm"
+              label={isOpened ? 'opened' : 'closed'}
+              className={cx('duration-150 ease-out', isOpened ? 'rotate-0' : '-rotate-180')}
+            >
+              <ArrowHorizontalUp />
+            </Icon>
+          </Chip.TrailingIcon>
+        </Chip>
+      </Popover.Trigger>
+      <Popover.Portal>
+        <Popover.Content align="start" asChild onInteractOutside={() => setIsOpened(false)}>
+          <ul className="overflow-hidden p-none">
+            {animals.map(arrayValue => {
+              const isValueIncluded = value.includes(arrayValue)
+
+              return (
+                <button
+                  role="listitem"
+                  key={arrayValue}
+                  className={cx(
+                    'flex w-full flex-row items-center justify-start gap-sm px-lg py-md',
+                    isValueIncluded
+                      ? 'bg-basic text-on-basic'
+                      : 'bg-basic-container text-on-basic-container',
+                    isValueIncluded ? 'hover:bg-basic-hovered' : 'hover:bg-basic-container-hovered',
+                    isValueIncluded ? 'focus-visible:bg-basic' : 'focus-visible:bg-basic-container'
+                  )}
+                  onClick={() =>
+                    setValue(
+                      isValueIncluded ? value.filter(v => v !== arrayValue) : [...value, arrayValue]
+                    )
+                  }
+                >
+                  <Icon label="check">{value.includes(arrayValue) ? <Check /> : <span />}</Icon>
+                  {arrayValue}
+                </button>
+              )
+            })}
+          </ul>
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover>
   )
 }

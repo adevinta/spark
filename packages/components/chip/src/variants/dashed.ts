@@ -108,7 +108,7 @@ export const dashedVariants = [
       'enabled:hover:bg-surface/dim-5',
       'enabled:active:bg-surface/dim-5',
       'focus-visible:bg-surface/dim-5',
-      'aria-pressed:bg-surface/dim-2 aria-pressed:text-surface aria-pressed:enabled:hover:bg-surface/dim-1',
+      'aria-pressed:bg-surface/dim-3 aria-pressed:text-surface aria-pressed:enabled:hover:bg-surface/dim-4',
       'text-surface',
     ]),
   },
