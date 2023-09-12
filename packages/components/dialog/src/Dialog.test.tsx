@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
-import { Dialog } from './Dialog'
+import { Dialog } from '.'
 
 describe('Dialog', () => {
   it('should render', async () => {

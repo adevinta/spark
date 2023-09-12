@@ -1,4 +1,4 @@
-import { Tabs, type TabsRootProps } from '@spark-ui/tabs'
+import { Tabs, type TabsProps } from '@spark-ui/tabs'
 import { ArgTypes as StorybookArgTypes } from '@storybook/blocks'
 import { type FC, type ReactNode, useEffect, useState } from 'react'
 
@@ -21,7 +21,7 @@ const ComponentDescription = ({ name, children }: { name: string; children: Reac
 }
 
 function useTabsOrientation() {
-  const [tabsOrientation, setTabsOrientation] = useState<TabsRootProps['orientation']>(
+  const [tabsOrientation, setTabsOrientation] = useState<TabsProps['orientation']>(
     window.innerWidth < 640 ? 'horizontal' : 'vertical'
   )
 
