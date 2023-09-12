@@ -1,6 +1,6 @@
 import { Portal as PortalPrimitive } from '@radix-ui/react-portal'
 import type * as Radix from '@radix-ui/react-primitive'
-import React, { PropsWithChildren } from 'react'
+import React, { forwardRef, type PropsWithChildren } from 'react'
 
 interface PortalProps {
   /**
@@ -11,6 +11,6 @@ interface PortalProps {
 
 type PortalRef = React.ElementRef<typeof Radix.Primitive.div>
 
-export const Portal = React.forwardRef<PortalRef, PropsWithChildren<PortalProps>>((props, ref) => {
+export const Portal = forwardRef<PortalRef, PropsWithChildren<PortalProps>>((props, ref) => {
   return <PortalPrimitive ref={ref} {...props} />
 })
