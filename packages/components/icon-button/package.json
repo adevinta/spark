@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/icon-button",
-  "version": "2.0.17",
+  "version": "2.0.19",
   "description": "Icon button renders an icon within in a button",
   "publishConfig": {
     "access": "public"

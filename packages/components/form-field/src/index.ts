@@ -11,27 +11,6 @@ import { FormFieldRequiredIndicator } from './FormFieldRequiredIndicator'
 import { FormFieldStateMessage } from './FormFieldStateMessage'
 import { FormFieldSuccessMessage } from './FormFieldSuccessMessage'
 
-export { type FormFieldProps } from './FormField'
-export { type FormFieldStateMessageProps } from './FormFieldStateMessage'
-export { type FormFieldControl, useFormFieldControl } from './FormFieldControl'
-export { type FormFieldHelperMessageProps } from './FormFieldHelperMessage'
-export { type FormFieldSuccessMessageProps } from './FormFieldSuccessMessage'
-export { type FormFieldAlertMessageProps } from './FormFieldAlertMessage'
-export { type FormFieldErrorMessageProps } from './FormFieldErrorMessage'
-export { type FormFieldLabelProps } from './FormFieldLabel'
-export { type FormFieldRequiredIndicatorProps } from './FormFieldRequiredIndicator'
-export { type FormFieldCharactersCountProps } from './FormFieldCharactersCount'
-
-FormFieldLabel.displayName = 'FormField.Label'
-FormFieldControl.displayName = 'FormField.Control'
-FormFieldStateMessage.displayName = 'FormField.StateMessage'
-FormFieldSuccessMessage.displayName = 'FormField.SuccessMessage'
-FormFieldAlertMessage.displayName = 'FormField.AlertMessage'
-FormFieldErrorMessage.displayName = 'FormField.ErrorMessage'
-FormFieldHelperMessage.displayName = 'FormField.HelperMessage'
-FormFieldRequiredIndicator.displayName = 'FormField.RequiredIndicator'
-FormFieldCharactersCount.displayName = 'FormField.CharactersCount'
-
 export const FormField: FC<FormFieldProps> & {
   Label: typeof FormFieldLabel
   Control: typeof FormFieldControl
@@ -53,3 +32,25 @@ export const FormField: FC<FormFieldProps> & {
   RequiredIndicator: FormFieldRequiredIndicator,
   CharactersCount: FormFieldCharactersCount,
 })
+
+FormField.displayName = 'FormField'
+FormFieldLabel.displayName = 'FormField.Label'
+FormFieldControl.displayName = 'FormField.Control'
+FormFieldStateMessage.displayName = 'FormField.StateMessage'
+FormFieldSuccessMessage.displayName = 'FormField.SuccessMessage'
+FormFieldAlertMessage.displayName = 'FormField.AlertMessage'
+FormFieldErrorMessage.displayName = 'FormField.ErrorMessage'
+FormFieldHelperMessage.displayName = 'FormField.HelperMessage'
+FormFieldRequiredIndicator.displayName = 'FormField.RequiredIndicator'
+FormFieldCharactersCount.displayName = 'FormField.CharactersCount'
+
+export { type FormFieldProps } from './FormField'
+export { type FormFieldStateMessageProps } from './FormFieldStateMessage'
+export { type FormFieldControl, useFormFieldControl } from './FormFieldControl'
+export { type FormFieldHelperMessageProps } from './FormFieldHelperMessage'
+export { type FormFieldSuccessMessageProps } from './FormFieldSuccessMessage'
+export { type FormFieldAlertMessageProps } from './FormFieldAlertMessage'
+export { type FormFieldErrorMessageProps } from './FormFieldErrorMessage'
+export { type FormFieldLabelProps } from './FormFieldLabel'
+export { type FormFieldRequiredIndicatorProps } from './FormFieldRequiredIndicator'
+export { type FormFieldCharactersCountProps } from './FormFieldCharactersCount'

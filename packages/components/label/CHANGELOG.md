@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.10](https://github.com/adevinta/spark/compare/@spark-ui/label@1.5.9...@spark-ui/label@1.5.10) (2023-09-11)
+
+### Bug Fixes
+
+- **label:** harmonize label displayNames ([f303580](https://github.com/adevinta/spark/commit/f303580c59e81c9338f2b8cfc105437de3f6ddc6))
+
 ## [1.5.9](https://github.com/adevinta/spark/compare/@spark-ui/label@1.5.8...@spark-ui/label@1.5.9) (2023-09-04)
 
 **Note:** Version bump only for package @spark-ui/label

@@ -329,7 +329,7 @@ export const FieldInvalid: StoryFn = _args => {
         <RadioGroup.Radio value="baseball">Baseball</RadioGroup.Radio>
       </RadioGroup>
 
-      <FormField.ErrorMessage>You must chose a sport among the list</FormField.ErrorMessage>
+      <FormField.ErrorMessage>You must choose a sport among the list</FormField.ErrorMessage>
     </FormField>
   )
 }
