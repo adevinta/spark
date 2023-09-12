@@ -120,7 +120,7 @@ Use the `FormField.HelperMessage` component to provide a description to the inpu
 
 ### Validation
 
-Use the `isInvalid` prop of the `FormField` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
+set the `state` prop of the `FormField` to `error` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
 
 <Canvas of={stories.FieldInvalid} />
 
@@ -133,7 +133,8 @@ Adheres to the [Radio Group WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA
 ### Keyboard Interactions
 
 - <Kbd>Tab</Kbd>: Moves focus to either the checked radio item or the first radio item in the group.
-- <Kbd>Shift</Kbd> + <Kbd>Tab</Kbd>: Moves focus forward to either the checked radio item or the first radio item in the group.
+- <Kbd>Shift</Kbd> + <Kbd>Tab</Kbd>: Moves focus forward to either the checked radio item or the
+  first radio item in the group.
 - <Kbd>Space</Kbd>: When focus is on an unchecked radio item, checks it.
 - <Kbd>ArrowDown</Kbd>: Moves focus and checks the next radio item in the group.
 - <Kbd>ArrowRight</Kbd>: Moves focus and checks the next radio item in the group.

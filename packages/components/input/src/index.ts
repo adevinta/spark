@@ -9,21 +9,6 @@ import { InputTrailingAddon } from './InputTrailingAddon'
 import { InputTrailingIcon } from './InputTrailingIcon'
 
 export * from './Input'
-export { useInputGroup } from './InputGroupContext'
-export { type InputGroupProps } from './InputGroup'
-export { type InputLeadingIconProps } from './InputLeadingIcon'
-export { type InputTrailingIconProps } from './InputTrailingIcon'
-export { type InputLeadingAddonProps } from './InputLeadingAddon'
-export { type InputTrailingAddonProps } from './InputTrailingAddon'
-export { type InputStateIndicatorProps } from './InputStateIndicator'
-export { type InputClearButtonProps } from './InputClearButton'
-
-InputLeadingAddon.displayName = 'InputGroup.LeadingAddon'
-InputTrailingAddon.displayName = 'InputGroup.TrailingAddon'
-InputLeadingIcon.displayName = 'InputGroup.LeadingIcon'
-InputTrailingIcon.displayName = 'InputGroup.TrailingIcon'
-InputStateIndicator.displayName = 'InputGroup.StateIndicator'
-InputClearButton.displayName = 'InputGroup.ClearButton'
 
 export const InputGroup: FC<InputGroupProps> & {
   LeadingAddon: typeof InputLeadingAddon
@@ -40,3 +25,20 @@ export const InputGroup: FC<InputGroupProps> & {
   StateIndicator: InputStateIndicator,
   ClearButton: InputClearButton,
 })
+
+InputGroup.displayName = 'InputGroup'
+InputLeadingAddon.displayName = 'InputGroup.LeadingAddon'
+InputTrailingAddon.displayName = 'InputGroup.TrailingAddon'
+InputLeadingIcon.displayName = 'InputGroup.LeadingIcon'
+InputTrailingIcon.displayName = 'InputGroup.TrailingIcon'
+InputStateIndicator.displayName = 'InputGroup.StateIndicator'
+InputClearButton.displayName = 'InputGroup.ClearButton'
+
+export { useInputGroup } from './InputGroupContext'
+export { type InputGroupProps } from './InputGroup'
+export { type InputLeadingIconProps } from './InputLeadingIcon'
+export { type InputTrailingIconProps } from './InputTrailingIcon'
+export { type InputLeadingAddonProps } from './InputLeadingAddon'
+export { type InputTrailingAddonProps } from './InputTrailingAddon'
+export { type InputStateIndicatorProps } from './InputStateIndicator'
+export { type InputClearButtonProps } from './InputClearButton'
