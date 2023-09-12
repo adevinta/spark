@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.13](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.12...@spark-ui/dialog@1.5.13) (2023-09-12)
+
+**Note:** Version bump only for package @spark-ui/dialog
+
+## [1.5.12](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.11...@spark-ui/dialog@1.5.12) (2023-09-11)
+
+### Bug Fixes
+
+- **dialog:** fixing dialog displayNames for docgen ([b905ed1](https://github.com/adevinta/spark/commit/b905ed1dd482ed0ec3523d9bf7a77bb74625228d))
+- typechecks ([75c3262](https://github.com/adevinta/spark/commit/75c32621298ad8160233af8e062b47760e3c3c5a))
+
 ## [1.5.11](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.10...@spark-ui/dialog@1.5.11) (2023-09-08)
 
 ### Bug Fixes

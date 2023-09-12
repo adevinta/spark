@@ -5,10 +5,6 @@ import { ProgressBar } from './ProgressBar'
 import { ProgressIndicator } from './ProgressIndicator'
 import { ProgressLabel } from './ProgressLabel'
 
-export { type ProgressBarProps } from './ProgressBar'
-export { type ProgressLabelProps } from './ProgressLabel'
-export { type ProgressIndicatorProps } from './ProgressIndicator'
-
 export const Progress: FC<ProgressProps> & {
   Label: typeof ProgressLabel
   Bar: typeof ProgressBar
@@ -19,5 +15,11 @@ export const Progress: FC<ProgressProps> & {
   Indicator: ProgressIndicator,
 })
 
-Progress.Label.displayName = 'Progress.Label'
-Progress.Bar.displayName = 'Progress.Bar'
+Progress.displayName = 'Progress'
+ProgressBar.displayName = 'Progress.Bar'
+ProgressIndicator.displayName = 'Progress.Indicator'
+ProgressLabel.displayName = 'Progress.Label'
+
+export { type ProgressBarProps } from './ProgressBar'
+export { type ProgressLabelProps } from './ProgressLabel'
+export { type ProgressIndicatorProps } from './ProgressIndicator'

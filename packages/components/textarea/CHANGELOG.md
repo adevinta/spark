@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.23](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.2.22...@spark-ui/textarea@1.2.23) (2023-09-11)
+
+### Bug Fixes
+
+- **textarea:** harmonize textarea displayNames ([ba70d4e](https://github.com/adevinta/spark/commit/ba70d4e0a700aa669844bb114d31da2654e7238a))
+
+## [1.2.22](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.2.21...@spark-ui/textarea@1.2.22) (2023-09-11)
+
+**Note:** Version bump only for package @spark-ui/textarea
+
 ## [1.2.21](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.2.20...@spark-ui/textarea@1.2.21) (2023-09-05)
 
 **Note:** Version bump only for package @spark-ui/textarea
