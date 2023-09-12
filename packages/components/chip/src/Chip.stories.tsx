@@ -332,7 +332,7 @@ export const MaxWidth: StoryFn = () => {
         <Chip>{content}</Chip>
         <Chip onClear={() => console.log('clear')}>
           <Chip.LeadingIcon aria-label="label">
-            <Icon>
+            <Icon label="check">
               <Check />
             </Icon>
           </Chip.LeadingIcon>
@@ -344,6 +344,15 @@ export const MaxWidth: StoryFn = () => {
         </Chip>
         <Chip onClear={() => console.log('clear')}>
           <Chip.Content>{content}</Chip.Content>
+          <Chip.ClearButton label="clear" />
+        </Chip>
+        <Chip onClear={() => console.log('clear')}>
+          <Chip.Content>{content}</Chip.Content>
+          <Chip.TrailingIcon aria-label="label">
+            <Icon label="check">
+              <Check />
+            </Icon>
+          </Chip.TrailingIcon>
           <Chip.ClearButton label="clear" />
         </Chip>
       </div>
