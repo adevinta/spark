@@ -11,6 +11,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, ComponentProps, useState } from 'react'
 
 import { Chip } from '.'
+import { ChipLeadingIcon } from './ChipLeadingIcon'
 
 const meta: Meta<typeof Chip> = {
   title: 'Experimental/Chip',
@@ -19,7 +20,7 @@ const meta: Meta<typeof Chip> = {
 
 type ChipProps = ComponentProps<typeof Chip>
 
-const designs: ChipProps['design'][] = ['outlined', 'filled', 'dashed', 'tinted']
+const designs: ChipProps['design'][] = ['outlined', 'dashed', 'tinted']
 
 const intents: ChipProps['intent'][] = [
   'basic',
@@ -37,6 +38,38 @@ const intents: ChipProps['intent'][] = [
 export default meta
 
 export const Default: StoryFn = _args => <Chip>default chip</Chip>
+
+export const Kind: StoryFn = () => {
+  const [pressed, setPressed] = useState(true)
+
+  return (
+    <div className="flex flex-row gap-xl">
+      <Chip onClick={() => console.log('assist')}>
+        <ChipLeadingIcon>
+          <Icon label="calendar">
+            <CalendarOutline />
+          </Icon>
+        </ChipLeadingIcon>
+        <Chip.Content>Assist</Chip.Content>
+      </Chip>
+      <Chip pressed={pressed} onClick={(_, { pressed }) => setPressed(!pressed)}>
+        {pressed && (
+          <ChipLeadingIcon>
+            <Icon label="check">
+              <Check />
+            </Icon>
+          </ChipLeadingIcon>
+        )}
+        <Chip.Content>Filter</Chip.Content>
+      </Chip>
+      <Chip>
+        <Chip.Content>Input</Chip.Content>
+        <Chip.ClearButton label="clear" />
+      </Chip>
+      <Chip onClick={() => console.log('suggestion')}>Suggestion</Chip>
+    </div>
+  )
+}
 
 const singleSet = Object.entries({
   '🥝': ['fruit'],
@@ -64,7 +97,6 @@ export const SingleSelectionFilter: StoryFn = () => {
               key={filter}
               value={filter}
               pressed={isActive}
-              design={isActive ? 'filled' : undefined}
               onClick={(_event, { pressed, value }) => {
                 setActive(pressed ? undefined : (value as string))
               }}
@@ -126,7 +158,6 @@ export const UnionFilter: StoryFn = () => {
               key={filter}
               value={filter}
               pressed={isActive}
-              design={isActive ? 'tinted' : 'dashed'}
               onClick={(_event, { pressed, value }) => {
                 setActiveFilters(
                   pressed
@@ -201,7 +232,6 @@ export const IntersectionFilter: StoryFn = () => {
               key={filter}
               value={filter}
               pressed={isActive}
-              design={isActive ? 'filled' : 'dashed'}
               onClick={(_event, { pressed, value }) => {
                 setActiveFilters(
                   pressed

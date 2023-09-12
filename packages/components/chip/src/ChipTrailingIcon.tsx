@@ -3,12 +3,12 @@ import React, { forwardRef } from 'react'
 
 import { ChipIcon, type ChipIconProps } from './ChipIcon'
 
-export type ChipLeadingIconProps = ChipIconProps
+export type ChipTrailingIconProps = ChipIconProps
 
-export const ChipLeadingIcon = forwardRef<HTMLSpanElement, ChipLeadingIconProps>(
+export const ChipTrailingIcon = forwardRef<HTMLSpanElement, ChipTrailingIconProps>(
   ({ className, ...props }, forwardedRef) => (
     <ChipIcon className={cx('mr-sm', className)} ref={forwardedRef} {...props} />
   )
 )
 
-ChipLeadingIcon.displayName = 'Chip.LeadingIcon'
+ChipTrailingIcon.displayName = 'Chip.TrailingIcon'

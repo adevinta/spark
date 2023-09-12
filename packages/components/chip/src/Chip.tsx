@@ -8,7 +8,7 @@ export interface ChipProps
   extends PropsWithChildren<
       Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick' | 'disabled'>
     >,
-    ChipStylesProps {
+    Omit<ChipStylesProps, 'hasClearButton'> {
   /**
    * Configures a toggleButton aria-pressed initial value
    */

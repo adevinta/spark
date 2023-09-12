@@ -83,6 +83,7 @@ export const useChipElement = ({
   const findChipElement = findElement(children)
 
   const leadingIcon = findChipElement('Chip.LeadingIcon')
+  const trailingIcon = findChipElement('Chip.TrailingIcon')
   const content = findChipElement('Chip.Content')
   const clearButton = findChipElement('Chip.ClearButton')
 
@@ -97,6 +98,7 @@ export const useChipElement = ({
       {leadingIcon}
       {content}
       {clearButton}
+      {leadingIcon === undefined ? trailingIcon : null}
     </>
   )
 
