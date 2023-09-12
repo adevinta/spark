@@ -7,7 +7,7 @@ export type ChipTrailingIconProps = ChipIconProps
 
 export const ChipTrailingIcon = forwardRef<HTMLSpanElement, ChipTrailingIconProps>(
   ({ className, ...props }, forwardedRef) => (
-    <ChipIcon className={cx('mr-sm', className)} ref={forwardedRef} {...props} />
+    <ChipIcon className={cx('ml-sm', className)} ref={forwardedRef} {...props} />
   )
 )
 
