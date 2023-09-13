@@ -7,7 +7,7 @@ export const styles = cva(
     'p-lg',
     'bg-surface text-on-surface',
     'shadow',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
+    'focus-visible:outline-none focus-visible:u-ring',
   ],
   {
     variants: {
