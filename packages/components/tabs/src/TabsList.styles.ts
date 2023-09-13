@@ -16,5 +16,5 @@ export const navigationArrowStyles = cva([
   '!h-auto flex-none',
   'border-b-sm border-outline',
   'outline-none',
-  'ring-inset focus-visible:border-none focus-visible:bg-surface-hovered focus-visible:ring-2 focus-visible:ring-outline-high',
+  'focus-visible:border-none focus-visible:bg-surface-hovered focus-visible:u-ring-inset',
 ])
