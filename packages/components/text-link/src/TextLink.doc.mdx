@@ -1,0 +1,58 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+
+import { TextLink } from '.'
+
+import * as stories from './TextLink.stories'
+
+<Meta of={stories} />
+
+# TextLink
+
+TextLink is an accessible element for navigation.
+
+## Install
+
+```sh
+npm install @spark-ui/text-link
+```
+
+## Import
+
+```tsx
+import { TextLink } from '@spark-ui/text-link'
+```
+
+## Props
+
+This component support [all HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes) supported by the `a` tag.
+
+<ArgTypes of={TextLink} />
+
+## Usage
+
+### Default
+
+<Canvas of={stories.Default} />
+
+### Sizes
+
+By default, the `TextLink` size adapts to the current font-size of your text.
+
+Simply use `Tailwindcss` to set a difference size if necessary.
+
+<Canvas of={stories.Sizes} />
+
+### Intents
+
+<Canvas of={stories.Intents} />
+
+## Advanced Usage
+
+### Icons
+
+You can use Spark’s `Icon` component inside of the `TextLink` to display an icon.
+
+This can be useful to showcase external links, download links, etc.
+
+<Canvas of={stories.Icons} />
