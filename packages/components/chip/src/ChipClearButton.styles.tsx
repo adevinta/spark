@@ -56,10 +56,7 @@ export const chipClearButtonWrapperStyles = cva(
 )
 
 export const chipClearButtonStyles = cva(
-  [
-    'rounded-full',
-    'ring-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
-  ],
+  ['rounded-full', 'focus-visible:outline-none focus-visible:u-ring-inset'],
   {
     variants: {
       disabled: {
