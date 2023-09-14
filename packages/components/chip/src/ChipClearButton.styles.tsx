@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 // eslint-disable-next-line tailwindcss/no-custom-classname
 export const chipClearButtonWrapperStyles = cva(
-  ['ml-md flex h-full items-center justify-center opacity-dim-3 focus-visible:outline-none'],
+  ['ml-md flex h-full items-center justify-center focus-visible:outline-none'],
   {
     variants: {
       disabled: {
@@ -16,7 +16,6 @@ export const chipClearButtonWrapperStyles = cva(
       },
       design: {
         outlined: [],
-        filled: [],
         tinted: [],
         dashed: [],
       },
@@ -25,7 +24,7 @@ export const chipClearButtonWrapperStyles = cva(
       {
         design: 'outlined',
         disabled: false,
-        class: tw(['opacity-dim-3 hover:opacity-none']),
+        class: tw(['hover:opacity-dim-1']),
       },
       {
         design: 'outlined',
@@ -33,19 +32,9 @@ export const chipClearButtonWrapperStyles = cva(
         class: tw(['opacity-dim-3']),
       },
       {
-        design: 'filled',
-        disabled: false,
-        class: tw(['opacity-dim-1 hover:opacity-none']),
-      },
-      {
-        design: 'filled',
-        disabled: true,
-        class: tw(['opacity-dim-1']),
-      },
-      {
         design: 'tinted',
         disabled: false,
-        class: tw(['opacity-dim-3 hover:opacity-none']),
+        class: tw(['hover:opacity-dim-1']),
       },
       {
         design: 'tinted',
@@ -55,7 +44,7 @@ export const chipClearButtonWrapperStyles = cva(
       {
         design: 'dashed',
         disabled: false,
-        class: tw(['opacity-dim-3 hover:opacity-none']),
+        class: tw(['hover:opacity-dim-1']),
       },
       {
         design: 'dashed',
