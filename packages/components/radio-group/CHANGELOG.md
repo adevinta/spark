@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.0.15...@spark-ui/radio-group@2.1.0) (2023-09-14)
+
+### Features
+
+- **radio-group:** apply new custom ring for focus styles ([d2bca18](https://github.com/adevinta/spark/commit/d2bca182ae5e533db2fff1e525134748801c5c51)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [2.0.15](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.0.14...@spark-ui/radio-group@2.0.15) (2023-09-11)
 
 ### Bug Fixes

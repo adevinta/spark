@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.0.39...@spark-ui/popover@1.1.0) (2023-09-14)
+
+### Features
+
+- **popover:** apply new custom ring for focus styles ([f1e8e77](https://github.com/adevinta/spark/commit/f1e8e77c0a3e06af9c64c7391feeed3071d13094)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [1.0.39](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.0.38...@spark-ui/popover@1.0.39) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/popover

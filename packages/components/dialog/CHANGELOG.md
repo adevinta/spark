@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.15...@spark-ui/dialog@1.6.0) (2023-09-14)
+
+### Features
+
+- **dialog:** apply new custom ring for focus styles ([8c2355c](https://github.com/adevinta/spark/commit/8c2355c6ab6b56df4037c3062ef5eb016d606e5b)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [1.5.15](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.14...@spark-ui/dialog@1.5.15) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/dialog

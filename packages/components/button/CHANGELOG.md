@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/button@2.1.7...@spark-ui/button@2.2.0) (2023-09-14)
+
+### Features
+
+- **button:** apply new custom ring for focus styles ([3f75be7](https://github.com/adevinta/spark/commit/3f75be7cc94a58563e7c9350d9bf5168c18f108a)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [2.1.7](https://github.com/adevinta/spark/compare/@spark-ui/button@2.1.6...@spark-ui/button@2.1.7) (2023-09-04)
 
 **Note:** Version bump only for package @spark-ui/button

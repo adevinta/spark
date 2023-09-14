@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.0.23...@spark-ui/checkbox@2.1.0) (2023-09-14)
+
+### Features
+
+- **checkbox:** apply new custom ring for focus styles ([e275324](https://github.com/adevinta/spark/commit/e27532446422d3589f00a1d8b2e1b70b68f923de)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [2.0.23](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.0.22...@spark-ui/checkbox@2.0.23) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/checkbox

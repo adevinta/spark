@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.23...@spark-ui/drawer@0.2.0) (2023-09-14)
+
+### Features
+
+- **drawer:** apply new custom ring for focus styles ([5e30dc8](https://github.com/adevinta/spark/commit/5e30dc8b418607eb9014ccacbb9a268551628999))
+
 ## [0.1.23](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.22...@spark-ui/drawer@0.1.23) (2023-09-14)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.0.18...@spark-ui/switch@2.1.0) (2023-09-14)
+
+### Features
+
+- **switch:** apply new custom ring for focus styles ([1234dfe](https://github.com/adevinta/spark/commit/1234dfef9b21ca9ee7a3d5f8a5f262a479fef1dc)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [2.0.18](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.0.17...@spark-ui/switch@2.0.18) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/switch

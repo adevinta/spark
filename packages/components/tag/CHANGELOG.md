@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.0.11...@spark-ui/tag@2.1.0) (2023-09-14)
+
+### Features
+
+- **tag:** apply new custom ring for focus styles ([9fd6785](https://github.com/adevinta/spark/commit/9fd6785ccc59bdf8f208ddb60f3735a33f2a8ed9)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [2.0.11](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.0.10...@spark-ui/tag@2.0.11) (2023-08-31)
 
 **Note:** Version bump only for package @spark-ui/tag

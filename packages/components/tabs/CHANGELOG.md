@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.0.23...@spark-ui/tabs@2.1.0) (2023-09-14)
+
+### Features
+
+- **tabs:** apply new custom ring for focus styles ([4dc9b11](https://github.com/adevinta/spark/commit/4dc9b1131559226daf3654ad7da3413048b51e5f)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [2.0.23](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.0.22...@spark-ui/tabs@2.0.23) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/tabs

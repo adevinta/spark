@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.2.5...@spark-ui/tailwind-plugins@3.3.0) (2023-09-14)
+
+### Features
+
+- **tailwind-plugins:** add two custom ring utilities ([2c91620](https://github.com/adevinta/spark/commit/2c91620199f177a475327b5e73459927ae559ece)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+
 ## [3.2.5](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.2.4...@spark-ui/tailwind-plugins@3.2.5) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins
