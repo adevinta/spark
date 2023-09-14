@@ -4,10 +4,7 @@ import React, { forwardRef } from 'react'
 export type TextLinkProps = React.HTMLProps<HTMLAnchorElement> & StylesProps
 
 const textLinkStyles = cva(
-  [
-    'inline-flex gap-sm items-center font-bold',
-    'focus-visible:ring-2 focus-visible:ring-outline-high focus-visible:outline-none',
-  ],
+  ['inline-flex gap-sm items-center font-bold', 'focus-visible:u-ring focus-visible:outline-none'],
   {
     variants: {
       intent: {
