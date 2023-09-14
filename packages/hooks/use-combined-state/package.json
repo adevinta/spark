@@ -17,11 +17,6 @@
   "scripts": {
     "build": "vite build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:adevinta/spark.git",
-    "directory": "packages/hooks/use-combined-state"
-  },
   "dependencies": {
     "@spark-ui/use-mounted-state": "^0.2.3",
     "@types/lodash.isequal": "4.5.6",
@@ -31,8 +26,17 @@
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/hooks/use-combined-state"
+  },
+  "config": {
+    "title": "use-combined-state",
+    "category": "hooks"
+  },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues"
+    "url": "https://github.com/adevinta/spark/issues?q=label%3Ahook+label%3Ause-combined-state"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"
