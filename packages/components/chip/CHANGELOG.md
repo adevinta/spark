@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.2.9...@spark-ui/chip@0.3.0) (2023-09-14)
+
+### Features
+
+- **chip:** add last extra improvements ([a126c54](https://github.com/adevinta/spark/commit/a126c542ae7be4bc582099353f1fa3833ce0197d))
+- **chip:** adjust the margin ([2720954](https://github.com/adevinta/spark/commit/2720954f84b9d2bf5fdb808dbe853e575b3f66fd))
+- **chip:** adjust to new specs ([fb8f355](https://github.com/adevinta/spark/commit/fb8f3559c7b54955f2429604a8414c6444992337))
+
 ## [0.2.9](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.2.8...@spark-ui/chip@0.2.9) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/chip
