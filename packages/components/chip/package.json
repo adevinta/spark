@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/chip",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "to help people enter information, make selections, filter content, or trigger actions",
   "publishConfig": {
     "access": "public"
@@ -44,7 +44,7 @@
   "license": "MIT",
   "dependencies": {
     "@spark-ui/icon": "^2.0.9",
-    "@spark-ui/icons": "^1.20.6",
+    "@spark-ui/icons": "^1.20.7",
     "@spark-ui/internal-utils": "^2.1.2",
     "@spark-ui/slot": "^1.6.6",
     "emulate-tab": "^1.2.1"
