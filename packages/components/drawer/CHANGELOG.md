@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.23](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.22...@spark-ui/drawer@0.1.23) (2023-09-14)
+
+### Bug Fixes
+
+- **drawer:** classNames order ([4b5b720](https://github.com/adevinta/spark/commit/4b5b720a0d552bfb9fb40353bf5458be6f25ffb8))
+
 ## [0.1.22](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.21...@spark-ui/drawer@0.1.22) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/drawer
