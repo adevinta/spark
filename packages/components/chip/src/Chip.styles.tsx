@@ -1,12 +1,13 @@
 import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { dashedVariants, filledVariants, outlinedVariants, tintedVariants } from './variants'
+import { dashedVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const chipStyles = cva(
   [
     'box-border inline-flex h-sz-32 flex-nowrap items-center justify-center rounded-md text-body-1 font-regular',
     'max-w-sz-240 ring-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
+    'ease-out duration-150',
   ],
   {
     variants: {
@@ -21,8 +22,7 @@ export const chipStyles = cva(
        *
        * - `dashed`: Chip will be transparent with an outline dashed.
        */
-      design: makeVariants<'design', ['filled', 'outlined', 'tinted', 'dashed']>({
-        filled: [''],
+      design: makeVariants<'design', ['outlined', 'tinted', 'dashed']>({
         outlined: ['bg-transparent ring-1 ring-current'],
         tinted: [''],
         dashed: [
@@ -70,12 +70,7 @@ export const chipStyles = cva(
       },
       // 'pl-[calc(theme(spacing.md)-theme(borderWidth.sm))]'
     },
-    compoundVariants: [
-      ...filledVariants,
-      ...outlinedVariants,
-      ...tintedVariants,
-      ...dashedVariants,
-    ],
+    compoundVariants: [...outlinedVariants, ...tintedVariants, ...dashedVariants],
     defaultVariants: {
       design: 'outlined',
       intent: 'basic',

@@ -71,6 +71,10 @@ import { Chip } from '@spark-ui/chip'
       of: Chip.LeadingIcon,
       description: 'Prepend a decorative icon inside the chip (to the left).',
     },
+    'Chip.TrailingIcon': {
+      of: Chip.TrailingIcon,
+      description: 'Append a decorative icon inside the chip (to the right).',
+    },
     'Chip.ClearButton': {
       of: Chip.ClearButton,
       description: 'For removing the chip.',
@@ -84,6 +88,10 @@ import { Chip } from '@spark-ui/chip'
 
 <Canvas of={stories.Default} />
 
+### Kind
+
+<Canvas of={stories.Kind} />
+
 ### Intent
 
 All intents are available
@@ -93,6 +101,10 @@ All intents are available
 When the chip has an associated action, specific hover and focus styles will be applied.
 
 <Canvas of={stories.ActionIntent} />
+
+When the chip has a `pressed` status configured it becomes a toggle button
+
+<Canvas of={stories.SelectionIntent} />
 
 ### Disabled
 
@@ -172,6 +184,12 @@ Suggestion chips help narrow a user’s intent by presenting dynamically generat
 <Canvas of={stories.Suggestion} />
 
 Suggestion chips can offer quick-reply options in a chat or email app, or It can help the user start a search.
+
+### Selection
+
+Chips can also add other extra rare usages like acting as a Select combined with the popover.
+
+<Canvas of={stories.Selection} />
 
 ## Accessibility
 

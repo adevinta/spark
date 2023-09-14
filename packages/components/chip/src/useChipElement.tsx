@@ -83,10 +83,11 @@ export const useChipElement = ({
   const findChipElement = findElement(children)
 
   const leadingIcon = findChipElement('Chip.LeadingIcon')
+  const trailingIcon = findChipElement('Chip.TrailingIcon')
   const content = findChipElement('Chip.Content')
   const clearButton = findChipElement('Chip.ClearButton')
 
-  const isButton = Boolean(onClick || isPressed)
+  const isButton = (onClick || isPressed) !== undefined
 
   const formattedChildren = [leadingIcon, content, clearButton].every(
     element => element === undefined
@@ -96,6 +97,7 @@ export const useChipElement = ({
     <>
       {leadingIcon}
       {content}
+      {leadingIcon === undefined ? trailingIcon : null}
       {clearButton}
     </>
   )
@@ -104,7 +106,8 @@ export const useChipElement = ({
     if (!!clearButton && !disabled && ['Delete', 'Backspace'].includes(event.key)) {
       if (onClear) {
         onClear()
-        event.key === 'Delete' ? emulateTab() : emulateTab.backwards()
+        event.key === 'Delete' && emulateTab()
+        event.key === 'Backspace' && emulateTab.backwards()
       }
     }
   }
@@ -119,7 +122,7 @@ export const useChipElement = ({
           'data-state': isPressed ? 'on' : 'off',
         }),
         onClick: (event: React.MouseEvent<HTMLButtonElement>): void => {
-          setIsPressed(!isPressed)
+          isPressed !== undefined && setIsPressed(!isPressed)
           onClick && onClick(event, { pressed: isPressed as boolean, value: innerValue })
         },
         onKeyDown,

@@ -1,5 +1,5 @@
 import { Icon } from '@spark-ui/icon'
-import { DeleteFill } from '@spark-ui/icons/dist/icons/DeleteFill'
+import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
 import React, { cloneElement, ComponentPropsWithoutRef, forwardRef, useCallback } from 'react'
 
 import {
@@ -19,8 +19,8 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
   (
     {
       children = (
-        <Icon className="opacity-dim-3">
-          <DeleteFill />
+        <Icon className="">
+          <DeleteOutline />
         </Icon>
       ),
       tabIndex = 0,
