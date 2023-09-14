@@ -5,7 +5,7 @@ export type DrawerFooterProps = ComponentPropsWithoutRef<'footer'>
 
 export const DrawerFooter = forwardRef(
   ({ className, ...rest }: DrawerFooterProps, ref: Ref<HTMLDivElement>): ReactElement => (
-    <footer ref={ref} className={cx(className, ['px-xl', 'py-lg'])} {...rest} />
+    <footer ref={ref} className={cx(['px-xl', 'py-lg'], className)} {...rest} />
   )
 )
 
