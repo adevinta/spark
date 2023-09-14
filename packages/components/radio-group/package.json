@@ -39,11 +39,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:adevinta/spark.git",
+    "url": "https://github.com/adevinta/spark.git",
     "directory": "packages/components/radio-group"
   },
+  "config": {
+    "title": "radio-group",
+    "category": "components"
+  },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues"
+    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aradio-group"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

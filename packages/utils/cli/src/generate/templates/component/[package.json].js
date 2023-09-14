@@ -29,11 +29,15 @@ export default ({ name, description }) => `{
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:adevinta/spark.git",
+    "url": "https://github.com/adevinta/spark.git",
     "directory": "packages/components/${name}"
   },
+  "config": {
+    "title": "${name}",
+    "category": "components"
+  },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues"
+    "url": "https://github.com/adevinta/spark/issues?q=label%3Autility+label%3A${name}"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

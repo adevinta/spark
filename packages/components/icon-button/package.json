@@ -34,8 +34,17 @@
     "react-dom": "^16.8 || ^17.0 || ^18.0",
     "tailwindcss": "^3.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/components/icon-button"
+  },
+  "config": {
+    "title": "icon-button",
+    "category": "components"
+  },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues"
+    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aicon-button"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"
