@@ -8,7 +8,7 @@ export interface DrawerHeaderProps {
 
 export const DrawerHeader = forwardRef(
   ({ children, className, ...rest }: DrawerHeaderProps, ref: Ref<HTMLDivElement>): ReactElement => (
-    <header ref={ref} className={cx(className, ['px-xl', 'py-lg'])} {...rest}>
+    <header ref={ref} className={cx(['px-xl', 'py-lg'], className)} {...rest}>
       {children}
     </header>
   )
