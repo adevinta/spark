@@ -1,5 +1,7 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@storybook/blocks'
+import { Kbd } from '@spark-ui/kbd'
+import { Callout } from '@docs/helpers/Callout'
 
 import { TextLink } from '.'
 
@@ -35,14 +37,6 @@ This component support [all HTML attributes](https://developer.mozilla.org/en-US
 
 <Canvas of={stories.Default} />
 
-### Sizes
-
-By default, the `TextLink` size adapts to the current font-size of your text.
-
-Simply use `Tailwindcss` to set a difference size if necessary.
-
-<Canvas of={stories.Sizes} />
-
 ### Intents
 
 By default, `TextLink` will inherit the color of the current font.
@@ -53,6 +47,35 @@ You can also manually set the `intent` prop when you need a specific color inste
 
 <Canvas of={stories.Intents} />
 
+### Sizes
+
+By default, the `TextLink` size adapts to the current font-size of your text.
+
+Simply use `Tailwindcss` to set a difference size if necessary.
+
+<Canvas of={stories.Sizes} />
+
+### Underline
+
+By default `TextLink` shows an underline. It can be disabled to only be shown when hovering/focusing the link instead.
+
+<Callout kind="warning">
+  <p>
+    If you decide to remove the underline, the links might become more difficult to identify by
+    users.
+  </p>
+  <p>
+    <span>Please check the </span>
+    <TextLink
+      href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F73"
+      children="official WCAG requirements"
+    />
+    <span> for accessible links.</span>
+  </p>
+</Callout>
+
+<Canvas of={stories.Underline} />
+
 ## Advanced Usage
 
 ### Icons
@@ -62,3 +85,13 @@ You can use Spark’s `Icon` component inside of the `TextLink` to display an ic
 This can be useful to showcase external links, download links, etc.
 
 <Canvas of={stories.Icons} />
+
+## Accessibility
+
+Adheres to the [Link WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/link/).
+
+### Keyboard Interactions
+
+- <Kbd>Enter</Kbd> - Opens the link
+- <Kbd>Tab</Kbd> - Moves focus to the next focusable element.
+- <Kbd>Shift</Kbd> + <Kbd>Tab</Kbd> - Moves focus to the previous focusable element.

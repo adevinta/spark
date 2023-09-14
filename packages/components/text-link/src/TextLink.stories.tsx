@@ -27,24 +27,6 @@ export const Default: StoryFn = _args => {
   )
 }
 
-export const Sizes: StoryFn = _args => {
-  return (
-    <div className="flex flex-col gap-md">
-      {['text-caption', 'text-body-1', 'text-headline-1'].map(textSize => {
-        return (
-          <p className={textSize}>
-            Have you heard about{' '}
-            <TextLink href="/?path=/docs/getting-started--docs" target="_blank">
-              Spark
-            </TextLink>{' '}
-            ? It’s awesome .
-          </p>
-        )
-      })}
-    </div>
-  )
-}
-
 const intents: TextLinkProps['intent'][] = [
   'main',
   'support',
@@ -107,6 +89,37 @@ export const Intents: StoryFn = _args => {
           .
         </p>
       ))}
+    </div>
+  )
+}
+
+export const Sizes: StoryFn = _args => {
+  return (
+    <div className="flex flex-col gap-md">
+      {['text-caption', 'text-body-1', 'text-headline-1'].map(textSize => {
+        return (
+          <p className={textSize}>
+            Have you heard about{' '}
+            <TextLink href="/?path=/docs/getting-started--docs" target="_blank">
+              Spark
+            </TextLink>{' '}
+            ? It’s awesome .
+          </p>
+        )
+      })}
+    </div>
+  )
+}
+
+export const Underline: StoryFn = _args => {
+  return (
+    <div className="flex flex-col gap-md">
+      <TextLink underline href="/?path=/docs/getting-started--docs" target="_blank">
+        Default link with underline
+      </TextLink>
+      <TextLink underline={false} href="/?path=/docs/getting-started--docs" target="_blank">
+        Link with underline disabled
+      </TextLink>
     </div>
   )
 }

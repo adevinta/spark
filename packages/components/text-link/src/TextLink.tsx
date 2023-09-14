@@ -5,7 +5,7 @@ export type TextLinkProps = React.HTMLProps<HTMLAnchorElement> & StylesProps
 
 const textLinkStyles = cva(
   [
-    'underline inline-flex gap-sm items-center font-bold',
+    'inline-flex gap-sm items-center font-bold',
     'focus-visible:ring-2 focus-visible:ring-outline-high focus-visible:outline-none',
   ],
   {
@@ -22,9 +22,14 @@ const textLinkStyles = cva(
         info: 'text-info hover:text-info-hovered',
         neutral: 'text-neutral hover:text-neutral-hovered',
       },
+      underline: {
+        true: 'underline',
+        false: 'hover:underline focus:underline',
+      },
     },
     defaultVariants: {
       intent: 'current',
+      underline: true,
     },
   }
 )
@@ -32,9 +37,9 @@ const textLinkStyles = cva(
 export type StylesProps = VariantProps<typeof textLinkStyles>
 
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
-  ({ children, className, intent = 'current', ...props }, ref) => {
+  ({ children, className, intent = 'current', underline = true, ...props }, ref) => {
     return (
-      <a className={textLinkStyles({ className, intent })} ref={ref} {...props}>
+      <a className={textLinkStyles({ className, intent, underline })} ref={ref} {...props}>
         {children}
       </a>
     )
