@@ -33,7 +33,7 @@ export const Sizes: StoryFn = _args => {
       {['text-caption', 'text-body-1', 'text-headline-1'].map(textSize => {
         return (
           <p className={textSize}>
-            Have you head about{' '}
+            Have you heard about{' '}
             <TextLink href="/?path=/docs/getting-started--docs" target="_blank">
               Spark
             </TextLink>{' '}
@@ -41,17 +41,6 @@ export const Sizes: StoryFn = _args => {
           </p>
         )
       })}
-      <p className="text-body-1">
-        Have you head about{' '}
-        <TextLink
-          href="/?path=/docs/getting-started--docs"
-          target="_blank"
-          className="text-display-1"
-        >
-          Spark
-        </TextLink>{' '}
-        ? It’s awesome .
-      </p>
     </div>
   )
 }
@@ -67,6 +56,44 @@ const intents: TextLinkProps['intent'][] = [
   'info',
   'neutral',
 ]
+
+export const CurrentIntent: StoryFn = _args => {
+  const cardColors = [
+    'bg-main text-on-main',
+    'bg-main-container text-on-main-container',
+    'bg-support text-on-support',
+    'bg-support-container text-on-support-container',
+    'bg-accent text-on-accent',
+    'bg-accent-container text-on-accent-container',
+    'bg-basic text-on-basic',
+    'bg-basic-container text-on-basic-container',
+    'bg-success text-on-success',
+    'bg-success-container text-on-success-container',
+    'bg-alert text-on-alert',
+    'bg-alert-container text-on-alert-container',
+    'bg-danger text-on-danger',
+    'bg-danger-container text-on-danger-container',
+    'bg-info text-on-info',
+    'bg-info-container text-on-info-container',
+    'bg-neutral text-on-neutral',
+    'bg-neutral-container text-on-neutral-container',
+    'bg-surface text-on-surface',
+  ]
+
+  return (
+    <div className="flex flex-row flex-wrap">
+      {cardColors.map(colorStyles => (
+        <p className={'inline p-md ' + colorStyles}>
+          Current{' '}
+          <TextLink href="https://en.wikipedia.org/wiki/Kitten" target="_blank">
+            link
+          </TextLink>
+          .
+        </p>
+      ))}
+    </div>
+  )
+}
 
 export const Intents: StoryFn = _args => {
   return (

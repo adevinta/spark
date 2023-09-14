@@ -11,6 +11,7 @@ const textLinkStyles = cva(
   {
     variants: {
       intent: {
+        current: 'text-current hover:opacity-dim-1',
         main: 'text-main hover:text-main-hovered',
         support: 'text-support hover:text-support-hovered',
         accent: 'text-accent hover:text-accent-hovered',
@@ -23,7 +24,7 @@ const textLinkStyles = cva(
       },
     },
     defaultVariants: {
-      intent: 'basic',
+      intent: 'current',
     },
   }
 )
@@ -31,7 +32,7 @@ const textLinkStyles = cva(
 export type StylesProps = VariantProps<typeof textLinkStyles>
 
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
-  ({ children, className, intent = 'basic', ...props }, ref) => {
+  ({ children, className, intent = 'current', ...props }, ref) => {
     return (
       <a className={textLinkStyles({ className, intent })} ref={ref} {...props}>
         {children}
