@@ -8,7 +8,6 @@ export const tagStyles = cva(
     'box-border inline-flex items-center justify-center gap-sm whitespace-nowrap',
     'text-caption font-bold',
     'h-sz-20 px-md',
-    'ring-inset',
     'rounded-full',
   ],
   {

@@ -2,14 +2,14 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const dialogContentWrapperStyles = cva([
   'fixed inset-none z-modal flex items-center justify-center',
-  'focus-visible:ring-2 focus-visible:ring-outline-high focus-visible:outline-none',
+  'focus-visible:u-ring focus-visible:outline-none',
 ])
 
 export const dialogContentStyles = cva(
   [
     ['relative', 'flex', 'flex-col'],
     ['bg-surface'],
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
+    'focus-visible:outline-none focus-visible:u-ring',
   ],
   {
     variants: {

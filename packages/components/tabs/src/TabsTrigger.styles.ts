@@ -11,7 +11,7 @@ export const triggerVariants = cva(
     'after:absolute',
     'spark-orientation-horizontal:border-b-sm spark-orientation-horizontal:after:inset-x-none spark-orientation-horizontal:after:bottom-[-1px] spark-orientation-horizontal:after:h-sz-2',
     'spark-orientation-vertical:border-r-sm spark-orientation-vertical:after:inset-y-none spark-orientation-vertical:after:right-[-1px] spark-orientation-vertical:after:w-sz-2',
-    'ring-inset focus-visible:border-none focus-visible:bg-surface-hovered focus-visible:ring-2 focus-visible:ring-outline-high',
+    'focus-visible:border-none focus-visible:bg-surface-hovered focus-visible:u-ring-inset',
     'spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3',
     'duration-300 ease-linear',
     'gap-md [&>*:first-child]:ml-md [&>*:last-child]:mr-md',

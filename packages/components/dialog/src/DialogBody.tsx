@@ -13,7 +13,7 @@ export const Body = forwardRef(
       className={cx(
         className,
         ['px-xl', 'py-lg', 'flex-grow', 'overflow-y-auto'],
-        ['outline-none', 'focus-visible:ring-2', 'focus-visible:ring-outline-high']
+        ['outline-none', 'focus-visible:u-ring']
       )}
       {...rest}
     >

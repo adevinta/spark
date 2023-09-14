@@ -16,5 +16,11 @@ module.exports = plugin.withOptions(() => ({ addUtilities, theme }) => {
       scrollbarWidth: 'none',
       '&::-webkit-scrollbar': { display: 'none' },
     },
+    '.u-ring': {
+      'box-shadow': '0 0 0 2px rgb(var(--colors-background)), 0 0 0 4px blue;',
+    },
+    '.u-ring-inset': {
+      'box-shadow': '0 0 0 0 rgb(var(--colors-background)) inset, 0 0 0 2px blue inset;',
+    },
   })
 })

@@ -5,7 +5,7 @@ export const checkboxInputStyles = cva(
   [
     'h-sz-24 w-sz-24 shrink-0 items-center justify-center rounded-sm border-md bg-transparent outline-none',
     'spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3 spark-disabled:hover:ring-0',
-    'focus-visible:ring-2 focus-visible:ring-outline-high',
+    'focus-visible:u-ring',
     'hover:border-main-container hover:ring-2',
     'u-shadow-border-transition',
   ],

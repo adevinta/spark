@@ -9,7 +9,7 @@ export const styles = cva(
     'hover:ring-4',
     'transition-colors duration-200 ease-in-out',
     'spark-disabled:opacity-dim-3 disabled:hover:ring-transparent spark-disabled:cursor-not-allowed',
-    'focus-visible:outline-none focus-visible:ring focus-visible:ring-outline-high',
+    'focus-visible:outline-none focus-visible:u-ring',
     'spark-state-unchecked:bg-on-surface/dim-4',
     'u-shadow-border-transition',
   ]),
