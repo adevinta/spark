@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.1.0...@spark-ui/popover@1.1.1) (2023-09-14)
+
+### Bug Fixes
+
+- **popover:** meta-tags ([db8a836](https://github.com/adevinta/spark/commit/db8a8365d71be2de7afda726d4b6a8c68dcd6c7d))
+
 # [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.0.39...@spark-ui/popover@1.1.0) (2023-09-14)
 
 ### Features

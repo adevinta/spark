@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.1.0...@spark-ui/switch@2.1.1) (2023-09-14)
+
+### Bug Fixes
+
+- **switch:** meta-tags ([93b2bc6](https://github.com/adevinta/spark/commit/93b2bc62404e88d1f2454c772e78724f887ec214))
+
 # [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.0.18...@spark-ui/switch@2.1.0) (2023-09-14)
 
 ### Features

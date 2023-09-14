@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.11](https://github.com/adevinta/spark/compare/@spark-ui/label@1.5.10...@spark-ui/label@1.5.11) (2023-09-14)
+
+### Bug Fixes
+
+- **label:** meta-tags ([c01a7f7](https://github.com/adevinta/spark/commit/c01a7f7866c16c76b26a673ca1d3896fe6bf3fce))
+
 ## [1.5.10](https://github.com/adevinta/spark/compare/@spark-ui/label@1.5.9...@spark-ui/label@1.5.10) (2023-09-11)
 
 ### Bug Fixes

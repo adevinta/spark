@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.25](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.2.24...@spark-ui/textarea@1.2.25) (2023-09-14)
+
+### Bug Fixes
+
+- **textarea:** meta-tags ([12f02d2](https://github.com/adevinta/spark/commit/12f02d25329fdc7ef72b58d52895900bd885c451))
+
 ## [1.2.24](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.2.23...@spark-ui/textarea@1.2.24) (2023-09-13)
 
 **Note:** Version bump only for package @spark-ui/textarea

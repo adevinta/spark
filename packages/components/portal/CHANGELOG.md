@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.16](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.15...@spark-ui/portal@1.2.16) (2023-09-14)
+
+### Bug Fixes
+
+- **portal:** meta-tags ([257d672](https://github.com/adevinta/spark/commit/257d672bf7291dc81df650f896c04e7845e5cfd5))
+
 ## [1.2.15](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.2.14...@spark-ui/portal@1.2.15) (2023-09-11)
 
 ### Bug Fixes

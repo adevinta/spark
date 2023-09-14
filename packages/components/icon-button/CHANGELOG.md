@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.21](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@2.0.20...@spark-ui/icon-button@2.0.21) (2023-09-14)
+
+### Bug Fixes
+
+- **icon-button:** meta-tags ([ff1f89d](https://github.com/adevinta/spark/commit/ff1f89d0525110208c4abab223a541057e3dd572))
+
 ## [2.0.20](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@2.0.19...@spark-ui/icon-button@2.0.20) (2023-09-14)
 
 **Note:** Version bump only for package @spark-ui/icon-button

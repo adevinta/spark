@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@1.1.3...@spark-ui/visually-hidden@1.1.4) (2023-09-14)
+
+### Bug Fixes
+
+- **visually-hidden:** meta-tags ([2bc4d02](https://github.com/adevinta/spark/commit/2bc4d0204fa093868b9b49a15dbbefca1265b75c))
+
 ## [1.1.3](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@1.1.2...@spark-ui/visually-hidden@1.1.3) (2023-08-31)
 
 **Note:** Version bump only for package @spark-ui/visually-hidden

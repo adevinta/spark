@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/adevinta/spark/compare/@spark-ui/use-mounted-state@0.2.3...@spark-ui/use-mounted-state@0.2.4) (2023-09-14)
+
+### Bug Fixes
+
+- **use-mounted-state:** meta-tags ([31b0d10](https://github.com/adevinta/spark/commit/31b0d10aa933c41f74b89a8a1d7a2b759e11d290))
+
 ## [0.2.3](https://github.com/adevinta/spark/compare/@spark-ui/use-mounted-state@0.2.2...@spark-ui/use-mounted-state@0.2.3) (2023-08-29)
 
 **Note:** Version bump only for package @spark-ui/use-mounted-state

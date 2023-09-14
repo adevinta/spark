@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.1.0...@spark-ui/checkbox@2.1.1) (2023-09-14)
+
+### Bug Fixes
+
+- **checkbox:** meta-tags ([4e33757](https://github.com/adevinta/spark/commit/4e33757c5370c0059a40591be9d312014a902e68))
+
 # [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.0.23...@spark-ui/checkbox@2.1.0) (2023-09-14)
 
 ### Features

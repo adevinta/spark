@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.6](https://github.com/adevinta/spark/compare/@spark-ui/use-combined-state@0.5.5...@spark-ui/use-combined-state@0.5.6) (2023-09-14)
+
+### Bug Fixes
+
+- **use-combined-state:** meta-tags ([b604c1c](https://github.com/adevinta/spark/commit/b604c1c364def026d8962f3ab7e5cffc5c1df199))
+
 ## [0.5.5](https://github.com/adevinta/spark/compare/@spark-ui/use-combined-state@0.5.4...@spark-ui/use-combined-state@0.5.5) (2023-08-31)
 
 **Note:** Version bump only for package @spark-ui/use-combined-state

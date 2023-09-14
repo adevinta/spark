@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/adevinta/spark/compare/@spark-ui/icon@2.0.9...@spark-ui/icon@2.0.10) (2023-09-14)
+
+### Bug Fixes
+
+- **icon:** meta-tags ([c45f711](https://github.com/adevinta/spark/commit/c45f711b5789556f2f14e0303518dc21c38edaa9))
+
 ## [2.0.9](https://github.com/adevinta/spark/compare/@spark-ui/icon@2.0.8...@spark-ui/icon@2.0.9) (2023-09-04)
 
 **Note:** Version bump only for package @spark-ui/icon

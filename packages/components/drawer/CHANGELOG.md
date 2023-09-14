@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.2.0...@spark-ui/drawer@0.2.1) (2023-09-14)
+
+### Bug Fixes
+
+- **drawer:** meta-tags ([b6ed078](https://github.com/adevinta/spark/commit/b6ed0787079384d4422c3c980bcf1d89c82f2418))
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.1.23...@spark-ui/drawer@0.2.0) (2023-09-14)
 
 ### Features
