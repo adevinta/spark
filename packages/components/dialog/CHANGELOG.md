@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.15](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.14...@spark-ui/dialog@1.5.15) (2023-09-13)
+
+**Note:** Version bump only for package @spark-ui/dialog
+
+## [1.5.14](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.13...@spark-ui/dialog@1.5.14) (2023-09-13)
+
+### Bug Fixes
+
+- **dialog:** do not render overlay in fullscreen size ([2c0ed76](https://github.com/adevinta/spark/commit/2c0ed7658536889fd320a1ee0c5431aafc22782d))
+
 ## [1.5.13](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.5.12...@spark-ui/dialog@1.5.13) (2023-09-12)
 
 **Note:** Version bump only for package @spark-ui/dialog

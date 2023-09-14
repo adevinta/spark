@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@4.0.0...@spark-ui/theme-utils@4.0.1) (2023-09-13)
+
+### Bug Fixes
+
+- **theme-utils:** update neutral related tokens based on latest Figma iteration ([7f4c6c2](https://github.com/adevinta/spark/commit/7f4c6c2c643af28bde56ea2ae7bf69e9b5ce6d65)), closes [#1428](https://github.com/adevinta/spark/issues/1428)
+
 # [4.0.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@3.0.3...@spark-ui/theme-utils@4.0.0) (2023-08-30)
 
 ### Features
