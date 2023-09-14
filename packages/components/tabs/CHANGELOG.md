@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.1.1...@spark-ui/tabs@2.1.2) (2023-09-14)
+
+### Bug Fixes
+
+- **tabs:** add license ([99bedc9](https://github.com/adevinta/spark/commit/99bedc96b20932d4897e00fa724ea9c0e791d36f))
+
 ## [2.1.1](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.1.0...@spark-ui/tabs@2.1.1) (2023-09-14)
 
 ### Bug Fixes
