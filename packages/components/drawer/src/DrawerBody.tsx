@@ -11,9 +11,9 @@ export const DrawerBody = forwardRef(
     <div
       ref={ref}
       className={cx(
-        className,
         ['px-xl', 'py-md', 'flex-grow', 'overflow-y-auto'],
-        ['outline-none', 'focus-visible:ring-2', 'focus-visible:ring-outline-high']
+        ['outline-none', 'focus-visible:ring-2', 'focus-visible:ring-outline-high'],
+        className
       )}
       {...rest}
     >
