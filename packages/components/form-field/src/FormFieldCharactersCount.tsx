@@ -14,7 +14,7 @@ export type FormFieldCharactersCountProps = ComponentPropsWithoutRef<'span'> & {
 
 export const FormFieldCharactersCount = forwardRef<HTMLSpanElement, FormFieldCharactersCountProps>(
   ({ className, value = '', maxLength, ...others }, ref) => {
-    const count = value.length
+    const displayValue = `${value.length}/${maxLength}`
 
     return (
       <span
@@ -23,7 +23,7 @@ export const FormFieldCharactersCount = forwardRef<HTMLSpanElement, FormFieldCha
         className={cx(className, 'text-caption', 'text-neutral')}
         {...others}
       >
-        {count}/{maxLength}
+        {displayValue}
       </span>
     )
   }
