@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.11](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.3.10...@spark-ui/form-field@1.3.11) (2023-09-15)
+
+### Bug Fixes
+
+- **form-field:** improved render of CharactersCount value ([9a3ef56](https://github.com/adevinta/spark/commit/9a3ef561a35aba20ca07f8d11257138c7b24bf4c))
+
 ## [1.3.10](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.3.9...@spark-ui/form-field@1.3.10) (2023-09-14)
 
 ### Bug Fixes
