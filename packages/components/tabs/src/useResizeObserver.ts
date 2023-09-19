@@ -26,7 +26,7 @@ export const useResizeObserver = <T extends HTMLElement>(
     }
 
     resizeObserverRef.current = new ResizeObserver(([entry]) => {
-      const { inlineSize: width, blockSize: height } = entry?.borderBoxSize[0] ?? {}
+      const { inlineSize: width, blockSize: height } = entry?.borderBoxSize?.[0] ?? {}
       resizeCallbackRef.current?.(entry)
 
       setSize({ width, height })

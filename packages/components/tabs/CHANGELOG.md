@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.1.2...@spark-ui/tabs@2.1.3) (2023-09-19)
+
+### Bug Fixes
+
+- **tabs:** optional chaining on array access ([53e4000](https://github.com/adevinta/spark/commit/53e4000c706a40c1e67344fc4dfa3177bed634db))
+
 ## [2.1.2](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.1.1...@spark-ui/tabs@2.1.2) (2023-09-14)
 
 ### Bug Fixes
