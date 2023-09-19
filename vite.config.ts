@@ -10,6 +10,7 @@ const NOT_VALID_COMPONENTS_PATTERN = 'bar'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [tsconfigPaths(), react()],
+  assetsInclude: ['**/*.md'],
   build: {
     target: browserslistToEsbuild(),
   },
