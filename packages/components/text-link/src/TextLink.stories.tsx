@@ -111,25 +111,12 @@ export const Sizes: StoryFn = _args => {
   )
 }
 
-export const Underline: StoryFn = _args => {
-  return (
-    <div className="flex flex-col gap-md">
-      <TextLink underline href="/?path=/docs/getting-started--docs" target="_blank">
-        Default link with underline
-      </TextLink>
-      <TextLink underline={false} href="/?path=/docs/getting-started--docs" target="_blank">
-        Link with underline disabled
-      </TextLink>
-    </div>
-  )
-}
-
 export const Icons: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-md">
       <p>
         External{' '}
-        <TextLink href="https://en.wikipedia.org/wiki/Kitten" target="_blank">
+        <TextLink href="https://en.wikipedia.org/wiki/Kitten" target="_blank" className="gap-sm">
           link
           <Icon>
             <LinkSVG />
@@ -137,6 +124,20 @@ export const Icons: StoryFn = _args => {
         </TextLink>
         .
       </p>
+    </div>
+  )
+}
+
+export const Underline: StoryFn = _args => {
+  return (
+    <div className="flex flex-col gap-md">
+      <TextLink
+        className="!no-underline hover:underline focus:underline"
+        href="/?path=/docs/getting-started--docs"
+        target="_blank"
+      >
+        Link with underline disabled
+      </TextLink>
     </div>
   )
 }
