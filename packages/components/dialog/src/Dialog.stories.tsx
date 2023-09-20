@@ -8,7 +8,7 @@ import React, { useRef, useState } from 'react'
 import { Dialog, type DialogContentProps } from '.'
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Experimental/Dialog',
+  title: 'Components/Dialog',
   component: Dialog,
 }
 
