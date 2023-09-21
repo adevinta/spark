@@ -11,11 +11,9 @@ interface Props<T> {
 
 const ComponentDescription = ({ name, children }: { name: string; children: ReactNode }) => {
   return (
-    <div className="rounded-t-lg bg-surface bg-gradient-to-b from-info p-lg pb-none text-on-surface">
-      <div className="rounded-lg bg-surface px-lg py-md shadow-sm">
-        <p className="mb-md text-body-1 font-bold">{`<${name} />`}</p>
-        <p className="text-body-2 italic">{children}</p>
-      </div>
+    <div className="rounded-t-lg pb-none text-on-surface">
+      <p className="mb-md text-body-1 font-bold">{`<${name} />`}</p>
+      <p className="text-body-2 italic">{children}</p>
     </div>
   )
 }
@@ -52,29 +50,29 @@ export const ArgTypes = <T extends FC>({ of, description, subcomponents = null }
     <Tabs
       defaultValue={name}
       orientation={tabsOrientation}
-      className="sb-unstyled mt-xl overflow-hidden"
+      className="sb-unstyled mt-xl overflow-hidden rounded-md bg-background-variant"
     >
       <Tabs.List className={tabsOrientation === 'horizontal' ? 'mb-md' : ''}>
-        <Tabs.Trigger key={name} value={name}>
+        <Tabs.Trigger key={name} value={name} className="bg-transparent">
           {name}
         </Tabs.Trigger>
         <>
           {subComponentsList.map(([name]) => (
-            <Tabs.Trigger key={name} value={name}>
+            <Tabs.Trigger key={name} value={name} className="bg-transparent">
               {name}
             </Tabs.Trigger>
           ))}
         </>
       </Tabs.List>
 
-      <Tabs.Content key={name} value={name} className="py-none">
+      <Tabs.Content key={name} value={name} className="py-lg">
         {description && <ComponentDescription name={name}>{description}</ComponentDescription>}
         <StorybookArgTypes of={of} />
       </Tabs.Content>
 
       {subComponentsList.map(([name, { of, description }]) => {
         return (
-          <Tabs.Content key={name} value={name} className="py-none">
+          <Tabs.Content key={name} value={name} className="py-lg">
             {description && <ComponentDescription name={name}>{description}</ComponentDescription>}
             <StorybookArgTypes of={of} />
           </Tabs.Content>
