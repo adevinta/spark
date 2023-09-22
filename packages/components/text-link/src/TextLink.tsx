@@ -1,7 +1,6 @@
+import { Slot } from '@spark-ui/slot'
 import { cva, type VariantProps } from 'class-variance-authority'
-import React, { forwardRef } from 'react'
-
-export type TextLinkProps = React.HTMLProps<HTMLAnchorElement> & StylesProps
+import React, { type ComponentPropsWithoutRef, forwardRef } from 'react'
 
 const textLinkStyles = cva(
   [
@@ -31,12 +30,22 @@ const textLinkStyles = cva(
 
 export type StylesProps = VariantProps<typeof textLinkStyles>
 
+export type TextLinkProps = ComponentPropsWithoutRef<'a'> &
+  StylesProps & {
+    /**
+     * Change the component to the HTML tag or custom component of the only child.
+     */
+    asChild?: boolean
+  }
+
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
-  ({ children, className, intent = 'current', ...props }, ref) => {
+  ({ asChild = false, children, className, intent = 'current', ...props }, ref) => {
+    const Component = asChild ? Slot : 'a'
+
     return (
-      <a className={textLinkStyles({ className, intent })} ref={ref} {...props}>
+      <Component ref={ref} className={textLinkStyles({ className, intent })} {...props}>
         {children}
-      </a>
+      </Component>
     )
   }
 )
