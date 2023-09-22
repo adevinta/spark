@@ -5,10 +5,10 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import { useActiveAnchor } from './useActiveAnchor'
 import { scrollToAnchor } from './utils'
 
-const itemStyle = cva(['block', 'py-sm', ['hover:bg-[#F2F6FF]']], {
+const itemStyle = cva(['block', 'py-sm', ['hover:bg-surface']], {
   variants: {
     isActive: {
-      true: ['text-[#0052FF]', 'shadow-[inset_4px_0px_0px]'],
+      true: ['text-main', 'shadow-[inset_4px_0px_0px]'],
       false: ['text-on-surface', 'shadow-[inset_1px_0px_0px_#D1D0D5]'],
     },
     isPassed: {

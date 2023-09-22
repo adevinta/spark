@@ -1,21 +1,12 @@
 import { addons } from '@storybook/manager-api'
-import { create } from '@storybook/theming/create'
-import logoUrl from './spark-logo.svg'
 
 import React from 'react'
+import { defaultTheme } from '@spark-ui/theme-utils'
 
-const storybookTheme = create({
-  base: 'light',
-  fontBase: '"Nunito", sans-serif',
-  fontCode: 'monospace',
-  brandTitle: 'Spark design system',
-  brandUrl: 'https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3',
-  brandImage: logoUrl,
-  brandTarget: '_self',
-})
+import { getTheme } from './theme/getTheme.js'
 
 addons.setConfig({
-  theme: storybookTheme,
+  theme: getTheme({ base: 'light', sparkTheme: defaultTheme }),
   sidebar: {
     showRoots: true,
     collapsedRoots: ['using-spark', 'hooks', 'contributing', 'experimental', 'utils'],
