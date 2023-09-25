@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.1.1...@spark-ui/tag@2.2.0) (2023-09-25)
+
+### Features
+
+- **tag:** update styles for outlined variant ([0851f07](https://github.com/adevinta/spark/commit/0851f07e53ca794583747bfd09285355c65c1b7d))
+
 ## [2.1.1](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.1.0...@spark-ui/tag@2.1.1) (2023-09-14)
 
 ### Bug Fixes
