@@ -7,7 +7,7 @@ export const triggerVariants = cva(
     'relative flex flex-none items-center',
     'border-outline',
     'outline-none',
-    'bg-surface hover:bg-surface-hovered',
+    'hover:bg-surface-hovered',
     'after:absolute',
     'spark-orientation-horizontal:border-b-sm spark-orientation-horizontal:after:inset-x-none spark-orientation-horizontal:after:bottom-[-1px] spark-orientation-horizontal:after:h-sz-2',
     'spark-orientation-vertical:border-r-sm spark-orientation-vertical:after:inset-y-none spark-orientation-vertical:after:right-[-1px] spark-orientation-vertical:after:w-sz-2',

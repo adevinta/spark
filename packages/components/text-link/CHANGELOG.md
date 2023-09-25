@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/text-link@0.1.0...@spark-ui/text-link@0.2.0) (2023-09-22)
+
+### Features
+
+- **text-link:** added polymorphic behaviour to text link ([0bfbaad](https://github.com/adevinta/spark/commit/0bfbaad9581ef46798719612dba7573158b7f19b))
+
 # 0.1.0 (2023-09-19)
 
 ### Bug Fixes
