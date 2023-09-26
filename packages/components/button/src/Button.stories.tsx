@@ -49,7 +49,7 @@ export const Sizes: StoryFn = _args => (
     <div className="flex flex-row-reverse flex-wrap items-center gap-md">
       {sizes.map(size => {
         return (
-          <Button key={size} hasIconOnly size={size}>
+          <Button key={size} hasIconOnly aria-label={`Add to favorites ${size}`} size={size}>
             <Icon>
               <FavoriteOutline />
             </Icon>

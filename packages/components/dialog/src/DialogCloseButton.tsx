@@ -8,7 +8,9 @@ import { Close, CloseProps } from './DialogClose'
 
 type CloseButtonElement = ElementRef<typeof Close>
 export type CloseButtonProps = CloseProps &
-  Pick<ButtonProps, 'size' | 'intent' | 'design' | 'aria-label'>
+  Pick<ButtonProps, 'size' | 'intent' | 'design'> & {
+    'aria-label': Required<ButtonProps>['aria-label']
+  }
 
 export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
   (

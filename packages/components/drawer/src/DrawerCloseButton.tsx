@@ -8,7 +8,9 @@ import { DrawerClose, type DrawerCloseProps } from './DrawerClose'
 
 type CloseButtonElement = ElementRef<typeof DrawerClose>
 export type DrawerCloseButtonProps = DrawerCloseProps &
-  Pick<ButtonProps, 'size' | 'intent' | 'design' | 'aria-label'>
+  Pick<ButtonProps, 'size' | 'intent' | 'design'> & {
+    'aria-label': Required<ButtonProps>['aria-label']
+  }
 
 export const DrawerCloseButton = forwardRef<CloseButtonElement, DrawerCloseButtonProps>(
   (

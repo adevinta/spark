@@ -5,7 +5,7 @@ import React, { ComponentPropsWithoutRef, type DOMAttributes, forwardRef, useMem
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
-export interface ButtonProps
+interface BaseButtonProps
   extends Omit<ComponentPropsWithoutRef<'button'>, 'disabled'>,
     ButtonStylesProps {
   /**
@@ -13,7 +13,7 @@ export interface ButtonProps
    */
   asChild?: boolean
   /**
-   * Display a spinner to indicate to the user that the button is loading something after they interacted with it.
+   * Display a spinner to indicate the user that the button is loading something after they interacted with it.
    */
   isLoading?: boolean
   /**
@@ -26,12 +26,22 @@ export interface ButtonProps
    */
   loadingText?: string
   spinnerPlacement?: 'left' | 'right'
-  /**
-   * Specify if the button is an icon-only button
-   * @default: false
-   */
-  hasIconOnly?: boolean
 }
+
+type IconButtonProps =
+  | {
+      /**
+       * Specify if the button is an icon-only button
+       * @default: false
+       */
+      hasIconOnly?: boolean
+      'aria-label': string
+    }
+  | {
+      hasIconOnly?: never
+    }
+
+export type ButtonProps = BaseButtonProps & IconButtonProps
 
 type DOMAttributesEventHandler = keyof Omit<
   DOMAttributes<HTMLButtonElement>,
