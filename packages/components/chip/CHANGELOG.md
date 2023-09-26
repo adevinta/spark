@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.4.1...@spark-ui/chip@0.5.0) (2023-09-26)
+
+### Features
+
+- **chip:** release candidate ([cd1df7d](https://github.com/adevinta/spark/commit/cd1df7db0833a11361a1a54d6f92da0077c4e656))
+- **chip:** styling surface intents designs ([84300de](https://github.com/adevinta/spark/commit/84300dec95596fb604dbc743e53fef517bb7dafa))
+
+### BREAKING CHANGES
+
+- **chip:** release candidate
+
 ## [0.4.1](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.4.0...@spark-ui/chip@0.4.1) (2023-09-14)
 
 ### Bug Fixes
