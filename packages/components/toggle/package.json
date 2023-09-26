@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/toggle",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A two-state button that can be either on or off.",
   "publishConfig": {
     "access": "public"
@@ -21,6 +21,10 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
+  },
+  "dependencies": {
+    "@radix-ui/react-toggle": "^1.0.3",
+    "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",

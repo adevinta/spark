@@ -1,7 +1,14 @@
-import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
+import { Root, type ToggleProps as RadixToggleProps } from '@radix-ui/react-toggle'
+import { forwardRef } from 'react'
 
-export type ToggleProps = ComponentPropsWithoutRef<'div'>
+export type ToggleProps = RadixToggleProps
 
-export const Toggle = forwardRef<HTMLDivElement, PropsWithChildren<ToggleProps>>((props, ref) => {
-  return <div ref={ref} {...props} />
-})
+export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
+  ({ children, asChild = true, ...rest }, ref) => {
+    return (
+      <Root ref={ref} asChild={asChild} {...rest}>
+        {children}
+      </Root>
+    )
+  }
+)

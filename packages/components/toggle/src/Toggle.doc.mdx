@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks';
+import { ArgTypes } from '@storybook/blocks'
 
 import { Toggle } from '.'
 
@@ -11,6 +11,10 @@ import * as stories from './Toggle.stories'
 
 A two-state button that can be either on or off.
 
+This higher order component can transform any `Button` or `IconButton` into a toggle button.
+
+It manages `aria-pressed` attribute for a11y, but it's up to you to adapt the styles to reflect the state.
+
 ## Install
 
 ```sh
@@ -20,12 +24,19 @@ npm install @spark-ui/toggle
 ## Import
 
 ```tsx
-import { Toggle } from "@spark-ui/toggle"
+import { Toggle } from '@spark-ui/toggle'
 ```
 
 ## Props
 
 <ArgTypes of={Toggle} />
 
-## Variants
+## Usage
+
+### Default
+
 <Canvas of={stories.Default} />
+
+### With button
+
+<Canvas of={stories.WithButton} />
