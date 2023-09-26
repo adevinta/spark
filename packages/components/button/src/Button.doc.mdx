@@ -39,23 +39,36 @@ Use `design` prop to set the different look and feels of a button.
 
 <Canvas of={ButtonStories.Design} />
 
-### Disabled
+### Shape
 
-Use `disable` prop to disable the element.
+Use `shape` prop to set the shape of a button.
 
-<Canvas of={ButtonStories.Disabled} />
+<Canvas of={ButtonStories.Shapes} />
 
-### Icons
+### Size
 
-Compose the content of the button using the `Icon` component to add an icon to the left or right.
+Use `size` prop to set the size of a button.
 
-<Canvas of={ButtonStories.Icons} />
+<Canvas of={ButtonStories.Sizes} />
 
 ### Intent
 
 Use `intent` prop to set the color intent of a button.
 
 <Canvas of={ButtonStories.Intent} />
+
+### Disabled
+
+Use `disabled` prop to disable the element.
+
+<Canvas of={ButtonStories.Disabled} />
+
+### With icons
+
+Compose the content of the button using the `Icon` component to add an icon to the left or to the right.
+Use `hasOnlyIcon` prop if the button only renders an icon as content. In this particular case you should specify an `aria-label` or `aria-labelledby` attribute to preserve accessibility.
+
+<Canvas of={ButtonStories.Icons} />
 
 ### Loading
 
@@ -73,18 +86,6 @@ It preserves the width of your button to avoid content layout shifting.
 Alternatively, use `loadingText` if you prefer the loading text to be visible to the user (**Warning: using this might cause layout shifting**)
 
 <Canvas of={ButtonStories.LoadingWithText} />
-
-### Shapes
-
-Use `shape` prop to set the shape of a button.
-
-<Canvas of={ButtonStories.Shapes} />
-
-### Sizes
-
-Use `size` prop to set the size of a button.
-
-<Canvas of={ButtonStories.Sizes} />
 
 ## Advanced usage
 

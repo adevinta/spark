@@ -35,14 +35,28 @@ const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 export const Default: StoryFn = _args => <Button>Default button</Button>
 
 export const Sizes: StoryFn = _args => (
-  <div className="flex flex-wrap items-center gap-md">
-    {sizes.map(size => {
-      return (
-        <Button key={size} size={size}>
-          Button {size}
-        </Button>
-      )
-    })}
+  <div className="flex flex-wrap gap-lg">
+    <div className="flex flex-wrap items-center gap-md">
+      {sizes.map(size => {
+        return (
+          <Button key={size} size={size}>
+            Button {size}
+          </Button>
+        )
+      })}
+    </div>
+
+    <div className="flex flex-row-reverse flex-wrap items-center gap-md">
+      {sizes.map(size => {
+        return (
+          <Button key={size} hasIconOnly size={size}>
+            <Icon>
+              <FavoriteOutline />
+            </Icon>
+          </Button>
+        )
+      })}
+    </div>
   </div>
 )
 
@@ -99,6 +113,12 @@ export const Icons: StoryFn = _args => (
         <FavoriteOutline />
       </Icon>
       Button
+      <Icon>
+        <Check />
+      </Icon>
+    </Button>
+
+    <Button hasIconOnly aria-label="Icon-only button">
       <Icon>
         <Check />
       </Icon>

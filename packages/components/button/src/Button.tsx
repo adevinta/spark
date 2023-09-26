@@ -26,6 +26,11 @@ export interface ButtonProps
    */
   loadingText?: string
   spinnerPlacement?: 'left' | 'right'
+  /**
+   * Specify if the button is an icon-only button
+   * @default: false
+   */
+  hasIconOnly?: boolean
 }
 
 type DOMAttributesEventHandler = keyof Omit<
@@ -54,6 +59,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       design = 'filled',
       disabled = false,
       intent = 'main',
+      hasIconOnly = false,
       isLoading = false,
       loadingLabel,
       loadingText,
@@ -91,12 +97,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-spark-component="button"
         ref={ref}
         className={buttonStyles({
-          className,
           design,
           disabled: shouldNotInteract,
           intent,
           shape,
           size,
+          iconOnly: hasIconOnly,
+          className,
         })}
         disabled={!!disabled}
         aria-busy={isLoading}

@@ -5,6 +5,7 @@ import {
   contrastVariants,
   filledVariants,
   ghostVariants,
+  iconOnlyVariants,
   outlinedVariants,
   tintedVariants,
 } from './variants'
@@ -21,17 +22,11 @@ export const buttonStyles = cva(
     variants: {
       /**
        * Main style of the button.
-       *
        * - `filled`: Button will be plain.
-       *
        * - `outlined`: Button will be transparent with an outline.
-       *
        * - `tinted`: Button will be filled but using a lighter color scheme.
-       *
        * - `ghost`: Button will look like a link. No borders, plain text.
-       *
        * - `contrast`: Button will be surface filled. No borders, plain text.
-       *
        */
       design: makeVariants<'design', ['filled', 'outlined', 'tinted', 'ghost', 'contrast']>({
         filled: [],
@@ -89,6 +84,9 @@ export const buttonStyles = cva(
       disabled: {
         true: ['cursor-not-allowed', 'opacity-dim-3'],
       },
+      iconOnly: {
+        true: ['px-none'],
+      },
     },
     compoundVariants: [
       ...filledVariants,
@@ -96,12 +94,14 @@ export const buttonStyles = cva(
       ...tintedVariants,
       ...ghostVariants,
       ...contrastVariants,
+      ...iconOnlyVariants,
     ],
     defaultVariants: {
       design: 'filled',
       intent: 'main',
       size: 'md',
       shape: 'rounded',
+      iconOnly: false,
     },
   }
 )
