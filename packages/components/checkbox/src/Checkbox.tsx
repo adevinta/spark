@@ -79,7 +79,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     return (
       <div
         data-spark-component="checkbox"
-        className={cx('flex items-start gap-md text-body-1', className)}
+        className={cx('relative flex items-start gap-md text-body-1', className)}
       >
         <CheckboxInput
           ref={ref}
