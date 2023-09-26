@@ -1,5 +1,5 @@
+import { Button, type ButtonProps } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
-import { IconButton, type IconButtonProps } from '@spark-ui/icon-button'
 import { Close as CloseSVG } from '@spark-ui/icons/dist/icons/Close'
 import { cx } from 'class-variance-authority'
 import { ElementRef, forwardRef } from 'react'
@@ -8,7 +8,7 @@ import { Close, CloseProps } from './DialogClose'
 
 type CloseButtonElement = ElementRef<typeof Close>
 export type CloseButtonProps = CloseProps &
-  Pick<IconButtonProps, 'size' | 'intent' | 'design' | 'aria-label'>
+  Pick<ButtonProps, 'size' | 'intent' | 'design' | 'aria-label'>
 
 export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
   (
@@ -29,9 +29,9 @@ export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
       asChild
       {...rest}
     >
-      <IconButton intent={intent} size={size} design={design} aria-label={ariaLabel}>
+      <Button intent={intent} size={size} design={design} hasIconOnly aria-label={ariaLabel}>
         <Icon>{children}</Icon>
-      </IconButton>
+      </Button>
     </Close>
   )
 )

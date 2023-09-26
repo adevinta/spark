@@ -1,6 +1,6 @@
 import * as RadixPopover from '@radix-ui/react-popover'
+import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
-import { IconButton } from '@spark-ui/icon-button'
 import { Close as CloseSVG } from '@spark-ui/icons/dist/icons/Close'
 import { cx } from 'class-variance-authority'
 import { forwardRef, useLayoutEffect } from 'react'
@@ -29,11 +29,11 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
         asChild
         {...rest}
       >
-        <IconButton size="sm" intent="neutral" design="ghost" aria-label={ariaLabel}>
+        <Button size="sm" intent="neutral" design="ghost" hasIconOnly aria-label={ariaLabel}>
           <Icon>
             <CloseSVG />
           </Icon>
-        </IconButton>
+        </Button>
       </RadixPopover.Close>
     )
   }
