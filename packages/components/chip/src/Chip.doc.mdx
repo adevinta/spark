@@ -31,6 +31,16 @@ whereas a button should be a persistent fixture of a layout.
 From a user-flow perspective,
 Chips represent forking paths in an experience while a button represents a linear step along a flow.
 
+#### Chips aren't input fields
+
+<Callout kind="warning">
+  Interactive Chips represent Call to Action elements
+  and should never be placed inside forms rolled as checkboxes or radio buttons
+</Callout>
+
+The only way a chip manages interactivity is for firing contextual actions,
+whereas checkboxes and radio form field store state values for being submitted.
+
 Chips handle 4 different features:
 
 - **Display** data
