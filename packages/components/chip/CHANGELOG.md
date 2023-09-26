@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.5.0...@spark-ui/chip@0.6.0) (2023-09-26)
+
+### Features
+
+- **chip:** specify ussage ([b73c644](https://github.com/adevinta/spark/commit/b73c6445ea98c78defb048025792205d13c98b59))
+
+### BREAKING CHANGES
+
+- **chip:** first initial release
+
 # [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.4.1...@spark-ui/chip@0.5.0) (2023-09-26)
 
 ### Features
