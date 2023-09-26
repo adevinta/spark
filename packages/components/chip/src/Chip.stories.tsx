@@ -17,7 +17,7 @@ import { Chip } from '.'
 import { ChipLeadingIcon } from './ChipLeadingIcon'
 
 const meta: Meta<typeof Chip> = {
-  title: 'Experimental/Chip',
+  title: 'Components/Chip',
   component: Chip,
 }
 
