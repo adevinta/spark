@@ -40,8 +40,12 @@
     "url": "git@github.com:adevinta/spark.git",
     "directory": "packages/components/slider"
   },
+  "config": {
+    "title": "slider",
+    "category": "components"
+  },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues"
+    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aslider"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"
