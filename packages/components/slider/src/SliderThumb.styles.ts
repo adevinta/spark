@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 export const thumbVariants = cva(
   [
-    'block h-xl w-xl rounded-full cursor-pointer',
+    'block h-sz-24 w-sz-24 rounded-full cursor-pointer',
     'hover:ring-8 u-shadow-border-transition',
     'outline-none',
     'focus-visible:u-ring',
