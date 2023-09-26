@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Toggle } from '.'
+
+import * as stories from './Toggle.stories'
+
+<Meta of={stories} />
+
+# Toggle
+
+A two-state button that can be either on or off.
+
+## Install
+
+```sh
+npm install @spark-ui/toggle
+```
+
+## Import
+
+```tsx
+import { Toggle } from "@spark-ui/toggle"
+```
+
+## Props
+
+<ArgTypes of={Toggle} />
+
+## Variants
+<Canvas of={stories.Default} />
