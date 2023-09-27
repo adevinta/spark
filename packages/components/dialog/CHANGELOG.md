@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.6.1...@spark-ui/dialog@1.6.2) (2023-09-27)
+
+### Bug Fixes
+
+- **dialog:** release stable dialog ([9440807](https://github.com/adevinta/spark/commit/9440807c573e0c087c7f012d236c215759078407))
+
 ## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.6.0...@spark-ui/dialog@1.6.1) (2023-09-14)
 
 ### Bug Fixes
