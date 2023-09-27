@@ -9,5 +9,5 @@
 
 This package is part of the [`@spark-ui`](https://github.com/adevinta/spark) react-js user interface component library project.
 
-![Issues open](https://img.shields.io/github/issues-search/adevinta/spark?query=is%3Aopen%20label%3Acomponent%20label%3Abadge&logo=openbugbounty&logoColor=red&label=issues%20open&color=red&link=https%3A%2F%2Fgithub.com%2Fadevinta%2Fspark%2Fissues%3Fq%3Dis%253Aopen%2Blabel%253Acomponent%2Blabel%badge)
+![Issues open](https://img.shields.io/github/issues-search/adevinta/spark?query=is%3Aopen%20label%3Acomponent%20label%3Abadge&logo=openbugbounty&logoColor=red&label=issues%20open&color=red&link=https%3A%2F%2Fgithub.com%2Fadevinta%2Fspark%2Fissues%3Fq%3Dis%253Aopen%2Blabel%253Acomponent%2Blabel%253Abadge)
 ![NPM](https://img.shields.io/npm/l/%40spark-ui%2Fbadge)
