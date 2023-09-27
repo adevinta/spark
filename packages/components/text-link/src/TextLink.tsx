@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import React, { type ComponentPropsWithoutRef, forwardRef } from 'react'
 
 const textLinkStyles = cva(
-  ['inline-flex items-center underline', 'focus-visible:u-ring focus-visible:outline-none'],
+  ['inline-flex items-center', 'focus-visible:u-ring focus-visible:outline-none'],
   {
     variants: {
       intent: {
@@ -22,10 +22,19 @@ const textLinkStyles = cva(
       bold: {
         true: 'font-bold',
       },
+      /**
+       * Underline is enabled by default.
+       * You can remove it, but be careful about a11y, as you should make obvious to users what is a link or not.
+       */
+      underline: {
+        true: 'underline',
+        false: 'hover:underline focus:underline',
+      },
     },
     defaultVariants: {
       intent: 'current',
       bold: false,
+      underline: true,
     },
   }
 )
@@ -41,11 +50,26 @@ export type TextLinkProps = ComponentPropsWithoutRef<'a'> &
   }
 
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
-  ({ asChild = false, bold = false, children, className, intent = 'current', ...props }, ref) => {
+  (
+    {
+      asChild = false,
+      bold = false,
+      children,
+      className,
+      intent = 'current',
+      underline = true,
+      ...props
+    },
+    ref
+  ) => {
     const Component = asChild ? Slot : 'a'
 
     return (
-      <Component ref={ref} className={textLinkStyles({ className, bold, intent })} {...props}>
+      <Component
+        ref={ref}
+        className={textLinkStyles({ className, bold, intent, underline })}
+        {...props}
+      >
         {children}
       </Component>
     )
