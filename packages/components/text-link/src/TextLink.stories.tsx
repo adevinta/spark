@@ -27,6 +27,18 @@ export const Default: StoryFn = _args => {
   )
 }
 
+export const Bold: StoryFn = _args => {
+  return (
+    <p>
+      You should learn more about{' '}
+      <TextLink href="https://en.wikipedia.org/wiki/Kitten" target="_blank" bold>
+        kitten
+      </TextLink>
+      .
+    </p>
+  )
+}
+
 const intents: TextLinkProps['intent'][] = [
   'main',
   'support',

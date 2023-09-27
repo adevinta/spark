@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.1.2...@spark-ui/checkbox@2.1.3) (2023-09-26)
+
+### Bug Fixes
+
+- **checkbox:** set parent element's position to relative ([95bb6d6](https://github.com/adevinta/spark/commit/95bb6d6d00350da327e616d7220427a051b95113))
+
 ## [2.1.2](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.1.1...@spark-ui/checkbox@2.1.2) (2023-09-15)
 
 **Note:** Version bump only for package @spark-ui/checkbox
