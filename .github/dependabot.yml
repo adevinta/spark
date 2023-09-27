@@ -5,7 +5,12 @@ updates:
     schedule:
       interval: 'weekly'
     reviewers:
-      - '@adevinta/spark-dev'
+      - 'acd02'
+      - 'andresin87'
+      - 'andresz1'
+      - 'kikoruiz'
+      - 'Powerplex'
+      - 'soykje'
     ignore:
       - dependency-name: '*'
         update-types: ['version-update:semver-major']
