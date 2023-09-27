@@ -31,7 +31,7 @@
     "category": "tailwind-plugins"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Autility+label%3Atailwind-plugins"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Atailwind-plugins"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"
