@@ -3,10 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import React, { type ComponentPropsWithoutRef, forwardRef } from 'react'
 
 const textLinkStyles = cva(
-  [
-    'inline-flex items-center font-bold underline',
-    'focus-visible:u-ring focus-visible:outline-none',
-  ],
+  ['inline-flex items-center underline', 'focus-visible:u-ring focus-visible:outline-none'],
   {
     variants: {
       intent: {
@@ -21,9 +18,14 @@ const textLinkStyles = cva(
         info: 'text-info hover:text-info-hovered',
         neutral: 'text-neutral hover:text-neutral-hovered',
       },
+      /** By default, TextLink inherits the current font weight. Use `bold` to highlight it. */
+      bold: {
+        true: 'font-bold',
+      },
     },
     defaultVariants: {
       intent: 'current',
+      bold: false,
     },
   }
 )
@@ -39,11 +41,11 @@ export type TextLinkProps = ComponentPropsWithoutRef<'a'> &
   }
 
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
-  ({ asChild = false, children, className, intent = 'current', ...props }, ref) => {
+  ({ asChild = false, bold = false, children, className, intent = 'current', ...props }, ref) => {
     const Component = asChild ? Slot : 'a'
 
     return (
-      <Component ref={ref} className={textLinkStyles({ className, intent })} {...props}>
+      <Component ref={ref} className={textLinkStyles({ className, bold, intent })} {...props}>
         {children}
       </Component>
     )
