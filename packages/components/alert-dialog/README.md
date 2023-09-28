@@ -10,4 +10,4 @@
 This package is part of the [`@spark-ui`](https://github.com/adevinta/spark) react-js user interface component library project.
 
 [![Issues open](https://img.shields.io/github/issues-search/adevinta/spark?query=is%3Aopen%20label%3Acomponent%20label%3Aalert-dialog&logo=openbugbounty&logoColor=red&label=issues%20open&color=red)](https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Aalert-dialog)
-[![NPM](https://img.shields.io/npm/l/%40spark-ui%2Falert-dialog)]((https://github.com/adevinta/spark/blob/main/packages/components/alert-dialog/LICENSE.md))
+[![NPM](https://img.shields.io/npm/l/%40spark-ui%2Falert-dialog)](https://github.com/adevinta/spark/blob/main/packages/components/alert-dialog/LICENSE.md)
