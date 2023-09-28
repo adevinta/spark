@@ -33,7 +33,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Atabs"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Atabs"
   },
   "dependencies": {
     "@radix-ui/react-tabs": "1.0.4",

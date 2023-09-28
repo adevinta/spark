@@ -34,7 +34,7 @@ export default ({ name, description }) => {
     "category": "hooks"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Ahook+label%3A${name}"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Ahook+label%3A${name}"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

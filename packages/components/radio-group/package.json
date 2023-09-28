@@ -47,7 +47,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aradio-group"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Aradio-group"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"
