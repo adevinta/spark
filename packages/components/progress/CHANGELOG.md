@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/progress@1.1.2...@spark-ui/progress@1.2.0) (2023-09-28)
+
+### Features
+
+- **progress:** doc ([e696cba](https://github.com/adevinta/spark/commit/e696cbafaf9abc2f0a5e3224256489734ed3841b))
+
 ## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/progress@1.1.1...@spark-ui/progress@1.1.2) (2023-09-14)
 
 ### Bug Fixes

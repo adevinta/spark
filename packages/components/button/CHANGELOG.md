@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/button@2.2.1...@spark-ui/button@2.3.0) (2023-09-28)
+
+### Bug Fixes
+
+- **button:** doc ([d79a1f9](https://github.com/adevinta/spark/commit/d79a1f95bda8aeb1ee7acac4d9833bd70cd77b5e))
+
+### Features
+
+- **button:** doc ([efefed2](https://github.com/adevinta/spark/commit/efefed2772b8b8bbfdd862ef895f3ac3f69c0ccf))
+
 ## [2.2.1](https://github.com/adevinta/spark/compare/@spark-ui/button@2.2.0...@spark-ui/button@2.2.1) (2023-09-14)
 
 ### Bug Fixes

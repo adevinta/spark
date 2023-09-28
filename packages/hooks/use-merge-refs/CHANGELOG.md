@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/use-merge-refs@0.3.8...@spark-ui/use-merge-refs@0.4.0) (2023-09-28)
+
+### Features
+
+- **use-merge-refs:** doc ([da528d6](https://github.com/adevinta/spark/commit/da528d6e75ebe3c09ad5a1104115333fbe31f421))
+
 ## [0.3.8](https://github.com/adevinta/spark/compare/@spark-ui/use-merge-refs@0.3.7...@spark-ui/use-merge-refs@0.3.8) (2023-09-14)
 
 ### Bug Fixes

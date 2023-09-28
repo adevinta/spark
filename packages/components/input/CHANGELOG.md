@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.22...@spark-ui/input@1.5.0) (2023-09-28)
+
+### Features
+
+- **input:** doc ([59f765d](https://github.com/adevinta/spark/commit/59f765dd31af431762bb58d32f1d33620246ac48))
+
 ## [1.4.22](https://github.com/adevinta/spark/compare/@spark-ui/input@1.4.21...@spark-ui/input@1.4.22) (2023-09-15)
 
 **Note:** Version bump only for package @spark-ui/input
