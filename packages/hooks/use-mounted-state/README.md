@@ -9,5 +9,5 @@
 
 This package is part of the [`@spark-ui`](https://github.com/adevinta/spark) react-js user interface component library project.
 
-![Issues open](https://img.shields.io/github/issues-search/adevinta/spark?query=is%3Aopen%20label%3Ahook%20label%3Ause-mounted-state&logo=openbugbounty&logoColor=red&label=issues%20open&color=red&link=https%3A%2F%2Fgithub.com%2Fadevinta%2Fspark%2Fissues%3Fq%3Dis%253Aopen%2Blabel%253Ahook%2Blabel%253Ause-mounted-state)
+[![Issues open](https://img.shields.io/github/issues-search/adevinta/spark?query=is%3Aopen%20label%3Ahook%20label%3Ause-mounted-state&logo=openbugbounty&logoColor=red&label=issues%20open&color=red)](https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Ahook+label%3Ause-mounted-state)
 [![NPM](https://img.shields.io/npm/l/%40spark-ui%2Fuse-mounted-state)](https://github.com/adevinta/spark/blob/main/packages/hooks/use-mounted-state/LICENSE.md)
