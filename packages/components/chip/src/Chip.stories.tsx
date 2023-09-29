@@ -11,7 +11,7 @@ import { Popover } from '@spark-ui/popover'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
-import { ChangeEvent, ComponentProps, useState } from 'react'
+import { ChangeEvent, ComponentProps, useRef, useState } from 'react'
 
 import { Chip } from '.'
 import { ChipLeadingIcon } from './ChipLeadingIcon'
@@ -44,10 +44,11 @@ export const Default: StoryFn = _args => <Chip>default chip</Chip>
 
 export const Kind: StoryFn = () => {
   const [pressed, setPressed] = useState(true)
+  const ref = useRef<HTMLButtonElement>(null)
 
   return (
     <div className="flex flex-row gap-xl">
-      <Chip onClick={() => console.log('assist')}>
+      <Chip onClick={() => console.log('assist')} ref={ref}>
         <ChipLeadingIcon>
           <Icon label="calendar">
             <CalendarOutline />

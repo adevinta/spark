@@ -1,13 +1,11 @@
-import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react'
+import React, { ComponentPropsWithRef, forwardRef, PropsWithChildren } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
 import { ChipContext } from './useChipContext'
 import { useChipElement } from './useChipElement'
 
 export interface ChipProps
-  extends PropsWithChildren<
-      Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick' | 'disabled'>
-    >,
+  extends PropsWithChildren<Omit<ComponentPropsWithRef<'button'>, 'type' | 'onClick' | 'disabled'>>,
     Omit<ChipStylesProps, 'hasClearButton'> {
   /**
    * Configures a toggleButton aria-pressed initial value
@@ -34,7 +32,7 @@ export interface ChipProps
   onClear?: (event?: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
+export const Chip = forwardRef<ComponentPropsWithRef<'button' | 'div'>, ChipProps>(
   (
     {
       design = 'outlined',
