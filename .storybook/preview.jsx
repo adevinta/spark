@@ -4,6 +4,8 @@ import { ToC } from '@docs/helpers/ToC'
 
 import { DocsContainer } from '@storybook/blocks'
 import { withThemeByDataAttribute } from '@storybook/addon-styling'
+import { Icon } from '@spark-ui/icon'
+import { ShareExpand } from '@spark-ui/icons/dist/icons/ShareExpand'
 
 const ExampleContainer = ({ children, ...props }) => {
   return (
@@ -48,4 +50,16 @@ export const decorators = [
     defaultTheme: 'light',
     attributeName: 'data-theme',
   }),
+  (Story, args) => (
+    <div className="relative w-full">
+      <div className="absolute -right-lg -top-xl">
+        <a href={`/iframe.html?&id=${args.id}`} target="_blank">
+          <Icon size="sm" label="expand">
+            <ShareExpand />
+          </Icon>
+        </a>
+      </div>
+      <Story />
+    </div>
+  ),
 ]
