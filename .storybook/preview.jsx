@@ -50,15 +50,17 @@ export const decorators = [
     defaultTheme: 'light',
     attributeName: 'data-theme',
   }),
-  (Story, args) => (
+  (Story, { id, viewMode }) => (
     <div className="relative w-full">
-      <div className="absolute -right-lg -top-xl">
-        <a href={`/iframe.html?&id=${args.id}`} target="_blank">
-          <Icon size="sm" label="expand">
-            <ShareExpand />
-          </Icon>
-        </a>
-      </div>
+      {viewMode === 'docs' && (
+        <div className="absolute -right-lg -top-xl">
+          <a href={`/iframe.html?&id=${id}`} target="_blank">
+            <Icon size="sm" label="expand">
+              <ShareExpand />
+            </Icon>
+          </a>
+        </div>
+      )}
       <Story />
     </div>
   ),
