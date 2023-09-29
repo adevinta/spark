@@ -20,7 +20,7 @@ export const tagStyles = cva(
        */
       design: makeVariants<'design', ['filled', 'outlined', 'tinted']>({
         filled: [],
-        outlined: ['ring-1', 'ring-current'],
+        outlined: ['border-sm', 'border-current'],
         tinted: [],
       }),
       /**
