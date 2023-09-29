@@ -14,7 +14,7 @@ export const ProgressLabel = forwardRef<HTMLSpanElement, ProgressLabelProps>(
       (el: HTMLSpanElement) => {
         onLabelId(el ? id : undefined)
       },
-      [id, onLabelId],
+      [id, onLabelId]
     )
     const ref = useMergeRefs(forwardedRef, rootRef)
 
@@ -23,7 +23,7 @@ export const ProgressLabel = forwardRef<HTMLSpanElement, ProgressLabelProps>(
         {children}
       </span>
     )
-  },
+  }
 )
 
 ProgressLabel.displayName = 'Progress.Label'
