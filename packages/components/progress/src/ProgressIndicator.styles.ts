@@ -9,7 +9,7 @@ export const progressIndicatorStyles = cva(
         false: [],
       },
     },
-  },
+  }
 )
 
 export type ProgressIndicatorStylesProps = VariantProps<typeof progressIndicatorStyles>

@@ -49,6 +49,7 @@ const findElement =
     })
   }
 
+// eslint-disable-next-line complexity
 export const useChipElement = ({
   onClick,
   asChild,
