@@ -33,7 +33,7 @@ export function useCombinedState<T>(
       }
       onChange && onChange(nextValue)
     },
-    [isControlled, value]
+    [isControlled, value, onChange]
   )
 
   return [value, updater, isControlled, initialValue]
