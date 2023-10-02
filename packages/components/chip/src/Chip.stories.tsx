@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { Icon } from '@spark-ui/icon'
 import { AccountFill } from '@spark-ui/icons/dist/icons/AccountFill'
 import { ArrowHorizontalUp } from '@spark-ui/icons/dist/icons/ArrowHorizontalUp'
