@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react'
+import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren, Ref } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
 import { ChipContext } from './useChipContext'
@@ -35,7 +35,7 @@ export interface ChipProps
   /**
    * Pass react ref from the outside
    */
-  ref?: React.Ref<HTMLButtonElement | HTMLDivElement>
+  ref?: Ref<HTMLButtonElement | HTMLDivElement>
 }
 
 export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
