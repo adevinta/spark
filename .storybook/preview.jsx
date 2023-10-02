@@ -54,7 +54,11 @@ export const decorators = [
     <div className="relative w-full">
       {viewMode === 'docs' && (
         <div className="absolute -right-lg -top-xl">
-          <a href={`/iframe.html?&id=${id}`} target="_blank">
+          <a
+            href={`/iframe.html?&id=${id}`}
+            target="_blank"
+            className="text-basic hover:text-basic-hovered focus:text-basic-focused enabled:active:text-basic-pressed"
+          >
             <Icon size="sm" label="expand">
               <ShareExpand />
             </Icon>
