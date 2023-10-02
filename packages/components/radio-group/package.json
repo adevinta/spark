@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/radio-group",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Component used when only one choice may be selected in a series of options",
   "publishConfig": {
     "access": "public"
@@ -27,8 +27,8 @@
     "@radix-ui/react-id": "1.0.1",
     "@radix-ui/react-label": "2.0.1",
     "@radix-ui/react-radio-group": "1.1.2",
-    "@spark-ui/form-field": "^1.3.11",
-    "@spark-ui/internal-utils": "^2.1.3",
+    "@spark-ui/form-field": "^1.4.0",
+    "@spark-ui/internal-utils": "^2.2.0",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
@@ -47,7 +47,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aradio-group"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Aradio-group"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

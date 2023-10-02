@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/label",
-  "version": "1.5.11",
+  "version": "1.6.0",
   "description": "Renders an accessible label associated with controls",
   "publishConfig": {
     "access": "public"
@@ -42,7 +42,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Alabel"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Alabel"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

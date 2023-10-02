@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/kbd",
-  "version": "1.1.10",
+  "version": "1.2.0",
   "description": "render a keyboard shortcut",
   "publishConfig": {
     "access": "public"
@@ -42,7 +42,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Akbd"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Akbd"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.3.0...@spark-ui/tag@2.3.1) (2023-09-29)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- **tag:** doc ([7ec6990](https://github.com/adevinta/spark/commit/7ec6990642ad8771cb61237d2a3882a38b7b6ce6))
+- **tag:** replaced boxShadow by a border ([a0b0636](https://github.com/adevinta/spark/commit/a0b0636da9fc426778c25768df577c33df0f072a))
+
+# [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.2.0...@spark-ui/tag@2.3.0) (2023-09-28)
+
+### Features
+
+- **tag:** doc ([a07cb26](https://github.com/adevinta/spark/commit/a07cb260085dccc3344e0b9b4bff90813525211a))
+
 # [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.1.1...@spark-ui/tag@2.2.0) (2023-09-25)
 
 ### Features

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/popover",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Displays rich content in a portal, triggered by a button.",
   "publishConfig": {
     "access": "public"
@@ -38,14 +38,14 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Apopover"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Apopover"
   },
   "dependencies": {
     "@radix-ui/react-id": "1.0.1",
     "@radix-ui/react-popover": "1.0.6",
-    "@spark-ui/icon": "^2.0.10",
-    "@spark-ui/icon-button": "^2.0.21",
-    "@spark-ui/icons": "^1.20.8"
+    "@spark-ui/icon": "^2.1.0",
+    "@spark-ui/icon-button": "^2.1.0",
+    "@spark-ui/icons": "^1.21.0"
   },
   "devDependencies": {
     "jsdom-testing-mocks": "1.9.0"

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.1.3...@spark-ui/internal-utils@2.2.0) (2023-09-28)
+
+### Features
+
+- **internal-utils:** doc ([a25de3f](https://github.com/adevinta/spark/commit/a25de3ffcb2c83eef835cd42e9811a5f17f88cd6))
+
 ## [2.1.3](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.1.2...@spark-ui/internal-utils@2.1.3) (2023-09-14)
 
 ### Bug Fixes

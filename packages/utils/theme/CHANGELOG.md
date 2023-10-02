@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@4.0.2...@spark-ui/theme-utils@4.1.0) (2023-09-28)
+
+### Features
+
+- **theme-utils:** doc ([bdfbe72](https://github.com/adevinta/spark/commit/bdfbe728c429ca7e152e7ef0a470b0748e9814d4))
+
 ## [4.0.2](https://github.com/adevinta/spark/compare/@spark-ui/theme-utils@4.0.1...@spark-ui/theme-utils@4.0.2) (2023-09-14)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/theme-utils",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "description": "package for managing Spark theme configuration",
   "publishConfig": {
     "access": "public"
@@ -31,7 +31,7 @@
     "category": "theme"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Autility+label%3Atheme"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Atheme"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

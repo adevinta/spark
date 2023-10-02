@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.1.0...@spark-ui/chip@1.1.1) (2023-09-29)
+
+### Bug Fixes
+
+- **chip:** doc ([be9df15](https://github.com/adevinta/spark/commit/be9df157b3b19dbfc6d09e506e43afa95cac64a3))
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.0.1...@spark-ui/chip@1.1.0) (2023-09-28)
+
+### Features
+
+- **chip:** doc ([5ec7366](https://github.com/adevinta/spark/commit/5ec7366c39fe59f636ef2a2911a2060eacbaeec8))
+
 ## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/chip@0.7.0...@spark-ui/chip@1.0.1) (2023-09-26)
 
 ### Bug Fixes
