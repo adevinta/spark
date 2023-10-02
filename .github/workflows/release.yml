@@ -23,6 +23,7 @@ jobs:
           committer_username: 'spark-ui-bot'
           committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
           auto_detect_branch_protection: false
+          collaborators: 'outside'
         env:
           GITHUB_TOKEN: ${{ secrets.SA_TOKEN }}
   maintainers:
@@ -41,6 +42,7 @@ jobs:
           committer_username: 'spark-ui-bot'
           committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
           auto_detect_branch_protection: false
+          collaborators: 'outside'
         env:
           GITHUB_TOKEN: ${{ secrets.SA_TOKEN }}
   release:
