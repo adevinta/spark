@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.1.1...@spark-ui/chip@1.2.0) (2023-10-02)
+
+### Features
+
+- **chip:** add good type for forwardRef ([fcae949](https://github.com/adevinta/spark/commit/fcae949741370051263c526cd5ddf43c1941e101))
+- **chip:** add ref type to prop ([dfab82e](https://github.com/adevinta/spark/commit/dfab82edb7d66cf3a90c32d250c60044755af98e))
+- **chip:** import Ref from react ([71f5046](https://github.com/adevinta/spark/commit/71f5046d3edc68e17768d1b770c2eb158e3d2f76))
+
 ## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.1.0...@spark-ui/chip@1.1.1) (2023-09-29)
 
 ### Bug Fixes

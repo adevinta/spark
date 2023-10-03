@@ -61,6 +61,13 @@
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/tomasmax">
+            <img src="https://avatars.githubusercontent.com/u/1105226?v=4" width="50;" alt="tomasmax"/>
+            <br />
+            <sub><b>tomasmax</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/danieleloscozzese">
             <img src="https://avatars.githubusercontent.com/u/8526031?v=4" width="50;" alt="danieleloscozzese"/>
             <br />
