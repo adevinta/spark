@@ -78,7 +78,7 @@ export const Sizes = () => {
         </Dialog.Trigger>
 
         <Dialog.Trigger asChild>
-          <Button onClick={() => setSize('md')}>Large</Button>
+          <Button onClick={() => setSize('lg')}>Large</Button>
         </Dialog.Trigger>
 
         <Dialog.Trigger asChild>
