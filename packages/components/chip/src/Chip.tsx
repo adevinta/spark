@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react'
+import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren, Ref } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
 import { ChipContext } from './useChipContext'
@@ -32,6 +32,10 @@ export interface ChipProps
    * Clear chip handler
    */
   onClear?: (event?: React.MouseEvent<HTMLButtonElement>) => void
+  /**
+   * Pass react ref from the outside
+   */
+  ref?: Ref<HTMLButtonElement | HTMLDivElement>
 }
 
 export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(

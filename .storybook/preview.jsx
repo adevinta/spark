@@ -50,18 +50,24 @@ export const decorators = [
     defaultTheme: 'light',
     attributeName: 'data-theme',
   }),
-  (Story, { id, viewMode }) => (
-    <div className="relative w-full">
-      {viewMode === 'docs' && (
-        <div className="absolute -right-lg -top-xl">
-          <a href={`/iframe.html?&id=${id}`} target="_blank">
-            <Icon size="sm" label="expand">
-              <ShareExpand />
-            </Icon>
-          </a>
-        </div>
-      )}
-      <Story />
-    </div>
-  ),
+  (storyFn, { id, viewMode }) => {
+    return (
+      <div className="relative w-full">
+        {viewMode === 'docs' && (
+          <div className="absolute -right-lg -top-xl">
+            <a
+              href={`/iframe.html?&id=${id}`}
+              target="_blank"
+              className="text-basic hover:text-basic-hovered focus:text-basic-focused enabled:active:text-basic-pressed"
+            >
+              <Icon size="sm" label="expand">
+                <ShareExpand />
+              </Icon>
+            </a>
+          </div>
+        )}
+        {storyFn()}
+      </div>
+    )
+  },
 ]
