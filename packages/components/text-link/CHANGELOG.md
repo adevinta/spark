@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/text-link@0.4.0...@spark-ui/text-link@0.5.0) (2023-10-03)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- **text-link:** doc ([44355ac](https://github.com/adevinta/spark/commit/44355accf95aabd45801e2f339e2e7073c86946f))
+
+### Features
+
+- **text-link:** enabled disabling of underline on text link ([287b973](https://github.com/adevinta/spark/commit/287b9734d2b4126d6a3cb886c9e7bd00ba443ca9))
+
 # [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/text-link@0.3.0...@spark-ui/text-link@0.4.0) (2023-09-28)
 
 ### Features

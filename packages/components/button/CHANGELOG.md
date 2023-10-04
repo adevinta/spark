@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/adevinta/spark/compare/@spark-ui/button@2.3.0...@spark-ui/button@2.3.1) (2023-10-03)
+
+### Bug Fixes
+
+- **button:** doc ([f578dcb](https://github.com/adevinta/spark/commit/f578dcb48bca7a5075916239fa1da36cc1735fa1))
+- **button:** fixed keyboard focus on outlined buttons ([e93790a](https://github.com/adevinta/spark/commit/e93790a71bd7063af7b120a00be0ec8928816722))
+
 # [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/button@2.2.1...@spark-ui/button@2.3.0) (2023-09-28)
 
 ### Bug Fixes
