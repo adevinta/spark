@@ -10,7 +10,7 @@ export const Badge = forwardRef<HTMLElement, BadgeProps>(({ children, ...props }
   return isStandalone ? (
     <BadgeItem ref={ref} type="standalone" {...props} />
   ) : (
-    <div className="relative flex">
+    <div className="relative inline-flex">
       {children}
       <BadgeItem ref={ref} {...props} />
     </div>
