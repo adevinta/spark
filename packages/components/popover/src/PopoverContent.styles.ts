@@ -6,7 +6,7 @@ export const styles = cva(
     'rounded-md',
     'p-lg',
     'bg-surface text-on-surface',
-    'shadow',
+    'drop-shadow',
     'focus-visible:outline-none focus-visible:u-ring',
   ],
   {
