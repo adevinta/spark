@@ -5,8 +5,8 @@ import { dashedVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const chipStyles = cva(
   [
-    'box-border inline-flex h-sz-32 flex-nowrap items-center justify-center rounded-md text-body-1 font-regular',
-    'max-w-sz-240 focus-visible:outline-none focus-visible:u-ring-inset',
+    'box-border max-w-sz-240 inline-flex h-sz-32 flex-nowrap items-center justify-center rounded-md text-body-1 font-regular',
+    'focus-visible:outline-none focus-visible:u-ring [&:not(:focus-visible)]:ring-inset',
     'ease-out duration-150',
   ],
   {
@@ -23,7 +23,7 @@ export const chipStyles = cva(
        * - `dashed`: Chip will be transparent with an outline dashed.
        */
       design: makeVariants<'design', ['outlined', 'tinted', 'dashed']>({
-        outlined: ['bg-transparent ring-1 ring-current'],
+        outlined: ['bg-transparent border-sm border-solid border-current'],
         tinted: [''],
         dashed: [
           'bg-transparent border-sm border-dashed shadow-none focus-visible:border-outline-high',
