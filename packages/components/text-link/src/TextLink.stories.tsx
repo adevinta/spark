@@ -5,7 +5,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { TextLink, type TextLinkProps } from '.'
 
 const meta: Meta<typeof TextLink> = {
-  title: 'Experimental/TextLink',
+  title: 'Components/TextLink',
   component: TextLink,
 }
 
