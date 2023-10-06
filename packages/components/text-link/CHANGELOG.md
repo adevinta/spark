@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/text-link@0.5.0...@spark-ui/text-link@1.0.1) (2023-10-06)
+
+### Bug Fixes
+
+- **text-link:** release stable text-link ([f75e460](https://github.com/adevinta/spark/commit/f75e4606b7329057a10138b505b7926dd5090588))
+
 # [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/text-link@0.4.0...@spark-ui/text-link@0.5.0) (2023-10-03)
 
 ### Bug Fixes

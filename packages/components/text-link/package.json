@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/text-link",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TextLink is an accessible element for navigation.",
   "publishConfig": {
     "access": "public"
