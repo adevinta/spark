@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/adevinta/spark/compare/@spark-ui/button@2.3.1...@spark-ui/button@2.4.0) (2023-10-06)
+
+### Features
+
+- **button:** toggle button example ([eb96a7a](https://github.com/adevinta/spark/commit/eb96a7a95f749794724dca8f661159c74ecddbe8))
+
 ## [2.3.1](https://github.com/adevinta/spark/compare/@spark-ui/button@2.3.0...@spark-ui/button@2.3.1) (2023-10-03)
 
 ### Bug Fixes

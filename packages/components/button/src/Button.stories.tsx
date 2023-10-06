@@ -162,3 +162,19 @@ export const Link: StoryFn = _args => (
     </Button>
   </div>
 )
+
+export const Toggle: StoryFn = () => {
+  const [pressed, setPressed] = useState(false)
+  const toggle = () => setPressed(!pressed)
+
+  return (
+    <Button aria-pressed={pressed} onClick={toggle} design={pressed ? 'filled' : 'outlined'}>
+      Toggle button
+      {pressed && (
+        <Icon>
+          <Check />
+        </Icon>
+      )}
+    </Button>
+  )
+}

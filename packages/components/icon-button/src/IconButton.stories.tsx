@@ -1,6 +1,8 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Checkbox } from '@spark-ui/checkbox'
 import { Icon } from '@spark-ui/icon'
+import { LikeFill } from '@spark-ui/icons/dist/icons/LikeFill'
+import { LikeOutline } from '@spark-ui/icons/dist/icons/LikeOutline'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
@@ -128,3 +130,19 @@ export const Link: StoryFn = _args => (
     </IconButton>
   </div>
 )
+
+export const Toggle: StoryFn = () => {
+  const [pressed, setPressed] = useState(false)
+  const toggle = () => setPressed(!pressed)
+
+  return (
+    <IconButton
+      aria-label="Add to favorites"
+      aria-pressed={pressed}
+      onClick={toggle}
+      design={pressed ? 'filled' : 'outlined'}
+    >
+      <Icon>{pressed ? <LikeFill /> : <LikeOutline />}</Icon>
+    </IconButton>
+  )
+}

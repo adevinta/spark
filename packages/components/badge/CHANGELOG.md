@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.1.0...@spark-ui/badge@2.1.1) (2023-10-06)
+
+### Bug Fixes
+
+- **badge:** border-box ([15d41ff](https://github.com/adevinta/spark/commit/15d41ffd56f62360301647ead953b3a157976cd4))
+- **badge:** change rings for borders ([cd7911b](https://github.com/adevinta/spark/commit/cd7911be77457f8adaf8e4591d6b38b41e1b855a))
+- **badge:** doc ([b649238](https://github.com/adevinta/spark/commit/b64923806799065834e5d9ab4b056c6842c2afb5))
+
 # [2.1.0](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.0.11...@spark-ui/badge@2.1.0) (2023-09-28)
 
 ### Bug Fixes

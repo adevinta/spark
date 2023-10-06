@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/adevinta/spark/compare/@spark-ui/input@1.5.1...@spark-ui/input@1.5.2) (2023-10-06)
+
+### Bug Fixes
+
+- **input:** leading and trailing icon font size ([a13ae0f](https://github.com/adevinta/spark/commit/a13ae0fc7189e04baab1a210b18c5527d066d91a))
+
 ## [1.5.1](https://github.com/adevinta/spark/compare/@spark-ui/input@1.5.0...@spark-ui/input@1.5.1) (2023-09-29)
 
 ### Bug Fixes
