@@ -42,13 +42,30 @@ const intents: SliderProps['intent'][] = [
   'neutral',
 ]
 
+const shapes: SliderProps['shape'][] = ['square', 'rounded']
+
 export const Intent: StoryFn = _args => (
-  <div className="grid grid-cols-5 gap-xl">
+  <div className="grid grid-cols-2 gap-xl sm:grid-cols-5">
     {intents.map(intent => (
       <div key={intent} className="grow">
         <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
 
         <Slider defaultValue={[75]} intent={intent}>
+          <Slider.Track />
+          <Slider.Thumb />
+        </Slider>
+      </div>
+    ))}
+  </div>
+)
+
+export const Shape: StoryFn = _args => (
+  <div className="grid grid-cols-2 gap-xl">
+    {shapes.map(shape => (
+      <div key={shape} className="grow">
+        <StoryLabel>{`${shape}${shape === 'square' ? ' (default)' : ''}`}</StoryLabel>
+
+        <Slider defaultValue={[75]} shape={shape}>
           <Slider.Track />
           <Slider.Thumb />
         </Slider>

@@ -64,8 +64,8 @@ export interface SliderProps
 }
 
 export const Slider = forwardRef<HTMLDivElement, SliderProps>(
-  ({ asChild = false, intent = 'basic', children, className, ...rest }, ref) => (
-    <SliderContext.Provider value={{ intent }}>
+  ({ asChild = false, intent = 'basic', shape = 'square', children, className, ...rest }, ref) => (
+    <SliderContext.Provider value={{ intent, shape }}>
       <RadixSlider.Root
         ref={ref}
         data-spark-component="slider"

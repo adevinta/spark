@@ -1,8 +1,18 @@
-import { cva, cx, type VariantProps } from 'class-variance-authority'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-export const trackStyles = cx('relative rounded-sm grow h-sm bg-on-background/dim-4')
+export const trackVariants = cva(['relative grow h-sz-4 bg-on-background/dim-4'], {
+  variants: {
+    shape: {
+      rounded: 'rounded-sm',
+      square: 'rounded-none',
+    },
+  },
+  defaultVariants: {
+    shape: 'square',
+  },
+})
 
-export const rangeVariants = cva(['absolute rounded-sm h-full'], {
+export const rangeVariants = cva(['absolute h-full'], {
   variants: {
     intent: {
       main: ['bg-main'],
@@ -15,9 +25,14 @@ export const rangeVariants = cva(['absolute rounded-sm h-full'], {
       alert: ['bg-alert'],
       error: ['bg-error'],
     },
+    shape: {
+      rounded: 'rounded-sm',
+      square: 'rounded-none',
+    },
   },
   defaultVariants: {
     intent: 'basic',
+    shape: 'square',
   },
 })
 

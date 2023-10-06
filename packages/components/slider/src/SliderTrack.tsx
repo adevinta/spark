@@ -2,7 +2,7 @@ import * as RadixSlider from '@radix-ui/react-slider'
 import { forwardRef } from 'react'
 
 import { useSliderContext } from './SliderContext'
-import { rangeVariants, trackStyles } from './SliderTrack.styles'
+import { rangeVariants, trackVariants } from './SliderTrack.styles'
 
 export interface SliderTrackProps
   extends RadixSlider.SliderTrackProps,
@@ -16,11 +16,11 @@ export interface SliderTrackProps
 
 export const SliderTrack = forwardRef<HTMLDivElement, SliderTrackProps>(
   ({ asChild = false, className, ...rest }, ref) => {
-    const { intent } = useSliderContext()
+    const { intent, shape } = useSliderContext()
 
     return (
-      <RadixSlider.Track ref={ref} asChild={asChild} className={trackStyles} {...rest}>
-        <RadixSlider.Range className={rangeVariants({ intent, className })} />
+      <RadixSlider.Track ref={ref} asChild={asChild} className={trackVariants({ shape })} {...rest}>
+        <RadixSlider.Range className={rangeVariants({ intent, shape, className })} />
       </RadixSlider.Track>
     )
   }
