@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { DEFAULT_INTENT, DEFAULT_SIZE, DEFAULT_TYPE } from './config'
 
 export const styles = cva(
-  ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full'],
+  ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full box-content'],
   {
     variants: {
       intent: makeVariants<
