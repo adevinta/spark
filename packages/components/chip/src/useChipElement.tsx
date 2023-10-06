@@ -28,6 +28,7 @@ interface ReturnedValue {
       }
   compoundElements: {
     leadingIcon: React.ReactNode
+    trailingIcon: React.ReactNode
     content: React.ReactNode
     clearButton: React.ReactNode
   }
@@ -132,6 +133,7 @@ export const useChipElement = ({
       },
       compoundElements: {
         leadingIcon,
+        trailingIcon,
         content,
         clearButton,
       },
@@ -147,6 +149,7 @@ export const useChipElement = ({
     },
     compoundElements: {
       leadingIcon,
+      trailingIcon,
       content,
       clearButton,
     },
