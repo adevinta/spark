@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useEffect, useState } from 'react'
 
-import { Progress } from '.'
+import { Progress, ProgressProps } from '.'
 
 const meta: Meta<typeof Progress> = {
   title: 'Components/Progress',
@@ -43,6 +43,28 @@ export const Max: StoryFn = _args => {
 
       <Progress.Label>Reward</Progress.Label>
     </Progress>
+  )
+}
+
+const intents: ProgressProps['intent'][] = [
+  'main',
+  'support',
+  'accent',
+  'basic',
+  'success',
+  'alert',
+  'danger',
+  'info',
+  'neutral',
+]
+
+export const Intent: StoryFn = _args => {
+  return (
+    <div className="flex flex-col gap-xl">
+      {intents.map(intent => (
+        <Progress key={intent} aria-label="Loading" value={1} max={4} intent={intent} />
+      ))}
+    </div>
   )
 }
 

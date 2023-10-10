@@ -1,9 +1,12 @@
 import { createContext, useContext } from 'react'
 
+import { ProgressIndicatorStylesProps } from './ProgressIndicator.styles'
+
 export interface ProgressContextValue {
   value: number
   max: number
   isIndeterminate: boolean
+  intent: ProgressIndicatorStylesProps['intent']
   onLabelId: (id?: string) => void
 }
 
