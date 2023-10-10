@@ -3,9 +3,8 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const inputStyles = cva(
   [
     'relative',
-    'ring-1 ring-inset',
+    'border-sm',
     'peer',
-    'box-border',
     'w-full',
     'appearance-none outline-none',
     'bg-surface',
@@ -17,7 +16,8 @@ export const inputStyles = cva(
     'disabled:cursor-not-allowed',
     'disabled:bg-on-surface/dim-5 disabled:text-on-surface/dim-3',
     'read-only:cursor-default',
-    'read-only:border-on-surface/dim-3 read-only:bg-on-surface/dim-5',
+    'read-only:bg-on-surface/dim-5',
+    'focus-visible:outline-none focus-visible:u-ring [&:not(:focus-visible)]:ring-inset',
   ],
   {
     variants: {
@@ -26,15 +26,10 @@ export const inputStyles = cva(
         false: ['h-sz-44'],
       },
       intent: {
-        neutral: [
-          'ring-outline',
-          'hover:ring-outline-high',
-          'focus:ring-outline-high',
-          'disabled:ring-outline',
-        ],
-        success: ['ring-success', 'ring-success'],
-        alert: ['ring-alert', 'ring-alert'],
-        error: ['ring-error', 'ring-error'],
+        neutral: ['border-outline', 'hover:border-outline-high', 'disabled:border-outline'],
+        success: ['border-success'],
+        alert: ['border-alert'],
+        error: ['border-error'],
       },
       hasLeadingAddon: {
         true: ['rounded-l-none'],
