@@ -1,15 +1,14 @@
-import { forwardRef, ReactNode } from 'react'
+import { forwardRef, HTMLAttributes, PropsWithRef, ReactNode } from 'react'
 
-export interface DividerContentProps {
+export interface DividerContentProps extends PropsWithRef<HTMLAttributes<HTMLSpanElement>> {
+  /**
+   * Change the component to the HTML tag or custom component of the only child.
+   */
   asChild?: boolean
   children?: ReactNode
-  orientation?: 'vertical' | 'horizontal'
-  className?: 'string'
 }
 
-// export type DividerProps = ComponentPropsWithoutRef<'div'>
-
-export const DividerContent = forwardRef<HTMLDivElement, DividerContentProps>(
+export const DividerContent = forwardRef<HTMLSpanElement, DividerContentProps>(
   ({ children, ...props }, ref) => {
     return children ? (
       <span ref={ref} {...props}>
@@ -18,3 +17,5 @@ export const DividerContent = forwardRef<HTMLDivElement, DividerContentProps>(
     ) : null
   }
 )
+
+DividerContent.displayName = 'Divider.Content'

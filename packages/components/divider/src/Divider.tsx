@@ -1,17 +1,30 @@
 import { Root as Separator } from '@radix-ui/react-separator'
 import { cx } from 'class-variance-authority'
-import { forwardRef, PropsWithChildren, ReactElement } from 'react'
+import { forwardRef, HTMLAttributes, PropsWithRef, ReactElement } from 'react'
 
 import { dividerStyles, type DividerStylesProps } from './Divider.styles'
 
-export interface DividerProps extends PropsWithChildren<HTMLElement>, DividerStylesProps {
+export interface DividerProps
+  extends PropsWithRef<Omit<HTMLAttributes<HTMLDivElement>, 'aria-label'>>,
+    Omit<DividerStylesProps, 'isEmpty'> {
+  /**
+   * Change the component to the HTML tag or custom component of the only child.
+   */
   asChild?: boolean
   children?: ReactElement
-  orientation?: 'vertical' | 'horizontal'
+  /**
+   * The orientation of the inner content.
+   */
   alignment?: 'start' | 'end' | 'center'
+  /**
+   * The orientation of the separator.
+   */
+  orientation?: 'vertical' | 'horizontal'
+  /**
+   * When true, signifies that it is purely visual, carries no semantic meaning, and ensures it is not present in the accessibility tree.
+   */
+  decorative?: boolean
 }
-
-// export type DividerProps = ComponentPropsWithoutRef<'div'>
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(
   ({ asChild, className, children, orientation, alignment, ...props }, ref) => {
