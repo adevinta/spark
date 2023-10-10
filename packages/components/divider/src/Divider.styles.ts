@@ -1,10 +1,12 @@
-import { tw } from '@spark-ui/internal-utils'
+import { makeVariants, tw } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
+
+import { intentVariants } from './divider/intents'
 
 export const dividerStyles = cva(['overflow-hidden'], {
   variants: {
     isEmpty: {
-      true: ['bg-current'],
+      true: [],
       false: ['inline-flex items-center'],
     },
     orientation: {
@@ -16,41 +18,86 @@ export const dividerStyles = cva(['overflow-hidden'], {
       end: [],
       center: [],
     },
+    design: {
+      filled: ['border-solid'],
+      dashed: ['border-dashed'],
+      dotted: ['border-dotted'],
+    },
+    intent: makeVariants<
+      'intent',
+      [
+        'current',
+        'main',
+        'support',
+        'accent',
+        'basic',
+        'success',
+        'alert',
+        'danger',
+        'info',
+        'neutral',
+        'surface',
+      ]
+    >({
+      current: [],
+      basic: [],
+      main: [],
+      support: [],
+      accent: [],
+      success: [],
+      alert: [],
+      danger: [],
+      info: [],
+      neutral: [],
+      surface: [],
+    }),
   },
   defaultVariants: {
+    design: 'filled',
     orientation: 'horizontal',
     alignment: 'center',
+    intent: 'current',
   },
   compoundVariants: [
     {
       isEmpty: true,
       orientation: 'horizontal',
-      class: tw(['h-sz-1 my-lg']),
+      class: tw(['my-lg border-t-sm']),
     },
     {
       isEmpty: true,
       orientation: 'vertical',
-      class: tw(['w-sz-1 mx-lg min-h-sz-24']),
+      class: tw(['mx-lg min-h-sz-24 border-l-sm']),
+    },
+    {
+      isEmpty: false,
+      design: 'filled',
+      class: tw(['after:border-solid before:border-solid']),
+    },
+    {
+      isEmpty: false,
+      design: 'dashed',
+      class: tw(['after:border-dashed before:border-dashed']),
+    },
+    {
+      isEmpty: false,
+      design: 'dotted',
+      class: tw(['after:border-dotted before:border-dotted']),
     },
     {
       isEmpty: false,
       orientation: 'horizontal',
       class: tw([
         'flex-row my-sm grow-0',
-        'before:h-sz-1 before:bg-current',
-        'after:h-sz-1 after:bg-current',
+        'before:border-t-sm',
+        'after:border-t-sm',
         '[&>*]:px-lg',
       ]),
     },
     {
       isEmpty: false,
       orientation: 'vertical',
-      class: tw([
-        'flex-col mx-sm',
-        'before:w-sz-1 before:bg-current',
-        'after:w-sz-1 after:bg-current',
-        '[&>*]:py-lg',
-      ]),
+      class: tw(['flex-col mx-sm', 'before:border-l-sm', 'after:border-l-sm', '[&>*]:py-lg']),
     },
     {
       isEmpty: false,
@@ -88,6 +135,7 @@ export const dividerStyles = cva(['overflow-hidden'], {
       alignment: 'center',
       class: tw(['justify-center before:grow after:grow before:min-h-sz-40 after:min-h-sz-40']),
     },
+    ...intentVariants,
   ],
 })
 

@@ -1,6 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
+import { ComponentProps } from 'react'
 
 import { Divider } from './index'
+
+type DividerProps = ComponentProps<typeof Divider>
 
 const meta: Meta<typeof Divider> = {
   title: 'Components/Divider',
@@ -8,6 +11,20 @@ const meta: Meta<typeof Divider> = {
 }
 
 export default meta
+
+const intents: DividerProps['intent'][] = [
+  'current',
+  'main',
+  'support',
+  'accent',
+  'basic',
+  'success',
+  'alert',
+  'danger',
+  'info',
+  'neutral',
+  'surface',
+]
 
 export const Default: StoryFn = _args => <Divider />
 
@@ -29,6 +46,37 @@ export const Content: StoryFn = _args => (
   </Divider>
 )
 
+export const Design: StoryFn = _args => (
+  <>
+    <Divider design="filled" />
+    <Divider design="dashed" />
+    <Divider design="dotted" />
+    <Divider design="filled">
+      <Divider.Content>Divider</Divider.Content>
+    </Divider>
+    <Divider design="dashed">
+      <Divider.Content>Divider</Divider.Content>
+    </Divider>
+    <Divider design="dotted">
+      <Divider.Content>Divider</Divider.Content>
+    </Divider>
+    <div className="flex h-sz-320 w-full">
+      <Divider design="filled" orientation="vertical" />
+      <Divider design="dashed" orientation="vertical" />
+      <Divider design="dotted" orientation="vertical" />
+      <Divider design="filled" orientation="vertical">
+        <Divider.Content>Divider</Divider.Content>
+      </Divider>
+      <Divider design="dashed" orientation="vertical">
+        <Divider.Content>Divider</Divider.Content>
+      </Divider>
+      <Divider design="dotted" orientation="vertical">
+        <Divider.Content>Divider</Divider.Content>
+      </Divider>
+    </div>
+  </>
+)
+
 export const Decorative: StoryFn = _args => (
   <>
     <Divider isDecorative />
@@ -39,6 +87,16 @@ export const Decorative: StoryFn = _args => (
       <Divider.Content>Divider</Divider.Content>
     </Divider>
   </>
+)
+
+export const Intent: StoryFn = _args => (
+  <div className="flex flex-col">
+    {intents.map(intent => (
+      <Divider key={intent} intent={intent}>
+        <Divider.Content>{intent}</Divider.Content>
+      </Divider>
+    ))}
+  </div>
 )
 
 export const Alignment: StoryFn = _args => (

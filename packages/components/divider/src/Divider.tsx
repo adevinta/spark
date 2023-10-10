@@ -5,7 +5,7 @@ import { forwardRef, HTMLAttributes, PropsWithRef, ReactElement } from 'react'
 import { dividerStyles, type DividerStylesProps } from './Divider.styles'
 
 export interface DividerProps
-  extends PropsWithRef<Omit<HTMLAttributes<HTMLDivElement>, 'aria-label'>>,
+  extends PropsWithRef<HTMLAttributes<HTMLDivElement>>,
     Omit<DividerStylesProps, 'isEmpty'> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -21,19 +21,39 @@ export interface DividerProps
    */
   orientation?: 'vertical' | 'horizontal'
   /**
+   *
+   */
+  design?: 'filled' | 'dashed' | 'dotted'
+  /**
    * When true, signifies that it is purely visual, carries no semantic meaning, and ensures it is not present in the accessibility tree.
    */
   isDecorative?: boolean
 }
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(
-  ({ asChild, className, isDecorative, children, orientation, alignment, ...props }, ref) => {
+  (
+    {
+      asChild,
+      className,
+      isDecorative,
+      design = 'filled',
+      children,
+      orientation,
+      alignment,
+      intent,
+      ...props
+    },
+    ref
+  ) => {
     const isEmpty = asChild ? !children?.props?.children : !children
 
     return (
       <Separator
         asChild={asChild}
-        className={cx(dividerStyles({ isEmpty, orientation, alignment }), className)}
+        className={cx(
+          dividerStyles({ isEmpty, orientation, alignment, design, intent }),
+          className
+        )}
         orientation={orientation}
         ref={ref}
         decorative={isDecorative}
