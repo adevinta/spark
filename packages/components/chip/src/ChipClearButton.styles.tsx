@@ -58,7 +58,7 @@ export const chipClearButtonWrapperStyles = cva(
 // eslint-disable-next-line tailwindcss/no-custom-classname
 export const chipClearButtonStyles = cva(
   [
-    'rounded-full text-[calc(var(--sz-6))] p-[var(--sz-2)] border-sm',
+    'rounded-full p-[--sz-2] [font-size:--sz-8] border-sm',
     'focus-visible:outline-2 focus-visible:outline focus-visible:outline-offset-2  focus-visible:outline-[blue]',
   ],
   {
