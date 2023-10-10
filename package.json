@@ -43,7 +43,7 @@
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "1.9.0",
     "@babel/core": "7.23.0",
-    "@commitlint/cli": "17.6.6",
+    "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.6.1",
     "@commitlint/config-lerna-scopes": "17.7.0",
     "@commitlint/cz-commitlint": "17.7.1",
@@ -76,7 +76,7 @@
     "@vitejs/plugin-react": "3.1.0",
     "@vitest/coverage-istanbul": "^0.34.1",
     "@vitest/ui": "0.34.4",
-    "autoprefixer": "10.4.14",
+    "autoprefixer": "10.4.16",
     "babel-loader": "8.3.0",
     "browserslist-to-esbuild": "1.2.0",
     "chalk": "^5.2.0",
