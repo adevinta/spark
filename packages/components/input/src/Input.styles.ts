@@ -18,6 +18,7 @@ export const inputStyles = cva(
     'read-only:cursor-default',
     'read-only:bg-on-surface/dim-5',
     'focus-visible:outline-none focus-visible:u-ring [&:not(:focus-visible)]:ring-inset',
+    'disabled:border-outline',
   ],
   {
     variants: {
@@ -26,7 +27,7 @@ export const inputStyles = cva(
         false: ['h-sz-44'],
       },
       intent: {
-        neutral: ['border-outline', 'hover:border-outline-high', 'disabled:border-outline'],
+        neutral: ['border-outline', 'hover:border-outline-high'],
         success: ['border-success'],
         alert: ['border-alert'],
         error: ['border-error'],

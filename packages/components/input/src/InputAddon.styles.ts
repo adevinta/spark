@@ -18,7 +18,7 @@ export const inputAddonStyles = cva(
         success: 'border-success',
       },
       disabled: {
-        true: ['pointer-events-none'],
+        true: ['pointer-events-none !border-outline'],
       },
       readOnly: {
         true: [],
