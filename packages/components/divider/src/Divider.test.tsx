@@ -41,4 +41,18 @@ describe('Divider', () => {
     // Then
     expect(screen.getByText(content)).toBeVisible()
   })
+
+  it('should NOT contain inner content', () => {
+    // Given
+    const props = {
+      children: <Divider.Content />,
+    }
+
+    // When
+    render(<Divider {...props} />)
+
+    // Then
+    expect(screen.getByRole('separator')).toBeVisible()
+    expect(screen.getByRole('separator').innerHTML).toEqual('')
+  })
 })
