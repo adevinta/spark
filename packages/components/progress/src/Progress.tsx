@@ -12,6 +12,7 @@ import { ProgressIndicatorStylesProps } from './ProgressIndicator.styles'
 export interface ProgressProps
   extends ProgressPrimitiveProps,
     Pick<ProgressIndicatorStylesProps, 'intent'> {
+  shape?: 'square' | 'rounded'
   isIndeterminate?: boolean
 }
 
@@ -24,6 +25,7 @@ export const Progress = forwardRef<
       className,
       value: valueProp,
       max = 100,
+      shape = 'square',
       intent = 'basic',
       isIndeterminate = false,
       children = <ProgressBar />,
@@ -34,8 +36,8 @@ export const Progress = forwardRef<
     const [labelId, setLabelId] = useState<string>()
 
     const value = useMemo(() => {
-      return { value: valueProp ?? 0, max, intent, isIndeterminate, onLabelId: setLabelId }
-    }, [max, valueProp, intent, isIndeterminate, setLabelId])
+      return { value: valueProp ?? 0, max, intent, shape, isIndeterminate, onLabelId: setLabelId }
+    }, [max, valueProp, intent, shape, isIndeterminate, setLabelId])
 
     return (
       <ProgressContext.Provider data-spark-component="progress" value={value}>
