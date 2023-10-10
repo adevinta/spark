@@ -1,0 +1,48 @@
+{
+  "name": "@spark-ui/divider",
+  "version": "1.0.0",
+  "description": "A separator between two elements, usually consisting of a horizontal line.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "divider"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@spark-ui/internal-utils": "^2.2.0",
+    "@radix-ui/react-separator": "^1.0.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/components/divider"
+  },
+  "config": {
+    "title": "divider",
+    "category": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Adivider"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
+}

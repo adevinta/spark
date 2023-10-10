@@ -1,0 +1,46 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Divider } from '.'
+
+import * as stories from './Divider.stories'
+
+<Meta of={stories} />
+
+# Divider
+
+A separator between two elements, usually consisting of a horizontal line.
+
+## Install
+
+```sh
+npm install @spark-ui/divider
+```
+
+## Import
+
+```tsx
+import { Divider } from "@spark-ui/divider"
+```
+
+## Props
+
+<ArgTypes of={Divider} />
+
+## Default
+<Canvas of={stories.Default} />
+
+## Children
+<Canvas of={stories.Children} />
+
+## Content
+<Canvas of={stories.Content} />
+
+## Alignment
+<Canvas of={stories.Alignment} />
+
+## Orientation
+<Canvas of={stories.Orientation} />
+
+## Wrapped Content
+<Canvas of={stories.WrappedContent} />
