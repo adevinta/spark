@@ -95,3 +95,20 @@ export const WrappedContent: StoryFn = _args => (
     </Divider>
   </div>
 )
+
+export const Card: StoryFn = _args => (
+  <div className="flex w-full items-center justify-center bg-gradient-to-br from-main to-support-variant">
+    <div className="m-3xl flex max-w-sz-320 flex-col rounded-md bg-background p-lg text-on-background shadow">
+      <h1 className="text-headline-1">spark-ui components</h1>
+      <p>An open-source UI component library.</p>
+      <Divider />
+      <div className="flex flex-row items-center justify-start ">
+        <span>Blog</span>
+        <Divider orientation="vertical" />
+        <span>Docs</span>
+        <Divider orientation="vertical" />
+        <span>Source</span>
+      </div>
+    </div>
+  </div>
+)

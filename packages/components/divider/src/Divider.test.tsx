@@ -6,7 +6,7 @@ import { Divider } from './Divider'
 
 describe('Divider', () => {
   it('should render', () => {
-    render(<Divider>Hello World!</Divider>)
+    render(<Divider />)
 
     expect(screen.getByText('Hello World!')).toBeInTheDocument()
   })

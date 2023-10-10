@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks';
+import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Divider } from '.'
 
@@ -20,27 +20,46 @@ npm install @spark-ui/divider
 ## Import
 
 ```tsx
-import { Divider } from "@spark-ui/divider"
+import { Divider } from '@spark-ui/divider'
 ```
 
 ## Props
 
-<ArgTypes of={Divider} />
+<ExtendedArgTypes
+  of={Divider}
+  description="Visually or semantically separates content."
+  subcomponents={{
+    'Divider.Content': {
+      of: Divider.Content,
+      description: 'A label appearing on top of the divider if necessary.',
+    },
+  }}
+/>
 
 ## Default
+
 <Canvas of={stories.Default} />
 
 ## Children
+
 <Canvas of={stories.Children} />
 
 ## Content
+
 <Canvas of={stories.Content} />
 
 ## Alignment
+
 <Canvas of={stories.Alignment} />
 
 ## Orientation
+
 <Canvas of={stories.Orientation} />
 
 ## Wrapped Content
+
 <Canvas of={stories.WrappedContent} />
+
+## Card Content
+
+<Canvas of={stories.Card} />
