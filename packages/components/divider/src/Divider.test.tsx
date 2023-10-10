@@ -1,27 +1,44 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
-import { Divider } from './Divider'
+import { Divider } from './index'
 
 describe('Divider', () => {
   it('should render', () => {
-    render(<Divider />)
-
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
-  })
-
-  it('should trigger click event', async () => {
-    const user = userEvent.setup()
-    const clickEvent = vi.fn()
-
     // Given
-    render(<div onClick={clickEvent}>Hello World!</div>)
+    const props = {}
 
     // When
-    await user.click(screen.getByText('Hello World!'))
+    render(<Divider {...props} />)
 
     // Then
-    expect(clickEvent).toHaveBeenCalledTimes(1)
+    expect(screen.getByRole('separator')).toBeVisible()
+  })
+
+  it('should not be separator rolled', () => {
+    // Given
+    const props = {
+      isDecorative: true,
+    }
+
+    // When
+    render(<Divider {...props} />)
+
+    // Then
+    expect(screen.getByRole('none')).toBeVisible()
+  })
+
+  it('should contain the content', () => {
+    // Given
+    const content = 'content'
+    const props = {
+      children: <Divider.Content>{content}</Divider.Content>,
+    }
+
+    // When
+    render(<Divider {...props} />)
+
+    // Then
+    expect(screen.getByText(content)).toBeVisible()
   })
 })
