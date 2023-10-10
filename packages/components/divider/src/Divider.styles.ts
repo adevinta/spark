@@ -8,7 +8,7 @@ export const dividerStyles = cva(['overflow-hidden'], {
       false: ['inline-flex items-center'],
     },
     orientation: {
-      vertical: ['w-fit inline-flex min-h-sz-40'],
+      vertical: ['w-fit inline-flex'],
       horizontal: ['w-full'],
     },
     alignment: {
@@ -30,7 +30,7 @@ export const dividerStyles = cva(['overflow-hidden'], {
     {
       isEmpty: true,
       orientation: 'vertical',
-      class: tw(['w-sz-1 mx-lg']),
+      class: tw(['w-sz-1 mx-lg min-h-sz-24']),
     },
     {
       isEmpty: false,

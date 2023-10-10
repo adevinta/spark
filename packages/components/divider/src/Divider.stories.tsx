@@ -29,6 +29,18 @@ export const Content: StoryFn = _args => (
   </Divider>
 )
 
+export const Decorative: StoryFn = _args => (
+  <>
+    <Divider isDecorative />
+    <Divider isDecorative asChild>
+      <h1 />
+    </Divider>
+    <Divider isDecorative>
+      <Divider.Content>Divider</Divider.Content>
+    </Divider>
+  </>
+)
+
 export const Alignment: StoryFn = _args => (
   <>
     <Divider />

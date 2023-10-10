@@ -23,11 +23,11 @@ export interface DividerProps
   /**
    * When true, signifies that it is purely visual, carries no semantic meaning, and ensures it is not present in the accessibility tree.
    */
-  decorative?: boolean
+  isDecorative?: boolean
 }
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(
-  ({ asChild, className, children, orientation, alignment, ...props }, ref) => {
+  ({ asChild, className, isDecorative, children, orientation, alignment, ...props }, ref) => {
     const isEmpty = asChild ? !children?.props?.children : !children
 
     return (
@@ -36,6 +36,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
         className={cx(dividerStyles({ isEmpty, orientation, alignment }), className)}
         orientation={orientation}
         ref={ref}
+        decorative={isDecorative}
         {...props}
       >
         {children}

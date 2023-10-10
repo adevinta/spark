@@ -42,11 +42,20 @@ import { Divider } from '@spark-ui/divider'
 
 ## Children
 
+The `Divider` component is a `separator` rolled `div` unless you include an `asChild` boolean flag, and pass the element you prefer it becomes as an immediate child.
+It can also work combined with `Divider.Content` inside of it.
+
 <Canvas of={stories.Children} />
 
 ## Content
 
 <Canvas of={stories.Content} />
+
+## Decorative
+
+Using `isDecorative` boolean flag prop makes the Divider only visual in terms of accessibility, not adding any role to the html element.
+
+<Canvas of={stories.Decorative} />
 
 ## Alignment
 
