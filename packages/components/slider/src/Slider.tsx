@@ -56,11 +56,6 @@ export interface SliderProps
    * @default 1
    */
   step?: number
-  /**
-   * The minimum permitted `steps` between multiple thumbs.
-   * @default 0
-   */
-  minStepsBetweenThumbs?: number
 }
 
 export const Slider = forwardRef<HTMLDivElement, SliderProps>(
@@ -74,6 +69,7 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(
         dir="ltr"
         orientation="horizontal"
         inverted={false}
+        minStepsBetweenThumbs={0}
         {...rest}
       >
         {children}

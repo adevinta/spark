@@ -82,13 +82,3 @@ export const Disabled: StoryFn = _args => (
     </Slider>
   </div>
 )
-
-export const ThumbOverlapp: StoryFn = _args => (
-  <div>
-    <Slider defaultValue={[25, 75]} step={5} minStepsBetweenThumbs={1}>
-      <Slider.Track />
-      <Slider.Thumb />
-      <Slider.Thumb />
-    </Slider>
-  </div>
-)
