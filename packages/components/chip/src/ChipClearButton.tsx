@@ -41,7 +41,7 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
     return (
       <span
         className={chipClearButtonWrapperStyles({
-          isBordered: ['outline', 'dashed'].includes(`${design}`),
+          isBordered: ['outline', 'dashed'].includes(design),
           disabled: !!disabled,
           design,
         })}
