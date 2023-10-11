@@ -6,8 +6,8 @@ import { intentVariants } from './divider/intents'
 export const dividerStyles = cva(['overflow-hidden'], {
   variants: {
     isEmpty: {
-      true: [],
-      false: ['inline-flex items-center'],
+      true: ['border-solid'],
+      false: ['inline-flex items-center', 'after:border-solid before:border-solid'],
     },
     orientation: {
       vertical: ['w-fit inline-flex'],
@@ -18,45 +18,15 @@ export const dividerStyles = cva(['overflow-hidden'], {
       end: [],
       center: [],
     },
-    design: {
-      filled: ['border-solid'],
-      dashed: ['border-dashed'],
-      dotted: ['border-dotted'],
-    },
-    intent: makeVariants<
-      'intent',
-      [
-        'current',
-        'main',
-        'support',
-        'accent',
-        'basic',
-        'success',
-        'alert',
-        'danger',
-        'info',
-        'neutral',
-        'surface',
-      ]
-    >({
+    intent: makeVariants<'intent', ['current', 'outline']>({
       current: [],
-      basic: [],
-      main: [],
-      support: [],
-      accent: [],
-      success: [],
-      alert: [],
-      danger: [],
-      info: [],
-      neutral: [],
-      surface: [],
+      outline: [],
     }),
   },
   defaultVariants: {
-    design: 'filled',
     orientation: 'horizontal',
     alignment: 'center',
-    intent: 'current',
+    intent: 'outline',
   },
   compoundVariants: [
     {
@@ -68,21 +38,6 @@ export const dividerStyles = cva(['overflow-hidden'], {
       isEmpty: true,
       orientation: 'vertical',
       class: tw(['mx-lg min-h-sz-24 border-l-sm']),
-    },
-    {
-      isEmpty: false,
-      design: 'filled',
-      class: tw(['after:border-solid before:border-solid']),
-    },
-    {
-      isEmpty: false,
-      design: 'dashed',
-      class: tw(['after:border-dashed before:border-dashed']),
-    },
-    {
-      isEmpty: false,
-      design: 'dotted',
-      class: tw(['after:border-dotted before:border-dotted']),
     },
     {
       isEmpty: false,

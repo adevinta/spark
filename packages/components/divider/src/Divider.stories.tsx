@@ -12,19 +12,7 @@ const meta: Meta<typeof Divider> = {
 
 export default meta
 
-const intents: DividerProps['intent'][] = [
-  'current',
-  'main',
-  'support',
-  'accent',
-  'basic',
-  'success',
-  'alert',
-  'danger',
-  'info',
-  'neutral',
-  'surface',
-]
+const intents: DividerProps['intent'][] = ['outline', 'current']
 
 export const Default: StoryFn = _args => <Divider />
 
@@ -44,37 +32,6 @@ export const Content: StoryFn = _args => (
   <Divider>
     <Divider.Content>Divider</Divider.Content>
   </Divider>
-)
-
-export const Design: StoryFn = _args => (
-  <>
-    <Divider design="filled" />
-    <Divider design="dashed" />
-    <Divider design="dotted" />
-    <Divider design="filled">
-      <Divider.Content>Divider</Divider.Content>
-    </Divider>
-    <Divider design="dashed">
-      <Divider.Content>Divider</Divider.Content>
-    </Divider>
-    <Divider design="dotted">
-      <Divider.Content>Divider</Divider.Content>
-    </Divider>
-    <div className="flex h-sz-320 w-full">
-      <Divider design="filled" orientation="vertical" />
-      <Divider design="dashed" orientation="vertical" />
-      <Divider design="dotted" orientation="vertical" />
-      <Divider design="filled" orientation="vertical">
-        <Divider.Content>Divider</Divider.Content>
-      </Divider>
-      <Divider design="dashed" orientation="vertical">
-        <Divider.Content>Divider</Divider.Content>
-      </Divider>
-      <Divider design="dotted" orientation="vertical">
-        <Divider.Content>Divider</Divider.Content>
-      </Divider>
-    </div>
-  </>
 )
 
 export const Decorative: StoryFn = _args => (

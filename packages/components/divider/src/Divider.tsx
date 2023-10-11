@@ -21,10 +21,6 @@ export interface DividerProps
    */
   orientation?: 'vertical' | 'horizontal'
   /**
-   *
-   */
-  design?: 'filled' | 'dashed' | 'dotted'
-  /**
    * When true, signifies that it is purely visual, carries no semantic meaning, and ensures it is not present in the accessibility tree.
    */
   isDecorative?: boolean
@@ -36,11 +32,10 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
       asChild,
       className,
       isDecorative = false,
-      design = 'filled',
       children,
       orientation = 'horizontal',
       alignment = 'center',
-      intent = 'current',
+      intent = 'outline',
       ...props
     },
     ref
@@ -50,10 +45,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
     return (
       <Separator
         asChild={asChild}
-        className={cx(
-          dividerStyles({ isEmpty, orientation, alignment, design, intent }),
-          className
-        )}
+        className={cx(dividerStyles({ isEmpty, orientation, alignment, intent }), className)}
         orientation={orientation}
         ref={ref}
         decorative={isDecorative}
