@@ -35,12 +35,12 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
     {
       asChild,
       className,
-      isDecorative,
+      isDecorative = false,
       design = 'filled',
       children,
-      orientation,
-      alignment,
-      intent,
+      orientation = 'horizontal',
+      alignment = 'center',
+      intent = 'current',
       ...props
     },
     ref
