@@ -27,7 +27,7 @@ export interface DividerProps
   /**
    * Color scheme of the divider.
    */
-  intent: 'outline' | 'current'
+  intent?: 'outline' | 'current'
 }
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(

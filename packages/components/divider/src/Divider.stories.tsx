@@ -6,7 +6,7 @@ import { Divider } from './index'
 type DividerProps = ComponentProps<typeof Divider>
 
 const meta: Meta<typeof Divider> = {
-  title: 'Components/Divider',
+  title: 'Experimental/Divider',
   component: Divider,
 }
 
