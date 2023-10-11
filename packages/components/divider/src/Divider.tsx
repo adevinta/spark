@@ -24,6 +24,10 @@ export interface DividerProps
    * When true, signifies that it is purely visual, carries no semantic meaning, and ensures it is not present in the accessibility tree.
    */
   isDecorative?: boolean
+  /**
+   * Color scheme of the divider.
+   */
+  intent: 'outline' | 'current'
 }
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(

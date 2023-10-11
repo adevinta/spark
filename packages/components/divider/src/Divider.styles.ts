@@ -1,4 +1,4 @@
-import { makeVariants, tw } from '@spark-ui/internal-utils'
+import { tw } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
 import { intentVariants } from './divider/intents'
@@ -18,10 +18,10 @@ export const dividerStyles = cva(['overflow-hidden'], {
       end: [],
       center: [],
     },
-    intent: makeVariants<'intent', ['current', 'outline']>({
+    intent: {
       current: [],
       outline: [],
-    }),
+    },
   },
   defaultVariants: {
     orientation: 'horizontal',
