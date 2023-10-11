@@ -117,11 +117,11 @@ export const outlinedVariants = [
   {
     design: 'outlined',
     hasClearButton: false,
-    class: tw(['px-md']),
+    class: tw(['px-[calc(var(--spacing-md)-var(--border-width-sm))]']),
   },
   {
     design: 'outlined',
     hasClearButton: true,
-    class: tw(['pl-md']),
+    class: tw(['pl-[calc(var(--spacing-md)-var(--border-width-sm))]']),
   },
 ] as const
