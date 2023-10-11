@@ -1,5 +1,5 @@
 import { Icon } from '@spark-ui/icon'
-import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
+import { Close } from '@spark-ui/icons/dist/icons/Close'
 import React, { cloneElement, ComponentPropsWithoutRef, forwardRef, useCallback } from 'react'
 
 import {
@@ -19,8 +19,8 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
   (
     {
       children = (
-        <Icon className="">
-          <DeleteOutline />
+        <Icon>
+          <Close />
         </Icon>
       ),
       tabIndex = 0,
@@ -41,7 +41,7 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
     return (
       <span
         className={chipClearButtonWrapperStyles({
-          isBordered: design === 'dashed',
+          isBordered: ['outline', 'dashed'].includes(`${design}`),
           disabled: !!disabled,
           design,
         })}
