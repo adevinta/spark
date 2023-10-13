@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/slider@0.1.1...@spark-ui/slider@1.0.1) (2023-10-13)
+
+**Note:** Version bump only for package @spark-ui/slider
+
 ## [0.1.1](https://github.com/adevinta/spark/compare/@spark-ui/slider@0.1.0...@spark-ui/slider@0.1.1) (2023-10-13)
 
 **Note:** Version bump only for package @spark-ui/slider
