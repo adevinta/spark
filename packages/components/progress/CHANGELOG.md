@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/progress@1.3.0...@spark-ui/progress@1.4.0) (2023-10-13)
+
+### Features
+
+- **progress:** add intent prop ([a13d817](https://github.com/adevinta/spark/commit/a13d817cb512c083bb77907c06a9be1ed128f68a))
+- **progress:** add shape prop ([f955926](https://github.com/adevinta/spark/commit/f955926a099b5bc1778ed61edb7228b8bb24d570))
+
 # [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/progress@1.2.0...@spark-ui/progress@1.3.0) (2023-09-29)
 
 ### Bug Fixes
