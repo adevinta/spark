@@ -62,7 +62,19 @@ export const Intent: StoryFn = _args => {
   return (
     <div className="flex flex-col gap-xl">
       {intents.map(intent => (
-        <Progress key={intent} aria-label="Loading" value={1} max={4} intent={intent} />
+        <Progress key={intent} aria-label="Loading" value={60} intent={intent} />
+      ))}
+    </div>
+  )
+}
+
+const shapes: ProgressProps['shape'][] = ['square', 'rounded']
+
+export const Shape: StoryFn = _args => {
+  return (
+    <div className="flex flex-col gap-xl">
+      {shapes.map(shape => (
+        <Progress key={shape} aria-label="Loading" value={60} shape={shape} />
       ))}
     </div>
   )

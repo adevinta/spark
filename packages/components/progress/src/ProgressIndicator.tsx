@@ -10,12 +10,12 @@ export const ProgressIndicator = forwardRef<
   ElementRef<typeof ProgressIndicatorPrimitive>,
   PropsWithChildren<ProgressIndicatorProps>
 >(({ className, style, ...others }, ref) => {
-  const { value, max, intent, isIndeterminate } = useProgress()
+  const { value, max, intent, shape, isIndeterminate } = useProgress()
   const x = ((max - value) / max) * 100
 
   return (
     <ProgressIndicatorPrimitive
-      className={progressIndicatorStyles({ className, intent, isIndeterminate })}
+      className={progressIndicatorStyles({ className, intent, shape, isIndeterminate })}
       style={{ ...style, ...(!isIndeterminate && { transform: `translateX(-${x}%)` }) }}
       ref={ref}
       {...others}
