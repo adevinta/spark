@@ -12,4 +12,8 @@ export const Slider: FC<SliderProps> & {
   Track,
 })
 
+Slider.displayName = 'Slider'
+Thumb.displayName = 'Slider.Thumb'
+Track.displayName = 'Slider.Track'
+
 export type { SliderProps, SliderThumbProps, SliderTrackProps }
