@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/progress",
-  "version": "1.4.0",
-  "description": "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  "name": "@spark-ui/slider",
+  "version": "0.1.0",
+  "description": "An input where the user selects a value from within a given range.",
   "publishConfig": {
     "access": "public"
   },
@@ -14,7 +14,7 @@
     "wai-aria",
     "aria",
     "a11y",
-    "progress"
+    "slider"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -23,10 +23,11 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-id": "1.0.1",
-    "@radix-ui/react-progress": "1.0.3",
-    "@spark-ui/use-merge-refs": "^0.4.0",
+    "@radix-ui/react-slider": "1.1.2",
     "class-variance-authority": "0.7.0"
+  },
+  "devDependencies": {
+    "jsdom-testing-mocks": "1.9.0"
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "^4.0.0",
@@ -36,15 +37,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adevinta/spark.git",
-    "directory": "packages/components/progress"
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/slider"
   },
   "config": {
-    "title": "progress",
+    "title": "slider",
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Aprogress"
+    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aslider"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"
