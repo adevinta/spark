@@ -20,6 +20,7 @@ ProgressBar.displayName = 'Progress.Bar'
 ProgressIndicator.displayName = 'Progress.Indicator'
 ProgressLabel.displayName = 'Progress.Label'
 
+export { type ProgressProps } from './Progress'
 export { type ProgressBarProps } from './ProgressBar'
 export { type ProgressLabelProps } from './ProgressLabel'
 export { type ProgressIndicatorProps } from './ProgressIndicator'
