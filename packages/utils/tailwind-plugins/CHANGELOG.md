@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.4.0...@spark-ui/tailwind-plugins@3.4.1) (2023-10-13)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- **tailwind-plugins:** doc ([3ca2eea](https://github.com/adevinta/spark/commit/3ca2eeaac3c43571170a7dfb4c7cf400cffe1c92))
+
 # [3.4.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.3.1...@spark-ui/tailwind-plugins@3.4.0) (2023-09-28)
 
 ### Features

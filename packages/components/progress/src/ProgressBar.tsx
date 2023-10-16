@@ -1,21 +1,17 @@
-import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
+import { progressBarStyles } from './ProgressBar.styles'
+import { useProgress } from './ProgressContext'
 import { ProgressIndicator } from './ProgressIndicator'
 
 export type ProgressBarProps = ComponentPropsWithoutRef<'div'>
 
 export const ProgressBar = forwardRef<HTMLDivElement, PropsWithChildren<ProgressBarProps>>(
   ({ className, children = <ProgressIndicator />, ...others }, ref) => {
+    const { shape } = useProgress()
+
     return (
-      <div
-        className={cx(
-          'relative h-sz-4 w-full transform-gpu overflow-hidden rounded-sm bg-on-background/dim-4',
-          className
-        )}
-        ref={ref}
-        {...others}
-      >
+      <div className={progressBarStyles({ className, shape })} ref={ref} {...others}>
         {children}
       </div>
     )
