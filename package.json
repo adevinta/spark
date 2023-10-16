@@ -46,7 +46,7 @@
     "@commitlint/cli": "17.8.0",
     "@commitlint/config-conventional": "17.6.1",
     "@commitlint/config-lerna-scopes": "17.7.0",
-    "@commitlint/cz-commitlint": "17.7.1",
+    "@commitlint/cz-commitlint": "17.8.0",
     "@commitlint/prompt-cli": "17.7.2",
     "@nx/devkit": "^16.5.3",
     "@nx/eslint-plugin": "^16.5.3",
