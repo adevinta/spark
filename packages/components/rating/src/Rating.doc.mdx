@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Rating } from '.'
+
+import * as stories from './Rating.stories'
+
+<Meta of={stories} />
+
+# Rating
+
+Ratings let users see and/or set a star rating for a product or other item
+
+## Install
+
+```sh
+npm install @spark-ui/rating
+```
+
+## Import
+
+```tsx
+import { Rating } from "@spark-ui/rating"
+```
+
+## Props
+
+<ArgTypes of={Rating} />
+
+## Variants
+<Canvas of={stories.Default} />
