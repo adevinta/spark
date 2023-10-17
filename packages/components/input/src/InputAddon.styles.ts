@@ -3,24 +3,22 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const inputAddonStyles = cva(
   [
     'overflow-hidden',
-    'ring-1',
-    'ring-inset',
+    'border-sm',
     'shrink-0',
     'h-full',
-    'focus-visible:relative',
-    'focus-visible:z-raised',
+    'focus-visible:relative focus-visible:z-raised',
   ],
   {
     variants: {
       asChild: { false: ['flex', 'items-center', 'px-lg'] },
       intent: {
-        neutral: 'ring-outline',
-        error: 'ring-error',
-        alert: 'ring-alert',
-        success: 'ring-success',
+        neutral: 'border-outline',
+        error: 'border-error',
+        alert: 'border-alert',
+        success: 'border-success',
       },
       disabled: {
-        true: ['pointer-events-none'],
+        true: ['pointer-events-none !border-outline'],
       },
       readOnly: {
         true: [],
