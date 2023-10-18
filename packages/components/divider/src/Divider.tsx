@@ -48,6 +48,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
 
     return (
       <Separator
+        data-spark-component="divider"
         asChild={asChild}
         className={cx(dividerStyles({ isEmpty, orientation, alignment, intent }), className)}
         orientation={orientation}
