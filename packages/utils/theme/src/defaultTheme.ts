@@ -31,7 +31,7 @@ export const defaultTheme: Theme = {
     basicFocused: '#4D4E7B',
     // Basic Container
     basicContainer: '#DCDCE5',
-    onBasicContainer: '#1D1F2A',
+    onBasicContainer: '#1D1F58',
     basicContainerHovered: '#F4F4F7',
     basicContainerPressed: '#F4F4F7',
     basicContainerFocused: '#F4F4F7',
@@ -56,9 +56,9 @@ export const defaultTheme: Theme = {
     // Main
     main: '#0052FF',
     onMain: '#FFFFFF',
-    mainHovered: '#3878FF',
-    mainPressed: '#3878FF',
-    mainFocused: '#3878FF',
+    mainHovered: '#3173FF',
+    mainPressed: '#3173FF',
+    mainFocused: '#3173FF',
     // Main container
     mainContainer: '#C2D6FF',
     onMainContainer: '#002799',
@@ -84,11 +84,11 @@ export const defaultTheme: Theme = {
     supportContainerPressed: '#F4F4F7',
     supportContainerFocused: '#F4F4F7',
     // Support Variant
-    supportVariant: '#982253',
+    supportVariant: '#4D4E7B',
     onSupportVariant: '#FFFFFF',
-    supportVariantHovered: '#CA2E6E',
-    supportVariantPressed: '#CA2E6E',
-    supportVariantFocused: '#CA2E6E',
+    supportVariantHovered: '#65668D',
+    supportVariantPressed: '#65668D',
+    supportVariantFocused: '#65668D',
     // Success
     success: '#31A56B',
     onSuccess: '#FFFFFF',
@@ -103,13 +103,13 @@ export const defaultTheme: Theme = {
     successContainerFocused: '#F5FBF8',
     // Alert
     alert: '#F4BF48',
-    onAlert: '#000000',
+    onAlert: '#1D1F2A',
     alertHovered: '#F7CF76',
     alertPressed: '#F7CF76',
     alertFocused: '#F7CF76',
     // Alert container
     alertContainer: '#FDF5E4',
-    onAlertContainer: '#92732B',
+    onAlertContainer: '#624C1D',
     alertContainerHovered: '#FFFCF6',
     alertContainerPressed: '#FFFCF6',
     alertContainerFocused: '#FFFCF6',
@@ -152,28 +152,28 @@ export const defaultTheme: Theme = {
     neutralContainerFocused: '#F4F4F4',
     // Background
     background: '#FFFFFF',
-    onBackground: '#000000',
+    onBackground: '#1D1F2A',
     // Background variant
-    backgroundVariant: '#F8F8F9',
-    onBackgroundVariant: '#000000',
+    backgroundVariant: '#F4F4F4',
+    onBackgroundVariant: '#1D1F2A',
     // Surface
     surface: '#FFFFFF',
-    onSurface: '#000000',
-    surfaceHovered: '#F4F4FC',
-    surfacePressed: '#F4F4FC',
-    surfaceFocused: '#F4F4FC',
+    onSurface: '#1D1F2A',
+    surfaceHovered: '#F2F6FF',
+    surfacePressed: '#F2F6FF',
+    surfaceFocused: '#F2F6FF',
     // Surface Inverse
-    surfaceInverse: '#252428',
+    surfaceInverse: '#353741',
     onSurfaceInverse: '#FFFFFF',
-    surfaceInverseHovered: '#313036',
-    surfaceInversePressed: '#313036',
+    surfaceInverseHovered: '#353741',
+    surfaceInversePressed: '#353741',
 
-    surfaceInverseFocused: '#313036',
+    surfaceInverseFocused: '#353741',
     // Outline
-    outline: '#D1D0D5',
-    outlineHigh: '#000000',
+    outline: '#DCDCDE',
+    outlineHigh: '#1D1F2A',
     // Overlay
-    overlay: '#313036', // use with dim-1 opacity
+    overlay: '#353741B8', // use with dim-1 opacity
     onOverlay: '#FFFFFF',
   },
   fontFamily: {

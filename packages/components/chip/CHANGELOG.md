@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.2.2...@spark-ui/chip@1.2.3) (2023-10-11)
+
+### Bug Fixes
+
+- **chip:** clearbutton styles ([cc7e89b](https://github.com/adevinta/spark/commit/cc7e89be692d34ee6f20b47d733502990d5a1704))
+- **chip:** outline focuses ([93f0fd5](https://github.com/adevinta/spark/commit/93f0fd5419b8c8b3b305a6929bb4b2e75e9918d7))
+- **chip:** revert cahnges ([d0e44a0](https://github.com/adevinta/spark/commit/d0e44a049de115c0dab81d786852e292f5e02be8))
+
 ## [1.2.2](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.2.1...@spark-ui/chip@1.2.2) (2023-10-11)
 
 **Note:** Version bump only for package @spark-ui/chip

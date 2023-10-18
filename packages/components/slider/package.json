@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/chip",
-  "version": "1.2.3",
-  "description": "To help people enter information, make selections, filter content, or trigger actions.",
+  "name": "@spark-ui/slider",
+  "version": "1.0.1",
+  "description": "An input where the user selects a value from within a given range.",
   "publishConfig": {
     "access": "public"
   },
@@ -14,13 +14,20 @@
     "wai-aria",
     "aria",
     "a11y",
-    "chip"
+    "slider"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
+  },
+  "dependencies": {
+    "@radix-ui/react-slider": "1.1.2",
+    "class-variance-authority": "0.7.0"
+  },
+  "devDependencies": {
+    "jsdom-testing-mocks": "1.9.0"
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "^4.0.0",
@@ -30,23 +37,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adevinta/spark.git",
-    "directory": "packages/components/chip"
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/slider"
   },
   "config": {
-    "title": "chip",
+    "title": "slider",
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Achip"
+    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aslider"
   },
   "homepage": "https://sparkui.vercel.app",
-  "license": "MIT",
-  "dependencies": {
-    "@spark-ui/icon": "^2.1.0",
-    "@spark-ui/icons": "^1.21.1",
-    "@spark-ui/internal-utils": "^2.2.0",
-    "@spark-ui/slot": "^1.7.0",
-    "emulate-tab": "^1.2.1"
-  }
+  "license": "MIT"
 }

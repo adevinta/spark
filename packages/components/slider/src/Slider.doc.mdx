@@ -1,0 +1,83 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Kbd } from '@spark-ui/kbd'
+
+import { Slider } from '.'
+
+import * as stories from './Slider.stories'
+
+<Meta of={stories} />
+
+# Slider
+
+An input where the user selects a value from within a given range.
+
+## Install
+
+```sh
+npm install @spark-ui/slider
+```
+
+## Import
+
+```tsx
+import { Slider } from "@spark-ui/slider"
+```
+
+## Props
+
+<ArgTypes
+  of={Slider}
+  description="Contains all the slider component parts. It will render an input for each thumb when used within a form to ensure events propagate correctly."
+  subcomponents={{
+    'Slider.Thumb': {
+      of: Slider.Thumb,
+      description: 'A draggable thumb. You can render multiple thumbs.',
+    },
+    'Slider.Track': {
+      of: Slider.Track,
+      description: 'The track shows the range available for user selection.',
+    }
+  }}
+/>
+
+## Usage
+
+### Default
+<Canvas of={stories.Default} />
+
+### Range
+Add multiple thumbs and values to create a range slider.
+
+<Canvas of={stories.Range} />
+
+### Intent
+Use `intent` prop to set the color of track and thumb.
+
+<Canvas of={stories.Intent} />
+
+### Shape
+Use `shape` prop to set the shape of track and range.
+
+<Canvas of={stories.Shape} />
+
+### Disabled
+Use `disabled` prop to indicate that slider is disabled.
+
+<Canvas of={stories.Disabled} />
+
+## Accessibility
+Adheres to the [Slider WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/).
+
+### Keyboard Interactions
+
+- <Kbd>ArrowRight</Kbd>: Increments by the `step` value.
+- <Kbd>ArrowLeft</Kbd>: Decrements by the `step` value.
+- <Kbd>ArrowUp</Kbd>: Increases the value by the `step` amount.
+- <Kbd>ArrowDown</Kbd>: Decreases the value by the `step` amount.
+- <Kbd>PageUp</Kbd>: Increases the value by a larger `step`.
+- <Kbd>PageDown</Kbd>: Decreases the value by a larger `step`.
+- <Kbd>Shift + ArrowUp</Kbd>: Increases the value by a larger `step`.
+- <Kbd>Shift + ArrowDown</Kbd>: Decreases the value by a larger `step`.
+- <Kbd>Home</Kbd>: Sets the value to its minimum.
+- <Kbd>End</Kbd>: Sets the value to its maximum.
