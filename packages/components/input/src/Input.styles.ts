@@ -3,21 +3,21 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const inputStyles = cva(
   [
     'relative',
-    'ring-1 ring-inset',
+    'border-sm',
     'peer',
-    'box-border',
     'w-full',
     'appearance-none outline-none',
     'bg-surface',
     'text-ellipsis text-body-1 text-on-surface',
     'caret-neutral',
-    'focus:ring-2',
     'autofill:shadow-surface',
     'autofill:shadow-[inset_0_0_0px_1000px]',
     'disabled:cursor-not-allowed',
     'disabled:bg-on-surface/dim-5 disabled:text-on-surface/dim-3',
     'read-only:cursor-default',
-    'read-only:border-on-surface/dim-3 read-only:bg-on-surface/dim-5',
+    'read-only:bg-on-surface/dim-5',
+    'focus:ring-1 focus:ring-inset',
+    'disabled:border-outline',
   ],
   {
     variants: {
@@ -27,14 +27,13 @@ export const inputStyles = cva(
       },
       intent: {
         neutral: [
-          'ring-outline',
-          'hover:ring-outline-high',
-          'focus:ring-outline-high',
-          'disabled:ring-outline',
+          'border-outline',
+          'hover:border-outline-high',
+          'focus:ring-outline-high focus:border-outline-high',
         ],
-        success: ['ring-success', 'ring-success'],
-        alert: ['ring-alert', 'ring-alert'],
-        error: ['ring-error', 'ring-error'],
+        success: ['border-success', 'focus:ring-success'],
+        alert: ['border-alert', 'focus:ring-alert'],
+        error: ['border-error', 'focus:ring-error'],
       },
       hasLeadingAddon: {
         true: ['rounded-l-none'],
