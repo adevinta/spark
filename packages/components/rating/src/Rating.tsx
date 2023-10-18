@@ -4,8 +4,11 @@ import { StarOutline } from '@spark-ui/icons/dist/icons/StarOutline'
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren, useState } from 'react'
 
 import { ratingStyles } from './Rating.styles'
+import { getNearestHalfDecimal } from './utils'
 
-const Star = ({ value }: { value: number }) => (
+type StarValue = 0 | 0.5 | 1
+
+const Star = ({ value }: { value: StarValue }) => (
   <div className="relative">
     <div className="absolute z-raised overflow-hidden" style={{ width: value * 100 + '%' }}>
       <Icon size="md">
@@ -46,30 +49,30 @@ export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<
 export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest }, ref) => {
   const [ratingValue, setRatingValue] = useState(value)
 
-  const getStarValue = (value: number, index: number): number => {
-    const position = index + 1
+  const getStarValue = (value: number, index: number): StarValue => {
+    const starPosition = index + 1
+    const formattedValue = getNearestHalfDecimal(value)
 
-    if (position - Math.round(value) > 0) return 0
+    if (Math.ceil(formattedValue) < starPosition) return 0
 
-    return Math.round(value * 2) / 2 >= position ? 1 : 0.5
+    return formattedValue >= starPosition ? 1 : 0.5
   }
 
   return (
     <div ref={ref} data-spark-component="rating" className={ratingStyles} {...rest}>
-      {Array.from({ length: 5 }).map((_, index) => (
-        <Star key={index} value={getStarValue(ratingValue, index)} />
-      ))}
-
-      {ratingValue}
-
       <input
-        className="mt-xl block w-full"
+        className="pointer-events-none absolute z-base h-full w-full opacity-0"
         type="range"
         min="0"
         max="5"
         value={ratingValue}
         onChange={e => setRatingValue(Number(e.target.value))}
       />
+      {Array.from({ length: 5 }).map((_, index) => (
+        <Star key={index} value={getStarValue(ratingValue, index)} />
+      ))}
+
+      {ratingValue}
     </div>
   )
 })
