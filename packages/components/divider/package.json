@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@spark-ui/internal-utils": "^2.2.0",
-    "@radix-ui/react-separator": "^1.0.3"
+    "@radix-ui/react-separator": "1.0.3"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",

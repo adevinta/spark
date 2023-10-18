@@ -1,5 +1,6 @@
+import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Meta, StoryFn } from '@storybook/react'
-import { ComponentProps } from 'react'
+import { ComponentProps, Fragment } from 'react'
 
 import { Divider } from './index'
 
@@ -16,7 +17,7 @@ const intents: DividerProps['intent'][] = ['outline', 'current']
 
 export const Default: StoryFn = _args => <Divider />
 
-export const Children: StoryFn = _args => (
+export const asChild: StoryFn = _args => (
   <>
     <Divider asChild>
       <h1 />
@@ -49,16 +50,18 @@ export const Decorative: StoryFn = _args => (
 export const Intent: StoryFn = _args => (
   <div className="flex flex-col">
     {intents.map(intent => (
-      <Divider key={intent} intent={intent}>
-        <Divider.Content>{intent}</Divider.Content>
-      </Divider>
+      <Fragment key={intent}>
+        <StoryLabel>{intent}</StoryLabel>
+        <Divider intent={intent}>
+          <Divider.Content>{intent}</Divider.Content>
+        </Divider>
+      </Fragment>
     ))}
   </div>
 )
 
 export const Alignment: StoryFn = _args => (
   <>
-    <Divider />
     <Divider alignment="start">
       <Divider.Content>Divider</Divider.Content>
     </Divider>
@@ -73,28 +76,15 @@ export const Alignment: StoryFn = _args => (
 
 export const Orientation: StoryFn = _args => (
   <>
-    <Divider />
-    <Divider orientation="horizontal" alignment="start">
-      <Divider.Content>horizontal</Divider.Content>
-    </Divider>
-    <Divider orientation="horizontal" alignment="center">
-      <Divider.Content>horizontal</Divider.Content>
-    </Divider>
-    <Divider orientation="horizontal" alignment="end">
+    <Divider orientation="horizontal" />
+    <Divider orientation="horizontal">
       <Divider.Content>horizontal</Divider.Content>
     </Divider>
     <div className="flex h-sz-320 w-full">
       <Divider orientation="vertical" />
-      <Divider orientation="vertical" alignment="start">
+      <Divider orientation="vertical">
         <Divider.Content>vertical</Divider.Content>
       </Divider>
-      <Divider orientation="vertical" alignment="center">
-        <Divider.Content>vertical</Divider.Content>
-      </Divider>
-      <Divider orientation="vertical" alignment="end">
-        <Divider.Content>vertical</Divider.Content>
-      </Divider>
-      <Divider orientation="vertical" />
     </div>
   </>
 )

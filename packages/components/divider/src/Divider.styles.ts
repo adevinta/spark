@@ -1,7 +1,7 @@
 import { tw } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
-import { intentVariants } from './divider/intents'
+import { intentVariants } from './variants/intents'
 
 export const dividerStyles = cva(['overflow-hidden'], {
   variants: {
