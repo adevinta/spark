@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 7,19 * * 1,2,3,4,5"
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
@@ -13,6 +14,6 @@ jobs:
       - uses: pixta-dev/repository-mirroring-action@v1
         with:
           target_repo_url:
-            git@github.dev.mpi-internal.com:scmspain/frontend-common--uilib-spark.git
+            ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_REPOSITORY_URL }}
           ssh_private_key: # <-- use 'secrets' to pass credential information.
             ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PRIVATE_KEY }}
