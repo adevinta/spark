@@ -1,5 +1,6 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Meta, StoryFn } from '@storybook/react'
+import { useState } from 'react'
 
 import { Slider, type SliderProps } from '.'
 
@@ -82,3 +83,28 @@ export const Disabled: StoryFn = _args => (
     </Slider>
   </div>
 )
+
+export const RestrictedValues: StoryFn = () => {
+  const values = [10, 25, 50, 100]
+
+  const [value, setValue] = useState([0])
+  const remappedValue = values[value.at(0) ?? 0]
+
+  return (
+    <div>
+      <Slider onValueChange={setValue} value={value} max={values.length - 1}>
+        <Slider.Track />
+        <Slider.Thumb aria-valuetext={String(remappedValue)} />
+      </Slider>
+      <div className="mt-md flex flex-col gap-y-md">
+        <p className="font-semi-bold">
+          slider value: <span className="font-regular">{value}</span>
+        </p>
+
+        <p className="font-semi-bold">
+          remapped value: <span className="font-regular">{remappedValue}</span>
+        </p>
+      </div>
+    </div>
+  )
+}
