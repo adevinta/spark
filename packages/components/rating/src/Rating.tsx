@@ -1,3 +1,4 @@
+import { cx } from 'class-variance-authority'
 import {
   type ChangeEvent,
   ComponentPropsWithoutRef,
@@ -82,8 +83,9 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest 
         onBlur={removeIsClickedClass}
       />
       <div className={ratingStyles}>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {Array.from({ length: 5 }).map((_, index, self) => (
           <RatingStar
+            className={cx(index < self.length - 1 && 'pr-sm')}
             onClick={() => onRatingStarClick(index)}
             onMouseEnter={onRatinStarMouseEnter}
             ref={handleRatingStarRef}

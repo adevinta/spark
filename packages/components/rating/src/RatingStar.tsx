@@ -8,15 +8,16 @@ export interface RatingStarProps {
   value: 0 | 0.5 | 1
   onClick: (event: MouseEvent<HTMLDivElement>) => void
   onMouseEnter: (event: MouseEvent<HTMLDivElement>) => void
+  className?: string
 }
 
 export const RatingStar = forwardRef<HTMLDivElement, RatingStarProps>(
-  ({ value, onClick, onMouseEnter }, ref) => {
+  ({ value, className, onClick, onMouseEnter }, ref) => {
     return (
       <div
         ref={ref}
         onMouseEnter={onMouseEnter}
-        className="group relative cursor-pointer"
+        className={cx('group relative cursor-pointer', className)}
         data-star
         onClick={onClick}
       >
