@@ -12,3 +12,10 @@ export function getStarValue(ratingValue: number, index: number): RatingStarProp
 
   return formattedValue >= starPosition ? 1 : 0.5
 }
+
+export function splitAt<T>(arr: T[], index: number): [T[], T[]] {
+  const prev = arr.slice(0, index)
+  const next = arr.slice(index)
+
+  return [prev, next]
+}

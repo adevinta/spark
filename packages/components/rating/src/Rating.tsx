@@ -11,7 +11,7 @@ import {
 
 import { ratingStyles } from './Rating.styles'
 import { RatingStar } from './RatingStar'
-import { getStarValue } from './utils'
+import { getStarValue, splitAt } from './utils'
 
 export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<'div'>> {
   /**
@@ -40,15 +40,11 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest 
   function onRatinStarMouseEnter(event: MouseEvent<HTMLDivElement>) {
     const target = event.currentTarget
     const currentStarIndex = starRefList.current.findIndex(star => star === target)
-    // previous stars
-    starRefList.current.slice(0, currentStarIndex + 1).forEach(star => {
-      star.classList.add('is-hovered')
-    })
 
-    // following stars
-    starRefList.current.slice(currentStarIndex + 1).forEach(star => {
-      star.classList.remove('is-hovered')
-    })
+    const [previousStars, followingStars] = splitAt(starRefList.current, currentStarIndex + 1)
+
+    previousStars.forEach(star => star.classList.add('is-hovered'))
+    followingStars.forEach(star => star.classList.remove('is-hovered'))
   }
 
   function onRatingStarClick(index: number) {
