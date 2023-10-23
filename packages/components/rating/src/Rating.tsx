@@ -1,4 +1,3 @@
-import { cx } from 'class-variance-authority'
 import {
   type ChangeEvent,
   ComponentPropsWithoutRef,
@@ -38,21 +37,23 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest 
   const inputRef = useRef<HTMLInputElement>(null)
   const starRefList = useRef<HTMLDivElement[]>([])
 
+  function onRatingStarClick(index: number) {
+    setRatingValue(index + 1)
+
+    if (!inputRef.current) return
+
+    inputRef.current.focus()
+    inputRef.current.setAttribute('data-clicked', '')
+  }
+
   function onRatinStarMouseEnter(event: MouseEvent<HTMLDivElement>) {
     const target = event.currentTarget
     const currentStarIndex = starRefList.current.findIndex(star => star === target)
 
     const [previousStars, followingStars] = splitAt(starRefList.current, currentStarIndex + 1)
 
-    previousStars.forEach(star => star.classList.add('is-hovered'))
-    followingStars.forEach(star => star.classList.remove('is-hovered'))
-  }
-
-  function onRatingStarClick(index: number) {
-    setRatingValue(index + 1)
-
-    inputRef.current?.focus()
-    inputRef.current?.classList.add('is-clicked')
+    previousStars.forEach(star => star.setAttribute('data-hovered', ''))
+    followingStars.forEach(star => star.removeAttribute('data-hovered'))
   }
 
   function onInputChange(event: ChangeEvent<HTMLInputElement>) {
@@ -64,14 +65,19 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest 
     starRefList.current.push(elm)
   }, [])
 
-  const removeIsClickedClass = () => inputRef.current?.classList.remove('is-clicked')
-  const removeIsHoveredClass = () =>
-    starRefList.current.forEach(star => star.classList.remove('is-hovered'))
+  function resetDataPartInputAttr() {
+    inputRef.current?.removeAttribute('data-clicked')
+  }
+
+  function resetDataPartStarAttr() {
+    starRefList.current.forEach(star => star.removeAttribute('data-hovered'))
+  }
 
   return (
-    <div ref={ref} data-spark-component="rating" {...rest} onMouseLeave={removeIsHoveredClass}>
+    <div ref={ref} data-spark-component="rating" {...rest} onMouseLeave={resetDataPartStarAttr}>
       <input
         ref={inputRef}
+        data-part="input"
         className="peer absolute opacity-0"
         type="range"
         min="0"
@@ -79,13 +85,13 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest 
         step={1}
         value={ratingValue}
         onChange={onInputChange}
-        onKeyDown={removeIsClickedClass}
-        onBlur={removeIsClickedClass}
+        onKeyDown={resetDataPartInputAttr}
+        onBlur={resetDataPartInputAttr}
       />
       <div className={ratingStyles}>
         {Array.from({ length: 5 }).map((_, index, self) => (
           <RatingStar
-            className={cx(index < self.length - 1 && 'pr-sm')}
+            withPadding={index < self.length - 1}
             onClick={() => onRatingStarClick(index)}
             onMouseEnter={onRatinStarMouseEnter}
             ref={handleRatingStarRef}

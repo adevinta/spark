@@ -2,8 +2,8 @@ import { cx } from 'class-variance-authority'
 
 export const ratingStyles = cx(
   'inline-flex',
-  'peer-[.is-clicked]:shadow-none peer-focus-visible:u-ring',
-  '[&_[data-star]:hover_~_[data-star]_>_div]:!w-none' /* 1 */
+  'peer-[[data-part=input][data-clicked]]:shadow-none peer-focus-visible:u-ring',
+  '[&_[data-part=star]:hover_~_[data-part=star]_>_div]:!w-none' /* 1 */
 )
 
 /**
