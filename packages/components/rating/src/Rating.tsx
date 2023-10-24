@@ -30,8 +30,6 @@ export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<
   disabled?: boolean
 }
 
-// + intent, size
-
 export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest }, ref) => {
   const [ratingValue, setRatingValue] = useState(value)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -74,11 +72,17 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest 
   }
 
   return (
-    <div ref={ref} data-spark-component="rating" {...rest} onMouseLeave={resetDataPartStarAttr}>
+    <div
+      className="relative"
+      ref={ref}
+      data-spark-component="rating"
+      {...rest}
+      onMouseLeave={resetDataPartStarAttr}
+    >
       <input
         ref={inputRef}
         data-part="input"
-        className="peer absolute opacity-0"
+        className="peer absolute inset-none opacity-0"
         type="range"
         min="0"
         max="5"
@@ -100,8 +104,6 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(({ value, ...rest 
           />
         ))}
       </div>
-
-      <span className="ml-xl">{ratingValue}</span>
     </div>
   )
 })

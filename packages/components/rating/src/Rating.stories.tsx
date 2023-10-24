@@ -9,4 +9,8 @@ const meta: Meta<typeof Rating> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Rating value={4.5} />
+export const Default: StoryFn = _args => (
+  <div className="w-fit">
+    <Rating value={4.5} />
+  </div>
+)
