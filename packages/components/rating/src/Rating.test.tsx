@@ -1,27 +1,13 @@
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { render } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 
 import { Rating } from './Rating'
 
 describe('Rating', () => {
   it('should render', () => {
-    render(<Rating>Hello World!</Rating>)
+    render(<Rating value={1} />)
 
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
-  })
-
-  it('should trigger click event', async () => {
-    const user = userEvent.setup()
-    const clickEvent = vi.fn()
-
-    // Given
-    render(<div onClick={clickEvent}>Hello World!</div>)
-
-    // When
-    await user.click(screen.getByText('Hello World!'))
-
-    // Then
-    expect(clickEvent).toHaveBeenCalledTimes(1)
+    expect(document.querySelector('[data-spark-component="rating"]')).toBeInTheDocument()
+    expect(document.querySelectorAll('[data-part="star"]').length).toBe(5)
   })
 })
