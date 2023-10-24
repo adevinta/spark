@@ -41,12 +41,15 @@ export const RatingStar = forwardRef<
         )}
         style={{ width: value * 100 + '%' }}
       >
-        <Icon size="md">
+        <Icon
+          className="text-main-variant group-[[data-part=star][data-hovered]]:text-main-variant-hovered"
+          size="md"
+        >
           <StarFill />
         </Icon>
       </div>
 
-      <Icon size="md">
+      <Icon className="text-on-surface/dim-3" size="md">
         <StarOutline />
       </Icon>
     </div>
