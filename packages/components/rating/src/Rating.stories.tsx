@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Rating } from '.'
 
 const meta: Meta<typeof Rating> = {
-  title: 'Components/Rating',
+  title: 'Experimental/Rating',
   component: Rating,
 }
 
