@@ -11,7 +11,7 @@ import readFile from './utils/readFile.mjs'
 import tagify from './utils/tagify.mjs'
 import writeFile from './utils/writeFile.mjs'
 
-const main = async (pattern = 'assets/**/*.svg') => {
+const main = async (pattern = 'assets/*.svg') => {
   // Clean the output folder before generating icons
   const outputDir = path.join(process.cwd(), 'src/icons')
 
