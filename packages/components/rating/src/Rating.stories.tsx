@@ -11,6 +11,6 @@ export default meta
 
 export const Default: StoryFn = _args => (
   <div className="w-fit">
-    <Rating value={4.5} />
+    <Rating defaultValue={4.5} />
   </div>
 )

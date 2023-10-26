@@ -1,57 +1,59 @@
 import { Icon } from '@spark-ui/icon'
 import { StarFill } from '@spark-ui/icons/dist/icons/StarFill'
 import { StarOutline } from '@spark-ui/icons/dist/icons/StarOutline'
-import { cva, cx, type VariantProps } from 'class-variance-authority'
+import { cx } from 'class-variance-authority'
 import { forwardRef, type MouseEvent } from 'react'
 
-export interface RatingStarProps {
-  value: 0 | 0.5 | 1
+import {
+  ratingStarIconStyles,
+  ratingStarStyles,
+  type RatingStarstylesProps,
+} from './RatingStar.styles'
+import type { Size, StarValue } from './types'
+
+export interface RatingStarProps extends RatingStarstylesProps {
+  size?: Size
+  value: StarValue
   onClick: (event: MouseEvent<HTMLDivElement>) => void
   onMouseEnter: (event: MouseEvent<HTMLDivElement>) => void
 }
 
-const ratingStarstyles = cva('group relative cursor-pointer', {
-  variants: {
-    withPadding: {
-      true: 'pr-sm',
-      false: '',
-    },
-  },
-  defaultVariants: {
-    withPadding: false,
-  },
-})
-
-export const RatingStar = forwardRef<
-  HTMLDivElement,
-  RatingStarProps & VariantProps<typeof ratingStarstyles>
->(({ value, withPadding, onClick, onMouseEnter }, forwardedRef) => {
-  return (
-    <div
-      ref={forwardedRef}
-      onMouseEnter={onMouseEnter}
-      className={ratingStarstyles({ withPadding })}
-      data-part="star"
-      onClick={onClick}
-    >
+export const RatingStar = forwardRef<HTMLDivElement, RatingStarProps>(
+  ({ value, size, disabled, readOnly, isLastItem, onClick, onMouseEnter }, forwardedRef) => {
+    return (
       <div
-        className={cx(
-          'absolute z-raised overflow-hidden',
-          'group-hover:overflow-visible group-[[data-part=star][data-hovered]]:overflow-visible'
-        )}
-        style={{ width: value * 100 + '%' }}
+        ref={forwardedRef}
+        onMouseEnter={onMouseEnter}
+        className={ratingStarStyles({
+          isLastItem,
+          gap: size === 'lg' ? 'md' : 'sm',
+          disabled,
+          readOnly,
+        })}
+        data-part="star"
+        onClick={onClick}
       >
-        <Icon
-          className="text-main-variant group-[[data-part=star][data-hovered]]:text-main-variant-hovered"
-          size="md"
+        <div
+          className={cx(
+            'absolute z-raised overflow-hidden',
+            'group-[[data-part=star][data-hovered]]:overflow-visible'
+          )}
+          style={{ width: value * 100 + '%' }}
         >
-          <StarFill />
+          <Icon
+            className={ratingStarIconStyles({
+              size,
+              kind: 'filled',
+            })}
+          >
+            <StarFill />
+          </Icon>
+        </div>
+
+        <Icon className={ratingStarIconStyles({ size, kind: 'outlined' })}>
+          <StarOutline />
         </Icon>
       </div>
-
-      <Icon className="text-on-surface/dim-3" size="md">
-        <StarOutline />
-      </Icon>
-    </div>
-  )
-})
+    )
+  }
+)
