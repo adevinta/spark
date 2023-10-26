@@ -10,7 +10,7 @@ export interface HeaderProps {
 }
 
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
-  ({ children, className, ...rest }) => {
+  ({ children, className, ...rest }, ref) => {
     const id = useId()
     const { setHeaderId } = usePopover()
 
@@ -21,7 +21,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
     }, [id, setHeaderId])
 
     return (
-      <header id={id} className={cx('mb-md text-headline-2', className)} {...rest}>
+      <header id={id} ref={ref} className={cx('mb-md text-headline-2', className)} {...rest}>
         {children}
       </header>
     )
