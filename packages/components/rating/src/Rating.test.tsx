@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
@@ -29,15 +30,24 @@ describe('Rating', () => {
 
     const stars = utils.getStars(container)
     const input = utils.getInput()
+    const firstStar = stars.at(0)
+    const thirdStar = stars.at(2)
+
+    if (!thirdStar || !firstStar) throw new Error('Stars element not found')
 
     // initial value
     expect(input).toHaveValue('1')
 
-    await user.click(stars.at(2)!)
+    await user.click(thirdStar)
     expect(input).toHaveValue('3')
 
-    await user.click(stars.at(0)!)
+    await user.click(firstStar)
     expect(input).toHaveValue('1')
+
+    // triggering a change event by directly interacting
+    // with the HTML input (using the keyboard for instance)
+    fireEvent.change(input, { target: { value: '5' } })
+    expect(input).toHaveValue('5')
   })
 
   it('should handle controlled mode', async () => {
@@ -58,26 +68,43 @@ describe('Rating', () => {
 
     const stars = utils.getStars(container)
     const input = utils.getInput()
+    const fifthStar = stars.at(4)
+
+    if (!fifthStar) throw new Error('Stars element not found')
 
     // initial value
     expect(input).toHaveValue('2')
 
-    await user.click(stars.at(4)!)
+    await user.click(fifthStar)
     expect(input).toHaveValue('5')
-    expect(onValueChangeSpy).toHaveBeenCalledTimes(1)
-    expect(onValueChangeSpy).toHaveBeenCalledWith(5)
+    expect(onValueChangeSpy).toHaveBeenNthCalledWith(1, 5)
+
+    // triggering a change event by directly interacting
+    // with the HTML input (using the keyboard for instance)
+    fireEvent.change(input, { target: { value: '2' } })
+    expect(input).toHaveValue('2')
+    expect(onValueChangeSpy).toHaveBeenLastCalledWith(2)
   })
 
   it('should not be possible to interact when in readOnly (in controlled mode)', async () => {
     const user = userEvent.setup()
     const handleValueChange = vi.fn()
 
-    render(<Rating value={1} onValueChange={handleValueChange} readOnly />)
+    const { container } = render(<Rating value={1} onValueChange={handleValueChange} readOnly />)
 
     const input = utils.getInput()
+    const stars = utils.getStars(container)
+    const secondStar = stars.at(1)
 
-    await user.click(input)
+    if (!secondStar) throw new Error('Stars element not found')
+
+    expect(input).toHaveAttribute('readOnly')
+
+    // ensuring that the rating value cannot be altered
+    await user.click(secondStar)
+    fireEvent.change(input, { target: { value: '5' } })
     expect(handleValueChange).not.toHaveBeenCalled()
+    expect(input).toHaveValue('1')
   })
 
   it('should not be possible to interact when disabled (in uncontrolled mode)', async () => {
@@ -86,11 +113,15 @@ describe('Rating', () => {
 
     const stars = utils.getStars(container)
     const input = utils.getInput()
+    const fifthStar = stars.at(4)
+
+    if (!fifthStar) throw new Error('Stars element not found')
 
     expect(input).toBeDisabled()
 
-    // check that click doesn't do anything
-    await user.click(stars.at(4)!)
+    // ensuring that the rating value cannot be altered
+    await user.click(fifthStar)
+    fireEvent.change(input, { target: { value: '5' } })
     expect(input).toHaveValue('1')
   })
 })
