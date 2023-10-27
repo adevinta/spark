@@ -86,6 +86,17 @@ module.exports = plugin.withOptions(
 
     if (!themes.default) throw new Error(missingDefaultThemeErrorMsg)
 
-    return { theme: getCSSVariableReferences(themes.default) }
+    return {
+      theme: {
+        ...getCSSVariableReferences(themes.default),
+        maxWidth: ({ breakpoints, theme }) => ({
+          none: 'none',
+          full: '100%',
+          min: 'min-content',
+          max: 'max-content',
+          ...breakpoints(theme('screens')),
+        }),
+      },
+    }
   }
 )
