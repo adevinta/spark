@@ -1,3 +1,4 @@
+import { useCombinedState } from '@spark-ui/use-combined-state'
 import { cx } from 'class-variance-authority'
 import {
   type ChangeEvent,
@@ -7,7 +8,6 @@ import {
   PropsWithChildren,
   useCallback,
   useRef,
-  useState,
 } from 'react'
 
 import { RatingStar } from './RatingStar'
@@ -79,20 +79,19 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
     },
     ref
   ) => {
-    const [ratingValue, setRatingValue] = useState(defaultValue ?? propValue)
     const inputRef = useRef<HTMLInputElement>(null)
     const starRefList = useRef<HTMLDivElement[]>([])
 
-    const value = propValue ?? ratingValue
+    const [value, setRatingValue] = useCombinedState(propValue, defaultValue, onValueChange)
 
-    const isControlled = defaultValue === undefined
+    const valueRef = useRef(value)
     const isNonInteractive = !!(disabled || readOnly)
 
     function onStarClick(index: number) {
       if (!inputRef.current || isNonInteractive) return
 
-      if (isControlled) onValueChange?.(index + 1)
-      else setRatingValue(index + 1)
+      setRatingValue(index + 1)
+      valueRef.current = index + 1
 
       inputRef.current.focus()
       inputRef.current.setAttribute('data-clicked', '')
@@ -101,8 +100,12 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
       if (isNonInteractive) return
 
-      if (isControlled) onValueChange?.(Number(event.target.value))
-      else setRatingValue(Number(event.target.value))
+      // avoiding unnecessary calls to the onValueChange prop
+      // when the value remains unchanged
+      if (valueRef.current === Number(event.target.value)) return
+      valueRef.current = Number(event.target.value)
+
+      setRatingValue(Number(event.target.value))
     }
 
     function onStarMouseEnter(event: MouseEvent<HTMLDivElement>) {
