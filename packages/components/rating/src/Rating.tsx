@@ -24,7 +24,8 @@ export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<
   /**
    * The value is the number of the rating selected, on a scale from 0 to 5.
    *
-   * * Use this when you want to use it in a controlled manner
+   * Use this when you want to use it in a controlled manner,
+   * in conjunction with the `onValueChange` prop
    */
   value?: number
   /**
@@ -71,7 +72,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
       onValueChange,
       size = 'md',
       disabled,
-      readOnly = size !== 'lg',
+      readOnly,
       name,
       id,
       ...rest
