@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.4...@spark-ui/popover@1.2.5) (2023-10-30)
+
+### Bug Fixes
+
+- **popover:** adapt popover width on smaller screens ([808271c](https://github.com/adevinta/spark/commit/808271cd93b7685e6ceb059799367d7499eec52f))
+
 ## [1.2.4](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.3...@spark-ui/popover@1.2.4) (2023-10-26)
 
 ### Bug Fixes
