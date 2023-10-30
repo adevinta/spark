@@ -76,6 +76,14 @@ cd my-awesome-project
 npm link "@spark-ui/dummy" // Make sure to use quotes around package name
 ```
 
+Where you're done with your tests you may unlink the package with the following commands:
+
+```sh
+cd my-awesome-project
+npm unlink --no-save "@spark-ui/dummy"
+npm uninstall --global "@spark-ui/dummy"
+```
+
 ### Commiting changes
 
 All commits should follow the [commit strategy](https://sparkui.vercel.app/?path=/docs/contributing-commit--docs)
