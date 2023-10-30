@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@radix-ui/react-id": "1.0.1",
-    "@radix-ui/react-popover": "1.0.6",
+    "@radix-ui/react-popover": "1.0.7",
     "@spark-ui/icon": "^2.1.0",
     "@spark-ui/icon-button": "^2.2.0",
     "@spark-ui/icons": "^1.21.1"
