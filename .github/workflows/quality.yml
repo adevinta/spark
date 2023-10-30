@@ -1,6 +1,6 @@
 name: quality
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main
       - 'canary/**'
@@ -9,6 +9,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+
   assign-pr-owner:
     runs-on: ubuntu-latest
     name: PR assignment
@@ -18,7 +19,17 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+  authorize:
+    environment:
+      ${{ github.event_name == 'pull_request_target' &&
+      github.event.pull_request.head.repo.full_name != github.repository &&
+      'external' || 'internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: true
+
   lint:
+    needs: authorize
     runs-on: ubuntu-latest
     name: Lint
     steps:
@@ -43,6 +54,7 @@ jobs:
       - name: Type checking
         run: npm run typecheck
   test:
+    needs: authorize
     runs-on: ubuntu-latest
     name: Test
     steps:
@@ -61,6 +73,7 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           files: ./dist/coverage/coverage.json
   a11y:
+    needs: authorize
     runs-on: ubuntu-latest
     name: Accessibility
     steps:
@@ -94,6 +107,7 @@ jobs:
         if: steps.files.outputs.all_changed_files_count > 0
         run: node bin/check-a11y.js -f ${{ steps.files.outputs.all_changed_files }}
   visual-testing:
+    needs: authorize
     runs-on: ubuntu-latest
     name: Visual testing
     steps:
@@ -113,6 +127,7 @@ jobs:
           onlyChanged: true
           untraced: 'packages/utils/\*\*"'
   deploy:
+    needs: authorize
     runs-on: ubuntu-latest
     name: Deploy
     environment:
