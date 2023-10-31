@@ -35,6 +35,7 @@ const Root = forwardRef<HTMLButtonElement, InputClearButtonProps>(
         )}
         tabIndex={tabIndex}
         onClick={handleClick}
+        type="button"
         {...others}
       >
         <Icon size="sm">

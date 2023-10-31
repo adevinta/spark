@@ -16,7 +16,7 @@ export const styles = cva(
       },
       enforceBoundaries: {
         true: ['max-w-[--radix-popper-available-width]'],
-        false: ['max-w-sz-384'],
+        false: ['max-w-[min(var(--sz-384),100vw)]'],
       },
       /**
        * When there is a close button, padding to the right side must be adjusted to avoid content overlapping with it.

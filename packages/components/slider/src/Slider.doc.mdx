@@ -66,6 +66,25 @@ Use `disabled` prop to indicate that slider is disabled.
 
 <Canvas of={stories.Disabled} />
 
+## Advanced usage
+
+### Restricted values
+
+If you find yourself in a situation where you have a fixed set of values for your range, you can achieve this using the `max` property.
+The `max` property should be set to the number of steps you have within your set of values minus one.
+
+Additionally, you will need to remap the value from the **Slider** component to the values comprised in your set of values.
+
+For example, let's say your set of values is `[10, 25, 50, 100]`. In this case, you would set the `max` property to 3 and remap the values from the **Slider**.
+
+The **Slider** component, by default, outputs values from  `min` to `max` (3 in our case). Therefore, it's your responsibility to map these values to the corresponding values in your set.
+
+To ensure **proper accessibility**, make sure to set the `aria-valuetext` attribute to the remapped value. This will ensure that the correct value is announced to users who rely on assistive technologies.
+
+Here's an example to illustrate this:
+
+<Canvas of={stories.RestrictedValues} />
+
 ## Accessibility
 Adheres to the [Slider WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/).
 
