@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/rating",
-  "version": "0.1.1",
-  "description": "Ratings let users see and/or set a star rating for a product or other item",
+  "name": "@spark-ui/divider",
+  "version": "0.1.0",
+  "description": "A separator between two elements, usually consisting of a horizontal line.",
   "publishConfig": {
     "access": "public"
   },
@@ -14,7 +14,7 @@
     "wai-aria",
     "aria",
     "a11y",
-    "rating"
+    "divider"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -22,9 +22,9 @@
   "scripts": {
     "build": "vite build"
   },
-  "devDependencies": {
-    "@spark-ui/icon": "^2.1.0",
-    "@spark-ui/icons": "^1.21.2"
+  "dependencies": {
+    "@radix-ui/react-separator": "1.0.3",
+    "@spark-ui/internal-utils": "^2.2.0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
@@ -34,14 +34,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/adevinta/spark.git",
-    "directory": "packages/components/rating"
+    "directory": "packages/components/divider"
   },
   "config": {
-    "title": "rating",
+    "title": "divider",
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Arating"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Adivider"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

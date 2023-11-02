@@ -11,7 +11,7 @@ import readFile from './utils/readFile.mjs'
 import tagify from './utils/tagify.mjs'
 import writeFile from './utils/writeFile.mjs'
 
-const main = async (pattern = 'assets/**/*.svg') => {
+const main = async () => {
   // Clean the output folder before generating icons
   const outputDir = path.join(process.cwd(), 'src/icons')
 
@@ -21,7 +21,7 @@ const main = async (pattern = 'assets/**/*.svg') => {
     fs.unlinkSync(filePath)
   })
 
-  const files = matchFileRoute(undefined, pattern)
+  const files = matchFileRoute(undefined, 'assets/*.svg')
   const data = new Map()
 
   await Promise.all(
