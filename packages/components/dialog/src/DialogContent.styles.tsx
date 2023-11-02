@@ -1,33 +1,25 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const dialogContentWrapperStyles = cva([
-  'fixed inset-none z-modal flex items-center justify-center',
-  'focus-visible:u-ring focus-visible:outline-none',
-])
-
 export const dialogContentStyles = cva(
-  [
-    ['relative', 'flex', 'flex-col'],
-    ['bg-surface'],
-    'focus-visible:outline-none focus-visible:u-ring',
-  ],
+  ['z-modal flex flex-col bg-surface', 'focus-visible:outline-none focus-visible:u-ring'],
   {
     variants: {
       size: {
-        fullscreen: ['w-full', 'h-full'],
-        sm: ['max-w-sz-480'],
-        md: ['max-w-sz-672'],
-        lg: ['max-w-sz-864'],
+        fullscreen: 'fixed w-full h-full  top-none left-none',
+        sm: 'max-w-sz-480',
+        md: 'max-w-sz-672',
+        lg: 'max-w-sz-864',
       },
     },
     compoundVariants: [
       {
         size: ['sm', 'md', 'lg'],
         class: [
-          ['w-full', 'max-h-[80%]'],
-          ['shadow-md', 'rounded-lg'],
-          ['data-[state=open]:animate-fade-in'],
-          ['data-[state=closed]:animate-fade-out'],
+          'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+          'w-full max-h-[80%]',
+          'shadow-md rounded-lg',
+          'data-[state=open]:animate-fade-in',
+          'data-[state=closed]:animate-fade-out',
         ],
       },
     ],

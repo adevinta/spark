@@ -1,11 +1,7 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 import { forwardRef, type ReactElement, type Ref, useEffect } from 'react'
 
-import {
-  dialogContentStyles,
-  type DialogContentStylesProps,
-  dialogContentWrapperStyles,
-} from './DialogContent.styles'
+import { dialogContentStyles, type DialogContentStylesProps } from './DialogContent.styles'
 import { useDialog } from './DialogContext'
 
 export type ContentProps = RadixDialog.DialogContentProps & DialogContentStylesProps
@@ -24,19 +20,17 @@ export const Content = forwardRef(
     }, [setIsFullScreen, size])
 
     return (
-      <div className={dialogContentWrapperStyles()}>
-        <RadixDialog.Content
-          data-spark-component="dialog-content"
-          ref={ref}
-          className={dialogContentStyles({
-            size,
-            className,
-          })}
-          {...rest}
-        >
-          {children}
-        </RadixDialog.Content>
-      </div>
+      <RadixDialog.Content
+        data-spark-component="dialog-content"
+        ref={ref}
+        className={dialogContentStyles({
+          size,
+          className,
+        })}
+        {...rest}
+      >
+        {children}
+      </RadixDialog.Content>
     )
   }
 )
