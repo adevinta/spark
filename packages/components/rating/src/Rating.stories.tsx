@@ -9,4 +9,4 @@ const meta: Meta<typeof Rating> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Rating />
+export const Default: StoryFn = _args => <Rating aria-label="rating" />

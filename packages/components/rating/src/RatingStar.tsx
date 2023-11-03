@@ -6,16 +6,16 @@ import { forwardRef, type MouseEvent } from 'react'
 
 import {
   ratingStarIconStyles,
+  type RatingStarIconStylesProps,
   ratingStarStyles,
   type RatingStarstylesProps,
 } from './RatingStar.styles'
-import type { Size, StarValue } from './types'
+import type { StarValue } from './types'
 
-export interface RatingStarProps extends RatingStarstylesProps {
-  size?: Size
+export interface RatingStarProps extends RatingStarstylesProps, RatingStarIconStylesProps {
   value: StarValue
-  onClick: (event: MouseEvent<HTMLDivElement>) => void
-  onMouseEnter: (event: MouseEvent<HTMLDivElement>) => void
+  onClick?: (event: MouseEvent<HTMLDivElement>) => void
+  onMouseEnter?: (event: MouseEvent<HTMLDivElement>) => void
 }
 
 export const RatingStar = forwardRef<HTMLDivElement, RatingStarProps>(
@@ -42,14 +42,14 @@ export const RatingStar = forwardRef<HTMLDivElement, RatingStarProps>(
           <Icon
             className={ratingStarIconStyles({
               size,
-              kind: 'filled',
+              design: 'filled',
             })}
           >
             <StarFill />
           </Icon>
         </div>
 
-        <Icon className={ratingStarIconStyles({ size, kind: 'outlined' })}>
+        <Icon className={ratingStarIconStyles({ size, design: 'outlined' })}>
           <StarOutline />
         </Icon>
       </div>

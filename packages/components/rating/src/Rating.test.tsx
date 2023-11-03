@@ -15,9 +15,13 @@ const utils = {
     Array.from(container.querySelectorAll('[data-part="star"]')),
 }
 
+const defaultProps = {
+  'aria-label': 'rating',
+}
+
 describe('Rating', () => {
   it('should render', () => {
-    const { container } = render(<Rating defaultValue={2} />)
+    const { container } = render(<Rating {...defaultProps} defaultValue={2} />)
 
     expect(container.querySelector('[data-spark-component=rating]')).toBeInTheDocument()
     expect(container.querySelectorAll('[data-part="star"]').length).toBe(5)
@@ -26,7 +30,7 @@ describe('Rating', () => {
   it('should be possible to interact', async () => {
     const user = userEvent.setup()
 
-    const { container } = render(<Rating size="lg" defaultValue={1} />)
+    const { container } = render(<Rating {...defaultProps} size="lg" defaultValue={1} />)
 
     const stars = utils.getStars(container)
     const input = utils.getInput()
@@ -59,7 +63,7 @@ describe('Rating', () => {
         setValue(value)
       }
 
-      return <Rating value={value} onValueChange={handleInteraction} />
+      return <Rating {...defaultProps} value={value} onValueChange={handleInteraction} />
     }
 
     const onValueChangeSpy = vi.fn()
@@ -77,7 +81,8 @@ describe('Rating', () => {
 
     await user.click(fifthStar)
     expect(input).toHaveValue('5')
-    expect(onValueChangeSpy).toHaveBeenNthCalledWith(1, 5)
+    expect(onValueChangeSpy).toHaveBeenCalledTimes(1)
+    expect(onValueChangeSpy).toHaveBeenCalledWith(5)
 
     // triggering a change event by directly interacting
     // with the HTML input (using the keyboard for instance)
@@ -90,7 +95,9 @@ describe('Rating', () => {
     const user = userEvent.setup()
     const handleValueChange = vi.fn()
 
-    const { container } = render(<Rating value={1} onValueChange={handleValueChange} readOnly />)
+    const { container } = render(
+      <Rating {...defaultProps} value={1} onValueChange={handleValueChange} readOnly />
+    )
 
     const input = utils.getInput()
     const stars = utils.getStars(container)
@@ -109,7 +116,7 @@ describe('Rating', () => {
 
   it('should not be possible to interact when disabled (in uncontrolled mode)', async () => {
     const user = userEvent.setup()
-    const { container } = render(<Rating defaultValue={1} disabled />)
+    const { container } = render(<Rating {...defaultProps} defaultValue={1} disabled />)
 
     const stars = utils.getStars(container)
     const input = utils.getInput()

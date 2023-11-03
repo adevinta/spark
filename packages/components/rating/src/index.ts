@@ -1,1 +1,1 @@
-export { Rating } from './Rating'
+export { Rating, type RatingProps } from './Rating'

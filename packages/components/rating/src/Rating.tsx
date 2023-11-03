@@ -2,16 +2,15 @@ import { useCombinedState } from '@spark-ui/use-combined-state'
 import { cx } from 'class-variance-authority'
 import {
   type ChangeEvent,
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
   type MouseEvent,
-  PropsWithChildren,
+  type PropsWithChildren,
   useCallback,
   useRef,
 } from 'react'
 
-import { RatingStar } from './RatingStar'
-import { type Size } from './types'
+import { RatingStar, type RatingStarProps } from './RatingStar'
 import { getNearestDecimal, getStarValue, splitAt } from './utils'
 
 export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<'div'>> {
@@ -46,7 +45,7 @@ export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<
    * Sets the size of the stars.
    * @default 'md'
    */
-  size?: Size
+  size?: RatingStarProps['size']
   /**
    * Name of the underlying input.
    * @default undefined
@@ -61,7 +60,7 @@ export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<
    * aria-label of the underlying input.
    * @default undefined
    */
-  'aria-label'?: string
+  'aria-label': string
 }
 
 export const Rating = forwardRef<HTMLDivElement, RatingProps>(
@@ -85,10 +84,10 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
     const [value, setRatingValue] = useCombinedState(propValue, defaultValue, onValueChange)
 
     const valueRef = useRef(value)
-    const isNonInteractive = !!(disabled || readOnly)
+    const isInteractive = !(disabled || readOnly)
 
     function onStarClick(index: number) {
-      if (!inputRef.current || isNonInteractive) return
+      if (!inputRef.current) return
 
       setRatingValue(index + 1)
       valueRef.current = index + 1
@@ -98,8 +97,6 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
     }
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
-      if (isNonInteractive) return
-
       // avoiding unnecessary calls to the onValueChange prop
       // when the value remains unchanged
       if (valueRef.current === Number(event.target.value)) return
@@ -108,11 +105,8 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
       setRatingValue(Number(event.target.value))
     }
 
-    function onStarMouseEnter(event: MouseEvent<HTMLDivElement>) {
-      if (isNonInteractive) return
-
-      const target = event.currentTarget
-      const currentStarIndex = starRefList.current.findIndex(star => star === target)
+    function onStarMouseEnter({ currentTarget }: MouseEvent<HTMLDivElement>) {
+      const currentStarIndex = starRefList.current.findIndex(star => star === currentTarget)
 
       const [previousStars, followingStars] = splitAt(starRefList.current, currentStarIndex + 1)
 
@@ -144,7 +138,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
         <input
           name={name}
           id={id}
-          aria-label={rest['aria-label'] ?? 'rating'}
+          aria-label={rest['aria-label']}
           ref={inputRef}
           data-part="input"
           className="peer absolute inset-none opacity-0"
@@ -155,7 +149,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
           disabled={disabled}
           readOnly={readOnly}
           value={getNearestDecimal(value)}
-          onChange={onInputChange}
+          onChange={event => isInteractive && onInputChange(event)}
           onKeyDown={resetDataPartInputAttr}
           onBlur={resetDataPartInputAttr}
         />
@@ -171,8 +165,8 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
               disabled={disabled}
               readOnly={readOnly}
               size={size}
-              onClick={() => onStarClick(index)}
-              onMouseEnter={onStarMouseEnter}
+              onClick={() => isInteractive && onStarClick(index)}
+              onMouseEnter={event => isInteractive && onStarMouseEnter(event)}
               ref={handleStarRef}
               key={index}
               value={getStarValue({ index, value })}

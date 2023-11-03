@@ -41,7 +41,7 @@ const ratingStarIconStyles = cva('', {
       md: 'text-body-1',
       lg: 'text-display-1',
     },
-    kind: {
+    design: {
       filled: [
         'text-main-variant',
         'group-[[data-part=star][data-hovered]]:text-main-variant-hovered',
@@ -51,7 +51,8 @@ const ratingStarIconStyles = cva('', {
   },
 })
 
-type RatingStarstylesProps = VariantProps<typeof ratingStarStyles>
+type RatingStarstylesProps = Omit<VariantProps<typeof ratingStarStyles>, 'gap'>
+type RatingStarIconStylesProps = Omit<VariantProps<typeof ratingStarIconStyles>, 'design'>
 
 export { ratingStarStyles, ratingStarIconStyles }
-export type { RatingStarstylesProps }
+export type { RatingStarstylesProps, RatingStarIconStylesProps }
