@@ -43,11 +43,17 @@ export const Usage: StoryFn = () => {
             ))}
           </Drawer.Body>
 
-          <Drawer.Footer className="flex justify-end gap-md">
-            <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
+          <Drawer.Footer className="flex justify-between gap-md">
+            <Button intent="basic" design="ghost" onClick={() => setOpen(false)}>
               Cancel
             </Button>
-            <Button>Submit</Button>
+
+            <div className="flex gap-md">
+              <Button intent="basic" design="outlined" onClick={() => setOpen(false)}>
+                Disagree
+              </Button>
+              <Button>Submit</Button>
+            </div>
           </Drawer.Footer>
 
           <Drawer.CloseButton aria-label="Close edit profile" />
