@@ -76,6 +76,10 @@ export const Sizes = () => {
           <Drawer.Trigger asChild>
             <Button onClick={() => setSize('lg')}>Large</Button>
           </Drawer.Trigger>
+
+          <Drawer.Trigger asChild>
+            <Button onClick={() => setSize('fullscreen')}>Fullscreen</Button>
+          </Drawer.Trigger>
         </div>
 
         <Drawer.Portal>
