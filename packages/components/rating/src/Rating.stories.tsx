@@ -32,3 +32,14 @@ export const Size: StoryFn = _args => (
     ))}
   </div>
 )
+
+export const Rounded: StoryFn = _args => (
+  <div className="flex flex-row flex-wrap gap-xl">
+    {[1.1, 2.24, 3.75, 4.74].map(val => (
+      <div key={val} className="">
+        <StoryLabel>{val}</StoryLabel>
+        <Rating defaultValue={val} aria-label={`Rating control ${val}`} />
+      </div>
+    ))}
+  </div>
+)

@@ -54,6 +54,19 @@ Use `size` prop to set the size of the rating control stars.
 
 <Canvas of={stories.Size} />
 
+## Advanced usage
+
+### Rounded values
+
+The **Rating** component includes a simple rounding mechanism to guarantee a nice display.
+
+- On **input mode** it will use a step of **1** (for accessibility concerns)
+- On **read-only mode** it will use a **0.5** step. In this last case the 0.5 step should be considered as a "visible" one, as we round using a 0.25 step behind the scene. This allows us to define more precisely if a value should be rounded down or up.
+
+<Canvas of={stories.Rounded} />
+
+If for any reason you need some specific rounding mechanisms, feel free to define yours and provide your rounded value.
+
 ## Accessibility
 
 Follows WCAG 2.0 standards for keyboard accessibility guidelines.

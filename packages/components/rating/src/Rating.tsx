@@ -129,7 +129,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
 
     return (
       <div
-        className="relative"
+        className="relative inline-flex"
         ref={ref}
         data-spark-component="rating"
         {...rest}
