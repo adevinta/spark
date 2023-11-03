@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Drawer, type DrawerContentProps } from '.'
 
 const meta: Meta<typeof Drawer> = {
-  title: 'Experimental/Drawer',
+  title: 'Components/Drawer',
   component: Drawer,
 }
 
