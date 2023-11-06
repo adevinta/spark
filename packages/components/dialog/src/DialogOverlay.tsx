@@ -10,13 +10,12 @@ export const Overlay = forwardRef(
   ({ className, ...rest }: OverlayProps, ref: Ref<HTMLDivElement>): ReactElement | null => {
     const { isFullScreen } = useDialog()
 
-    if (isFullScreen) return null
-
     return (
       <RadixDialog.Overlay
         ref={ref}
         className={cx(
-          ['fixed', 'top-none', 'left-none', 'w-screen', 'h-screen', 'z-overlay'],
+          isFullScreen ? 'hidden' : 'fixed',
+          ['top-none', 'left-none', 'w-screen', 'h-screen', 'z-overlay'],
           ['bg-overlay/dim-3'],
           ['data-[state=open]:animate-fade-in'],
           ['data-[state=closed]:animate-fade-out'],
