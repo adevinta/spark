@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.7](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.7.6...@spark-ui/dialog@1.7.7) (2023-11-06)
+
+### Bug Fixes
+
+- **dialog:** dialog prevent mouse events in controlled mode ([535e11e](https://github.com/adevinta/spark/commit/535e11e229e95fbbef5f81c894a532770c8c1e84))
+
 ## [1.7.6](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.7.5...@spark-ui/dialog@1.7.6) (2023-10-30)
 
 **Note:** Version bump only for package @spark-ui/dialog
