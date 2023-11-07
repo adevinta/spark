@@ -1,0 +1,48 @@
+{
+  "name": "@spark-ui/rating",
+  "version": "0.2.0",
+  "description": "Ratings let users see and/or set a star rating for a product or other item",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "rating"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@spark-ui/icon": "^2.1.0",
+    "@spark-ui/icons": "^1.21.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/components/rating"
+  },
+  "config": {
+    "title": "rating",
+    "category": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Arating"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
+}

@@ -1,0 +1,52 @@
+{
+  "name": "@spark-ui/slider",
+  "version": "1.0.2",
+  "description": "An input where the user selects a value from within a given range.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "slider"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@radix-ui/react-slider": "1.1.2",
+    "class-variance-authority": "0.7.0"
+  },
+  "devDependencies": {
+    "jsdom-testing-mocks": "1.9.0"
+  },
+  "peerDependencies": {
+    "@spark-ui/theme-utils": "^4.0.0",
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adevinta/spark.git",
+    "directory": "packages/components/slider"
+  },
+  "config": {
+    "title": "slider",
+    "category": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aslider"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
+}

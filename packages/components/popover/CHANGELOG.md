@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.7](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.6...@spark-ui/popover@1.2.7) (2023-10-30)
+
+**Note:** Version bump only for package @spark-ui/popover
+
+## [1.2.6](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.5...@spark-ui/popover@1.2.6) (2023-10-30)
+
+**Note:** Version bump only for package @spark-ui/popover
+
+## [1.2.5](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.4...@spark-ui/popover@1.2.5) (2023-10-30)
+
+### Bug Fixes
+
+- **popover:** adapt popover width on smaller screens ([808271c](https://github.com/adevinta/spark/commit/808271cd93b7685e6ceb059799367d7499eec52f))
+
+## [1.2.4](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.3...@spark-ui/popover@1.2.4) (2023-10-26)
+
+### Bug Fixes
+
+- **popover:** fix ref warning when forward ref without using it ([a93320b](https://github.com/adevinta/spark/commit/a93320bfcbcf000a5c5e4fd1fc4cd5bec4ffd636))
+
 ## [1.2.3](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.2...@spark-ui/popover@1.2.3) (2023-10-11)
 
 **Note:** Version bump only for package @spark-ui/popover

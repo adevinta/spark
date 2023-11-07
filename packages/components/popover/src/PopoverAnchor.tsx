@@ -4,8 +4,13 @@ import { forwardRef } from 'react'
 export type AnchorProps = RadixPopover.PopoverAnchorProps
 
 export const Anchor = forwardRef<HTMLDivElement, AnchorProps>(
-  ({ asChild = false, children, ...rest }) => (
-    <RadixPopover.Anchor data-spark-component="popover-anchor" asChild={asChild} {...rest}>
+  ({ asChild = false, children, ...rest }, ref) => (
+    <RadixPopover.Anchor
+      data-spark-component="popover-anchor"
+      ref={ref}
+      asChild={asChild}
+      {...rest}
+    >
       {children}
     </RadixPopover.Anchor>
   )

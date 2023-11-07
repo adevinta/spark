@@ -14,7 +14,7 @@ import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, useState } from 'react'
 
-import { Input, InputGroup } from '.'
+import { Input, InputGroup, type InputGroupProps } from '.'
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
@@ -22,6 +22,8 @@ const meta: Meta<typeof Input> = {
 }
 
 export default meta
+
+const states: InputGroupProps['state'][] = ['error', 'alert', 'success']
 
 export const Default: StoryFn = _args => (
   <Input placeholder="Type here..." aria-label="Phone type" />
@@ -61,7 +63,7 @@ export const Disabled: StoryFn = _args => {
       </div>
 
       <div>
-        <StoryLabel>Addons - solide</StoryLabel>
+        <StoryLabel>Addons - solid</StoryLabel>
         <InputGroup className="max-w-sz-320" disabled={isDisabled}>
           <InputGroup.LeadingAddon asChild>
             <IconButton intent="main" design="filled" aria-label="Search">
@@ -344,33 +346,17 @@ export const SearchExample: StoryFn = _args => {
 
 export const State: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-xl">
-      <div>
-        <StoryLabel>error</StoryLabel>
-        <InputGroup className="max-w-sz-320" state="error">
-          <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-          <Input aria-label="Error state" />
-          <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
-        </InputGroup>
-      </div>
-
-      <div>
-        <StoryLabel>alert</StoryLabel>
-        <InputGroup className="max-w-sz-320" state="alert">
-          <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-          <Input aria-label="Alert state" />
-          <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
-        </InputGroup>
-      </div>
-
-      <div>
-        <StoryLabel>success</StoryLabel>
-        <InputGroup className="max-w-sz-320" state="success">
-          <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
-          <Input aria-label="Success state" />
-          <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
-        </InputGroup>
-      </div>
+    <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+      {states.map(state => (
+        <div>
+          <StoryLabel>{state}</StoryLabel>
+          <InputGroup className="max-w-sz-320" state={state}>
+            <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
+            <Input aria-label={`${state} state`} />
+            <InputGroup.TrailingAddon>.com</InputGroup.TrailingAddon>
+          </InputGroup>
+        </div>
+      ))}
     </div>
   )
 }
