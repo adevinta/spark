@@ -18,6 +18,8 @@ jobs:
           echo "${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
           chmod 600 ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa.pub
+          killall ssh-agent
+          eval "$(ssh-agent)"
       - name: Add remote internal repository url
         run: git remote add internal ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_REPOSITORY_URL }}
       - name: Push main to internal repository
