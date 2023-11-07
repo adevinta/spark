@@ -12,18 +12,13 @@ jobs:
         with:
           fetch-depth: 0
       - name: Add SSH key
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-          mkdir -p ~/.ssh/
-          echo "${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PRIVATE_KEY }}" > ~/.ssh/github_actions
-          echo "${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PUBLIC_KEY }}" > ~/.ssh/github_actions.pub
-          ssh-keyscan github.mpi-internal.com >> /home/runner/.ssh/known_hosts
-          chmod 600 ~/.ssh/github_actions
-          chmod 600 ~/.ssh/github_actions.pub
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null	
-          ssh-add /home/runner/.ssh/github_actions
-          eval "$(ssh-agent)"
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PRIVATE_KEY }}
+      - name: Add host
+        run: ssh-keyscan github.mpi-internal.com >> /home/runner/.ssh/known_hosts
+      - name: Restart user agent
+        run: eval "$(ssh-agent)"
       - name: Add remote internal repository url
         run: git remote add internal ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_REPOSITORY_URL }}
       - name: Push main to internal repository
