@@ -11,13 +11,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Start the authentication agent
-        run: eval $(ssh-agent)
-      - name: Set up ssh-agent
-        uses: yakuhzi/setup-ssh-agent@v2
-        with:
-          ssh-public-key: ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PUBLIC_KEY }}
-          ssh-private-key: ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PRIVATE_KEY }}
+      - name: Add SSH key
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
+          chmod 600 ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa.pub
       - name: Add remote internal repository url
         run: git remote add internal ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_REPOSITORY_URL }}
       - name: Push main to internal repository
