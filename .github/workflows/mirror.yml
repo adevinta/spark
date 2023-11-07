@@ -17,4 +17,4 @@ jobs:
       - name: Add remote internal repository url
         run: git remote add internal ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_REPOSITORY_URL }}
       - name: Push main to internal repository
-        run: git push -u internal main
+        run: git push -u internal main --force
