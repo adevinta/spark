@@ -39,12 +39,8 @@ export const Default: StoryFn = () => {
 
           <Dialog.Footer className="flex justify-end gap-md">
             <Dialog.Close asChild>
-              <Button intent="neutral" design="outlined">
-                Cancel
-              </Button>
+              <Button>Close</Button>
             </Dialog.Close>
-
-            <Button>Submit</Button>
           </Dialog.Footer>
 
           <Dialog.CloseButton aria-label="Close edit profile" />
@@ -90,12 +86,8 @@ export const Controlled: StoryFn = () => {
 
           <Dialog.Footer className="flex justify-end gap-md">
             <Dialog.Close asChild>
-              <Button intent="neutral" design="outlined">
-                Cancel
-              </Button>
+              <Button>Close</Button>
             </Dialog.Close>
-
-            <Button>Submit</Button>
           </Dialog.Footer>
 
           <Dialog.CloseButton aria-label="Close edit profile" />
@@ -141,12 +133,8 @@ export const Sizes = () => {
 
           <Dialog.Footer className="flex justify-end gap-md">
             <Dialog.Close asChild>
-              <Button intent="neutral" design="outlined">
-                Cancel
-              </Button>
+              <Button>Close</Button>
             </Dialog.Close>
-
-            <Button>Save</Button>
           </Dialog.Footer>
 
           <Dialog.CloseButton aria-label="Close edit size" />
@@ -158,17 +146,14 @@ export const Sizes = () => {
 
 export const Form = () => {
   const [open, setOpen] = useState(false)
-  const [isAccountCreated, setIsAccountCreated] = useState(false)
 
   const handleOpenChange = (open: boolean) => {
     setOpen(open)
-
-    if (!open) setIsAccountCreated(false)
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsAccountCreated(true)
+    setOpen(false)
   }
 
   return (
@@ -187,18 +172,14 @@ export const Form = () => {
             </Dialog.Header>
 
             <Dialog.Body className="flex flex-col gap-lg">
-              {!isAccountCreated ? (
-                <FormField name="pseudo" isRequired className="flex-1">
-                  <FormField.Label>Pseudo</FormField.Label>
-                  <Input placeholder="Luke" />
-                </FormField>
-              ) : (
-                <p className="text-success">Welcome to Spark !</p>
-              )}
+              <FormField name="pseudo" isRequired className="flex-1">
+                <FormField.Label>Pseudo</FormField.Label>
+                <Input placeholder="Luke" />
+              </FormField>
             </Dialog.Body>
 
             <Dialog.Footer className="flex justify-end gap-md">
-              {!isAccountCreated && <Button type="submit">Submit</Button>}
+              <Button type="submit">Submit</Button>
             </Dialog.Footer>
           </form>
 
