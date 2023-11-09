@@ -1,4 +1,5 @@
 import { Button } from '@spark-ui/button'
+import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
@@ -68,25 +69,23 @@ export const Sizes = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <>
+    <div>
+      <RadioGroup
+        className="mb-lg flex gap-md"
+        value={size}
+        orientation="horizontal"
+        onValueChange={value => setSize(value as ExcludeNull<DrawerContentProps>['size'])}
+      >
+        <RadioGroup.Radio value="sm">Small</RadioGroup.Radio>
+        <RadioGroup.Radio value="md">Medium</RadioGroup.Radio>
+        <RadioGroup.Radio value="lg">Large</RadioGroup.Radio>
+        <RadioGroup.Radio value="fullscreen">Fullscreen</RadioGroup.Radio>
+      </RadioGroup>
+
       <Drawer open={open} onOpenChange={setOpen}>
-        <div className="flex gap-md">
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSize('sm')}>Small</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSize('md')}>Medium</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSize('lg')}>Large</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSize('fullscreen')}>Fullscreen</Button>
-          </Drawer.Trigger>
-        </div>
+        <Drawer.Trigger asChild>
+          <Button>Open drawer</Button>
+        </Drawer.Trigger>
 
         <Drawer.Portal>
           <Drawer.Overlay />
@@ -122,7 +121,7 @@ export const Sizes = () => {
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer>
-    </>
+    </div>
   )
 }
 
@@ -132,24 +131,21 @@ export const Side = () => {
 
   return (
     <>
+      <RadioGroup
+        className="mb-lg flex gap-md"
+        value={side}
+        orientation="horizontal"
+        onValueChange={value => setSide(value as ExcludeNull<DrawerContentProps>['side'])}
+      >
+        <RadioGroup.Radio value="right">Right</RadioGroup.Radio>
+        <RadioGroup.Radio value="left">Left</RadioGroup.Radio>
+        <RadioGroup.Radio value="top">Top</RadioGroup.Radio>
+        <RadioGroup.Radio value="bottom">Bottom</RadioGroup.Radio>
+      </RadioGroup>
       <Drawer open={open} onOpenChange={setOpen}>
-        <div className="flex gap-md">
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSide('right')}>Right</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSide('left')}>Left</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSide('top')}>Top</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSide('bottom')}>Bottom</Button>
-          </Drawer.Trigger>
-        </div>
+        <Drawer.Trigger asChild>
+          <Button>Open drawer</Button>
+        </Drawer.Trigger>
 
         <Drawer.Portal>
           <Drawer.Overlay />
