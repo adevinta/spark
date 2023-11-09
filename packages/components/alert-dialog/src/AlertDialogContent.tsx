@@ -8,7 +8,7 @@ import { AlertDialogContext } from './AlertDialogContext'
 export type AlertDialogContentElement = ElementRef<typeof Dialog.Content>
 export type AlertDialogContentProps = Omit<
   DialogContentProps,
-  'size' | 'onPointerDownOutside' | 'onInteractOutside'
+  'size' | 'isNarrow' | 'onPointerDownOutside' | 'onInteractOutside'
 >
 
 export const AlertDialogContent = forwardRef<AlertDialogContentElement, AlertDialogContentProps>(
@@ -38,12 +38,13 @@ export const AlertDialogContent = forwardRef<AlertDialogContentElement, AlertDia
           ref={ref}
           data-spark-component="alert-dialog-content"
           {...others}
-          className={cx(className, '!w-auto min-w-sz-288')}
+          className={cx(className, 'min-w-sz-288')}
           role="alertdialog"
           size="md"
           onOpenAutoFocus={composeEventHandlers(onOpenAutoFocus, handleOpenAutoFocus)}
           onPointerDownOutside={handlePointerDownOutside}
           onInteractOutside={handleInteractOutside}
+          isNarrow
         />
       </AlertDialogContext.Provider>
     )
