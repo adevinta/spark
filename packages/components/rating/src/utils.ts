@@ -4,14 +4,6 @@ function getNearestHalfDecimal(num: number): number {
   return Math.round(num / 0.5) * 0.5
 }
 
-function getNearestDecimal(num?: number): number {
-  if (num === undefined) return 0
-
-  const decimalPart = num - Math.floor(num)
-
-  return decimalPart > 0.74 ? Math.ceil(num) : Math.floor(num)
-}
-
 function getStarValue({ value, index }: { value?: number; index: number }): StarValue {
   if (value === undefined) return 0
 
@@ -30,4 +22,4 @@ function splitAt<T>(arr: T[], index: number): [T[], T[]] {
   return [prev, next]
 }
 
-export { getNearestDecimal, getStarValue, splitAt }
+export { getNearestHalfDecimal, getStarValue, splitAt }
