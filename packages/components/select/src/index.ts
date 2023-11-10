@@ -6,6 +6,7 @@ import { Items } from './SelectItems'
 import { ItemsGroup } from './SelectItemsGroup'
 import { LeadingIcon } from './SelectLeadingIcon'
 import { Trigger } from './SelectTrigger'
+import { Value } from './SelectValue'
 
 export const Select: FC<SelectProps> & {
   Trigger: typeof Trigger
@@ -13,12 +14,14 @@ export const Select: FC<SelectProps> & {
   Items: typeof Items
   Item: typeof Item
   ItemsGroup: typeof ItemsGroup
+  Value: typeof Value
 } = Object.assign(Root, {
   Trigger,
   LeadingIcon,
   Items,
   Item,
   ItemsGroup,
+  Value,
 })
 
 Select.displayName = 'Select'
@@ -27,3 +30,4 @@ LeadingIcon.displayName = 'Select.LeadingIcon'
 Items.displayName = 'Select.Items'
 Item.displayName = 'Select.Item'
 ItemsGroup.displayName = 'Select.ItemsGroup'
+Value.displayName = 'Select.Value'

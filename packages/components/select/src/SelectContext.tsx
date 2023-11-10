@@ -1,8 +1,18 @@
-import { createContext, ReactElement, type ReactNode, useContext } from 'react'
+import {
+  createContext,
+  Dispatch,
+  ReactElement,
+  type ReactNode,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react'
 
 export interface SelectContextState {
   items: ReactElement | undefined
   placeholder?: string | undefined
+  setPlaceHolder: Dispatch<SetStateAction<string | undefined>>
+  value?: string
 }
 
 const SelectContext = createContext<SelectContextState | null>(null)
@@ -11,16 +21,19 @@ export const SelectProvider = ({
   children,
   items,
   placeholder,
+  value,
 }: {
-  children: ReactNode
-  items: ReactElement | undefined
-  placeholder: string | undefined
-}) => {
+  children?: ReactNode
+} & Pick<SelectContextState, 'items' | 'placeholder' | 'value'>) => {
+  const [innerPlaceholder, setInnerPlaceholder] = useState(placeholder)
+
   return (
     <SelectContext.Provider
       value={{
         items,
-        placeholder,
+        placeholder: innerPlaceholder,
+        setPlaceHolder: setInnerPlaceholder,
+        value,
       }}
     >
       {children}
