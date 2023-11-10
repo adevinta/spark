@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.3.5...@spark-ui/drawer@1.1.0) (2023-11-10)
+
+### Features
+
+- **drawer:** fullscreen mode for drawer ([351a675](https://github.com/adevinta/spark/commit/351a675fe72912b85810ce6fbf4ae737f731e256))
+- **drawer:** release stable drawer ([cef98d1](https://github.com/adevinta/spark/commit/cef98d1c7a6145a75ae0fe801f71288a1fd8f289))
+
 ## [0.3.5](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.3.4...@spark-ui/drawer@0.3.5) (2023-10-30)
 
 **Note:** Version bump only for package @spark-ui/drawer
