@@ -6,21 +6,15 @@ import { findElement } from './utils'
 export interface SelectProps {
   children: ReactElement[]
   value?: string
-  placeholder?: string
 }
 
-export const Select = ({ children, placeholder }: SelectProps) => {
-  const trigger = findElement('Trigger', children)
-
-  const items = findElement('Items', children)
+export const Select = ({ children, value }: SelectProps) => {
+  const finder = findElement(children)
+  const trigger = finder('Trigger')
+  const items = finder('Items')
 
   return (
-    <SelectProvider
-      data-spark-component="select"
-      // value={value}
-      placeholder={placeholder}
-      items={items}
-    >
+    <SelectProvider data-spark-component="select" value={value} items={items}>
       {trigger}
     </SelectProvider>
   )
