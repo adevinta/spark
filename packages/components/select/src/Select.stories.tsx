@@ -21,7 +21,7 @@ export const Default: StoryFn = _args => {
           <Select.Value placeholder="--Pick a job type--" />
         </Select.Trigger>
 
-        <Select.Items>
+        <Select.Items aria-label="Job type">
           <Select.Item value="1">Full time job</Select.Item>
           <Select.Item value="2">Part time job</Select.Item>
           <Select.Item value="3">Internship</Select.Item>
