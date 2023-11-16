@@ -27,7 +27,7 @@ export const Trigger = ({ children }: { children?: ReactNode }) => {
       <Icon>
         <ArrowHorizontalDown />
       </Icon>
-      {items && items}
+      {items}
     </div>
   )
 }
