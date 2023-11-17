@@ -12,7 +12,7 @@ export default meta
 
 const sizes: RatingProps['size'][] = ['sm', 'md', 'lg']
 
-export const Default: StoryFn = _args => <Rating aria-label="Rating control" />
+export const Default: StoryFn = _args => <Rating size="lg" aria-label="Rating control" />
 
 export const Readonly: StoryFn = _args => (
   <Rating defaultValue={3.5} aria-label="Rating control with readOnly" readOnly />
@@ -38,7 +38,7 @@ export const Rounded: StoryFn = _args => (
     {[1.1, 2.24, 3.75, 4.74].map(val => (
       <div key={val} className="">
         <StoryLabel>{val}</StoryLabel>
-        <Rating defaultValue={val} aria-label={`Rating control ${val}`} />
+        <Rating defaultValue={val} aria-label={`Rating control ${val}`} readOnly />
       </div>
     ))}
   </div>
