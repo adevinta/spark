@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/rating@0.3.0...@spark-ui/rating@0.4.0) (2023-11-17)
+
+### Features
+
+- **rating:** upd rating input step ([90d6fda](https://github.com/adevinta/spark/commit/90d6fdac3a09ee74cfae97386c575bb3af82a405))
+
 # [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/rating@0.2.1...@spark-ui/rating@0.3.0) (2023-11-17)
 
 ### Features
