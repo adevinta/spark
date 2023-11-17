@@ -97,9 +97,11 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
     }
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
-      // avoiding unnecessary calls to the onValueChange prop
-      // when the value remains unchanged
-      if (valueRef.current === Number(event.target.value)) return
+      // 1. Avoiding unnecessary calls to onValueChange prop if value doesn't change
+      // 2. Preventing value to be resetted to 0
+      if (valueRef.current === Number(event.target.value) || Number(event.target.value) === 0) {
+        return
+      }
       valueRef.current = Number(event.target.value)
 
       setRatingValue(Number(event.target.value))
@@ -150,7 +152,6 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
           readOnly={readOnly}
           value={getNearestDecimal(value)}
           onChange={event => isInteractive && onInputChange(event)}
-          onKeyDown={resetDataPartInputAttr}
           onBlur={resetDataPartInputAttr}
         />
         <div

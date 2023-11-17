@@ -12,7 +12,7 @@ export default meta
 
 const sizes: RatingProps['size'][] = ['sm', 'md', 'lg']
 
-export const Default: StoryFn = _args => <Rating defaultValue={3} aria-label="Rating control" />
+export const Default: StoryFn = _args => <Rating aria-label="Rating control" />
 
 export const Readonly: StoryFn = _args => (
   <Rating defaultValue={3.5} aria-label="Rating control with readOnly" readOnly />
