@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Rating, type RatingProps } from '.'
 
 const meta: Meta<typeof Rating> = {
-  title: 'Experimental/Rating',
+  title: 'Components/Rating',
   component: Rating,
 }
 
