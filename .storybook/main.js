@@ -1,3 +1,4 @@
+import { dirname, join } from "path";
 const turbosnap = require('vite-plugin-turbosnap')
 const { mergeConfig } = require('vite')
 
@@ -28,7 +29,7 @@ module.exports = {
     '../packages/**/*.stories.tsx',
   ],
   addons: [
-    '@storybook/addon-links',
+    getAbsolutePath("@storybook/addon-links"),
     {
       name: '@storybook/addon-docs',
       options: {
@@ -46,13 +47,13 @@ module.exports = {
         controls: false,
       },
     },
-    '@storybook/addon-interactions',
-    '@storybook/addon-styling',
-    '@storybook/addon-a11y',
+    getAbsolutePath("@storybook/addon-interactions"),
+    getAbsolutePath("@storybook/addon-styling"),
+    getAbsolutePath("@storybook/addon-a11y"),
   ],
   staticDirs: ['../public'],
   framework: {
-    name: '@storybook/react-vite',
+    name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
   features: {
@@ -76,4 +77,8 @@ module.exports = {
     autodocs: true,
     docsMode: true,
   },
+}
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, "package.json")));
 }
