@@ -11,7 +11,7 @@ import {
 } from 'react'
 
 import { RatingStar, type RatingStarProps } from './RatingStar'
-import { getNearestDecimal, getStarValue, splitAt } from './utils'
+import { getNearestHalfDecimal, getStarValue, splitAt } from './utils'
 
 export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<'div'>> {
   /**
@@ -147,10 +147,10 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
           type="range"
           min="0"
           max="5"
-          step={1}
+          step={readOnly ? 0.5 : 1}
           disabled={disabled}
           readOnly={readOnly}
-          value={getNearestDecimal(value)}
+          value={getNearestHalfDecimal(value ?? 0)}
           onChange={event => isInteractive && onInputChange(event)}
           onBlur={resetDataPartInputAttr}
         />
