@@ -7,6 +7,10 @@ interface PortalProps {
    * An optional different container where the portaled content should be appended.
    */
   container?: HTMLElement | null
+  /**
+   * Change the component to the HTML tag or custom component of the only child.
+   */
+  asChild?: boolean
 }
 
 type PortalRef = React.ElementRef<typeof Radix.Primitive.div>
