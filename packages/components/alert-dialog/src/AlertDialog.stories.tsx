@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { AlertDialog } from '.'
 
 const meta: Meta<typeof AlertDialog> = {
-  title: 'Experimental/AlertDialog',
+  title: 'Components/AlertDialog',
   component: AlertDialog,
 }
 
