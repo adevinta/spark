@@ -161,4 +161,31 @@ describe('Dialog', () => {
     expect(screen.queryByRole('dialog', { name: 'Edit profile' })).not.toBeInTheDocument()
     expect(onEscapeKeyDown).toHaveBeenCalled()
   })
+
+  it('should handle the inset prop', async () => {
+    render(
+      <Dialog defaultOpen>
+        <Dialog.Portal>
+          <Dialog.Overlay />
+          <Dialog.Content>
+            <Dialog.Header>
+              <Dialog.Title>Edit profile</Dialog.Title>
+            </Dialog.Header>
+
+            <Dialog.Body inset>
+              <p>Dialog contents</p>
+            </Dialog.Body>
+
+            <Dialog.Footer>
+              <Button>Close</Button>
+            </Dialog.Footer>
+
+            <Dialog.CloseButton aria-label="Close" />
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog>
+    )
+
+    expect(screen.getByText(/dialog contents/i).parentElement).not.toHaveClass('px-xl py-lg')
+  })
 })
