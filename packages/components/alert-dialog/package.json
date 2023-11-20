@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@radix-ui/primitive": "1.0.1",
-    "@spark-ui/dialog": "^1.7.8",
+    "@spark-ui/dialog": "^1.8.0",
     "@spark-ui/use-merge-refs": "^0.4.0",
     "class-variance-authority": "0.7.0"
   },

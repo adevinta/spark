@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.7.8...@spark-ui/dialog@1.8.0) (2023-11-20)
+
+### Features
+
+- **dialog:** add narrow prop ([598301a](https://github.com/adevinta/spark/commit/598301afcf2be63878192acffcc7383895fbf64a))
+
 ## [1.7.8](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.7.7...@spark-ui/dialog@1.7.8) (2023-11-07)
 
 ### Bug Fixes
