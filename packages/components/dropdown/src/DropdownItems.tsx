@@ -1,9 +1,14 @@
 import { Popover as SparkPopover } from '@spark-ui/popover'
-import { PropsWithChildren } from 'react'
+import { ReactNode } from 'react'
 
 import { useDropdown } from './DropdownContext'
 
-export const Items = ({ children }: PropsWithChildren) => {
+interface ItemsProps {
+  // inline?: boolean // TODO: to disabled Popover wrapping and behaviour
+  children: ReactNode
+}
+
+export const Items = ({ children }: ItemsProps) => {
   const { isOpen, getMenuProps } = useDropdown()
 
   return (

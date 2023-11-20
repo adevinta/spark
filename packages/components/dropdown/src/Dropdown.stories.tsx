@@ -1,4 +1,6 @@
+import { Switch } from '@spark-ui/switch'
 import { Meta, StoryFn } from '@storybook/react'
+import { useState } from 'react'
 
 import { Dropdown } from '.'
 
@@ -10,29 +12,40 @@ const meta: Meta<typeof Dropdown> = {
 export default meta
 
 const books = [
-  { id: 'book-1', title: 'To Kill a Mockingbird' },
-  { id: 'book-2', title: 'War and Peace' },
-  { id: 'book-3', title: 'The Idiot' },
-  { id: 'book-4', title: 'A Picture of Dorian Gray' },
-  { id: 'book-5', title: '1984' },
-  { id: 'book-6', title: 'Pride and Prejudice' },
-  { id: 'book-7', title: 'Meditations' },
+  { value: 'book-1', text: 'To Kill a Mockingbird' },
+  { value: 'book-2', text: 'War and Peace' },
+  { value: 'book-3', text: 'The Idiot', disabled: true },
+  { value: 'book-4', text: 'A Picture of Dorian Gray' },
+  { value: 'book-5', text: '1984' },
+  { value: 'book-6', text: 'Pride and Prejudice' },
+  { value: 'book-7', text: 'Meditations' },
   {
-    id: 'book-8',
-    title: 'The Brothers Karamazov',
+    value: 'book-8',
+    text: 'The Brothers Karamazov',
   },
-  { id: 'book-9', title: 'Anna Karenina' },
-  { id: 'book-10', title: 'Crime and Punishment' },
+  { value: 'book-9', text: 'Anna Karenina' },
+  { value: 'book-10', text: 'Crime and Punishment' },
 ]
 
 export const Default: StoryFn = _args => {
+  const [removeItems, setRemoveItems] = useState(false)
+
   return (
     <div className="w-sz-480 ">
-      <Dropdown items={books}>
+      <Switch checked={removeItems} onCheckedChange={setRemoveItems}>
+        Remove first item
+      </Switch>
+      <Dropdown>
         <Dropdown.Trigger />
         <Dropdown.Items aria-label="Job type">
-          {books.map((item, index) => {
-            return <Dropdown.Item index={index} item={item} key={item.id} />
+          {books.map(item => {
+            if (removeItems && item.value === 'book-1') return null
+
+            return (
+              <Dropdown.Item value={item.value} key={item.value} disabled={item.disabled}>
+                {item.text}
+              </Dropdown.Item>
+            )
           })}
         </Dropdown.Items>
       </Dropdown>

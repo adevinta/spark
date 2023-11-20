@@ -1,28 +1,30 @@
-import { useSelect, type UseSelectReturnValue } from 'downshift'
-import { createContext, PropsWithChildren, useContext } from 'react'
+import { useSelect } from 'downshift'
+import { createContext, PropsWithChildren, useContext, useState } from 'react'
 
-export interface DropdownItem {
-  id: string
-  title: string
-}
-
-type DownshiftState = UseSelectReturnValue<DropdownItem>
-
+import { type DownshiftState, type DropdownItem, type ItemsMap } from './types'
+import { getElementByIndex } from './utils'
 export interface DropdownContextState extends DownshiftState {
-  id?: any
+  /**
+   * Used by `Dropdown.Item` to register it's data in the global context.
+   * It makes the context aware of the items to manage.
+   */
+  registerItem: (item: DropdownItem) => void
+  unregisterItem: (value: string) => void
+  computedItems: ItemsMap
+  higlightedItem: DropdownItem | undefined
 }
 
-type DropdownContextProps = PropsWithChildren<{
-  items: DropdownItem[]
-}>
+type DropdownContextProps = PropsWithChildren
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
 
-export const DropdownProvider = ({ children, items }: DropdownContextProps) => {
+export const DropdownProvider = ({ children }: DropdownContextProps) => {
+  const [computedItems, setComputedItems] = useState<ItemsMap>(new Map())
+
   const downshift = useSelect({
-    items,
-    // isItemDisabled: item => item.id === 'book-3',
-    itemToString: item => (item ? item.title : ''),
+    items: Array.from(computedItems.values()),
+    isItemDisabled: item => item.disabled,
+    itemToString: item => (item ? item.text : ''),
     // getA11yStatusMessage?: (options: A11yStatusMessageOptions<Item>) => string
     // getA11ySelectionMessage?: (options: A11yStatusMessageOptions<Item>) => string
     // highlightedIndex?: number
@@ -51,10 +53,38 @@ export const DropdownProvider = ({ children, items }: DropdownContextProps) => {
     // environment?: Environment
   })
 
+  const registerItem = (item: DropdownItem) => {
+    console.log('REGISTER => ', item.value)
+
+    setComputedItems(map => {
+      return new Map(map.set(item.value, item))
+    })
+  }
+
+  const unregisterItem = (value: string) => {
+    console.log('UNREGISTER => ', value)
+
+    // setComputedItems(map => {
+    //   map.delete(value)
+
+    //   return new Map(map)
+    // })
+
+    // const newComputedItems = new Map(computedItems)
+    // newComputedItems.delete(value)
+    // setComputedItems(newComputedItems)
+  }
+
+  console.log(computedItems)
+
   return (
     <DropdownContext.Provider
       value={{
         ...downshift,
+        computedItems,
+        registerItem,
+        unregisterItem,
+        higlightedItem: getElementByIndex(computedItems, downshift.highlightedIndex),
       }}
     >
       {children}

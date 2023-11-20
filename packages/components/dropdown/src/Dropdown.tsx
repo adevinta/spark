@@ -1,16 +1,15 @@
 import { Popover } from '@spark-ui/popover'
 import { ReactNode } from 'react'
 
-import { type DropdownItem, DropdownProvider } from './DropdownContext'
+import { DropdownProvider } from './DropdownContext'
 
 export interface DropdownProps {
-  items: DropdownItem[]
   children: ReactNode
 }
 
-export const Dropdown = ({ items, children }: DropdownProps) => {
+export const Dropdown = ({ children }: DropdownProps) => {
   return (
-    <DropdownProvider items={items}>
+    <DropdownProvider>
       <Popover open>{children}</Popover>
     </DropdownProvider>
   )

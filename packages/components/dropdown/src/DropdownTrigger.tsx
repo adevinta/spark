@@ -11,7 +11,7 @@ export const Trigger = () => {
         className="flex w-sz-288 cursor-pointer justify-between rounded-sm border-sm border-outline bg-surface p-sm"
         {...getToggleButtonProps()}
       >
-        <span>{selectedItem ? selectedItem.title : 'Best book ever'}</span>
+        <span>{selectedItem ? selectedItem.text : 'Best book ever'}</span>
         <span className="px-sm">{isOpen ? <>&#8593;</> : <>&#8595;</>}</span>
       </div>
     </Popover.Trigger>

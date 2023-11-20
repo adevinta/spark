@@ -1,22 +1,48 @@
 import { cx } from 'class-variance-authority'
+import { useEffect } from 'react'
 
-import { type DropdownItem, useDropdown } from './DropdownContext'
+import { useDropdown } from './DropdownContext'
+import { getIndexByKey } from './utils'
 
-export const Item = ({ index, item }: { index: number; item: DropdownItem }) => {
-  const { selectedItem, highlightedIndex, getItemProps } = useDropdown()
+export const Item = ({
+  disabled = false,
+  value,
+  children, // TODO: allow more than string and implement Dropdown.ItemText
+}: {
+  disabled?: boolean
+  value: string
+  children: string
+}) => {
+  const {
+    computedItems,
+    selectedItem,
+    getItemProps,
+    registerItem,
+    unregisterItem,
+    higlightedItem,
+  } = useDropdown()
+
+  const index = getIndexByKey(computedItems, value)
+  const itemData = { disabled, value, text: children }
+
+  useEffect(() => {
+    registerItem(itemData)
+
+    return () => unregisterItem(value)
+  }, [])
 
   return (
     <li
       className={cx(
-        highlightedIndex === index && 'bg-basic-container',
-        selectedItem === item && 'font-bold',
-
+        higlightedItem?.value === value && 'bg-basic-container',
+        selectedItem?.value === value && 'font-bold',
+        disabled && 'opacity-dim-3',
         'flex flex-col px-sm py-sm'
       )}
-      key={item.id}
-      {...getItemProps({ item, index })}
+      key={value}
+      {...getItemProps({ item: itemData, index })}
     >
-      <span>{item.title}</span>
+      <span>{children}</span>
     </li>
   )
 }
