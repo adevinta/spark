@@ -6,6 +6,7 @@ export const thumbVariants = cva(
     'hover:ring-4 u-shadow-border-transition',
     'outline-none',
     'focus-visible:u-ring',
+    'data-[interaction=pointerdown]:focus-visible:!ring-0',
     'spark-disabled:hover:ring-0 spark-disabled:cursor-not-allowed',
   ],
   {

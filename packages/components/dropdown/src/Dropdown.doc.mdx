@@ -1,0 +1,32 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+
+import { Dropdown } from '.'
+
+import * as stories from './Dropdown.stories'
+
+<Meta of={stories} />
+
+# Dropdown
+
+Displays a list of options for the user to pick from—triggered by a button.
+
+## Install
+
+```sh
+npm install @spark-ui/dropdown
+```
+
+## Import
+
+```tsx
+import { Dropdown } from '@spark-ui/dropdown'
+```
+
+## Props
+
+<ArgTypes of={Dropdown} />
+
+## Variants
+
+<Canvas of={stories.Default} />

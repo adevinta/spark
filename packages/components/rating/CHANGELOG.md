@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/adevinta/spark/compare/@spark-ui/rating@1.0.1...@spark-ui/rating@1.0.2) (2023-11-17)
+
+**Note:** Version bump only for package @spark-ui/rating
+
+## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/rating@0.4.0...@spark-ui/rating@1.0.1) (2023-11-17)
+
+**Note:** Version bump only for package @spark-ui/rating
+
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/rating@0.3.0...@spark-ui/rating@0.4.0) (2023-11-17)
+
+### Features
+
+- **rating:** upd rating input step ([90d6fda](https://github.com/adevinta/spark/commit/90d6fdac3a09ee74cfae97386c575bb3af82a405))
+
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/rating@0.2.1...@spark-ui/rating@0.3.0) (2023-11-17)
+
+### Features
+
+- **rating:** prevent null value on keyboard interaction ([da8c538](https://github.com/adevinta/spark/commit/da8c538a82cab6bc71a3aad3599a23612a1208ac))
+
+## [0.2.1](https://github.com/adevinta/spark/compare/@spark-ui/rating@0.2.0...@spark-ui/rating@0.2.1) (2023-11-15)
+
+**Note:** Version bump only for package @spark-ui/rating
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/rating@0.1.1...@spark-ui/rating@0.2.0) (2023-11-03)
 
 ### Features

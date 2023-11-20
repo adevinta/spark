@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/slider",
-  "version": "1.0.3",
-  "description": "An input where the user selects a value from within a given range.",
+  "name": "@spark-ui/dropdown",
+  "version": "0.1.0",
+  "description": "Displays a list of options for the user to pick from—triggered by a button. Differs from Select in that it offers multiple select and its list is not native.",
   "publishConfig": {
     "access": "public"
   },
@@ -14,7 +14,7 @@
     "wai-aria",
     "aria",
     "a11y",
-    "slider"
+    "dropdown"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -22,30 +22,22 @@
   "scripts": {
     "build": "vite build"
   },
-  "dependencies": {
-    "@radix-ui/react-slider": "1.1.2",
-    "class-variance-authority": "0.7.0"
-  },
-  "devDependencies": {
-    "jsdom-testing-mocks": "1.9.0"
-  },
   "peerDependencies": {
-    "@spark-ui/theme-utils": "^4.0.0",
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
     "tailwindcss": "^3.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:adevinta/spark.git",
-    "directory": "packages/components/slider"
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/components/dropdown"
   },
   "config": {
-    "title": "slider",
+    "title": "dropdown",
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aslider"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Aselect"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

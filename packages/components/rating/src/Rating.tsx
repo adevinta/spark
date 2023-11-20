@@ -11,7 +11,7 @@ import {
 } from 'react'
 
 import { RatingStar, type RatingStarProps } from './RatingStar'
-import { getNearestDecimal, getStarValue, splitAt } from './utils'
+import { getNearestHalfDecimal, getStarValue, splitAt } from './utils'
 
 export interface RatingProps extends PropsWithChildren<ComponentPropsWithoutRef<'div'>> {
   /**
@@ -97,9 +97,11 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
     }
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
-      // avoiding unnecessary calls to the onValueChange prop
-      // when the value remains unchanged
-      if (valueRef.current === Number(event.target.value)) return
+      // 1. Avoiding unnecessary calls to onValueChange prop if value doesn't change
+      // 2. Preventing value to be resetted to 0
+      if (valueRef.current === Number(event.target.value) || Number(event.target.value) === 0) {
+        return
+      }
       valueRef.current = Number(event.target.value)
 
       setRatingValue(Number(event.target.value))
@@ -129,7 +131,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
 
     return (
       <div
-        className="relative"
+        className="relative inline-flex"
         ref={ref}
         data-spark-component="rating"
         {...rest}
@@ -145,12 +147,11 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
           type="range"
           min="0"
           max="5"
-          step={1}
+          step={readOnly ? 0.5 : 1}
           disabled={disabled}
           readOnly={readOnly}
-          value={getNearestDecimal(value)}
+          value={getNearestHalfDecimal(value ?? 0)}
           onChange={event => isInteractive && onInputChange(event)}
-          onKeyDown={resetDataPartInputAttr}
           onBlur={resetDataPartInputAttr}
         />
         <div

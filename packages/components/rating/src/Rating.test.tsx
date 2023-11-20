@@ -91,6 +91,18 @@ describe('Rating', () => {
     expect(onValueChangeSpy).toHaveBeenLastCalledWith(2)
   })
 
+  it('should not be possible to reset value back to zero', () => {
+    render(<Rating {...defaultProps} defaultValue={3} />)
+    const input = utils.getInput()
+
+    fireEvent.change(input, { target: { value: '1' } })
+    expect(input).toHaveValue('1')
+
+    fireEvent.change(input, { target: { value: '0' } })
+
+    expect(input).toHaveValue('1')
+  })
+
   it('should not be possible to interact when in readOnly (in controlled mode)', async () => {
     const user = userEvent.setup()
     const handleValueChange = vi.fn()

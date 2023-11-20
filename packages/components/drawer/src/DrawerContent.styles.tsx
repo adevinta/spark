@@ -11,6 +11,7 @@ export const drawerContentStyles = cva(
         sm: '',
         md: '',
         lg: '',
+        fullscreen: 'h-screen w-screen',
       },
       side: {
         right: [
@@ -52,12 +53,12 @@ export const drawerContentStyles = cva(
       {
         side: ['right', 'left'],
         size: 'md',
-        class: ['w-sz-640', 'max-w-full'],
+        class: ['w-sz-672', 'max-w-full'],
       },
       {
         side: ['right', 'left'],
         size: 'lg',
-        class: ['w-sz-768', 'max-w-full'],
+        class: ['w-sz-864', 'max-w-full'],
       },
       {
         side: ['top', 'bottom'],
@@ -67,12 +68,12 @@ export const drawerContentStyles = cva(
       {
         side: ['top', 'bottom'],
         size: 'md',
-        class: ['h-sz-640', 'max-h-full'],
+        class: ['h-sz-672', 'max-h-full'],
       },
       {
         side: ['top', 'bottom'],
         size: 'lg',
-        class: ['h-sz-768', 'max-h-full'],
+        class: ['h-sz-864', 'max-h-full'],
       },
     ],
     defaultVariants: {
