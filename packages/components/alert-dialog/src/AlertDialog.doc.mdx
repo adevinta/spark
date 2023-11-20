@@ -10,7 +10,7 @@ import * as stories from './AlertDialog.stories'
 
 # AlertDialog
 
-A modal dialog that interrupts the user with important content and expects a response.
+A modal dialog that interrupts the user with important content and expects a response. Examples include action confirmation prompts and error message confirmations.
 
 - Focus is automatically trapped.
 - Can be controlled or uncontrolled.
@@ -92,37 +92,11 @@ import { AlertDialog } from '@spark-ui/alert-dialog'
 
 <Canvas of={stories.Usage} />
 
-### Uncontrolled
-
-Use `defaultOpen` prop to set the default state of the dialog. Optionally `onOpenChange` prop can be used to know when the state of the dialog changes.
-
-<Canvas of={stories.Uncontrolled} />
-
 ### Controlled
 
-Use `open` and `onOpenChange` props to control the state of the dialog.
+Use `open` and `onOpenChange` props to control the state of the dialog. This is specially useful to close the dialog after an async operation has completed.
 
 <Canvas of={stories.Controlled} />
-
-## Advanced usage
-
-### Escape
-
-Use `onEscapeKeyDown` prop to listen to when the escape key is pressed. Optionally, the dialog could be prevented from closing by calling `event.preventDefault`.
-
-<Canvas of={stories.Escape} />
-
-### Focus open
-
-Use `onOpenAutoFocus` prop to listen to when focus moves to the less destructive action after opening. Optionally, the autofocus behavior could be prevented by calling `event.preventDefault`.
-
-<Canvas of={stories.OpenFocus} />
-
-### Focus close
-
-Use `onCloseAutoFocus` prop to listen to when focus moves to the trigger after closing. Optionally, the autofocus behavior could be prevented by calling `event.preventDefault`.
-
-<Canvas of={stories.CloseFocus} />
 
 ## Accessibility
 

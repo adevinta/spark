@@ -15,10 +15,46 @@ const meta: Meta<typeof Dialog> = {
 export default meta
 
 export const Default: StoryFn = () => {
-  const [open, setOpen] = useState(false)
+  return (
+    <Dialog>
+      <Dialog.Trigger asChild>
+        <Button>Edit profile</Button>
+      </Dialog.Trigger>
+
+      <Dialog.Portal>
+        <Dialog.Overlay />
+
+        <Dialog.Content>
+          <Dialog.Header>
+            <Dialog.Title>Edit profile</Dialog.Title>
+          </Dialog.Header>
+
+          <Dialog.Body>
+            <Dialog.Description>
+              Make changes to your profile here. Click save when you are done.
+            </Dialog.Description>
+
+            <p>Lorem ipsum dolor sit amet</p>
+          </Dialog.Body>
+
+          <Dialog.Footer className="flex justify-end gap-md">
+            <Dialog.Close asChild>
+              <Button>Close</Button>
+            </Dialog.Close>
+          </Dialog.Footer>
+
+          <Dialog.CloseButton aria-label="Close edit profile" />
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog>
+  )
+}
+
+export const Controlled: StoryFn = () => {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger asChild>
         <Button>Edit profile</Button>
       </Dialog.Trigger>
@@ -49,10 +85,9 @@ export const Default: StoryFn = () => {
           </Dialog.Body>
 
           <Dialog.Footer className="flex justify-end gap-md">
-            <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
-              Cancel
-            </Button>
-            <Button>Submit</Button>
+            <Dialog.Close asChild>
+              <Button>Close</Button>
+            </Dialog.Close>
           </Dialog.Footer>
 
           <Dialog.CloseButton aria-label="Close edit profile" />
@@ -64,25 +99,16 @@ export const Default: StoryFn = () => {
 
 export const Sizes = () => {
   const [size, setSize] = useState<ExcludeNull<DialogContentProps>['size']>('md')
-  const [open, setOpen] = useState(false)
+
+  const handleValueChange = (value: string) => {
+    setSize(value as ExcludeNull<DialogContentProps>['size'])
+  }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog>
       <div className="flex gap-md">
         <Dialog.Trigger asChild>
-          <Button onClick={() => setSize('sm')}>Small</Button>
-        </Dialog.Trigger>
-
-        <Dialog.Trigger asChild>
-          <Button onClick={() => setSize('md')}>Medium</Button>
-        </Dialog.Trigger>
-
-        <Dialog.Trigger asChild>
-          <Button onClick={() => setSize('lg')}>Large</Button>
-        </Dialog.Trigger>
-
-        <Dialog.Trigger asChild>
-          <Button onClick={() => setSize('fullscreen')}>Fullscreen</Button>
+          <Button>Open</Button>
         </Dialog.Trigger>
       </div>
 
@@ -97,11 +123,7 @@ export const Sizes = () => {
           <Dialog.Body className="flex flex-col gap-lg">
             <Dialog.Description>Please select a dialog size</Dialog.Description>
 
-            <RadioGroup
-              className="flex gap-md"
-              value={size}
-              onValueChange={value => setSize(value as ExcludeNull<DialogContentProps>['size'])}
-            >
+            <RadioGroup className="flex gap-md" value={size} onValueChange={handleValueChange}>
               <RadioGroup.Radio value="sm">Small</RadioGroup.Radio>
               <RadioGroup.Radio value="md">Medium</RadioGroup.Radio>
               <RadioGroup.Radio value="lg">Large</RadioGroup.Radio>
@@ -110,10 +132,9 @@ export const Sizes = () => {
           </Dialog.Body>
 
           <Dialog.Footer className="flex justify-end gap-md">
-            <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
-              Cancel
-            </Button>
-            <Button>Submit</Button>
+            <Dialog.Close asChild>
+              <Button>Close</Button>
+            </Dialog.Close>
           </Dialog.Footer>
 
           <Dialog.CloseButton aria-label="Close edit size" />
@@ -123,19 +144,16 @@ export const Sizes = () => {
   )
 }
 
-export const HTMLForm = () => {
+export const Form = () => {
   const [open, setOpen] = useState(false)
-  const [isAccountCreated, setIsAccountCreated] = useState(false)
 
   const handleOpenChange = (open: boolean) => {
     setOpen(open)
-
-    if (!open) setIsAccountCreated(false)
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsAccountCreated(true)
+    setOpen(false)
   }
 
   return (
@@ -154,18 +172,14 @@ export const HTMLForm = () => {
             </Dialog.Header>
 
             <Dialog.Body className="flex flex-col gap-lg">
-              {!isAccountCreated ? (
-                <FormField name="pseudo" isRequired className="flex-1">
-                  <FormField.Label>Pseudo</FormField.Label>
-                  <Input placeholder="Luke" />
-                </FormField>
-              ) : (
-                <p className="text-success">Welcome to Spark !</p>
-              )}
+              <FormField name="pseudo" isRequired className="flex-1">
+                <FormField.Label>Pseudo</FormField.Label>
+                <Input placeholder="Luke" />
+              </FormField>
             </Dialog.Body>
 
             <Dialog.Footer className="flex justify-end gap-md">
-              {!isAccountCreated && <Button>Submit</Button>}
+              <Button type="submit">Submit</Button>
             </Dialog.Footer>
           </form>
 
