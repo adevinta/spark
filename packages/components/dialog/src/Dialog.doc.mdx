@@ -12,11 +12,11 @@ import * as stories from './Dialog.stories'
 
 A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
 
-- ✅ Supports modal and non-modal modes.
-- ✅ Focus is automatically trapped when modal.
-- ✅ Can be controlled or uncontrolled.
-- ✅ Manages screen reader announcements with `Title` and `Description` components.
-- ✅ Esc closes the component automatically.
+- Supports modal and non-modal modes.
+- Focus is automatically trapped when modal.
+- Can be controlled or uncontrolled.
+- Manages screen reader announcements with `Title` and `Description` components.
+- Esc closes the component automatically.
 
 ## Install
 
@@ -89,9 +89,13 @@ import { Dialog } from '@spark-ui/dialog'
 
 ### Default
 
-Use the various parts of `Dialog` to build a highly customizable dialog.
-
 <Canvas of={stories.Default} />
+
+### Controlled
+
+Use `open` and `onOpenChange` props to control the state of the dialog. This is specially useful to close the dialog after an async operation has completed.
+
+<Canvas of={stories.Controlled} />
 
 ### Sizes
 
@@ -103,13 +107,13 @@ Pick a size among `sm`, `md`, `lg` and `fullscreen`.
 
 ### Form inside a dialog
 
-This example shows you how to combine `Dialog` with an `HTML` form.
+The `Dialog` component can be effortlessly combined with a form element.
 
-<Canvas of={stories.HTMLForm} />
+<Canvas of={stories.Form} />
 
 ### Forward focus
 
-You can use `onOpenAutoFocus` and a `ref` to pass the focus to a specific element when the dialog opens.
+Use `onOpenAutoFocus` and a `ref` to direct focus to a specific element when the dialog opens.
 
 <Canvas of={stories.ForwardFocus} />
 

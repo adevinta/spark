@@ -10,21 +10,31 @@ export const dialogContentStyles = cva(
         md: 'max-w-sz-672',
         lg: 'max-w-sz-864',
       },
+      isNarrow: {
+        true: [],
+        false: [],
+      },
     },
     compoundVariants: [
       {
         size: ['sm', 'md', 'lg'],
         class: [
           'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-          'w-full max-h-[80%]',
+          'max-h-[80%]',
           'shadow-md rounded-lg',
           'data-[state=open]:animate-fade-in',
           'data-[state=closed]:animate-fade-out',
         ],
       },
+      {
+        size: ['sm', 'md', 'lg'],
+        isNarrow: false,
+        class: ['w-full'],
+      },
     ],
     defaultVariants: {
       size: 'md',
+      isNarrow: false,
     },
   }
 )
