@@ -144,6 +144,41 @@ export const Sizes = () => {
   )
 }
 
+export const Inset = () => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger asChild>
+        <Button>Open dialog</Button>
+      </Dialog.Trigger>
+
+      <Dialog.Portal>
+        <Dialog.Overlay />
+
+        <Dialog.Content size="sm">
+          <Dialog.Header>
+            <Dialog.Title>Inset example</Dialog.Title>
+          </Dialog.Header>
+
+          <Dialog.Body inset className="flex flex-col gap-lg">
+            <img src="https://placehold.co/600x400" alt="" />
+            <p className="px-md">The image above is taking up the full width.</p>
+          </Dialog.Body>
+
+          <Dialog.Footer className="flex justify-end gap-md">
+            <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
+              Close
+            </Button>
+          </Dialog.Footer>
+
+          <Dialog.CloseButton aria-label="Close dialog" />
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog>
+  )
+}
+
 export const Form = () => {
   const [open, setOpen] = useState(false)
 
