@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/alert-dialog",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "description": "A modal dialog that interrupts the user with important content and expects a response.",
   "publishConfig": {
     "access": "public"
