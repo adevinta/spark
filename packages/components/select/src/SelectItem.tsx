@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react'
 
-import { useSelect } from './SelectContext'
+import { useSelectContext } from './SelectContext'
 
 export const Item = ({ children, value }: { children: string; value: string }) => {
-  const { registerOption, unregisterOption } = useSelect()
-  const valueRef = useRef(value)
+  const { registerOption, unregisterOption } = useSelectContext()
+  let { current: lastValue } = useRef(value)
 
   useEffect(() => {
-    registerOption(value, children, valueRef.current)
+    registerOption(value, children, lastValue)
 
-    valueRef.current = value
+    lastValue = value
 
     return () => {
       unregisterOption(value)

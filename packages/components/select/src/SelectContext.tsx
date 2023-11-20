@@ -1,7 +1,6 @@
-import {
+import React, {
   createContext,
   Dispatch,
-  ReactElement,
   type ReactNode,
   SetStateAction,
   useContext,
@@ -9,13 +8,16 @@ import {
   useState,
 } from 'react'
 
+import { useMap } from './useMap'
+
 export interface SelectContextState {
-  items: ReactElement | undefined
+  selectElement?: HTMLElement | null
+  setSelectElement: Dispatch<SetStateAction<HTMLElement | null>>
   placeholder?: string | undefined
   setPlaceHolder: Dispatch<SetStateAction<string | undefined>>
   setValue: Dispatch<SetStateAction<string | undefined>>
   value?: string
-  options: Record<string, string>
+  options: Omit<Map<string, string>, 'set' | 'clear' | 'delete'>
   registerOption: (value: string, label: string, previousValue: string) => void
   unregisterOption: (value: string) => void
 }
@@ -24,57 +26,38 @@ const SelectContext = createContext<SelectContextState | null>(null)
 
 export const SelectProvider = ({
   children,
-  items,
   placeholder,
   value,
 }: {
   children?: ReactNode
-} & Pick<SelectContextState, 'items' | 'placeholder' | 'value'>) => {
+} & Pick<SelectContextState, 'placeholder' | 'value'>) => {
   const [innerPlaceholder, setInnerPlaceholder] = useState(placeholder)
   const [innerValue, setInnerValue] = useState(value)
-  const [innerOptions, setInnerOptions] = useState<Record<string, string>>({})
+  const [innerOptions, { set, remove }] = useMap<string, string>()
+
+  const [selectElement, setSelectElement] = React.useState<HTMLElement | null>(null)
 
   useEffect(() => {
     if (value) setInnerValue(value)
   }, [value])
 
-  const removeOption = (value: string, options: Record<string, string>) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { [value]: deletedKey, ...remainingOptions } = options
-
-    return remainingOptions
-  }
-
   const registerOption = (value: string, label: string, previousValue: string) => {
-    setInnerOptions(prevState => {
-      let updatedState = { ...prevState }
-
-      if (value !== previousValue) {
-        updatedState = removeOption(value, prevState)
-      }
-
-      return {
-        ...updatedState,
-        [value]: label,
-      }
-    })
-  }
-
-  const unregisterOption = (value: string) => {
-    setInnerOptions(prevState => removeOption(value, prevState))
+    remove(previousValue)
+    set(value, label)
   }
 
   return (
     <SelectContext.Provider
       value={{
-        items,
+        selectElement,
+        setSelectElement,
         placeholder: innerPlaceholder,
         setPlaceHolder: setInnerPlaceholder,
         value: innerValue,
         setValue: setInnerValue,
         options: innerOptions,
         registerOption,
-        unregisterOption,
+        unregisterOption: remove,
       }}
     >
       {children}
@@ -82,11 +65,11 @@ export const SelectProvider = ({
   )
 }
 
-export const useSelect = () => {
+export const useSelectContext = () => {
   const context = useContext(SelectContext)
 
   if (!context) {
-    throw Error('useSelect must be used within a Select provider')
+    throw Error('useSelectContext must be used within a Select provider')
   }
 
   return context

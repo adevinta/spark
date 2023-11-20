@@ -14,8 +14,9 @@ export const Select = ({ children, value }: SelectProps) => {
   const items = finder('Items')
 
   return (
-    <SelectProvider data-spark-component="select" value={value} items={items}>
+    <SelectProvider data-spark-component="select" value={value}>
       {trigger}
+      {items}
     </SelectProvider>
   )
 }

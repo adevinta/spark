@@ -1,6 +1,6 @@
 import { ReactNode, useLayoutEffect } from 'react'
 
-import { useSelect } from './SelectContext'
+import { useSelectContext } from './SelectContext'
 
 export const Value = ({
   placeholder,
@@ -9,13 +9,15 @@ export const Value = ({
   placeholder?: string
   children?: ReactNode
 }) => {
-  const { setPlaceHolder, value, options } = useSelect()
+  const { setPlaceHolder, value, options } = useSelectContext()
 
   useLayoutEffect(() => {
     setPlaceHolder(placeholder)
   })
 
-  return <span className="grow">{children || options[value || ''] || placeholder}</span>
+  const valueLabel = value ? options.get(value) : options.get('')
+
+  return <span className="grow">{children || valueLabel || placeholder}</span>
 }
 
 Value.id = 'Value'
