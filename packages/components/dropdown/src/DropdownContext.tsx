@@ -1,15 +1,9 @@
 import { useSelect } from 'downshift'
-import { createContext, PropsWithChildren, useContext, useState } from 'react'
+import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react'
 
 import { type DownshiftState, type DropdownItem, type ItemsMap } from './types'
-import { getElementByIndex } from './utils'
+import { getElementByIndex, getOrderedItems } from './utils'
 export interface DropdownContextState extends DownshiftState {
-  /**
-   * Used by `Dropdown.Item` to register it's data in the global context.
-   * It makes the context aware of the items to manage.
-   */
-  registerItem: (item: DropdownItem) => void
-  unregisterItem: (value: string) => void
   computedItems: ItemsMap
   higlightedItem: DropdownItem | undefined
 }
@@ -53,37 +47,40 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
     // environment?: Environment
   })
 
-  const registerItem = (item: DropdownItem) => {
-    console.log('REGISTER => ', item.value)
+  /**
+   * Indices in a Map are set when an element is added to the Map.
+   * If for some reason, in the Dropdown:
+   * - children order changes
+   * - children are added
+   * - children are removed
+   *
+   * The Map must be rebuilt from the new children in order to preserve logical indices.
+   *
+   * Downshift is heavily indices based for keyboard navigation, so it it important.
+   */
+  const syncItems = () => {
+    const newMap: ItemsMap = new Map()
 
-    setComputedItems(map => {
-      return new Map(map.set(item.value, item))
+    getOrderedItems(children).forEach(({ value, disabled, children }) => {
+      newMap.set(value, {
+        value,
+        disabled: !!disabled,
+        text: children,
+      })
     })
+
+    setComputedItems(newMap)
   }
 
-  const unregisterItem = (value: string) => {
-    console.log('UNREGISTER => ', value)
-
-    // setComputedItems(map => {
-    //   map.delete(value)
-
-    //   return new Map(map)
-    // })
-
-    // const newComputedItems = new Map(computedItems)
-    // newComputedItems.delete(value)
-    // setComputedItems(newComputedItems)
-  }
-
-  console.log(computedItems)
+  useEffect(() => {
+    syncItems()
+  }, [children])
 
   return (
     <DropdownContext.Provider
       value={{
         ...downshift,
         computedItems,
-        registerItem,
-        unregisterItem,
         higlightedItem: getElementByIndex(computedItems, downshift.highlightedIndex),
       }}
     >

@@ -1,35 +1,23 @@
 import { cx } from 'class-variance-authority'
-import { useEffect } from 'react'
 
 import { useDropdown } from './DropdownContext'
 import { getIndexByKey } from './utils'
+
+export interface ItemProps {
+  disabled?: boolean
+  value: string
+  children: string
+}
 
 export const Item = ({
   disabled = false,
   value,
   children, // TODO: allow more than string and implement Dropdown.ItemText
-}: {
-  disabled?: boolean
-  value: string
-  children: string
-}) => {
-  const {
-    computedItems,
-    selectedItem,
-    getItemProps,
-    registerItem,
-    unregisterItem,
-    higlightedItem,
-  } = useDropdown()
+}: ItemProps) => {
+  const { computedItems, selectedItem, getItemProps, higlightedItem } = useDropdown()
 
   const index = getIndexByKey(computedItems, value)
   const itemData = { disabled, value, text: children }
-
-  useEffect(() => {
-    registerItem(itemData)
-
-    return () => unregisterItem(value)
-  }, [])
 
   return (
     <li

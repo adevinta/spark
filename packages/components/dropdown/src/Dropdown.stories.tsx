@@ -11,22 +11,6 @@ const meta: Meta<typeof Dropdown> = {
 
 export default meta
 
-const books = [
-  { value: 'book-1', text: 'To Kill a Mockingbird' },
-  { value: 'book-2', text: 'War and Peace' },
-  { value: 'book-3', text: 'The Idiot', disabled: true },
-  { value: 'book-4', text: 'A Picture of Dorian Gray' },
-  { value: 'book-5', text: '1984' },
-  { value: 'book-6', text: 'Pride and Prejudice' },
-  { value: 'book-7', text: 'Meditations' },
-  {
-    value: 'book-8',
-    text: 'The Brothers Karamazov',
-  },
-  { value: 'book-9', text: 'Anna Karenina' },
-  { value: 'book-10', text: 'Crime and Punishment' },
-]
-
 export const Default: StoryFn = _args => {
   const [removeItems, setRemoveItems] = useState(false)
 
@@ -38,15 +22,18 @@ export const Default: StoryFn = _args => {
       <Dropdown>
         <Dropdown.Trigger />
         <Dropdown.Items aria-label="Job type">
-          {books.map(item => {
-            if (removeItems && item.value === 'book-1') return null
-
-            return (
-              <Dropdown.Item value={item.value} key={item.value} disabled={item.disabled}>
-                {item.text}
-              </Dropdown.Item>
-            )
-          })}
+          {!removeItems && <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>}
+          <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+          <Dropdown.Item value="book-3" disabled>
+            The Idiot
+          </Dropdown.Item>
+          {!removeItems && <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>}
+          <Dropdown.Item value="book-5">1984</Dropdown.Item>
+          <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
+          <Dropdown.Item value="book-7">Meditations</Dropdown.Item>
+          <Dropdown.Item value="book-8">The Brothers Karamazov</Dropdown.Item>
+          <Dropdown.Item value="book-9">Anna Karenina</Dropdown.Item>
+          <Dropdown.Item value="book-10">Crime and Punishment</Dropdown.Item>
         </Dropdown.Items>
       </Dropdown>
     </div>
