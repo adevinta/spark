@@ -51,6 +51,25 @@ export const Default: StoryFn = _args => {
   )
 }
 
+export const Inset: StoryFn = _args => {
+  return (
+    <ShowcaseContainer>
+      <Popover>
+        <Popover.Trigger asChild>
+          <Button>Trigger popover</Button>
+        </Popover.Trigger>
+        <Popover.Portal>
+          <Popover.Content inset>
+            <img src="https://placehold.co/300x200/white/grey" alt="" />
+            <Popover.Arrow />
+            <Popover.CloseButton aria-label="Close the popover" />
+          </Popover.Content>
+        </Popover.Portal>
+      </Popover>
+    </ShowcaseContainer>
+  )
+}
+
 export const Uncontrolled: StoryFn = () => {
   return (
     <ShowcaseContainer>
