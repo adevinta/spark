@@ -3,11 +3,11 @@ import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalD
 import { cx } from 'class-variance-authority'
 import { ReactNode } from 'react'
 
-import { useSelect } from './SelectContext'
+import { useSelectContext } from './SelectContext'
 import { findElement } from './utils'
 
 export const Trigger = ({ children }: { children?: ReactNode }) => {
-  const { items } = useSelect()
+  const { setSelectElement } = useSelectContext()
 
   const finder = findElement(children)
 
@@ -21,13 +21,13 @@ export const Trigger = ({ children }: { children?: ReactNode }) => {
         'rounded-md border-sm border-outline bg-surface px-lg',
         'ring-inset focus-within:border-outline-high focus-within:ring-1 focus-within:ring-outline-high'
       )}
+      ref={setSelectElement}
     >
       {leadingIcon}
       {value}
       <Icon>
         <ArrowHorizontalDown />
       </Icon>
-      {items}
     </div>
   )
 }
