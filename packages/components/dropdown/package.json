@@ -28,7 +28,9 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "@spark-ui/select": "^0.1.5"
+    "@spark-ui/popover": "^1.2.7",
+    "class-variance-authority": "0.7.0",
+    "downshift": "^8.2.3"
   },
   "repository": {
     "type": "git",
