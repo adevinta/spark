@@ -40,5 +40,9 @@
     "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Aselect"
   },
   "homepage": "https://sparkui.vercel.app",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@spark-ui/icon": "^2.1.0",
+    "@spark-ui/icons": "^1.21.2"
+  }
 }
