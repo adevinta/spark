@@ -4,7 +4,6 @@ export const styles = cva(
   [
     'z-popover',
     'rounded-md',
-    'p-lg',
     'bg-surface text-on-surface',
     'shadow',
     'focus-visible:outline-none focus-visible:u-ring',
@@ -24,11 +23,23 @@ export const styles = cva(
       hasCloseButton: {
         true: 'pr-[40px]',
       },
+      inset: {
+        true: 'overflow-hidden',
+        false: 'p-lg',
+      },
     },
+    compoundVariants: [
+      {
+        hasCloseButton: true,
+        inset: true,
+        class: 'pr-none',
+      },
+    ],
     defaultVariants: {
       matchTriggerWidth: false,
       enforceBoundaries: false,
       hasCloseButton: false,
+      inset: false,
     },
   }
 )
