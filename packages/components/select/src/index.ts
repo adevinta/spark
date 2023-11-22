@@ -1,12 +1,15 @@
 import type { FC } from 'react'
 
 import { Select as Root, type SelectProps } from './Select'
+import { SelectProvider, useSelect } from './SelectContext'
 import { Item } from './SelectItem'
 import { Items } from './SelectItems'
 import { ItemsGroup } from './SelectItemsGroup'
 import { LeadingIcon } from './SelectLeadingIcon'
 import { Trigger } from './SelectTrigger'
 import { Value } from './SelectValue'
+
+export { useSelect, SelectProvider }
 
 export const Select: FC<SelectProps> & {
   Trigger: typeof Trigger
