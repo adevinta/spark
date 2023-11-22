@@ -1,0 +1,18 @@
+import { cva, VariantProps } from 'class-variance-authority'
+
+export const drawerBodyStyles = cva(
+  ['grow', 'overflow-y-auto', 'outline-none', 'focus-visible:u-ring'],
+  {
+    variants: {
+      inset: {
+        true: '',
+        false: 'px-xl py-lg',
+      },
+    },
+    defaultVariants: {
+      inset: false,
+    },
+  }
+)
+
+export type DrawerBodyStylesProps = VariantProps<typeof drawerBodyStyles>
