@@ -1,15 +1,19 @@
 import { cx } from 'class-variance-authority'
+import { ReactNode } from 'react'
 
 import { useDropdown } from './DropdownContext'
-import { getIndexByKey } from './utils'
+import { DropdownItem } from './types'
+import { getIndexByKey, getItemText } from './utils'
 
 export interface ItemProps {
   disabled?: boolean
   value: string
-  children: string
+  children: ReactNode
+  className?: string
 }
 
 export const Item = ({
+  className,
   disabled = false,
   value,
   children, // TODO: allow more than string and implement Dropdown.ItemText
@@ -17,7 +21,7 @@ export const Item = ({
   const { computedItems, selectedItem, getItemProps, higlightedItem } = useDropdown()
 
   const index = getIndexByKey(computedItems, value)
-  const itemData = { disabled, value, text: children }
+  const itemData: DropdownItem = { disabled, value, text: getItemText(children) }
 
   return (
     <li
@@ -25,12 +29,13 @@ export const Item = ({
         higlightedItem?.value === value && 'bg-basic-container',
         selectedItem?.value === value && 'font-bold',
         disabled && 'opacity-dim-3',
-        'flex flex-col px-sm py-sm'
+        'flex px-sm py-sm',
+        className
       )}
       key={value}
       {...getItemProps({ item: itemData, index })}
     >
-      <span>{children}</span>
+      {children}
     </li>
   )
 }
