@@ -1,20 +1,17 @@
 import { describe, expect, it } from 'vitest'
 
-import { getNearestDecimal, getStarValue, splitAt } from './utils'
+import { getNearestHalfDecimal, getStarValue, splitAt } from './utils'
 
-describe('getNearestDecimal', () => {
+describe('getNearestHalfDecimal', () => {
   it.each([
     { value: 0, expected: 0 },
-    { value: 0.4, expected: 0 },
-    { value: 0.49, expected: 0 },
-    { value: 0.5, expected: 0 },
-    { value: 0.74, expected: 0 },
+    { value: 0.4, expected: 0.5 },
+    { value: 0.49, expected: 0.5 },
+    { value: 0.5, expected: 0.5 },
+    { value: 0.74, expected: 0.5 },
     { value: 0.75, expected: 1 },
-
-    // Edge cases: When value is undefined
-    { value: undefined, expected: 0 },
-  ])('should return the expected decimal for: $value', ({ value, expected }) => {
-    expect(getNearestDecimal(value)).toEqual(expected)
+  ])('should return the expected half decimal for: $value', ({ value, expected }) => {
+    expect(getNearestHalfDecimal(value)).toEqual(expected)
   })
 })
 

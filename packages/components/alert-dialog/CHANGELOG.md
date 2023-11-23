@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@1.0.2...@spark-ui/alert-dialog@1.0.3) (2023-11-22)
+
+**Note:** Version bump only for package @spark-ui/alert-dialog
+
+## [1.0.2](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@1.0.1...@spark-ui/alert-dialog@1.0.2) (2023-11-20)
+
+**Note:** Version bump only for package @spark-ui/alert-dialog
+
+## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@1.0.0...@spark-ui/alert-dialog@1.0.1) (2023-11-20)
+
+**Note:** Version bump only for package @spark-ui/alert-dialog
+
+# [1.0.0](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@0.4.0...@spark-ui/alert-dialog@1.0.0) (2023-11-20)
+
+### Features
+
+- **alert-dialog:** release first version ([614d3ab](https://github.com/adevinta/spark/commit/614d3ab614be126146800cafb9050dbe4d85b866))
+
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@0.3.8...@spark-ui/alert-dialog@0.4.0) (2023-11-20)
+
+### Features
+
+- **alert-dialog:** remove size prop support ([e99e370](https://github.com/adevinta/spark/commit/e99e3706174089c62a4f2e75bfa40904ba1c9151))
+- **alert-dialog:** update alert dialog ([968066e](https://github.com/adevinta/spark/commit/968066e32678583fafa9ee016b23de0183112146))
+
 ## [0.3.8](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@0.3.7...@spark-ui/alert-dialog@0.3.8) (2023-11-07)
 
 **Note:** Version bump only for package @spark-ui/alert-dialog

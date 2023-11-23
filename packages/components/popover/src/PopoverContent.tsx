@@ -25,6 +25,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
       side = 'bottom',
       sideOffset = 8,
       sticky = 'partial',
+      inset = false,
       ...rest
     },
     ref
@@ -38,6 +39,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
           enforceBoundaries: !!collisionBoundary,
           matchTriggerWidth,
           hasCloseButton,
+          inset,
           className,
         })}
         data-spark-component="popover-content"

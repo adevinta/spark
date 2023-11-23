@@ -1,22 +1,17 @@
-import { cx } from 'class-variance-authority'
 import { forwardRef, type ReactElement, type ReactNode, type Ref } from 'react'
 
-export interface BodyProps {
+import { dialogBodyStyles, type DialogBodyStylesProps } from './DialogBody.styles'
+export interface BodyProps extends DialogBodyStylesProps {
   children: ReactNode
   className?: string
 }
 
 export const Body = forwardRef(
-  ({ children, className, ...rest }: BodyProps, ref: Ref<HTMLDivElement>): ReactElement => (
-    <div
-      ref={ref}
-      className={cx(
-        className,
-        ['px-xl', 'py-lg', 'flex-grow', 'overflow-y-auto'],
-        ['outline-none', 'focus-visible:u-ring']
-      )}
-      {...rest}
-    >
+  (
+    { children, className, inset = false, ...rest }: BodyProps,
+    ref: Ref<HTMLDivElement>
+  ): ReactElement => (
+    <div ref={ref} className={dialogBodyStyles({ inset, className })} {...rest}>
       {children}
     </div>
   )

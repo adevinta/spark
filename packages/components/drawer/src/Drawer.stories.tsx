@@ -125,6 +125,41 @@ export const Sizes = () => {
   )
 }
 
+export const Inset: StoryFn = () => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <Drawer open={open} onOpenChange={setOpen}>
+      <Drawer.Trigger asChild>
+        <Button>Open drawer</Button>
+      </Drawer.Trigger>
+
+      <Drawer.Portal>
+        <Drawer.Overlay />
+
+        <Drawer.Content size="sm">
+          <Drawer.Header>
+            <Drawer.Title>Edit inset</Drawer.Title>
+          </Drawer.Header>
+
+          <Drawer.Body inset>
+            <img src="https://placehold.co/480x800" alt="" />
+          </Drawer.Body>
+
+          <Drawer.Footer className="flex justify-end gap-md">
+            <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
+              Cancel
+            </Button>
+            <Button>Submit</Button>
+          </Drawer.Footer>
+
+          <Drawer.CloseButton aria-label="Close edit profile" />
+        </Drawer.Content>
+      </Drawer.Portal>
+    </Drawer>
+  )
+}
+
 export const Side = () => {
   const [side, setSide] = useState<ExcludeNull<DrawerContentProps>['side']>('right')
   const [open, setOpen] = useState(false)
