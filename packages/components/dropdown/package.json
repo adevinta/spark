@@ -30,7 +30,8 @@
   "dependencies": {
     "@spark-ui/popover": "^1.2.7",
     "class-variance-authority": "0.7.0",
-    "downshift": "^8.2.3"
+    "downshift": "^8.2.3",
+    "@radix-ui/react-id": "1.0.1"
   },
   "repository": {
     "type": "git",

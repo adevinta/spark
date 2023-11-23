@@ -1,12 +1,20 @@
 import { cx } from 'class-variance-authority'
 
+import { useDropdownGroup } from './DropdownItemsGroupContext'
+
 interface LabelProps {
   children: string
   className?: string
 }
 
 export const Label = ({ children, className }: LabelProps) => {
-  return <div className={cx('px-md py-sm text-body-2 text-neutral', className)}>{children}</div>
+  const { labelId } = useDropdownGroup()
+
+  return (
+    <div id={labelId} className={cx('px-md py-sm text-body-2 text-neutral', className)}>
+      {children}
+    </div>
+  )
 }
 
 Label.id = 'Label'

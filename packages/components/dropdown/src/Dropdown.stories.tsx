@@ -23,7 +23,7 @@ export const Default: StoryFn = _args => {
       <Dropdown>
         <Dropdown.Trigger />
         <Dropdown.Items aria-label="Job type">
-          <Dropdown.ItemsGroup>
+          <Dropdown.Group>
             <Dropdown.Label>Best-sellers</Dropdown.Label>
             {!removeItems && <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>}
             <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
@@ -33,8 +33,8 @@ export const Default: StoryFn = _args => {
             {!removeItems && <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>}
             <Dropdown.Item value="book-5">1984</Dropdown.Item>
             <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
-          </Dropdown.ItemsGroup>
-          <Dropdown.ItemsGroup>
+          </Dropdown.Group>
+          <Dropdown.Group>
             <Dropdown.Label>Novelties</Dropdown.Label>
             <Dropdown.Item value="book-7">Meditations</Dropdown.Item>
             <Dropdown.Item value="book-8">The Brothers Karamazov</Dropdown.Item>
@@ -43,7 +43,7 @@ export const Default: StoryFn = _args => {
               <Dropdown.ItemText>Crime and Punishment</Dropdown.ItemText>
               <Tag>New</Tag>
             </Dropdown.Item>
-          </Dropdown.ItemsGroup>
+          </Dropdown.Group>
         </Dropdown.Items>
       </Dropdown>
       <p>some content, etc...</p>
