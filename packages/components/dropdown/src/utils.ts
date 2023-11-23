@@ -1,7 +1,7 @@
 import React, { type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
 
 import { type ItemProps } from './DropdownItem'
-import { type ItemsMap } from './types'
+import { type DropdownItem, type ItemsMap } from './types'
 
 export function getIndexByKey(map: ItemsMap, targetKey: string) {
   let index = 0
@@ -35,12 +35,20 @@ const getElementId = (element?: ReactElement) => {
   return element ? (element.type as FC & { id?: string }).id : ''
 }
 
-export const getOrderedItems = (children: ReactNode, result: ItemProps[] = []): ItemProps[] => {
+export const getOrderedItems = (
+  children: ReactNode,
+  result: DropdownItem[] = []
+): DropdownItem[] => {
   React.Children.forEach(children, child => {
     if (!isValidElement(child)) return
 
     if (getElementId(child) === 'Item') {
-      result.push(child.props as ItemProps)
+      const childProps = child.props as ItemProps
+      result.push({
+        value: childProps.value,
+        disabled: !!childProps.disabled,
+        text: getItemText(childProps.children),
+      })
     }
 
     if (child.props.children) {
@@ -49,4 +57,29 @@ export const getOrderedItems = (children: ReactNode, result: ItemProps[] = []): 
   })
 
   return result
+}
+
+/**
+ * If Dropdown.Item children:
+ * - is a string, then the string is used.
+ * - is JSX markup, then we look for Dropdown.ItemText to get its string value.
+ */
+export const getItemText = (children: ReactNode, itemText = ''): string => {
+  if (typeof children === 'string') {
+    return children
+  }
+
+  React.Children.forEach(children, child => {
+    if (!isValidElement(child)) return
+
+    if (getElementId(child) === 'ItemText') {
+      itemText = child.props.children
+    }
+
+    if (child.props.children) {
+      getItemText(child.props.children, itemText)
+    }
+  })
+
+  return itemText
 }

@@ -1,4 +1,5 @@
 import { Switch } from '@spark-ui/switch'
+import { Tag } from '@spark-ui/tag'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
@@ -33,9 +34,17 @@ export const Default: StoryFn = _args => {
           <Dropdown.Item value="book-7">Meditations</Dropdown.Item>
           <Dropdown.Item value="book-8">The Brothers Karamazov</Dropdown.Item>
           <Dropdown.Item value="book-9">Anna Karenina</Dropdown.Item>
-          <Dropdown.Item value="book-10">Crime and Punishment</Dropdown.Item>
+          <Dropdown.Item value="book-10" className="gap-md">
+            <Dropdown.ItemText>Crime and Punishment</Dropdown.ItemText>
+            <Tag>New</Tag>
+          </Dropdown.Item>
         </Dropdown.Items>
       </Dropdown>
+      <p>some content, etc...</p>
+      <p>some content, etc...</p>
+      <p>some content, etc...</p>
+      <p>some content, etc...</p>
+      <p>some content, etc...</p>
     </div>
   )
 }

@@ -61,12 +61,8 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
   const syncItems = () => {
     const newMap: ItemsMap = new Map()
 
-    getOrderedItems(children).forEach(({ value, disabled, children }) => {
-      newMap.set(value, {
-        value,
-        disabled: !!disabled,
-        text: children,
-      })
+    getOrderedItems(children).forEach(itemData => {
+      newMap.set(itemData.value, itemData)
     })
 
     setComputedItems(newMap)
