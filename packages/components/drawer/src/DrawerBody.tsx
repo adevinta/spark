@@ -1,22 +1,15 @@
-import { cx } from 'class-variance-authority'
 import { forwardRef, type ReactNode, type Ref } from 'react'
 
-export interface DrawerBodyProps {
+import { drawerBodyStyles, type DrawerBodyStylesProps } from './DrawerBody.styles'
+
+export interface DrawerBodyProps extends DrawerBodyStylesProps {
   children: ReactNode
   className?: string
 }
 
 export const DrawerBody = forwardRef(
-  ({ children, className, ...rest }: DrawerBodyProps, ref: Ref<HTMLDivElement>) => (
-    <div
-      ref={ref}
-      className={cx(
-        ['px-xl', 'py-lg', 'flex-grow', 'overflow-y-auto'],
-        ['outline-none', 'focus-visible:u-ring'],
-        className
-      )}
-      {...rest}
-    >
+  ({ children, inset = false, className, ...rest }: DrawerBodyProps, ref: Ref<HTMLDivElement>) => (
+    <div ref={ref} className={drawerBodyStyles({ inset, className })} {...rest}>
       {children}
     </div>
   )
