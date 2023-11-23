@@ -18,7 +18,7 @@ export const Item = ({
   value,
   children, // TODO: allow more than string and implement Dropdown.ItemText
 }: ItemProps) => {
-  const { computedItems, selectedItem, getItemProps, higlightedItem } = useDropdown()
+  const { computedItems, selectedItem, getItemProps, highlightedItem } = useDropdown()
 
   const index = getIndexByKey(computedItems, value)
   const itemData: DropdownItem = { disabled, value, text: getItemText(children) }
@@ -26,7 +26,7 @@ export const Item = ({
   return (
     <li
       className={cx(
-        higlightedItem?.value === value && 'bg-basic-container',
+        highlightedItem?.value === value && 'bg-basic-container',
         selectedItem?.value === value && 'font-bold',
         disabled && 'opacity-dim-3',
         'flex rounded-sm px-md py-sm text-body-1',

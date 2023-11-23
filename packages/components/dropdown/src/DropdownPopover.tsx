@@ -1,14 +1,19 @@
 import { Popover as SparkPopover } from '@spark-ui/popover'
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, useEffect } from 'react'
 
 import { useDropdown } from './DropdownContext'
 
 export const Popover = ({ children }: PropsWithChildren) => {
-  const { getMenuProps } = useDropdown()
+  const { getMenuProps, setHasPopover } = useDropdown()
+
+  useEffect(() => {
+    setHasPopover(true)
+
+    return () => setHasPopover(false)
+  }, [setHasPopover])
 
   return (
     <SparkPopover.Content
-      asChild
       {...getMenuProps()}
       matchTriggerWidth
       onOpenAutoFocus={e => e.preventDefault()}
