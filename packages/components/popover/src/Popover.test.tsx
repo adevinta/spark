@@ -23,6 +23,7 @@ describe('Popover', () => {
   beforeAll(() => {
     mockResizeObserver()
   })
+
   describe('opening', () => {
     it('should open popover on click', async () => {
       const user = userEvent.setup()
@@ -350,5 +351,20 @@ describe('Popover', () => {
     // Then it is rendered outside of it (inside document.body)
     expect(within(originalContainer).queryByText('Popover content')).not.toBeInTheDocument()
     expect(screen.getByText('Popover content')).toBeInTheDocument()
+  })
+
+  it('should handle the inset prop', async () => {
+    render(
+      <Popover open>
+        <Popover.Trigger asChild>
+          <button type="button">Click me</button>
+        </Popover.Trigger>
+        <Popover.Portal>
+          <Popover.Content inset>Popover content</Popover.Content>
+        </Popover.Portal>
+      </Popover>
+    )
+
+    expect(screen.getByText(/Popover content/i)).not.toHaveClass('p-lg')
   })
 })

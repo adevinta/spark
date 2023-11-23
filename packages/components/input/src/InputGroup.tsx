@@ -58,7 +58,6 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       | undefined
     const props = input?.props || {}
 
-    const field = useFormFieldControl()
     const inputRef = useRef<HTMLInputElement>(null!)
     const onClearRef = useRef(onClear)
     const ref = useMergeRefs<HTMLInputElement>(input?.ref, inputRef)
@@ -67,19 +66,27 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       props.defaultValue as string,
       props.onValueChange
     )
+
+    // Data derivated from FormField context
+    const field = useFormFieldControl()
     const state = field.state ?? stateProp
+    const disabled = field.disabled || !!disabledProp
+    const readOnly = field.readOnly || !!readOnlyProp
+
+    // InputGroup elements (in visual order)
     const leadingAddon = findElement('LeadingAddon')
     const leadingIcon = findElement('LeadingIcon')
     const clearButton = findElement('ClearButton')
+    const trailingIcon = state
+      ? findElement('StateIndicator') || <InputStateIndicator />
+      : findElement('TrailingIcon')
     const trailingAddon = findElement('TrailingAddon')
-    const stateIndicator = findElement('StateIndicator') || <InputStateIndicator />
-    const trailingIcon = state ? stateIndicator : findElement('TrailingIcon')
+
+    // Acknowledge which subComponents are used in the compound context
     const hasLeadingAddon = !!leadingAddon
     const hasTrailingAddon = !!trailingAddon
     const hasLeadingIcon = !!leadingIcon
     const hasTrailingIcon = !!trailingIcon || !!state
-    const disabled = field.disabled || !!disabledProp
-    const readOnly = field.readOnly || !!readOnlyProp
     const hasClearButton = !!value && !!clearButton && !disabled && !readOnly
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
@@ -102,9 +109,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
 
     const current = useMemo(() => {
       return {
-        state: stateProp,
-        disabled: !!disabledProp,
-        readOnly: !!readOnlyProp,
+        state,
+        disabled,
+        readOnly,
         hasLeadingIcon,
         hasTrailingIcon,
         hasLeadingAddon,
@@ -113,9 +120,9 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
         onClear: handleClear,
       }
     }, [
-      stateProp,
-      disabledProp,
-      readOnlyProp,
+      state,
+      disabled,
+      readOnly,
       hasLeadingIcon,
       hasTrailingIcon,
       hasLeadingAddon,

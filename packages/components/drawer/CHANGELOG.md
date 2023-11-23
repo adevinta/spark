@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/adevinta/spark/compare/@spark-ui/drawer@1.2.0...@spark-ui/drawer@1.2.1) (2023-11-22)
+
+**Note:** Version bump only for package @spark-ui/drawer
+
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/drawer@1.1.0...@spark-ui/drawer@1.2.0) (2023-11-22)
+
+### Features
+
+- **drawer:** add inset prop to drawer ([6baea0e](https://github.com/adevinta/spark/commit/6baea0e722f87e854e8b580671347fbe312ef0bc))
+
 # [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/drawer@0.3.5...@spark-ui/drawer@1.1.0) (2023-11-10)
 
 ### Features

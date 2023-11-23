@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.3.0...@spark-ui/popover@1.3.1) (2023-11-22)
+
+**Note:** Version bump only for package @spark-ui/popover
+
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.7...@spark-ui/popover@1.3.0) (2023-11-22)
+
+### Features
+
+- **popover:** add inset prop to popover ([a3482e4](https://github.com/adevinta/spark/commit/a3482e4a2baa5624f3b58f389d302973b530b322))
+
 ## [1.2.7](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.2.6...@spark-ui/popover@1.2.7) (2023-10-30)
 
 **Note:** Version bump only for package @spark-ui/popover
