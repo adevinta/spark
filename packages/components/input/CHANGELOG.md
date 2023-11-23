@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.8](https://github.com/adevinta/spark/compare/@spark-ui/input@1.5.7...@spark-ui/input@1.5.8) (2023-11-22)
+
+### Bug Fixes
+
+- **input:** derivate input state from formField when possible ([1d5f425](https://github.com/adevinta/spark/commit/1d5f425e32218403ac3e04e7cf308657132ef723))
+
 ## [1.5.7](https://github.com/adevinta/spark/compare/@spark-ui/input@1.5.6...@spark-ui/input@1.5.7) (2023-11-22)
 
 **Note:** Version bump only for package @spark-ui/input

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/select@0.2.1...@spark-ui/select@0.3.0) (2023-11-22)
+
+### Features
+
+- **dropdown:** dropdown downshift implementation ([3f72002](https://github.com/adevinta/spark/commit/3f720026212e2002f1b034a270e04aa67ae83c4e))
+
 ## [0.2.1](https://github.com/adevinta/spark/compare/@spark-ui/select@0.2.0...@spark-ui/select@0.2.1) (2023-11-22)
 
 **Note:** Version bump only for package @spark-ui/select
