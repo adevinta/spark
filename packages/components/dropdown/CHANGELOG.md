@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.2.0...@spark-ui/dropdown@0.3.0) (2023-11-23)
+
+### Features
+
+- **dropdown:** enable custom jsx in DropdownItem ([9712277](https://github.com/adevinta/spark/commit/9712277bfdb78a93fc1893ebdad4f413a9d8ec8d))
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.1.0...@spark-ui/dropdown@0.2.0) (2023-11-22)
 
 ### Bug Fixes
