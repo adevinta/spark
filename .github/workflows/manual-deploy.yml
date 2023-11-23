@@ -1,23 +1,33 @@
 name: manual-deploy
 on:
   workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Install
         uses: ./.github/composite-actions/install
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest --no-save --no-fund --no-audit --no-scripts
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project Artifacts
-        run: npm run build
+
       - name: Build Storybook
         run: npm run storybook:build
+
+      - name: Build tailwind config viewer
+        run: npm run tailwind-config-viewer:build
+
       - name: Deploy Storybook to Vercel
-        run: vercel deploy --token $VERCEL_TOKEN --prod --yes
+        id: deployment
+        run: |
+          DEPLOYMENT_URL=$(vercel deploy --token $VERCEL_TOKEN --yes)
+          echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

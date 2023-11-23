@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.9.0...@spark-ui/dialog@1.9.1) (2023-11-22)
+
+**Note:** Version bump only for package @spark-ui/dialog
+
+# [1.9.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.8.0...@spark-ui/dialog@1.9.0) (2023-11-20)
+
+### Features
+
+- **dialog:** add inset prop ([eec4b24](https://github.com/adevinta/spark/commit/eec4b24e6ae61e4315d9bd8e841b91b7ab2383a1))
+
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.7.8...@spark-ui/dialog@1.8.0) (2023-11-20)
+
+### Features
+
+- **dialog:** add narrow prop ([598301a](https://github.com/adevinta/spark/commit/598301afcf2be63878192acffcc7383895fbf64a))
+
 ## [1.7.8](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.7.7...@spark-ui/dialog@1.7.8) (2023-11-07)
 
 ### Bug Fixes
