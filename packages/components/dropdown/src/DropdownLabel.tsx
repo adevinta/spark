@@ -11,7 +11,7 @@ export const Label = ({ children, className }: LabelProps) => {
   const { labelId } = useDropdownGroup()
 
   return (
-    <div id={labelId} className={cx('px-md py-sm text-body-2 text-neutral', className)}>
+    <div id={labelId} className={cx('px-md py-sm text-body-2 italic text-neutral', className)}>
       {children}
     </div>
   )

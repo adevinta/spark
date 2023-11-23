@@ -34,6 +34,9 @@ export const Default: StoryFn = _args => {
             <Dropdown.Item value="book-5">1984</Dropdown.Item>
             <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
           </Dropdown.Group>
+
+          <Dropdown.Separator />
+
           <Dropdown.Group>
             <Dropdown.Label>Novelties</Dropdown.Label>
             <Dropdown.Item value="book-7">Meditations</Dropdown.Item>

@@ -20,14 +20,7 @@ const GroupContent = ({ children, className }: GroupProps) => {
   const { labelId } = useDropdownGroup()
 
   return (
-    <div
-      role="group"
-      aria-labelledby={labelId}
-      className={cx(
-        'mb-md border-b-sm border-outline pb-md last:mb-none last:border-b-none last:pb-none',
-        className
-      )}
-    >
+    <div role="group" aria-labelledby={labelId} className={cx(className)}>
       {children}
     </div>
   )
