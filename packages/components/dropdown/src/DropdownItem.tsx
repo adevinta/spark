@@ -29,7 +29,7 @@ export const Item = ({
         higlightedItem?.value === value && 'bg-basic-container',
         selectedItem?.value === value && 'font-bold',
         disabled && 'opacity-dim-3',
-        'flex px-sm py-sm',
+        'flex rounded-sm px-md py-sm text-body-1',
         className
       )}
       key={value}
