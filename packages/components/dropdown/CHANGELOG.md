@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.5.0...@spark-ui/dropdown@0.6.0) (2023-11-24)
+
+### Features
+
+- **dropdown:** dropdown value component inside trigger ([9f3e1fc](https://github.com/adevinta/spark/commit/9f3e1fc4504e478923afa329749108f9287b0981))
+
 # [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.4.0...@spark-ui/dropdown@0.5.0) (2023-11-24)
 
 ### Features
