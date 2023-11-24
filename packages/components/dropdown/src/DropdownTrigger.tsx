@@ -1,12 +1,17 @@
 import { Popover } from '@spark-ui/popover'
+import { Fragment } from 'react'
 
 import { useDropdown } from './DropdownContext'
 
 export const Trigger = () => {
-  const { isOpen, selectedItem, getToggleButtonProps } = useDropdown()
+  const { isOpen, selectedItem, getToggleButtonProps, hasPopover } = useDropdown()
+
+  const [WrapperComponent, wrapperProps] = hasPopover
+    ? [Popover.Trigger, { asChild: true }]
+    : [Fragment, {}]
 
   return (
-    <Popover.Trigger asChild>
+    <WrapperComponent {...wrapperProps}>
       <div
         className="flex w-sz-288 cursor-pointer justify-between rounded-sm border-sm border-outline bg-surface p-sm"
         {...getToggleButtonProps()}
@@ -14,7 +19,7 @@ export const Trigger = () => {
         <span>{selectedItem ? selectedItem.text : 'Best book ever'}</span>
         <span className="px-sm">{isOpen ? <>&#8593;</> : <>&#8595;</>}</span>
       </div>
-    </Popover.Trigger>
+    </WrapperComponent>
   )
 }
 

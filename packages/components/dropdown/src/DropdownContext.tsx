@@ -1,11 +1,24 @@
+import { Popover } from '@spark-ui/popover'
 import { useSelect } from 'downshift'
-import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  Fragment,
+  PropsWithChildren,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 
 import { type DownshiftState, type DropdownItem, type ItemsMap } from './types'
 import { getElementByIndex, getOrderedItems } from './utils'
 export interface DropdownContextState extends DownshiftState {
   computedItems: ItemsMap
-  higlightedItem: DropdownItem | undefined
+  highlightedItem: DropdownItem | undefined
+  hasPopover: boolean
+  setHasPopover: Dispatch<SetStateAction<boolean>>
 }
 
 type DropdownContextProps = PropsWithChildren
@@ -14,6 +27,7 @@ const DropdownContext = createContext<DropdownContextState | null>(null)
 
 export const DropdownProvider = ({ children }: DropdownContextProps) => {
   const [computedItems, setComputedItems] = useState<ItemsMap>(new Map())
+  const [hasPopover, setHasPopover] = useState<boolean>(false)
 
   const downshift = useSelect({
     items: Array.from(computedItems.values()),
@@ -58,7 +72,7 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
    *
    * Downshift is heavily indices based for keyboard navigation, so it it important.
    */
-  const syncItems = () => {
+  const syncItems = ({ children }: { children: ReactNode }) => {
     const newMap: ItemsMap = new Map()
 
     getOrderedItems(children).forEach(itemData => {
@@ -69,18 +83,24 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
   }
 
   useEffect(() => {
-    syncItems()
+    syncItems({ children })
   }, [children])
+
+  const WrapperComponent = hasPopover ? Popover : Fragment
 
   return (
     <DropdownContext.Provider
       value={{
         ...downshift,
         computedItems,
-        higlightedItem: getElementByIndex(computedItems, downshift.highlightedIndex),
+        highlightedItem: getElementByIndex(computedItems, downshift.highlightedIndex),
+        hasPopover,
+        setHasPopover,
       }}
     >
-      {children}
+      <Popover open={downshift.isOpen}>
+        <WrapperComponent>{children}</WrapperComponent>
+      </Popover>
     </DropdownContext.Provider>
   )
 }
