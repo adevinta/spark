@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.3.0...@spark-ui/dropdown@0.4.0) (2023-11-24)
+
+### Features
+
+- **dropdown:** introduce separator in dropdown ([bbb8124](https://github.com/adevinta/spark/commit/bbb8124388541c5f6d0e7268a80b35d8e9578948))
+- **dropdown:** items groups in dropdown ([59f6c3c](https://github.com/adevinta/spark/commit/59f6c3c6b66e6ee4c500ea6000f5256cb9462f17))
+- **dropdown:** link dropdown group label with its group ([48c7b06](https://github.com/adevinta/spark/commit/48c7b063941b9b0ec8f822d79f35899a33a1258d))
+
 # [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.2.0...@spark-ui/dropdown@0.3.0) (2023-11-23)
 
 ### Features
