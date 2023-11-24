@@ -86,7 +86,12 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
     syncItems({ children })
   }, [children])
 
-  const WrapperComponent = hasPopover ? Popover : Fragment
+  /**
+   * Warning:
+   * Downshift is expecting the items list to always be rendered, as per a11y guidelines.
+   * This is why the `Popover` is always opened in this component, but visually hidden instead from Dropdown.Popover.
+   */
+  const [WrapperComponent, wrapperProps] = hasPopover ? [Popover, { open: true }] : [Fragment, {}]
 
   return (
     <DropdownContext.Provider
@@ -98,9 +103,7 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
         setHasPopover,
       }}
     >
-      <Popover open={downshift.isOpen}>
-        <WrapperComponent>{children}</WrapperComponent>
-      </Popover>
+      <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>
     </DropdownContext.Provider>
   )
 }

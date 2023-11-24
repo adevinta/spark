@@ -8,10 +8,11 @@ interface ItemsProps {
 }
 
 export const Items = ({ children }: ItemsProps) => {
-  const { isOpen } = useDropdown()
+  const { isOpen, getMenuProps } = useDropdown()
 
   return (
     <ul
+      {...getMenuProps()}
       className={`flex max-h-sz-320 flex-col overflow-auto ${
         isOpen ? 'block' : 'pointer-events-none opacity-0'
       }`}
