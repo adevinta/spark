@@ -1,10 +1,16 @@
 import { Popover } from '@spark-ui/popover'
-import { Fragment } from 'react'
+import { cx } from 'class-variance-authority'
+import { Fragment, ReactNode } from 'react'
 
 import { useDropdown } from './DropdownContext'
 
-export const Trigger = () => {
-  const { isOpen, selectedItem, getToggleButtonProps, hasPopover } = useDropdown()
+interface TriggerProps {
+  children: ReactNode
+  className?: string
+}
+
+export const Trigger = ({ children, className }: TriggerProps) => {
+  const { isOpen, getToggleButtonProps, hasPopover } = useDropdown()
 
   const [WrapperComponent, wrapperProps] = hasPopover
     ? [Popover.Trigger, { asChild: true }]
@@ -13,10 +19,13 @@ export const Trigger = () => {
   return (
     <WrapperComponent {...wrapperProps}>
       <div
-        className="flex w-sz-288 cursor-pointer justify-between rounded-sm border-sm border-outline bg-surface p-sm"
+        className={cx(
+          'flex w-sz-288 cursor-pointer justify-between rounded-sm border-sm border-outline bg-surface p-sm',
+          className
+        )}
         {...getToggleButtonProps()}
       >
-        <span>{selectedItem ? selectedItem.text : 'Best book ever'}</span>
+        {children}
         <span className="px-sm">{isOpen ? <>&#8593;</> : <>&#8595;</>}</span>
       </div>
     </WrapperComponent>

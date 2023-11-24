@@ -10,35 +10,39 @@ import { Label } from './DropdownLabel'
 import { Popover } from './DropdownPopover'
 import { Separator } from './DropdownSeparator'
 import { Trigger } from './DropdownTrigger'
+import { Value } from './DropdownValue'
 
 export { useDropdown, DropdownProvider }
 
 export const Dropdown: FC<DropdownProps> & {
-  Trigger: typeof Trigger
-  Items: typeof Items
   Group: typeof Group
-  Label: typeof Label
   Item: typeof Item
+  Items: typeof Items
   ItemText: typeof ItemText
-  Separator: typeof Separator
+  Label: typeof Label
   Popover: typeof Popover
+  Separator: typeof Separator
+  Trigger: typeof Trigger
+  Value: typeof Value
 } = Object.assign(Root, {
-  Trigger,
-  Items,
   Group,
-  Label,
   Item,
+  Items,
   ItemText,
-  Separator,
+  Label,
   Popover,
+  Separator,
+  Trigger,
+  Value,
 })
 
 Dropdown.displayName = 'Dropdown'
-Trigger.displayName = 'Dropdown.Trigger'
-Items.displayName = 'Dropdown.Items'
 Group.displayName = 'Dropdown.Group'
-Label.displayName = 'Dropdown.Label'
 Item.displayName = 'Dropdown.Item'
+Items.displayName = 'Dropdown.Items'
 ItemText.displayName = 'Dropdown.ItemText'
-Separator.displayName = 'Dropdown.Separator'
+Label.displayName = 'Dropdown.Label'
 Popover.displayName = 'Dropdown.Popover'
+Separator.displayName = 'Dropdown.Separator'
+Trigger.displayName = 'Dropdown.Trigger'
+Value.displayName = 'Dropdown.Value'

@@ -1,10 +1,11 @@
 import { Popover as SparkPopover } from '@spark-ui/popover'
+import { cx } from 'class-variance-authority'
 import { PropsWithChildren, useEffect } from 'react'
 
 import { useDropdown } from './DropdownContext'
 
 export const Popover = ({ children }: PropsWithChildren) => {
-  const { getMenuProps, setHasPopover } = useDropdown()
+  const { isOpen, hasPopover, setHasPopover } = useDropdown()
 
   useEffect(() => {
     setHasPopover(true)
@@ -12,11 +13,13 @@ export const Popover = ({ children }: PropsWithChildren) => {
     return () => setHasPopover(false)
   }, [setHasPopover])
 
+  if (!hasPopover) return children
+
   return (
     <SparkPopover.Content
-      {...getMenuProps()}
       matchTriggerWidth
       onOpenAutoFocus={e => e.preventDefault()}
+      className={cx(!isOpen && 'hidden')}
     >
       {children}
     </SparkPopover.Content>

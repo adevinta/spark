@@ -21,9 +21,11 @@ export const Default: StoryFn = _args => {
         Remove first item
       </Switch>
       <Dropdown>
-        <Dropdown.Trigger />
+        <Dropdown.Trigger>
+          <Dropdown.Value placeholder="Pick a book" />
+        </Dropdown.Trigger>
         <Dropdown.Popover>
-          <Dropdown.Items aria-label="Job type">
+          <Dropdown.Items aria-label="Books">
             <Dropdown.Group>
               <Dropdown.Label>Best-sellers</Dropdown.Label>
               {!removeItems && <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>}

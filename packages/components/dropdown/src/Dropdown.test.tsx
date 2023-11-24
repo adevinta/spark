@@ -7,7 +7,9 @@ describe('Dropdown', () => {
   it('should render list of options', () => {
     render(
       <Dropdown>
-        <Dropdown.Trigger />
+        <Dropdown.Trigger>
+          <Dropdown.Value placeholder="Pick a book" />
+        </Dropdown.Trigger>
         <Dropdown.Items aria-label="Job type">
           <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
           <Dropdown.Item value="book-5">1984</Dropdown.Item>
