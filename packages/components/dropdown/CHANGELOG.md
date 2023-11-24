@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.4.0...@spark-ui/dropdown@0.5.0) (2023-11-24)
+
+### Features
+
+- **dropdown:** add DropDown.Popover ([feb028a](https://github.com/adevinta/spark/commit/feb028a808a8dd3824c654e5434f9d1b8a18c6c2))
+
 # [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.3.0...@spark-ui/dropdown@0.4.0) (2023-11-24)
 
 ### Features
