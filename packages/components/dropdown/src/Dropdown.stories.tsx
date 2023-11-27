@@ -115,7 +115,9 @@ export const Grouped: StoryFn = _args => {
               <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
               <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
             </Dropdown.Group>
-            <Dropdown.Separator />
+
+            <Dropdown.Divider />
+
             <Dropdown.Group>
               <Dropdown.Label>Novelties</Dropdown.Label>
               <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>

@@ -2,13 +2,13 @@ import type { FC } from 'react'
 
 import { Dropdown as Root, type DropdownProps } from './Dropdown'
 import { DropdownProvider, useDropdown } from './DropdownContext'
+import { Divider } from './DropdownDivider'
 import { Group } from './DropdownGroup'
 import { Item } from './DropdownItem'
 import { Items } from './DropdownItems'
 import { ItemText } from './DropdownItemText'
 import { Label } from './DropdownLabel'
 import { Popover } from './DropdownPopover'
-import { Separator } from './DropdownSeparator'
 import { Trigger } from './DropdownTrigger'
 import { Value } from './DropdownValue'
 
@@ -21,7 +21,7 @@ export const Dropdown: FC<DropdownProps> & {
   ItemText: typeof ItemText
   Label: typeof Label
   Popover: typeof Popover
-  Separator: typeof Separator
+  Divider: typeof Divider
   Trigger: typeof Trigger
   Value: typeof Value
 } = Object.assign(Root, {
@@ -31,7 +31,7 @@ export const Dropdown: FC<DropdownProps> & {
   ItemText,
   Label,
   Popover,
-  Separator,
+  Divider,
   Trigger,
   Value,
 })
@@ -43,6 +43,6 @@ Items.displayName = 'Dropdown.Items'
 ItemText.displayName = 'Dropdown.ItemText'
 Label.displayName = 'Dropdown.Label'
 Popover.displayName = 'Dropdown.Popover'
-Separator.displayName = 'Dropdown.Separator'
+Divider.displayName = 'Dropdown.Divider'
 Trigger.displayName = 'Dropdown.Trigger'
 Value.displayName = 'Dropdown.Value'

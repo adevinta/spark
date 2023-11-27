@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Dropdown } from '.'
 
@@ -25,7 +25,49 @@ import { Dropdown } from '@spark-ui/dropdown'
 
 ## Props
 
-<ArgTypes of={Dropdown} />
+<ExtendedArgTypes
+  of={Dropdown}
+  description="A form input used for selecting a value: when collapsed it shows the currently selected option and when expanded, it shows a scrollable list of predefined options for the user to choose from."
+  subcomponents={{
+    'Dropdown.Trigger': {
+      of: Dropdown.Trigger,
+      description:
+        'The button that toggles the select. The Select.Content will position itself by aligning over the trigger.',
+    },
+    'Dropdown.Value': {
+      of: Dropdown.Value,
+      description:
+        "The part that reflects the selected value. By default the selected item's text will be rendered. if you require more control, you can instead control the select and pass your own children. It should not be styled to ensure correct positioning. An optional placeholder prop is also available for when the select has no value.",
+    },
+    'Dropdown.Popover': {
+      of: Dropdown.Popover,
+      description: 'The part that is toggled and portaled when the trigger element is clicked.',
+    },
+    'Dropdown.Items': {
+      of: Dropdown.Items,
+      description: 'The wrapper which contains all the options.',
+    },
+    'Dropdown.Group': {
+      of: Dropdown.Group,
+      description:
+        'A wrapper for grouping a subset of options (Dropdown.Item) when needed. Use in conjunction with Dropdown.Label to ensure good accessibility via automatic labelling.',
+    },
+    'Dropdown.Item': { of: Dropdown.Item, description: 'Each option of the element field' },
+    'Dropdown.ItemText': {
+      of: Dropdown.ItemText,
+      description:
+        'The textual part of the item. It should only contain the text you want to see in the trigger when that item is selected. It should not be styled to ensure correct positioning.',
+    },
+    'Dropdown.Divider': {
+      of: Dropdown.Divider,
+      description: 'Used to visually separate items in the select.',
+    },
+    'Dropdown.Label': {
+      of: Dropdown.Label,
+      description: "Used to render the label of a group. It won't be focusable using arrow keys.",
+    },
+  }}
+/>
 
 ## Usage
 
