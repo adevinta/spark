@@ -1,16 +1,16 @@
 import { cx } from 'class-variance-authority'
 import { ReactNode } from 'react'
 
-import { useDropdown } from './DropdownContext'
+import { useDropdownContext } from './DropdownContext'
 
-interface ValueProps {
+export interface ValueProps {
   children?: ReactNode
   className?: string
   placeholder: string
 }
 
 export const Value = ({ children, className, placeholder }: ValueProps) => {
-  const { selectedItem } = useDropdown()
+  const { selectedItem } = useDropdownContext()
 
   return (
     <span className={cx('text-neutral', className)}>

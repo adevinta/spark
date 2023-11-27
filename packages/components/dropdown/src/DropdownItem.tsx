@@ -1,7 +1,7 @@
 import { cx } from 'class-variance-authority'
 import { ReactNode } from 'react'
 
-import { useDropdown } from './DropdownContext'
+import { useDropdownContext } from './DropdownContext'
 import { DropdownItem } from './types'
 import { getIndexByKey, getItemText } from './utils'
 
@@ -13,7 +13,7 @@ export interface ItemProps {
 }
 
 export const Item = ({ className, disabled = false, value, children }: ItemProps) => {
-  const { computedItems, selectedItem, getItemProps, highlightedItem } = useDropdown()
+  const { computedItems, selectedItem, getItemProps, highlightedItem } = useDropdownContext()
 
   const index = getIndexByKey(computedItems, value)
   const itemData: DropdownItem = { disabled, value, text: getItemText(children) }

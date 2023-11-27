@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
 import { Dropdown as Root, type DropdownProps } from './Dropdown'
-import { DropdownProvider, useDropdown } from './DropdownContext'
+import { DropdownProvider, useDropdownContext } from './DropdownContext'
 import { Divider } from './DropdownDivider'
 import { Group } from './DropdownGroup'
 import { Item } from './DropdownItem'
@@ -12,7 +12,7 @@ import { Popover } from './DropdownPopover'
 import { Trigger } from './DropdownTrigger'
 import { Value } from './DropdownValue'
 
-export { useDropdown, DropdownProvider }
+export { useDropdownContext, DropdownProvider }
 
 export const Dropdown: FC<DropdownProps> & {
   Group: typeof Group
