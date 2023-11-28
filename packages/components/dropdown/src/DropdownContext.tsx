@@ -23,9 +23,30 @@ export interface DropdownContextState extends DownshiftState {
 }
 
 export type DropdownContextProps = PropsWithChildren<{
+  /**
+   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
+   */
   defaultValue?: string
+  /**
+   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
+   */
   value?: string
+  /**
+   * Event handler called when the value changes.
+   */
   onValueChange?: (value: string) => void
+  /**
+   * The controlled open state of the select. Must be used in conjunction with `onOpenChange`.
+   */
+  open?: boolean
+  /**
+   * Event handler called when the open state of the select changes.
+   */
+  onOpenChange?: (isOpen: boolean) => void
+  /**
+   * The open state of the select when it is initially rendered. Use when you do not need to control its open state.
+   */
+  defaultOpen?: boolean
 }>
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
@@ -35,6 +56,9 @@ export const DropdownProvider = ({
   defaultValue,
   value,
   onValueChange,
+  open,
+  onOpenChange,
+  defaultOpen,
 }: DropdownContextProps) => {
   const [computedItems, setComputedItems] = useState<ItemsMap>(getItemsFromChildren(children))
   const [hasPopover, setHasPopover] = useState<boolean>(false)
@@ -46,6 +70,7 @@ export const DropdownProvider = ({
 
   const controlledSelectedItem = value ? computedItems.get(value) : undefined
   const controlledDefaultSelectedItem = defaultValue ? computedItems.get(defaultValue) : undefined
+  const controlledDefaultOpen = defaultOpen != null ? defaultOpen : false
 
   const downshift = useSelect({
     items: Array.from(computedItems.values()),
@@ -62,10 +87,13 @@ export const DropdownProvider = ({
         onValueChange?.(selectedItem?.value)
       }
     },
-    // onIsOpenChange?: (changes: UseSelectStateChange<Item>) => void
-    // onHighlightedIndexChange?: (changes: UseSelectStateChange<Item>) => void
-    // onStateChange?: (changes: UseSelectStateChange<Item>) => void
-    // environment?: Environment
+    isOpen: open,
+    onIsOpenChange: ({ isOpen }) => {
+      if (isOpen != null) {
+        onOpenChange?.(isOpen)
+      }
+    },
+    initialIsOpen: controlledDefaultOpen,
   })
 
   /**

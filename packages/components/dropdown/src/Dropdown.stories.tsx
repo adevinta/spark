@@ -1,3 +1,4 @@
+import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
 import { Tag } from '@spark-ui/tag'
 import { Meta, StoryFn } from '@storybook/react'
@@ -56,6 +57,42 @@ export const Controlled: StoryFn = () => {
           </Dropdown.Items>
         </Dropdown.Popover>
       </Dropdown>
+    </div>
+  )
+}
+
+export const ControlledOpenState: StoryFn = () => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="flex flex-col gap-lg">
+      <div className="flex gap-md">
+        <Button design="outlined" intent="success" disabled={open} onClick={() => setOpen(true)}>
+          Open
+        </Button>
+        <Button design="outlined" intent="danger" disabled={!open} onClick={() => setOpen(false)}>
+          Close
+        </Button>
+      </div>
+
+      <div className="w-sz-480 pb-[300px]">
+        <Dropdown open={open} onOpenChange={setOpen}>
+          <Dropdown.Trigger aria-label="Book">
+            <Dropdown.Value placeholder="Pick a book" />
+          </Dropdown.Trigger>
+
+          <Dropdown.Popover>
+            <Dropdown.Items>
+              <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
+              <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+              <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
+              <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
+              <Dropdown.Item value="book-5">1984</Dropdown.Item>
+              <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
+            </Dropdown.Items>
+          </Dropdown.Popover>
+        </Dropdown>
+      </div>
     </div>
   )
 }
