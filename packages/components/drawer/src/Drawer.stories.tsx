@@ -1,11 +1,12 @@
 import { Button } from '@spark-ui/button'
+import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
 import { Drawer, type DrawerContentProps } from '.'
 
 const meta: Meta<typeof Drawer> = {
-  title: 'Experimental/Drawer',
+  title: 'Components/Drawer',
   component: Drawer,
 }
 
@@ -43,11 +44,17 @@ export const Usage: StoryFn = () => {
             ))}
           </Drawer.Body>
 
-          <Drawer.Footer className="flex justify-end gap-md">
-            <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
+          <Drawer.Footer className="flex justify-between gap-md">
+            <Button intent="basic" design="ghost" onClick={() => setOpen(false)}>
               Cancel
             </Button>
-            <Button>Submit</Button>
+
+            <div className="flex gap-md">
+              <Button intent="basic" design="outlined" onClick={() => setOpen(false)}>
+                Disagree
+              </Button>
+              <Button>Submit</Button>
+            </div>
           </Drawer.Footer>
 
           <Drawer.CloseButton aria-label="Close edit profile" />
@@ -62,21 +69,23 @@ export const Sizes = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <>
+    <div>
+      <RadioGroup
+        className="mb-lg flex gap-md"
+        value={size}
+        orientation="horizontal"
+        onValueChange={value => setSize(value as ExcludeNull<DrawerContentProps>['size'])}
+      >
+        <RadioGroup.Radio value="sm">Small</RadioGroup.Radio>
+        <RadioGroup.Radio value="md">Medium</RadioGroup.Radio>
+        <RadioGroup.Radio value="lg">Large</RadioGroup.Radio>
+        <RadioGroup.Radio value="fullscreen">Fullscreen</RadioGroup.Radio>
+      </RadioGroup>
+
       <Drawer open={open} onOpenChange={setOpen}>
-        <div className="flex gap-md">
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSize('sm')}>Small</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSize('md')}>Medium</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSize('lg')}>Large</Button>
-          </Drawer.Trigger>
-        </div>
+        <Drawer.Trigger asChild>
+          <Button>Open drawer</Button>
+        </Drawer.Trigger>
 
         <Drawer.Portal>
           <Drawer.Overlay />
@@ -112,7 +121,42 @@ export const Sizes = () => {
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer>
-    </>
+    </div>
+  )
+}
+
+export const Inset: StoryFn = () => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <Drawer open={open} onOpenChange={setOpen}>
+      <Drawer.Trigger asChild>
+        <Button>Open drawer</Button>
+      </Drawer.Trigger>
+
+      <Drawer.Portal>
+        <Drawer.Overlay />
+
+        <Drawer.Content size="sm">
+          <Drawer.Header>
+            <Drawer.Title>Edit inset</Drawer.Title>
+          </Drawer.Header>
+
+          <Drawer.Body inset>
+            <img src="https://placehold.co/480x800" alt="" />
+          </Drawer.Body>
+
+          <Drawer.Footer className="flex justify-end gap-md">
+            <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
+              Cancel
+            </Button>
+            <Button>Submit</Button>
+          </Drawer.Footer>
+
+          <Drawer.CloseButton aria-label="Close edit profile" />
+        </Drawer.Content>
+      </Drawer.Portal>
+    </Drawer>
   )
 }
 
@@ -122,24 +166,21 @@ export const Side = () => {
 
   return (
     <>
+      <RadioGroup
+        className="mb-lg flex gap-md"
+        value={side}
+        orientation="horizontal"
+        onValueChange={value => setSide(value as ExcludeNull<DrawerContentProps>['side'])}
+      >
+        <RadioGroup.Radio value="right">Right</RadioGroup.Radio>
+        <RadioGroup.Radio value="left">Left</RadioGroup.Radio>
+        <RadioGroup.Radio value="top">Top</RadioGroup.Radio>
+        <RadioGroup.Radio value="bottom">Bottom</RadioGroup.Radio>
+      </RadioGroup>
       <Drawer open={open} onOpenChange={setOpen}>
-        <div className="flex gap-md">
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSide('right')}>Right</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSide('left')}>Left</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSide('top')}>Top</Button>
-          </Drawer.Trigger>
-
-          <Drawer.Trigger asChild>
-            <Button onClick={() => setSide('bottom')}>Bottom</Button>
-          </Drawer.Trigger>
-        </div>
+        <Drawer.Trigger asChild>
+          <Button>Open drawer</Button>
+        </Drawer.Trigger>
 
         <Drawer.Portal>
           <Drawer.Overlay />

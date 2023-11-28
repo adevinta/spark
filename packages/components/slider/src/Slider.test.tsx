@@ -13,6 +13,10 @@ describe('Slider', () => {
      * cf. https://github.com/radix-ui/primitives/blob/28bebf2c6992d056244845c898abeff45dec2871/packages/react/slider/src/Slider.tsx#L9C10-L9C17
      */
     mockResizeObserver()
+
+    Object.defineProperty(HTMLSpanElement.prototype, 'setPointerCapture', {
+      value: vi.fn(),
+    })
   })
 
   beforeEach(() => vi.clearAllMocks())
@@ -86,5 +90,29 @@ describe('Slider', () => {
      * more accuracy we'll need to add some integration tests (Cypress...).
      */
     expect(commit).toHaveBeenCalledWith([32])
+  })
+
+  it('should set data attribute based on event type', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <form>
+        <Slider name="form-slider" defaultValue={[25]}>
+          <Slider.Track />
+          <Slider.Thumb />
+        </Slider>
+      </form>
+    )
+
+    const thumb = screen.getByRole('slider')
+
+    await user.pointer({ keys: '[TouchA>]', target: thumb })
+    expect(thumb).toHaveAttribute('data-interaction', 'pointerdown')
+
+    await user.keyboard('{ArrowRight>}')
+    expect(thumb).toHaveAttribute('data-interaction', 'keydown')
+
+    thumb.blur()
+    expect(thumb).toHaveAttribute('data-interaction', 'blur')
   })
 })

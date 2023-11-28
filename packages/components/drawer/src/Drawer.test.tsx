@@ -16,12 +16,13 @@ describe('Drawer', () => {
         <Drawer.Portal>
           <Drawer.Overlay />
           <Drawer.Content>
-            <Drawer.Title>Edit profile</Drawer.Title>
-            <Drawer.Description>
-              Make changes to your profile here. Click save when you are done.
-            </Drawer.Description>
+            <Drawer.Header>
+              <Drawer.Title>Edit profile</Drawer.Title>
+            </Drawer.Header>
 
-            <p>Drawer contents</p>
+            <Drawer.Body>
+              <p>Drawer contents</p>
+            </Drawer.Body>
 
             <Drawer.CloseButton aria-label="Close edit profile" />
           </Drawer.Content>
@@ -34,5 +35,31 @@ describe('Drawer', () => {
     await user.click(screen.getByText('Edit profile'))
 
     expect(screen.getByText('Drawer contents')).toBeInTheDocument()
+  })
+
+  it('should handle the inset prop', () => {
+    render(
+      <Drawer defaultOpen>
+        <Drawer.Trigger asChild>
+          <button>Edit profile</button>
+        </Drawer.Trigger>
+
+        <Drawer.Portal>
+          <Drawer.Overlay />
+          <Drawer.Content>
+            <Drawer.Header>
+              <Drawer.Title>Edit profile</Drawer.Title>
+            </Drawer.Header>
+
+            <Drawer.Body inset>
+              <p>Drawer contents</p>
+            </Drawer.Body>
+            <Drawer.CloseButton aria-label="Close edit profile" />
+          </Drawer.Content>
+        </Drawer.Portal>
+      </Drawer>
+    )
+
+    expect(screen.getByText(/Drawer contents/i).parentElement).not.toHaveClass('px-xl py-lg')
   })
 })

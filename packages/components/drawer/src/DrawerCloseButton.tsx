@@ -25,7 +25,7 @@ export const DrawerCloseButton = forwardRef<CloseButtonElement, DrawerCloseButto
   ) => (
     <DrawerClose
       ref={ref}
-      className={cx(['absolute', 'top-sm', 'right-sm'], className)}
+      className={cx(['absolute', 'top-sm', 'right-xl'], className)}
       asChild
       {...rest}
     >

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/adevinta/spark/compare/@spark-ui/slider@1.0.2...@spark-ui/slider@1.0.3) (2023-11-10)
+
+### Bug Fixes
+
+- **slider:** focus and focus-styles management ([50a47e3](https://github.com/adevinta/spark/commit/50a47e34d6f8eb2b0039bc280b18f4339ca2c867))
+
 ## [1.0.2](https://github.com/adevinta/spark/compare/@spark-ui/slider@1.0.1...@spark-ui/slider@1.0.2) (2023-10-20)
 
 **Note:** Version bump only for package @spark-ui/slider

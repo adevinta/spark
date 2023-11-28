@@ -11,9 +11,14 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: webfactory/ssh-agent@v0.8.0
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_PRIVATE_KEY }}
+      - name: Add host
+        run: ssh-keyscan github.mpi-internal.com >> /home/runner/.ssh/known_hosts
+      - name: Restart user agent
+        run: eval "$(ssh-agent)"
       - name: Add remote internal repository url
         run: git remote add internal ${{ secrets.GH_ENTERPRISE_INTERNAL_SSH_REPOSITORY_URL }}
       - name: Push main to internal repository
