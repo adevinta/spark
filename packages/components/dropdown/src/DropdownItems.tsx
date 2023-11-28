@@ -3,7 +3,6 @@ import { ReactNode } from 'react'
 import { useDropdown } from './DropdownContext'
 
 interface ItemsProps {
-  // inline?: boolean // TODO: to disabled Popover wrapping and behaviour
   children: ReactNode
 }
 

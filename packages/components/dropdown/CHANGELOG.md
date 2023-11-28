@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.6.0...@spark-ui/dropdown@0.7.0) (2023-11-28)
+
+### Features
+
+- **dropdown:** dropdown label management ([ddfcec6](https://github.com/adevinta/spark/commit/ddfcec6442128af4a28e3b32ffab8d460bc7abae))
+
 # [0.6.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.5.0...@spark-ui/dropdown@0.6.0) (2023-11-24)
 
 ### Features

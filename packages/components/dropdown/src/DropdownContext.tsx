@@ -1,3 +1,5 @@
+import { useId } from '@radix-ui/react-id'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
 import { useSelect } from 'downshift'
 import {
@@ -29,10 +31,17 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
   const [computedItems, setComputedItems] = useState<ItemsMap>(new Map())
   const [hasPopover, setHasPopover] = useState<boolean>(false)
 
+  const field = useFormFieldControl()
+
+  const id = useId(field.id)
+  const labelId = useId(field.labelId)
+
   const downshift = useSelect({
     items: Array.from(computedItems.values()),
     isItemDisabled: item => item.disabled,
     itemToString: item => (item ? item.text : ''),
+    id,
+    labelId,
     // getA11yStatusMessage?: (options: A11yStatusMessageOptions<Item>) => string
     // getA11ySelectionMessage?: (options: A11yStatusMessageOptions<Item>) => string
     // highlightedIndex?: number
@@ -44,8 +53,6 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
     // selectedItem?: Item | null
     // initialSelectedItem?: Item | null
     // defaultSelectedItem?: Item | null
-    // id?: string
-    // labelId?: string
     // menuId?: string
     // toggleButtonId?: string
     // getItemId?: (index: number) => string
