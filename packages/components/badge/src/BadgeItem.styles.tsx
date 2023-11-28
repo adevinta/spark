@@ -7,6 +7,9 @@ export const styles = cva(
   ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full box-content'],
   {
     variants: {
+      /**
+       * Visual color appearance of the component.
+       */
       intent: makeVariants<
         'intent',
         [
@@ -33,10 +36,16 @@ export const styles = cva(
         surface: ['bg-surface', 'text-on-surface', 'border-on-surface'],
         basic: ['bg-basic', 'text-on-basic', 'border-on-basic'],
       }),
+      /**
+       * Size of the component.
+       */
       size: makeVariants<'size', ['sm', 'md']>({
         sm: ['text-small', 'px-[var(--sz-6)] py-[var(--sz-2)]', 'empty:h-sz-12 empty:w-sz-12'],
         md: ['text-caption', 'px-md py-sm', 'empty:h-sz-16 empty:w-sz-16'],
       }),
+      /**
+       * Type of the component.
+       */
       type: {
         relative: ['absolute right-none translate-x-2/4 -translate-y-2/4 border-md'],
         standalone: [],
