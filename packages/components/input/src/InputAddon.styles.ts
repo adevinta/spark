@@ -10,6 +10,9 @@ export const inputAddonStyles = cva(
   ],
   {
     variants: {
+      /**
+       * Change the component to the HTML tag or custom component of the only child.
+       */
       asChild: { false: ['flex', 'items-center', 'px-lg'] },
       intent: {
         neutral: 'border-outline',
@@ -17,12 +20,21 @@ export const inputAddonStyles = cva(
         alert: 'border-alert',
         success: 'border-success',
       },
+      /**
+       * Disable the input addon, preventing user interaction and adding opacity.
+       */
       disabled: {
         true: ['pointer-events-none !border-outline'],
       },
+      /**
+       * Changes input addon styles based on the read only status from the input.
+       */
       readOnly: {
         true: [],
       },
+      /**
+       * Main style of the input addon.
+       */
       design: {
         text: '',
         solid: '',

@@ -27,7 +27,13 @@ import { InputGroupContext } from './InputGroupContext'
 import { InputStateIndicator } from './InputStateIndicator'
 
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
+  /**
+   * Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
+   */
   state?: 'error' | 'alert' | 'success'
+  /**
+   * Function handler to be executed after the input has been cleared.
+   */
   onClear?: () => void
 }
 

@@ -2,6 +2,9 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const inputGroupStyles = cva(['relative inline-flex w-full'], {
   variants: {
+    /**
+     * When `true`, prevents the user from interacting.
+     */
     disabled: {
       true: [
         'cursor-not-allowed',
@@ -15,6 +18,9 @@ export const inputGroupStyles = cva(['relative inline-flex w-full'], {
       ],
       false: 'after:hidden',
     },
+    /**
+     * Sets the component as interactive or not.
+     */
     readOnly: {
       true: [
         'relative',

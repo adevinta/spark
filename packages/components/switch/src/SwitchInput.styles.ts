@@ -15,10 +15,16 @@ export const styles = cva(
   ]),
   {
     variants: {
+      /**
+       * Size of the switch input.
+       */
       size: makeVariants<'size', ['sm', 'md']>({
         sm: tw(['h-sz-24', 'w-sz-40', 'border-md']),
         md: tw(['h-sz-32', 'w-sz-56', 'border-[4px]']),
       }),
+      /**
+       * Color scheme of the switch input.
+       */
       intent: makeVariants<
         'intent',
         ['main', 'support', 'accent', 'basic', 'success', 'alert', 'error', 'info', 'neutral']
