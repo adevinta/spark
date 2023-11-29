@@ -1,13 +1,9 @@
-import { ReactNode } from 'react'
+import { type DropdownContextProps, DropdownProvider } from './DropdownContext'
 
-import { DropdownProvider } from './DropdownContext'
+export type DropdownProps = DropdownContextProps
 
-export interface DropdownProps {
-  children: ReactNode
-}
-
-export const Dropdown = ({ children }: DropdownProps) => {
-  return <DropdownProvider>{children}</DropdownProvider>
+export const Dropdown = ({ children, ...props }: DropdownProps) => {
+  return <DropdownProvider {...props}>{children}</DropdownProvider>
 }
 
 Dropdown.displayName = 'Dropdown'

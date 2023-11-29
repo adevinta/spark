@@ -83,3 +83,13 @@ export const getItemText = (children: ReactNode, itemText = ''): string => {
 
   return itemText
 }
+
+export const getItemsFromChildren = (children: ReactNode): ItemsMap => {
+  const newMap: ItemsMap = new Map()
+
+  getOrderedItems(children).forEach(itemData => {
+    newMap.set(itemData.value, itemData)
+  })
+
+  return newMap
+}
