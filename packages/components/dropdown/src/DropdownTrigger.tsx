@@ -3,7 +3,7 @@ import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { cx } from 'class-variance-authority'
 import { Fragment, ReactNode } from 'react'
 
-import { useDropdown } from './DropdownContext'
+import { useDropdownContext } from './DropdownContext'
 
 interface TriggerProps {
   'aria-label'?: string
@@ -12,7 +12,7 @@ interface TriggerProps {
 }
 
 export const Trigger = ({ 'aria-label': ariaLabel, children, className }: TriggerProps) => {
-  const { isOpen, getToggleButtonProps, getLabelProps, hasPopover } = useDropdown()
+  const { isOpen, getToggleButtonProps, getLabelProps, hasPopover } = useDropdownContext()
 
   const [WrapperComponent, wrapperProps] = hasPopover
     ? [Popover.Trigger, { asChild: true }]

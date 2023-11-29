@@ -115,11 +115,11 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
   )
 }
 
-export const useDropdown = () => {
+export const useDropdownContext = () => {
   const context = useContext(DropdownContext)
 
   if (!context) {
-    throw Error('useDropdown must be used within a Dropdown provider')
+    throw Error('useDropdownContext must be used within a Dropdown provider')
   }
 
   return context

@@ -1,10 +1,10 @@
 import { cx } from 'class-variance-authority'
 
-export interface ItemProps {
+export interface ItemTextProps {
   children: string
 }
 
-export const ItemText = ({ children }: ItemProps) => {
+export const ItemText = ({ children }: ItemTextProps) => {
   return <span className={cx('inline')}>{children}</span>
 }
 
