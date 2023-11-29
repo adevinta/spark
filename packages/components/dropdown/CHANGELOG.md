@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.7.0...@spark-ui/dropdown@0.8.0) (2023-11-29)
+
+### Features
+
+- **dropdown:** add ExtendedArgTypes for documenting Dropdown sub-components ([866b309](https://github.com/adevinta/spark/commit/866b3097cb0ca17cb303523fd85b75799ebaba1e))
+
 # [0.7.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.6.0...@spark-ui/dropdown@0.7.0) (2023-11-28)
 
 ### Features
