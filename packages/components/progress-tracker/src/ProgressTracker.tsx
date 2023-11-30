@@ -1,9 +1,22 @@
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
-export type ProgressTrackerProps = ComponentPropsWithoutRef<'div'>
+import { ProgressTrackerProvider } from './ProgressTrackerContext'
+
+export type ProgressTrackerProps = ComponentPropsWithoutRef<'div'> & {
+  mode: 'display' | 'interactive'
+  activeStep?: number
+}
 
 export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<ProgressTrackerProps>>(
-  (props, ref) => {
-    return <div ref={ref} {...props} />
+  ({ activeStep = 0, mode, children, ...rest }, ref) => {
+    const RootElement = mode === 'display' ? 'div' : 'nav'
+
+    return (
+      <ProgressTrackerProvider value={{ activeStep }}>
+        <RootElement ref={ref} {...rest}>
+          <ul>{children}</ul>
+        </RootElement>
+      </ProgressTrackerProvider>
+    )
   }
 )
