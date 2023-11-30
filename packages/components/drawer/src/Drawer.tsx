@@ -5,23 +5,23 @@ export interface DrawerProps {
   /**
    * Children of the component.
    */
-  children?: RadixDialog.DialogProps['children']
+  children?: RadixDrawer.DialogProps['children']
   /**
    * Specifies if the dialog is open or not.
    */
-  open?: RadixDialog.DialogProps['open']
+  open?: RadixDrawer.DialogProps['open']
   /**
    * Default open state.
    */
-  defaultOpen?: RadixDialog.DialogProps['defaultOpen']
+  defaultOpen?: RadixDrawer.DialogProps['defaultOpen']
   /**
    * Handler executen on every dialog open state change.
    */
-  onOpenChange?: RadixDialog.DialogProps['onOpenChange']
+  onOpenChange?: RadixDrawer.DialogProps['onOpenChange']
   /**
    * Specifies if the dialog is a modal.
    */
-  modal?: RadixDialog.DialogProps['modal']
+  modal?: RadixDrawer.DialogProps['modal']
 }
 
 export interface DialogProps {
