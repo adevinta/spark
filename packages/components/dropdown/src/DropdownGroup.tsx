@@ -1,7 +1,7 @@
 import { cx } from 'class-variance-authority'
 import { ReactNode } from 'react'
 
-import { DropdownGroupProvider, useDropdownGroup } from './DropdownItemsGroupContext'
+import { DropdownGroupProvider, useDropdownGroupContext } from './DropdownItemsGroupContext'
 
 interface GroupProps {
   children: ReactNode
@@ -17,7 +17,7 @@ export const Group = ({ children, ...props }: GroupProps) => {
 }
 
 const GroupContent = ({ children, className }: GroupProps) => {
-  const { labelId } = useDropdownGroup()
+  const { labelId } = useDropdownGroupContext()
 
   return (
     <div role="group" aria-labelledby={labelId} className={cx(className)}>

@@ -1,14 +1,13 @@
 import { ReactNode } from 'react'
 
-import { useDropdown } from './DropdownContext'
+import { useDropdownContext } from './DropdownContext'
 
 interface ItemsProps {
-  // inline?: boolean // TODO: to disabled Popover wrapping and behaviour
   children: ReactNode
 }
 
 export const Items = ({ children }: ItemsProps) => {
-  const { isOpen, getMenuProps } = useDropdown()
+  const { isOpen, getMenuProps } = useDropdownContext()
 
   return (
     <ul

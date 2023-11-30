@@ -1,3 +1,5 @@
+import { useId } from '@radix-ui/react-id'
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
 import { useSelect } from 'downshift'
 import {
@@ -5,7 +7,6 @@ import {
   Dispatch,
   Fragment,
   PropsWithChildren,
-  ReactNode,
   SetStateAction,
   useContext,
   useEffect,
@@ -13,7 +14,7 @@ import {
 } from 'react'
 
 import { type DownshiftState, type DropdownItem, type ItemsMap } from './types'
-import { getElementByIndex, getOrderedItems } from './utils'
+import { getElementByIndex, getItemsFromChildren } from './utils'
 export interface DropdownContextState extends DownshiftState {
   computedItems: ItemsMap
   highlightedItem: DropdownItem | undefined
@@ -21,44 +22,78 @@ export interface DropdownContextState extends DownshiftState {
   setHasPopover: Dispatch<SetStateAction<boolean>>
 }
 
-type DropdownContextProps = PropsWithChildren
+export type DropdownContextProps = PropsWithChildren<{
+  /**
+   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
+   */
+  defaultValue?: string
+  /**
+   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
+   */
+  value?: string
+  /**
+   * Event handler called when the value changes.
+   */
+  onValueChange?: (value: string) => void
+  /**
+   * The controlled open state of the select. Must be used in conjunction with `onOpenChange`.
+   */
+  open?: boolean
+  /**
+   * Event handler called when the open state of the select changes.
+   */
+  onOpenChange?: (isOpen: boolean) => void
+  /**
+   * The open state of the select when it is initially rendered. Use when you do not need to control its open state.
+   */
+  defaultOpen?: boolean
+}>
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
 
-export const DropdownProvider = ({ children }: DropdownContextProps) => {
-  const [computedItems, setComputedItems] = useState<ItemsMap>(new Map())
+export const DropdownProvider = ({
+  children,
+  defaultValue,
+  value,
+  onValueChange,
+  open,
+  onOpenChange,
+  defaultOpen,
+}: DropdownContextProps) => {
+  const [computedItems, setComputedItems] = useState<ItemsMap>(getItemsFromChildren(children))
   const [hasPopover, setHasPopover] = useState<boolean>(false)
+
+  const field = useFormFieldControl()
+
+  const id = useId(field.id)
+  const labelId = useId(field.labelId)
+
+  const controlledSelectedItem = value ? computedItems.get(value) : undefined
+  const controlledDefaultSelectedItem = defaultValue ? computedItems.get(defaultValue) : undefined
+  const controlledDefaultOpen = defaultOpen != null ? defaultOpen : false
 
   const downshift = useSelect({
     items: Array.from(computedItems.values()),
     isItemDisabled: item => item.disabled,
     itemToString: item => (item ? item.text : ''),
-    // getA11yStatusMessage?: (options: A11yStatusMessageOptions<Item>) => string
-    // getA11ySelectionMessage?: (options: A11yStatusMessageOptions<Item>) => string
-    // highlightedIndex?: number
-    // initialHighlightedIndex?: number
-    // defaultHighlightedIndex?: number
-    // isOpen?: boolean
-    // initialIsOpen?: boolean
-    // defaultIsOpen?: boolean
-    // selectedItem?: Item | null
-    // initialSelectedItem?: Item | null
-    // defaultSelectedItem?: Item | null
-    // id?: string
-    // labelId?: string
-    // menuId?: string
-    // toggleButtonId?: string
-    // getItemId?: (index: number) => string
-    // scrollIntoView?: (node: HTMLElement, menuNode: HTMLElement) => void
-    // stateReducer?: (
-    //   state: UseSelectState<Item>,
-    //   actionAndChanges: UseSelectStateChangeOptions<Item>,
-    // ) => Partial<UseSelectState<Item>>
-    // onSelectedItemChange?: (changes: UseSelectStateChange<Item>) => void
-    // onIsOpenChange?: (changes: UseSelectStateChange<Item>) => void
-    // onHighlightedIndexChange?: (changes: UseSelectStateChange<Item>) => void
-    // onStateChange?: (changes: UseSelectStateChange<Item>) => void
-    // environment?: Environment
+    // a11y attributes
+    id,
+    labelId,
+    // Controlled mode (stateful)
+    selectedItem: controlledSelectedItem,
+    initialSelectedItem: controlledDefaultSelectedItem,
+    onSelectedItemChange: ({ selectedItem }) => {
+      if (selectedItem?.value) {
+        onValueChange?.(selectedItem?.value)
+      }
+    },
+    isOpen: open,
+    onIsOpenChange: ({ isOpen }) => {
+      if (isOpen != null) {
+        onOpenChange?.(isOpen)
+      }
+    },
+    initialIsOpen: controlledDefaultOpen,
   })
 
   /**
@@ -72,18 +107,10 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
    *
    * Downshift is heavily indices based for keyboard navigation, so it it important.
    */
-  const syncItems = ({ children }: { children: ReactNode }) => {
-    const newMap: ItemsMap = new Map()
-
-    getOrderedItems(children).forEach(itemData => {
-      newMap.set(itemData.value, itemData)
-    })
+  useEffect(() => {
+    const newMap = getItemsFromChildren(children)
 
     setComputedItems(newMap)
-  }
-
-  useEffect(() => {
-    syncItems({ children })
   }, [children])
 
   /**
@@ -108,11 +135,11 @@ export const DropdownProvider = ({ children }: DropdownContextProps) => {
   )
 }
 
-export const useDropdown = () => {
+export const useDropdownContext = () => {
   const context = useContext(DropdownContext)
 
   if (!context) {
-    throw Error('useDropdown must be used within a Dropdown provider')
+    throw Error('useDropdownContext must be used within a Dropdown provider')
   }
 
   return context

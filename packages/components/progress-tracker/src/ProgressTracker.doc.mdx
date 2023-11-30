@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { ProgressTracker } from '.'
+
+import * as stories from './ProgressTracker.stories'
+
+<Meta of={stories} />
+
+# ProgressTracker
+
+A progress tracker component is a visual navigation element typically used to display progress or guide user through a multi-step process.
+
+## Install
+
+```sh
+npm install @spark-ui/progress-tracker
+```
+
+## Import
+
+```tsx
+import { ProgressTracker } from "@spark-ui/progress-tracker"
+```
+
+## Props
+
+<ArgTypes of={ProgressTracker} />
+
+## Variants
+<Canvas of={stories.Default} />

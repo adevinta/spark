@@ -17,11 +17,11 @@ export const DropdownGroupProvider = ({ children }: DropdownContextProps) => {
   )
 }
 
-export const useDropdownGroup = () => {
+export const useDropdownGroupContext = () => {
   const context = useContext(DropdownGroupContext)
 
   if (!context) {
-    throw Error('useDropdownGroup must be used within a DropdownGroup provider')
+    throw Error('useDropdownGroupContext must be used within a DropdownGroup provider')
   }
 
   return context
