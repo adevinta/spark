@@ -13,16 +13,21 @@ export interface ItemProps {
 }
 
 export const Item = ({ className, disabled = false, value, children }: ItemProps) => {
-  const { computedItems, selectedItem, getItemProps, highlightedItem } = useDropdownContext()
+  const { multiple, computedItems, selectedItem, selectedItems, getItemProps, highlightedItem } =
+    useDropdownContext()
 
   const index = getIndexByKey(computedItems, value)
   const itemData: DropdownItem = { disabled, value, text: getItemText(children) }
+
+  const isSelected = multiple
+    ? selectedItems.some(selectedItem => selectedItem.value === value)
+    : selectedItem?.value === value
 
   return (
     <li
       className={cx(
         highlightedItem?.value === value && 'bg-basic-container',
-        selectedItem?.value === value && 'font-bold',
+        isSelected && 'font-bold',
         disabled && 'opacity-dim-3',
         'rounded-sm px-md py-sm text-body-1',
         className

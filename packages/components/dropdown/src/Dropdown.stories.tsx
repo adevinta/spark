@@ -222,3 +222,26 @@ export const FormFieldLabel: StoryFn = _args => {
     </div>
   )
 }
+
+export const MultipleSelection: StoryFn = _args => {
+  return (
+    <div className="w-sz-480 pb-[300px]">
+      <Dropdown multiple>
+        <Dropdown.Trigger aria-label="Book">
+          <Dropdown.Value placeholder="Pick a book" />
+        </Dropdown.Trigger>
+
+        <Dropdown.Popover>
+          <Dropdown.Items>
+            <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
+            <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+            <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
+            <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
+            <Dropdown.Item value="book-5">1984</Dropdown.Item>
+            <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
+          </Dropdown.Items>
+        </Dropdown.Popover>
+      </Dropdown>
+    </div>
+  )
+}

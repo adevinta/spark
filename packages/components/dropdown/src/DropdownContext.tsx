@@ -1,7 +1,7 @@
 import { useId } from '@radix-ui/react-id'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
-import { useSelect } from 'downshift'
+import { useMultipleSelection, useSelect, UseSelectState } from 'downshift'
 import {
   createContext,
   Dispatch,
@@ -20,6 +20,7 @@ export interface DropdownContextState extends DownshiftState {
   highlightedItem: DropdownItem | undefined
   hasPopover: boolean
   setHasPopover: Dispatch<SetStateAction<boolean>>
+  multiple: boolean
 }
 
 export type DropdownContextProps = PropsWithChildren<{
@@ -47,6 +48,7 @@ export type DropdownContextProps = PropsWithChildren<{
    * The open state of the select when it is initially rendered. Use when you do not need to control its open state.
    */
   defaultOpen?: boolean
+  multiple?: boolean
 }>
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
@@ -59,6 +61,7 @@ export const DropdownProvider = ({
   open,
   onOpenChange,
   defaultOpen,
+  multiple = false,
 }: DropdownContextProps) => {
   const [computedItems, setComputedItems] = useState<ItemsMap>(getItemsFromChildren(children))
   const [hasPopover, setHasPopover] = useState<boolean>(false)
@@ -72,6 +75,10 @@ export const DropdownProvider = ({
   const controlledDefaultSelectedItem = defaultValue ? computedItems.get(defaultValue) : undefined
   const controlledDefaultOpen = defaultOpen != null ? defaultOpen : false
 
+  const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
+    // initialSelectedItems: [controlledDefaultSelectedItem as DropdownItem],
+  })
+
   const downshift = useSelect({
     items: Array.from(computedItems.values()),
     isItemDisabled: item => item.disabled,
@@ -80,7 +87,7 @@ export const DropdownProvider = ({
     id,
     labelId,
     // Controlled mode (stateful)
-    selectedItem: controlledSelectedItem,
+    selectedItem: controlledSelectedItem, // todo: set to null for multiple selection
     initialSelectedItem: controlledDefaultSelectedItem,
     onSelectedItemChange: ({ selectedItem }) => {
       if (selectedItem?.value) {
@@ -94,6 +101,34 @@ export const DropdownProvider = ({
       }
     },
     initialIsOpen: controlledDefaultOpen,
+    ...(multiple && {
+      stateReducer: (state: UseSelectState<DropdownItem>, { changes, type }) => {
+        switch (type) {
+          case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+          case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
+          case useSelect.stateChangeTypes.ItemClick:
+            if (changes.selectedItem != null) {
+              const isAlreadySelected = downshiftMultipleSelection.selectedItems.some(
+                selectedItem => selectedItem.value === changes.selectedItem?.value
+              )
+
+              if (isAlreadySelected) {
+                downshiftMultipleSelection.removeSelectedItem(changes.selectedItem)
+              } else {
+                downshiftMultipleSelection.addSelectedItem(changes.selectedItem)
+              }
+            }
+
+            return {
+              ...changes,
+              isOpen: true, // keep the menu open after selection.
+              highlightedIndex: state.highlightedIndex, // preserve highlighted index position
+            }
+          default:
+            return changes
+        }
+      },
+    }),
   })
 
   /**
@@ -123,7 +158,9 @@ export const DropdownProvider = ({
   return (
     <DropdownContext.Provider
       value={{
+        multiple,
         ...downshift,
+        ...downshiftMultipleSelection,
         computedItems,
         highlightedItem: getElementByIndex(computedItems, downshift.highlightedIndex),
         hasPopover,
