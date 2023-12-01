@@ -16,7 +16,7 @@ export default meta
 
 export const Default: StoryFn = _args => {
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <Dropdown>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.LeadingIcon>
@@ -44,7 +44,7 @@ export const Controlled: StoryFn = () => {
   const [value, setValue] = useState('book-1')
 
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <Dropdown value={value} onValueChange={setValue}>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />
@@ -66,7 +66,7 @@ export const Controlled: StoryFn = () => {
 }
 
 export const ControlledOpenState: StoryFn = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   return (
     <div className="flex flex-col gap-lg">
@@ -79,7 +79,7 @@ export const ControlledOpenState: StoryFn = () => {
         </Button>
       </div>
 
-      <div className="w-sz-480 pb-[300px]">
+      <div className="pb-[300px]">
         <Dropdown open={open} onOpenChange={setOpen}>
           <Dropdown.Trigger aria-label="Book">
             <Dropdown.Value placeholder="Pick a book" />
@@ -103,7 +103,7 @@ export const ControlledOpenState: StoryFn = () => {
 
 export const CustomItem: StoryFn = _args => {
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <Dropdown>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />
@@ -144,7 +144,7 @@ export const CustomItem: StoryFn = _args => {
 
 export const DisabledItem: StoryFn = _args => {
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <Dropdown>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />
@@ -169,7 +169,7 @@ export const DisabledItem: StoryFn = _args => {
 
 export const Grouped: StoryFn = _args => {
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <Dropdown>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />
@@ -200,7 +200,7 @@ export const Grouped: StoryFn = _args => {
 
 export const FormFieldLabel: StoryFn = _args => {
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <FormField>
         <FormField.Label>Book</FormField.Label>
         <Dropdown>
@@ -225,7 +225,7 @@ export const FormFieldLabel: StoryFn = _args => {
 
 export const MultipleSelection: StoryFn = _args => {
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <Dropdown multiple>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />

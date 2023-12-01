@@ -34,6 +34,7 @@ export const Item = ({ className, disabled = false, value, children }: ItemProps
       )}
       key={value}
       {...getItemProps({ item: itemData, index })}
+      aria-selected={isSelected}
     >
       {children}
     </li>
