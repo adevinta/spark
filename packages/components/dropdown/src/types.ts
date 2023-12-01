@@ -1,4 +1,4 @@
-import { type UseSelectReturnValue } from 'downshift'
+import { UseMultipleSelectionReturnValue, type UseSelectReturnValue } from 'downshift'
 
 export interface DropdownItem {
   disabled: boolean
@@ -8,4 +8,5 @@ export interface DropdownItem {
 
 export type ItemsMap = Map<string, DropdownItem>
 
-export type DownshiftState = UseSelectReturnValue<DropdownItem>
+export type DownshiftState = UseSelectReturnValue<DropdownItem> &
+  UseMultipleSelectionReturnValue<DropdownItem>

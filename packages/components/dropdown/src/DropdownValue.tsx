@@ -10,11 +10,15 @@ export interface ValueProps {
 }
 
 export const Value = ({ children, className, placeholder }: ValueProps) => {
-  const { selectedItem } = useDropdownContext()
+  const { selectedItem, multiple, selectedItems } = useDropdownContext()
+
+  const hasSelectedItems = !!(multiple ? selectedItems.length : selectedItem)
+
+  const text = multiple ? selectedItems[0]?.text : selectedItem?.text
 
   return (
     <span className={cx('text-neutral', className)}>
-      {!selectedItem ? placeholder : children || selectedItem?.text}
+      {!hasSelectedItems ? placeholder : children || text}
     </span>
   )
 }
