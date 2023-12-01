@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.9.0...@spark-ui/dropdown@0.10.0) (2023-12-01)
+
+### Features
+
+- **dropdown:** add leadingIcon ([fbbc9e3](https://github.com/adevinta/spark/commit/fbbc9e374d9f97b73b6bb840467793a19d98d7ca))
+
 # [0.9.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.8.0...@spark-ui/dropdown@0.9.0) (2023-11-29)
 
 ### Features
