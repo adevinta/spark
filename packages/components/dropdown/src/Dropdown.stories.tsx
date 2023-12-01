@@ -1,5 +1,6 @@
 import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
+import { Book } from '@spark-ui/icons/dist/icons/Book'
 import { Tag } from '@spark-ui/tag'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
@@ -18,6 +19,9 @@ export const Default: StoryFn = _args => {
     <div className="w-sz-480 pb-[300px]">
       <Dropdown>
         <Dropdown.Trigger aria-label="Book">
+          <Dropdown.LeadingIcon>
+            <Book />
+          </Dropdown.LeadingIcon>
           <Dropdown.Value placeholder="Pick a book" />
         </Dropdown.Trigger>
 
