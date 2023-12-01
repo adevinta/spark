@@ -203,6 +203,45 @@ describe('Dropdown', () => {
       // Then placeholder is replaced by a custom value
       expect(getTrigger('Book')).toHaveTextContent('You have selected a book')
     })
+
+    it('should display text in trigger when selecting an item with custom markup', async () => {
+      const user = userEvent.setup()
+
+      // Given a dropdown with no selected value yet and custom items markup
+      render(
+        <Dropdown>
+          <Dropdown.Trigger aria-label="Book">
+            <Dropdown.Value placeholder="Pick a book" />
+          </Dropdown.Trigger>
+          <Dropdown.Popover>
+            <Dropdown.Items>
+              <Dropdown.Item value="book-1">
+                <span>New:</span>
+                <Dropdown.ItemText>War and Peace</Dropdown.ItemText>
+              </Dropdown.Item>
+              <Dropdown.Item value="book-2">
+                <span>New:</span>
+                <Dropdown.ItemText>1984</Dropdown.ItemText>
+              </Dropdown.Item>
+              <Dropdown.Item value="book-3">
+                <span>New:</span>
+                <Dropdown.ItemText>Pride and Prejudice</Dropdown.ItemText>
+              </Dropdown.Item>
+            </Dropdown.Items>
+          </Dropdown.Popover>
+        </Dropdown>
+      )
+
+      // Then placeholder should be displayed
+      expect(getTrigger('Book')).toHaveTextContent('Pick a book')
+
+      // When the user select an item
+      await user.click(getTrigger('Book'))
+      await user.click(getItem('Pride and Prejudice'))
+
+      // Then placeholder is replaced by the raw text value
+      expect(getTrigger('Book')).toHaveTextContent('Pride and Prejudice')
+    })
   })
 
   describe('single selection', () => {

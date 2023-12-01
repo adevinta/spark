@@ -2,6 +2,7 @@ import { cx } from 'class-variance-authority'
 import { ReactNode } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
+import { DropdownItemProvider, useDropdownItemContext } from './DropdownItemContext'
 import { DropdownItem } from './types'
 import { getIndexByKey, getItemText } from './utils'
 
@@ -12,9 +13,19 @@ export interface ItemProps {
   className?: string
 }
 
-export const Item = ({ className, disabled = false, value, children }: ItemProps) => {
+export const Item = ({ children, ...props }: ItemProps) => {
+  return (
+    <DropdownItemProvider>
+      <ItemContent {...props}>{children}</ItemContent>
+    </DropdownItemProvider>
+  )
+}
+
+const ItemContent = ({ className, disabled = false, value, children }: ItemProps) => {
   const { multiple, computedItems, selectedItem, selectedItems, getItemProps, highlightedItem } =
     useDropdownContext()
+
+  const { textId } = useDropdownItemContext()
 
   const index = getIndexByKey(computedItems, value)
   const itemData: DropdownItem = { disabled, value, text: getItemText(children) }
@@ -35,6 +46,7 @@ export const Item = ({ className, disabled = false, value, children }: ItemProps
       key={value}
       {...getItemProps({ item: itemData, index })}
       aria-selected={isSelected}
+      aria-labelledby={textId}
     >
       {children}
     </li>
