@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks';
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { ProgressTracker } from '.'
 
@@ -20,12 +20,24 @@ npm install @spark-ui/progress-tracker
 ## Import
 
 ```tsx
-import { ProgressTracker } from "@spark-ui/progress-tracker"
+import { ProgressTracker } from '@spark-ui/progress-tracker'
 ```
 
 ## Props
 
-<ArgTypes of={ProgressTracker} />
+<ArgTypes
+  of={ProgressTracker}
+  description="Contains all the progress tracker component parts."
+  subcomponents={{
+    'ProgressTracker.Step': {
+      of: ProgressTracker.Step,
+      description: 'Contains the button associated to a step',
+    },
+  }}
+/>
 
-## Variants
+## Usage
+
+### Default
+
 <Canvas of={stories.Default} />
