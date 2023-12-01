@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.10.0...@spark-ui/dropdown@0.11.0) (2023-12-01)
+
+### Bug Fixes
+
+- **dropdown:** fixed itemText not properly linked to item by ariaLabelledby ([56af96c](https://github.com/adevinta/spark/commit/56af96c89e0cbc3b065cf96f0f6b6ee4d9cb8d01))
+
+### Features
+
+- **dropdown:** multiple selection dropdown ([fe6fa7f](https://github.com/adevinta/spark/commit/fe6fa7fa9ef37a07fe0133de3081b164edc6ae5e))
+
 # [0.10.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.9.0...@spark-ui/dropdown@0.10.0) (2023-12-01)
 
 ### Features
