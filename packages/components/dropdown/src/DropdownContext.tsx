@@ -73,7 +73,7 @@ export const DropdownProvider = ({
 
   const controlledSelectedItem = value ? computedItems.get(value) : undefined
   const controlledDefaultSelectedItem = defaultValue ? computedItems.get(defaultValue) : undefined
-  const controlledDefaultOpen = defaultOpen != null ? defaultOpen : false
+  const controlledDefaultOpen = defaultOpen ?? false
 
   const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
     // initialSelectedItems: [controlledDefaultSelectedItem as DropdownItem],
