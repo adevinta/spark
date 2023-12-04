@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/input",
-  "version": "1.5.9",
+  "version": "1.5.10",
   "description": "Component used to get user input in a text field",
   "publishConfig": {
     "access": "public"
@@ -25,7 +25,7 @@
   "dependencies": {
     "@spark-ui/form-field": "^1.4.0",
     "@spark-ui/icon": "^2.1.0",
-    "@spark-ui/icons": "^1.21.3",
+    "@spark-ui/icons": "^1.21.4",
     "@spark-ui/slot": "^1.7.0",
     "@spark-ui/use-combined-state": "^0.6.2",
     "@spark-ui/use-merge-refs": "^0.4.0",
