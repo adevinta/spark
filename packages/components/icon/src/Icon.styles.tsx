@@ -3,6 +3,9 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const iconStyles = cva(['fill-current'], {
   variants: {
+    /**
+     * Color scheme of the icon.
+     */
     intent: makeVariants<
       'intent',
       [
@@ -29,6 +32,9 @@ export const iconStyles = cva(['fill-current'], {
       info: ['text-info'],
       neutral: ['text-neutral'],
     }),
+    /**
+     * Sets the size of the icon.
+     */
     size: makeVariants<'size', ['current', 'sm', 'md', 'lg', 'xl']>({
       current: ['u-current-font-size'],
       sm: ['w-sz-16', 'h-sz-16'],

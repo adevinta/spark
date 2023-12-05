@@ -22,7 +22,7 @@ export interface ChipProps
    */
   asChild?: boolean
   /**
-   * event handler fired each clicking event
+   * Event handler fired each clicking event
    */
   onClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,

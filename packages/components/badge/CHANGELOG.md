@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.1.1...@spark-ui/badge@2.1.2) (2023-12-05)
+
+**Note:** Version bump only for package @spark-ui/badge
+
 ## [2.1.1](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.1.0...@spark-ui/badge@2.1.1) (2023-10-06)
 
 ### Bug Fixes
