@@ -3,6 +3,9 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const iconButtonStyles = cva(['px-none'], {
   variants: {
+    /**
+     * Sets the size of the icon.
+     */
     size: makeVariants<'size', ['sm', 'md', 'lg']>({
       sm: ['text-body-1'],
       md: ['text-body-1'],

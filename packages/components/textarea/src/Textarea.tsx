@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
 export interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
   /**
-   * If false, the textarea won't be resizable.
+   * If `false`, the textarea won't be resizable.
    */
   isResizable?: boolean
 }

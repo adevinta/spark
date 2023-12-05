@@ -21,10 +21,16 @@ export const inputStyles = cva(
   ],
   {
     variants: {
+      /**
+       * Change the component to the HTML tag or custom component of the only child.
+       */
       asChild: {
         true: ['min-h-sz-44'],
         false: ['h-sz-44'],
       },
+      /**
+       * Color scheme of the button.
+       */
       intent: {
         neutral: [
           'border-outline',
@@ -35,19 +41,34 @@ export const inputStyles = cva(
         alert: ['border-alert', 'focus:ring-alert'],
         error: ['border-error', 'focus:ring-error'],
       },
+      /**
+       * Sets if there is an addon before the input text.
+       */
       hasLeadingAddon: {
         true: ['rounded-l-none'],
         false: ['rounded-l-lg'],
       },
+      /**
+       * Sets if there is an addon after the input text.
+       */
       hasTrailingAddon: {
         true: ['rounded-r-none'],
         false: ['rounded-r-lg'],
       },
+      /**
+       * Sets if there is an icon before the input text.
+       */
       hasLeadingIcon: {
         true: ['pl-3xl'],
         false: ['pl-lg'],
       },
+      /**
+       * Sets if there is an icon after the input text.
+       */
       hasTrailingIcon: { true: '' },
+      /**
+       * Sets if there is a button to clear the input text.
+       */
       hasClearButton: { true: '' },
     },
     compoundVariants: [

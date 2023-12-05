@@ -25,6 +25,9 @@ export interface ButtonProps
    * **Please note that using this can result in layout shifting when the Button goes from loading state to normal state.**
    */
   loadingText?: string
+  /**
+   * Placement for the spinner.
+   */
   spinnerPlacement?: 'left' | 'right'
 }
 
