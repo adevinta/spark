@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
@@ -367,8 +368,8 @@ describe('Dropdown', () => {
       await user.click(getItem('1984'))
       await user.click(getItem('Pride and Prejudice'))
 
-      // Then placeholder is replaced by the selected value
-      expect(getTrigger('Book')).toHaveTextContent('1984')
+      // Then placeholder is replaced by the selected value and suffix indicating remaining items
+      expect(getTrigger('Book')).toHaveTextContent('1984, +1')
 
       // Then the proper items are selected
       expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'false')
@@ -405,6 +406,7 @@ describe('Dropdown', () => {
       await user.keyboard('[ArrowDown][Enter]')
 
       // Then all items are selected
+      expect(getTrigger('Book')).toHaveTextContent('War and Peace, +2')
       expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
       expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')

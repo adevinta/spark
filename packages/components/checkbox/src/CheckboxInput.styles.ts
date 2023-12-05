@@ -11,6 +11,9 @@ export const checkboxInputStyles = cva(
   ],
   {
     variants: {
+      /**
+       * Color scheme of the checkbox.
+       */
       intent: makeVariants<
         'intent',
         ['main', 'support', 'accent', 'basic', 'success', 'alert', 'error', 'info', 'neutral']

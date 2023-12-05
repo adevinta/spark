@@ -15,6 +15,9 @@ export const radioInputVariants = cva(
   ],
   {
     variants: {
+      /**
+       * Color scheme of the radio input.
+       */
       intent: makeVariants<
         'intent',
         ['main', 'support', 'accent', 'basic', 'success', 'alert', 'error', 'info', 'neutral']
