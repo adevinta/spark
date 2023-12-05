@@ -3,7 +3,7 @@ import { createContext, type Dispatch, type SetStateAction, useContext } from 'r
 import type { ProgressTrackerProps } from './ProgressTracker'
 
 export type ProgressTrackerContextInterface = Required<
-  Pick<ProgressTrackerProps, 'stepIndex' | 'onStepClick'>
+  Pick<ProgressTrackerProps, 'stepIndex' | 'onStepClick' | 'size'>
 > & {
   steps: Set<string>
   setSteps: Dispatch<SetStateAction<Set<string>>>

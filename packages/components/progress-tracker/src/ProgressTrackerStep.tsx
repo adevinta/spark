@@ -9,7 +9,13 @@ export type ProgressTrackerStepProps = ComponentPropsWithoutRef<'li'> & {
 
 export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStepProps>(
   ({ label, className, ...rest }, ref) => {
-    const { stepIndex: activeStepIndex, steps, onStepClick, setSteps } = useProgressTrackerContext()
+    const {
+      stepIndex: activeStepIndex,
+      steps,
+      onStepClick,
+      setSteps,
+      size,
+    } = useProgressTrackerContext()
 
     const ID = useId()
     const stepId = `step-${ID}`
@@ -24,11 +30,11 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
     )
 
     return (
-      <li id={stepId} ref={ref} {...rest} className={stepWrapperVariant()}>
+      <li id={stepId} ref={ref} {...rest} className={stepWrapperVariant({ size })}>
         <button
           type="button"
           onClick={() => onStepClick(stepId)}
-          className={stepButtonVariant({ active: isActive, className })}
+          className={stepButtonVariant({ active: isActive, size, className })}
         >
           {label && <span className="block text-body-2 font-bold text-on-surface">{label}</span>}
         </button>
