@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.11.2...@spark-ui/dropdown@0.12.0) (2023-12-05)
+
+### Features
+
+- **dropdown:** display number of selected items in cta ([bf6ceec](https://github.com/adevinta/spark/commit/bf6ceecefaf87f2bcbc5edc25877e1e20a8dad3e))
+
 ## [0.11.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.11.1...@spark-ui/dropdown@0.11.2) (2023-12-05)
 
 **Note:** Version bump only for package @spark-ui/dropdown
