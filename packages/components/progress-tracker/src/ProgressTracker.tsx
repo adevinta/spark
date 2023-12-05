@@ -2,8 +2,11 @@ import { cx } from 'class-variance-authority'
 import { type ComponentPropsWithoutRef, forwardRef, type PropsWithChildren, useState } from 'react'
 
 import { ProgressTrackerContext } from './ProgressTrackerContext'
+import type { ProgressTrackerStepVariantsProps } from './ProgressTrackerStep.styles'
 
-export interface ProgressTrackerProps extends ComponentPropsWithoutRef<'div'> {
+export interface ProgressTrackerProps
+  extends ComponentPropsWithoutRef<'div'>,
+    Pick<ProgressTrackerStepVariantsProps, 'size'> {
   /**
    * The index of the current step.
    * @default 0
@@ -26,6 +29,7 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
       stepIndex: propStepIndex = 0,
       onStepClick: onStepClickProp,
       readOnly = false,
+      size = 'lg',
       children,
       className,
       ...rest
@@ -43,7 +47,7 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
     const Component = readOnly ? 'div' : 'nav'
 
     return (
-      <ProgressTrackerContext.Provider value={{ stepIndex, onStepClick, steps, setSteps }}>
+      <ProgressTrackerContext.Provider value={{ stepIndex, onStepClick, steps, setSteps, size }}>
         <Component ref={ref} className={cx('inline-flex', className)} {...rest}>
           <ol className="flex w-full flex-nowrap" style={{ counterReset: 'step' }}>
             {children}
