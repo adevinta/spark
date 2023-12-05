@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Kbd } from '@spark-ui/kbd'
 
 import { ProgressTracker } from '.'
 
@@ -41,3 +42,37 @@ import { ProgressTracker } from '@spark-ui/progress-tracker'
 ### Default
 
 <Canvas of={stories.Default} />
+
+### Readonly
+
+Use `readOnly` prop to indicate that the component is not interactive.
+
+### Sizes
+
+Use `size` prop to set the size of the progress indicators. Smallest size doesn't get any content.
+
+<Canvas of={stories.Size} />
+
+### Intent
+
+Use `intent` prop to set the color.
+
+### Design
+
+Use `design` prop to set the look and feel.
+
+### Disabled
+
+Use `disabled` prop on a step to disable it.
+
+### Orientation
+
+Use `orientation` prop to set `horizontal|vertical` orientation.
+
+## Accessibility
+
+### Keyboard Interactions
+
+- <Kbd>Tab</Kbd>: Moves focus to the next step depending on `orientation`.
+- <Kbd>Space</Kbd>: Activates the step.
+- <Kbd>Enter</Kbd>: Activates the step.
