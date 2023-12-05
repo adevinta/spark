@@ -198,6 +198,51 @@ export const Grouped: StoryFn = _args => {
   )
 }
 
+export const ItemIndicator: StoryFn = _args => {
+  return (
+    <div className="w-sz-480 pb-[300px]">
+      <Dropdown>
+        <Dropdown.Trigger aria-label="Book">
+          <Dropdown.Value placeholder="Pick a book" />
+        </Dropdown.Trigger>
+
+        <Dropdown.Popover>
+          <Dropdown.Items>
+            <Dropdown.Item value="book-1" className="flex items-center gap-md">
+              <Dropdown.ItemIndicator />
+              <Dropdown.ItemText>To Kill a Mockingbird</Dropdown.ItemText>
+              <Tag>New</Tag>
+            </Dropdown.Item>
+            <Dropdown.Item value="book-2" className="flex items-center gap-md">
+              <Dropdown.ItemIndicator />
+              <Dropdown.ItemText>War and Peace</Dropdown.ItemText>
+              <Tag>New</Tag>
+            </Dropdown.Item>
+            <Dropdown.Item value="book-3" className="flex items-center gap-md">
+              <Dropdown.ItemIndicator />
+              <Dropdown.ItemText>The Idiot</Dropdown.ItemText>
+              <Tag>New</Tag>
+            </Dropdown.Item>
+            <Dropdown.Item value="book-4" className="flex items-center gap-md">
+              <Dropdown.ItemText>A Picture of Dorian Gray</Dropdown.ItemText>
+              <Tag>New</Tag>
+              <Dropdown.ItemIndicator />
+            </Dropdown.Item>
+            <Dropdown.Item value="book-5" className="flex items-center gap-md">
+              <Dropdown.ItemText>1984</Dropdown.ItemText>
+              <Tag>New</Tag>
+            </Dropdown.Item>
+            <Dropdown.Item value="book-6" className="flex items-center gap-md">
+              <Dropdown.ItemText>Pride and Prejudice</Dropdown.ItemText>
+              <Tag>New</Tag>
+            </Dropdown.Item>
+          </Dropdown.Items>
+        </Dropdown.Popover>
+      </Dropdown>
+    </div>
+  )
+}
+
 export const FormFieldLabel: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
