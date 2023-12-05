@@ -1,10 +1,8 @@
-import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { cx } from 'class-variance-authority'
 import { ReactNode } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
-// import { Minus } from '@spark-ui/icons/dist/icons/Minus'
 import { useDropdownItemContext } from './DropdownItemContext'
 
 export interface ItemIndicatorProps {
@@ -13,21 +11,13 @@ export interface ItemIndicatorProps {
 }
 
 export const ItemIndicator = ({ className, children }: ItemIndicatorProps) => {
-  const { disabled, isPressed } = useDropdownItemContext()
+  const { disabled, isSelected } = useDropdownItemContext()
   const { multiple } = useDropdownContext()
-  const childElement =
-    children ||
-    (multiple ? (
-      <Check />
-    ) : (
-      <Icon label="check">
-        <Check />
-      </Icon>
-    ))
+  const childElement = children || (multiple ? <Check /> : '✓')
 
   return (
     <span className={cx('flex min-h-sz-16 min-w-sz-16', disabled && 'opacity-dim-3', className)}>
-      {isPressed && childElement}
+      {isSelected && childElement}
     </span>
   )
 }
