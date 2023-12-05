@@ -13,7 +13,8 @@ interface TriggerProps {
 }
 
 export const Trigger = ({ 'aria-label': ariaLabel, children, className }: TriggerProps) => {
-  const { isOpen, getToggleButtonProps, getLabelProps, hasPopover } = useDropdownContext()
+  const { isOpen, getToggleButtonProps, getDropdownProps, getLabelProps, hasPopover } =
+    useDropdownContext()
 
   const [WrapperComponent, wrapperProps] = hasPopover
     ? [Popover.Trigger, { asChild: true }]
@@ -34,10 +35,10 @@ export const Trigger = ({ 'aria-label': ariaLabel, children, className }: Trigge
         <button
           type="button"
           className={cx(
-            'flex w-sz-288 cursor-pointer justify-between rounded-sm border-sm border-outline bg-surface p-sm',
+            'flex w-full cursor-pointer justify-between rounded-sm border-sm border-outline bg-surface p-sm',
             className
           )}
-          {...getToggleButtonProps()}
+          {...getToggleButtonProps(getDropdownProps())}
         >
           <span className="flex items-center justify-start gap-sm">
             {leadingIcon}
