@@ -290,3 +290,28 @@ export const MultipleSelection: StoryFn = _args => {
     </div>
   )
 }
+
+export const MultipleSelectionControlled: StoryFn = () => {
+  const [values, setValues] = useState(['book-1'])
+
+  return (
+    <div className="pb-[300px]">
+      <Dropdown multiple value={values} onValueChange={setValues}>
+        <Dropdown.Trigger aria-label="Book">
+          <Dropdown.Value placeholder="Pick a book" />
+        </Dropdown.Trigger>
+
+        <Dropdown.Popover>
+          <Dropdown.Items>
+            <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
+            <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+            <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
+            <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
+            <Dropdown.Item value="book-5">1984</Dropdown.Item>
+            <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
+          </Dropdown.Items>
+        </Dropdown.Popover>
+      </Dropdown>
+    </div>
+  )
+}
