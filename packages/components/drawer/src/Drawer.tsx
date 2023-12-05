@@ -15,7 +15,7 @@ export interface DrawerProps {
    */
   defaultOpen?: RadixDrawer.DialogProps['defaultOpen']
   /**
-   * Handler executen on every dialog open state change.
+   * Handler executed on every dialog open state change.
    */
   onOpenChange?: RadixDrawer.DialogProps['onOpenChange']
   /**
