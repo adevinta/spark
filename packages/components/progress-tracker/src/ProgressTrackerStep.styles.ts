@@ -51,7 +51,7 @@ export const stepButtonVariant = cva(
   {
     variants: {
       size: {
-        sm: ['before:w-sz-16 before:h-sz-16', 'before:content-["_"]'],
+        sm: ['before:w-sz-16 before:h-sz-16', 'before:!content-["_"]'],
         md: 'before:w-sz-24 before:h-sz-24',
         lg: 'before:w-sz-32 before:h-sz-32',
       },
