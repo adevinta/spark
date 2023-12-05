@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
-export const stepWrapperVariant = cva(
+export const stepItemVariant = cva(
   [
     'relative inline-flex flex-auto first:grow-0 justify-center',
     // Progress Track
@@ -36,6 +36,7 @@ export const stepWrapperVariant = cva(
   }
 )
 
+// eslint-disable-next-line tailwindcss/no-custom-classname
 export const stepButtonVariant = cva(
   [
     'block mx-sm mb-auto',
@@ -46,17 +47,24 @@ export const stepButtonVariant = cva(
     'before:flex before:items-center before:justify-center before:rounded-full',
     'before:border-sm before:text-on-basic-container',
     'before:text-body-2 before:font-bold',
-    'hover:before:bg-basic/dim-5',
   ],
   {
     variants: {
       size: {
-        sm: ['before:w-[16px] before:h-[16px]', 'before:content-[""]'],
-        md: 'before:w-[24px] before:h-[24px]',
-        lg: 'before:w-[32px] before:h-[32px]',
+        sm: ['before:w-sz-16 before:h-sz-16', 'before:content-["_"]'],
+        md: 'before:w-sz-24 before:h-sz-24',
+        lg: 'before:w-sz-32 before:h-sz-32',
+      },
+      complete: {
+        true: [
+          'before:content-[url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjQgMjQnIGhlaWdodD0nMTYnIHdpZHRoPScxNicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyBmaWxsPSdjdXJyZW50Q29sb3InIHN0cm9rZT0nbm9uZSc+PHBhdGggZD0nbTguOTIsMTkuMDhjLS4xOCwwLS4zNi0uMDMtLjUzLS4xcy0uMzMtLjE3LS40Ny0uMzFsLTUuNDktNS4zNGMtLjI4LS4yOC0uNDItLjYxLS40Mi0xcy4xNC0uNzMuNDItMWMuMjgtLjI4LjYyLS40MSwxLjAyLS40MXMuNzQuMTQsMS4wNS40MWw0LjQzLDQuMywxMC42Mi0xMC4yOWMuMjgtLjI4LjYyLS40MiwxLjAyLS40My4zOSwwLC43My4xMywxLjAyLjQzLjI4LjI4LjQyLjYxLjQyLDFzLS4xNC43My0uNDIsMWwtMTEuNjUsMTEuMzJjLS4xNC4xNC0uMy4yNC0uNDcuMzEtLjE3LjA3LS4zNS4xLS41My4xWic+PC9wYXRoPjwvc3ZnPg==)]',
+          'before:inline-flex before:leading-none',
+          'hover:before:bg-basic/dim-5',
+        ],
+        false: '',
       },
       active: {
-        true: 'before:bg-basic-container',
+        true: ['before:bg-basic-container', 'hover:before:bg-basic/dim-5'],
         false: '',
       },
       disabled: {
@@ -65,8 +73,9 @@ export const stepButtonVariant = cva(
       },
     },
     defaultVariants: {
-      active: false,
       disabled: false,
+      active: false,
+      complete: false,
       size: 'lg',
     },
   }
