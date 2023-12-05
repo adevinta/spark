@@ -8,12 +8,14 @@ import { useDropdownItemContext } from './DropdownItemContext'
 export interface ItemIndicatorProps {
   children?: ReactNode
   className?: string
+  label?: string
 }
 
-export const ItemIndicator = ({ className, children }: ItemIndicatorProps) => {
+export const ItemIndicator = ({ className, children, label }: ItemIndicatorProps) => {
   const { disabled, isSelected } = useDropdownItemContext()
   const { multiple } = useDropdownContext()
-  const childElement = children || (multiple ? <Check /> : '✓')
+  const childElement =
+    children || (multiple ? <Check aria-label={label} /> : <span aria-label={label}>✓</span>)
 
   return (
     <span className={cx('flex min-h-sz-16 min-w-sz-16', disabled && 'opacity-dim-3', className)}>
