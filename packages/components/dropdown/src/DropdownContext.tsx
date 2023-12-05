@@ -97,7 +97,8 @@ export const DropdownProvider = ({
   const [hasPopover, setHasPopover] = useState<boolean>(false)
 
   const field = useFormFieldControl()
-  const items = Array.from(itemsMap.values())
+  const items = [...itemsMap.values()]
+
   const id = useId(field.id)
   const labelId = useId(field.labelId)
 
@@ -180,9 +181,9 @@ export const DropdownProvider = ({
   /**
    * Indices in a Map are set when an element is added to the Map.
    * If for some reason, in the Dropdown:
-   * - children order changes
-   * - children are added
-   * - children are removed
+   * - items order changes
+   * - items are added
+   * - items are removed
    *
    * The Map must be rebuilt from the new children in order to preserve logical indices.
    *
@@ -191,7 +192,16 @@ export const DropdownProvider = ({
   useEffect(() => {
     const newMap = getItemsFromChildren(children)
 
-    setItemsMap(newMap)
+    const previousItems = [...itemsMap.values()]
+    const newItems = [...newMap.values()]
+
+    const hasItemsChanges =
+      previousItems.length !== newItems.length ||
+      previousItems.some((item, index) => item.value !== newItems[index]?.value)
+
+    if (hasItemsChanges) {
+      setItemsMap(newMap)
+    }
   }, [children])
 
   /**

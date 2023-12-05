@@ -1,4 +1,4 @@
-import React, { Children, type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
+import React, { type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
 
 import { type ItemProps } from './DropdownItem'
 import { type DropdownItem, type ItemsMap } from './types'
@@ -34,18 +34,6 @@ export const getElementByIndex = (map: ItemsMap, index: number) => {
 const getElementId = (element?: ReactElement) => {
   return element ? (element.type as FC & { id?: string }).id : ''
 }
-
-export const findElement =
-  (children: React.ReactNode) =>
-  (...values: string[]) => {
-    const validChildren = Children.toArray(children).filter(isValidElement)
-
-    return validChildren.find(child => {
-      const displayName = getElementId(child)
-
-      return values.includes(displayName || '')
-    })
-  }
 
 export const getOrderedItems = (
   children: ReactNode,

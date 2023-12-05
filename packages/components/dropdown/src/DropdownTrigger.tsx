@@ -4,7 +4,6 @@ import { cx } from 'class-variance-authority'
 import { Fragment, ReactNode } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
-import { findElement } from './utils'
 
 interface TriggerProps {
   'aria-label'?: string
@@ -19,10 +18,6 @@ export const Trigger = ({ 'aria-label': ariaLabel, children, className }: Trigge
   const [WrapperComponent, wrapperProps] = hasPopover
     ? [Popover.Trigger, { asChild: true }]
     : [Fragment, {}]
-
-  const finder = findElement(children)
-  const leadingIcon = finder('LeadingIcon')
-  const value = finder('Value')
 
   return (
     <>
@@ -40,10 +35,7 @@ export const Trigger = ({ 'aria-label': ariaLabel, children, className }: Trigge
           )}
           {...getToggleButtonProps(getDropdownProps())}
         >
-          <span className="flex items-center justify-start gap-sm">
-            {leadingIcon}
-            {value}
-          </span>
+          <span className="flex items-center justify-start gap-sm">{children}</span>
           <span className="px-sm">{isOpen ? <>&#8593;</> : <>&#8595;</>}</span>
         </button>
       </WrapperComponent>

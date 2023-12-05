@@ -22,11 +22,11 @@ export const DropdownItemProvider = ({
   disabled = false,
   children,
 }: PropsWithChildren<{ value: string; disabled?: boolean }>) => {
-  const { multiple, computedItems, selectedItem, selectedItems } = useDropdownContext()
+  const { multiple, itemsMap, selectedItem, selectedItems } = useDropdownContext()
 
   const [textId, setTextId] = useState<ItemTextId>(undefined)
 
-  const index = getIndexByKey(computedItems, value)
+  const index = getIndexByKey(itemsMap, value)
   const itemData: DropdownItem = { disabled, value, text: getItemText(children) }
 
   const isSelected = multiple
