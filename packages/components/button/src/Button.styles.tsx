@@ -40,7 +40,6 @@ export const buttonStyles = cva(
         ghost: [],
         contrast: ['bg-surface'],
       }),
-
       /**
        * Color scheme of the button.
        */
@@ -70,19 +69,22 @@ export const buttonStyles = cva(
         neutral: [],
         surface: [],
       }),
-
+      /**
+       * Size of the button.
+       */
       size: makeVariants<'size', ['sm', 'md', 'lg']>({
         sm: ['min-w-sz-32', 'h-sz-32'],
         md: ['min-w-sz-44', 'h-sz-44'],
         lg: ['min-w-sz-56', 'h-sz-56'],
       }),
-
+      /**
+       * Shape of the button.
+       */
       shape: makeVariants<'shape', ['rounded', 'square', 'pill']>({
         rounded: ['rounded-lg'],
         square: ['rounded-none'],
         pill: ['rounded-full'],
       }),
-
       /**
        * Disable the button, preventing user interaction and adding opacity.
        */
