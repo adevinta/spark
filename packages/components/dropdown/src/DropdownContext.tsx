@@ -23,19 +23,7 @@ export interface DropdownContextState extends DownshiftState {
   multiple: boolean
 }
 
-export type DropdownContextProps = PropsWithChildren<{
-  /**
-   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
-   */
-  defaultValue?: string
-  /**
-   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
-   */
-  value?: string
-  /**
-   * Event handler called when the value changes.
-   */
-  onValueChange?: (value: string) => void
+export type DropdownContextCommonProps = PropsWithChildren<{
   /**
    * The controlled open state of the select. Must be used in conjunction with `onOpenChange`.
    */
@@ -48,8 +36,50 @@ export type DropdownContextProps = PropsWithChildren<{
    * The open state of the select when it is initially rendered. Use when you do not need to control its open state.
    */
   defaultOpen?: boolean
-  multiple?: boolean
 }>
+
+interface DropdownPropsSingle {
+  /**
+   * Prop 'multiple' indicating whether multiple values are allowed.
+   */
+  multiple?: false
+  /**
+   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
+   */
+  defaultValue?: string
+  /**
+   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
+   */
+  value?: string
+  /**
+   * Event handler called when the value changes.
+   */
+  onValueChange?: (value: string) => void
+}
+
+interface DropdownPropsMultiple {
+  /**
+   * Prop 'multiple' indicating whether multiple values are allowed.
+   */
+  multiple: true
+  /**
+   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
+   */
+  defaultValue?: string[]
+  /**
+   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
+   */
+  value?: string[]
+  /**
+   * Event handler called when the value changes.
+   */
+  onValueChange?: (value: string[]) => void
+}
+
+type OnChangeValueType = string & string[]
+
+export type DropdownContextProps = DropdownContextCommonProps &
+  (DropdownPropsSingle | DropdownPropsMultiple)
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
 
@@ -71,12 +101,17 @@ export const DropdownProvider = ({
   const id = useId(field.id)
   const labelId = useId(field.labelId)
 
-  const controlledSelectedItem = value ? computedItems.get(value) : undefined
-  const controlledDefaultSelectedItem = defaultValue ? computedItems.get(defaultValue) : undefined
   const controlledDefaultOpen = defaultOpen ?? false
 
   const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
     // initialSelectedItems: [controlledDefaultSelectedItem as DropdownItem],
+    // selectedItems
+    // initialSelectedItems
+    onSelectedItemsChange: ({ selectedItems }) => {
+      if (selectedItems?.length && multiple) {
+        onValueChange?.(selectedItems.map(item => item.value) as OnChangeValueType)
+      }
+    },
   })
 
   const downshift = useSelect({
@@ -86,14 +121,7 @@ export const DropdownProvider = ({
     // a11y attributes
     id,
     labelId,
-    // Controlled mode (stateful)
-    selectedItem: controlledSelectedItem, // todo: set to null for multiple selection
-    initialSelectedItem: controlledDefaultSelectedItem,
-    onSelectedItemChange: ({ selectedItem }) => {
-      if (selectedItem?.value) {
-        onValueChange?.(selectedItem?.value)
-      }
-    },
+    // Controlled open state
     isOpen: open,
     onIsOpenChange: ({ isOpen }) => {
       if (isOpen != null) {
@@ -101,34 +129,45 @@ export const DropdownProvider = ({
       }
     },
     initialIsOpen: controlledDefaultOpen,
-    ...(multiple && {
-      stateReducer: (state: UseSelectState<DropdownItem>, { changes, type }) => {
-        switch (type) {
-          case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
-          case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
-          case useSelect.stateChangeTypes.ItemClick:
-            if (changes.selectedItem != null) {
-              const isAlreadySelected = downshiftMultipleSelection.selectedItems.some(
-                selectedItem => selectedItem.value === changes.selectedItem?.value
-              )
+    ...(multiple
+      ? {
+          stateReducer: (state: UseSelectState<DropdownItem>, { changes, type }) => {
+            switch (type) {
+              case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+              case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
+              case useSelect.stateChangeTypes.ItemClick:
+                if (changes.selectedItem != null) {
+                  const isAlreadySelected = downshiftMultipleSelection.selectedItems.some(
+                    selectedItem => selectedItem.value === changes.selectedItem?.value
+                  )
 
-              if (isAlreadySelected) {
-                downshiftMultipleSelection.removeSelectedItem(changes.selectedItem)
-              } else {
-                downshiftMultipleSelection.addSelectedItem(changes.selectedItem)
-              }
-            }
+                  if (isAlreadySelected) {
+                    downshiftMultipleSelection.removeSelectedItem(changes.selectedItem)
+                  } else {
+                    downshiftMultipleSelection.addSelectedItem(changes.selectedItem)
+                  }
+                }
 
-            return {
-              ...changes,
-              isOpen: true, // keep the menu open after selection.
-              highlightedIndex: state.highlightedIndex, // preserve highlighted index position
+                return {
+                  ...changes,
+                  isOpen: true, // keep the menu open after selection.
+                  highlightedIndex: state.highlightedIndex, // preserve highlighted index position
+                }
+              default:
+                return changes
             }
-          default:
-            return changes
+          },
         }
-      },
-    }),
+      : {
+          // Controlled mode - single selection
+          selectedItem: value ? computedItems.get(value as string) : undefined,
+          initialSelectedItem: defaultValue ? computedItems.get(defaultValue as string) : undefined,
+          onSelectedItemChange: ({ selectedItem }) => {
+            if (selectedItem?.value && !multiple) {
+              onValueChange?.(selectedItem?.value as OnChangeValueType)
+            }
+          },
+        }),
   })
 
   /**
