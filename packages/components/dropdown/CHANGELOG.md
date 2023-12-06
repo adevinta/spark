@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.12.0...@spark-ui/dropdown@0.13.0) (2023-12-06)
+
+### Bug Fixes
+
+- **dropdown:** add label and test to itemindicator ([ec827c7](https://github.com/adevinta/spark/commit/ec827c7c39fcd3bfe3a2aa9d7b0412791cd22e50))
+
+### Features
+
+- **dropdown:** add item context ([9d0b572](https://github.com/adevinta/spark/commit/9d0b5728b14cdcc7dcd89764cfae4849797c42df))
+- **dropdown:** move logic to the provider ([9ba1bb3](https://github.com/adevinta/spark/commit/9ba1bb303bc67238a7d6744c7249d7642c590761))
+
 # [0.12.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.11.2...@spark-ui/dropdown@0.12.0) (2023-12-05)
 
 ### Features
