@@ -5,6 +5,7 @@ import { DropdownProvider, useDropdownContext } from './DropdownContext'
 import { Divider } from './DropdownDivider'
 import { Group } from './DropdownGroup'
 import { Item } from './DropdownItem'
+import { ItemIndicator } from './DropdownItemIndicator'
 import { Items } from './DropdownItems'
 import { ItemText } from './DropdownItemText'
 import { Label } from './DropdownLabel'
@@ -20,6 +21,7 @@ export const Dropdown: FC<DropdownProps> & {
   Item: typeof Item
   Items: typeof Items
   ItemText: typeof ItemText
+  ItemIndicator: typeof ItemIndicator
   Label: typeof Label
   Popover: typeof Popover
   Divider: typeof Divider
@@ -31,6 +33,7 @@ export const Dropdown: FC<DropdownProps> & {
   Item,
   Items,
   ItemText,
+  ItemIndicator,
   Label,
   Popover,
   Divider,
@@ -41,9 +44,10 @@ export const Dropdown: FC<DropdownProps> & {
 
 Dropdown.displayName = 'Dropdown'
 Group.displayName = 'Dropdown.Group'
-Item.displayName = 'Dropdown.Item'
 Items.displayName = 'Dropdown.Items'
+Item.displayName = 'Dropdown.Item'
 ItemText.displayName = 'Dropdown.ItemText'
+ItemIndicator.displayName = 'Dropdown.ItemIndicator'
 Label.displayName = 'Dropdown.Label'
 Popover.displayName = 'Dropdown.Popover'
 Divider.displayName = 'Dropdown.Divider'

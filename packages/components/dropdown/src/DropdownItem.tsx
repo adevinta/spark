@@ -3,8 +3,6 @@ import { ReactNode } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { DropdownItemProvider, useDropdownItemContext } from './DropdownItemContext'
-import { DropdownItem } from './types'
-import { getIndexByKey, getItemText } from './utils'
 
 export interface ItemProps {
   disabled?: boolean
@@ -14,25 +12,19 @@ export interface ItemProps {
 }
 
 export const Item = ({ children, ...props }: ItemProps) => {
+  const { value, disabled } = props
+
   return (
-    <DropdownItemProvider>
+    <DropdownItemProvider value={value} disabled={disabled}>
       <ItemContent {...props}>{children}</ItemContent>
     </DropdownItemProvider>
   )
 }
 
 const ItemContent = ({ className, disabled = false, value, children }: ItemProps) => {
-  const { multiple, computedItems, selectedItem, selectedItems, getItemProps, highlightedItem } =
-    useDropdownContext()
+  const { getItemProps, highlightedItem } = useDropdownContext()
 
-  const { textId } = useDropdownItemContext()
-
-  const index = getIndexByKey(computedItems, value)
-  const itemData: DropdownItem = { disabled, value, text: getItemText(children) }
-
-  const isSelected = multiple
-    ? selectedItems.some(selectedItem => selectedItem.value === value)
-    : selectedItem?.value === value
+  const { textId, index, itemData, isSelected } = useDropdownItemContext()
 
   return (
     <li

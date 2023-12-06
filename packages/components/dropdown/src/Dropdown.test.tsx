@@ -302,6 +302,36 @@ describe('Dropdown', () => {
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
     })
 
+    it('should render default selected option with proper indicator when including it', () => {
+      // Given a dropdown with a default selected value
+      render(
+        <Dropdown defaultValue="book-2">
+          <Dropdown.Trigger aria-label="Book">
+            <Dropdown.Value placeholder="Pick a book" />
+          </Dropdown.Trigger>
+          <Dropdown.Popover>
+            <Dropdown.Items>
+              <Dropdown.Item value="book-1">
+                <Dropdown.ItemIndicator label={'selected'} />
+                <Dropdown.ItemText>War and Peace</Dropdown.ItemText>
+              </Dropdown.Item>
+              <Dropdown.Item value="book-2">
+                <Dropdown.ItemIndicator label={'selected'} />
+                <Dropdown.ItemText>1984</Dropdown.ItemText>
+              </Dropdown.Item>
+              <Dropdown.Item value="book-3">
+                <Dropdown.ItemIndicator label={'selected'} />
+                <Dropdown.ItemText>Pride and Prejudice</Dropdown.ItemText>
+              </Dropdown.Item>
+            </Dropdown.Items>
+          </Dropdown.Popover>
+        </Dropdown>
+      )
+
+      // Then the corresponding item is selected
+      expect(screen.getByLabelText('selected')).toBeVisible()
+    })
+
     it('should control value', async () => {
       const user = userEvent.setup()
 
