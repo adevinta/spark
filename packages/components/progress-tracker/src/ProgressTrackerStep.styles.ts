@@ -29,8 +29,23 @@ export const stepItemVariant = cva(
           'before:right-[calc(50%+20px)] after:left-[calc(50%+20px)]',
         ],
       },
+      disabled: {
+        true: 'before:opacity-dim-3 after:opacity-dim-3',
+        false: '',
+      },
+      disabledBefore: {
+        true: 'before:opacity-dim-3',
+        false: '',
+      },
+      disabledAfter: {
+        true: 'after:opacity-dim-3',
+        false: '',
+      },
     },
     defaultVariants: {
+      disabled: false,
+      disabledBefore: false,
+      disabledAfter: false,
       size: 'lg',
     },
   }
@@ -59,20 +74,33 @@ export const stepButtonVariant = cva(
         true: [
           'before:content-[url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjQgMjQnIGhlaWdodD0nMTYnIHdpZHRoPScxNicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyBmaWxsPSdjdXJyZW50Q29sb3InIHN0cm9rZT0nbm9uZSc+PHBhdGggZD0nbTguOTIsMTkuMDhjLS4xOCwwLS4zNi0uMDMtLjUzLS4xcy0uMzMtLjE3LS40Ny0uMzFsLTUuNDktNS4zNGMtLjI4LS4yOC0uNDItLjYxLS40Mi0xcy4xNC0uNzMuNDItMWMuMjgtLjI4LjYyLS40MSwxLjAyLS40MXMuNzQuMTQsMS4wNS40MWw0LjQzLDQuMywxMC42Mi0xMC4yOWMuMjgtLjI4LjYyLS40MiwxLjAyLS40My4zOSwwLC43My4xMywxLjAyLjQzLjI4LjI4LjQyLjYxLjQyLDFzLS4xNC43My0uNDIsMWwtMTEuNjUsMTEuMzJjLS4xNC4xNC0uMy4yNC0uNDcuMzEtLjE3LjA3LS4zNS4xLS41My4xWic+PC9wYXRoPjwvc3ZnPg==)]',
           'before:inline-flex before:leading-none',
-          'hover:before:bg-basic/dim-5',
         ],
         false: '',
       },
       active: {
-        true: ['before:bg-basic-container', 'hover:before:bg-basic/dim-5'],
+        true: ['before:bg-basic-container', 'cursor-default'],
         false: '',
       },
       disabled: {
-        true: 'opacity-dim-3',
+        true: 'before:opacity-dim-3',
+        false: '',
+      },
+      readOnly: {
+        true: ['cursor-default'],
         false: '',
       },
     },
+    compoundVariants: [
+      {
+        readOnly: false,
+        disabled: false,
+        active: false,
+        complete: [true, false],
+        class: 'hover:before:bg-basic/dim-5',
+      },
+    ],
     defaultVariants: {
+      readOnly: false,
       disabled: false,
       active: false,
       complete: false,
