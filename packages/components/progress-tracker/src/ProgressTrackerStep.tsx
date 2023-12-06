@@ -16,43 +16,57 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       onStepClick,
       setSteps,
       size,
+      readOnly,
     } = useProgressTrackerContext()
 
     const ID = useId()
     const stepId = `step-${ID}`
+    const stepIndex = [...steps].findIndex(step => step.id === stepId)
 
-    const [progressState, setProgressState] = useState<
-      'active' | 'complete' | 'disabled' | undefined
-    >(() => (disabled ? 'disabled' : undefined))
+    const [progressState, setProgressState] = useState<'active' | 'complete' | undefined>()
 
-    useEffect(() => setSteps(steps => steps.add(stepId)), [])
+    useEffect(
+      () => setSteps(steps => steps.add({ id: stepId, disabled })),
+      [disabled, stepId, setSteps]
+    )
 
     useEffect(() => {
-      if ([...steps].indexOf(stepId) === activeStepIndex) {
+      if (stepIndex === activeStepIndex) {
         setProgressState('active')
-      } else if ([...steps].indexOf(stepId) < activeStepIndex) {
+      } else if (stepIndex < activeStepIndex) {
         setProgressState('complete')
       } else {
         setProgressState(undefined)
       }
-    }, [activeStepIndex, steps, stepId])
+    }, [activeStepIndex, stepIndex])
 
     return (
       <li
         id={stepId}
         ref={ref}
         data-state={progressState}
-        className={stepItemVariant({ size })}
+        aria-current={progressState === 'active'}
+        className={stepItemVariant({
+          size,
+          disabled,
+          disabledBefore: !![...steps][stepIndex - 1]?.disabled,
+          disabledAfter: !![...steps][stepIndex + 1]?.disabled,
+        })}
         {...rest}
       >
         <button
           type="button"
-          onClick={() => onStepClick(stepId)}
-          disabled={progressState === 'disabled'}
+          // {...(!disabled || !readonly) && ({})}
+          {...(!disabled &&
+            !readOnly && {
+              onClick: () => onStepClick(stepId),
+            })}
+          disabled={disabled}
           className={stepButtonVariant({
             complete: progressState === 'complete',
             active: progressState === 'active',
-            disabled: progressState === 'disabled',
+            disabled,
+            readOnly,
             size,
             className,
           })}
