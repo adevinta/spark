@@ -8,7 +8,7 @@ interface Step {
 }
 
 export type ProgressTrackerContextInterface = Required<
-  Pick<ProgressTrackerProps, 'stepIndex' | 'onStepClick' | 'size' | 'readOnly'>
+  Pick<ProgressTrackerProps, 'stepIndex' | 'onStepClick' | 'size' | 'orientation' | 'readOnly'>
 > & {
   steps: Set<Step>
   setSteps: Dispatch<SetStateAction<Set<Step>>>
