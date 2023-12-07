@@ -41,11 +41,11 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
     },
     ref
   ) => {
-    const [steps, setSteps] = useState<ProgressTrackerContextInterface['steps']>(new Set())
+    const [steps, setSteps] = useState<ProgressTrackerContextInterface['steps']>(new Map())
     const [stepIndex, setStepIndex] = useState<number>(propStepIndex)
 
     const onStepClick = (stepId: string) => {
-      const stepIndex = [...steps].findIndex(step => step.id === stepId)
+      const stepIndex = [...steps.keys()].indexOf(stepId)
 
       setStepIndex(stepIndex)
       onStepClickProp?.(stepId)
