@@ -197,7 +197,12 @@ export const DropdownProvider = ({
 
     const hasItemsChanges =
       previousItems.length !== newItems.length ||
-      previousItems.some((item, index) => item.value !== newItems[index]?.value)
+      previousItems.some((item, index) => {
+        const hasUpdatedValue = item.value !== newItems[index]?.value
+        const hasUpdatedText = item.text !== newItems[index]?.text
+
+        return hasUpdatedValue || hasUpdatedText
+      })
 
     if (hasItemsChanges) {
       setItemsMap(newMap)

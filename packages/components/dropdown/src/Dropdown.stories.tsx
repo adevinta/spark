@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
 import { Book } from '@spark-ui/icons/dist/icons/Book'
