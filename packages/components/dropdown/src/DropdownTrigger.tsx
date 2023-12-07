@@ -1,3 +1,6 @@
+import { Icon } from '@spark-ui/icon'
+import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
+import { ArrowHorizontalUp } from '@spark-ui/icons/dist/icons/ArrowHorizontalUp'
 import { Popover } from '@spark-ui/popover'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { cx } from 'class-variance-authority'
@@ -30,13 +33,17 @@ export const Trigger = ({ 'aria-label': ariaLabel, children, className }: Trigge
         <button
           type="button"
           className={cx(
-            'flex w-full cursor-pointer justify-between rounded-sm border-sm border-outline bg-surface p-sm',
+            'flex w-full cursor-pointer items-center justify-between',
+            'min-h-sz-44 rounded-lg border-sm border-outline bg-surface px-lg',
             className
           )}
           {...getToggleButtonProps(getDropdownProps())}
         >
-          <span className="flex items-center justify-start gap-sm">{children}</span>
-          <span className="px-sm">{isOpen ? <>&#8593;</> : <>&#8595;</>}</span>
+          <span className="flex items-center justify-start gap-md">{children}</span>
+
+          <Icon className="ml-md shrink-0" size="sm">
+            {isOpen ? <ArrowHorizontalDown /> : <ArrowHorizontalUp />}
+          </Icon>
         </button>
       </WrapperComponent>
     </>

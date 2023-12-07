@@ -17,8 +17,11 @@ export const Value = ({ children, className, placeholder }: ValueProps) => {
   const suffix = selectedItems.length > 1 ? `, +${selectedItems.length - 1}` : ''
 
   return (
-    <span className={cx('text-neutral', className)}>
-      {!hasSelectedItems ? placeholder : children || text + suffix}
+    <span className={cx('flex shrink items-center text-left', className)}>
+      <span className="line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all">
+        {!hasSelectedItems ? placeholder : children || text}
+      </span>
+      {suffix && <span className="ml-md">{suffix}</span>}
     </span>
   )
 }
