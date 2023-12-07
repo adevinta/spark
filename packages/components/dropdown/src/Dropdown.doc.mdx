@@ -84,49 +84,81 @@ import { Dropdown } from '@spark-ui/dropdown'
 
 <Canvas of={stories.Default} />
 
-### Controlled value
+### Controlled
+
+Use `value` and `onValueChange` props to control the value of the dropdown.
 
 <Canvas of={stories.Controlled} />
 
 ### Controlled open state
 
+Use `open` and `onOpenChange` props to control when the dropdown is opened or closed.
+
 <Canvas of={stories.ControlledOpenState} />
 
 ### Disabled
+
+Use `disabled` on the root component to disable the dropdown entirely.
 
 TODO
 
 ### Disabled Item
 
+Use `disabled` on individual `Dropdown.Item` to disable them.
+
 <Canvas of={stories.DisabledItem} />
 
-### Grouped items
+### Groups
+
+Similar to `optgroup` HTML tag, you can gather your items in groups.
+
+It is important to use `Dropdown.Label` inside each `Dropdown.Group` to give it an accessible name.
 
 <Canvas of={stories.Grouped} />
 
 ### Item indicator
 
+Renders when the parent `DropdownMenu.Item` is selected.
+
+You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
+
 <Canvas of={stories.ItemIndicator} />
 
 ### Trigger leading icon
 
-TODO
+Use `Dropdown.LeadingIcon` inside `Dropdown.Trigger` to prefix your trigger with an icon.
 
-### Multiple selection
-
-<Canvas of={stories.MultipleSelection} />
-
-### Multiple selection (controlled)
-
-TODO
+<Canvas of={stories.LeadingIcon} />
 
 ### Read only
 
 TODO
 
+## Multiple selection
+
+When using `multiple` mode, the component manages an array of values and no longer a single value.
+
+It means you must adapt `value`, `onValueChange` and `defaultValue` accordingly.
+
+In `multiple` mode, the dropdown won't close when the user selects an item, and it is possible to unselect every item.
+
+### Default
+
+<Canvas of={stories.MultipleSelection} />
+
+### Controlled - multiple selection
+
+Use `value` and `onValueChange` props to control the value of the dropdown.
+
+<Canvas of={stories.MultipleSelectionControlled} />
+
 ## Advanced usage
 
 ### Custom item
+
+If your `Dropdown.Item` contains anything else than raw text, you may use any JSX markup to customize it.
+
+**If you do so, you MUST use `Dropdown.ItemText` inside of your item to give it a proper accessible name.**
 
 <Canvas of={stories.CustomItem} />
 

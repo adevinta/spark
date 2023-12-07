@@ -243,6 +243,53 @@ describe('Dropdown', () => {
       // Then placeholder is replaced by the raw text value
       expect(getTrigger('Book')).toHaveTextContent('Pride and Prejudice')
     })
+
+    it('should update displayed text when selected item text changes', async () => {
+      const user = userEvent.setup()
+      const initialSelectedItemText = 'To Kill a Mockingbird'
+      const updatedSelectedItemText = 'Updated title'
+
+      const Implementation = () => {
+        const [value, setValue] = useState('book-1')
+        const [bookText, setBookText] = useState(initialSelectedItemText)
+
+        return (
+          <div className="pb-[300px]">
+            <Dropdown value={value} onValueChange={setValue}>
+              <Dropdown.Trigger aria-label="Book">
+                <Dropdown.Value placeholder="Pick a book" />
+              </Dropdown.Trigger>
+
+              <button
+                onClick={() => {
+                  setBookText(updatedSelectedItemText)
+                }}
+              >
+                Update book name
+              </button>
+
+              <Dropdown.Popover>
+                <Dropdown.Items>
+                  <Dropdown.Item value="book-1">{bookText}</Dropdown.Item>
+                  <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+                  <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
+                </Dropdown.Items>
+              </Dropdown.Popover>
+            </Dropdown>
+          </div>
+        )
+      }
+
+      render(<Implementation />)
+
+      // Then placeholder should be displayed
+      expect(getTrigger('Book')).toHaveTextContent(initialSelectedItemText)
+
+      await user.click(screen.getByText('Update book name'))
+
+      // Then placeholder text should be updated
+      expect(getTrigger('Book')).toHaveTextContent(updatedSelectedItemText)
+    })
   })
 
   describe('single selection', () => {

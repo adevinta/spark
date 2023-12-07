@@ -1,7 +1,7 @@
 import { useId } from '@radix-ui/react-id'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
-import { useMultipleSelection, useSelect, UseSelectState } from 'downshift'
+import { useMultipleSelection, useSelect, UseSelectProps } from 'downshift'
 import {
   createContext,
   Dispatch,
@@ -16,26 +16,14 @@ import {
 import { type DownshiftState, type DropdownItem, type ItemsMap } from './types'
 import { getElementByIndex, getItemsFromChildren } from './utils'
 export interface DropdownContextState extends DownshiftState {
-  computedItems: ItemsMap
+  itemsMap: ItemsMap
   highlightedItem: DropdownItem | undefined
   hasPopover: boolean
   setHasPopover: Dispatch<SetStateAction<boolean>>
   multiple: boolean
 }
 
-export type DropdownContextProps = PropsWithChildren<{
-  /**
-   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
-   */
-  defaultValue?: string
-  /**
-   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
-   */
-  value?: string
-  /**
-   * Event handler called when the value changes.
-   */
-  onValueChange?: (value: string) => void
+export type DropdownContextCommonProps = PropsWithChildren<{
   /**
    * The controlled open state of the select. Must be used in conjunction with `onOpenChange`.
    */
@@ -48,8 +36,50 @@ export type DropdownContextProps = PropsWithChildren<{
    * The open state of the select when it is initially rendered. Use when you do not need to control its open state.
    */
   defaultOpen?: boolean
-  multiple?: boolean
 }>
+
+interface DropdownPropsSingle {
+  /**
+   * Prop 'multiple' indicating whether multiple values are allowed.
+   */
+  multiple?: false
+  /**
+   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
+   */
+  defaultValue?: string
+  /**
+   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
+   */
+  value?: string
+  /**
+   * Event handler called when the value changes.
+   */
+  onValueChange?: (value: string) => void
+}
+
+interface DropdownPropsMultiple {
+  /**
+   * Prop 'multiple' indicating whether multiple values are allowed.
+   */
+  multiple: true
+  /**
+   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
+   */
+  defaultValue?: string[]
+  /**
+   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
+   */
+  value?: string[]
+  /**
+   * Event handler called when the value changes.
+   */
+  onValueChange?: (value: string[]) => void
+}
+
+type OnChangeValueType = string & string[]
+
+export type DropdownContextProps = DropdownContextCommonProps &
+  (DropdownPropsSingle | DropdownPropsMultiple)
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
 
@@ -63,80 +93,97 @@ export const DropdownProvider = ({
   defaultOpen,
   multiple = false,
 }: DropdownContextProps) => {
-  const [computedItems, setComputedItems] = useState<ItemsMap>(getItemsFromChildren(children))
+  const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
   const [hasPopover, setHasPopover] = useState<boolean>(false)
 
   const field = useFormFieldControl()
+  const items = [...itemsMap.values()]
 
   const id = useId(field.id)
   const labelId = useId(field.labelId)
 
-  const controlledSelectedItem = value ? computedItems.get(value) : undefined
-  const controlledDefaultSelectedItem = defaultValue ? computedItems.get(defaultValue) : undefined
-  const controlledDefaultOpen = defaultOpen ?? false
-
   const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
-    // initialSelectedItems: [controlledDefaultSelectedItem as DropdownItem],
+    selectedItems: value
+      ? items.filter(item => (value as string[]).includes(item.value))
+      : undefined,
+    initialSelectedItems: defaultValue
+      ? items.filter(item => (defaultValue as string[]).includes(item.value))
+      : undefined,
+
+    onSelectedItemsChange: ({ selectedItems }) => {
+      if (selectedItems != null && multiple) {
+        onValueChange?.(selectedItems.map(item => item.value) as OnChangeValueType)
+      }
+    },
   })
 
-  const downshift = useSelect({
-    items: Array.from(computedItems.values()),
+  /**
+   * Custom state reducer for multiple selection behaviour:
+   * - keeps the component opened when the user selects an item
+   * - preserves the higlighted index when the user select an item
+   * - selected items can be unselected, even the last selected item (as opposed to single selection behaviour)
+   */
+  const stateReducer: UseSelectProps<DropdownItem>['stateReducer'] = (state, { changes, type }) => {
+    if (!multiple) return changes
+
+    const { selectedItems, removeSelectedItem, addSelectedItem } = downshiftMultipleSelection
+
+    switch (type) {
+      case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+      case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
+      case useSelect.stateChangeTypes.ItemClick:
+        if (changes.selectedItem != null) {
+          const isAlreadySelected = selectedItems.some(
+            selectedItem => selectedItem.value === changes.selectedItem?.value
+          )
+
+          if (isAlreadySelected) {
+            removeSelectedItem(changes.selectedItem)
+          } else {
+            addSelectedItem(changes.selectedItem)
+          }
+        }
+
+        return {
+          ...changes,
+          isOpen: true, // keep the menu open after selection.
+          highlightedIndex: state.highlightedIndex, // preserve highlighted index position
+        }
+      default:
+        return changes
+    }
+  }
+
+  const downshift = useSelect<DropdownItem>({
+    items,
     isItemDisabled: item => item.disabled,
     itemToString: item => (item ? item.text : ''),
     // a11y attributes
     id,
     labelId,
-    // Controlled mode (stateful)
-    selectedItem: controlledSelectedItem, // todo: set to null for multiple selection
-    initialSelectedItem: controlledDefaultSelectedItem,
-    onSelectedItemChange: ({ selectedItem }) => {
-      if (selectedItem?.value) {
-        onValueChange?.(selectedItem?.value)
-      }
-    },
+    // Controlled open state
     isOpen: open,
     onIsOpenChange: ({ isOpen }) => {
-      if (isOpen != null) {
-        onOpenChange?.(isOpen)
+      if (isOpen != null) onOpenChange?.(isOpen)
+    },
+    initialIsOpen: defaultOpen ?? false,
+    stateReducer,
+    // Controlled mode (single selection)
+    selectedItem: value ? itemsMap.get(value as string) : undefined,
+    initialSelectedItem: defaultValue ? itemsMap.get(defaultValue as string) : undefined,
+    onSelectedItemChange: ({ selectedItem }) => {
+      if (selectedItem?.value && !multiple) {
+        onValueChange?.(selectedItem?.value as OnChangeValueType)
       }
     },
-    initialIsOpen: controlledDefaultOpen,
-    ...(multiple && {
-      stateReducer: (state: UseSelectState<DropdownItem>, { changes, type }) => {
-        switch (type) {
-          case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
-          case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
-          case useSelect.stateChangeTypes.ItemClick:
-            if (changes.selectedItem != null) {
-              const isAlreadySelected = downshiftMultipleSelection.selectedItems.some(
-                selectedItem => selectedItem.value === changes.selectedItem?.value
-              )
-
-              if (isAlreadySelected) {
-                downshiftMultipleSelection.removeSelectedItem(changes.selectedItem)
-              } else {
-                downshiftMultipleSelection.addSelectedItem(changes.selectedItem)
-              }
-            }
-
-            return {
-              ...changes,
-              isOpen: true, // keep the menu open after selection.
-              highlightedIndex: state.highlightedIndex, // preserve highlighted index position
-            }
-          default:
-            return changes
-        }
-      },
-    }),
   })
 
   /**
    * Indices in a Map are set when an element is added to the Map.
    * If for some reason, in the Dropdown:
-   * - children order changes
-   * - children are added
-   * - children are removed
+   * - items order changes
+   * - items are added
+   * - items are removed
    *
    * The Map must be rebuilt from the new children in order to preserve logical indices.
    *
@@ -145,7 +192,21 @@ export const DropdownProvider = ({
   useEffect(() => {
     const newMap = getItemsFromChildren(children)
 
-    setComputedItems(newMap)
+    const previousItems = [...itemsMap.values()]
+    const newItems = [...newMap.values()]
+
+    const hasItemsChanges =
+      previousItems.length !== newItems.length ||
+      previousItems.some((item, index) => {
+        const hasUpdatedValue = item.value !== newItems[index]?.value
+        const hasUpdatedText = item.text !== newItems[index]?.text
+
+        return hasUpdatedValue || hasUpdatedText
+      })
+
+    if (hasItemsChanges) {
+      setItemsMap(newMap)
+    }
   }, [children])
 
   /**
@@ -161,8 +222,8 @@ export const DropdownProvider = ({
         multiple,
         ...downshift,
         ...downshiftMultipleSelection,
-        computedItems,
-        highlightedItem: getElementByIndex(computedItems, downshift.highlightedIndex),
+        itemsMap,
+        highlightedItem: getElementByIndex(itemsMap, downshift.highlightedIndex),
         hasPopover,
         setHasPopover,
       }}
