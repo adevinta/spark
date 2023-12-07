@@ -1,10 +1,17 @@
-import { type ComponentPropsWithoutRef, forwardRef, useEffect, useId, useState } from 'react'
+import {
+  type ComponentPropsWithoutRef,
+  forwardRef,
+  type ReactNode,
+  useEffect,
+  useId,
+  useState,
+} from 'react'
 
 import { useProgressTrackerContext } from './ProgressTrackerContext'
 import { stepButtonVariant, stepItemVariant } from './ProgressTrackerStep.styles'
 
 export type ProgressTrackerStepProps = ComponentPropsWithoutRef<'li'> & {
-  label?: string
+  label?: ReactNode
   disabled?: boolean
 }
 
@@ -16,6 +23,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       onStepClick,
       setSteps,
       size,
+      orientation,
       readOnly,
     } = useProgressTrackerContext()
 
@@ -48,15 +56,14 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
         aria-current={progressState === 'active'}
         className={stepItemVariant({
           size,
+          orientation,
           disabled,
-          disabledBefore: !![...steps][stepIndex - 1]?.disabled,
-          disabledAfter: !![...steps][stepIndex + 1]?.disabled,
+          disabledAfter: !![...steps][stepIndex + 1]?.disabled, // should reload on disabled updates?
         })}
         {...rest}
       >
         <button
           type="button"
-          // {...(!disabled || !readonly) && ({})}
           {...(!disabled &&
             !readOnly && {
               onClick: () => onStepClick(stepId),
@@ -68,10 +75,11 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
             disabled,
             readOnly,
             size,
+            orientation,
             className,
           })}
         >
-          {label && <span className="block text-body-2 font-bold text-on-surface">{label}</span>}
+          {label && <div className="block text-body-2 font-bold text-on-surface">{label}</div>}
         </button>
       </li>
     )

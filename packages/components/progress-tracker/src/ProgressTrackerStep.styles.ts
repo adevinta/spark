@@ -2,38 +2,20 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 export const stepItemVariant = cva(
   [
-    'relative inline-flex flex-auto first:grow-0 justify-center',
+    'relative inline-flex flex-auto first:grow-0 justify-center group',
     // Progress Track
-    'before:absolute after:absolute before:z-base after:z-base',
-    'before:h-[1px] after:h-[1px]',
-    'before:bg-basic after:bg-basic',
-    'before:left-none after:right-none',
-    'first:before:content-none last:after:content-none',
+    'after:absolute after:z-base',
+    'after:bg-basic',
+    'last:after:content-none',
   ],
   {
     variants: {
       size: {
-        sm: [
-          'pt-[calc(16px+theme("spacing.md"))]',
-          'before:top-[8px] after:top-[8px]',
-          'before:right-[calc(50%+12px)] after:left-[calc(50%+12px)]',
-        ],
-        md: [
-          'pt-[calc(24px+theme("spacing.md"))]',
-          'before:top-[12px] after:top-[12px]',
-          'before:right-[calc(50%+16px)] after:left-[calc(50%+16px)]',
-        ],
-        lg: [
-          'pt-[calc(32px+theme("spacing.md"))]',
-          'before:top-[16px] after:top-[16px]',
-          'before:right-[calc(50%+20px)] after:left-[calc(50%+20px)]',
-        ],
+        sm: '',
+        md: '',
+        lg: '',
       },
       disabled: {
-        true: 'before:opacity-dim-3 after:opacity-dim-3',
-        false: '',
-      },
-      disabledBefore: {
         true: 'before:opacity-dim-3',
         false: '',
       },
@@ -41,25 +23,72 @@ export const stepItemVariant = cva(
         true: 'after:opacity-dim-3',
         false: '',
       },
+      orientation: {
+        vertical: ['after:w-[1px]', 'after:bottom-none'],
+        horizontal: [
+          'before:h-[1px] after:h-[1px]',
+          'before:bg-basic before:absolute before:z-base',
+          'before:left-none after:right-none',
+          'first:before:content-none',
+        ],
+      },
     },
+    compoundVariants: [
+      {
+        size: 'sm',
+        orientation: 'horizontal',
+        class: [
+          'before:top-[8px] after:top-[8px]',
+          'before:right-[calc(50%+12px)] after:left-[calc(50%+12px)]',
+        ],
+      },
+      {
+        size: 'md',
+        orientation: 'horizontal',
+        class: [
+          'before:top-[12px] after:top-[12px]',
+          'before:right-[calc(50%+16px)] after:left-[calc(50%+16px)]',
+        ],
+      },
+      {
+        size: 'lg',
+        orientation: 'horizontal',
+        class: [
+          'before:top-[16px] after:top-[16px]',
+          'before:right-[calc(50%+20px)] after:left-[calc(50%+20px)]',
+        ],
+      },
+      {
+        size: 'sm',
+        orientation: 'vertical',
+        class: ['after:left-[8px]', 'after:top-[24px]'],
+      },
+      {
+        size: 'md',
+        orientation: 'vertical',
+        class: ['after:left-[12px]', 'after:top-[32px]'],
+      },
+      {
+        size: 'lg',
+        orientation: 'vertical',
+        class: ['after:left-[16px]', 'after:top-[40px]'],
+      },
+    ],
     defaultVariants: {
       disabled: false,
-      disabledBefore: false,
       disabledAfter: false,
       size: 'lg',
+      orientation: 'horizontal',
     },
   }
 )
 
-// eslint-disable-next-line tailwindcss/no-custom-classname
 export const stepButtonVariant = cva(
   [
-    'block mx-sm mb-auto',
-    'border-x-sm border-x-transparent',
+    'flex gap-md',
     // Progress Indicator
     'before:[counter-increment:step] before:content-[counter(step)]',
-    'before:absolute before:z-raised before:top-none before:left-[50%] before:translate-x-[-50%]',
-    'before:flex before:items-center before:justify-center before:rounded-full',
+    'before:flex before:shrink-0 before:items-center before:justify-center before:rounded-full before:mx-auto',
     'before:border-sm before:text-on-basic-container',
     'before:text-body-2 before:font-bold',
   ],
@@ -89,6 +118,19 @@ export const stepButtonVariant = cva(
         true: ['cursor-default'],
         false: '',
       },
+      orientation: {
+        vertical: [
+          'flex-row items-baseline',
+          'my-sm mr-auto group-first:mt-none group-last:mb-none',
+          'border-y-sm border-y-transparent',
+          'text-left',
+        ],
+        horizontal: [
+          'flex-col items-center',
+          'mx-sm mb-auto group-first:ml-none group-last:mr-none',
+          'border-x-sm border-x-transparent',
+        ],
+      },
     },
     compoundVariants: [
       {
@@ -105,6 +147,7 @@ export const stepButtonVariant = cva(
       active: false,
       complete: false,
       size: 'lg',
+      orientation: 'horizontal',
     },
   }
 )
