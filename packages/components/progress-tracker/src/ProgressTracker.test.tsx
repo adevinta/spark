@@ -25,7 +25,7 @@ describe('ProgressTracker', () => {
 
     expect(screen.getByText('Build').closest('li')).toHaveAttribute('data-state', 'complete')
     expect(screen.getByText('Deploy').closest('li')).toHaveAttribute('data-state', 'active')
-    expect(screen.getByText('Iterate').closest('li')).not.toHaveAttribute('data-state')
+    expect(screen.getByText('Iterate').closest('li')).toHaveAttribute('data-state', 'incomplete')
   })
 
   it('should handle callback on step click, except if step is disabled', async () => {
