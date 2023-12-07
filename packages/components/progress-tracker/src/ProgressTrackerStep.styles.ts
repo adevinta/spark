@@ -24,7 +24,7 @@ export const stepItemVariant = cva(
         false: '',
       },
       orientation: {
-        vertical: ['after:w-[1px]', 'after:bottom-none'],
+        vertical: ['after:w-[1px]', 'after:bottom-[-1px]'],
         horizontal: [
           'before:h-[1px] after:h-[1px]',
           'before:bg-basic before:absolute before:z-base',
@@ -34,12 +34,14 @@ export const stepItemVariant = cva(
       },
     },
     compoundVariants: [
+      // Horizontal sizes variants
       {
         size: 'sm',
         orientation: 'horizontal',
         class: [
           'before:top-[8px] after:top-[8px]',
           'before:right-[calc(50%+12px)] after:left-[calc(50%+12px)]',
+          'first:after:left-[calc(50%-(theme("spacing.sm")/2)+11px)] last:before:right-[calc(50%-(theme("spacing.sm")/2)+11px)]',
         ],
       },
       {
@@ -48,6 +50,7 @@ export const stepItemVariant = cva(
         class: [
           'before:top-[12px] after:top-[12px]',
           'before:right-[calc(50%+16px)] after:left-[calc(50%+16px)]',
+          'first:after:left-[calc(50%-(theme("spacing.sm")/2)+15px)] last:before:right-[calc(50%-(theme("spacing.sm")/2)+15px)]',
         ],
       },
       {
@@ -56,22 +59,24 @@ export const stepItemVariant = cva(
         class: [
           'before:top-[16px] after:top-[16px]',
           'before:right-[calc(50%+20px)] after:left-[calc(50%+20px)]',
+          'first:after:left-[calc(50%-(theme("spacing.sm")/2)+19px)] last:before:right-[calc(50%-(theme("spacing.sm")/2)+19px)]',
         ],
       },
+      // Vertical sizes variants
       {
         size: 'sm',
         orientation: 'vertical',
-        class: ['after:left-[8px]', 'after:top-[24px]'],
+        class: ['after:left-[8px]', 'after:top-[24px]', 'first:after:top-[20px]'],
       },
       {
         size: 'md',
         orientation: 'vertical',
-        class: ['after:left-[12px]', 'after:top-[32px]'],
+        class: ['after:left-[12px]', 'after:top-[32px]', 'first:after:top-[28px]'],
       },
       {
         size: 'lg',
         orientation: 'vertical',
-        class: ['after:left-[16px]', 'after:top-[40px]'],
+        class: ['after:left-[16px]', 'after:top-[40px]', 'first:after:top-[36px]'],
       },
     ],
     defaultVariants: {
@@ -85,8 +90,9 @@ export const stepItemVariant = cva(
 
 export const stepButtonVariant = cva(
   [
-    'flex gap-md',
+    'flex',
     // Progress Indicator
+    'before:absolute',
     'before:[counter-increment:step] before:content-[counter(step)]',
     'before:flex before:shrink-0 before:items-center before:justify-center before:rounded-full before:mx-auto',
     'before:border-sm before:text-on-basic-container',
@@ -95,9 +101,9 @@ export const stepButtonVariant = cva(
   {
     variants: {
       size: {
-        sm: ['before:w-sz-16 before:h-sz-16', 'before:!content-["_"]'],
-        md: 'before:w-sz-24 before:h-sz-24',
-        lg: 'before:w-sz-32 before:h-sz-32',
+        sm: ['min-h-sz-16', 'before:w-sz-16 before:h-sz-16', 'before:!content-["_"]'],
+        md: ['min-h-sz-24', 'before:w-sz-24 before:h-sz-24'],
+        lg: ['min-h-sz-32', 'before:w-sz-32 before:h-sz-32'],
       },
       complete: {
         true: [
@@ -120,15 +126,16 @@ export const stepButtonVariant = cva(
       },
       orientation: {
         vertical: [
-          'flex-row items-baseline',
+          'before:left-none',
+          'flex-row text-left',
           'my-sm mr-auto group-first:mt-none group-last:mb-none',
-          'border-y-sm border-y-transparent',
-          'text-left',
+          'py-[1px] group-first:pt-none group-last:pb-none',
         ],
         horizontal: [
-          'flex-col items-center',
+          'before:top-none',
+          'flex-col items-center text-center',
           'mx-sm mb-auto group-first:ml-none group-last:mr-none',
-          'border-x-sm border-x-transparent',
+          'px-[1px] group-first:pl-none group-last:pr-none',
         ],
       },
     },
@@ -139,6 +146,37 @@ export const stepButtonVariant = cva(
         active: false,
         complete: [true, false],
         class: 'hover:before:bg-basic/dim-5',
+      },
+      {
+        size: 'sm',
+        orientation: 'horizontal',
+        class: 'mt-[calc(16px+theme("spacing.md"))]',
+      },
+      {
+        size: 'md',
+        orientation: 'horizontal',
+        class: 'mt-[calc(24px+theme("spacing.md"))]',
+      },
+      {
+        size: 'lg',
+        orientation: 'horizontal',
+        class: 'mt-[calc(32px+theme("spacing.md"))]',
+      },
+      // Vertical
+      {
+        size: 'sm',
+        orientation: 'vertical',
+        class: 'ml-[calc(16px+theme("spacing.md"))]',
+      },
+      {
+        size: 'md',
+        orientation: 'vertical',
+        class: 'ml-[calc(24px+theme("spacing.md"))]',
+      },
+      {
+        size: 'lg',
+        orientation: 'vertical',
+        class: 'ml-[calc(32px+theme("spacing.md"))]',
       },
     ],
     defaultVariants: {

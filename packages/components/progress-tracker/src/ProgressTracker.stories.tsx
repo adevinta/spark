@@ -38,7 +38,7 @@ export const Readonly: StoryFn = _args => (
 )
 
 export const Size: StoryFn = _args => (
-  <div className="flex flex-wrap items-center gap-lg">
+  <div className="flex flex-wrap items-center gap-2xl">
     {sizes.map(size => (
       <div key={size}>
         <StoryLabel>{`${size}${size === 'lg' ? ' (default)' : ''}`}</StoryLabel>
@@ -53,7 +53,7 @@ export const Size: StoryFn = _args => (
 )
 
 export const Orientation: StoryFn = _args => (
-  <div className="flex flex-wrap gap-xl">
+  <div className="flex flex-wrap gap-2xl">
     {orientations.map(orientation => (
       <div key={orientation}>
         <StoryLabel>{`${orientation}${
@@ -67,8 +67,8 @@ export const Orientation: StoryFn = _args => (
           })}
         >
           <ProgressTracker.Step label="Build" />
-          <ProgressTracker.Step label="Deploy with confidence" disabled />
-          <ProgressTracker.Step label="Iterate again and again" disabled />
+          <ProgressTracker.Step label="Deploy with confidence" />
+          <ProgressTracker.Step label="Iterate again and again" />
           <ProgressTracker.Step label="Repeat" />
         </ProgressTracker>
       </div>
