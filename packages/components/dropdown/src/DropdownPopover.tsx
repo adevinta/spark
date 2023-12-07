@@ -17,6 +17,7 @@ export const Popover = ({ children }: PropsWithChildren) => {
 
   return (
     <SparkPopover.Content
+      inset
       matchTriggerWidth
       onOpenAutoFocus={e => e.preventDefault()}
       className={cx(!isOpen && 'hidden', '!z-dropdown')}

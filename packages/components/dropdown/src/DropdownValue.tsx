@@ -21,7 +21,7 @@ export const Value = ({ children, className, placeholder }: ValueProps) => {
       <span className="line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all">
         {!hasSelectedItems ? placeholder : children || text}
       </span>
-      {suffix && <span className="ml-md">{suffix}</span>}
+      {suffix && <span>{suffix}</span>}
     </span>
   )
 }

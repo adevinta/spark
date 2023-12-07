@@ -227,7 +227,7 @@ export const LeadingIcon: StoryFn = _args => {
 
 export const ItemIndicator: StoryFn = _args => {
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <Dropdown multiple defaultValue={['book-1', 'book-2']}>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />
@@ -294,7 +294,7 @@ export const FormFieldLabel: StoryFn = _args => {
 export const MultipleSelection: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Dropdown multiple>
+      <Dropdown multiple defaultValue={['book-1', 'book-2']}>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />
         </Dropdown.Trigger>
@@ -315,7 +315,7 @@ export const MultipleSelection: StoryFn = _args => {
 }
 
 export const MultipleSelectionControlled: StoryFn = () => {
-  const [values, setValues] = useState(['book-1'])
+  const [values, setValues] = useState(['book-1', 'book-2'])
 
   return (
     <div className="pb-[300px]">
