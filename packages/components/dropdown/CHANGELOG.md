@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.13.0...@spark-ui/dropdown@0.14.0) (2023-12-07)
+
+### Features
+
+- **dropdown:** controlled props multiple selection ([7cca40b](https://github.com/adevinta/spark/commit/7cca40b266d68936e99cbe5491ee7134e184ed4d))
+
 # [0.13.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.12.0...@spark-ui/dropdown@0.13.0) (2023-12-06)
 
 ### Bug Fixes
