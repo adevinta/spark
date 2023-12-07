@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/checkbox",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "description": "A control that allows the user to toggle between checked and not checked.",
   "publishConfig": {
     "access": "public"

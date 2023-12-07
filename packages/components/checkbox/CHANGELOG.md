@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.10](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.1.9...@spark-ui/checkbox@2.1.10) (2023-12-07)
+
+### Bug Fixes
+
+- **checkbox:** apply proper color on checkbox ticks per intent ([dc4e604](https://github.com/adevinta/spark/commit/dc4e604aa96fb4b53692a62a32003ba9dfb0721e))
+
 ## [2.1.9](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.1.8...@spark-ui/checkbox@2.1.9) (2023-12-05)
 
 **Note:** Version bump only for package @spark-ui/checkbox
