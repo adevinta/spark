@@ -4,6 +4,7 @@ import {
   type ReactNode,
   useEffect,
   useId,
+  useMemo,
   useState,
 } from 'react'
 
@@ -29,14 +30,21 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
 
     const ID = useId()
     const stepId = `step-${ID}`
-    const stepIndex = [...steps].findIndex(step => step.id === stepId)
+    const stepIndex = [...steps.keys()].indexOf(stepId)
 
-    const [progressState, setProgressState] = useState<'active' | 'complete' | undefined>()
+    const disabledAfter = useMemo(() => {
+      const nextStepId = [...steps.keys()][stepIndex + 1]
 
-    useEffect(
-      () => setSteps(steps => steps.add({ id: stepId, disabled })),
-      [disabled, stepId, setSteps]
+      return !!(nextStepId && steps.get(nextStepId)?.includes('disabled'))
+    }, [steps, stepIndex])
+
+    const [progressState, setProgressState] = useState<'active' | 'complete' | 'incomplete'>(
+      'incomplete'
     )
+
+    useEffect(() => {
+      setSteps(steps => steps.set(stepId, [progressState, disabled ? 'disabled' : '']))
+    }, [disabled, stepId, setSteps, progressState])
 
     useEffect(() => {
       if (stepIndex === activeStepIndex) {
@@ -44,7 +52,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       } else if (stepIndex < activeStepIndex) {
         setProgressState('complete')
       } else {
-        setProgressState(undefined)
+        setProgressState('incomplete')
       }
     }, [activeStepIndex, stepIndex])
 
@@ -58,7 +66,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
           size,
           orientation,
           disabled,
-          disabledAfter: !![...steps][stepIndex + 1]?.disabled, // should reload on disabled updates?
+          disabledAfter,
         })}
         {...rest}
       >

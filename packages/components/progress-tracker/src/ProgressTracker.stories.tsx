@@ -53,7 +53,7 @@ export const Size: StoryFn = _args => (
 )
 
 export const Orientation: StoryFn = _args => (
-  <div className="flex flex-wrap gap-lg">
+  <div className="flex flex-wrap gap-xl">
     {orientations.map(orientation => (
       <div key={orientation}>
         <StoryLabel>{`${orientation}${

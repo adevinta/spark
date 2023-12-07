@@ -2,16 +2,11 @@ import { createContext, type Dispatch, type SetStateAction, useContext } from 'r
 
 import type { ProgressTrackerProps } from './ProgressTracker'
 
-interface Step {
-  id: string
-  disabled: boolean
-}
-
 export type ProgressTrackerContextInterface = Required<
   Pick<ProgressTrackerProps, 'stepIndex' | 'onStepClick' | 'size' | 'orientation' | 'readOnly'>
 > & {
-  steps: Set<Step>
-  setSteps: Dispatch<SetStateAction<Set<Step>>>
+  steps: Map<string, string[]>
+  setSteps: Dispatch<SetStateAction<Map<string, string[]>>>
 }
 
 export const ProgressTrackerContext = createContext<ProgressTrackerContextInterface>(
