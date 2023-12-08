@@ -29,10 +29,10 @@ const ItemContent = ({ className, disabled = false, value, children }: ItemProps
   return (
     <li
       className={cx(
-        highlightedItem?.value === value && 'bg-basic-container',
+        highlightedItem?.value === value && 'bg-surface-hovered',
         isSelected && 'font-bold',
         disabled && 'opacity-dim-3',
-        'rounded-sm px-md py-sm text-body-1',
+        'px-lg py-md text-body-1',
         className
       )}
       key={value}

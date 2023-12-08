@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
@@ -27,6 +28,9 @@ describe('Dropdown', () => {
     render(
       <Dropdown>
         <Dropdown.Trigger aria-label="Book">
+          <Dropdown.LeadingIcon>
+            <BookmarkFill />
+          </Dropdown.LeadingIcon>
           <Dropdown.Value placeholder="Pick a book" />
         </Dropdown.Trigger>
         <Dropdown.Popover>

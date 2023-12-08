@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
-import { Book } from '@spark-ui/icons/dist/icons/Book'
+import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { Tag } from '@spark-ui/tag'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
@@ -20,6 +20,9 @@ export const Default: StoryFn = _args => {
     <div className="pb-[300px]">
       <Dropdown>
         <Dropdown.Trigger aria-label="Book">
+          <Dropdown.LeadingIcon>
+            <BookmarkFill />
+          </Dropdown.LeadingIcon>
           <Dropdown.Value placeholder="Pick a book" />
         </Dropdown.Trigger>
 
@@ -202,7 +205,7 @@ export const LeadingIcon: StoryFn = _args => {
       <Dropdown>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.LeadingIcon>
-            <Book />
+            <BookmarkFill />
           </Dropdown.LeadingIcon>
           <Dropdown.Value placeholder="Pick a book" />
         </Dropdown.Trigger>
@@ -224,7 +227,7 @@ export const LeadingIcon: StoryFn = _args => {
 
 export const ItemIndicator: StoryFn = _args => {
   return (
-    <div className="w-sz-480 pb-[300px]">
+    <div className="pb-[300px]">
       <Dropdown multiple defaultValue={['book-1', 'book-2']}>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />
@@ -291,7 +294,7 @@ export const FormFieldLabel: StoryFn = _args => {
 export const MultipleSelection: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Dropdown multiple>
+      <Dropdown multiple defaultValue={['book-1', 'book-2']}>
         <Dropdown.Trigger aria-label="Book">
           <Dropdown.Value placeholder="Pick a book" />
         </Dropdown.Trigger>
@@ -312,7 +315,7 @@ export const MultipleSelection: StoryFn = _args => {
 }
 
 export const MultipleSelectionControlled: StoryFn = () => {
-  const [values, setValues] = useState(['book-1'])
+  const [values, setValues] = useState(['book-1', 'book-2'])
 
   return (
     <div className="pb-[300px]">
