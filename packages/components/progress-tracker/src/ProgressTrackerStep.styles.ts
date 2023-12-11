@@ -103,18 +103,19 @@ export const stepButtonVariant = cva(
       size: {
         sm: ['min-h-sz-16', 'before:w-sz-16 before:h-sz-16', 'before:!content-["_"]'],
         md: ['min-h-sz-24', 'before:w-sz-24 before:h-sz-24'],
-        lg: ['min-h-sz-32', 'before:w-sz-32 before:h-sz-32'],
+        lg: [
+          'min-h-sz-32',
+          'before:w-sz-32 before:h-sz-32',
+          // 'before:translate-y-[calc(-50%+(theme("fontSize")/2))]',
+        ],
       },
-      complete: {
-        true: [
+      state: {
+        active: ['before:bg-basic-container', 'cursor-default'],
+        complete: [
           'before:content-[url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjQgMjQnIGhlaWdodD0nMTYnIHdpZHRoPScxNicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyBmaWxsPSdjdXJyZW50Q29sb3InIHN0cm9rZT0nbm9uZSc+PHBhdGggZD0nbTguOTIsMTkuMDhjLS4xOCwwLS4zNi0uMDMtLjUzLS4xcy0uMzMtLjE3LS40Ny0uMzFsLTUuNDktNS4zNGMtLjI4LS4yOC0uNDItLjYxLS40Mi0xcy4xNC0uNzMuNDItMWMuMjgtLjI4LjYyLS40MSwxLjAyLS40MXMuNzQuMTQsMS4wNS40MWw0LjQzLDQuMywxMC42Mi0xMC4yOWMuMjgtLjI4LjYyLS40MiwxLjAyLS40My4zOSwwLC43My4xMywxLjAyLjQzLjI4LjI4LjQyLjYxLjQyLDFzLS4xNC43My0uNDIsMWwtMTEuNjUsMTEuMzJjLS4xNC4xNC0uMy4yNC0uNDcuMzEtLjE3LjA3LS4zNS4xLS41My4xWic+PC9wYXRoPjwvc3ZnPg==)]',
           'before:inline-flex before:leading-none',
         ],
-        false: '',
-      },
-      active: {
-        true: ['before:bg-basic-container', 'cursor-default'],
-        false: '',
+        incomplete: '',
       },
       disabled: {
         true: 'before:opacity-dim-3',
@@ -143,8 +144,7 @@ export const stepButtonVariant = cva(
       {
         readOnly: false,
         disabled: false,
-        active: false,
-        complete: [true, false],
+        state: ['complete', 'incomplete'],
         class: 'hover:before:bg-basic/dim-5',
       },
       {
@@ -180,12 +180,11 @@ export const stepButtonVariant = cva(
       },
     ],
     defaultVariants: {
-      readOnly: false,
-      disabled: false,
-      active: false,
-      complete: false,
       size: 'lg',
       orientation: 'horizontal',
+      state: 'incomplete',
+      readOnly: false,
+      disabled: false,
     },
   }
 )
