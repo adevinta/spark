@@ -22,6 +22,7 @@ export const Popover = ({ children }: PropsWithChildren) => {
       onOpenAutoFocus={e => e.preventDefault()}
       className={cx(!isOpen && 'hidden', '!z-dropdown')}
       sideOffset={4}
+      data-spark-component="dropdown-popover"
     >
       {children}
     </SparkPopover.Content>

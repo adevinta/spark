@@ -35,6 +35,7 @@ export const Trigger = ({ 'aria-label': ariaLabel, children, className }: Trigge
             'min-h-sz-44 rounded-lg border-sm border-outline bg-surface px-lg',
             className
           )}
+          data-spark-component="dropdown-trigger"
           {...getToggleButtonProps(getDropdownProps())}
         >
           <span className="flex items-center justify-start gap-md">{children}</span>

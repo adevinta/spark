@@ -18,6 +18,7 @@ export const Items = ({ children }: ItemsProps) => {
         isOpen ? 'block' : 'pointer-events-none opacity-0',
         hasPopover ? 'max-h-sz-320 overflow-y-auto p-lg' : ''
       )}
+      data-spark-component="dropdown-items"
     >
       {children}
     </ul>
