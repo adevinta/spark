@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
+import { Callout } from '@docs/helpers/Callout'
 
 import { Dropdown } from '.'
 
@@ -9,7 +10,51 @@ import * as stories from './Dropdown.stories'
 
 # Dropdown
 
-Displays a list of options for the user to pick from—triggered by a button.
+Dropdown is an interactive element
+that allows users to select an option from a list of choices presented in a collapsible menu.
+It saves space on the interface by concealing the options until the user interacts with the component.
+
+Displays a **closed** list of options for the user to pick triggered by a button.
+
+#### Dropdown is not a ComboBox
+
+<Callout kind="warning">
+  Dropdowns and Comboboxes are similar in that every both provide visual selectable options for
+  users. However, there are important distinctions to be aware of.
+</Callout>
+
+#### Dropdown is not an element form field but an element field
+
+Dropdowns are not form fields.
+They are element fields.
+They are not meant to be used inside a form and are not going to be handled by it.
+They are meant to be used as a standalone element where users can interact.
+
+#### Dropdown, Select and Combobox
+
+Dropdown, Select and Combobox are visually similar when its options are not displayed
+(unfocused closed trigger element).
+All of them also share the same behavior on its options/items, toggling its own item's
+value to its parent selected state.
+
+However, they have different behaviors and purposes:
+
+- Dropdown:
+  - **Closed** list of options for the user to pick triggered by a button.
+  - The trigger element is rolled as a **button**.
+  - The options are displayed fully customizable inside a **popover** (normally).
+- Select:
+  - **Closed** list of options for the user to pick triggered by a button.
+  - The structural select role, an abstract role, is superclass role for four form widgets, `listbox`, `menu`,
+  `radiogroup`, and `tree`, which allow users to make selections from a set of choices.
+  - The options can only be text and are its look and feel is managed by the browser natively.
+  - Cannot be used for multiple selections.
+- Combobox
+  - **Open** list of options for the user to pick triggered by a button.
+  - The trigger element is rolled as an **input**.
+  - The options can be text or any other JSX markup.
+  - Can be used for multiple selections.
+  - Can be used inside a form.
 
 ## Install
 

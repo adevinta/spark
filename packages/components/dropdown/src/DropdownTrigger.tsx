@@ -64,6 +64,7 @@ export const Trigger = ({ 'aria-label': ariaLabel, children, className }: Trigge
               setLastInteractionType('keyboard')
             },
           })}
+          data-spark-component="dropdown-trigger"
         >
           <span className="flex items-center justify-start gap-md">{children}</span>
 

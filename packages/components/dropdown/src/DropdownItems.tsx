@@ -28,6 +28,7 @@ export const Items = React.forwardRef(({ children, className, ...props }: ItemsP
       )}
       {...props}
       {...downshiftProps}
+      data-spark-component="dropdown-items"
     >
       {children}
     </ul>

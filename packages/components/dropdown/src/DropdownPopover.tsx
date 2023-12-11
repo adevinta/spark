@@ -27,6 +27,7 @@ export const Popover = ({
       matchTriggerWidth={matchTriggerWidth}
       className={cx(!isOpen && 'hidden', '!z-dropdown')}
       sideOffset={sideOffset}
+      data-spark-component="dropdown-popover"
       {...props}
     >
       {children}
