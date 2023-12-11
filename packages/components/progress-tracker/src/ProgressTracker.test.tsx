@@ -8,9 +8,15 @@ const defaultProps = {
   stepIndex: 1,
   children: (
     <>
-      <ProgressTracker.Step label="Build" />
-      <ProgressTracker.Step label="Deploy" />
-      <ProgressTracker.Step label="Iterate" />
+      <ProgressTracker.Step>
+        <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+      </ProgressTracker.Step>
+      <ProgressTracker.Step>
+        <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+      </ProgressTracker.Step>
+      <ProgressTracker.Step>
+        <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+      </ProgressTracker.Step>
     </>
   ),
 }
@@ -38,14 +44,14 @@ describe('ProgressTracker', () => {
 
     render(
       <ProgressTracker {...props}>
-        <ProgressTracker.Step label="Build" />
-        <ProgressTracker.Step label="Deploy" />
-        <ProgressTracker.Step label="Iterate" disabled />
+        <ProgressTracker.Step aria-label="Build" />
+        <ProgressTracker.Step aria-label="Deploy" />
+        <ProgressTracker.Step aria-label="Iterate" disabled />
       </ProgressTracker>
     )
 
-    await user.click(screen.getByText('Build'))
-    await user.click(screen.getByText('Iterate'))
+    await user.click(screen.getByLabelText('Build'))
+    await user.click(screen.getByLabelText('Iterate'))
 
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })

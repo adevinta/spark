@@ -15,25 +15,37 @@ const orientations: ProgressTrackerProps['orientation'][] = ['horizontal', 'vert
 
 export const Default: StoryFn = _args => (
   <ProgressTracker stepIndex={1} onStepClick={id => console.log('Clicked on', id)}>
-    <ProgressTracker.Step label="Build" />
-    <ProgressTracker.Step label="Deploy" />
-    <ProgressTracker.Step label="Iterate" />
+    <ProgressTracker.Step>
+      <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+    </ProgressTracker.Step>
+    <ProgressTracker.Step>
+      <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+    </ProgressTracker.Step>
+    <ProgressTracker.Step>
+      <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+    </ProgressTracker.Step>
   </ProgressTracker>
 )
 
 export const Disabled: StoryFn = _args => (
   <ProgressTracker stepIndex={1} onStepClick={id => console.log('Clicked on', id)}>
-    <ProgressTracker.Step label="Build" />
-    <ProgressTracker.Step label="Deploy" />
-    <ProgressTracker.Step label="Iterate" disabled />
+    <ProgressTracker.Step>
+      <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+    </ProgressTracker.Step>
+    <ProgressTracker.Step>
+      <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+    </ProgressTracker.Step>
+    <ProgressTracker.Step disabled>
+      <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+    </ProgressTracker.Step>
   </ProgressTracker>
 )
 
 export const Readonly: StoryFn = _args => (
   <ProgressTracker stepIndex={1} readOnly>
-    <ProgressTracker.Step label="Build" />
-    <ProgressTracker.Step label="Deploy" />
-    <ProgressTracker.Step label="Iterate" />
+    <ProgressTracker.Step aria-label="Build" />
+    <ProgressTracker.Step aria-label="Deploy" />
+    <ProgressTracker.Step aria-label="Iterate" />
   </ProgressTracker>
 )
 
@@ -43,9 +55,15 @@ export const Size: StoryFn = _args => (
       <div key={size}>
         <StoryLabel>{`${size}${size === 'lg' ? ' (default)' : ''}`}</StoryLabel>
         <ProgressTracker stepIndex={1} size={size as ProgressTrackerProps['size']}>
-          <ProgressTracker.Step label="Build" />
-          <ProgressTracker.Step label="Deploy" />
-          <ProgressTracker.Step label="Iterate" />
+          <ProgressTracker.Step>
+            <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
         </ProgressTracker>
       </div>
     ))}
@@ -66,10 +84,18 @@ export const Orientation: StoryFn = _args => (
             className: 'w-[120px]',
           })}
         >
-          <ProgressTracker.Step label="Build" />
-          <ProgressTracker.Step label="Deploy with confidence" />
-          <ProgressTracker.Step label="Iterate again and again" />
-          <ProgressTracker.Step label="Repeat" />
+          <ProgressTracker.Step>
+            <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepLabel>Deploy with confidence</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepLabel>Iterate again and again</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepLabel>Repeat</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
         </ProgressTracker>
       </div>
     ))}
