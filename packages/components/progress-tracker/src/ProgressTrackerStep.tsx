@@ -11,13 +11,20 @@ import {
 import { useProgressTrackerContext } from './ProgressTrackerContext'
 import { stepButtonVariant, stepItemVariant } from './ProgressTrackerStep.styles'
 
-export type ProgressTrackerStepProps = ComponentPropsWithoutRef<'li'> & {
-  label?: ReactNode
-  disabled?: boolean
-}
+export type ProgressTrackerStepProps = ComponentPropsWithoutRef<'li'> &
+  (
+    | {
+        disabled?: boolean
+        children: ReactNode
+      }
+    | {
+        disabled?: boolean
+        'aria-label': string
+      }
+  )
 
 export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStepProps>(
-  ({ label, disabled = false, className, ...rest }, ref) => {
+  ({ disabled = false, children, 'aria-label': ariaLabel, className, ...rest }, ref) => {
     const {
       stepIndex: activeStepIndex,
       steps,
@@ -72,6 +79,8 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       >
         <button
           type="button"
+          aria-label={ariaLabel}
+          title={ariaLabel}
           {...(!disabled &&
             !readOnly && {
               onClick: () => onStepClick(stepId),
@@ -86,9 +95,11 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
             className,
           })}
         >
-          {label && <div className="block text-body-2 font-bold text-on-surface">{label}</div>}
+          {children}
         </button>
       </li>
     )
   }
 )
+
+ProgressTrackerStep.displayName = 'ProgressTracker.Step'

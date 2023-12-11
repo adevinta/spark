@@ -101,13 +101,9 @@ export const stepButtonVariant = cva(
   {
     variants: {
       size: {
-        sm: ['min-h-sz-16', 'before:w-sz-16 before:h-sz-16', 'before:!content-["_"]'],
-        md: ['min-h-sz-24', 'before:w-sz-24 before:h-sz-24'],
-        lg: [
-          'min-h-sz-32',
-          'before:w-sz-32 before:h-sz-32',
-          // 'before:translate-y-[calc(-50%+(theme("fontSize")/2))]',
-        ],
+        sm: ['min-h-sz-16 min-w-sz-16', 'before:w-sz-16 before:h-sz-16', 'before:!content-["_"]'],
+        md: ['min-h-sz-24 min-w-sz-24', 'before:w-sz-24 before:h-sz-24'],
+        lg: ['min-h-sz-32 min-w-sz-32', 'before:w-sz-32 before:h-sz-32'],
       },
       state: {
         active: ['before:bg-basic-container', 'cursor-default'],
