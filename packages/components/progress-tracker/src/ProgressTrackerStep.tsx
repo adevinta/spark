@@ -78,13 +78,11 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
             })}
           disabled={disabled}
           className={stepButtonVariant({
-            // Shouldn't we clarify the connection between complete/active/incomplete and use a common prop here?
-            complete: progressState === 'complete',
-            active: progressState === 'active',
-            disabled,
-            readOnly,
             size,
             orientation,
+            state: progressState,
+            readOnly,
+            disabled,
             className,
           })}
         >
