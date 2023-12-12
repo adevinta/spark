@@ -1,16 +1,23 @@
 import { cx } from 'class-variance-authority'
 import { type ComponentPropsWithoutRef, forwardRef, type PropsWithChildren, useState } from 'react'
 
-import { progressListVariant } from './ProgressTracker.styles'
+import { progressList } from './ProgressTracker.styles'
 import {
   ProgressTrackerContext,
   type ProgressTrackerContextInterface,
 } from './ProgressTrackerContext'
-import type { ProgressTrackerStepVariantsProps } from './ProgressTrackerStep.styles'
 
-export interface ProgressTrackerProps
-  extends ComponentPropsWithoutRef<'div'>,
-    Pick<ProgressTrackerStepVariantsProps, 'size' | 'orientation'> {
+export interface ProgressTrackerProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * The orientation of the progress tracker
+   * @default 'horizontal"
+   */
+  orientation?: 'horizontal' | 'vertical'
+  /**
+   * The size of the step indicators
+   * @default 'lg'
+   */
+  size?: 'sm' | 'md' | 'lg'
   /**
    * The index of the current step.
    * @default 0
@@ -55,7 +62,7 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
 
     return (
       <ProgressTrackerContext.Provider
-        value={{ stepIndex, onStepClick, steps, setSteps, size, orientation, readOnly }}
+        value={{ stepIndex, onStepClick, steps, setSteps, size, readOnly }}
       >
         <Component
           ref={ref}
@@ -63,7 +70,11 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
           className={cx('inline-flex', className)}
           {...rest}
         >
-          <ol className={progressListVariant({ orientation })} style={{ counterReset: 'step' }}>
+          <ol
+            data-orientation={orientation}
+            className={progressList}
+            style={{ counterReset: 'step' }}
+          >
             {children}
           </ol>
         </Component>
