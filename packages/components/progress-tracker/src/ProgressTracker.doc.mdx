@@ -38,12 +38,18 @@ import { ProgressTracker } from '@spark-ui/progress-tracker'
       of: ProgressTracker.StepLabel,
       description: 'The label describing the step.',
     },
+    'ProgressTracker.StepIndicator': {
+      of: ProgressTracker.StepIndicator,
+      description: 'Contains the custom content of a step, for complete and incomplete states.',
+    },
   }}
 />
 
 ## Usage
 
 ### Default
+
+Step indicator content defaults to step index, or checkmark icon when completed. Use `StepIndicator` to customize this content, through `complete` and `incomplete` props.
 
 <Canvas of={stories.Default} />
 

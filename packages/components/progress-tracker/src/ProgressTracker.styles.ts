@@ -1,13 +1,7 @@
-import { cva } from 'class-variance-authority'
+import { cx } from 'class-variance-authority'
 
-export const progressListVariant = cva(['flex flex-nowrap'], {
-  variants: {
-    orientation: {
-      horizontal: 'flex-row w-full',
-      vertical: 'flex-col',
-    },
-  },
-  defaultVariants: {
-    orientation: 'horizontal',
-  },
-})
+export const progressList = cx([
+  'flex flex-nowrap items-start group/list',
+  'data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:w-full',
+  'data-[orientation=vertical]:flex-col',
+])
