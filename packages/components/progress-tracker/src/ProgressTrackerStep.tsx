@@ -8,8 +8,13 @@ import {
   useState,
 } from 'react'
 
-import { useProgressTrackerContext } from './ProgressTrackerContext'
+import {
+  ProgressTrackerStepContext,
+  type ProgressTrackerStepContextInterface,
+  useProgressTrackerContext,
+} from './ProgressTrackerContext'
 import { stepButtonVariant, stepItemVariant } from './ProgressTrackerStep.styles'
+import { ProgressTrackerStepIndicator } from './ProgressTrackerStepIndicator'
 
 export type ProgressTrackerStepProps = ComponentPropsWithoutRef<'li'> &
   (
@@ -31,7 +36,6 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       onStepClick,
       setSteps,
       size,
-      orientation,
       readOnly,
     } = useProgressTrackerContext()
 
@@ -45,9 +49,8 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       return !!(nextStepId && steps.get(nextStepId)?.includes('disabled'))
     }, [steps, stepIndex])
 
-    const [progressState, setProgressState] = useState<'active' | 'complete' | 'incomplete'>(
-      'incomplete'
-    )
+    const [progressState, setProgressState] =
+      useState<ProgressTrackerStepContextInterface['state']>('incomplete')
 
     useEffect(() => {
       setSteps(steps => steps.set(stepId, [progressState, disabled ? 'disabled' : '']))
@@ -71,7 +74,6 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
         aria-current={progressState === 'active'}
         className={stepItemVariant({
           size,
-          orientation,
           disabled,
           disabledAfter,
         })}
@@ -80,6 +82,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
         <button
           type="button"
           aria-label={ariaLabel}
+          data-interactive={!disabled && !readOnly}
           title={ariaLabel}
           {...(!disabled &&
             !readOnly && {
@@ -88,14 +91,19 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
           disabled={disabled}
           className={stepButtonVariant({
             size,
-            orientation,
-            state: progressState,
             readOnly,
-            disabled,
             className,
           })}
         >
-          {children}
+          <ProgressTrackerStepContext.Provider
+            value={{
+              state: progressState,
+              index: stepIndex,
+              size,
+            }}
+          >
+            {children || <ProgressTrackerStepIndicator />}
+          </ProgressTrackerStepContext.Provider>
         </button>
       </li>
     )
