@@ -1,15 +1,15 @@
 import { Popover as SparkPopover } from '@spark-ui/popover'
 import { cx } from 'class-variance-authority'
-import { ComponentProps, useEffect } from 'react'
+import { forwardRef, ComponentProps, Ref, useEffect } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 
-export const Popover = ({
+export const Popover = forwardRef(({
   children,
   matchTriggerWidth = true,
   sideOffset = 4,
   ...props
-}: ComponentProps<typeof SparkPopover.Content>) => {
+}: ComponentProps<typeof SparkPopover.Content>, forwardedRef: Ref<HTMLDivElement>) => {
   const { isOpen, hasPopover, setHasPopover } = useDropdownContext()
 
   useEffect(() => {
@@ -22,6 +22,7 @@ export const Popover = ({
 
   return (
     <SparkPopover.Content
+      ref={forwardedRef}
       inset
       matchTriggerWidth={matchTriggerWidth}
       onOpenAutoFocus={e => e.preventDefault()}
@@ -35,5 +36,4 @@ export const Popover = ({
   )
 }
 
-Popover.id = 'Popover'
 Popover.displayName = 'Dropdown.Popover'

@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 
@@ -7,11 +7,12 @@ interface ItemsProps {
   children: ReactNode
 }
 
-export const Items = ({ children }: ItemsProps) => {
+export const Items = forwardRef(({ children }: ItemsProps, forwardedRef: Ref<HTMLUListElement>) => {
   const { isOpen, getMenuProps, hasPopover } = useDropdownContext()
 
   return (
     <ul
+      ref={forwardedRef}
       {...getMenuProps()}
       className={cx(
         'flex  flex-col',
@@ -23,7 +24,6 @@ export const Items = ({ children }: ItemsProps) => {
       {children}
     </ul>
   )
-}
+})
 
-Items.id = 'Items'
 Items.displayName = 'Dropdown.Items'

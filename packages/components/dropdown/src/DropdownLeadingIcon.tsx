@@ -9,5 +9,4 @@ export const LeadingIcon = ({ children }: { children: ReactElement }) => {
   )
 }
 
-LeadingIcon.id = 'LeadingIcon'
 LeadingIcon.displayName = 'Dropdown.LeadingIcon'
