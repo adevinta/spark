@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode, type Ref } from 'react'
 
 import { DropdownGroupProvider, useDropdownGroupContext } from './DropdownItemsGroupContext'
 
@@ -8,23 +8,28 @@ interface GroupProps {
   className?: string
 }
 
-export const Group = ({ children, ...props }: GroupProps) => {
-  return (
-    <DropdownGroupProvider>
-      <GroupContent {...props}>{children}</GroupContent>
-    </DropdownGroupProvider>
-  )
-}
+export const Group = forwardRef(
+  ({ children, ...props }: GroupProps, forwardedRef: Ref<HTMLDivElement>) => {
+    return (
+      <DropdownGroupProvider>
+        <GroupContent ref={forwardedRef} {...props}>
+          {children}
+        </GroupContent>
+      </DropdownGroupProvider>
+    )
+  }
+)
 
-const GroupContent = ({ children, className }: GroupProps) => {
-  const { labelId } = useDropdownGroupContext()
+const GroupContent = forwardRef(
+  ({ children, className }: GroupProps, forwardedRef: Ref<HTMLDivElement>) => {
+    const { labelId } = useDropdownGroupContext()
 
-  return (
-    <div role="group" aria-labelledby={labelId} className={cx(className)}>
-      {children}
-    </div>
-  )
-}
+    return (
+      <div ref={forwardedRef} role="group" aria-labelledby={labelId} className={cx(className)}>
+        {children}
+      </div>
+    )
+  }
+)
 
-Group.id = 'Group'
 Group.displayName = 'Dropdown.Group'
