@@ -3,12 +3,12 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const styles = cva(
   tw([
-    'group relative inline-flex flex-shrink-0 items-center self-baseline',
+    'relative flex-shrink-0 self-baseline',
     'cursor-pointer',
     'rounded-full border-transparent',
     'hover:ring-4',
     'transition-colors duration-200 ease-in-out',
-    'spark-disabled:opacity-dim-3 disabled:hover:ring-transparent spark-disabled:cursor-not-allowed',
+    'disabled:hover:ring-transparent spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3',
     'focus-visible:outline-none focus-visible:u-ring',
     'spark-state-unchecked:bg-on-surface/dim-4',
     'u-shadow-border-transition',
@@ -49,13 +49,25 @@ export const styles = cva(
 
 export type StylesProps = VariantProps<typeof styles>
 
+export const thumbWrapperStyles = cva(
+  [
+    'pointer-events-none absolute inset-none flex items-center',
+    'transition-all duration-200 ease-in-out',
+  ],
+  {
+    variants: {
+      checked: {
+        true: 'translate-x-full',
+        false: 'translate-x-none',
+      },
+    },
+  }
+)
+
 export const thumbStyles = cva(
   [
-    'absolute flex items-center justify-center',
+    'absolute left-none top-none flex items-center justify-center',
     'bg-surface',
-    'group-spark-state-checked:left-full group-spark-state-checked:-translate-x-full',
-    'group-spark-state-unchecked:left-none group-spark-state-unchecked:translate-x-none',
-    'pointer-events-none',
     'rounded-full',
     'ring-0',
     'transition-all duration-200 ease-in-out',
@@ -67,7 +79,8 @@ export const thumbStyles = cva(
         md: ['h-sz-24', 'w-sz-24'],
       }),
       checked: {
-        false: 'text-on-surface/dim-4',
+        true: '-translate-x-full',
+        false: 'translate-x-none text-on-surface/dim-4',
       },
     },
     defaultVariants: {
