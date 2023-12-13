@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.14.2...@spark-ui/dropdown@0.15.0) (2023-12-13)
+
+### Features
+
+- **dropdown:** enabled passing props to dropdown popover ([037f88b](https://github.com/adevinta/spark/commit/037f88b927493203b911961750837779df38e08b))
+
 ## [0.14.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.14.1...@spark-ui/dropdown@0.14.2) (2023-12-13)
 
 **Note:** Version bump only for package @spark-ui/dropdown
