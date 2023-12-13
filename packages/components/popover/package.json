@@ -48,7 +48,7 @@
     "@spark-ui/icons": "^1.21.4"
   },
   "devDependencies": {
-    "jsdom-testing-mocks": "1.9.0"
+    "jsdom-testing-mocks": "1.11.0"
   },
   "license": "MIT"
 }
