@@ -128,6 +128,7 @@ export const Orientation: StoryFn = _args => (
         <StoryLabel>{`${orientation}${
           orientation === 'horizontal' ? ' (default)' : ''
         }`}</StoryLabel>
+
         <ProgressTracker
           stepIndex={1}
           orientation={orientation as ProgressTrackerProps['orientation']}
