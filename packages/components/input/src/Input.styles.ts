@@ -5,7 +5,6 @@ export const inputStyles = cva(
     'relative',
     'border-sm',
     'peer',
-    'w-full',
     'appearance-none outline-none',
     'bg-surface',
     'text-ellipsis text-body-1 text-on-surface',

@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Group } from '.'
+
+import * as stories from './Group.stories'
+
+<Meta of={stories} />
+
+# Group
+
+Group components such as input together as a single visual unit
+
+## Install
+
+```sh
+npm install @spark-ui/group
+```
+
+## Import
+
+```tsx
+import { Group } from "@spark-ui/group"
+```
+
+## Props
+
+<ArgTypes of={Group} />
+
+## Variants
+<Canvas of={stories.Default} />

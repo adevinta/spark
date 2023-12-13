@@ -3,7 +3,7 @@ import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalD
 import { Popover } from '@spark-ui/popover'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { cx } from 'class-variance-authority'
-import { Fragment, ReactNode } from 'react'
+import { forwardRef, Fragment, ReactNode } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 
@@ -13,30 +13,32 @@ interface TriggerProps {
   className?: string
 }
 
-export const Trigger = ({ 'aria-label': ariaLabel, children, className }: TriggerProps) => {
-  const { getToggleButtonProps, getDropdownProps, getLabelProps, hasPopover } = useDropdownContext()
+export const Trigger = forwardRef(
+  ({ 'aria-label': ariaLabel, children, className }: TriggerProps, ref) => {
+    const { getToggleButtonProps, getDropdownProps, getLabelProps, hasPopover } =
+      useDropdownContext()
 
-  const [WrapperComponent, wrapperProps] = hasPopover
-    ? [Popover.Trigger, { asChild: true }]
-    : [Fragment, {}]
+    const [WrapperComponent, wrapperProps] = hasPopover
+      ? [Popover.Trigger, { asChild: true }]
+      : [Fragment, {}]
 
-  return (
-    <>
-      {ariaLabel && (
-        <VisuallyHidden>
-          <label {...getLabelProps()}>{ariaLabel}</label>
-        </VisuallyHidden>
-      )}
+    return (
       <WrapperComponent {...wrapperProps}>
         <button
           type="button"
+          ref={ref}
           className={cx(
-            'flex w-full cursor-pointer items-center justify-between',
+            'flex cursor-pointer items-center justify-between',
             'min-h-sz-44 rounded-lg border-sm border-outline bg-surface px-lg',
             className
           )}
           {...getToggleButtonProps(getDropdownProps())}
         >
+          {ariaLabel && (
+            <VisuallyHidden>
+              <label {...getLabelProps()}>{ariaLabel}</label>
+            </VisuallyHidden>
+          )}
           <span className="flex items-center justify-start gap-md">{children}</span>
 
           <Icon className="ml-md shrink-0" size="sm">
@@ -44,9 +46,9 @@ export const Trigger = ({ 'aria-label': ariaLabel, children, className }: Trigge
           </Icon>
         </button>
       </WrapperComponent>
-    </>
-  )
-}
+    )
+  }
+)
 
 Trigger.id = 'Trigger'
 Trigger.displayName = 'Dropdown.Trigger'
