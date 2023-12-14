@@ -8,11 +8,15 @@ interface ItemsProps {
 }
 
 export const Items = ({ children }: ItemsProps) => {
-  const { isOpen, getMenuProps, hasPopover } = useDropdownContext()
+  const { isOpen, getMenuProps, hasPopover, setLastInteractionType } = useDropdownContext()
 
   return (
     <ul
-      {...getMenuProps()}
+      {...getMenuProps({
+        onMouseMove: () => {
+          setLastInteractionType('mouse')
+        },
+      })}
       className={cx(
         'flex  flex-col',
         isOpen ? 'block' : 'pointer-events-none opacity-0',

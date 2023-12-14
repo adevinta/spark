@@ -22,14 +22,16 @@ export const Item = ({ children, ...props }: ItemProps) => {
 }
 
 const ItemContent = ({ className, disabled = false, value, children }: ItemProps) => {
-  const { getItemProps, highlightedItem } = useDropdownContext()
+  const { getItemProps, highlightedItem, lastInteractionType } = useDropdownContext()
 
   const { textId, index, itemData, isSelected } = useDropdownItemContext()
+
+  const isHighlighted = highlightedItem?.value === value
 
   return (
     <li
       className={cx(
-        highlightedItem?.value === value && 'bg-surface-hovered',
+        isHighlighted && (lastInteractionType === 'mouse' ? 'bg-surface-hovered' : 'u-ring'),
         isSelected && 'font-bold',
         disabled && 'opacity-dim-3',
         'px-lg py-md text-body-1',

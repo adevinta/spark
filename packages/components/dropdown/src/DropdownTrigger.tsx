@@ -34,8 +34,14 @@ const styles = cva(
 )
 
 export const Trigger = ({ 'aria-label': ariaLabel, children, className }: TriggerProps) => {
-  const { getToggleButtonProps, getDropdownProps, getLabelProps, hasPopover, state } =
-    useDropdownContext()
+  const {
+    getToggleButtonProps,
+    getDropdownProps,
+    getLabelProps,
+    hasPopover,
+    state,
+    setLastInteractionType,
+  } = useDropdownContext()
 
   const [WrapperComponent, wrapperProps] = hasPopover
     ? [Popover.Trigger, { asChild: true }]
@@ -52,7 +58,12 @@ export const Trigger = ({ 'aria-label': ariaLabel, children, className }: Trigge
         <button
           type="button"
           className={styles({ className, state })}
-          {...getToggleButtonProps(getDropdownProps())}
+          {...getToggleButtonProps({
+            ...getDropdownProps(),
+            onKeyDown: () => {
+              setLastInteractionType('keyboard')
+            },
+          })}
         >
           <span className="flex items-center justify-start gap-md">{children}</span>
 

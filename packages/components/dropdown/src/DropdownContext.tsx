@@ -22,6 +22,8 @@ export interface DropdownContextState extends DownshiftState {
   setHasPopover: Dispatch<SetStateAction<boolean>>
   multiple: boolean
   state?: 'error' | 'alert' | 'success'
+  lastInteractionType: 'mouse' | 'keyboard'
+  setLastInteractionType: (type: 'mouse' | 'keyboard') => void
 }
 
 export type DropdownContextCommonProps = PropsWithChildren<{
@@ -101,6 +103,7 @@ export const DropdownProvider = ({
 }: DropdownContextProps) => {
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
   const [hasPopover, setHasPopover] = useState<boolean>(false)
+  const [lastInteractionType, setLastInteractionType] = useState<'mouse' | 'keyboard'>('mouse')
 
   const field = useFormFieldControl()
   const items = [...itemsMap.values()]
@@ -233,6 +236,8 @@ export const DropdownProvider = ({
         hasPopover,
         setHasPopover,
         state,
+        lastInteractionType,
+        setLastInteractionType,
       }}
     >
       <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>
