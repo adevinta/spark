@@ -5,12 +5,10 @@ export const stepItemVariant = cva(
     'relative inline-flex items-start flex-auto first:grow-0 justify-center group/item',
     // Progress Track
     'after:absolute after:z-base',
-    'after:bg-basic',
     'last:after:content-none',
     // Horizontal orientation
     'group-data-[orientation=horizontal]/list:px-[1px]',
     'group-data-[orientation=horizontal]/list:before:absolute group-data-[orientation=horizontal]/list:before:z-base',
-    'group-data-[orientation=horizontal]/list:before:bg-basic',
     'group-data-[orientation=horizontal]/list:before:left-none group-data-[orientation=horizontal]/list:after:right-none',
     'group-data-[orientation=horizontal]/list:before:h-[1px] group-data-[orientation=horizontal]/list:after:h-[1px]',
     'group-data-[orientation=horizontal]/list:first:before:content-none',
@@ -56,6 +54,17 @@ export const stepItemVariant = cva(
           'group-data-[orientation=vertical]/list:first:after:top-[37px]',
         ],
       },
+      intent: {
+        basic: ['after:bg-basic', 'group-data-[orientation=horizontal]/list:before:bg-basic'],
+        support: ['after:bg-support', 'group-data-[orientation=horizontal]/list:before:bg-support'],
+        main: ['after:bg-main', 'group-data-[orientation=horizontal]/list:before:bg-main'],
+        neutral: ['after:bg-neutral', 'group-data-[orientation=horizontal]/list:before:bg-neutral'],
+        info: ['after:bg-info', 'group-data-[orientation=horizontal]/list:before:bg-info'],
+        accent: ['after:bg-accent', 'group-data-[orientation=horizontal]/list:before:bg-accent'],
+        danger: ['after:bg-error', 'group-data-[orientation=horizontal]/list:before:bg-error'],
+        alert: ['after:bg-alert', 'group-data-[orientation=horizontal]/list:before:bg-alert'],
+        success: ['after:bg-success', 'group-data-[orientation=horizontal]/list:before:bg-success'],
+      },
       disabled: {
         true: 'before:opacity-dim-3',
         false: '',
@@ -69,6 +78,7 @@ export const stepItemVariant = cva(
       disabled: false,
       disabledAfter: false,
       size: 'lg',
+      intent: 'basic',
     },
   }
 )

@@ -14,6 +14,17 @@ const meta: Meta<typeof ProgressTracker> = {
 export default meta
 
 const sizes: ProgressTrackerProps['size'][] = ['sm', 'md', 'lg']
+const intents: ProgressTrackerProps['intent'][] = [
+  'basic',
+  'support',
+  'main',
+  'neutral',
+  'info',
+  'accent',
+  'danger',
+  'alert',
+  'success',
+]
 const orientations: ProgressTrackerProps['orientation'][] = ['horizontal', 'vertical']
 
 export const Default: StoryFn = _args => (
@@ -114,6 +125,34 @@ export const Size: StoryFn = _args => (
           <ProgressTracker.Step>
             <ProgressTrackerStepIndicator />
             <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+        </ProgressTracker>
+      </div>
+    ))}
+  </div>
+)
+
+export const Intent: StoryFn = _args => (
+  <div className="flex flex-wrap items-center gap-2xl">
+    {intents.map(intent => (
+      <div key={intent}>
+        <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
+        <ProgressTracker stepIndex={1} intent={intent as ProgressTrackerProps['intent']}>
+          <ProgressTracker.Step>
+            <ProgressTrackerStepIndicator />
+            <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTrackerStepIndicator />
+            <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTrackerStepIndicator />
+            <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step disabled>
+            <ProgressTrackerStepIndicator />
+            <ProgressTracker.StepLabel>Repeat</ProgressTracker.StepLabel>
           </ProgressTracker.Step>
         </ProgressTracker>
       </div>

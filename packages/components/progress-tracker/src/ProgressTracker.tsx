@@ -6,18 +6,16 @@ import {
   ProgressTrackerContext,
   type ProgressTrackerContextInterface,
 } from './ProgressTrackerContext'
+import type { StepIndicatorVariantProps } from './ProgressTrackerStepIndicator.styles'
 
-export interface ProgressTrackerProps extends ComponentPropsWithoutRef<'div'> {
+export interface ProgressTrackerProps
+  extends ComponentPropsWithoutRef<'div'>,
+    Pick<StepIndicatorVariantProps, 'size' | 'intent'> {
   /**
    * The orientation of the progress tracker
    * @default 'horizontal"
    */
   orientation?: 'horizontal' | 'vertical'
-  /**
-   * The size of the step indicators
-   * @default 'lg'
-   */
-  size?: 'sm' | 'md' | 'lg'
   /**
    * The index of the current step.
    * @default 0
@@ -40,6 +38,7 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
       stepIndex: propStepIndex = 0,
       onStepClick: onStepClickProp,
       readOnly = false,
+      intent = 'basic',
       size = 'lg',
       orientation = 'horizontal',
       children,
@@ -62,7 +61,7 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
 
     return (
       <ProgressTrackerContext.Provider
-        value={{ stepIndex, onStepClick, steps, setSteps, size, readOnly }}
+        value={{ stepIndex, onStepClick, steps, setSteps, size, intent, readOnly }}
       >
         <Component
           ref={ref}
