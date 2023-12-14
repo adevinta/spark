@@ -4,7 +4,7 @@ import { FormField } from '@spark-ui/form-field'
 import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { Tag } from '@spark-ui/tag'
 import { Meta, StoryFn } from '@storybook/react'
-import { useState } from 'react'
+import { ComponentProps, useState } from 'react'
 
 import { Dropdown } from '.'
 
@@ -262,6 +262,37 @@ export const ItemIndicator: StoryFn = _args => {
           </Dropdown.Items>
         </Dropdown.Popover>
       </Dropdown>
+    </div>
+  )
+}
+
+export const States: StoryFn = () => {
+  type State = ComponentProps<typeof Dropdown>['state']
+
+  const states: State[] = ['error', 'alert', 'success']
+
+  return (
+    <div className="flex flex-col gap-lg pb-[300px]">
+      {states.map(state => {
+        return (
+          <Dropdown state={state}>
+            <Dropdown.Trigger aria-label="Book">
+              <Dropdown.Value placeholder="Pick a book" />
+            </Dropdown.Trigger>
+
+            <Dropdown.Popover>
+              <Dropdown.Items>
+                <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
+                <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+                <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
+                <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
+                <Dropdown.Item value="book-5">1984</Dropdown.Item>
+                <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
+              </Dropdown.Items>
+            </Dropdown.Popover>
+          </Dropdown>
+        )
+      })}
     </div>
   )
 }

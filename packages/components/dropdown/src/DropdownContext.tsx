@@ -21,6 +21,7 @@ export interface DropdownContextState extends DownshiftState {
   hasPopover: boolean
   setHasPopover: Dispatch<SetStateAction<boolean>>
   multiple: boolean
+  state?: 'error' | 'alert' | 'success'
 }
 
 export type DropdownContextCommonProps = PropsWithChildren<{
@@ -36,6 +37,10 @@ export type DropdownContextCommonProps = PropsWithChildren<{
    * The open state of the select when it is initially rendered. Use when you do not need to control its open state.
    */
   defaultOpen?: boolean
+  /**
+   * Use `state` prop to assign a specific state to the dropdown, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
+   */
+  state?: 'error' | 'alert' | 'success'
 }>
 
 interface DropdownPropsSingle {
@@ -92,6 +97,7 @@ export const DropdownProvider = ({
   onOpenChange,
   defaultOpen,
   multiple = false,
+  state,
 }: DropdownContextProps) => {
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
   const [hasPopover, setHasPopover] = useState<boolean>(false)
@@ -226,6 +232,7 @@ export const DropdownProvider = ({
         highlightedItem: getElementByIndex(itemsMap, downshift.highlightedIndex),
         hasPopover,
         setHasPopover,
+        state,
       }}
     >
       <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>
