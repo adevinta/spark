@@ -11,17 +11,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/andresz1">
-            <img src="https://avatars.githubusercontent.com/u/6877967?v=4" width="50;" alt="andresz1"/>
-            <br />
-            <sub><b>andresz1</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Powerplex">
             <img src="https://avatars.githubusercontent.com/u/2033710?v=4" width="50;" alt="Powerplex"/>
             <br />
             <sub><b>Powerplex</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/andresz1">
+            <img src="https://avatars.githubusercontent.com/u/6877967?v=4" width="50;" alt="andresz1"/>
+            <br />
+            <sub><b>andresz1</b></sub>
         </a>
     </td>
     <td align="center">
