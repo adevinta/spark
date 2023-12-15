@@ -266,16 +266,16 @@ export const ItemIndicator: StoryFn = _args => {
   )
 }
 
-export const States: StoryFn = () => {
-  type State = ComponentProps<typeof Dropdown>['state']
+export const Statuses: StoryFn = () => {
+  type Status = ComponentProps<typeof Dropdown>['state']
 
-  const states: State[] = ['error', 'alert', 'success']
+  const statuses: Status[] = ['error', 'alert', 'success']
 
   return (
     <div className="flex flex-col gap-lg pb-[300px]">
-      {states.map(state => {
+      {statuses.map(status => {
         return (
-          <Dropdown state={state}>
+          <Dropdown state={status}>
             <Dropdown.Trigger aria-label="Book">
               <Dropdown.Value placeholder="Pick a book" />
             </Dropdown.Trigger>
