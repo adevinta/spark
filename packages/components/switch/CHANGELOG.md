@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.9](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.2.8...@spark-ui/switch@2.2.9) (2023-12-15)
+
+### Bug Fixes
+
+- **switch:** immproved animation performance ([dc7ed15](https://github.com/adevinta/spark/commit/dc7ed15d40a96c42502e938344fd2f2d64681b90))
+
 ## [2.2.8](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.2.7...@spark-ui/switch@2.2.8) (2023-12-13)
 
 **Note:** Version bump only for package @spark-ui/switch
