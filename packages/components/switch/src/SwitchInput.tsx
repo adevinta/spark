@@ -6,7 +6,13 @@ import { Slot } from '@spark-ui/slot'
 import { useCombinedState } from '@spark-ui/use-combined-state'
 import React, { type ComponentPropsWithoutRef, forwardRef, type ReactNode } from 'react'
 
-import { styles, type StylesProps, thumbCheckSVGStyles, thumbStyles } from './SwitchInput.styles'
+import {
+  styles,
+  type StylesProps,
+  thumbCheckSVGStyles,
+  thumbStyles,
+  thumbWrapperStyles,
+} from './SwitchInput.styles'
 
 export interface SwitchInputProps
   extends StylesProps,
@@ -92,14 +98,16 @@ export const SwitchInput = forwardRef<HTMLButtonElement, SwitchInputProps>(
         aria-describedby={description}
         {...rest}
       >
-        <SwitchPrimitive.Thumb className={thumbStyles({ size, checked: isChecked })}>
-          {isChecked && checkedIcon && (
-            <Slot className={thumbCheckSVGStyles({ size })}>{checkedIcon}</Slot>
-          )}
-          {!isChecked && uncheckedIcon && (
-            <Slot className={thumbCheckSVGStyles({ size })}>{uncheckedIcon}</Slot>
-          )}
-        </SwitchPrimitive.Thumb>
+        <span className={thumbWrapperStyles({ checked: isChecked })}>
+          <SwitchPrimitive.Thumb className={thumbStyles({ size, checked: isChecked })}>
+            {isChecked && checkedIcon && (
+              <Slot className={thumbCheckSVGStyles({ size })}>{checkedIcon}</Slot>
+            )}
+            {!isChecked && uncheckedIcon && (
+              <Slot className={thumbCheckSVGStyles({ size })}>{uncheckedIcon}</Slot>
+            )}
+          </SwitchPrimitive.Thumb>
+        </span>
       </SwitchPrimitive.Root>
     )
   }
