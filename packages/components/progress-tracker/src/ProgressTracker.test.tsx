@@ -34,6 +34,29 @@ describe('ProgressTracker', () => {
     expect(screen.getByText('Iterate').closest('li')).toHaveAttribute('data-state', 'incomplete')
   })
 
+  it('should render with custom indicator content', () => {
+    render(
+      <ProgressTracker stepIndex={1}>
+        <ProgressTracker.Step>
+          <ProgressTracker.StepIndicator complete={<span>A is done!</span>} incomplete="A" />
+          <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+        </ProgressTracker.Step>
+        <ProgressTracker.Step>
+          <ProgressTracker.StepIndicator complete={<span>B is done!</span>} incomplete="B" />
+          <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+        </ProgressTracker.Step>
+        <ProgressTracker.Step>
+          <ProgressTracker.StepIndicator complete={<span>C is done!</span>} incomplete="C" />
+          <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+        </ProgressTracker.Step>
+      </ProgressTracker>
+    )
+
+    expect(screen.getByText('A is done!')).toBeInTheDocument()
+    expect(screen.getByText('B')).toBeInTheDocument()
+    expect(screen.getByText('C')).toBeInTheDocument()
+  })
+
   it('should handle callback on step click, except if step is disabled', async () => {
     const user = userEvent.setup()
 
