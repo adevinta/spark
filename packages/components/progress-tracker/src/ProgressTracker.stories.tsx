@@ -14,6 +14,7 @@ const meta: Meta<typeof ProgressTracker> = {
 export default meta
 
 const sizes: ProgressTrackerProps['size'][] = ['sm', 'md', 'lg']
+const designs: ProgressTrackerProps['design'][] = ['outline', 'tinted']
 const intents: ProgressTrackerProps['intent'][] = [
   'basic',
   'support',
@@ -114,6 +115,30 @@ export const Size: StoryFn = _args => (
       <div key={size}>
         <StoryLabel>{`${size}${size === 'lg' ? ' (default)' : ''}`}</StoryLabel>
         <ProgressTracker stepIndex={1} size={size as ProgressTrackerProps['size']}>
+          <ProgressTracker.Step>
+            <ProgressTrackerStepIndicator />
+            <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTrackerStepIndicator />
+            <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTrackerStepIndicator />
+            <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+        </ProgressTracker>
+      </div>
+    ))}
+  </div>
+)
+
+export const Design: StoryFn = _args => (
+  <div className="flex flex-wrap items-center gap-2xl">
+    {designs.map(design => (
+      <div key={design}>
+        <StoryLabel>{`${design}${design === 'outline' ? ' (default)' : ''}`}</StoryLabel>
+        <ProgressTracker stepIndex={1} design={design as ProgressTrackerProps['design']}>
           <ProgressTracker.Step>
             <ProgressTrackerStepIndicator />
             <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>

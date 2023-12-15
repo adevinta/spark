@@ -21,11 +21,11 @@ export const ProgressTrackerStepIndicator = ({
   incomplete,
   className,
 }: ProgressTrackerStepIndicatorProps) => {
-  const { size, intent } = useProgressTrackerContext()
+  const { size, intent, design } = useProgressTrackerContext()
   const { index, state } = useProgressTrackerStepContext()
 
   return (
-    <span className={stepIndicatorVariant({ size, intent, state, className })}>
+    <span className={stepIndicatorVariant({ size, intent, design, state, className })}>
       {size !== 'sm' && (
         <>
           {state === 'complete' ? (
