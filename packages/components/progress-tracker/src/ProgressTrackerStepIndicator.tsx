@@ -24,7 +24,7 @@ export const ProgressTrackerStepIndicator = ({
   const { index, state, size } = useProgressTrackerStepContext()
 
   return (
-    <span className={stepIndicatorVariant({ size, state, className })}>
+    <span className={stepIndicatorVariant({ size, state, className })} aria-hidden="true">
       {size !== 'sm' && (
         <>
           {state === 'complete' ? (

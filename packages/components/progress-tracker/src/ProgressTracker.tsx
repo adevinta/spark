@@ -66,7 +66,7 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
       >
         <Component
           ref={ref}
-          aria-label="progress"
+          data-spark-component="progress-tracker"
           className={cx('inline-flex', className)}
           {...rest}
         >

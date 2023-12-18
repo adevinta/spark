@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { ProgressTracker } from './'
 
 const defaultProps = {
+  'aria-label': 'Progress tracker',
   stepIndex: 1,
   children: (
     <>
@@ -27,10 +28,13 @@ describe('ProgressTracker', () => {
   it('should render with steps', () => {
     render(<ProgressTracker {...defaultProps} />)
 
-    expect(screen.getByLabelText('progress')).toBeInTheDocument()
+    expect(screen.getByLabelText('Progress tracker')).toBeInTheDocument()
 
     expect(screen.getByText('Build').closest('li')).toHaveAttribute('data-state', 'complete')
+
     expect(screen.getByText('Deploy').closest('li')).toHaveAttribute('data-state', 'active')
+    expect(screen.getByText('Deploy').closest('li')).toHaveAttribute('aria-current', 'step')
+
     expect(screen.getByText('Iterate').closest('li')).toHaveAttribute('data-state', 'incomplete')
   })
 
@@ -61,7 +65,6 @@ describe('ProgressTracker', () => {
     const user = userEvent.setup()
 
     const props = {
-      stepIndex: 1,
       onStepClick: vi.fn(),
     }
 
@@ -85,9 +88,10 @@ describe('ProgressTracker', () => {
     const props = {
       ...defaultProps,
       onStepClick: vi.fn(),
+      readOnly: true,
     }
 
-    render(<ProgressTracker {...props} readOnly />)
+    render(<ProgressTracker {...props} />)
 
     await user.click(screen.getByText('Build'))
 

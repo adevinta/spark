@@ -31,7 +31,7 @@ export type ProgressTrackerStepProps = ComponentPropsWithoutRef<'li'> &
 export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStepProps>(
   ({ disabled = false, children, 'aria-label': ariaLabel, className, ...rest }, ref) => {
     const {
-      stepIndex: activeStepIndex,
+      stepIndex: currentStepIndex,
       steps,
       onStepClick,
       setSteps,
@@ -57,21 +57,23 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
     }, [disabled, stepId, setSteps, progressState])
 
     useEffect(() => {
-      if (stepIndex === activeStepIndex) {
+      if (stepIndex === currentStepIndex) {
         setProgressState('active')
-      } else if (stepIndex < activeStepIndex) {
+      } else if (stepIndex < currentStepIndex) {
         setProgressState('complete')
       } else {
         setProgressState('incomplete')
       }
-    }, [activeStepIndex, stepIndex])
+    }, [currentStepIndex, stepIndex])
 
     return (
       <li
         id={stepId}
         ref={ref}
         data-state={progressState}
-        aria-current={progressState === 'active'}
+        {...(progressState === 'active' && {
+          'aria-current': 'step',
+        })}
         className={stepItemVariant({
           size,
           disabled,
@@ -83,7 +85,6 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
           type="button"
           aria-label={ariaLabel}
           data-interactive={!disabled && !readOnly}
-          title={ariaLabel}
           {...(!disabled &&
             !readOnly && {
               onClick: () => onStepClick(stepId),
