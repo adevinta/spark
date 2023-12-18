@@ -126,7 +126,7 @@
     "vite-plugin-dts": "2.3.0",
     "vite-plugin-turbosnap": "1.0.3",
     "vite-tsconfig-paths": "4.2.1",
-    "vitest": "^0.32.0",
+    "vitest": "^0.34.6",
     "wait-on": "^7.0.1"
   },
   "workspaces": [
