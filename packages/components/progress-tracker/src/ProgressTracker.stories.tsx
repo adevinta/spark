@@ -29,11 +29,7 @@ const orientations: ProgressTrackerProps['orientation'][] = ['horizontal', 'vert
 
 export const Default: StoryFn = _args => (
   <div className="flex flex-wrap items-center gap-2xl">
-    <ProgressTracker
-      aria-label="Default progress tracker"
-      stepIndex={1}
-      onStepClick={id => console.log('Clicked on', id)}
-    >
+    <ProgressTracker aria-label="Default progress tracker" stepIndex={1}>
       <ProgressTracker.Step>
         <ProgressTracker.StepIndicator />
         <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
@@ -91,11 +87,7 @@ export const Default: StoryFn = _args => (
 )
 
 export const Disabled: StoryFn = _args => (
-  <ProgressTracker
-    aria-label="Progress tracker with disabled step"
-    stepIndex={1}
-    onStepClick={id => console.log('Clicked on', id)}
-  >
+  <ProgressTracker aria-label="Progress tracker with disabled step" stepIndex={1}>
     <ProgressTracker.Step>
       <ProgressTracker.StepIndicator />
       <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
