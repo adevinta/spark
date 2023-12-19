@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.15.1...@spark-ui/dropdown@0.16.0) (2023-12-19)
+
+### Features
+
+- **dropdown:** dropdown can read field state from form-field wrapper ([21aacb8](https://github.com/adevinta/spark/commit/21aacb8637c65696207e9a963e33eb34a32e008a))
+- **dropdown:** dropdown states ([5fa16bf](https://github.com/adevinta/spark/commit/5fa16bf544e089ffd3de26aeca2afd5b289496ab))
+
 ## [0.15.1](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.15.0...@spark-ui/dropdown@0.15.1) (2023-12-13)
 
 **Note:** Version bump only for package @spark-ui/dropdown
