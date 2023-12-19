@@ -16,6 +16,12 @@ type ProgressTrackerStepIndicatorProps = ComponentPropsWithoutRef<'span'> & {
   incomplete?: ReactNode
 }
 
+const CompleteIndicator = () => (
+  <Icon size="sm">
+    <Check />
+  </Icon>
+)
+
 export const ProgressTrackerStepIndicator = ({
   complete,
   incomplete,
@@ -27,19 +33,8 @@ export const ProgressTrackerStepIndicator = ({
     <span className={stepIndicatorVariant({ size, state, className })} aria-hidden="true">
       {size !== 'sm' && (
         <>
-          {state === 'complete' ? (
-            <>
-              {complete === undefined ? (
-                <Icon size="sm">
-                  <Check />
-                </Icon>
-              ) : (
-                complete
-              )}
-            </>
-          ) : (
-            <>{incomplete === undefined ? index + 1 : incomplete}</>
-          )}
+          {state === 'complete' && (complete === undefined ? <CompleteIndicator /> : complete)}
+          {state !== 'complete' && (incomplete === undefined ? `${index + 1}` : incomplete)}
         </>
       )}
     </span>

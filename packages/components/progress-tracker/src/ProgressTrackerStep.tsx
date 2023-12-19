@@ -1,18 +1,6 @@
-import {
-  type ComponentPropsWithoutRef,
-  forwardRef,
-  type ReactNode,
-  useEffect,
-  useId,
-  useMemo,
-  useState,
-} from 'react'
+import { type ComponentPropsWithoutRef, forwardRef, type ReactNode, useEffect, useId } from 'react'
 
-import {
-  ProgressTrackerStepContext,
-  type ProgressTrackerStepContextInterface,
-  useProgressTrackerContext,
-} from './ProgressTrackerContext'
+import { ProgressTrackerStepContext, useProgressTrackerContext } from './ProgressTrackerContext'
 import { stepButtonVariant, stepItemVariant } from './ProgressTrackerStep.styles'
 import { ProgressTrackerStepIndicator } from './ProgressTrackerStepIndicator'
 
@@ -43,28 +31,36 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
     const stepId = `step-${ID}`
     const stepIndex = [...steps.keys()].indexOf(stepId)
 
-    const disabledAfter = useMemo(() => {
+    const disabledAfter = (() => {
       const nextStepId = [...steps.keys()][stepIndex + 1]
 
       return !!(nextStepId && steps.get(nextStepId)?.includes('disabled'))
-    }, [steps, stepIndex])
+    })()
 
-    const [progressState, setProgressState] =
-      useState<ProgressTrackerStepContextInterface['state']>('incomplete')
+    const progressState = (() => {
+      if (stepIndex === currentStepIndex) return 'active'
+      else if (stepIndex < currentStepIndex) return 'complete'
+      else return 'incomplete'
+    })()
 
     useEffect(() => {
-      setSteps(steps => steps.set(stepId, [progressState, disabled ? 'disabled' : '']))
-    }, [disabled, stepId, setSteps, progressState])
+      setSteps(steps => {
+        const newSteps = new Map(steps)
 
-    useEffect(() => {
-      if (stepIndex === currentStepIndex) {
-        setProgressState('active')
-      } else if (stepIndex < currentStepIndex) {
-        setProgressState('complete')
-      } else {
-        setProgressState('incomplete')
+        return newSteps.set(
+          stepId,
+          [progressState, disabled ? 'disabled' : ''].filter(v => !!v)
+        )
+      })
+
+      return () => {
+        setSteps(steps => {
+          steps.delete(stepId)
+
+          return steps
+        })
       }
-    }, [currentStepIndex, stepIndex])
+    }, [disabled, stepId, setSteps, progressState])
 
     return (
       <li
