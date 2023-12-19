@@ -99,13 +99,14 @@ export const DropdownProvider = ({
   onOpenChange,
   defaultOpen,
   multiple = false,
-  state,
+  state: stateProp,
 }: DropdownContextProps) => {
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
   const [hasPopover, setHasPopover] = useState<boolean>(false)
   const [lastInteractionType, setLastInteractionType] = useState<'mouse' | 'keyboard'>('mouse')
 
   const field = useFormFieldControl()
+  const state = field.state || stateProp
   const items = [...itemsMap.values()]
 
   const id = useId(field.id)

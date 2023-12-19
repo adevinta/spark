@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+import { FormField } from '@spark-ui/form-field'
 import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -293,6 +294,33 @@ describe('Dropdown', () => {
 
       // Then placeholder text should be updated
       expect(getTrigger('Book')).toHaveTextContent(updatedSelectedItemText)
+    })
+  })
+
+  describe('statuses (combined with FormField', () => {
+    it('should render error message when field is in error', () => {
+      render(
+        <FormField state="error">
+          <FormField.Label>Book</FormField.Label>
+          <Dropdown>
+            <Dropdown.Trigger>
+              <Dropdown.Value placeholder="Pick a book" />
+            </Dropdown.Trigger>
+            <Dropdown.Popover>
+              <Dropdown.Items>
+                <Dropdown.Item value="book-1">War and Peace</Dropdown.Item>
+                <Dropdown.Item value="book-2">1984</Dropdown.Item>
+                <Dropdown.Item value="book-3">Pride and Prejudice</Dropdown.Item>
+              </Dropdown.Items>
+            </Dropdown.Popover>
+          </Dropdown>
+          <FormField.ErrorMessage>You forgot to select a book</FormField.ErrorMessage>
+        </FormField>
+      )
+
+      expect(getTrigger('Book')).toBeInTheDocument()
+
+      expect(screen.getByText('You forgot to select a book')).toBeInTheDocument()
     })
   })
 
