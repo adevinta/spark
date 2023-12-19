@@ -124,15 +124,23 @@ You can style this element directly, or you can use it as a wrapper to put an ic
 
 <Canvas of={stories.ItemIndicator} />
 
+### Status
+
+Use `state` prop to assign a specific state to the dropdown, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a status indicator will be displayed accordingly.
+
+You could also wrap `Dropdown` with a `FormField` and pass the prop to `Formfield` instead.
+
+<Canvas of={stories.Statuses} />
+
+### Read only
+
+TODO
+
 ### Trigger leading icon
 
 Use `Dropdown.LeadingIcon` inside `Dropdown.Trigger` to prefix your trigger with an icon.
 
 <Canvas of={stories.LeadingIcon} />
-
-### Read only
-
-TODO
 
 ## Multiple selection
 
