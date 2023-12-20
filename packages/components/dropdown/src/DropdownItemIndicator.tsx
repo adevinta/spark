@@ -1,4 +1,4 @@
-import { Check } from '@spark-ui/icons'
+import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { cx } from 'class-variance-authority'
 import { forwardRef, ReactNode, type Ref } from 'react'
 

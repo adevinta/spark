@@ -1,5 +1,5 @@
 import { Icon } from '@spark-ui/icon'
-import { ArrowHorizontalDown } from '@spark-ui/icons'
+import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { Popover } from '@spark-ui/popover'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { cva } from 'class-variance-authority'
