@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.17.0...@spark-ui/dropdown@0.18.0) (2023-12-20)
+
+### Bug Fixes
+
+- **dropdown:** fixed icons imports and children parsing for internal state ([81fd7fa](https://github.com/adevinta/spark/commit/81fd7fae555c23713db6541f5f1cf8b87c20723b))
+
+### Features
+
+- **dropdown:** frowardRef elements ([ddc9c14](https://github.com/adevinta/spark/commit/ddc9c14f853808746fa85ce7f3f8e6b3cf084df3))
+- **dropdown:** frowardRef elements ([eabce18](https://github.com/adevinta/spark/commit/eabce18332b4d3d48a97d93eac4cb6f012d1f804))
+
 # [0.17.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.16.0...@spark-ui/dropdown@0.17.0) (2023-12-20)
 
 ### Features
