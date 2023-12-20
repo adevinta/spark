@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.16.0...@spark-ui/dropdown@0.17.0) (2023-12-20)
+
+### Features
+
+- **popover:** dynamic height management ([ecda003](https://github.com/adevinta/spark/commit/ecda0036234b8c859642d4d4d984a25e3da21ca3))
+
 # [0.16.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.15.1...@spark-ui/dropdown@0.16.0) (2023-12-19)
 
 ### Features
