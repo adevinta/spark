@@ -7,6 +7,7 @@ export const styles = cva(
     'bg-surface text-on-surface',
     'shadow',
     'focus-visible:outline-none focus-visible:u-ring',
+    'max-h-[--radix-popper-available-height] overflow-y-auto',
   ],
   {
     variants: {
