@@ -2,7 +2,10 @@ import type { FC } from 'react'
 
 import { ProgressTracker as Root, type ProgressTrackerProps } from './ProgressTracker'
 import { ProgressTrackerStep as Step, type ProgressTrackerStepProps } from './ProgressTrackerStep'
-import { ProgressTrackerStepIndicator as StepIndicator } from './ProgressTrackerStepIndicator'
+import {
+  ProgressTrackerStepIndicator as StepIndicator,
+  type ProgressTrackerStepIndicatorProps,
+} from './ProgressTrackerStepIndicator'
 import { ProgressTrackerStepLabel as StepLabel } from './ProgressTrackerStepLabel'
 
 export const ProgressTracker: FC<ProgressTrackerProps> & {
@@ -20,4 +23,4 @@ Step.displayName = 'ProgressTracker.Step'
 StepLabel.displayName = 'ProgressTracker.StepLabel'
 StepIndicator.displayName = 'ProgressTracker.StepIndicator'
 
-export type { ProgressTrackerProps, ProgressTrackerStepProps }
+export type { ProgressTrackerProps, ProgressTrackerStepProps, ProgressTrackerStepIndicatorProps }

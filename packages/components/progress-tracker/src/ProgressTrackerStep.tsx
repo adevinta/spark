@@ -61,7 +61,8 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
           return steps
         })
       }
-    }, [disabled, stepId, setSteps, progressState])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
       <li
