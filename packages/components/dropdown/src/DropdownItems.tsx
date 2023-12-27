@@ -1,28 +1,40 @@
 import { cx } from 'class-variance-authority'
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 
 interface ItemsProps {
   children: ReactNode
+  className?: string
 }
 
-export const Items = ({ children }: ItemsProps) => {
-  const { isOpen, getMenuProps, hasPopover } = useDropdownContext()
+export const Items = forwardRef(
+  ({ children, className, ...props }: ItemsProps, forwardedRef: Ref<HTMLUListElement>) => {
+    const { isOpen, getMenuProps, hasPopover, setLastInteractionType } = useDropdownContext()
 
-  return (
-    <ul
-      {...getMenuProps()}
-      className={cx(
-        'flex  flex-col',
-        isOpen ? 'block' : 'pointer-events-none opacity-0',
-        hasPopover ? 'max-h-sz-320 overflow-y-auto p-lg' : ''
-      )}
-    >
-      {children}
-    </ul>
-  )
-}
+    const downshiftProps = getMenuProps({
+      onMouseMove: () => {
+        setLastInteractionType('mouse')
+      },
+    })
 
-Items.id = 'Items'
+    return (
+      <ul
+        ref={forwardedRef}
+        className={cx(
+          className,
+          'flex flex-col',
+          isOpen ? 'block' : 'pointer-events-none opacity-0',
+          hasPopover && 'p-lg'
+        )}
+        {...props}
+        {...downshiftProps}
+        data-spark-component="dropdown-items"
+      >
+        {children}
+      </ul>
+    )
+  }
+)
+
 Items.displayName = 'Dropdown.Items'

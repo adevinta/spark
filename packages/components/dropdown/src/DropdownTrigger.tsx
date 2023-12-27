@@ -2,10 +2,11 @@ import { Icon } from '@spark-ui/icon'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { Popover } from '@spark-ui/popover'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
-import { cx } from 'class-variance-authority'
-import { Fragment, ReactNode } from 'react'
+import { cva } from 'class-variance-authority'
+import { forwardRef, Fragment, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
+import { DropdownStateIndicator } from './DropdownStateIndicator'
 
 interface TriggerProps {
   'aria-label'?: string
@@ -13,40 +14,76 @@ interface TriggerProps {
   className?: string
 }
 
-export const Trigger = ({ 'aria-label': ariaLabel, children, className }: TriggerProps) => {
-  const { getToggleButtonProps, getDropdownProps, getLabelProps, hasPopover } = useDropdownContext()
+const styles = cva(
+  [
+    'flex w-full cursor-pointer items-center justify-between',
+    'min-h-sz-44 rounded-lg bg-surface text-on-surface px-lg',
+    // outline styles
+    'ring-1 outline-none ring-inset focus:ring-2',
+  ],
+  {
+    variants: {
+      state: {
+        undefined: 'ring-outline focus:ring-outline-high hover:ring-outline-high',
+        error: 'ring-error',
+        alert: 'ring-alert',
+        success: 'ring-success',
+      },
+    },
+  }
+)
 
-  const [WrapperComponent, wrapperProps] = hasPopover
-    ? [Popover.Trigger, { asChild: true }]
-    : [Fragment, {}]
+export const Trigger = forwardRef(
+  (
+    { 'aria-label': ariaLabel, children, className }: TriggerProps,
+    forwardedRef: Ref<HTMLButtonElement>
+  ) => {
+    const {
+      getToggleButtonProps,
+      getDropdownProps,
+      getLabelProps,
+      hasPopover,
+      state,
+      setLastInteractionType,
+    } = useDropdownContext()
 
-  return (
-    <>
-      {ariaLabel && (
-        <VisuallyHidden>
-          <label {...getLabelProps()}>{ariaLabel}</label>
-        </VisuallyHidden>
-      )}
-      <WrapperComponent {...wrapperProps}>
-        <button
-          type="button"
-          className={cx(
-            'flex w-full cursor-pointer items-center justify-between',
-            'min-h-sz-44 rounded-lg border-sm border-outline bg-surface px-lg',
-            className
-          )}
-          {...getToggleButtonProps(getDropdownProps())}
-        >
-          <span className="flex items-center justify-start gap-md">{children}</span>
+    const [WrapperComponent, wrapperProps] = hasPopover
+      ? [Popover.Trigger, { asChild: true }]
+      : [Fragment, {}]
 
-          <Icon className="ml-md shrink-0" size="sm">
-            <ArrowHorizontalDown />
-          </Icon>
-        </button>
-      </WrapperComponent>
-    </>
-  )
-}
+    return (
+      <>
+        {ariaLabel && (
+          <VisuallyHidden>
+            <label {...getLabelProps()}>{ariaLabel}</label>
+          </VisuallyHidden>
+        )}
+        <WrapperComponent {...wrapperProps}>
+          <button
+            type="button"
+            ref={forwardedRef}
+            className={styles({ className, state })}
+            {...getToggleButtonProps({
+              ...getDropdownProps(),
+              onKeyDown: () => {
+                setLastInteractionType('keyboard')
+              },
+            })}
+            data-spark-component="dropdown-trigger"
+          >
+            <span className="flex items-center justify-start gap-md">{children}</span>
 
-Trigger.id = 'Trigger'
+            <div className="ml-md flex gap-lg">
+              <DropdownStateIndicator />
+              <Icon className="shrink-0" size="sm">
+                <ArrowHorizontalDown />
+              </Icon>
+            </div>
+          </button>
+        </WrapperComponent>
+      </>
+    )
+  }
+)
+
 Trigger.displayName = 'Dropdown.Trigger'

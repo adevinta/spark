@@ -31,8 +31,8 @@ export const getElementByIndex = (map: ItemsMap, index: number) => {
   return key !== undefined ? map.get(key) : undefined
 }
 
-const getElementId = (element?: ReactElement) => {
-  return element ? (element.type as FC & { id?: string }).id : ''
+const getElementDisplayName = (element?: ReactElement) => {
+  return element ? (element.type as FC & { displayName?: string }).displayName : ''
 }
 
 export const getOrderedItems = (
@@ -42,7 +42,7 @@ export const getOrderedItems = (
   React.Children.forEach(children, child => {
     if (!isValidElement(child)) return
 
-    if (getElementId(child) === 'Item') {
+    if (getElementDisplayName(child) === 'Dropdown.Item') {
       const childProps = child.props as ItemProps
       result.push({
         value: childProps.value,
@@ -72,7 +72,7 @@ export const getItemText = (children: ReactNode, itemText = ''): string => {
   React.Children.forEach(children, child => {
     if (!isValidElement(child)) return
 
-    if (getElementId(child) === 'ItemText') {
+    if (getElementDisplayName(child) === 'Dropdown.ItemText') {
       itemText = child.props.children
     }
 

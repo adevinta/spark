@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { DropdownItemProvider, useDropdownItemContext } from './DropdownItemContext'
@@ -11,39 +11,50 @@ export interface ItemProps {
   className?: string
 }
 
-export const Item = ({ children, ...props }: ItemProps) => {
-  const { value, disabled } = props
+export const Item = forwardRef(
+  ({ children, ...props }: ItemProps, forwardedRef: Ref<HTMLLIElement>) => {
+    const { value, disabled } = props
 
-  return (
-    <DropdownItemProvider value={value} disabled={disabled}>
-      <ItemContent {...props}>{children}</ItemContent>
-    </DropdownItemProvider>
-  )
-}
+    return (
+      <DropdownItemProvider value={value} disabled={disabled}>
+        <ItemContent ref={forwardedRef} {...props}>
+          {children}
+        </ItemContent>
+      </DropdownItemProvider>
+    )
+  }
+)
 
-const ItemContent = ({ className, disabled = false, value, children }: ItemProps) => {
-  const { getItemProps, highlightedItem } = useDropdownContext()
+const ItemContent = forwardRef(
+  (
+    { className, disabled = false, value, children }: ItemProps,
+    forwardedRef: Ref<HTMLLIElement>
+  ) => {
+    const { getItemProps, highlightedItem, lastInteractionType } = useDropdownContext()
 
-  const { textId, index, itemData, isSelected } = useDropdownItemContext()
+    const { textId, index, itemData, isSelected } = useDropdownItemContext()
 
-  return (
-    <li
-      className={cx(
-        highlightedItem?.value === value && 'bg-surface-hovered',
-        isSelected && 'font-bold',
-        disabled && 'opacity-dim-3',
-        'px-lg py-md text-body-1',
-        className
-      )}
-      key={value}
-      {...getItemProps({ item: itemData, index })}
-      aria-selected={isSelected}
-      aria-labelledby={textId}
-    >
-      {children}
-    </li>
-  )
-}
+    const isHighlighted = highlightedItem?.value === value
 
-Item.id = 'Item'
+    return (
+      <li
+        ref={forwardedRef}
+        className={cx(
+          isHighlighted && (lastInteractionType === 'mouse' ? 'bg-surface-hovered' : 'u-ring'),
+          isSelected && 'font-bold',
+          disabled && 'opacity-dim-3',
+          'px-lg py-md text-body-1',
+          className
+        )}
+        key={value}
+        {...getItemProps({ item: itemData, index })}
+        aria-selected={isSelected}
+        aria-labelledby={textId}
+      >
+        {children}
+      </li>
+    )
+  }
+)
+
 Item.displayName = 'Dropdown.Item'

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.4.4...@spark-ui/popover@1.5.0) (2023-12-20)
+
+### Features
+
+- **popover:** dynamic height management ([ecda003](https://github.com/adevinta/spark/commit/ecda0036234b8c859642d4d4d984a25e3da21ca3))
+
 ## [1.4.4](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.4.3...@spark-ui/popover@1.4.4) (2023-12-13)
 
 **Note:** Version bump only for package @spark-ui/popover

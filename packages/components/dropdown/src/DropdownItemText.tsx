@@ -1,6 +1,6 @@
 import { useId } from '@radix-ui/react-id'
 import { cx } from 'class-variance-authority'
-import { useEffect } from 'react'
+import { forwardRef, type Ref, useEffect } from 'react'
 
 import { useDropdownItemContext } from './DropdownItemContext'
 
@@ -8,23 +8,24 @@ export interface ItemTextProps {
   children: string
 }
 
-export const ItemText = ({ children }: ItemTextProps) => {
-  const id = useId()
+export const ItemText = forwardRef(
+  ({ children }: ItemTextProps, forwardedRef: Ref<HTMLSpanElement>) => {
+    const id = useId()
 
-  const { setTextId } = useDropdownItemContext()
+    const { setTextId } = useDropdownItemContext()
 
-  useEffect(() => {
-    setTextId(id)
+    useEffect(() => {
+      setTextId(id)
 
-    return () => setTextId(undefined)
-  })
+      return () => setTextId(undefined)
+    })
 
-  return (
-    <span id={id} className={cx('inline')}>
-      {children}
-    </span>
-  )
-}
+    return (
+      <span id={id} className={cx('inline')} ref={forwardedRef}>
+        {children}
+      </span>
+    )
+  }
+)
 
-ItemText.id = 'ItemText'
 ItemText.displayName = 'Dropdown.ItemText'
