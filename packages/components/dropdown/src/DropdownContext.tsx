@@ -21,6 +21,8 @@ export interface DropdownContextState extends DownshiftState {
   hasPopover: boolean
   setHasPopover: Dispatch<SetStateAction<boolean>>
   multiple: boolean
+  disabled: boolean
+  readOnly: boolean
   state?: 'error' | 'alert' | 'success'
   lastInteractionType: 'mouse' | 'keyboard'
   setLastInteractionType: (type: 'mouse' | 'keyboard') => void
@@ -43,6 +45,14 @@ export type DropdownContextCommonProps = PropsWithChildren<{
    * Use `state` prop to assign a specific state to the dropdown, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
    */
   state?: 'error' | 'alert' | 'success'
+  /**
+   * When true, prevents the user from interacting with the dropdown.
+   */
+  disabled?: boolean
+  /**
+   * Sets the dropdown as interactive or not.
+   */
+  readOnly?: boolean
 }>
 
 interface DropdownPropsSingle {
@@ -90,6 +100,7 @@ export type DropdownContextProps = DropdownContextCommonProps &
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
 
+// eslint-disable-next-line complexity
 export const DropdownProvider = ({
   children,
   defaultValue,
@@ -99,6 +110,8 @@ export const DropdownProvider = ({
   onOpenChange,
   defaultOpen,
   multiple = false,
+  disabled: disabledProp = false,
+  readOnly: readOnlyProp = false,
   state: stateProp,
 }: DropdownContextProps) => {
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
@@ -111,6 +124,9 @@ export const DropdownProvider = ({
 
   const id = useId(field.id)
   const labelId = useId(field.labelId)
+
+  const disabled = field.disabled ?? disabledProp
+  const readOnly = field.readOnly ?? readOnlyProp
 
   const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
     selectedItems: value
@@ -230,6 +246,8 @@ export const DropdownProvider = ({
     <DropdownContext.Provider
       value={{
         multiple,
+        disabled,
+        readOnly,
         ...downshift,
         ...downshiftMultipleSelection,
         itemsMap,

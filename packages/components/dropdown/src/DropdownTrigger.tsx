@@ -2,36 +2,17 @@ import { Icon } from '@spark-ui/icon'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { Popover } from '@spark-ui/popover'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
-import { cva } from 'class-variance-authority'
 import { forwardRef, Fragment, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { DropdownStateIndicator } from './DropdownStateIndicator'
+import { styles } from './DropdownTrigger.styles'
 
 interface TriggerProps {
   'aria-label'?: string
   children: ReactNode
   className?: string
 }
-
-const styles = cva(
-  [
-    'flex w-full cursor-pointer items-center justify-between',
-    'min-h-sz-44 rounded-lg bg-surface text-on-surface px-lg',
-    // outline styles
-    'ring-1 outline-none ring-inset focus:ring-2',
-  ],
-  {
-    variants: {
-      state: {
-        undefined: 'ring-outline focus:ring-outline-high hover:ring-outline-high',
-        error: 'ring-error',
-        alert: 'ring-alert',
-        success: 'ring-success',
-      },
-    },
-  }
-)
 
 export const Trigger = forwardRef(
   (
@@ -43,6 +24,8 @@ export const Trigger = forwardRef(
       getDropdownProps,
       getLabelProps,
       hasPopover,
+      disabled,
+      readOnly,
       state,
       setLastInteractionType,
     } = useDropdownContext()
@@ -62,7 +45,8 @@ export const Trigger = forwardRef(
           <button
             type="button"
             ref={forwardedRef}
-            className={styles({ className, state })}
+            disabled={disabled || readOnly}
+            className={styles({ className, state, disabled, readOnly })}
             {...getToggleButtonProps({
               ...getDropdownProps(),
               onKeyDown: () => {
