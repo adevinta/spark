@@ -208,6 +208,32 @@ If your `Dropdown.Item` contains anything else than raw text, you may use any JS
 
 <Canvas of={stories.CustomItem} />
 
-### With form field label
+## Form field
+
+### Label
 
 <Canvas of={stories.FormFieldLabel} />
+
+### Hidden label
+
+In certain cases, a visible label may not be necessary. To achieve this behavior, use the `VisuallyHidden` component.
+
+<Canvas of={stories.FormFieldHiddenLabel} />
+
+### Required
+
+Use the `isRequired` prop of the `FormField` to indicate that the dropdown is required.
+
+<Canvas of={stories.FormFieldRequired} />
+
+### Disabled
+
+The dropdown `disabled` field status can be managed by the FormField `disabled` flag.
+
+<Canvas of={stories.FormFieldDisabled} />
+
+### Validation
+
+Set the `state` prop of the `FormField` to `error` to indicate that the dropdown is invalid. Optionally use the `FormField.ErrorMessage` to describe why the dropdown is invalid.
+
+<Canvas of={stories.FormFieldValidation} />
