@@ -138,7 +138,7 @@ Use `open` and `onOpenChange` props to control when the dropdown is opened or cl
 
 Use `disabled` on the root component to disable the dropdown entirely.
 
-TODO
+<Canvas of={stories.Disabled} />
 
 ### Disabled Item
 
@@ -208,6 +208,16 @@ If your `Dropdown.Item` contains anything else than raw text, you may use any JS
 
 <Canvas of={stories.CustomItem} />
 
-### With form field label
+## Form field
+
+### Disabled
+
+Apply `disabled` to the wrapping `FormField` to disable the dropdown.
+
+<Canvas of={stories.FormFieldDisabled} />
+
+### Label
+
+Use `FormField.Label` to add a label to the input.
 
 <Canvas of={stories.FormFieldLabel} />

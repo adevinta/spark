@@ -143,6 +143,29 @@ export const CustomItem: StoryFn = _args => {
   )
 }
 
+export const Disabled: StoryFn = _args => {
+  return (
+    <div className="pb-[300px]">
+      <Dropdown disabled>
+        <Dropdown.Trigger aria-label="Book">
+          <Dropdown.Value placeholder="Pick a book" />
+        </Dropdown.Trigger>
+
+        <Dropdown.Popover>
+          <Dropdown.Items>
+            <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
+            <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+            <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
+            <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
+            <Dropdown.Item value="book-5">1984</Dropdown.Item>
+            <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
+          </Dropdown.Items>
+        </Dropdown.Popover>
+      </Dropdown>
+    </div>
+  )
+}
+
 export const DisabledItem: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
@@ -306,6 +329,32 @@ export const FormFieldLabel: StoryFn = _args => {
           <Dropdown.Trigger>
             <Dropdown.Value placeholder="Pick a book" />
           </Dropdown.Trigger>
+          <Dropdown.Popover>
+            <Dropdown.Items>
+              <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
+              <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+              <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
+              <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
+              <Dropdown.Item value="book-5">1984</Dropdown.Item>
+              <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
+            </Dropdown.Items>
+          </Dropdown.Popover>
+        </Dropdown>
+      </FormField>
+    </div>
+  )
+}
+
+export const FormFieldDisabled: StoryFn = _args => {
+  return (
+    <div className="pb-[300px]">
+      <FormField disabled>
+        <FormField.Label>Book</FormField.Label>
+        <Dropdown>
+          <Dropdown.Trigger aria-label="Book">
+            <Dropdown.Value placeholder="Pick a book" />
+          </Dropdown.Trigger>
+
           <Dropdown.Popover>
             <Dropdown.Items>
               <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
