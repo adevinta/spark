@@ -5,7 +5,7 @@ import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { Tag } from '@spark-ui/tag'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
-import { ComponentProps, useState } from 'react'
+import React, { ComponentProps, useState } from 'react'
 
 import { Dropdown } from '.'
 
@@ -474,6 +474,31 @@ export const FormFieldDisabled: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <FormField disabled>
+        <FormField.Label>Book</FormField.Label>
+        <Dropdown>
+          <Dropdown.Trigger>
+            <Dropdown.Value placeholder="Pick a book" />
+          </Dropdown.Trigger>
+          <Dropdown.Popover>
+            <Dropdown.Items>
+              <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
+              <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
+              <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
+              <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
+              <Dropdown.Item value="book-5">1984</Dropdown.Item>
+              <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
+            </Dropdown.Items>
+          </Dropdown.Popover>
+        </Dropdown>
+      </FormField>
+    </div>
+  )
+}
+
+export const FormFieldRequired: StoryFn = _args => {
+  return (
+    <div className="pb-[300px]">
+      <FormField isRequired>
         <FormField.Label>Book</FormField.Label>
         <Dropdown>
           <Dropdown.Trigger>
