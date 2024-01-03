@@ -22,6 +22,7 @@ export interface DropdownContextState extends DownshiftState {
   setHasPopover: Dispatch<SetStateAction<boolean>>
   multiple: boolean
   disabled: boolean
+  readOnly: boolean
   state?: 'error' | 'alert' | 'success'
   lastInteractionType: 'mouse' | 'keyboard'
   setLastInteractionType: (type: 'mouse' | 'keyboard') => void
@@ -48,6 +49,10 @@ export type DropdownContextCommonProps = PropsWithChildren<{
    * When true, prevents the user from interacting with the dropdown.
    */
   disabled?: boolean
+  /**
+   * Sets the dropdown as interactive or not.
+   */
+  readOnly?: boolean
 }>
 
 interface DropdownPropsSingle {
@@ -106,6 +111,7 @@ export const DropdownProvider = ({
   defaultOpen,
   multiple = false,
   disabled: disabledProp = false,
+  readOnly: readOnlyProp = false,
   state: stateProp,
 }: DropdownContextProps) => {
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
@@ -119,7 +125,8 @@ export const DropdownProvider = ({
   const id = useId(field.id)
   const labelId = useId(field.labelId)
 
-  const disabled = field.disabled != null ? field.disabled : disabledProp
+  const disabled = field.disabled ?? disabledProp
+  const readOnly = field.readOnly ?? readOnlyProp
 
   const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
     selectedItems: value
@@ -240,6 +247,7 @@ export const DropdownProvider = ({
       value={{
         multiple,
         disabled,
+        readOnly,
         ...downshift,
         ...downshiftMultipleSelection,
         itemsMap,

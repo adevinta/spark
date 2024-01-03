@@ -2,46 +2,17 @@ import { Icon } from '@spark-ui/icon'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { Popover } from '@spark-ui/popover'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
-import { cva } from 'class-variance-authority'
 import { forwardRef, Fragment, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { DropdownStateIndicator } from './DropdownStateIndicator'
+import { styles } from './DropdownTrigger.styles'
 
 interface TriggerProps {
   'aria-label'?: string
   children: ReactNode
   className?: string
 }
-
-const styles = cva(
-  [
-    'flex w-full items-center justify-between',
-    'min-h-sz-44 rounded-lg bg-surface text-on-surface px-lg',
-    // outline styles
-    'ring-1 outline-none ring-inset focus:ring-2',
-  ],
-  {
-    variants: {
-      state: {
-        undefined: 'ring-outline focus:ring-outline-high',
-        error: 'ring-error',
-        alert: 'ring-alert',
-        success: 'ring-success',
-      },
-      disabled: {
-        true: 'disabled:bg-on-surface/dim-5 cursor-not-allowed text-on-surface/dim-3',
-      },
-    },
-    compoundVariants: [
-      {
-        disabled: false,
-        state: undefined,
-        class: 'hover:ring-outline-high',
-      },
-    ],
-  }
-)
 
 export const Trigger = forwardRef(
   (
@@ -54,6 +25,7 @@ export const Trigger = forwardRef(
       getLabelProps,
       hasPopover,
       disabled,
+      readOnly,
       state,
       setLastInteractionType,
     } = useDropdownContext()
@@ -73,8 +45,8 @@ export const Trigger = forwardRef(
           <button
             type="button"
             ref={forwardedRef}
-            disabled={disabled}
-            className={styles({ className, state, disabled })}
+            disabled={disabled || readOnly}
+            className={styles({ className, state, disabled, readOnly })}
             {...getToggleButtonProps({
               ...getDropdownProps(),
               onKeyDown: () => {

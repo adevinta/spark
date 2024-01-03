@@ -162,6 +162,12 @@ You can style this element directly, or you can use it as a wrapper to put an ic
 
 <Canvas of={stories.ItemIndicator} />
 
+### Read only
+
+Use `readOnly` prop to indicate the dropdown is only readable.
+
+<Canvas of={stories.ReadOnly} />
+
 ### Status
 
 Use `state` prop to assign a specific state to the dropdown, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a status indicator will be displayed accordingly.
@@ -169,10 +175,6 @@ Use `state` prop to assign a specific state to the dropdown, choosing from: `err
 You could also wrap `Dropdown` with a `FormField` and pass the prop to `Formfield` instead.
 
 <Canvas of={stories.Statuses} />
-
-### Read only
-
-TODO
 
 ### Trigger leading icon
 
@@ -221,3 +223,9 @@ Apply `disabled` to the wrapping `FormField` to disable the dropdown.
 Use `FormField.Label` to add a label to the input.
 
 <Canvas of={stories.FormFieldLabel} />
+
+### ReadOnly
+
+Apply `readOnly` to the wrapping `FormField` to indicate the dropdown is only readable.
+
+<Canvas of={stories.FormFieldReadOnly} />
