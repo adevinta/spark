@@ -447,6 +447,41 @@ describe('Dropdown', () => {
       // Then the selected value has been updated
       expect(getTrigger('Book')).toHaveTextContent('Pride and Prejudice')
     })
+
+    it('should select item using autocomplete (keyboard)', async () => {
+      const user = userEvent.setup()
+
+      // Given a dropdown with no selected value yet
+      render(
+        <Dropdown>
+          <Dropdown.Trigger aria-label="Book">
+            <Dropdown.Value placeholder="Pick a book" />
+          </Dropdown.Trigger>
+          <Dropdown.Popover>
+            <Dropdown.Items>
+              <Dropdown.Item value="book-1">War and Peace</Dropdown.Item>
+              <Dropdown.Item value="book-2">1984</Dropdown.Item>
+              <Dropdown.Item value="book-3">Pride and Prejudice</Dropdown.Item>
+            </Dropdown.Items>
+          </Dropdown.Popover>
+        </Dropdown>
+      )
+
+      // Then placeholder should be displayed
+      expect(getTrigger('Book')).toHaveTextContent('Pick a book')
+
+      // When the user type "p" to highlight first item matching, then select it
+      await user.click(getTrigger('Book'))
+      await user.keyboard('{p}{Enter}')
+
+      // Then placeholder is replaced by the selected value
+      expect(getTrigger('Book')).toHaveTextContent('Pride and Prejudice')
+
+      // Then the proper item is selected
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'false')
+      expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+      expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
+    })
   })
 
   describe('multiple selection', () => {
