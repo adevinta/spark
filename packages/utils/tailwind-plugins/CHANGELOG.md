@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.5.0...@spark-ui/tailwind-plugins@3.6.0) (2024-01-04)
+
+### Features
+
+- **tailwind-plugins:** export TCV utils ([6fba6dc](https://github.com/adevinta/spark/commit/6fba6dc08a18f0f1c0773464494a5aba331dd572))
+
 # [3.5.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.4.2...@spark-ui/tailwind-plugins@3.5.0) (2024-01-03)
 
 ### Features
