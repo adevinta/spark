@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.19.0...@spark-ui/dropdown@0.20.0) (2024-01-04)
+
+### Features
+
+- **dropdown:** integration and documentation with form-field ([9ea3a32](https://github.com/adevinta/spark/commit/9ea3a3220236c2071091bffb51c8846876787138))
+- **dropdown:** integration and documentation with form-field ([c4aed65](https://github.com/adevinta/spark/commit/c4aed65c3ff3cbf5174153c3aec740b31a385f0f))
+- **dropdown:** integration and documentation with form-field ([a931c69](https://github.com/adevinta/spark/commit/a931c690bf6b2220c84a1cb08997188a061a95f6))
+
 # [0.19.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.18.0...@spark-ui/dropdown@0.19.0) (2024-01-03)
 
 ### Features
