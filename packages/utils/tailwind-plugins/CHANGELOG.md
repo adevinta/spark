@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.4.2...@spark-ui/tailwind-plugins@3.5.0) (2024-01-03)
+
+### Features
+
+- **tailwind-plugins:** add size field to sizing plugin ([8642feb](https://github.com/adevinta/spark/commit/8642febdda1a229f480f8828105729b43ad07b98))
+
 ## [3.4.2](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.4.1...@spark-ui/tailwind-plugins@3.4.2) (2023-11-03)
 
 ### Bug Fixes
