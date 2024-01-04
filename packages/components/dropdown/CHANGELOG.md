@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.18.0...@spark-ui/dropdown@0.19.0) (2024-01-03)
+
+### Features
+
+- **dropdown:** disabled dropdown ([44f0e2b](https://github.com/adevinta/spark/commit/44f0e2bef364217656ee3bc3eee9107b029b5b7f))
+- **dropdown:** dropdown readOnly mode ([2bbf561](https://github.com/adevinta/spark/commit/2bbf56163a81db8700204c09b8f8b8bac715b485))
+
 # [0.18.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.17.0...@spark-ui/dropdown@0.18.0) (2023-12-20)
 
 ### Bug Fixes

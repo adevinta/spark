@@ -64,6 +64,7 @@ module.exports = plugin.withOptions(
         maxHeight: getCSSVariableReferences(),
         minHeight: getCSSVariableReferences(),
         translate: getCSSVariableReferences(),
+        size: getCSSVariableReferences(),
       },
     },
   })
