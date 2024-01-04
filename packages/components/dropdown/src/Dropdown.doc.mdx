@@ -212,20 +212,38 @@ If your `Dropdown.Item` contains anything else than raw text, you may use any JS
 
 ## Form field
 
-### Disabled
-
-Apply `disabled` to the wrapping `FormField` to disable the dropdown.
-
-<Canvas of={stories.FormFieldDisabled} />
-
 ### Label
 
 Use `FormField.Label` to add a label to the input.
 
 <Canvas of={stories.FormFieldLabel} />
 
+### Hidden label
+
+In certain cases, a visible label may not be necessary. To achieve this behavior, use the `VisuallyHidden` component.
+
+<Canvas of={stories.FormFieldHiddenLabel} />
+
+### Required
+
+Use the `isRequired` prop of the `FormField` to indicate that the dropdown is required.
+
+<Canvas of={stories.FormFieldRequired} />
+
+### Disabled
+
+The dropdown `disabled` field status can be managed by the FormField `disabled` flag.
+
+<Canvas of={stories.FormFieldDisabled} />
+
 ### ReadOnly
 
 Apply `readOnly` to the wrapping `FormField` to indicate the dropdown is only readable.
 
 <Canvas of={stories.FormFieldReadOnly} />
+
+### Validation
+
+Set the `state` prop of the `FormField` to `error` to indicate that the dropdown is invalid. Optionally use the `FormField.ErrorMessage` to describe why the dropdown is invalid.
+
+<Canvas of={stories.FormFieldValidation} />
