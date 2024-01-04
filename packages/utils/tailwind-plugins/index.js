@@ -4,7 +4,8 @@ const sizings = require('./sizings')
 const utilities = require('./utilities')
 const variants = require('./variants')
 const sparkTheme = require('./spark-theme')
-const tailwindConfigViewerMisc = require('./tailwind.config.viewer.misc')
+const tailwindConfigViewerUtils = require('./tailwind-config-viewer')
+const tailwindConfigViewerMisc = require('./tailwind-config-viewer/misc')
 const tailwindcssRadix = require('tailwindcss-radix')
 
 /**
@@ -37,5 +38,6 @@ module.exports = {
   variants,
   sparkTheme,
   sparkConfig,
+  tailwindConfigViewerUtils,
   tailwindConfigViewerMisc,
 }
