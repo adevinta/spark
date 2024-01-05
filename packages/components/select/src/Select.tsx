@@ -1,21 +1,18 @@
-import { ReactElement } from 'react'
-
-import { SelectProvider } from './SelectContext'
+import { type SelectContextProps, SelectProvider } from './SelectContext'
 import { findElement } from './utils'
 
-export interface SelectProps {
-  children: ReactElement[]
-  value?: string
-}
+export type SelectProps = Omit<SelectContextProps, 'itemsComponent'>
 
-export const Select = ({ children, value }: SelectProps) => {
+export const Select = ({ children, ...props }: SelectProps) => {
   const finder = findElement(children)
   const trigger = finder('Trigger')
   const items = finder('Items')
 
   return (
-    <SelectProvider data-spark-component="select" value={value} items={items}>
+    <SelectProvider {...props} itemsComponent={items}>
       {trigger}
     </SelectProvider>
   )
 }
+
+Select.displayName = 'Select'

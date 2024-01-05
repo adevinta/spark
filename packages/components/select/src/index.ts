@@ -1,36 +1,40 @@
 import type { FC } from 'react'
 
 import { Select as Root, type SelectProps } from './Select'
-import { SelectProvider, useSelect } from './SelectContext'
+import { SelectProvider, useSelectContext } from './SelectContext'
+import { Group } from './SelectGroup'
 import { Item } from './SelectItem'
 import { Items } from './SelectItems'
-import { ItemsGroup } from './SelectItemsGroup'
+import { Label } from './SelectLabel'
 import { LeadingIcon } from './SelectLeadingIcon'
 import { Trigger } from './SelectTrigger'
 import { Value } from './SelectValue'
 
-export { useSelect, SelectProvider }
+export { useSelectContext, SelectProvider }
 
 export const Select: FC<SelectProps> & {
-  Trigger: typeof Trigger
-  LeadingIcon: typeof LeadingIcon
-  Items: typeof Items
+  Group: typeof Group
   Item: typeof Item
-  ItemsGroup: typeof ItemsGroup
+  Items: typeof Items
+  Label: typeof Label
+  Trigger: typeof Trigger
   Value: typeof Value
+  LeadingIcon: typeof LeadingIcon
 } = Object.assign(Root, {
-  Trigger,
-  LeadingIcon,
-  Items,
+  Group,
   Item,
-  ItemsGroup,
+  Items,
+  Label,
+  Trigger,
   Value,
+  LeadingIcon,
 })
 
 Select.displayName = 'Select'
-Trigger.displayName = 'Select.Trigger'
-LeadingIcon.displayName = 'Select.LeadingIcon'
+Group.displayName = 'Select.Group'
 Items.displayName = 'Select.Items'
 Item.displayName = 'Select.Item'
-ItemsGroup.displayName = 'Select.ItemsGroup'
+Label.displayName = 'Select.Label'
+Trigger.displayName = 'Select.Trigger'
 Value.displayName = 'Select.Value'
+LeadingIcon.displayName = 'Select.LeadingIcon'

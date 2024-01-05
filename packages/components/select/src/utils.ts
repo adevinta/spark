@@ -1,17 +1,47 @@
-import React, { Children, type FC, isValidElement, type ReactElement } from 'react'
+import React, { Children, type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
 
-const getElementId = (element?: ReactElement) => {
-  return element ? (element.type as FC & { id?: string }).id : ''
+import { type ItemProps } from './SelectItem'
+import { type ItemsMap, type SelectItem } from './types'
+
+export const findElement = (children: React.ReactNode) => (name: string) => {
+  const validChildren = Children.toArray(children).filter(isValidElement)
+
+  return validChildren.find(child => {
+    return getElementDisplayName(child)?.includes(name)
+  })
 }
 
-export const findElement =
-  (children: React.ReactNode) =>
-  (...values: string[]) => {
-    const validChildren = Children.toArray(children).filter(isValidElement)
+const getElementDisplayName = (element?: ReactElement) => {
+  return element ? (element.type as FC & { displayName?: string }).displayName : ''
+}
 
-    return validChildren.find(child => {
-      const displayName = getElementId(child)
+const getOrderedItems = (children: ReactNode, result: SelectItem[] = []): SelectItem[] => {
+  React.Children.forEach(children, child => {
+    if (!isValidElement(child)) return
 
-      return values.includes(displayName || '')
-    })
-  }
+    if (getElementDisplayName(child) === 'Select.Item') {
+      const childProps = child.props as ItemProps
+      result.push({
+        value: childProps.value,
+        disabled: !!childProps.disabled,
+        text: childProps.children,
+      })
+    }
+
+    if (child.props.children) {
+      getOrderedItems(child.props.children, result)
+    }
+  })
+
+  return result
+}
+
+export const getItemsFromChildren = (children: ReactNode): ItemsMap => {
+  const newMap: ItemsMap = new Map()
+
+  getOrderedItems(children).forEach(itemData => {
+    newMap.set(itemData.value, itemData)
+  })
+
+  return newMap
+}

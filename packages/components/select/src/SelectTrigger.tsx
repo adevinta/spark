@@ -1,36 +1,52 @@
 import { Icon } from '@spark-ui/icon'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
-import { cx } from 'class-variance-authority'
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode, type Ref, useEffect } from 'react'
 
-import { useSelect } from './SelectContext'
-import { findElement } from './utils'
+import { useSelectContext } from './SelectContext'
+import { SelectStateIndicator } from './SelectStateIndicator'
+import { styles } from './SelectTrigger.styles'
 
-export const Trigger = ({ children }: { children?: ReactNode }) => {
-  const { items } = useSelect()
-
-  const finder = findElement(children)
-
-  const leadingIcon = finder('LeadingIcon')
-  const value = finder('Value')
-
-  return (
-    <div
-      className={cx(
-        'relative flex h-sz-44 items-center gap-md',
-        'rounded-md border-sm border-outline bg-surface px-lg',
-        'ring-inset focus-within:border-outline-high focus-within:ring-1 focus-within:ring-outline-high'
-      )}
-    >
-      {leadingIcon}
-      {value}
-      <Icon>
-        <ArrowHorizontalDown />
-      </Icon>
-      {items}
-    </div>
-  )
+interface TriggerProps {
+  'aria-label'?: string
+  children: ReactNode
+  className?: string
 }
 
-Trigger.id = 'Trigger'
+/**
+ * This trigger acts as a fake button for the `select` tag.
+ * It is not interactive.
+ */
+export const Trigger = forwardRef(
+  (
+    { 'aria-label': ariaLabel, children, className }: TriggerProps,
+    forwardedRef: Ref<HTMLDivElement>
+  ) => {
+    const { disabled, readOnly, state, setAriaLabel, itemsComponent } = useSelectContext()
+
+    useEffect(() => {
+      if (ariaLabel) {
+        setAriaLabel(ariaLabel)
+      }
+    }, [ariaLabel])
+
+    return (
+      <div
+        data-spark-component="select-trigger"
+        ref={forwardedRef}
+        className={styles({ className, state, disabled, readOnly })}
+      >
+        <span className="flex items-center justify-start gap-md">{children}</span>
+
+        <div className="ml-md flex gap-lg">
+          <SelectStateIndicator />
+          <Icon className="shrink-0" size="sm">
+            <ArrowHorizontalDown />
+          </Icon>
+        </div>
+        {itemsComponent}
+      </div>
+    )
+  }
+)
+
 Trigger.displayName = 'Select.Trigger'
