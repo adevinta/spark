@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/progress-tracker@0.2.0...@spark-ui/progress-tracker@0.3.0) (2024-01-05)
+
+### Features
+
+- **progress-tracker:** add design prop with style refacto ([17cbcee](https://github.com/adevinta/spark/commit/17cbcee9cc25b975b759a0fc1181f059fb8dfff2))
+- **progress-tracker:** add intent prop ([4230d99](https://github.com/adevinta/spark/commit/4230d998d1ed95027997cebb89806595ed746cc7))
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/progress-tracker@0.1.0...@spark-ui/progress-tracker@0.2.0) (2024-01-05)
 
 ### Features
