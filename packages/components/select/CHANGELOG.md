@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/select@0.4.0...@spark-ui/select@0.5.0) (2024-01-05)
+
+### Features
+
+- **select:** inherit require attr from formfield ([2104842](https://github.com/adevinta/spark/commit/210484214b79cf83037be2a5639e32e52f9cffd5))
+- **select:** name attribute on select ([8d41bb9](https://github.com/adevinta/spark/commit/8d41bb92281d1faf4a49dcfa57c9619f28ce5961))
+
 # [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/select@0.3.3...@spark-ui/select@0.4.0) (2024-01-05)
 
 ### Features
