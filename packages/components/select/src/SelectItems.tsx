@@ -51,6 +51,7 @@ export const Items = ({
     selectedItem,
     setValue,
     name,
+    required,
   } = useSelectContext()
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -66,9 +67,8 @@ export const Items = ({
     <select
       data-spark-component="select-items"
       disabled={disabled || readOnly}
-      // form
       name={name}
-      // required
+      required={required}
       aria-labelledby={fieldLabelId}
       {...(ariaLabel && { 'aria-label': ariaLabel })}
       className={styles({ className, state, disabled, readOnly })}
