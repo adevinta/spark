@@ -2,7 +2,7 @@ import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
-import { useProgressTrackerStepContext } from './ProgressTrackerContext'
+import { useProgressTrackerContext, useProgressTrackerStepContext } from './ProgressTrackerContext'
 import { stepIndicatorVariant } from './ProgressTrackerStepIndicator.styles'
 
 type ProgressTrackerStepIndicatorProps = ComponentPropsWithoutRef<'span'> & {
@@ -27,10 +27,14 @@ export const ProgressTrackerStepIndicator = ({
   incomplete,
   className,
 }: ProgressTrackerStepIndicatorProps) => {
-  const { index, state, size } = useProgressTrackerStepContext()
+  const { size, intent, design } = useProgressTrackerContext()
+  const { index, state } = useProgressTrackerStepContext()
 
   return (
-    <span className={stepIndicatorVariant({ size, state, className })} aria-hidden="true">
+    <span
+      className={stepIndicatorVariant({ size, intent, design, state, className })}
+      aria-hidden="true"
+    >
       {size !== 'sm' && (
         <>
           {state === 'complete' && (complete === undefined ? <CompleteIndicator /> : complete)}

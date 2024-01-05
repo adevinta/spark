@@ -13,6 +13,18 @@ const meta: Meta<typeof ProgressTracker> = {
 export default meta
 
 const sizes: ProgressTrackerProps['size'][] = ['sm', 'md', 'lg']
+const designs: ProgressTrackerProps['design'][] = ['outline', 'tinted']
+const intents: ProgressTrackerProps['intent'][] = [
+  'basic',
+  'support',
+  'main',
+  'neutral',
+  'info',
+  'accent',
+  'danger',
+  'alert',
+  'success',
+]
 const orientations: ProgressTrackerProps['orientation'][] = ['horizontal', 'vertical']
 
 export const Default: StoryFn = _args => (
@@ -129,6 +141,66 @@ export const Size: StoryFn = _args => (
           <ProgressTracker.Step>
             <ProgressTracker.StepIndicator />
             <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+        </ProgressTracker>
+      </div>
+    ))}
+  </div>
+)
+
+export const Design: StoryFn = _args => (
+  <div className="flex flex-wrap items-center gap-2xl">
+    {designs.map(design => (
+      <div key={design}>
+        <StoryLabel>{`${design}${design === 'outline' ? ' (default)' : ''}`}</StoryLabel>
+        <ProgressTracker
+          aria-label={`Progress tracker "${design}"`}
+          stepIndex={1}
+          design={design as ProgressTrackerProps['design']}
+        >
+          <ProgressTracker.Step>
+            <ProgressTracker.StepIndicator />
+            <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepIndicator />
+            <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepIndicator />
+            <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+        </ProgressTracker>
+      </div>
+    ))}
+  </div>
+)
+
+export const Intent: StoryFn = _args => (
+  <div className="flex flex-wrap items-center gap-2xl">
+    {intents.map(intent => (
+      <div key={intent}>
+        <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
+        <ProgressTracker
+          aria-label={`Progress tracker "${intent}"`}
+          stepIndex={1}
+          intent={intent as ProgressTrackerProps['intent']}
+        >
+          <ProgressTracker.Step>
+            <ProgressTracker.StepIndicator />
+            <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepIndicator />
+            <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step>
+            <ProgressTracker.StepIndicator />
+            <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+          </ProgressTracker.Step>
+          <ProgressTracker.Step disabled>
+            <ProgressTracker.StepIndicator />
+            <ProgressTracker.StepLabel>Repeat</ProgressTracker.StepLabel>
           </ProgressTracker.Step>
         </ProgressTracker>
       </div>

@@ -1,11 +1,13 @@
-import { cva } from 'class-variance-authority'
+import { cva, type VariantProps } from 'class-variance-authority'
+
+import { outlineVariants, tintedVariants } from './stepIndicatorVariants'
 
 export const stepIndicatorVariant = cva(
   [
     'relative flex shrink-0 justify-center items-center',
-    'rounded-full border-sm',
-    'text-body-2 font-bold text-on-basic-container',
-    'group-disabled/btn:opacity-dim-3 group-disabled/btn:bg-transparent',
+    'rounded-full',
+    'text-body-2 font-bold',
+    'group-disabled/btn:opacity-dim-3',
   ],
   {
     variants: {
@@ -26,21 +28,41 @@ export const stepIndicatorVariant = cva(
           'group-data-[orientation=vertical]/list:ml-[-32px]',
         ],
       },
+      intent: {
+        basic: '',
+        support: '',
+        main: '',
+        neutral: '',
+        info: '',
+        accent: '',
+        danger: '',
+        alert: '',
+        success: '',
+      },
+      design: {
+        outline: 'border-sm',
+        tinted: '',
+      },
       state: {
-        complete: [
-          'group-data-[interactive=true]/btn:group-hover/btn:bg-basic/dim-5',
-          'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
-        ],
-        incomplete: [
-          'group-data-[interactive=true]/btn:group-hover/btn:bg-basic/dim-5',
-          'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
-        ],
-        active: 'bg-basic-container',
+        complete: '',
+        incomplete: '',
+        active: '',
       },
     },
+    /**
+     * Known type issue with CVA compoundVariants and VS Code/Intellisense:
+     * https://github.com/joe-bell/cva/discussions/195#discussioncomment-6750163
+     * */
+    /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+    /* @ts-ignore */
+    compoundVariants: [...outlineVariants, ...tintedVariants],
     defaultVariants: {
       size: 'lg',
       state: 'incomplete',
+      intent: 'basic',
+      design: 'outline',
     },
   }
 )
+
+export type StepIndicatorVariantProps = VariantProps<typeof stepIndicatorVariant>

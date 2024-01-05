@@ -4,7 +4,10 @@ import type { ProgressTrackerProps } from './ProgressTracker'
 
 // Main Progress Tracker
 export type ProgressTrackerContextInterface = Required<
-  Pick<ProgressTrackerProps, 'stepIndex' | 'onStepClick' | 'size' | 'readOnly'>
+  Pick<
+    ProgressTrackerProps,
+    'stepIndex' | 'onStepClick' | 'size' | 'intent' | 'design' | 'readOnly'
+  >
 > & {
   steps: Map<string, string[]>
   setSteps: Dispatch<SetStateAction<Map<string, string[]>>>
@@ -17,8 +20,7 @@ export const ProgressTrackerContext = createContext<ProgressTrackerContextInterf
 export const useProgressTrackerContext = () => useContext(ProgressTrackerContext)
 
 // Progress Step
-export interface ProgressTrackerStepContextInterface
-  extends Required<Pick<ProgressTrackerProps, 'size'>> {
+export interface ProgressTrackerStepContextInterface {
   index: number
   state: 'active' | 'complete' | 'incomplete'
 }

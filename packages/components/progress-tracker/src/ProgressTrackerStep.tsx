@@ -24,6 +24,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       onStepClick,
       setSteps,
       size,
+      intent,
       readOnly,
     } = useProgressTrackerContext()
 
@@ -72,6 +73,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
         })}
         className={stepItemVariant({
           size,
+          intent,
           disabled,
           disabledAfter,
         })}
@@ -96,7 +98,6 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
             value={{
               state: progressState,
               index: stepIndex,
-              size,
             }}
           >
             {children || <ProgressTrackerStepIndicator />}
