@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/select@0.3.3...@spark-ui/select@0.4.0) (2024-01-05)
+
+### Features
+
+- **select:** merge dropdown logic into select ([50a190d](https://github.com/adevinta/spark/commit/50a190df9fdf9bc435742a02e2f4fc242cc4f876))
+
 ## [0.3.3](https://github.com/adevinta/spark/compare/@spark-ui/select@0.3.2...@spark-ui/select@0.3.3) (2023-12-13)
 
 **Note:** Version bump only for package @spark-ui/select
