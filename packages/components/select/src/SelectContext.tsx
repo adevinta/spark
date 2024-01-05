@@ -1,80 +1,144 @@
+import { useId } from '@radix-ui/react-id'
+import { useFormFieldControl } from '@spark-ui/form-field'
+import { useCombinedState } from '@spark-ui/use-combined-state'
 import {
   createContext,
   Dispatch,
+  PropsWithChildren,
   ReactElement,
-  type ReactNode,
   SetStateAction,
   useContext,
   useEffect,
   useState,
 } from 'react'
 
+import { type ItemsMap, SelectItem } from './types'
+import { getItemsFromChildren } from './utils'
+
 export interface SelectContextState {
-  items: ReactElement | undefined
-  placeholder?: string | undefined
-  setPlaceHolder: Dispatch<SetStateAction<string | undefined>>
-  setValue: Dispatch<SetStateAction<string | undefined>>
-  value?: string
-  options: Record<string, string>
-  registerOption: (value: string, label: string, previousValue: string) => void
-  unregisterOption: (value: string) => void
+  itemsMap: ItemsMap
+  disabled: boolean
+  readOnly: boolean
+  state?: 'error' | 'alert' | 'success'
+  itemsComponent: ReactElement | undefined
+  selectedItem: SelectItem | undefined
+  setValue: (value: string) => void
+  isControlled: boolean
+  onValueChange?: (value: string) => void
+  ariaLabel: string | undefined
+  setAriaLabel: Dispatch<SetStateAction<string | undefined>>
+  fieldId: string
+  fieldLabelId: string | undefined
 }
+
+export type SelectContextProps = PropsWithChildren<{
+  /**
+   * Use `state` prop to assign a specific state to the select, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
+   */
+  state?: 'error' | 'alert' | 'success'
+  /**
+   * When true, prevents the user from interacting with the select.
+   */
+  disabled?: boolean
+  /**
+   * Sets the select as interactive or not.
+   */
+  readOnly?: boolean
+  /**
+   * The value of the select when initially rendered. Use when you do not need to control the state of the select.
+   */
+  defaultValue?: string
+  /**
+   * The controlled value of the select. Should be used in conjunction with `onValueChange`.
+   */
+  value?: string
+  /**
+   * Event handler called when the value changes.
+   */
+  onValueChange?: (value: string) => void
+
+  itemsComponent: ReactElement | undefined
+}>
 
 const SelectContext = createContext<SelectContextState | null>(null)
 
 export const SelectProvider = ({
   children,
-  items,
-  placeholder,
-  value,
-}: {
-  children?: ReactNode
-} & Pick<SelectContextState, 'items' | 'placeholder' | 'value'>) => {
-  const [innerPlaceholder, setInnerPlaceholder] = useState(placeholder)
-  const [innerValue, setInnerValue] = useState(value)
-  const [innerOptions, setInnerOptions] = useState<Record<string, string>>({})
+  defaultValue,
+  value: valueProp,
+  onValueChange,
+  disabled: disabledProp = false,
+  readOnly: readOnlyProp = false,
+  state: stateProp,
+  itemsComponent,
+}: SelectContextProps) => {
+  const [value, setValue] = useCombinedState(valueProp, defaultValue, onValueChange)
+  const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(itemsComponent))
+  const [ariaLabel, setAriaLabel] = useState<string>()
+
+  // Computed state
+  const selectedItem = typeof value === 'string' ? itemsMap.get(value) : undefined
+  const isControlled = valueProp != null
+
+  // Derivated from FormField context
+  const field = useFormFieldControl()
+  const state = field.state || stateProp
+  const fieldId = useId(field.id)
+  const fieldLabelId = field.labelId
+  const disabled = field.disabled ?? disabledProp
+  const readOnly = field.readOnly ?? readOnlyProp
 
   useEffect(() => {
-    if (value) setInnerValue(value)
-  }, [value])
+    if (valueProp) setValue(valueProp)
+  }, [valueProp])
 
-  const removeOption = (value: string, options: Record<string, string>) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { [value]: deletedKey, ...remainingOptions } = options
+  /**
+   * Indices in a Map are set when an element is added to the Map.
+   * If for some reason, in the Select:
+   * - items order changes
+   * - items are added
+   * - items are removed
+   *
+   * The Map must be rebuilt from the new children in order to preserve logical indices.
+   *
+   * Downshift is heavily indices based for keyboard navigation, so it it important.
+   */
+  useEffect(() => {
+    const newMap = getItemsFromChildren(itemsComponent)
 
-    return remainingOptions
-  }
+    const previousItems = [...itemsMap.values()]
+    const newItems = [...newMap.values()]
 
-  const registerOption = (value: string, label: string, previousValue: string) => {
-    setInnerOptions(prevState => {
-      let updatedState = { ...prevState }
+    const hasItemsChanges =
+      previousItems.length !== newItems.length ||
+      previousItems.some((item, index) => {
+        const hasUpdatedValue = item.value !== newItems[index]?.value
+        const hasUpdatedText = item.text !== newItems[index]?.text
 
-      if (value !== previousValue) {
-        updatedState = removeOption(value, prevState)
-      }
+        return hasUpdatedValue || hasUpdatedText
+      })
 
-      return {
-        ...updatedState,
-        [value]: label,
-      }
-    })
-  }
-
-  const unregisterOption = (value: string) => {
-    setInnerOptions(prevState => removeOption(value, prevState))
-  }
+    if (hasItemsChanges) {
+      setItemsMap(newMap)
+    }
+  }, [children])
 
   return (
     <SelectContext.Provider
       value={{
-        items,
-        placeholder: innerPlaceholder,
-        setPlaceHolder: setInnerPlaceholder,
-        value: innerValue,
-        setValue: setInnerValue,
-        options: innerOptions,
-        registerOption,
-        unregisterOption,
+        disabled,
+        readOnly,
+        itemsMap,
+        state,
+        itemsComponent,
+        selectedItem,
+        setValue,
+        isControlled,
+        onValueChange,
+        ariaLabel,
+        setAriaLabel,
+        fieldId,
+        fieldLabelId,
       }}
     >
       {children}
@@ -82,11 +146,11 @@ export const SelectProvider = ({
   )
 }
 
-export const useSelect = () => {
+export const useSelectContext = () => {
   const context = useContext(SelectContext)
 
   if (!context) {
-    throw Error('useSelect must be used within a Select provider')
+    throw Error('useSelectContext must be used within a Select provider')
   }
 
   return context

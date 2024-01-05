@@ -1,23 +1,26 @@
-import { useEffect, useRef } from 'react'
+import { forwardRef, type Ref } from 'react'
 
-import { useSelect } from './SelectContext'
-
-export const Item = ({ children, value }: { children: string; value: string }) => {
-  const { registerOption, unregisterOption } = useSelect()
-  const valueRef = useRef(value)
-
-  useEffect(() => {
-    registerOption(value, children, valueRef.current)
-
-    valueRef.current = value
-
-    return () => {
-      unregisterOption(value)
-    }
-  }, [value, children])
-
-  return <option value={value}>{children}</option>
+export interface ItemProps {
+  disabled?: boolean
+  value: string
+  children: string
 }
 
-Item.id = 'Item'
+export const Item = forwardRef(
+  ({ disabled = false, value, children }: ItemProps, forwardedRef: Ref<HTMLOptionElement>) => {
+    return (
+      <option
+        data-spark-component="select-item"
+        ref={forwardedRef}
+        key={value}
+        value={value}
+        disabled={disabled}
+        // label
+      >
+        {children}
+      </option>
+    )
+  }
+)
+
 Item.displayName = 'Select.Item'
