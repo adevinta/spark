@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks';
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Kbd } from '@spark-ui/kbd'
 
 import { ProgressTracker } from '.'
 
@@ -20,12 +21,76 @@ npm install @spark-ui/progress-tracker
 ## Import
 
 ```tsx
-import { ProgressTracker } from "@spark-ui/progress-tracker"
+import { ProgressTracker } from '@spark-ui/progress-tracker'
 ```
 
 ## Props
 
-<ArgTypes of={ProgressTracker} />
+<ArgTypes
+  of={ProgressTracker}
+  description="Contains all the progress tracker component parts."
+  subcomponents={{
+    'ProgressTracker.Step': {
+      of: ProgressTracker.Step,
+      description: 'Contains the button associated to a step.',
+    },
+    'ProgressTracker.StepLabel': {
+      of: ProgressTracker.StepLabel,
+      description: 'The label describing the step.',
+    },
+    'ProgressTracker.StepIndicator': {
+      of: ProgressTracker.StepIndicator,
+      description: 'Contains the custom content of a step, for complete and incomplete states.',
+    },
+  }}
+/>
 
-## Variants
+## Usage
+
+### Default
+
+Step indicator content defaults to step index, or checkmark icon when completed. Use `StepIndicator` to customize this content, through `complete` and `incomplete` props.
+
 <Canvas of={stories.Default} />
+
+### Readonly
+
+Use `readOnly` prop to indicate that the component is not interactive.
+
+<Canvas of={stories.Readonly} />
+
+### Disabled
+
+Use `disabled` prop on a step to disable it.
+
+<Canvas of={stories.Disabled} />
+
+### Sizes
+
+Use `size` prop to set the size of the progress indicators. Smallest size doesn't get any content.
+
+<Canvas of={stories.Size} />
+
+### Orientation
+
+Use `orientation` prop to set `horizontal|vertical` orientation.
+
+<Canvas of={stories.Orientation} />
+
+### Intent
+
+Use `intent` prop to set the color.
+
+### Design
+
+Use `design` prop to set the look and feel.
+
+## Accessibility
+
+To enforce your implementation's accessibility we recommend using a specific `aria-label` on `ProgressTracker` root component.
+
+### Keyboard Interactions
+
+- <Kbd>Tab</Kbd>: Moves focus to the next step depending on `orientation`.
+- <Kbd>Space</Kbd>: Activates the step.
+- <Kbd>Enter</Kbd>: Activates the step.
