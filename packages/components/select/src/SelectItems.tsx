@@ -50,6 +50,7 @@ export const Items = ({
     onValueChange,
     selectedItem,
     setValue,
+    name,
   } = useSelectContext()
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -64,11 +65,9 @@ export const Items = ({
   return (
     <select
       data-spark-component="select-items"
-      // autocomplete
-      // autofocus
       disabled={disabled || readOnly}
       // form
-      // name
+      name={name}
       // required
       aria-labelledby={fieldLabelId}
       {...(ariaLabel && { 'aria-label': ariaLabel })}

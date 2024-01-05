@@ -17,7 +17,7 @@ export default meta
 export const Default: StoryFn = _args => {
   return (
     <div>
-      <Select>
+      <Select name="book">
         <Select.Trigger aria-label="Book">
           <Select.LeadingIcon>
             <BookmarkFill />
@@ -43,7 +43,7 @@ export const Controlled: StoryFn = () => {
 
   return (
     <div>
-      <Select value={value} onValueChange={setValue}>
+      <Select name="book" value={value} onValueChange={setValue}>
         <Select.Trigger aria-label="Book">
           <Select.Value placeholder="Pick a book" />
         </Select.Trigger>
@@ -64,7 +64,7 @@ export const Controlled: StoryFn = () => {
 export const Disabled: StoryFn = _args => {
   return (
     <div>
-      <Select disabled>
+      <Select name="book" disabled>
         <Select.Trigger aria-label="Book">
           <Select.Value placeholder="Pick a book" />
         </Select.Trigger>
@@ -85,7 +85,7 @@ export const Disabled: StoryFn = _args => {
 export const ReadOnly: StoryFn = _args => {
   return (
     <div>
-      <Select readOnly>
+      <Select name="book" readOnly>
         <Select.Trigger aria-label="Book">
           <Select.Value placeholder="Pick a book" />
         </Select.Trigger>
@@ -106,7 +106,7 @@ export const ReadOnly: StoryFn = _args => {
 export const DisabledItem: StoryFn = _args => {
   return (
     <div>
-      <Select>
+      <Select name="book">
         <Select.Trigger aria-label="Book">
           <Select.Value placeholder="Pick a book" />
         </Select.Trigger>
@@ -129,7 +129,7 @@ export const DisabledItem: StoryFn = _args => {
 export const Grouped: StoryFn = _args => {
   return (
     <div>
-      <Select>
+      <Select name="book">
         <Select.Trigger aria-label="Book">
           <Select.Value placeholder="Pick a book" />
         </Select.Trigger>
@@ -157,7 +157,7 @@ export const Grouped: StoryFn = _args => {
 export const LeadingIcon: StoryFn = _args => {
   return (
     <div>
-      <Select>
+      <Select name="book">
         <Select.Trigger aria-label="Book">
           <Select.LeadingIcon>
             <BookmarkFill />
@@ -187,7 +187,7 @@ export const Statuses: StoryFn = () => {
     <div className="flex flex-col gap-lg">
       {statuses.map(status => {
         return (
-          <Select state={status}>
+          <Select name={'book-' + status} state={status}>
             <Select.Trigger aria-label="Book">
               <Select.Value placeholder="Pick a book" />
             </Select.Trigger>
@@ -210,7 +210,7 @@ export const Statuses: StoryFn = () => {
 export const FormFieldLabel: StoryFn = _args => {
   return (
     <div>
-      <FormField>
+      <FormField name="book">
         <FormField.Label>Book</FormField.Label>
         <Select>
           <Select.Trigger>
@@ -234,7 +234,7 @@ export const FormFieldLabel: StoryFn = _args => {
 export const FormFieldHiddenLabel: StoryFn = _args => {
   return (
     <div>
-      <FormField>
+      <FormField name="book">
         <FormField.Label>
           <VisuallyHidden>Book</VisuallyHidden>
         </FormField.Label>
@@ -260,7 +260,7 @@ export const FormFieldHiddenLabel: StoryFn = _args => {
 export const FormFieldReadOnly: StoryFn = _args => {
   return (
     <div>
-      <FormField readOnly>
+      <FormField name="book" readOnly>
         <FormField.Label>Book</FormField.Label>
         <Select>
           <Select.Trigger aria-label="Book">
@@ -284,7 +284,7 @@ export const FormFieldReadOnly: StoryFn = _args => {
 export const FormFieldDisabled: StoryFn = _args => {
   return (
     <div>
-      <FormField disabled>
+      <FormField name="book" disabled>
         <FormField.Label>Book</FormField.Label>
         <Select>
           <Select.Trigger>
@@ -308,7 +308,7 @@ export const FormFieldDisabled: StoryFn = _args => {
 export const FormFieldRequired: StoryFn = _args => {
   return (
     <div>
-      <FormField isRequired>
+      <FormField name="book" isRequired>
         <FormField.Label>Book</FormField.Label>
         <Select>
           <Select.Trigger>
@@ -333,7 +333,7 @@ export const FormFieldValidation: StoryFn = () => {
 
   return (
     <div>
-      <FormField state={state}>
+      <FormField name="book" state={state}>
         <FormField.Label>Statuses</FormField.Label>
         <Select
           onValueChange={value => {

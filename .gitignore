@@ -17,6 +17,7 @@ coverage
 *.tsbuildinfo
 .eslintcache
 .vercel
+.nx/cache
 
 # Editor directories and files
 .vscode/*
