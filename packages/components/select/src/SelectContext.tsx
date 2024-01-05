@@ -29,6 +29,8 @@ export interface SelectContextState {
   setAriaLabel: Dispatch<SetStateAction<string | undefined>>
   fieldId: string
   fieldLabelId: string | undefined
+  name: string | undefined
+  required: boolean
 }
 
 export type SelectContextProps = PropsWithChildren<{
@@ -58,6 +60,15 @@ export type SelectContextProps = PropsWithChildren<{
   onValueChange?: (value: string) => void
 
   itemsComponent: ReactElement | undefined
+  /**
+   * This attribute is used to specify the name of the control.
+   * If wrapped with a FormField with a name, will be inherited from it.
+   */
+  name?: string
+  /**
+   * A Boolean attribute indicating that an option with a non-empty string value must be selected.
+   */
+  required?: boolean
 }>
 
 const SelectContext = createContext<SelectContextState | null>(null)
@@ -71,6 +82,8 @@ export const SelectProvider = ({
   readOnly: readOnlyProp = false,
   state: stateProp,
   itemsComponent,
+  name: nameProp,
+  required: requiredProp,
 }: SelectContextProps) => {
   const [value, setValue] = useCombinedState(valueProp, defaultValue, onValueChange)
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(itemsComponent))
@@ -87,6 +100,8 @@ export const SelectProvider = ({
   const fieldLabelId = field.labelId
   const disabled = field.disabled ?? disabledProp
   const readOnly = field.readOnly ?? readOnlyProp
+  const name = field.name ?? nameProp
+  const required = !!(field.isRequired ?? requiredProp)
 
   useEffect(() => {
     if (valueProp) setValue(valueProp)
@@ -139,6 +154,8 @@ export const SelectProvider = ({
         setAriaLabel,
         fieldId,
         fieldLabelId,
+        name,
+        required,
       }}
     >
       {children}
