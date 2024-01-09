@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.20.1...@spark-ui/dropdown@0.20.2) (2024-01-09)
+
+### Bug Fixes
+
+- **dropdown:** apply proper cursor on dropdown items ([fa2d8cf](https://github.com/adevinta/spark/commit/fa2d8cfe52048b7f4bea62fca0514ea810a3d4d5))
+
 ## [0.20.1](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.20.0...@spark-ui/dropdown@0.20.1) (2024-01-04)
 
 **Note:** Version bump only for package @spark-ui/dropdown
