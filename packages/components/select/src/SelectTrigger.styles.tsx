@@ -17,6 +17,7 @@ export const styles = cva(
       },
       disabled: {
         true: 'disabled:bg-on-surface/dim-5 cursor-not-allowed text-on-surface/dim-3',
+        false: 'focus-within:ring-2',
       },
       readOnly: {
         true: 'disabled:bg-on-surface/dim-5 cursor-not-allowed text-on-surface/dim-3',
@@ -26,7 +27,7 @@ export const styles = cva(
       {
         disabled: false,
         state: undefined,
-        class: 'hover:ring-outline-high',
+        class: 'hover:ring-outline-high focus-within:ring-outline-high',
       },
     ],
   }
