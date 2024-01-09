@@ -1,4 +1,4 @@
-import { cx } from 'class-variance-authority'
+import { cva, cx } from 'class-variance-authority'
 import { forwardRef, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
@@ -25,6 +25,37 @@ export const Item = forwardRef(
   }
 )
 
+const styles = cva('px-lg py-md text-body-1', {
+  variants: {
+    selected: {
+      true: 'font-bold',
+    },
+    disabled: {
+      true: 'opacity-dim-3 cursor-not-allowed',
+      false: 'cursor-pointer',
+    },
+    highlighted: {
+      true: '',
+    },
+    interactionType: {
+      mouse: '',
+      keyboard: '',
+    },
+  },
+  compoundVariants: [
+    {
+      highlighted: true,
+      interactionType: 'mouse',
+      class: 'bg-surface-hovered',
+    },
+    {
+      highlighted: true,
+      interactionType: 'keyboard',
+      class: 'u-ring',
+    },
+  ],
+})
+
 const ItemContent = forwardRef(
   (
     { className, disabled = false, value, children }: ItemProps,
@@ -40,11 +71,13 @@ const ItemContent = forwardRef(
       <li
         ref={forwardedRef}
         className={cx(
-          isHighlighted && (lastInteractionType === 'mouse' ? 'bg-surface-hovered' : 'u-ring'),
-          isSelected && 'font-bold',
-          disabled && 'opacity-dim-3',
-          'px-lg py-md text-body-1',
-          className
+          styles({
+            selected: isSelected,
+            disabled,
+            highlighted: isHighlighted,
+            interactionType: lastInteractionType,
+            className,
+          })
         )}
         key={value}
         {...getItemProps({ item: itemData, index })}
