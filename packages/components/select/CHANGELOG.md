@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/adevinta/spark/compare/@spark-ui/select@0.5.0...@spark-ui/select@0.6.0) (2024-01-09)
+
+### Features
+
+- **select:** select focus styles ([9350a0d](https://github.com/adevinta/spark/commit/9350a0d4988afce104b2d96f66d4822682292525))
+
 # [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/select@0.4.0...@spark-ui/select@0.5.0) (2024-01-05)
 
 ### Features

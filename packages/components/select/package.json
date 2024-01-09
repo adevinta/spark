@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/select",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Displays a list of options for the user to pick from—triggered by a button.",
   "publishConfig": {
     "access": "public"
