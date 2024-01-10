@@ -20,7 +20,7 @@ export const Popover = forwardRef(
       setHasPopover(true)
 
       return () => setHasPopover(false)
-    }, [setHasPopover])
+    }, [])
 
     if (!hasPopover) return children
 
