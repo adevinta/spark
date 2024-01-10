@@ -24,7 +24,7 @@ export interface ProgressTrackerProps
   /**
    * Event handler called when clicking on a step.
    */
-  onStepClick?: (stepId: string) => void
+  onStepClick?: (stepIndex: number) => void
   /**
    * Sets the component as interactive or not.
    * @default false
@@ -35,8 +35,8 @@ export interface ProgressTrackerProps
 export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<ProgressTrackerProps>>(
   (
     {
-      stepIndex: propStepIndex = 0,
-      onStepClick: onStepClickProp,
+      stepIndex = 0,
+      onStepClick,
       readOnly = false,
       intent = 'basic',
       size = 'lg',
@@ -49,14 +49,6 @@ export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<Prog
     ref
   ) => {
     const [steps, setSteps] = useState<ProgressTrackerContextInterface['steps']>(new Map())
-    const [stepIndex, setStepIndex] = useState<number>(propStepIndex)
-
-    const onStepClick = (stepId: string) => {
-      const stepIndex = [...steps.keys()].indexOf(stepId)
-
-      setStepIndex(stepIndex)
-      onStepClickProp?.(stepId)
-    }
 
     const Component = readOnly ? 'div' : 'nav'
 

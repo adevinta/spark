@@ -2,6 +2,7 @@ import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Icon } from '@spark-ui/icon'
 import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { Meta, StoryFn } from '@storybook/react'
+import { useState } from 'react'
 
 import { ProgressTracker, type ProgressTrackerProps } from '.'
 
@@ -29,11 +30,7 @@ const orientations: ProgressTrackerProps['orientation'][] = ['horizontal', 'vert
 
 export const Default: StoryFn = _args => (
   <div className="flex flex-wrap items-center gap-2xl">
-    <ProgressTracker
-      aria-label="Default progress tracker"
-      stepIndex={1}
-      onStepClick={id => console.log('Clicked on', id)}
-    >
+    <ProgressTracker aria-label="Default progress tracker" stepIndex={1}>
       <ProgressTracker.Step>
         <ProgressTracker.StepIndicator />
         <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
@@ -91,11 +88,7 @@ export const Default: StoryFn = _args => (
 )
 
 export const Disabled: StoryFn = _args => (
-  <ProgressTracker
-    aria-label="Progress tracker with disabled step"
-    stepIndex={1}
-    onStepClick={id => console.log('Clicked on', id)}
-  >
+  <ProgressTracker aria-label="Progress tracker with disabled step" stepIndex={1}>
     <ProgressTracker.Step>
       <ProgressTracker.StepIndicator />
       <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
@@ -245,3 +238,30 @@ export const Orientation: StoryFn = _args => (
     ))}
   </div>
 )
+
+export const Controlled: StoryFn = () => {
+  const [currentStep, setCurrentStep] = useState(0)
+
+  const handleClick = (index: number) => setCurrentStep(index)
+
+  return (
+    <ProgressTracker
+      aria-label="Progress tracker controlled"
+      stepIndex={currentStep}
+      onStepClick={handleClick}
+    >
+      <ProgressTracker.Step>
+        <ProgressTracker.StepIndicator />
+        <ProgressTracker.StepLabel>Build</ProgressTracker.StepLabel>
+      </ProgressTracker.Step>
+      <ProgressTracker.Step>
+        <ProgressTracker.StepIndicator />
+        <ProgressTracker.StepLabel>Deploy</ProgressTracker.StepLabel>
+      </ProgressTracker.Step>
+      <ProgressTracker.Step>
+        <ProgressTracker.StepIndicator />
+        <ProgressTracker.StepLabel>Iterate</ProgressTracker.StepLabel>
+      </ProgressTracker.Step>
+    </ProgressTracker>
+  )
+}

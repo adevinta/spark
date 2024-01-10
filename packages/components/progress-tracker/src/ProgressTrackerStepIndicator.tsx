@@ -5,7 +5,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { useProgressTrackerContext, useProgressTrackerStepContext } from './ProgressTrackerContext'
 import { stepIndicatorVariant } from './ProgressTrackerStepIndicator.styles'
 
-type ProgressTrackerStepIndicatorProps = ComponentPropsWithoutRef<'span'> & {
+export type ProgressTrackerStepIndicatorProps = ComponentPropsWithoutRef<'span'> & {
   /**
    * The content to be rendered when step status is complete (checkmark icon by default)
    */

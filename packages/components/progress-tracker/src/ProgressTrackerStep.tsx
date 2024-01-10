@@ -61,7 +61,8 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
           return steps
         })
       }
-    }, [disabled, stepId, setSteps, progressState])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
       <li
@@ -85,7 +86,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
           data-interactive={!disabled && !readOnly}
           {...(!disabled &&
             !readOnly && {
-              onClick: () => onStepClick(stepId),
+              onClick: () => onStepClick?.(stepIndex),
             })}
           disabled={disabled}
           className={stepButtonVariant({
@@ -96,8 +97,8 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
         >
           <ProgressTrackerStepContext.Provider
             value={{
-              state: progressState,
               index: stepIndex,
+              state: progressState,
             }}
           >
             {children || <ProgressTrackerStepIndicator />}
