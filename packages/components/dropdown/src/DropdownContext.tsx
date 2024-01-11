@@ -14,7 +14,7 @@ import {
 
 import { type DownshiftState, type DropdownItem, type ItemsMap } from './types'
 import { useDropdown } from './useDropdown'
-import { getElementByIndex, getItemsFromChildren } from './utils'
+import { getElementByIndex, getItemsFromChildren, hasChildComponent } from './utils'
 
 export interface DropdownContextState extends DownshiftState {
   itemsMap: ItemsMap
@@ -113,7 +113,9 @@ export const DropdownProvider = ({
   state: stateProp,
 }: DropdownContextProps) => {
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
-  const [hasPopover, setHasPopover] = useState<boolean>(false)
+  const [hasPopover, setHasPopover] = useState<boolean>(
+    hasChildComponent(children, 'Dropdown.Popover')
+  )
   const [lastInteractionType, setLastInteractionType] = useState<'mouse' | 'keyboard'>('mouse')
 
   const field = useFormFieldControl()

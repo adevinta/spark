@@ -1,10 +1,11 @@
+import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cva, cx } from 'class-variance-authority'
-import { forwardRef, ReactNode, type Ref } from 'react'
+import { forwardRef, HTMLAttributes, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { DropdownItemProvider, useDropdownItemContext } from './DropdownItemContext'
 
-export interface ItemProps {
+export interface ItemProps extends HTMLAttributes<HTMLLIElement> {
   disabled?: boolean
   value: string
   children: ReactNode
@@ -62,14 +63,16 @@ const ItemContent = forwardRef(
     forwardedRef: Ref<HTMLLIElement>
   ) => {
     const { getItemProps, highlightedItem, lastInteractionType } = useDropdownContext()
-
     const { textId, index, itemData, isSelected } = useDropdownItemContext()
 
     const isHighlighted = highlightedItem?.value === value
 
+    const { ref: downshiftRef, ...downshiftItemProps } = getItemProps({ item: itemData, index })
+    const ref = useMergeRefs(forwardedRef, downshiftRef)
+
     return (
       <li
-        ref={forwardedRef}
+        ref={ref}
         className={cx(
           styles({
             selected: isSelected,
@@ -80,7 +83,7 @@ const ItemContent = forwardRef(
           })
         )}
         key={value}
-        {...getItemProps({ item: itemData, index })}
+        {...downshiftItemProps}
         aria-selected={isSelected}
         aria-labelledby={textId}
       >

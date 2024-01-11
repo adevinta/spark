@@ -1,8 +1,6 @@
 /* eslint-disable max-lines */
 import { Button } from '@spark-ui/button'
-import { Dialog } from '@spark-ui/dialog'
 import { FormField } from '@spark-ui/form-field'
-// import { Popover } from '@spark-ui/popover'
 import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { Tag } from '@spark-ui/tag'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
@@ -554,64 +552,5 @@ export const FormFieldValidation: StoryFn = () => {
         <FormField.ErrorMessage>The field is invalid</FormField.ErrorMessage>
       </FormField>
     </div>
-  )
-}
-
-export const InsideDialog: StoryFn = () => {
-  return (
-    <Dialog>
-      <Dialog.Trigger asChild>
-        <Button>Edit profile</Button>
-      </Dialog.Trigger>
-
-      <Dialog.Portal>
-        <Dialog.Overlay />
-
-        <Dialog.Content>
-          <Dialog.Header>
-            <Dialog.Title>Edit profile</Dialog.Title>
-          </Dialog.Header>
-
-          <Dialog.Body>
-            <Dialog.Description>
-              Make changes to your profile here. Click save when you are done.
-            </Dialog.Description>
-
-            <p>Lorem ipsum dolor sit amet</p>
-            <div>
-              <Dropdown>
-                <Dropdown.Trigger>
-                  <Dropdown.Value placeholder="Pick a state" />
-                </Dropdown.Trigger>
-                <Dropdown.Popover>
-                  <Dropdown.Items>
-                    <Dropdown.Item value="default">default</Dropdown.Item>
-                    <Dropdown.Item value="success">success</Dropdown.Item>
-                    <Dropdown.Item value="alert">alert</Dropdown.Item>
-                    <Dropdown.Item value="error">error</Dropdown.Item>
-                  </Dropdown.Items>
-                </Dropdown.Popover>
-              </Dropdown>
-            </div>
-            <p>toto</p>
-
-            {/* <Popover>
-              <Popover.Trigger asChild>
-                <Button>click me</Button>
-              </Popover.Trigger>
-              <Popover.Content>HEY</Popover.Content>
-            </Popover> */}
-          </Dialog.Body>
-
-          <Dialog.Footer className="flex justify-end gap-md">
-            <Dialog.Close asChild>
-              <Button>Close</Button>
-            </Dialog.Close>
-          </Dialog.Footer>
-
-          <Dialog.CloseButton aria-label="Close edit profile" />
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog>
   )
 }

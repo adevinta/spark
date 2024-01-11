@@ -1,6 +1,7 @@
 import { Icon } from '@spark-ui/icon'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { Popover } from '@spark-ui/popover'
+import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { forwardRef, Fragment, ReactNode, type Ref } from 'react'
 
@@ -34,6 +35,15 @@ export const Trigger = forwardRef(
       ? [Popover.Trigger, { asChild: true }]
       : [Fragment, {}]
 
+    const { ref: downshiftRef, ...downshiftTriggerProps } = getToggleButtonProps({
+      ...getDropdownProps(),
+      onKeyDown: () => {
+        setLastInteractionType('keyboard')
+      },
+    })
+
+    const ref = useMergeRefs(forwardedRef, downshiftRef)
+
     return (
       <>
         {ariaLabel && (
@@ -44,15 +54,10 @@ export const Trigger = forwardRef(
         <WrapperComponent {...wrapperProps}>
           <button
             type="button"
-            ref={forwardedRef}
+            ref={ref}
             disabled={disabled || readOnly}
             className={styles({ className, state, disabled, readOnly })}
-            {...getToggleButtonProps({
-              ...getDropdownProps(),
-              onKeyDown: () => {
-                setLastInteractionType('keyboard')
-              },
-            })}
+            {...downshiftTriggerProps}
             data-spark-component="dropdown-trigger"
           >
             <span className="flex items-center justify-start gap-md">{children}</span>

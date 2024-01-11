@@ -10,11 +10,12 @@ export const Popover = forwardRef(
       children,
       matchTriggerWidth = true,
       sideOffset = 4,
+      className,
       ...props
     }: ComponentProps<typeof SparkPopover.Content>,
     forwardedRef: Ref<HTMLDivElement>
   ) => {
-    const { isOpen, hasPopover, setHasPopover } = useDropdownContext()
+    const { isOpen, setHasPopover } = useDropdownContext()
 
     useEffect(() => {
       setHasPopover(true)
@@ -22,15 +23,13 @@ export const Popover = forwardRef(
       return () => setHasPopover(false)
     }, [])
 
-    if (!hasPopover) return children
-
     return (
       <SparkPopover.Content
         ref={forwardedRef}
         inset
         asChild
         matchTriggerWidth={matchTriggerWidth}
-        className={cx(!isOpen && 'hidden', '!z-dropdown')}
+        className={cx('!z-dropdown', !isOpen && 'hidden', className)}
         sideOffset={sideOffset}
         {...props}
         data-spark-component="dropdown-popover"
