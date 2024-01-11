@@ -31,6 +31,13 @@ export const Popover = forwardRef(
         matchTriggerWidth={matchTriggerWidth}
         className={cx('!z-dropdown', !isOpen && 'hidden', className)}
         sideOffset={sideOffset}
+        onOpenAutoFocus={e => {
+          /**
+           * With a combobox pattern, the focus should remain on the trigger at all times.
+           * Passing the focus to the dropdown popover would break keyboard navigation.
+           */
+          e.preventDefault()
+        }}
         {...props}
         data-spark-component="dropdown-popover"
       >

@@ -1,6 +1,6 @@
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cva, cx } from 'class-variance-authority'
-import { forwardRef, HTMLAttributes, ReactNode, type Ref } from 'react'
+import { forwardRef, type HTMLAttributes, type ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { DropdownItemProvider, useDropdownItemContext } from './DropdownItemContext'
