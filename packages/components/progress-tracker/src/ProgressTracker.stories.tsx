@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { ProgressTracker, type ProgressTrackerProps } from '.'
 
 const meta: Meta<typeof ProgressTracker> = {
-  title: 'Experimental/ProgressTracker',
+  title: 'Components/ProgressTracker',
   component: ProgressTracker,
 }
 
