@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.5.0...@spark-ui/popover@1.5.1) (2024-01-12)
+
+### Bug Fixes
+
+- **dropdown:** fix z-index issue in dropdown ([a8e3431](https://github.com/adevinta/spark/commit/a8e34318e70fb94b52bd7a7da0fc2b0dd3a710ee))
+
 # [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.4.4...@spark-ui/popover@1.5.0) (2023-12-20)
 
 ### Features

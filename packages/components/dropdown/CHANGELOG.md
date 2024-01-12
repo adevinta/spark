@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.3](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.20.2...@spark-ui/dropdown@0.20.3) (2024-01-12)
+
+### Bug Fixes
+
+- **dropdown:** do not forward focus to the popover in the dropdown ([c8515ef](https://github.com/adevinta/spark/commit/c8515ef25b21e27aa0bbb1806a830db0d3d0630a))
+- **dropdown:** fix focus when dropdown inside dialog ([a589f2f](https://github.com/adevinta/spark/commit/a589f2f418ded4703f9d0c707e98816e688c3c4b))
+- **dropdown:** fix z-index issue in dropdown ([a8e3431](https://github.com/adevinta/spark/commit/a8e34318e70fb94b52bd7a7da0fc2b0dd3a710ee))
+
 ## [0.20.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.20.1...@spark-ui/dropdown@0.20.2) (2024-01-09)
 
 ### Bug Fixes
