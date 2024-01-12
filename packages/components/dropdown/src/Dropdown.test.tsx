@@ -90,6 +90,41 @@ describe('Dropdown', () => {
       expect(trigger).toHaveAttribute('aria-expanded', 'false')
     })
 
+    it('should open/close the items list when interacting with its trigger (no popover)', async () => {
+      const user = userEvent.setup()
+
+      // Given a close dropdown without a popover(default state)
+      render(
+        <Dropdown>
+          <Dropdown.Trigger aria-label="Book">
+            <Dropdown.Value placeholder="Pick a book" />
+          </Dropdown.Trigger>
+
+          <Dropdown.Items>
+            <Dropdown.Item value="book-1">War and Peace</Dropdown.Item>
+            <Dropdown.Item value="book-2">1984</Dropdown.Item>
+            <Dropdown.Item value="book-3">Pride and Prejudice</Dropdown.Item>
+          </Dropdown.Items>
+        </Dropdown>
+      )
+
+      const trigger = getTrigger('Book')
+
+      expect(trigger).toHaveAttribute('aria-expanded', 'false')
+
+      // When the user interact with the trigger
+      await user.click(trigger)
+
+      // Then the dropdown has expanded
+      expect(trigger).toHaveAttribute('aria-expanded', 'true')
+
+      // When the user interact with the trigger while expanded
+      await user.click(trigger)
+
+      // Then the dropdown is closed again
+      expect(trigger).toHaveAttribute('aria-expanded', 'false')
+    })
+
     it('should remain forced opened', async () => {
       const user = userEvent.setup()
 
