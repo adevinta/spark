@@ -1,3 +1,4 @@
+import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
 import { forwardRef, ReactNode, type Ref } from 'react'
 
@@ -12,15 +13,17 @@ export const Items = forwardRef(
   ({ children, className, ...props }: ItemsProps, forwardedRef: Ref<HTMLUListElement>) => {
     const { isOpen, getMenuProps, hasPopover, setLastInteractionType } = useDropdownContext()
 
-    const downshiftProps = getMenuProps({
+    const { ref: downshiftRef, ...downshiftMenuProps } = getMenuProps({
       onMouseMove: () => {
         setLastInteractionType('mouse')
       },
     })
 
+    const ref = useMergeRefs(forwardedRef, downshiftRef)
+
     return (
       <ul
-        ref={forwardedRef}
+        ref={ref}
         className={cx(
           className,
           'flex flex-col',
@@ -28,7 +31,7 @@ export const Items = forwardRef(
           hasPopover && 'p-lg'
         )}
         {...props}
-        {...downshiftProps}
+        {...downshiftMenuProps}
         data-spark-component="dropdown-items"
       >
         {children}

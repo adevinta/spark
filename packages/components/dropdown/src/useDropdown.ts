@@ -91,7 +91,7 @@ export const useDropdown = ({
     id,
     labelId,
     // Controlled open state
-    isOpen: open,
+    isOpen: open, // undefined must be passed for stateful behaviour (uncontrolled)
     onIsOpenChange: ({ isOpen }) => {
       if (isOpen != null) onOpenChange?.(isOpen)
     },

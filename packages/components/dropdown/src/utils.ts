@@ -93,3 +93,17 @@ export const getItemsFromChildren = (children: ReactNode): ItemsMap => {
 
   return newMap
 }
+
+export const hasChildComponent = (children: ReactNode, displayName: string): boolean => {
+  return React.Children.toArray(children).some(child => {
+    if (!isValidElement(child)) return false
+
+    if (getElementDisplayName(child) === displayName) {
+      return true
+    } else if (child.props.children) {
+      return hasChildComponent(child.props.children, displayName)
+    }
+
+    return false
+  })
+}

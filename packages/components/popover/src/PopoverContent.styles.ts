@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 export const styles = cva(
   [
-    'z-popover',
+    'relative z-popover',
     'rounded-md',
     'bg-surface text-on-surface',
     'shadow',

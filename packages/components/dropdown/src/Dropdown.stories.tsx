@@ -519,6 +519,7 @@ export const FormFieldRequired: StoryFn = _args => {
     </div>
   )
 }
+
 export const FormFieldValidation: StoryFn = () => {
   const [state, setState] = useState<undefined | 'success' | 'alert' | 'error'>('error')
 
@@ -532,7 +533,7 @@ export const FormFieldValidation: StoryFn = () => {
           }}
         >
           <Dropdown.Trigger>
-            <Dropdown.Value placeholder="Pick an state" />
+            <Dropdown.Value placeholder="Pick a state" />
           </Dropdown.Trigger>
           <Dropdown.Popover>
             <Dropdown.Items>
