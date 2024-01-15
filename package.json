@@ -41,7 +41,7 @@
     "selenium-webdriver": "^4.10.0"
   },
   "devDependencies": {
-    "@adevinta/tailwind-config-viewer": "1.11.0",
+    "@adevinta/tailwind-config-viewer": "2.0.0",
     "@babel/core": "7.23.0",
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
