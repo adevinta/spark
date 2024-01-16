@@ -18,7 +18,7 @@ export interface DownshiftProps {
 }
 
 /**
- * This hooks abstract the complexity of using downshift with both single and multiple selection.
+ * This hook abstract the complexity of using downshift with both single and multiple selection.
  */
 export const useDropdown = ({
   itemsMap,
@@ -36,10 +36,14 @@ export const useDropdown = ({
 
   const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
     selectedItems: value
-      ? items.filter(item => (value as string[]).includes(item.value))
+      ? items.filter(item =>
+          multiple ? (value as string[]).includes(item.value) : value === item.value
+        )
       : undefined,
     initialSelectedItems: defaultValue
-      ? items.filter(item => (defaultValue as string[]).includes(item.value))
+      ? items.filter(item =>
+          multiple ? (defaultValue as string[]).includes(item.value) : defaultValue === item.value
+        )
       : undefined,
 
     onSelectedItemsChange: ({ selectedItems }) => {
