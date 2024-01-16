@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.20.4...@spark-ui/dropdown@0.21.0) (2024-01-16)
+
+### Features
+
+- **dropdown:** fix the single/multiple selection controlled handling ([629cc8c](https://github.com/adevinta/spark/commit/629cc8c9e663470ab9df2f1fe6e2baf71e24a4a9))
+- **dropdown:** remove unnecessary testing story ([e2c1271](https://github.com/adevinta/spark/commit/e2c127117a7a030c2d9997cd88a0e2df1c806f4e))
+- **dropdown:** still working on single mode ([7613277](https://github.com/adevinta/spark/commit/76132774e0eacefa90bfa5952efababcfc983aca))
+
 ## [0.20.4](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.20.3...@spark-ui/dropdown@0.20.4) (2024-01-16)
 
 **Note:** Version bump only for package @spark-ui/dropdown
