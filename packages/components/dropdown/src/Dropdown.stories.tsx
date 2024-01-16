@@ -573,14 +573,14 @@ const val = [
   { value: '15', label: '15' },
 ]
 
-const initialValue = ['1']
+const initialValue = '1'
 
 export const Test: StoryFn = () => {
   const [value, setValue] = useState(initialValue)
 
   return (
     <div className="p-xl">
-      <Dropdown multiple value={value} onValueChange={setValue}>
+      <Dropdown value={value} onValueChange={value => setValue(value)}>
         <Dropdown.Trigger>
           <Dropdown.Value placeholder="hey" />
         </Dropdown.Trigger>
