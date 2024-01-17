@@ -10,14 +10,10 @@ export const inputStyles = cva(
     'bg-surface',
     'text-ellipsis text-body-1 text-on-surface',
     'caret-neutral',
-    'autofill:shadow-surface',
-    'autofill:shadow-[inset_0_0_0px_1000px]',
-    'disabled:cursor-not-allowed',
-    'disabled:bg-on-surface/dim-5 disabled:text-on-surface/dim-3',
-    'read-only:cursor-default',
-    'read-only:bg-on-surface/dim-5',
+    'autofill:shadow-surface autofill:shadow-[inset_0_0_0px_1000px]',
+    'disabled:cursor-not-allowed disabled:border-outline disabled:bg-on-surface/dim-5 disabled:text-on-surface/dim-3',
+    'read-only:cursor-default read-only:bg-on-surface/dim-5',
     'focus:ring-1 focus:ring-inset',
-    'disabled:border-outline',
   ],
   {
     variants: {
