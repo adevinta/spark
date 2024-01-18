@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.5.2...@spark-ui/popover@1.5.3) (2024-01-18)
+
+### Bug Fixes
+
+- **popover:** broken popover arrow caused by relative positionning ([4f239ad](https://github.com/adevinta/spark/commit/4f239ad92518992182173b7666a6cd29dd62c53c))
+
 ## [1.5.2](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.5.1...@spark-ui/popover@1.5.2) (2024-01-16)
 
 **Note:** Version bump only for package @spark-ui/popover
