@@ -1,7 +1,6 @@
 import { forwardRef, HTMLAttributes, PropsWithRef } from 'react'
 
 import { styles, type StylesProps } from './BadgeItem.styles'
-import { DEFAULT_INTENT, DEFAULT_OVERFLOW_COUNT, DEFAULT_SIZE, DEFAULT_TYPE } from './config'
 
 export interface BadgeItemProps
   extends PropsWithRef<Omit<HTMLAttributes<HTMLSpanElement>, 'aria-label'>>,
@@ -12,6 +11,7 @@ export interface BadgeItemProps
   count?: number
   /**
    * Maximum numeric value to be dispayed as a count value.
+   * @default 99
    */
   overflowCount?: number
   /**
@@ -23,6 +23,7 @@ export interface BadgeItemProps
     | (({ count, overflowCount }: { count?: number; overflowCount?: number }) => string)
   /**
    * Describes the way the component is displayed: relative to another element or just standalone.
+   * @default 'relative'
    */
   type?: 'relative' | 'standalone'
 }
@@ -30,11 +31,11 @@ export interface BadgeItemProps
 export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
   (
     {
-      intent = DEFAULT_INTENT,
-      size = DEFAULT_SIZE,
-      type = DEFAULT_TYPE,
+      intent = 'danger',
+      size = 'md',
+      type = 'relative',
       count,
-      overflowCount = DEFAULT_OVERFLOW_COUNT,
+      overflowCount = 99,
       'aria-label': label,
       className,
       ...others

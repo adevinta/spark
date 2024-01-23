@@ -1,16 +1,16 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Button } from '@spark-ui/button'
 import { Meta, StoryFn } from '@storybook/react'
-import { type ComponentProps } from 'react'
 
-import { Badge } from '.'
-
-type BadgeProps = ComponentProps<typeof Badge>
+import { Badge, type BadgeProps } from '.'
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
 }
+
+export default meta
+
 const sizes: BadgeProps['size'][] = ['sm', 'md']
 const intents: BadgeProps['intent'][] = [
   'main',
@@ -25,16 +25,20 @@ const intents: BadgeProps['intent'][] = [
   'surface',
 ]
 
-const fakeAvatar = <div className="h-sz-40 w-sz-40 rounded-lg bg-outline" />
+const fakeAvatar = <div className="size-sz-40 rounded-sm bg-outline" />
 
 export const Default: StoryFn = _args => <Badge count={1}>{fakeAvatar}</Badge>
 
 export const Intents: StoryFn = _args => (
-  <div className="flex flex-wrap justify-evenly gap-md">
+  <div className="grid grid-cols-2 gap-xl sm:grid-cols-5">
     {intents.map(intent => (
-      <div>
-        <StoryLabel className="mb-xl">{intent}</StoryLabel>
-        <Badge key={intent} intent={intent} count={1}>
+      <div key={intent} className="flex flex-col items-center">
+        <StoryLabel className="mb-xl">{`
+            ${intent}
+            ${intent === 'danger' ? ' (default)' : ''}
+          `}</StoryLabel>
+
+        <Badge intent={intent} count={1}>
           {fakeAvatar}
         </Badge>
       </div>
@@ -52,7 +56,7 @@ export const NoCount: StoryFn = _args => <Badge>{fakeAvatar}</Badge>
 
 export const CountThreshold: StoryFn = _args => (
   <div className="flex gap-xl">
-    <div>
+    <div className="text-center">
       <StoryLabel className="mb-xl">Default threshold</StoryLabel>
       <Badge
         count={1000}
@@ -61,7 +65,7 @@ export const CountThreshold: StoryFn = _args => (
         {fakeAvatar}
       </Badge>
     </div>
-    <div>
+    <div className="text-center">
       <StoryLabel className="mb-xl">Custom threshold</StoryLabel>
       <Badge
         count={1000}
@@ -75,26 +79,32 @@ export const CountThreshold: StoryFn = _args => (
 )
 
 export const Sizes: StoryFn = _args => (
-  <div className="flex flex-col gap-xl">
+  <div className="flex flex-row gap-xl">
     {sizes.map(size => (
-      <div className="flex gap-xl">
-        <div>
-          <StoryLabel className="mb-xl">{size}</StoryLabel>
-
-          <Badge key={size} size={size}>
-            {fakeAvatar}
-          </Badge>
-        </div>
-        <div>
-          <StoryLabel className="mb-xl">{size} (count)</StoryLabel>
+      <>
+        <div className="text-center">
+          <StoryLabel className="mb-xl">{`
+            ${size}
+            ${size === 'md' ? ' (default)' : ''}
+          `}</StoryLabel>
 
           <Badge key={size} size={size} count={25}>
             {fakeAvatar}
           </Badge>
         </div>
-      </div>
+
+        <div className="text-center">
+          <StoryLabel className="mb-xl">{`
+            ${size}
+            ${size === 'md' ? ' (default)' : ''}
+            empty
+          `}</StoryLabel>
+
+          <Badge key={size} size={size}>
+            {fakeAvatar}
+          </Badge>
+        </div>
+      </>
     ))}
   </div>
 )
-
-export default meta
