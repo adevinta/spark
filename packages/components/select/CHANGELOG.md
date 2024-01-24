@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.4](https://github.com/adevinta/spark/compare/@spark-ui/select@0.6.3...@spark-ui/select@0.6.4) (2024-01-24)
+
+### Bug Fixes
+
+- **select:** fix select deps ([9d8f4f2](https://github.com/adevinta/spark/commit/9d8f4f2490ecd1f3c52ee6134f476ff4721cc7ad))
+
 ## [0.6.3](https://github.com/adevinta/spark/compare/@spark-ui/select@0.6.2...@spark-ui/select@0.6.3) (2024-01-23)
 
 ### Bug Fixes
