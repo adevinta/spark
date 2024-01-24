@@ -43,6 +43,8 @@
   "license": "MIT",
   "dependencies": {
     "@spark-ui/icon": "^2.1.1",
-    "@spark-ui/icons": "^1.21.6"
+    "@spark-ui/icons": "^1.21.6",
+    "@spark-ui/form-field": "^1.4.1",
+    "@spark-ui/use-combined-state": "^0.6.2"
   }
 }
