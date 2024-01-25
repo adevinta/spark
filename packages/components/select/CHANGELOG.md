@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.6](https://github.com/adevinta/spark/compare/@spark-ui/select@0.6.5...@spark-ui/select@0.6.6) (2024-01-25)
+
+### Bug Fixes
+
+- **select:** fix text-size defined ([da597e1](https://github.com/adevinta/spark/commit/da597e1cbf9b047435b6dc91f00ae740b165dccf))
+
+## [0.6.5](https://github.com/adevinta/spark/compare/@spark-ui/select@0.6.4...@spark-ui/select@0.6.5) (2024-01-25)
+
+**Note:** Version bump only for package @spark-ui/select
+
 ## [0.6.4](https://github.com/adevinta/spark/compare/@spark-ui/select@0.6.3...@spark-ui/select@0.6.4) (2024-01-24)
 
 ### Bug Fixes
