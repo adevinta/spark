@@ -9,7 +9,6 @@ import { Icon } from '@spark-ui/icon'
 import { ShareExpand } from '@spark-ui/icons/dist/icons/ShareExpand'
 
 const ExampleContainer = ({ children, ...props }) => {
-  console.log(props)
   return (
     <DocsContainer {...props}>
       <div id="spark-doc-container">{children}</div>
