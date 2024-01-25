@@ -116,7 +116,6 @@ export const SelectProvider = ({
    *
    * The Map must be rebuilt from the new children in order to preserve logical indices.
    *
-   * Downshift is heavily indices based for keyboard navigation, so it it important.
    */
   useEffect(() => {
     const newMap = getItemsFromChildren(itemsComponent)

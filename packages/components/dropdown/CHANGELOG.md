@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.21.1...@spark-ui/dropdown@0.21.2) (2024-01-24)
+
+### Bug Fixes
+
+- **select:** fix select deps ([9d8f4f2](https://github.com/adevinta/spark/commit/9d8f4f2490ecd1f3c52ee6134f476ff4721cc7ad))
+
 ## [0.21.1](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.21.0...@spark-ui/dropdown@0.21.1) (2024-01-18)
 
 **Note:** Version bump only for package @spark-ui/dropdown

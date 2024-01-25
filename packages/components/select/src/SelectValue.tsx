@@ -23,7 +23,12 @@ export const Value = forwardRef(
         ref={forwardedRef}
         className={cx('flex shrink items-center text-left', className)}
       >
-        <span className="line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all">
+        <span
+          className={cx(
+            'line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all',
+            !hasSelectedItem && 'text-on-surface/dim-1'
+          )}
+        >
           {!hasSelectedItem ? placeholder : children || text}
         </span>
       </span>
