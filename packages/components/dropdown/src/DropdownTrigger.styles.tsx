@@ -4,6 +4,7 @@ export const styles = cva(
   [
     'flex w-full items-center justify-between',
     'min-h-sz-44 rounded-lg bg-surface text-on-surface px-lg',
+    'text-body-1',
     // outline styles
     'ring-1 outline-none ring-inset focus:ring-2',
   ],
