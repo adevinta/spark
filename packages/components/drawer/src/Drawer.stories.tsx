@@ -184,6 +184,7 @@ export const Side = () => {
         <RadioGroup.Radio value="top">Top</RadioGroup.Radio>
         <RadioGroup.Radio value="bottom">Bottom</RadioGroup.Radio>
       </RadioGroup>
+
       <Drawer open={open} onOpenChange={setOpen}>
         <Drawer.Trigger asChild>
           <Button>Open drawer</Button>
@@ -224,5 +225,86 @@ export const Side = () => {
         </Drawer.Portal>
       </Drawer>
     </>
+  )
+}
+
+export const Sandbox = () => {
+  const [size, setSize] = useState<ExcludeNull<DrawerContentProps>['size']>('md')
+  const [side, setSide] = useState<ExcludeNull<DrawerContentProps>['side']>('right')
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div>
+      <RadioGroup
+        className="mb-lg flex gap-md"
+        value={side}
+        orientation="horizontal"
+        onValueChange={value => setSide(value as ExcludeNull<DrawerContentProps>['side'])}
+      >
+        <RadioGroup.Radio value="right">Right</RadioGroup.Radio>
+        <RadioGroup.Radio value="left">Left</RadioGroup.Radio>
+        <RadioGroup.Radio value="top">Top</RadioGroup.Radio>
+        <RadioGroup.Radio value="bottom">Bottom</RadioGroup.Radio>
+      </RadioGroup>
+
+      <RadioGroup
+        className="mb-lg flex gap-md"
+        value={size}
+        orientation="horizontal"
+        onValueChange={value => setSize(value as ExcludeNull<DrawerContentProps>['size'])}
+      >
+        <RadioGroup.Radio value="sm">Small</RadioGroup.Radio>
+        <RadioGroup.Radio value="md">Medium</RadioGroup.Radio>
+        <RadioGroup.Radio value="lg">Large</RadioGroup.Radio>
+        <RadioGroup.Radio value="fluid">Fluid</RadioGroup.Radio>
+        <RadioGroup.Radio value="fullscreen">Fullscreen</RadioGroup.Radio>
+      </RadioGroup>
+
+      <Drawer open={open} onOpenChange={setOpen}>
+        <Drawer.Trigger asChild>
+          <Button>Open drawer</Button>
+        </Drawer.Trigger>
+
+        <Drawer.Portal>
+          <Drawer.Overlay />
+
+          <Drawer.Content size={size} side={side}>
+            <Drawer.Header>
+              <Drawer.Title>Edit size</Drawer.Title>
+            </Drawer.Header>
+
+            <Drawer.Body className="flex flex-col gap-lg">
+              <Drawer.Description>Please select a drawer size</Drawer.Description>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+              {size !== 'fluid' && (
+                <>
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <p key={index}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                      in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                  ))}
+                </>
+              )}
+            </Drawer.Body>
+
+            <Drawer.Footer className="flex justify-end gap-md">
+              <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
+                Cancel
+              </Button>
+              <Button>Submit</Button>
+            </Drawer.Footer>
+
+            <Drawer.CloseButton aria-label="Close edit size" />
+          </Drawer.Content>
+        </Drawer.Portal>
+      </Drawer>
+    </div>
   )
 }
