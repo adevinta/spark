@@ -1,4 +1,3 @@
-import queryString from 'query-string'
 import { DocsContainer } from '@storybook/blocks'
 import { withThemeByDataAttribute } from '@storybook/addon-styling'
 import { Icon } from '@spark-ui/icon'
@@ -52,13 +51,15 @@ export const decorators = [
     attributeName: 'data-theme',
   }),
   (storyFn, { id, viewMode }) => {
-    const { globals } = queryString.parse(window.top?.location.search)
+    const params = new URLSearchParams(window.top?.location.search)
+    params.set('id', id)
+    params.delete('path')
     return (
       <div className="relative w-full">
         {viewMode === 'docs' && (
           <div className="absolute -right-lg -top-xl">
             <a
-              href={`/iframe.html?${queryString.stringify({ id, globals })}`}
+              href={`/iframe.html?${params.toString()}`}
               target="_blank"
               className="text-basic hover:text-basic-hovered focus:text-basic-focused enabled:active:text-basic-pressed"
             >
