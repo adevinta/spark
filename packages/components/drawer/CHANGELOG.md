@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.6](https://github.com/adevinta/spark/compare/@spark-ui/drawer@1.2.5...@spark-ui/drawer@1.2.6) (2024-01-29)
+
+### Bug Fixes
+
+- **drawer:** fix vh issue on drawer ([46dc48c](https://github.com/adevinta/spark/commit/46dc48c76d01f12f9f68dd654e6034abd2e9d058))
+
 ## [1.2.5](https://github.com/adevinta/spark/compare/@spark-ui/drawer@1.2.4...@spark-ui/drawer@1.2.5) (2024-01-16)
 
 **Note:** Version bump only for package @spark-ui/drawer
