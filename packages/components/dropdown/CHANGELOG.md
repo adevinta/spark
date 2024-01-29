@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.4](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.21.3...@spark-ui/dropdown@0.21.4) (2024-01-29)
+
+### Bug Fixes
+
+- **dropdown:** fixed missing ItemIndicator on Safari ([dd1dd6d](https://github.com/adevinta/spark/commit/dd1dd6dff4e1b03b10c8b4190337b97184234231))
+
 ## [0.21.3](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.21.2...@spark-ui/dropdown@0.21.3) (2024-01-25)
 
 ### Bug Fixes
