@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/drawer@1.2.6...@spark-ui/drawer@1.3.0) (2024-01-29)
+
+### Features
+
+- **drawer:** add fluid size ([7e5ce5d](https://github.com/adevinta/spark/commit/7e5ce5d28f0082de65f6f8442f0a1f6bf5eabe3f))
+
 ## [1.2.6](https://github.com/adevinta/spark/compare/@spark-ui/drawer@1.2.5...@spark-ui/drawer@1.2.6) (2024-01-29)
 
 ### Bug Fixes
