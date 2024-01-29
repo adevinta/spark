@@ -68,7 +68,7 @@ export const Controlled: StoryFn = () => {
 }
 
 export const ControlledOpenState: StoryFn = () => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   return (
     <div className="flex flex-col gap-lg">
