@@ -8,9 +8,24 @@ import './sb-theming.css'
 import { ToC } from '@docs/helpers/ToC'
 
 const ExampleContainer = ({ children, ...props }) => {
+  const shouldDisplayExperimentalBanner = (() => {
+    const docsPrepared = props.context.channel.data.docsPrepared
+    if (!docsPrepared) return false
+
+    return docsPrepared.some(doc => {
+      if (!doc.id) return false
+      return doc.id.includes('experimental-')
+    })
+  })()
+
   return (
     <DocsContainer {...props}>
-      <div id="spark-doc-container">{children}</div>
+      <div id="spark-doc-container">
+        {shouldDisplayExperimentalBanner && <p id="experimental-banner">
+          This component is still experimental. Avoid usage in production features
+        </p>}
+        {children}
+      </div>
       <ToC />
     </DocsContainer>
   )
