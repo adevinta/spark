@@ -1,6 +1,6 @@
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { forwardRef, ReactNode, type Ref } from 'react'
+import { CSSProperties, forwardRef, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 
@@ -32,6 +32,16 @@ export const Items = forwardRef(
         )}
         {...props}
         {...downshiftMenuProps}
+        /**
+         * When used inside a Radix dialog/drawer, the focus trap behaviour of Radix prevent scrolling and hovering inside absolutely positioned elements in the dialog.
+         * It does programatically in JS using the `style` attribute.
+         *
+         * Issue is known but there is no clear fix in sight: https://github.com/radix-ui/primitives/issues/1159
+         *
+         * A solution would be to make an abstraction of `Dialog.Overlay` instead of using the radix one, but that would mean managing body scroll freeze and scrollbar shifting ourselves.
+         *
+         */
+        style={{ ...(props as { style: CSSProperties }).style, pointerEvents: undefined }}
         data-spark-component="dropdown-items"
       >
         {children}
