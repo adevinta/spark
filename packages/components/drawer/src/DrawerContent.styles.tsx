@@ -11,33 +11,28 @@ export const drawerContentStyles = cva(
         sm: '',
         md: '',
         lg: '',
+        fluid: '',
         fullscreen: 'h-screen w-screen',
       },
       side: {
         right: [
-          'top-none',
-          'right-none',
-          'h-screen',
+          'inset-y-none right-none',
           'data-[state=open]:animate-slide-in-right',
           'data-[state=closed]:animate-slide-out-right',
         ],
         left: [
-          'top-none',
-          'left-none',
-          'h-screen',
+          'inset-y-none left-none',
           'data-[state=open]:animate-slide-in-left',
           'data-[state=closed]:animate-slide-out-left',
         ],
         top: [
-          'top-none',
-          'left-none',
+          'top-none left-none',
           'w-screen',
           'data-[state=open]:animate-slide-in-top',
           'data-[state=closed]:animate-slide-out-top',
         ],
         bottom: [
-          'bottom-none',
-          'left-none',
+          'bottom-none left-none',
           'w-screen',
           'data-[state=open]:animate-slide-in-bottom',
           'data-[state=closed]:animate-slide-out-bottom',
@@ -61,6 +56,11 @@ export const drawerContentStyles = cva(
         class: ['w-sz-864', 'max-w-full'],
       },
       {
+        side: ['left', 'right'],
+        size: 'fluid',
+        class: ['w-auto', 'max-w-full'],
+      },
+      {
         side: ['top', 'bottom'],
         size: 'sm',
         class: ['h-sz-480', 'max-h-full'],
@@ -74,6 +74,11 @@ export const drawerContentStyles = cva(
         side: ['top', 'bottom'],
         size: 'lg',
         class: ['h-sz-864', 'max-h-full'],
+      },
+      {
+        side: ['top', 'bottom'],
+        size: 'fluid',
+        class: ['h-auto', 'max-h-full'],
       },
     ],
     defaultVariants: {
