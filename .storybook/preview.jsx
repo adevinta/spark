@@ -1,11 +1,11 @@
-import '../src/tailwind.css'
-import './sb-theming.css'
-import { ToC } from '@docs/helpers/ToC'
-
 import { DocsContainer } from '@storybook/blocks'
 import { withThemeByDataAttribute } from '@storybook/addon-styling'
 import { Icon } from '@spark-ui/icon'
 import { ShareExpand } from '@spark-ui/icons/dist/icons/ShareExpand'
+
+import '../src/tailwind.css'
+import './sb-theming.css'
+import { ToC } from '@docs/helpers/ToC'
 
 const ExampleContainer = ({ children, ...props }) => {
   return (
@@ -51,12 +51,15 @@ export const decorators = [
     attributeName: 'data-theme',
   }),
   (storyFn, { id, viewMode }) => {
+    const params = new URLSearchParams(window.top?.location.search)
+    params.set('id', id)
+    params.delete('path')
     return (
       <div className="relative w-full">
         {viewMode === 'docs' && (
           <div className="absolute -right-lg -top-xl">
             <a
-              href={`/iframe.html?&id=${id}`}
+              href={`/iframe.html?${params.toString()}`}
               target="_blank"
               className="text-basic hover:text-basic-hovered focus:text-basic-focused enabled:active:text-basic-pressed"
             >
