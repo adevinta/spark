@@ -17,7 +17,7 @@ export const Placeholder = forwardRef(
 
     return (
       <option
-        data-spark-component="select-item"
+        data-spark-component="select-placeholder"
         ref={forwardedRef}
         key="placeholder"
         value=""
@@ -29,4 +29,4 @@ export const Placeholder = forwardRef(
   }
 )
 
-Placeholder.displayName = 'Select.Item'
+Placeholder.displayName = 'Select.Placeholder'
