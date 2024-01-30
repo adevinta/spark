@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.5](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.21.4...@spark-ui/dropdown@0.21.5) (2024-01-30)
+
+### Bug Fixes
+
+- **dropdown:** prevent radix focus trap to disable scroll inside dropdown ([73d2e49](https://github.com/adevinta/spark/commit/73d2e498b2895ab75d37388eecbc7c11ff0724a2))
+
 ## [0.21.4](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.21.3...@spark-ui/dropdown@0.21.4) (2024-01-29)
 
 ### Bug Fixes
