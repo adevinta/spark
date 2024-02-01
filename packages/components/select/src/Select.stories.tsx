@@ -26,6 +26,7 @@ export const Default: StoryFn = _args => {
         </Select.Trigger>
 
         <Select.Items>
+          <Select.Placeholder>--Pick a book--</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -49,6 +50,7 @@ export const Controlled: StoryFn = () => {
         </Select.Trigger>
 
         <Select.Items>
+          <Select.Placeholder>--Pick a book--</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -70,6 +72,7 @@ export const Disabled: StoryFn = _args => {
         </Select.Trigger>
 
         <Select.Items>
+          <Select.Placeholder>--Pick a book--</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -91,6 +94,7 @@ export const ReadOnly: StoryFn = _args => {
         </Select.Trigger>
 
         <Select.Items>
+          <Select.Placeholder>--Pick a book--</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -112,6 +116,7 @@ export const DisabledItem: StoryFn = _args => {
         </Select.Trigger>
 
         <Select.Items>
+          <Select.Placeholder>--Pick a book--</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3" disabled>
@@ -135,6 +140,7 @@ export const Grouped: StoryFn = _args => {
         </Select.Trigger>
 
         <Select.Items>
+          <Select.Placeholder>--Pick a book--</Select.Placeholder>
           <Select.Group>
             <Select.Label>Best-sellers</Select.Label>
             <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
@@ -166,6 +172,7 @@ export const LeadingIcon: StoryFn = _args => {
         </Select.Trigger>
 
         <Select.Items>
+          <Select.Placeholder>--Pick a book--</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>

@@ -19,7 +19,10 @@ const getOrderedItems = (children: ReactNode, result: SelectItem[] = []): Select
   React.Children.forEach(children, child => {
     if (!isValidElement(child)) return
 
-    if (getElementDisplayName(child) === 'Select.Item') {
+    if (
+      getElementDisplayName(child) === 'Select.Item' ||
+      getElementDisplayName(child) === 'Select.Placeholder'
+    ) {
       const childProps = child.props as ItemProps
       result.push({
         value: childProps.value,
