@@ -93,6 +93,7 @@ describe('Select', () => {
           </Select.Trigger>
 
           <Select.Items>
+            <Select.Placeholder>--Pick a book--</Select.Placeholder>
             <Select.Item value="book-1">War and Peace</Select.Item>
             <Select.Item value="book-2">1984</Select.Item>
             <Select.Item value="book-3">Pride and Prejudice</Select.Item>
@@ -135,6 +136,7 @@ describe('Select', () => {
               </Select.Trigger>
 
               <Select.Items>
+                <Select.Placeholder>--Pick a book--</Select.Placeholder>
                 <Select.Item value="book-1">{bookText}</Select.Item>
                 <Select.Item value="book-2">War and Peace</Select.Item>
                 <Select.Item value="book-3">The Idiot</Select.Item>
@@ -167,6 +169,7 @@ describe('Select', () => {
             </Select.Trigger>
 
             <Select.Items>
+              <Select.Placeholder>--Pick a book--</Select.Placeholder>
               <Select.Item value="book-1">War and Peace</Select.Item>
               <Select.Item value="book-2">1984</Select.Item>
               <Select.Item value="book-3">Pride and Prejudice</Select.Item>
@@ -194,6 +197,7 @@ describe('Select', () => {
           </Select.Trigger>
 
           <Select.Items>
+            <Select.Placeholder>--Pick a book--</Select.Placeholder>
             <Select.Item value="book-1">War and Peace</Select.Item>
             <Select.Item value="book-2">1984</Select.Item>
             <Select.Item value="book-3">Pride and Prejudice</Select.Item>
@@ -225,6 +229,7 @@ describe('Select', () => {
           </Select.Trigger>
 
           <Select.Items>
+            <Select.Placeholder>--Pick a book--</Select.Placeholder>
             <Select.Item value="book-1">War and Peace</Select.Item>
             <Select.Item value="book-2">1984</Select.Item>
             <Select.Item value="book-3">Pride and Prejudice</Select.Item>
@@ -250,6 +255,7 @@ describe('Select', () => {
             </Select.Trigger>
 
             <Select.Items>
+              <Select.Placeholder>--Pick a book--</Select.Placeholder>
               <Select.Item value="book-1">War and Peace</Select.Item>
               <Select.Item value="book-2">1984</Select.Item>
               <Select.Item value="book-3">Pride and Prejudice</Select.Item>

@@ -6,15 +6,22 @@ import { useSelectContext } from './SelectContext'
 export interface ValueProps {
   children?: ReactNode
   className?: string
-  placeholder: string
+  /**
+   * Optional placeholder value for the trigger.
+   * If not specified, the value inside `Select.Placeholder` item will be used.
+   */
+  placeholder?: string
 }
 
 export const Value = forwardRef(
-  ({ children, className, placeholder }: ValueProps, forwardedRef: Ref<HTMLSpanElement>) => {
-    const { selectedItem } = useSelectContext()
+  (
+    { children, className, placeholder: customPlaceholder }: ValueProps,
+    forwardedRef: Ref<HTMLSpanElement>
+  ) => {
+    const { selectedItem, placeholder } = useSelectContext()
 
-    const hasSelectedItem = !!selectedItem
-    const text = selectedItem?.text
+    const isPlaceholderSelected = selectedItem?.value == null
+    const valuePlaceholder = customPlaceholder || placeholder
 
     return (
       <span
@@ -26,10 +33,10 @@ export const Value = forwardRef(
         <span
           className={cx(
             'line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all',
-            !hasSelectedItem && 'text-on-surface/dim-1'
+            isPlaceholderSelected && 'text-on-surface/dim-1'
           )}
         >
-          {!hasSelectedItem ? placeholder : children || text}
+          {isPlaceholderSelected ? valuePlaceholder : children || selectedItem?.text}
         </span>
       </span>
     )

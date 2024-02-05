@@ -31,6 +31,8 @@ export interface SelectContextState {
   fieldLabelId: string | undefined
   name: string | undefined
   required: boolean
+  placeholder: string | undefined
+  setPlaceholder: Dispatch<SetStateAction<string | undefined>>
 }
 
 export type SelectContextProps = PropsWithChildren<{
@@ -86,11 +88,13 @@ export const SelectProvider = ({
   required: requiredProp,
 }: SelectContextProps) => {
   const [value, setValue] = useCombinedState(valueProp, defaultValue, onValueChange)
+  const [placeholder, setPlaceholder] = useState<string | undefined>(undefined)
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(itemsComponent))
   const [ariaLabel, setAriaLabel] = useState<string>()
 
   // Computed state
-  const selectedItem = typeof value === 'string' ? itemsMap.get(value) : undefined
+  const firstItem = itemsMap.entries().next().value[1]
+  const selectedItem = typeof value === 'string' ? itemsMap.get(value) : firstItem
   const isControlled = valueProp != null
 
   // Derivated from FormField context
@@ -155,6 +159,8 @@ export const SelectProvider = ({
         fieldLabelId,
         name,
         required,
+        placeholder,
+        setPlaceholder,
       }}
     >
       {children}

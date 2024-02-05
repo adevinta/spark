@@ -7,6 +7,7 @@ import { Item } from './SelectItem'
 import { Items } from './SelectItems'
 import { Label } from './SelectLabel'
 import { LeadingIcon } from './SelectLeadingIcon'
+import { Placeholder } from './SelectPlaceholder'
 import { Trigger } from './SelectTrigger'
 import { Value } from './SelectValue'
 
@@ -16,6 +17,7 @@ export const Select: FC<SelectProps> & {
   Group: typeof Group
   Item: typeof Item
   Items: typeof Items
+  Placeholder: typeof Placeholder
   Label: typeof Label
   Trigger: typeof Trigger
   Value: typeof Value
@@ -24,6 +26,7 @@ export const Select: FC<SelectProps> & {
   Group,
   Item,
   Items,
+  Placeholder,
   Label,
   Trigger,
   Value,
@@ -34,6 +37,7 @@ Select.displayName = 'Select'
 Group.displayName = 'Select.Group'
 Items.displayName = 'Select.Items'
 Item.displayName = 'Select.Item'
+Placeholder.displayName = 'Select.Placeholder'
 Label.displayName = 'Select.Label'
 Trigger.displayName = 'Select.Trigger'
 Value.displayName = 'Select.Value'
