@@ -10,7 +10,7 @@ import React, { ComponentProps, useState } from 'react'
 import { Dropdown } from '.'
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'Experimental/Dropdown',
+  title: 'Components/Dropdown',
   component: Dropdown,
 }
 
