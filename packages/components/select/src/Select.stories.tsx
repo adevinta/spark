@@ -8,7 +8,7 @@ import React, { ComponentProps, useState } from 'react'
 import { Select } from '.'
 
 const meta: Meta<typeof Select> = {
-  title: 'Experimental/Select',
+  title: 'Components/Select',
   component: Select,
 }
 
