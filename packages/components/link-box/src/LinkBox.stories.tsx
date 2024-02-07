@@ -39,10 +39,10 @@ export const Nesting: StoryFn = _args => (
     <LinkBox className="space-y-md" asChild>
       <article>
         <div className="relative aspect-square w-full overflow-hidden rounded-md bg-neutral shadow-md">
-          <img className="size-full" src="https://picsum.photos/200/200" alt="" />
+          <img className="size-full" src="https://picsum.photos/200/200" alt="Card image" />
 
           <div className="absolute bottom-md right-md z-raised">
-            <IconButton shape="pill" aria-label="">
+            <IconButton shape="pill" aria-label="Like">
               <Icon>
                 <FavoriteOutline />
               </Icon>
