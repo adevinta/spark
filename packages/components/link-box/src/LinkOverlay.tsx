@@ -15,7 +15,7 @@ export const LinkOverlay = forwardRef<HTMLAnchorElement, LinkOverlayProps>(
         ref={ref}
         data-spark-component="link-overlay"
         className={cx(
-          "static before:absolute before:left-none before:top-none before:z-base before:block before:h-full before:w-full before:content-['']",
+          "static before:absolute before:left-none before:top-none before:z-base before:block before:size-full before:content-['']",
           className
         )}
         {...props}

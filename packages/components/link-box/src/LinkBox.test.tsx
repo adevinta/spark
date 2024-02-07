@@ -5,7 +5,6 @@ import { LinkBox } from '.'
 
 describe('LinkOverlay', () => {
   it('should render', async () => {
-    // Given
     render(
       <LinkBox asChild>
         <article>
