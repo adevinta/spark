@@ -31,12 +31,12 @@ import { LinkBox } from "@spark-ui/link-box"
 
 ### Default
 
-Simply wrapping an entire component in an 'a' tag may seem convenient for linking, but it's considered unsemantic and incorrect. This is because the component might include other clickable elements like tags, timestamps, or buttons.
+Simply wrapping an entire component in an `a` tag may seem convenient for linking, but it's considered unsemantic and incorrect. This is because the component might include other clickable elements like tags, timestamps, or buttons.
 
 <Canvas of={stories.Default} />
 
 ### Nesting
 
-Any nested links and buttons inside `LinkBox` are elevated to the top using z-index to ensure proper keyboard navigation between links.
+Any nested links and buttons inside `LinkBox` are elevated to the top using `z-index` to ensure proper navigation between links.
 
 <Canvas of={stories.Nesting} />
