@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/select",
-  "version": "1.0.0",
-  "description": "Displays a list of options for the user to pick from—triggered by a button.",
+  "name": "@spark-ui/link-box",
+  "version": "0.1.0",
+  "description": "Semantic component used to wrap elements (cards, blog posts, articles, etc.) in a link.",
   "publishConfig": {
     "access": "public"
   },
@@ -14,13 +14,17 @@
     "wai-aria",
     "aria",
     "a11y",
-    "select"
+    "link-box"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
+  },
+  "dependencies": {
+    "@spark-ui/slot": "^1.7.0",
+    "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
@@ -30,21 +34,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/adevinta/spark.git",
-    "directory": "packages/components/select"
+    "directory": "packages/components/link-box"
   },
   "config": {
-    "title": "select",
+    "title": "link-box",
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Aselect"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Alink-box"
   },
   "homepage": "https://sparkui.vercel.app",
-  "license": "MIT",
-  "dependencies": {
-    "@spark-ui/form-field": "^1.4.1",
-    "@spark-ui/icon": "^2.1.1",
-    "@spark-ui/icons": "^1.21.6",
-    "@spark-ui/use-combined-state": "^0.6.2"
-  }
+  "license": "MIT"
 }
