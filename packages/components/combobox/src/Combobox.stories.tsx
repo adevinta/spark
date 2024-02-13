@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
 import { Tag } from '@spark-ui/tag'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
@@ -30,21 +31,9 @@ export default meta
 // Combobox tabs -> https://ariakit.org/examples/combobox-tabs
 
 export const Default: StoryFn = _args => {
-  const [value, setValue] = useState('book-1')
-
   return (
     <div className="pb-[300px]">
-      <Combobox value={value} onValueChange={setValue}>
-        <Combobox.Input aria-label="Book" />
-        <Combobox.Popover>
-          <Combobox.Items>
-            <Combobox.Item value="book-1">War and Peace</Combobox.Item>
-            <Combobox.Item value="book-2">1984</Combobox.Item>
-            <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
-          </Combobox.Items>
-        </Combobox.Popover>
-      </Combobox>
-      {/* <Combobox>
+      <Combobox>
         <Combobox.Input aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
@@ -57,7 +46,70 @@ export const Default: StoryFn = _args => {
             <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
           </Combobox.Items>
         </Combobox.Popover>
-      </Combobox> */}
+      </Combobox>
+    </div>
+  )
+}
+
+export const Controlled: StoryFn = () => {
+  const [value, setValue] = useState('book-1')
+  const [inputValue, setInputValue] = useState('')
+
+  return (
+    <div className="pb-[300px]">
+      <Combobox value={value} onValueChange={setValue}>
+        <Combobox.Input
+          aria-label="Book"
+          placeholder="Pick a book"
+          value={inputValue}
+          onValueChange={setInputValue}
+        />
+
+        <Combobox.Popover>
+          <Combobox.Items>
+            <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
+            <Combobox.Item value="book-2">War and Peace</Combobox.Item>
+            <Combobox.Item value="book-3">The Idiot</Combobox.Item>
+            <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
+            <Combobox.Item value="book-5">1984</Combobox.Item>
+            <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
+          </Combobox.Items>
+        </Combobox.Popover>
+      </Combobox>
+    </div>
+  )
+}
+
+export const ControlledOpenState: StoryFn = () => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="flex flex-col gap-lg">
+      <div className="flex gap-md">
+        <Button design="outlined" intent="success" disabled={open} onClick={() => setOpen(true)}>
+          Open
+        </Button>
+        <Button design="outlined" intent="danger" disabled={!open} onClick={() => setOpen(false)}>
+          Close
+        </Button>
+      </div>
+
+      <div className="pb-[300px]">
+        <Combobox open={open} onOpenChange={setOpen}>
+          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
+              <Combobox.Item value="book-2">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-3">The Idiot</Combobox.Item>
+              <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
+              <Combobox.Item value="book-5">1984</Combobox.Item>
+              <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      </div>
     </div>
   )
 }
@@ -239,7 +291,7 @@ export const DisabledItem: StoryFn = _args => {
 export const Grouped: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox>
+      <Combobox autoSelect>
         <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         <Combobox.Popover>
           <Combobox.Items>

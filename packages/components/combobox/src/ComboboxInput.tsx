@@ -9,6 +9,7 @@ import { ComponentPropsWithoutRef, forwardRef, Fragment, type Ref, useEffect } f
 
 import { useComboboxContext } from './ComboboxContext'
 import { styles } from './ComboboxInput.styles'
+import { LeadingIcon } from './ComboboxLeadingIcon'
 
 type InputPrimitiveProps = ComponentPropsWithoutRef<'input'>
 
@@ -66,7 +67,7 @@ export const Input = forwardRef(
       }
 
       // Sync input with combobox default value
-      if (!multiple && selectedItem) {
+      if (!multiple && selectedItem && !isControlled) {
         setInputValue(selectedItem.text)
       }
     }, [])
@@ -98,9 +99,9 @@ export const Input = forwardRef(
         <PopoverAnchor {...popoverAnchorProps}>
           <div className={styles({ className, state, disabled, readOnly })}>
             {/* 1 - Leading icon (optional) */}
-            <Icon className="shrink-0" size="sm">
+            <LeadingIcon>
               <ArrowHorizontalDown />
-            </Icon>
+            </LeadingIcon>
 
             {/* 2 - TODO - selected items (optional, multiple selection only) */}
             <p>[selected items chips (v2)]</p>

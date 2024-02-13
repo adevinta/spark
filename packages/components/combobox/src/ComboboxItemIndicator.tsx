@@ -1,8 +1,8 @@
+import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { cx } from 'class-variance-authority'
 import { forwardRef, ReactNode, type Ref } from 'react'
 
-import { useComboboxContext } from './ComboboxContext'
 import { useComboboxItemContext } from './ComboboxItemContext'
 
 export interface ItemIndicatorProps {
@@ -14,9 +14,12 @@ export interface ItemIndicatorProps {
 export const ItemIndicator = forwardRef(
   ({ className, children, label }: ItemIndicatorProps, forwardedRef: Ref<HTMLSpanElement>) => {
     const { disabled, isSelected } = useComboboxItemContext()
-    const { multiple } = useComboboxContext()
-    const childElement =
-      children || (multiple ? <Check aria-label={label} /> : <span aria-label={label}>✓</span>)
+
+    const childElement = children || (
+      <Icon size="sm">
+        <Check aria-label={label} />
+      </Icon>
+    )
 
     return (
       <span

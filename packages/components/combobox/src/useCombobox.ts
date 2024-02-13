@@ -58,9 +58,8 @@ export const useCombobox = ({
       : undefined,
 
     onSelectedItemsChange: ({ selectedItems }) => {
-      if (selectedItems != null && multiple) {
-        onValueChange?.(selectedItems.map(item => item.value) as OnChangeValueType)
-      }
+      const selectedValues = (selectedItems as ComboboxItem[]).map(item => item.value)
+      onValueChange?.(selectedValues as OnChangeValueType)
     },
   })
 
@@ -105,27 +104,25 @@ export const useCombobox = ({
     type,
     selectedItem: newSelectedItem,
   }) => {
+    const updateInputValue = (inputValue: string | undefined) => {
+      if (onInputValueChange) {
+        if (inputValue != null) onInputValueChange(inputValue)
+      } else {
+        setInputValue(inputValue)
+      }
+    }
+
     switch (type) {
       case useDownshiftCombobox.stateChangeTypes.InputKeyDownEnter:
       case useDownshiftCombobox.stateChangeTypes.ItemClick:
       case useDownshiftCombobox.stateChangeTypes.InputBlur:
-        if (newSelectedItem || multiple) {
-          const newValue = multiple ? '' : newInputValue
-
-          if (onInputValueChange) {
-            if (newValue != null) onInputValueChange(newValue)
-          } else {
-            setInputValue(newValue)
-          }
+        if (newSelectedItem) {
+          updateInputValue(multiple ? '' : newInputValue)
         }
         break
 
       case useDownshiftCombobox.stateChangeTypes.InputChange:
-        if (onInputValueChange) {
-          if (newInputValue != null) onInputValueChange(newInputValue)
-        } else {
-          setInputValue(newInputValue)
-        }
+        updateInputValue(newInputValue)
 
         break
       default:
@@ -144,7 +141,7 @@ export const useCombobox = ({
 
       return item.disabled || isFilteredOut
     },
-    itemToString: item => (item ? item.text : ''),
+    itemToString: item => item?.text ?? '',
     // a11y attributes
     id,
     labelId,

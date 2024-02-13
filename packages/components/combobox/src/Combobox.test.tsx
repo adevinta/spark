@@ -170,6 +170,34 @@ describe('Combobox', () => {
       // Then the combobox remains opened
       expect(getInput('Book')).toHaveAttribute('aria-expanded', 'false')
     })
+
+    it('should display Combobox.Empty when no items matches the input value', async () => {
+      const user = userEvent.setup()
+
+      // Given a combobox with no selected value yet
+      render(
+        <Combobox autoSelect>
+          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Empty>No results found</Combobox.Empty>
+              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-2">1984</Combobox.Item>
+              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      )
+
+      expect(screen.queryByText('No results found')).not.toBeInTheDocument()
+
+      // When the user type "pri" to filter first item matching, then select it
+      await user.click(getInput('Book'))
+      await user.keyboard('{z}{z}{z}')
+
+      // Then placeholder is replaced by the selected value
+      expect(screen.getByText('No results found')).toBeInTheDocument()
+    })
   })
 
   describe('Combobox.Group', () => {
@@ -315,10 +343,11 @@ describe('Combobox', () => {
       // Given we control value by outside state and selected value
       const ControlledImplementation = () => {
         const [value, setValue] = useState('book-1')
+        const [inputValue, setInputValue] = useState('')
 
         return (
           <Combobox value={value} onValueChange={setValue}>
-            <Combobox.Input aria-label="Book" />
+            <Combobox.Input aria-label="Book" value={inputValue} onValueChange={setInputValue} />
             <Combobox.Popover>
               <Combobox.Items>
                 <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -334,7 +363,7 @@ describe('Combobox', () => {
 
       expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
 
-      expect(screen.getByDisplayValue('War and Peace')).toBeInTheDocument()
+      expect(screen.getByDisplayValue('')).toBeInTheDocument()
 
       // when the user select another item
       await user.click(getInput('Book'))
