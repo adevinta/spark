@@ -71,7 +71,11 @@ export const Input = forwardRef(
       }
     }, [])
 
-    const [WrapperComponent, wrapperProps] = hasPopover
+    const [PopoverAnchor, popoverAnchorProps] = hasPopover
+      ? [Popover.Anchor, { asChild: true, type: undefined }]
+      : [Fragment, {}]
+
+    const [PopoverTrigger, popoverTriggerProps] = hasPopover
       ? [Popover.Trigger, { asChild: true, type: undefined }]
       : [Fragment, {}]
 
@@ -91,7 +95,7 @@ export const Input = forwardRef(
             <label {...getLabelProps()}>{ariaLabel}</label>
           </VisuallyHidden>
         )}
-        <WrapperComponent {...wrapperProps}>
+        <PopoverAnchor {...popoverAnchorProps}>
           <div className={styles({ className, state, disabled, readOnly })}>
             {/* 1 - Leading icon (optional) */}
             <Icon className="shrink-0" size="sm">
@@ -102,23 +106,31 @@ export const Input = forwardRef(
             <p>[selected items chips (v2)]</p>
 
             {/* 3 - Input typing area  - MANDATORY */}
-            <input
-              data-spark-component="combobox-input"
-              ref={ref}
-              type="text"
-              placeholder={placeholder}
-              disabled={disabled || readOnly}
-              className="text-ellipsis"
-              {...props}
-              {...downshiftInputProps}
-              value={inputValue}
-            />
+            <PopoverTrigger {...popoverTriggerProps}>
+              <input
+                data-spark-component="combobox-input"
+                ref={ref}
+                type="text"
+                placeholder={placeholder}
+                disabled={disabled || readOnly}
+                className="text-ellipsis"
+                {...props}
+                {...downshiftInputProps}
+                value={inputValue}
+              />
+            </PopoverTrigger>
 
             {/* 4 - Combobox clear button (optional) */}
             <p>[clear]</p>
 
             {/* 5 - Combobox disclosure button (optional, advised for autoComplete not autoSuggest) */}
-            <IconButton intent="neutral" design="ghost" size="sm" {...getToggleButtonProps()}>
+            <IconButton
+              intent="neutral"
+              design="ghost"
+              size="sm"
+              {...getToggleButtonProps()}
+              aria-label="Show popup"
+            >
               <Icon>
                 <Icon className="shrink-0" size="sm">
                   <ArrowHorizontalDown />
@@ -126,7 +138,7 @@ export const Input = forwardRef(
               </Icon>
             </IconButton>
           </div>
-        </WrapperComponent>
+        </PopoverAnchor>
       </>
     )
   }
