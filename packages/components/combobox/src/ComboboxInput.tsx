@@ -1,20 +1,17 @@
-/* eslint-disable complexity */
-import { Icon } from '@spark-ui/icon'
-import { IconButton } from '@spark-ui/icon-button'
-import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { Popover } from '@spark-ui/popover'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
+import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef, Fragment, type Ref, useEffect } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
-import { styles } from './ComboboxInput.styles'
-import { LeadingIcon } from './ComboboxLeadingIcon'
 
 type InputPrimitiveProps = ComponentPropsWithoutRef<'input'>
 
-interface InputProps extends InputPrimitiveProps {
+interface InputProps extends Omit<InputPrimitiveProps, 'value' | 'placeholder'> {
   className?: string
+  placeholder?: string
+  value?: string
   onValueChange?: (value: string) => void
 }
 
@@ -31,7 +28,6 @@ export const Input = forwardRef(
     forwardedRef: Ref<HTMLInputElement>
   ) => {
     const {
-      getToggleButtonProps,
       getDropdownProps,
       getInputProps,
       getLabelProps,
@@ -41,7 +37,6 @@ export const Input = forwardRef(
       inputValue,
       setInputValue,
       setIsInputControlled,
-      state,
       setLastInteractionType,
       setOnInputValueChange,
       multiple,
@@ -72,10 +67,6 @@ export const Input = forwardRef(
       }
     }, [])
 
-    const [PopoverAnchor, popoverAnchorProps] = hasPopover
-      ? [Popover.Anchor, { asChild: true, type: undefined }]
-      : [Fragment, {}]
-
     const [PopoverTrigger, popoverTriggerProps] = hasPopover
       ? [Popover.Trigger, { asChild: true, type: undefined }]
       : [Fragment, {}]
@@ -96,50 +87,20 @@ export const Input = forwardRef(
             <label {...getLabelProps()}>{ariaLabel}</label>
           </VisuallyHidden>
         )}
-        <PopoverAnchor {...popoverAnchorProps}>
-          <div className={styles({ className, state, disabled, readOnly })}>
-            {/* 1 - Leading icon (optional) */}
-            <LeadingIcon>
-              <ArrowHorizontalDown />
-            </LeadingIcon>
 
-            {/* 2 - TODO - selected items (optional, multiple selection only) */}
-            <p>[selected items chips (v2)]</p>
-
-            {/* 3 - Input typing area  - MANDATORY */}
-            <PopoverTrigger {...popoverTriggerProps}>
-              <input
-                data-spark-component="combobox-input"
-                ref={ref}
-                type="text"
-                placeholder={placeholder}
-                disabled={disabled || readOnly}
-                className="text-ellipsis"
-                {...props}
-                {...downshiftInputProps}
-                value={inputValue}
-              />
-            </PopoverTrigger>
-
-            {/* 4 - Combobox clear button (optional) */}
-            <p>[clear]</p>
-
-            {/* 5 - Combobox disclosure button (optional, advised for autoComplete not autoSuggest) */}
-            <IconButton
-              intent="neutral"
-              design="ghost"
-              size="sm"
-              {...getToggleButtonProps()}
-              aria-label="Show popup"
-            >
-              <Icon>
-                <Icon className="shrink-0" size="sm">
-                  <ArrowHorizontalDown />
-                </Icon>
-              </Icon>
-            </IconButton>
-          </div>
-        </PopoverAnchor>
+        <PopoverTrigger {...popoverTriggerProps}>
+          <input
+            data-spark-component="combobox-input"
+            ref={ref}
+            type="text"
+            placeholder={placeholder}
+            disabled={disabled || readOnly}
+            className={cx('text-ellipsis', className)}
+            {...props}
+            {...downshiftInputProps}
+            value={inputValue}
+          />
+        </PopoverTrigger>
       </>
     )
   }

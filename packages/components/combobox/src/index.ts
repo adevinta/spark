@@ -13,6 +13,7 @@ import { ItemText } from './ComboboxItemText'
 import { Label } from './ComboboxLabel'
 import { LeadingIcon } from './ComboboxLeadingIcon'
 import { Popover } from './ComboboxPopover'
+import { Trigger } from './ComboboxTrigger'
 
 export { useComboboxContext, ComboboxProvider }
 
@@ -25,9 +26,10 @@ export const Combobox: FC<ComboboxProps> & {
   Label: typeof Label
   Popover: typeof Popover
   Divider: typeof Divider
-  Input: typeof Input
+  Trigger: typeof Trigger
   LeadingIcon: typeof LeadingIcon
   Empty: typeof Empty
+  Input: typeof Input
 } = Object.assign(Root, {
   Group,
   Item,
@@ -37,9 +39,10 @@ export const Combobox: FC<ComboboxProps> & {
   Label,
   Popover,
   Divider,
-  Input,
+  Trigger,
   LeadingIcon,
   Empty,
+  Input,
 })
 
 Combobox.displayName = 'Combobox'
@@ -51,6 +54,7 @@ ItemIndicator.displayName = 'Combobox.ItemIndicator'
 Label.displayName = 'Combobox.Label'
 Popover.displayName = 'Combobox.Popover'
 Divider.displayName = 'Combobox.Divider'
-Input.displayName = 'Combobox.Input'
+Trigger.displayName = 'Combobox.Trigger'
 LeadingIcon.displayName = 'Combobox.LeadingIcon'
 Empty.displayName = 'Combobox.Empty'
+Input.displayName = 'Combobox.Input'

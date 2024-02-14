@@ -10,7 +10,9 @@ describe('Combobox', () => {
   it('should render input and list of items', () => {
     render(
       <Combobox>
-        <Combobox.Input aria-label="Book" />
+        <Combobox.Trigger>
+          <Combobox.Input aria-label="Book" />
+        </Combobox.Trigger>
         <Combobox.Popover>
           <Combobox.Items>
             <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -37,7 +39,9 @@ describe('Combobox', () => {
       // Given a close combobox (default state)
       render(
         <Combobox>
-          <Combobox.Input aria-label="Book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -71,7 +75,9 @@ describe('Combobox', () => {
       // Given a close combobox without a popover(default state)
       render(
         <Combobox>
-          <Combobox.Input aria-label="Book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" />
+          </Combobox.Trigger>
 
           <Combobox.Items>
             <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -104,7 +110,9 @@ describe('Combobox', () => {
       // Given a combobox that should remain opened
       render(
         <Combobox open>
-          <Combobox.Input aria-label="Book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -130,7 +138,9 @@ describe('Combobox', () => {
       // Given a combobox that should remain opened
       render(
         <Combobox defaultOpen>
-          <Combobox.Input aria-label="Book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -156,7 +166,9 @@ describe('Combobox', () => {
       // Given a combobox with no selected value yet
       render(
         <Combobox autoFilter>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Empty>No results found</Combobox.Empty>
@@ -186,7 +198,9 @@ describe('Combobox', () => {
       // Given a combobox with no selected value yet
       render(
         <Combobox>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -218,7 +232,9 @@ describe('Combobox', () => {
       // Given a combobox with a default selected value
       render(
         <Combobox defaultValue="book-2">
-          <Combobox.Input aria-label="Book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -237,7 +253,9 @@ describe('Combobox', () => {
       // Given a combobox with a default selected value
       render(
         <Combobox defaultValue="book-2">
-          <Combobox.Input aria-label="Book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">
@@ -271,7 +289,9 @@ describe('Combobox', () => {
 
         return (
           <Combobox value={value} onValueChange={setValue}>
-            <Combobox.Input aria-label="Book" value={inputValue} onValueChange={setInputValue} />
+            <Combobox.Trigger>
+              <Combobox.Input aria-label="Book" value={inputValue} onValueChange={setInputValue} />
+            </Combobox.Trigger>
             <Combobox.Popover>
               <Combobox.Items>
                 <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -303,7 +323,9 @@ describe('Combobox', () => {
       // Given a combobox with no selected value yet
       render(
         <Combobox autoFilter>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
