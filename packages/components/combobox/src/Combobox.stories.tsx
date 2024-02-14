@@ -15,20 +15,50 @@ const meta: Meta<typeof Combobox> = {
 
 export default meta
 
-// V1
-// Default (autosuggest, free form input, set list of suggestions) -> https://ariakit.org/components/combobox
-// Filtering (using compound and on-call-site-logic) -> https://ariakit.org/examples/combobox-filtering
-// AutoComplete (user MUST pick a value or multiple values from the list, the input is NOT free-form)
-// Multiselect combobox -> https://ariakit.org/examples/combobox-multiple
-// Combobox cancel (using input clear button) -> https://ariakit.org/examples/combobox-cancel
-// <Combobox.Empty /> -> to display when no result is displayed
-
-// V2
-// autoSelect (stateless filtering of items, not on call-site) -> https://ariakit.org/examples/combobox-filtering-integrated
-// Combobox disclosure -> https://ariakit.org/examples/combobox-disclosure
-
-// V3 or later if necessary
-// Combobox tabs -> https://ariakit.org/examples/combobox-tabs
+/**
+ * Minimal anatomy:
+ * - Combobox
+ *  - Combobox.Trigger
+ *    - Combobox.Input
+ *  - Combobox.Popover
+ *    - Combobox.Items
+ *      - Combobox.Item
+ *
+ * Full anatomy:
+ * - Combobox
+ *  - Combobox.Trigger
+ *    - Combobox.LeadingIcon
+ *    - Combobox.SelectedItems
+ *    - Combobox.Input
+ *    - Combobox.ClearButton
+ *    - Combobox.Disclosure
+ *  - Combobox.Popover
+ *    - Combobox.Items
+ *      - Combobox.Group
+ *        - Combobox.Label
+ *        - Combobox.Item
+ *          - Combobox.ItemIndicator
+ *          - Combobox.ItemText
+ *
+ * Filtering behaviour:
+ * - default: no filtering.
+ * - autoFilter: filters out values not matching the input.
+ * - autoSelect: filters out values not matching the input AND highlight the first matching item.
+ * - autoComplete: restrict typing in the input to any of the items values and highlight the rest of the first matching item behind the typing cursor
+ * - custom filtering: controlled mode for advancer filtering. Not managed by Spark.
+ *
+ * Optional parts:
+ * - Combobox.LeadingIcon
+ * - Combobox.ClearButton
+ * - Combobox.Disclosure
+ * - Combobox.Empty
+ * - Combobox.SelectedItems (chips)
+ * - Combobox.Popover
+ *
+ * Selection type:
+ * - single
+ * - multiple
+ */
 
 export const Default: StoryFn = _args => {
   return (
@@ -174,7 +204,7 @@ export const Disabled: StoryFn = _args => {
   )
 }
 
-export const FilteringAutoSelect: StoryFn = _args => {
+export const FilteringAutoFilter: StoryFn = _args => {
   const items = {
     'book-1': 'To Kill a Mockingbird',
     'book-2': 'War and Peace',
@@ -186,7 +216,7 @@ export const FilteringAutoSelect: StoryFn = _args => {
 
   return (
     <div className="pb-[300px]">
-      <Combobox autoSelect>
+      <Combobox autoFilter>
         <Combobox.Input aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
@@ -291,7 +321,7 @@ export const DisabledItem: StoryFn = _args => {
 export const Grouped: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox autoSelect>
+      <Combobox autoFilter>
         <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         <Combobox.Popover>
           <Combobox.Items>
@@ -411,7 +441,7 @@ export const Statuses: StoryFn = () => {
 export const MultipleSelection: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox multiple autoSelect defaultValue={['book-1', 'book-2']}>
+      <Combobox multiple autoFilter defaultValue={['book-1', 'book-2']}>
         <Combobox.Input aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
@@ -444,7 +474,7 @@ export const MultipleSelectionControlled: StoryFn = () => {
 
   return (
     <div className="flex flex-col  gap-md pb-[300px]">
-      <Combobox autoSelect multiple value={selectedValues} onValueChange={setSelectedValues}>
+      <Combobox autoFilter multiple value={selectedValues} onValueChange={setSelectedValues}>
         <Combobox.Input
           aria-label="Book"
           placeholder="todo placeholder"

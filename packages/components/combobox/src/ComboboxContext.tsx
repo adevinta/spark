@@ -60,7 +60,7 @@ export type ComboboxContextCommonProps = PropsWithChildren<{
   /**
    * When true, the items will be filtered depending on the value of the input (not case-sensitive).
    */
-  autoSelect?: boolean
+  autoFilter?: boolean
 }>
 
 interface ComboboxPropsSingle {
@@ -115,7 +115,7 @@ const getFilteredItemsMap = (map: ItemsMap, inputValue: string | undefined): Ite
 }
 
 export const ComboboxProvider = ({
-  autoSelect = true,
+  autoFilter = true,
   children,
   defaultValue,
   value,
@@ -142,7 +142,7 @@ export const ComboboxProvider = ({
   // Items state
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
   const [filteredItemsMap, setFilteredItems] = useState(
-    autoSelect ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap
+    autoFilter ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap
   )
   const [hasPopover, setHasPopover] = useState<boolean>(
     hasChildComponent(children, 'Combobox.Popover')
@@ -150,7 +150,7 @@ export const ComboboxProvider = ({
   const [lastInteractionType, setLastInteractionType] = useState<'mouse' | 'keyboard'>('mouse')
 
   useEffect(() => {
-    setFilteredItems(autoSelect ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap)
+    setFilteredItems(autoFilter ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap)
   }, [inputValue, itemsMap])
 
   const handleDownshiftInputChange = (value: string | undefined) => {

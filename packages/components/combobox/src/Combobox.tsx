@@ -4,13 +4,13 @@ export type ComboboxProps = ComboboxContextProps
 
 export const Combobox = ({
   children,
-  autoSelect = false,
+  autoFilter = false,
   disabled = false,
   readOnly = false,
   ...props
 }: ComboboxProps) => {
   return (
-    <ComboboxProvider autoSelect={autoSelect} disabled={disabled} readOnly={readOnly} {...props}>
+    <ComboboxProvider autoFilter={autoFilter} disabled={disabled} readOnly={readOnly} {...props}>
       {children}
     </ComboboxProvider>
   )

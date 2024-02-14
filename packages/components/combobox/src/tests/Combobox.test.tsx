@@ -1,31 +1,10 @@
-/* eslint-disable max-lines */
-import { FormField } from '@spark-ui/form-field'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { Combobox } from '.'
-
-const getInput = (accessibleName: string) => {
-  return screen.getByRole('combobox', { name: accessibleName })
-}
-
-const getListbox = (accessibleName: string) => {
-  return screen.getByRole('listbox', { name: accessibleName })
-}
-
-const getItemsGroup = (accessibleName: string) => {
-  return screen.getByRole('group', { name: accessibleName })
-}
-
-const getItem = (accessibleName: string) => {
-  return screen.getByRole('option', { name: accessibleName })
-}
-
-const queryItem = (accessibleName: string) => {
-  return screen.queryByRole('option', { name: accessibleName })
-}
+import { Combobox } from '..'
+import { getInput, getItem, getListbox, queryItem } from './test-utils'
 
 describe('Combobox', () => {
   it('should render input and list of items', () => {
@@ -176,7 +155,7 @@ describe('Combobox', () => {
 
       // Given a combobox with no selected value yet
       render(
-        <Combobox autoSelect>
+        <Combobox autoFilter>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           <Combobox.Popover>
             <Combobox.Items>
@@ -197,61 +176,6 @@ describe('Combobox', () => {
 
       // Then placeholder is replaced by the selected value
       expect(screen.getByText('No results found')).toBeInTheDocument()
-    })
-  })
-
-  describe('Combobox.Group', () => {
-    it('should link items groups with their label', () => {
-      // Given a combobox with items groups and group labels
-      render(
-        <Combobox>
-          <Combobox.Input aria-label="Book" />
-          <Combobox.Popover>
-            <Combobox.Items>
-              <Combobox.Group>
-                <Combobox.Label>Best-sellers</Combobox.Label>
-                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
-                <Combobox.Item value="book-2">1984</Combobox.Item>
-              </Combobox.Group>
-              <Combobox.Divider />
-              <Combobox.Group>
-                <Combobox.Label>Novelties</Combobox.Label>
-                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
-                <Combobox.Item value="book-4">Pride and Prejudice</Combobox.Item>
-              </Combobox.Group>
-            </Combobox.Items>
-          </Combobox.Popover>
-        </Combobox>
-      )
-
-      // Then each group have an accessible label
-      expect(getItemsGroup('Best-sellers')).toBeInTheDocument()
-      expect(getItemsGroup('Novelties')).toBeInTheDocument()
-    })
-  })
-
-  describe('statuses (combined with FormField', () => {
-    it('should render error message when field is in error', () => {
-      render(
-        <FormField state="error">
-          <FormField.Label>Book</FormField.Label>
-          <Combobox>
-            <Combobox.Input />
-            <Combobox.Popover>
-              <Combobox.Items>
-                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
-                <Combobox.Item value="book-2">1984</Combobox.Item>
-                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
-              </Combobox.Items>
-            </Combobox.Popover>
-          </Combobox>
-          <FormField.ErrorMessage>You forgot to select a book</FormField.ErrorMessage>
-        </FormField>
-      )
-
-      expect(getInput('Book')).toBeInTheDocument()
-
-      expect(screen.getByText('You forgot to select a book')).toBeInTheDocument()
     })
   })
 
@@ -373,12 +297,12 @@ describe('Combobox', () => {
       expect(screen.getByDisplayValue('Pride and Prejudice')).toBeInTheDocument()
     })
 
-    it('should select item using autoSelect (keyboard)', async () => {
+    it('should select item using autoFilter (keyboard)', async () => {
       const user = userEvent.setup()
 
       // Given a combobox with no selected value yet
       render(
-        <Combobox autoSelect>
+        <Combobox autoFilter>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           <Combobox.Popover>
             <Combobox.Items>
@@ -404,110 +328,6 @@ describe('Combobox', () => {
       expect(queryItem('War and Peace')).not.toBeInTheDocument()
       expect(queryItem('1984')).not.toBeInTheDocument()
       expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
-    })
-  })
-
-  describe('multiple selection', () => {
-    it('should select items', async () => {
-      const user = userEvent.setup()
-
-      // Given a combobox with no selected value yet
-      render(
-        <Combobox multiple>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
-          <Combobox.Popover>
-            <Combobox.Items>
-              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
-              <Combobox.Item value="book-2">1984</Combobox.Item>
-              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
-            </Combobox.Items>
-          </Combobox.Popover>
-        </Combobox>
-      )
-
-      // Then placeholder should be displayed
-      expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
-
-      // When the user select two items
-      await user.click(getInput('Book'))
-      await user.click(getItem('1984'))
-      await user.click(getItem('Pride and Prejudice'))
-
-      // Then placeholder is replaced by the selected value and suffix indicating remaining items
-      expect(getInput('Book').getAttribute('placeholder')).toBe('1984, Pride and Prejudice')
-
-      // Then the proper items are selected
-      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'false')
-      expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
-      expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
-    })
-
-    it('should select all items using keyboard navigation', async () => {
-      const user = userEvent.setup()
-
-      // Given a combobox with no selected value yet
-      render(
-        <Combobox multiple>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
-          <Combobox.Popover>
-            <Combobox.Items>
-              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
-              <Combobox.Item value="book-2">1984</Combobox.Item>
-              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
-            </Combobox.Items>
-          </Combobox.Popover>
-        </Combobox>
-      )
-
-      // Then placeholder should be displayed
-      expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
-
-      // When the user select all the items one by one using the keyboard
-      await user.click(getInput('Book'))
-      await user.keyboard('[ArrowDown][Enter]')
-      await user.keyboard('[ArrowDown][Enter]')
-      await user.keyboard('[ArrowDown][Enter]')
-
-      // Then all items are selected
-      expect(getInput('Book').getAttribute('placeholder')).toBe(
-        'War and Peace, 1984, Pride and Prejudice'
-      )
-      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
-      expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
-      expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
-    })
-
-    it('should be able to unselect a selected item', async () => {
-      const user = userEvent.setup()
-
-      // Given a combobox with no selected value yet
-      render(
-        <Combobox multiple>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
-          <Combobox.Popover>
-            <Combobox.Items>
-              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
-              <Combobox.Item value="book-2">1984</Combobox.Item>
-              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
-            </Combobox.Items>
-          </Combobox.Popover>
-        </Combobox>
-      )
-
-      // When the user select an item
-      await user.click(getInput('Book'))
-      await user.click(getItem('1984'))
-
-      // Then placeholder is replaced by the selected value
-      expect(getInput('Book').getAttribute('placeholder')).toBe('1984')
-      expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
-
-      // When the user unselect that item
-      await user.click(getItem('1984'))
-
-      // Then placeholder is shown again as the item is no longer selected
-      expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
-      expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
     })
   })
 })
