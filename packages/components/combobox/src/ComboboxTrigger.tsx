@@ -8,8 +8,8 @@ import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { ComponentPropsWithoutRef, forwardRef, Fragment, type Ref, useEffect } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
-import { styles } from './ComboboxInput.styles'
 import { LeadingIcon } from './ComboboxLeadingIcon'
+import { styles } from './ComboboxTrigger.styles'
 
 type InputPrimitiveProps = ComponentPropsWithoutRef<'input'>
 
@@ -18,7 +18,7 @@ interface InputProps extends InputPrimitiveProps {
   onValueChange?: (value: string) => void
 }
 
-export const Input = forwardRef(
+export const Trigger = forwardRef(
   (
     {
       'aria-label': ariaLabel,
@@ -145,4 +145,4 @@ export const Input = forwardRef(
   }
 )
 
-Input.displayName = 'Combobox.Input'
+Trigger.displayName = 'Combobox.Trigger'

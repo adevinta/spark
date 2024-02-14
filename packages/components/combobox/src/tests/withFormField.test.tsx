@@ -12,7 +12,7 @@ describe('Combobox', () => {
         <FormField state="error">
           <FormField.Label>Book</FormField.Label>
           <Combobox>
-            <Combobox.Input />
+            <Combobox.Trigger />
             <Combobox.Popover>
               <Combobox.Items>
                 <Combobox.Item value="book-1">War and Peace</Combobox.Item>

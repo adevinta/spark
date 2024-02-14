@@ -30,8 +30,8 @@ import { Combobox } from '@spark-ui/combobox'
   of={Combobox}
   description="A form input used for selecting a value: when collapsed it shows the currently selected option and when expanded, it shows a scrollable list of predefined options for the user to choose from."
   subcomponents={{
-    'Combobox.Input': {
-      of: Combobox.Input,
+    'Combobox.Trigger': {
+      of: Combobox.Trigger,
       description:
         'The button that toggles the select. The Select.Popover will position itself by aligning over the trigger.',
     },
@@ -136,7 +136,7 @@ You can style this element directly, or you can use it as a wrapper to put an ic
 
 ### Leading icon
 
-Use `Combobox.LeadingIcon` inside `Combobox.Input` to prefix your trigger with an icon.
+Use `Combobox.LeadingIcon` inside `Combobox.Trigger` to prefix your trigger with an icon.
 
 <Canvas of={stories.LeadingIcon} />
 

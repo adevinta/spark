@@ -10,7 +10,7 @@ describe('Combobox', () => {
       // Given a combobox with items groups and group labels
       render(
         <Combobox>
-          <Combobox.Input aria-label="Book" />
+          <Combobox.Trigger aria-label="Book" />
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Group>

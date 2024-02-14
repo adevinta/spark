@@ -19,7 +19,7 @@ export default meta
  * Minimal anatomy:
  * - Combobox
  *  - Combobox.Trigger
- *    - Combobox.Input
+ *    - Combobox.Trigger
  *  - Combobox.Popover
  *    - Combobox.Items
  *      - Combobox.Item
@@ -29,7 +29,7 @@ export default meta
  *  - Combobox.Trigger
  *    - Combobox.LeadingIcon
  *    - Combobox.SelectedItems
- *    - Combobox.Input
+ *    - Combobox.Trigger
  *    - Combobox.ClearButton
  *    - Combobox.Disclosure
  *  - Combobox.Popover
@@ -64,7 +64,7 @@ export const Default: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -88,7 +88,7 @@ export const Controlled: StoryFn = () => {
   return (
     <div className="pb-[300px]">
       <Combobox value={value} onValueChange={setValue}>
-        <Combobox.Input
+        <Combobox.Trigger
           aria-label="Book"
           placeholder="Pick a book"
           value={inputValue}
@@ -126,7 +126,7 @@ export const ControlledOpenState: StoryFn = () => {
 
       <div className="pb-[300px]">
         <Combobox open={open} onOpenChange={setOpen}>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
           <Combobox.Popover>
             <Combobox.Items>
@@ -148,7 +148,7 @@ export const CustomItem: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -187,7 +187,7 @@ export const Disabled: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox disabled>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -217,7 +217,7 @@ export const FilteringAutoFilter: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox autoFilter>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -248,7 +248,7 @@ export const FilteringManual: StoryFn = () => {
   return (
     <div className="pb-[300px]">
       <Combobox>
-        <Combobox.Input
+        <Combobox.Trigger
           aria-label="Book"
           placeholder="Pick a book"
           value={inputValue}
@@ -278,7 +278,7 @@ export const ReadOnly: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox readOnly>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -299,7 +299,7 @@ export const DisabledItem: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -322,7 +322,7 @@ export const Grouped: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox autoFilter>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
         <Combobox.Popover>
           <Combobox.Items>
             <Combobox.Group>
@@ -351,7 +351,7 @@ export const LeadingIcon: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -374,7 +374,7 @@ export const ItemIndicator: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox multiple defaultValue={['book-1', 'book-2']}>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -419,7 +419,7 @@ export const Statuses: StoryFn = () => {
       {statuses.map(status => {
         return (
           <Combobox state={status}>
-            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
             <Combobox.Popover>
               <Combobox.Items>
@@ -442,7 +442,7 @@ export const MultipleSelection: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
       <Combobox multiple autoFilter defaultValue={['book-1', 'book-2']}>
-        <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+        <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
         <Combobox.Popover>
           <Combobox.Items>
@@ -475,7 +475,7 @@ export const MultipleSelectionControlled: StoryFn = () => {
   return (
     <div className="flex flex-col  gap-md pb-[300px]">
       <Combobox autoFilter multiple value={selectedValues} onValueChange={setSelectedValues}>
-        <Combobox.Input
+        <Combobox.Trigger
           aria-label="Book"
           placeholder="todo placeholder"
           value={inputValue}
@@ -505,7 +505,7 @@ export const FormFieldLabel: StoryFn = _args => {
       <FormField>
         <FormField.Label>Book</FormField.Label>
         <Combobox>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
@@ -530,7 +530,7 @@ export const FormFieldHiddenLabel: StoryFn = _args => {
           <VisuallyHidden>Book</VisuallyHidden>
         </FormField.Label>
         <Combobox>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
@@ -553,7 +553,7 @@ export const FormFieldReadOnly: StoryFn = _args => {
       <FormField readOnly>
         <FormField.Label>Book</FormField.Label>
         <Combobox>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
 
           <Combobox.Popover>
             <Combobox.Items>
@@ -577,7 +577,7 @@ export const FormFieldDisabled: StoryFn = _args => {
       <FormField disabled>
         <FormField.Label>Book</FormField.Label>
         <Combobox>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
@@ -600,7 +600,7 @@ export const FormFieldRequired: StoryFn = _args => {
       <FormField isRequired>
         <FormField.Label>Book</FormField.Label>
         <Combobox>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
@@ -629,7 +629,7 @@ export const FormFieldValidation: StoryFn = () => {
             setState(value === 'default' ? undefined : (value as 'success' | 'alert' | 'error'))
           }}
         >
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="default">default</Combobox.Item>
