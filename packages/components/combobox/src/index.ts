@@ -2,6 +2,7 @@ import type { FC } from 'react'
 
 import { Combobox as Root, type ComboboxProps } from './Combobox'
 import { ComboboxProvider, useComboboxContext } from './ComboboxContext'
+import { Disclosure } from './ComboboxDisclosure'
 import { Divider } from './ComboboxDivider'
 import { Empty } from './ComboboxEmpty'
 import { Group } from './ComboboxGroup'
@@ -30,6 +31,7 @@ export const Combobox: FC<ComboboxProps> & {
   LeadingIcon: typeof LeadingIcon
   Empty: typeof Empty
   Input: typeof Input
+  Disclosure: typeof Disclosure
 } = Object.assign(Root, {
   Group,
   Item,
@@ -43,6 +45,7 @@ export const Combobox: FC<ComboboxProps> & {
   LeadingIcon,
   Empty,
   Input,
+  Disclosure,
 })
 
 Combobox.displayName = 'Combobox'
@@ -58,3 +61,4 @@ Trigger.displayName = 'Combobox.Trigger'
 LeadingIcon.displayName = 'Combobox.LeadingIcon'
 Empty.displayName = 'Combobox.Empty'
 Input.displayName = 'Combobox.Input'
+Disclosure.displayName = 'Combobox.Disclosure'
