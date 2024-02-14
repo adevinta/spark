@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/input@1.5.13...@spark-ui/input@1.6.0) (2024-02-14)
+
+### Features
+
+- **combobox:** combobox v1 poc ([b22abbf](https://github.com/adevinta/spark/commit/b22abbf00f9e6bce60abed78834bc87d0f2618c4))
+
 ## [1.5.13](https://github.com/adevinta/spark/compare/@spark-ui/input@1.5.12...@spark-ui/input@1.5.13) (2024-01-16)
 
 **Note:** Version bump only for package @spark-ui/input

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.1.0...@spark-ui/combobox@0.2.0) (2024-02-14)
+
+### Bug Fixes
+
+- **combobox:** fix a11y aria attributes on nested input ([7318b4a](https://github.com/adevinta/spark/commit/7318b4a7e209196c2f3ae1556f05022ba421bd6c))
+- **combobox:** renamed autoSelect as autoFilter ([91d7107](https://github.com/adevinta/spark/commit/91d7107597feb7bf938fed27be55c06881114152))
+
+### Features
+
+- **combobox:** combobox v1 poc ([b22abbf](https://github.com/adevinta/spark/commit/b22abbf00f9e6bce60abed78834bc87d0f2618c4))
+
 # 0.1.0 (2023-11-21)
 
 ### Features
