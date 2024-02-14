@@ -13,7 +13,9 @@ describe('Combobox', () => {
       // Given a combobox with no selected value yet
       render(
         <Combobox multiple>
-          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -47,7 +49,9 @@ describe('Combobox', () => {
       // Given a combobox with no selected value yet
       render(
         <Combobox multiple>
-          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
@@ -82,7 +86,9 @@ describe('Combobox', () => {
       // Given a combobox with no selected value yet
       render(
         <Combobox multiple>
-          <Combobox.Trigger aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
