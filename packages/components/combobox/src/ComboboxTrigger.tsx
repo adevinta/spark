@@ -1,6 +1,4 @@
 /* eslint-disable complexity */
-import { Icon } from '@spark-ui/icon'
-import { IconButton } from '@spark-ui/icon-button'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { Popover } from '@spark-ui/popover'
 import { forwardRef, Fragment, ReactNode, type Ref } from 'react'
@@ -16,7 +14,7 @@ interface TriggerProps {
 
 export const Trigger = forwardRef(
   ({ className, children }: TriggerProps, forwardedRef: Ref<HTMLDivElement>) => {
-    const { getToggleButtonProps, hasPopover, disabled, readOnly, state } = useComboboxContext()
+    const { hasPopover, disabled, readOnly, state } = useComboboxContext()
 
     const [PopoverAnchor, popoverAnchorProps] = hasPopover
       ? [Popover.Anchor, { asChild: true, type: undefined }]
@@ -38,21 +36,6 @@ export const Trigger = forwardRef(
 
             {/* 4 - Combobox clear button (optional) */}
             <p>[clear]</p>
-
-            {/* 5 - Combobox disclosure button (optional, advised for autoComplete not autoSuggest) */}
-            <IconButton
-              intent="neutral"
-              design="ghost"
-              size="sm"
-              {...getToggleButtonProps()}
-              aria-label="Show popup"
-            >
-              <Icon>
-                <Icon className="shrink-0" size="sm">
-                  <ArrowHorizontalDown />
-                </Icon>
-              </Icon>
-            </IconButton>
           </div>
         </PopoverAnchor>
       </>

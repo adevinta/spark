@@ -66,6 +66,7 @@ export const Default: StoryFn = _args => {
       <Combobox>
         <Combobox.Trigger>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
         </Combobox.Trigger>
 
         <Combobox.Popover>
