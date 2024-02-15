@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Snackbar } from '.'
+
+import * as stories from './Snackbar.stories'
+
+<Meta of={stories} />
+
+# Snackbar
+
+Display brief, temporary notifications. Meant to be noticed without disrupting a user's experience or requiring an action to be taken.
+
+## Install
+
+```sh
+npm install @spark-ui/snackbar
+```
+
+## Import
+
+```tsx
+import { Snackbar } from "@spark-ui/snackbar"
+```
+
+## Props
+
+<ArgTypes of={Snackbar} />
+
+## Variants
+<Canvas of={stories.Default} />
