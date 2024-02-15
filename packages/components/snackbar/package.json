@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/snackbar",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Display brief, temporary notifications. Meant to be noticed without disrupting a user's experience or requiring an action to be taken.",
   "publishConfig": {
     "access": "public"
