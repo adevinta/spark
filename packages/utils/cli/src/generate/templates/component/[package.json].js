@@ -1,6 +1,6 @@
 export default ({ name, description }) => `{
   "name": "@spark-ui/${name}",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "${description}",
   "publishConfig": {
     "access": "public"
@@ -23,6 +23,7 @@ export default ({ name, description }) => `{
     "build": "vite build"
   },
   "peerDependencies": {
+    "@spark-ui/theme-utils": "^4.0.0",
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0",
     "tailwindcss": "^3.0.0"

@@ -8,7 +8,7 @@ export default ({ name }) => {
     import { ${componentName} } from '.'
 
     const meta: Meta<typeof ${componentName}> = {
-      title: 'Components/${componentName}',
+      title: 'Experimental/${componentName}',
       component: ${componentName},
     }
 
