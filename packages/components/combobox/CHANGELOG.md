@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.2.1...@spark-ui/combobox@0.3.0) (2024-02-15)
+
+### Features
+
+- **combobox:** combobox disclosure button ([2ad52a2](https://github.com/adevinta/spark/commit/2ad52a23e15abe059c8ec64bce77115af96d4b6f))
+
 ## [0.2.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.2.0...@spark-ui/combobox@0.2.1) (2024-02-14)
 
 **Note:** Version bump only for package @spark-ui/combobox
