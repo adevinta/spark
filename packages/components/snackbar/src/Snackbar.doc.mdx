@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks';
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Snackbar } from '.'
 
@@ -20,12 +20,24 @@ npm install @spark-ui/snackbar
 ## Import
 
 ```tsx
-import { Snackbar } from "@spark-ui/snackbar"
+import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
 ```
 
 ## Props
 
-<ArgTypes of={Snackbar} />
+<ArgTypes
+  of={Snackbar}
+  description="A container for queued snackbars. It should be placed at the root of the app."
+  subcomponents={{
+    'Snackbar.Item': {
+      of: Snackbar.Item,
+      description: "The component that display each snackbar's content.",
+    },
+  }}
+/>
 
-## Variants
+## Usage
+
+### Default
+
 <Canvas of={stories.Default} />
