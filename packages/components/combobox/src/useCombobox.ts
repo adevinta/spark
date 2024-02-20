@@ -83,7 +83,11 @@ export const useCombobox = ({
     state,
     { changes, type }
   ) => {
-    const match = [...itemsMap.values()].find(item => item.text === state.inputValue)
+    const match = [...itemsMap.values()].find(
+      item => item.text.toLowerCase() === state.inputValue.toLowerCase()
+    )
+
+    const fallbackText = state.selectedItem?.text || ''
 
     switch (type) {
       case useDownshiftCombobox.stateChangeTypes.InputBlur:
@@ -97,15 +101,15 @@ export const useCombobox = ({
         }
 
         if (match) {
-          return { ...changes, selectedItem: match }
-        } else {
-          const newinputValue = state.selectedItem?.text || ''
-          updateInputValue(newinputValue)
+          updateInputValue(match.text)
 
-          return { ...changes, inputValue: newinputValue }
+          return { ...changes, selectedItem: match, inputValue: match.text }
         }
 
-        return changes
+        updateInputValue(fallbackText)
+
+        return { ...changes, inputValue: fallbackText }
+
       default:
         return changes
     }
@@ -125,14 +129,11 @@ export const useCombobox = ({
 
     switch (type) {
       case useDownshiftCombobox.stateChangeTypes.InputBlur:
-        if (allowCustomValue) {
-          return changes
-        } else {
-          const newinputValue = ''
-          updateInputValue(newinputValue)
+        if (allowCustomValue) return changes
 
-          return { ...changes, inputValue: newinputValue }
-        }
+        updateInputValue('')
+
+        return { ...changes, inputValue: '' }
 
       case useDownshiftCombobox.stateChangeTypes.InputKeyDownEnter:
       case useDownshiftCombobox.stateChangeTypes.ItemClick:

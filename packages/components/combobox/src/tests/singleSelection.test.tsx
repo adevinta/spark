@@ -167,5 +167,174 @@ describe('Combobox', () => {
       expect(queryItem('1984')).not.toBeInTheDocument()
       expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
     })
+
+    describe('blur behaviour', () => {
+      it('should not clear input value when custom value is allowed', async () => {
+        const user = userEvent.setup()
+
+        // Given a combobox that allows custom input value
+        render(
+          <Combobox allowCustomValue>
+            <Combobox.Trigger>
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // Then placeholder should be displayed
+        expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
+
+        // When the user type "pri" in the input
+        await user.click(getInput('Book'))
+        await user.keyboard('{p}{r}{i}')
+
+        // When the user focus leaves the input
+        await user.click(document.body)
+
+        // Then input value is preserved as custom values are allowed
+        expect(screen.getByDisplayValue('pri')).toBeInTheDocument()
+      })
+
+      it('should clear input value if custom value is not allowed', async () => {
+        const user = userEvent.setup()
+
+        // Given a combobox that does not allow custom input value
+        render(
+          <Combobox>
+            <Combobox.Trigger>
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // Then placeholder should be displayed
+        expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
+
+        // When the user type "pri" to filter first item matching, then select it
+        await user.click(getInput('Book'))
+        await user.keyboard('{p}{r}{i}')
+
+        // When the user focus leaves the input
+        await user.click(document.body)
+
+        // Then input value has been cleared
+        expect(screen.getByDisplayValue('')).toBeInTheDocument()
+      })
+
+      it('should clear selected item if input value is an empty string', async () => {
+        const user = userEvent.setup()
+
+        // Given a combobox that does not allow custom input value
+        render(
+          <Combobox defaultValue="book-2">
+            <Combobox.Trigger>
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // Then 1984 should be selected
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+        expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
+
+        // When the user clears the input and focus outside of it
+        await user.clear(screen.getByDisplayValue('1984'))
+        await user.click(document.body)
+
+        // Then item has been unselected and input remains cleared
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+        expect(screen.getByDisplayValue('')).toBeInTheDocument()
+      })
+
+      it('should update input value to matching item if value matches precisely', async () => {
+        const user = userEvent.setup()
+
+        // Given a combobox that does not allow custom input value
+        render(
+          <Combobox defaultValue="book-2" autoFilter={false}>
+            <Combobox.Trigger>
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // Then 1984 should be selected
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+        expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
+
+        const input = getInput('Book')
+        // When the user changes the input to the value of another item and focus outside of it
+        await user.clear(input)
+        await user.type(input, 'war and peace') // notice this is not case-sensitive
+        await user.click(document.body)
+
+        // Then item has been unselected and item matching the input value has been selected
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+        expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
+        expect(screen.getByDisplayValue('War and Peace')).toBeInTheDocument()
+      })
+
+      it('should sync input value to selected value if value does not match', async () => {
+        const user = userEvent.setup()
+
+        // Given a combobox that does not allow custom input value
+        render(
+          <Combobox defaultValue="book-2" autoFilter={false}>
+            <Combobox.Trigger>
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // Then 1984 should be selected
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+        expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
+
+        const input = getInput('Book')
+        // When the user changes the input to the value of another item and focus outside of it
+        await user.clear(input)
+        await user.type(input, 'A value that does not match any item')
+        await user.click(document.body)
+
+        // Then item remain selected and the input is synced with its text value
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+        expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
+      })
+    })
   })
 })

@@ -63,7 +63,7 @@ export default meta
 export const Default: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox>
+      <Combobox autoFilter={false}>
         <Combobox.Trigger>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />

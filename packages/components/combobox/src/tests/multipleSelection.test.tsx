@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
@@ -113,6 +113,74 @@ describe('Combobox', () => {
       // Then placeholder is shown again as the item is no longer selected
       expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+    })
+
+    describe('blur behaviour', () => {
+      it('should not clear input value when custom value is allowed', async () => {
+        const user = userEvent.setup()
+
+        // Given a combobox that allows custom input value
+        render(
+          <Combobox multiple allowCustomValue>
+            <Combobox.Trigger>
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // Then placeholder should be displayed
+        expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
+
+        // When the user type "pri" in the input
+        await user.click(getInput('Book'))
+        await user.keyboard('{p}{r}{i}')
+
+        // When the user focus leaves the input
+        await user.click(document.body)
+
+        // Then input value is preserved as custom values are allowed
+        expect(screen.getByDisplayValue('pri')).toBeInTheDocument()
+      })
+
+      it('should clear input value if custom value is not allowed', async () => {
+        const user = userEvent.setup()
+
+        // Given a combobox that does not allow custom input value
+        render(
+          <Combobox multiple allowCustomValue={false}>
+            <Combobox.Trigger>
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // Then placeholder should be displayed
+        expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
+
+        // When the user type "pri" to filter first item matching, then select it
+        await user.click(getInput('Book'))
+        await user.keyboard('{p}{r}{i}')
+
+        // When the user focus leaves the input
+        await user.click(document.body)
+
+        // Then input value has been cleared
+        expect(screen.getByDisplayValue('')).toBeInTheDocument()
+      })
     })
   })
 })
