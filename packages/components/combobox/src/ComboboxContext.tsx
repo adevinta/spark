@@ -61,6 +61,10 @@ export type ComboboxContextCommonProps = PropsWithChildren<{
    * When true, the items will be filtered depending on the value of the input (not case-sensitive).
    */
   autoFilter?: boolean
+  /**
+   * By default, the combobox will clear or restore the input value to the selected item value on blur.
+   */
+  allowCustomValue?: boolean
 }>
 
 interface ComboboxPropsSingle {
@@ -126,6 +130,7 @@ export const ComboboxProvider = ({
   multiple = false,
   disabled: disabledProp = false,
   readOnly: readOnlyProp = false,
+  allowCustomValue = false,
   state: stateProp,
 }: ComboboxContextProps) => {
   // Input state
@@ -172,6 +177,7 @@ export const ComboboxProvider = ({
     id,
     labelId,
     inputValue,
+    allowCustomValue,
     setInputValue: handleDownshiftInputChange,
     onInputValueChange,
     filteredItems: filteredItemsMap,

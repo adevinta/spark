@@ -27,54 +27,41 @@ export const Input = forwardRef(
     }: InputProps,
     forwardedRef: Ref<HTMLInputElement>
   ) => {
-    const {
-      getDropdownProps,
-      getInputProps,
-      getLabelProps,
-      hasPopover,
-      disabled,
-      readOnly,
-      inputValue,
-      setInputValue,
-      setIsInputControlled,
-      setLastInteractionType,
-      setOnInputValueChange,
-      multiple,
-      selectedItem,
-      selectedItems,
-    } = useComboboxContext()
+    const ctx = useComboboxContext()
 
     const isControlled = valueProp != null
     const placeholder =
-      multiple && selectedItems.length ? selectedItems.map(i => i.text).join(', ') : placeholderProp
+      ctx.multiple && ctx.selectedItems.length
+        ? ctx.selectedItems.map(i => i.text).join(', ')
+        : placeholderProp
 
     useEffect(() => {
-      setIsInputControlled(isControlled)
+      ctx.setIsInputControlled(isControlled)
       if (isControlled) {
-        setInputValue(valueProp as string)
+        ctx.setInputValue(valueProp as string)
       }
     }, [isControlled, valueProp])
 
     useEffect(() => {
       // Make Downshift aware of `onValueChange` prop to dispatch it
       if (onValueChange) {
-        setOnInputValueChange(() => onValueChange)
+        ctx.setOnInputValueChange(() => onValueChange)
       }
 
       // Sync input with combobox default value
-      if (!multiple && selectedItem && !isControlled) {
-        setInputValue(selectedItem.text)
+      if (!ctx.multiple && ctx.selectedItem && !isControlled) {
+        ctx.setInputValue(ctx.selectedItem.text)
       }
     }, [])
 
-    const [PopoverTrigger, popoverTriggerProps] = hasPopover
+    const [PopoverTrigger, popoverTriggerProps] = ctx.hasPopover
       ? [Popover.Trigger, { asChild: true, type: undefined }]
       : [Fragment, {}]
 
-    const { ref: downshiftRef, ...downshiftInputProps } = getInputProps({
-      ...getDropdownProps(),
+    const { ref: downshiftRef, ...downshiftInputProps } = ctx.getInputProps({
+      ...ctx.getDropdownProps(),
       onKeyDown: () => {
-        setLastInteractionType('keyboard')
+        ctx.setLastInteractionType('keyboard')
       },
     })
 
@@ -84,7 +71,7 @@ export const Input = forwardRef(
       <>
         {ariaLabel && (
           <VisuallyHidden>
-            <label {...getLabelProps()}>{ariaLabel}</label>
+            <label {...ctx.getLabelProps()}>{ariaLabel}</label>
           </VisuallyHidden>
         )}
 
@@ -94,11 +81,11 @@ export const Input = forwardRef(
             ref={ref}
             type="text"
             placeholder={placeholder}
-            disabled={disabled || readOnly}
+            disabled={ctx.disabled || ctx.readOnly}
             className={cx('text-ellipsis', className)}
             {...props}
             {...downshiftInputProps}
-            value={inputValue}
+            value={ctx.inputValue}
           />
         </PopoverTrigger>
       </>

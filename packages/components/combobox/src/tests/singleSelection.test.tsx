@@ -13,7 +13,7 @@ describe('Combobox', () => {
 
       // Given a combobox with no selected value yet
       render(
-        <Combobox>
+        <Combobox autoFilter={false}>
           <Combobox.Trigger>
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           </Combobox.Trigger>

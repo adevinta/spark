@@ -71,6 +71,7 @@ export const Default: StoryFn = _args => {
 
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
             <Combobox.Item value="book-2">War and Peace</Combobox.Item>
             <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -102,6 +103,7 @@ export const Controlled: StoryFn = () => {
 
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
             <Combobox.Item value="book-2">War and Peace</Combobox.Item>
             <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -137,6 +139,7 @@ export const ControlledOpenState: StoryFn = () => {
 
           <Combobox.Popover>
             <Combobox.Items>
+              <Combobox.Empty>No results found</Combobox.Empty>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
               <Combobox.Item value="book-2">War and Peace</Combobox.Item>
               <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -161,6 +164,7 @@ export const CustomItem: StoryFn = _args => {
 
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Item value="book-1" className="flex items-center gap-md">
               <Combobox.ItemText>To Kill a Mockingbird</Combobox.ItemText>
               <Tag>New</Tag>
@@ -192,16 +196,18 @@ export const CustomItem: StoryFn = _args => {
   )
 }
 
-export const Disabled: StoryFn = _args => {
+export const CustomValueEntry: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox disabled>
+      <Combobox allowCustomValue>
         <Combobox.Trigger>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
         </Combobox.Trigger>
 
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
             <Combobox.Item value="book-2">War and Peace</Combobox.Item>
             <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -215,19 +221,10 @@ export const Disabled: StoryFn = _args => {
   )
 }
 
-export const FilteringAutoFilter: StoryFn = _args => {
-  const items = {
-    'book-1': 'To Kill a Mockingbird',
-    'book-2': 'War and Peace',
-    'book-3': 'The Idiot',
-    'book-4': 'A Picture of Dorian Gray',
-    'book-5': '1984',
-    'book-6': 'Pride and Prejudice',
-  }
-
+export const Disabled: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox autoFilter>
+      <Combobox disabled>
         <Combobox.Trigger>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         </Combobox.Trigger>
@@ -235,11 +232,12 @@ export const FilteringAutoFilter: StoryFn = _args => {
         <Combobox.Popover>
           <Combobox.Items>
             <Combobox.Empty>No results found</Combobox.Empty>
-            {Object.entries(items).map(([value, text]) => (
-              <Combobox.Item value={value} key={value}>
-                {text}
-              </Combobox.Item>
-            ))}
+            <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
+            <Combobox.Item value="book-2">War and Peace</Combobox.Item>
+            <Combobox.Item value="book-3">The Idiot</Combobox.Item>
+            <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
+            <Combobox.Item value="book-5">1984</Combobox.Item>
+            <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
           </Combobox.Items>
         </Combobox.Popover>
       </Combobox>
@@ -260,7 +258,7 @@ export const FilteringManual: StoryFn = () => {
 
   return (
     <div className="pb-[300px]">
-      <Combobox>
+      <Combobox autoFilter={false}>
         <Combobox.Trigger>
           <Combobox.Input
             aria-label="Book"
@@ -299,6 +297,7 @@ export const ReadOnly: StoryFn = _args => {
 
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
             <Combobox.Item value="book-2">War and Peace</Combobox.Item>
             <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -322,6 +321,7 @@ export const DisabledItem: StoryFn = _args => {
 
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
             <Combobox.Item value="book-2">War and Peace</Combobox.Item>
             <Combobox.Item value="book-3" disabled>
@@ -340,12 +340,13 @@ export const DisabledItem: StoryFn = _args => {
 export const Grouped: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox autoFilter>
+      <Combobox>
         <Combobox.Trigger>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         </Combobox.Trigger>
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Group>
               <Combobox.Label>Best-sellers</Combobox.Label>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
@@ -378,6 +379,7 @@ export const LeadingIcon: StoryFn = _args => {
 
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
             <Combobox.Item value="book-2">War and Peace</Combobox.Item>
             <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -403,6 +405,7 @@ export const ItemIndicator: StoryFn = _args => {
 
         <Combobox.Popover>
           <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
             <Combobox.Item value="book-1" className="flex items-center gap-md">
               <Combobox.ItemIndicator />
               <Combobox.ItemText>To Kill a Mockingbird</Combobox.ItemText>
@@ -450,6 +453,7 @@ export const Statuses: StoryFn = () => {
 
             <Combobox.Popover>
               <Combobox.Items>
+                <Combobox.Empty>No results found</Combobox.Empty>
                 <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
                 <Combobox.Item value="book-2">War and Peace</Combobox.Item>
                 <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -468,7 +472,7 @@ export const Statuses: StoryFn = () => {
 export const MultipleSelection: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox multiple autoFilter defaultValue={['book-1', 'book-2']}>
+      <Combobox multiple defaultValue={['book-1', 'book-2']}>
         <Combobox.Trigger>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         </Combobox.Trigger>
@@ -503,7 +507,7 @@ export const MultipleSelectionControlled: StoryFn = () => {
 
   return (
     <div className="flex flex-col  gap-md pb-[300px]">
-      <Combobox autoFilter multiple value={selectedValues} onValueChange={setSelectedValues}>
+      <Combobox multiple value={selectedValues} onValueChange={setSelectedValues}>
         <Combobox.Trigger>
           <Combobox.Input
             aria-label="Book"
@@ -541,6 +545,7 @@ export const FormFieldLabel: StoryFn = _args => {
           </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
+              <Combobox.Empty>No results found</Combobox.Empty>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
               <Combobox.Item value="book-2">War and Peace</Combobox.Item>
               <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -568,6 +573,7 @@ export const FormFieldHiddenLabel: StoryFn = _args => {
           </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
+              <Combobox.Empty>No results found</Combobox.Empty>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
               <Combobox.Item value="book-2">War and Peace</Combobox.Item>
               <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -594,6 +600,7 @@ export const FormFieldReadOnly: StoryFn = _args => {
 
           <Combobox.Popover>
             <Combobox.Items>
+              <Combobox.Empty>No results found</Combobox.Empty>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
               <Combobox.Item value="book-2">War and Peace</Combobox.Item>
               <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -619,6 +626,7 @@ export const FormFieldDisabled: StoryFn = _args => {
           </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
+              <Combobox.Empty>No results found</Combobox.Empty>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
               <Combobox.Item value="book-2">War and Peace</Combobox.Item>
               <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -644,6 +652,7 @@ export const FormFieldRequired: StoryFn = _args => {
           </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
+              <Combobox.Empty>No results found</Combobox.Empty>
               <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
               <Combobox.Item value="book-2">War and Peace</Combobox.Item>
               <Combobox.Item value="book-3">The Idiot</Combobox.Item>
@@ -675,6 +684,7 @@ export const FormFieldValidation: StoryFn = () => {
           </Combobox.Trigger>
           <Combobox.Popover>
             <Combobox.Items>
+              <Combobox.Empty>No results found</Combobox.Empty>
               <Combobox.Item value="default">default</Combobox.Item>
               <Combobox.Item value="success">success</Combobox.Item>
               <Combobox.Item value="alert">alert</Combobox.Item>
