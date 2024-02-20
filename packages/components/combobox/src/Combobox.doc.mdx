@@ -99,6 +99,20 @@ AutoSuggest is used as the default behaviour. The user can type anything in the 
 
 <Canvas of={stories.ControlledOpenState} />
 
+### Custom filtering
+
+Disable `autoFilter` to implement your own logic to filter out items depending on the inputValue or some external logic.
+
+This example showcases case-sensitive filtering.
+
+<Canvas of={stories.FilteringManual} />
+
+### Custom value entry
+
+Combo Box can be configured to allow entering custom values that aren’t included in the list of options.
+
+<Canvas of={stories.CustomValueEntry} />
+
 ### Disabled
 
 Use `disabled` on the root component to disable the combobox entirely.
@@ -110,22 +124,6 @@ Use `disabled` on the root component to disable the combobox entirely.
 Use `disabled` on individual `Combobox.Item` to disable them.
 
 <Canvas of={stories.DisabledItem} />
-
-### Filtering - AutoFilter
-
-Use `autoFilter` to filter out items that does not match the input value. This behaviour is not case-sensitive.
-
-For more custom filtering, logic should be done on call-site to render only desired items.
-
-<Canvas of={stories.FilteringAutoFilter} />
-
-### Filtering - Manual
-
-Use your own logic to filter out items depending on the inputValue or some external logic.
-
-This example showcases case-sensitive filtering.
-
-<Canvas of={stories.FilteringManual} />
 
 ### Groups
 

@@ -26,6 +26,7 @@ export interface DownshiftProps {
   multiple: boolean | undefined
   id: string
   labelId: string
+  allowCustomValue: boolean
 }
 
 /**
@@ -46,6 +47,7 @@ export const useCombobox = ({
   id,
   labelId,
   onInputValueChange,
+  allowCustomValue,
 }: DownshiftProps) => {
   const items = [...itemsMap.values()]
 
@@ -63,6 +65,14 @@ export const useCombobox = ({
     },
   })
 
+  const updateInputValue = (inputValue: string | undefined) => {
+    if (onInputValueChange) {
+      if (inputValue != null) onInputValueChange(inputValue)
+    } else {
+      setInputValue(inputValue)
+    }
+  }
+
   /**
    * Custom state reducer for multiple selection behaviour:
    * - keeps the component opened when the user selects an item
@@ -73,11 +83,58 @@ export const useCombobox = ({
     state,
     { changes, type }
   ) => {
-    if (!multiple) return changes
+    const match = [...itemsMap.values()].find(
+      item => item.text.toLowerCase() === state.inputValue.toLowerCase()
+    )
 
+    const fallbackText = state.selectedItem?.text || ''
+
+    switch (type) {
+      case useDownshiftCombobox.stateChangeTypes.InputBlur:
+        if (allowCustomValue) return changes
+
+        /**
+         * If input has been cleared by the user, then we unselect the selectedItem
+         */
+        if (state.inputValue === '') {
+          return { ...changes, selectedItem: null }
+        }
+
+        if (match) {
+          updateInputValue(match.text)
+
+          return { ...changes, selectedItem: match, inputValue: match.text }
+        }
+
+        updateInputValue(fallbackText)
+
+        return { ...changes, inputValue: fallbackText }
+
+      default:
+        return changes
+    }
+  }
+
+  /**
+   * Custom state reducer for multiple selection behaviour:
+   * - keeps the component opened when the user selects an item
+   * - preserves the higlighted index when the user select an item
+   * - selected items can be unselected, even the last selected item (as opposed to single selection behaviour)
+   */
+  const multipleSelectionStateReducer: UseComboboxProps<ComboboxItem>['stateReducer'] = (
+    state,
+    { changes, type }
+  ) => {
     const { selectedItems, removeSelectedItem, addSelectedItem } = downshiftMultipleSelection
 
     switch (type) {
+      case useDownshiftCombobox.stateChangeTypes.InputBlur:
+        if (allowCustomValue) return changes
+
+        updateInputValue('')
+
+        return { ...changes, inputValue: '' }
+
       case useDownshiftCombobox.stateChangeTypes.InputKeyDownEnter:
       case useDownshiftCombobox.stateChangeTypes.ItemClick:
         if (changes.selectedItem != null) {
@@ -104,18 +161,9 @@ export const useCombobox = ({
     type,
     selectedItem: newSelectedItem,
   }) => {
-    const updateInputValue = (inputValue: string | undefined) => {
-      if (onInputValueChange) {
-        if (inputValue != null) onInputValueChange(inputValue)
-      } else {
-        setInputValue(inputValue)
-      }
-    }
-
     switch (type) {
       case useDownshiftCombobox.stateChangeTypes.InputKeyDownEnter:
       case useDownshiftCombobox.stateChangeTypes.ItemClick:
-      case useDownshiftCombobox.stateChangeTypes.InputBlur:
         if (newSelectedItem) {
           updateInputValue(multiple ? '' : newInputValue)
         }
@@ -151,7 +199,7 @@ export const useCombobox = ({
       if (isOpen != null) onOpenChange?.(isOpen)
     },
     initialIsOpen: defaultOpen ?? false,
-    stateReducer,
+    stateReducer: multiple ? multipleSelectionStateReducer : stateReducer,
     // Controlled mode (single selection)
     selectedItem: value ? itemsMap.get(value as string) : undefined,
     initialSelectedItem: defaultValue ? itemsMap.get(defaultValue as string) : undefined,
