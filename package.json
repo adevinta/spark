@@ -35,10 +35,10 @@
     "url": "git@github.com:adevinta/spark.git"
   },
   "dependencies": {
-    "@axe-core/webdriverjs": "^4.7.2",
+    "@axe-core/webdriverjs": "^4.8.5",
     "@spark-ui/tabs": "^2.0.0",
     "@spark-ui/theme-utils": "^4.0.0",
-    "selenium-webdriver": "^4.10.0"
+    "selenium-webdriver": "^4.18.1"
   },
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "2.0.0",
