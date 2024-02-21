@@ -20,7 +20,7 @@ export interface TabsListProps extends Omit<RadixTabs.TabsListProps, 'children'>
    * @default false
    */
   loop?: boolean
-  children: ReactElement[]
+  children: ReactElement[] | ReactElement
 }
 
 type ArrowState = 'visible' | 'hidden' | 'disabled'
