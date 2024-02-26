@@ -14,6 +14,7 @@ import {
 } from 'react'
 import { createPortal } from 'react-dom'
 
+import { snackbarRegionVariant } from './Snackbar.styles'
 import { SnackbarItem, type SnackbarItemProps, type SnackbarItemValue } from './SnackbarItem'
 import { SnackbarItemContext } from './SnackBarItemContext'
 import { useSnackbarGlobalStore } from './useSnackbarGlobalStore'
@@ -76,7 +77,7 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
 
     return ref === provider && state.visibleToasts.length > 0
       ? createPortal(
-          <div {...regionProps} ref={ref}>
+          <div {...regionProps} ref={ref} className={snackbarRegionVariant()}>
             {state.visibleToasts.map(toast => (
               <SnackbarItemContext.Provider key={toast.key} value={{ toast, state }}>
                 {cloneElement(children, { key: toast.key })}
@@ -91,9 +92,14 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
 
 Snackbar.displayName = 'Snackbar'
 
-export const addSnackbar = (value: SnackbarItemValue, options: SnackBarItemOptions = {}) => {
-  const timeout = options.timeout ? Math.max(options.timeout, 5000) : 5000
+export interface AddSnackbarArgs extends SnackbarItemValue, SnackBarItemOptions {}
+
+export const addSnackbar = ({ onClose, timeout, priority, ...content }: AddSnackbarArgs) => {
   const queue = getGlobalSnackBarQueue()
 
-  queue.add(value, { ...options, timeout })
+  queue.add(content, {
+    onClose,
+    timeout: Math.max(timeout || 5000, 5000),
+    priority,
+  })
 }
