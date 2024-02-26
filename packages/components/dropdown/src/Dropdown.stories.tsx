@@ -54,6 +54,7 @@ export const Controlled: StoryFn = () => {
 
         <Dropdown.Popover>
           <Dropdown.Items>
+            <Dropdown.Item value="">-- Pick a book --</Dropdown.Item>
             <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
             <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
             <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>

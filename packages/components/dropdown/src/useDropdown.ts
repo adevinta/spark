@@ -35,16 +35,18 @@ export const useDropdown = ({
   const items = [...itemsMap.values()]
 
   const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
-    selectedItems: value
-      ? items.filter(item =>
-          multiple ? (value as string[]).includes(item.value) : value === item.value
-        )
-      : undefined,
-    initialSelectedItems: defaultValue
-      ? items.filter(item =>
-          multiple ? (defaultValue as string[]).includes(item.value) : defaultValue === item.value
-        )
-      : undefined,
+    selectedItems:
+      value != null
+        ? items.filter(item =>
+            multiple ? (value as string[]).includes(item.value) : value === item.value
+          )
+        : undefined,
+    initialSelectedItems:
+      defaultValue != null
+        ? items.filter(item =>
+            multiple ? (defaultValue as string[]).includes(item.value) : defaultValue === item.value
+          )
+        : undefined,
 
     onSelectedItemsChange: ({ selectedItems }) => {
       if (selectedItems != null && multiple) {
@@ -102,10 +104,10 @@ export const useDropdown = ({
     initialIsOpen: defaultOpen ?? false,
     stateReducer,
     // Controlled mode (single selection)
-    selectedItem: value ? itemsMap.get(value as string) : undefined,
+    selectedItem: value != null ? itemsMap.get(value as string) : undefined,
     initialSelectedItem: defaultValue ? itemsMap.get(defaultValue as string) : undefined,
     onSelectedItemChange: ({ selectedItem }) => {
-      if (selectedItem?.value && !multiple) {
+      if (selectedItem?.value != null && !multiple) {
         onValueChange?.(selectedItem?.value as OnChangeValueType)
       }
     },
