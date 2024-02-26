@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.0...@spark-ui/dropdown@1.0.1) (2024-02-26)
+
+### Bug Fixes
+
+- **dropdown:** fixing empty value items selection ([f37071f](https://github.com/adevinta/spark/commit/f37071fa66fbe74e561926d1df47aea61ca27cb7))
+
 # [1.0.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@0.21.5...@spark-ui/dropdown@1.0.0) (2024-02-06)
 
 ### Bug Fixes
