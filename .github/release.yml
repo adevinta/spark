@@ -3,6 +3,7 @@ changelog:
     labels:
       - ignore-for-release
       - dependencies
+      - documentation
     authors:
       - octocat
       - dependabot
@@ -11,11 +12,14 @@ changelog:
       labels:
         - Semver-Major
         - breaking-change
-    - title: Exciting New Features 🎉
+    - title: Component 🧰
       labels:
         - component
         - Semver-Minor
         - enhancement
+    - title: Fixed 🐛
+      labels:
+        - bug
     - title: Other Changes
       labels:
         - "*"
