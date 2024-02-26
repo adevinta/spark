@@ -1,6 +1,7 @@
+import { Button } from '@spark-ui/button'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { Snackbar } from '.'
+import { addSnackbar, Snackbar } from '.'
 
 const meta: Meta<typeof Snackbar> = {
   title: 'Experimental/Snackbar',
@@ -9,4 +10,12 @@ const meta: Meta<typeof Snackbar> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Snackbar>Hello World!</Snackbar>
+export const Default: StoryFn = _args => {
+  return (
+    <div>
+      <Snackbar />
+
+      <Button onClick={() => addSnackbar({ message: "You're done!" })}>Show me a snackbar</Button>
+    </div>
+  )
+}
