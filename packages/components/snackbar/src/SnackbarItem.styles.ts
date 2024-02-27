@@ -3,7 +3,17 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { filledVariants, tintedVariants } from './snackbarVariants'
 
 export const snackbarItemVariant = cva(
-  ['flex items-center gap-md', 'px-md m-lg', 'rounded-md', 'shadow', 'max-w-[600px]'],
+  [
+    'inline-flex items-center gap-md',
+    'px-md',
+    'rounded-md shadow',
+    'max-w-[600px]',
+    'pointer-events-auto',
+    // Animation and opacity
+    'data-[animation=entering]:animate-slide-in-bottom data-[animation=entering]:spark-anime-fill-forwards data-[animation=entering]:spark-anime-easing-decelerate-back',
+    'data-[animation=exiting]:animate-slide-out-bottom data-[animation=exiting]:spark-anime-fill-forwards data-[animation=exiting]:spark-anime-easing-standard',
+    'data-[animation=queued]:opacity-none data-[animation=exiting]:opacity-0 transition-opacity duration-400',
+  ],
   {
     variants: {
       design: {

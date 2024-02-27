@@ -39,6 +39,7 @@ const getGlobalSnackBarQueue = () => {
   if (!GLOBAL_SNACKBAR_QUEUE) {
     GLOBAL_SNACKBAR_QUEUE = new ToastQueue({
       maxVisibleToasts: 5,
+      hasExitAnimation: true,
     })
   }
 
