@@ -4,11 +4,19 @@ import {
   ToastQueue,
   useToastQueue,
 } from '@react-stately/toast'
-import { cloneElement, forwardRef, type ReactElement, useRef } from 'react'
+import {
+  cloneElement,
+  forwardRef,
+  type ReactElement,
+  type RefObject,
+  useEffect,
+  useRef,
+} from 'react'
 import { createPortal } from 'react-dom'
 
 import { SnackbarItem, type SnackbarItemProps, type SnackbarItemValue } from './SnackbarItem'
 import { SnackbarItemContext } from './SnackBarItemContext'
+import { useSnackbarGlobalStore } from './useSnackbarGlobalStore'
 
 export interface SnackbarProps extends AriaToastRegionProps {
   /**
@@ -20,7 +28,7 @@ export interface SnackbarProps extends AriaToastRegionProps {
 
 /**
  * We define here a global queue thanks to dedicated util from React Spectrum.
- * It is based on `useSyncExternalStore` and allows us to consume data from
+ * It is based on React `useSyncExternalStore` and allows us to consume data from
  * an external data store, and thus preventing use of React context that could
  * lead to unwanted rerenderings. It also simplifies initial implementation.
  */
@@ -40,6 +48,15 @@ export const clearSnackbarQueue = () => {
   GLOBAL_SNACKBAR_QUEUE = null
 }
 
+/**
+ * We define a global store that will be used  with React `useSyncExternalStore` hook
+ * and will allow us to ensure we always have a single Snackbar container.
+ */
+const GLOBAL_SNACKBAR_STORE = {
+  providers: new Set<RefObject<HTMLDivElement>>(),
+  subscriptions: new Set<() => void>(),
+}
+
 export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   ({ children = <SnackbarItem />, ...rest }, forwardedRef): ReactElement | null => {
     const innerRef = useRef<HTMLDivElement>(null)
@@ -48,7 +65,16 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
     const state = useToastQueue(getGlobalSnackBarQueue())
     const { regionProps } = useToastRegion(rest, state, ref)
 
-    return state.visibleToasts.length > 0
+    const { provider, addProvider, deleteProvider } = useSnackbarGlobalStore(GLOBAL_SNACKBAR_STORE)
+
+    useEffect(() => {
+      addProvider(ref)
+
+      return () => deleteProvider(ref)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    return ref === provider && state.visibleToasts.length > 0
       ? createPortal(
           <div {...regionProps} ref={ref}>
             {state.visibleToasts.map(toast => (
