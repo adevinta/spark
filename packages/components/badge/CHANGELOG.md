@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.1.3...@spark-ui/badge@2.1.4) (2024-02-28)
+
+### Bug Fixes
+
+- **badge:** badge outline now utilizes "surface" token ([79feadf](https://github.com/adevinta/spark/commit/79feadf159e93a2d26703108fec915d0a09ff6a5)), closes [#1906](https://github.com/adevinta/spark/issues/1906)
+
 ## [2.1.3](https://github.com/adevinta/spark/compare/@spark-ui/badge@2.1.2...@spark-ui/badge@2.1.3) (2024-01-29)
 
 ### Bug Fixes
