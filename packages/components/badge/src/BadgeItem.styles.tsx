@@ -24,16 +24,16 @@ export const styles = cva(
           'basic',
         ]
       >({
-        main: ['bg-main', 'text-on-main', 'border-on-main'],
-        support: ['bg-support', 'text-on-support', 'border-on-support'],
-        accent: ['bg-accent', 'text-on-accent', 'border-on-accent'],
-        success: ['bg-success', 'text-on-success', 'border-on-success'],
-        alert: ['bg-alert', 'text-on-alert', 'border-on-alert'],
-        danger: ['bg-error', 'text-on-error', 'border-on-error'],
-        info: ['bg-info', 'text-on-info', 'border-on-info'],
-        neutral: ['bg-neutral', 'text-on-neutral', 'border-on-neutral'],
-        surface: ['bg-surface', 'text-on-surface', 'border-on-surface'],
-        basic: ['bg-basic', 'text-on-basic', 'border-on-basic'],
+        main: ['bg-main', 'text-on-main', 'border-surface'],
+        support: ['bg-support', 'text-on-support', 'border-surface'],
+        accent: ['bg-accent', 'text-on-accent', 'border-surface'],
+        success: ['bg-success', 'text-on-success', 'border-surface'],
+        alert: ['bg-alert', 'text-on-alert', 'border-surface'],
+        danger: ['bg-error', 'text-on-error', 'border-surface'],
+        info: ['bg-info', 'text-on-info', 'border-surface'],
+        neutral: ['bg-neutral', 'text-on-neutral', 'border-surface'],
+        surface: ['bg-surface', 'text-on-surface', 'border-surface'],
+        basic: ['bg-basic', 'text-on-basic', 'border-surface'],
       }),
       /**
        * Size of the component.
