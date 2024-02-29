@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.1...@spark-ui/dropdown@1.0.2) (2024-02-29)
+
+### Bug Fixes
+
+- **dropdown:** update to downshift 8.3.2 ([4952bed](https://github.com/adevinta/spark/commit/4952bedc924f4da44efce6df8577696ad7d72d93)), closes [#1918](https://github.com/adevinta/spark/issues/1918)
+
 ## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.0...@spark-ui/dropdown@1.0.1) (2024-02-26)
 
 ### Bug Fixes
