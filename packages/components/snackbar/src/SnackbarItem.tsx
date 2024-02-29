@@ -54,12 +54,10 @@ export const SnackbarItem = ({
       {...toastProps}
       {...rest}
       data-animation={toast.animation}
-      onAnimationEnd={() => {
-        // Remove the toast when the exiting animation completes.
-        if (toast.animation === 'exiting') {
-          state.remove(toast.key)
-        }
-      }}
+      {...(toast.animation === 'exiting' && {
+        // Remove snackbar when the exiting animation completes
+        onAnimationEnd: () => state.remove(toast.key),
+      })}
       className={snackbarItemVariant({ design, intent, className })}
     >
       <p className="px-md py-lg text-body-2" {...titleProps}>
