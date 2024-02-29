@@ -9,24 +9,33 @@ export const snackbarItemVariant = cva(
     'rounded-md shadow',
     'max-w-[600px]',
     'pointer-events-auto',
-    // Animation and opacity
-    'data-[animation=queued]:opacity-none data-[animation=exiting]:opacity-0 transition-opacity duration-400',
-    'data-[animation=entering]:spark-anime-fill-forwards data-[animation=entering]:spark-anime-easing-decelerate-back',
-    'data-[animation=exiting]:spark-anime-fill-forwards data-[animation=exiting]:spark-anime-easing-standard',
+    'absolute',
+    /**
+     * Positionning
+     */
+    'group-data-[position=bottom]:bottom-none group-data-[position=bottom-left]:bottom-none group-data-[position=bottom-right]:bottom-none',
+    'group-data-[position=top]:top-none group-data-[position=top-left]:top-none group-data-[position=top-right]:top-none',
+    /**
+     * Animation and opacity
+     */
+    '!spark-anime-fill-forwards !spark-anime-duration-400',
+    'data-[animation=queued]:animate-fade-in',
+    'data-[animation=entering]:spark-anime-easing-decelerate-back',
+    'data-[animation=exiting]:spark-anime-easing-standard',
     // Parent position bottom|bottom-left|bottom-right
     'group-data-[position=bottom]:data-[animation=entering]:animate-slide-in-bottom',
-    'group-data-[position=bottom]:data-[animation=exiting]:animate-slide-out-bottom',
+    'group-data-[position=bottom]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
     'group-data-[position=bottom-left]:data-[animation=entering]:animate-slide-in-bottom',
-    'group-data-[position=bottom-left]:data-[animation=exiting]:animate-slide-out-bottom',
+    'group-data-[position=bottom-left]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
     'group-data-[position=bottom-right]:data-[animation=entering]:animate-slide-in-bottom',
-    'group-data-[position=bottom-right]:data-[animation=exiting]:animate-slide-out-bottom',
+    'group-data-[position=bottom-right]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
     // Parent position top|top-left|top-right
     'group-data-[position=top]:data-[animation=entering]:animate-slide-in-top',
-    'group-data-[position=top]:data-[animation=exiting]:animate-slide-out-top',
+    'group-data-[position=top]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
     'group-data-[position=top-left]:data-[animation=entering]:animate-slide-in-top',
-    'group-data-[position=top-left]:data-[animation=exiting]:animate-slide-out-top',
+    'group-data-[position=top-left]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
     'group-data-[position=top-right]:data-[animation=entering]:animate-slide-in-top',
-    'group-data-[position=top-right]:data-[animation=exiting]:animate-slide-out-top',
+    'group-data-[position=top-right]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
   ],
   {
     variants: {

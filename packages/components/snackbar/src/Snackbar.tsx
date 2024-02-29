@@ -42,7 +42,7 @@ let GLOBAL_SNACKBAR_QUEUE: ToastQueue<SnackbarItemValue> | null = null
 const getGlobalSnackBarQueue = () => {
   if (!GLOBAL_SNACKBAR_QUEUE) {
     GLOBAL_SNACKBAR_QUEUE = new ToastQueue({
-      maxVisibleToasts: 5,
+      maxVisibleToasts: 1,
       hasExitAnimation: true,
     })
   }
