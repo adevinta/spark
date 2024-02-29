@@ -12,9 +12,9 @@ const meta: Meta<typeof Snackbar> = {
 
 export default meta
 
-const designs: AddSnackbarArgs['design'][] = ['filled', 'tinted']
+const designs: ExcludeNull<AddSnackbarArgs>['design'][] = ['filled', 'tinted']
 
-const intents: AddSnackbarArgs['intent'][] = [
+const intents: ExcludeNull<AddSnackbarArgs>['intent'][] = [
   'success',
   'alert',
   'error',
@@ -27,7 +27,7 @@ const intents: AddSnackbarArgs['intent'][] = [
   'inverse',
 ]
 
-const positions: SnackbarProps['position'][] = [
+const positions: ExcludeNull<SnackbarProps>['position'][] = [
   'top',
   'top-right',
   'top-left',
@@ -89,7 +89,7 @@ export const Intent: StoryFn = _args => {
 }
 
 export const Position: StoryFn = _args => {
-  const [position, setPosition] = useState<SnackbarProps['position']>('bottom')
+  const [position, setPosition] = useState<ExcludeNull<SnackbarProps>['position']>('bottom')
 
   return (
     <div>
@@ -98,12 +98,12 @@ export const Position: StoryFn = _args => {
       <div>
         <RadioGroup
           className="mb-xl flex gap-xl"
-          value={`${position}`}
+          value={position}
           orientation="horizontal"
           onValueChange={value => setPosition(value as ExcludeNull<SnackbarProps>['position'])}
         >
           {positions.map(position => (
-            <RadioGroup.Radio key={position} value={`${position}`} className="capitalize">
+            <RadioGroup.Radio key={position} value={position as string} className="capitalize">
               {position?.replace('-', ' ')}
             </RadioGroup.Radio>
           ))}
