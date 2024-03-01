@@ -35,7 +35,7 @@
     "@spark-ui/popover": "^1.5.2",
     "@spark-ui/visually-hidden": "^1.2.0",
     "class-variance-authority": "0.7.0",
-    "downshift": "^8.2.3"
+    "downshift": "8.3.3"
   },
   "repository": {
     "type": "git",
