@@ -4,8 +4,8 @@ import { IconButton } from '@spark-ui/icon-button'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
 import {
   type ComponentPropsWithoutRef,
+  forwardRef,
   type MouseEventHandler,
-  type ReactElement,
   type ReactNode,
   useRef,
 } from 'react'
@@ -23,76 +23,88 @@ export interface SnackbarItemProps
     Omit<AriaToastProps<SnackbarItemValue>, 'toast'>,
     SnackbarItemVariantProps {}
 
-export const SnackbarItem = ({
-  'aria-label': ariaLabel,
-  'aria-labelledby': ariaLabelledby,
-  'aria-describedby': ariaDescribedby,
-  'aria-details': ariaDetails,
-  design: designProp = 'filled',
-  intent: intentProp = 'neutral',
-  className,
-  ...rest
-}: SnackbarItemProps): ReactElement => {
-  const ref = useRef(null)
-  const { toast, state } = useSnackbarItemContext()
+export const SnackbarItem = forwardRef<HTMLDivElement, SnackbarItemProps>(
+  (
+    {
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledby,
+      'aria-describedby': ariaDescribedby,
+      'aria-details': ariaDetails,
+      design: designProp = 'filled',
+      intent: intentProp = 'neutral',
+      className,
+      ...rest
+    },
+    forwardedRef
+  ) => {
+    const innerRef = useRef(null)
+    const ref = typeof forwardedRef !== 'function' ? forwardedRef || innerRef : innerRef
 
-  const intent = toast.content.intent ?? intentProp
-  const design = toast.content.design ?? designProp
+    const { toast, state } = useSnackbarItemContext()
 
-  const ariaProps = {
-    ariaLabel,
-    ariaLabelledby,
-    ariaDescribedby,
-    ariaDetails,
-  }
+    const { message } = toast.content
+    const intent = toast.content.intent ?? intentProp
+    const design = toast.content.design ?? designProp
 
-  const { toastProps, titleProps, closeButtonProps } = useToast({ toast, ...ariaProps }, state, ref)
+    const ariaProps = {
+      ariaLabel,
+      ariaLabelledby,
+      ariaDescribedby,
+      ariaDetails,
+    }
 
-  return (
-    <div
-      ref={ref}
-      {...toastProps}
-      {...rest}
-      data-animation={toast.animation}
-      {...(toast.animation === 'exiting' && {
-        // Remove snackbar when the exiting animation completes
-        onAnimationEnd: () => state.remove(toast.key),
-      })}
-      className={snackbarItemVariant({ design, intent, className })}
-    >
-      <p className="px-md py-lg text-body-2" {...titleProps}>
-        {toast.content.message}
-      </p>
+    const { toastProps, titleProps, closeButtonProps } = useToast(
+      { toast, ...ariaProps },
+      state,
+      ref
+    )
 
-      <IconButton
-        size="md"
-        shape="rounded"
-        {...(intent === 'inverse'
-          ? {
-              design: 'ghost',
-              intent: 'surface',
-            }
-          : {
-              design,
-              intent: intent === 'error' ? 'danger' : intent,
-            })}
-        /**
-         * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
-         * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
-         */
-        aria-label={closeButtonProps['aria-label'] as string}
-        /**
-         * onPress event is strongly related to React Spectrum internal APIs,
-         * so we need to cast callback type to avoid TS errors.
-         */
-        onClick={closeButtonProps.onPress as unknown as MouseEventHandler<HTMLButtonElement>}
+    return (
+      <div
+        ref={ref}
+        {...toastProps}
+        {...rest}
+        data-animation={toast.animation}
+        {...(toast.animation === 'exiting' && {
+          // Remove snackbar when the exiting animation completes
+          onAnimationEnd: () => state.remove(toast.key),
+        })}
+        className={snackbarItemVariant({ design, intent, className })}
       >
-        <Icon>
-          <Close />
-        </Icon>
-      </IconButton>
-    </div>
-  )
-}
+        <p className="px-md py-lg text-body-2" {...titleProps}>
+          {message}
+        </p>
+
+        <IconButton
+          size="md"
+          shape="rounded"
+          {...(intent === 'inverse'
+            ? {
+                design: 'ghost',
+                intent: 'surface',
+              }
+            : {
+                design,
+                intent: intent === 'error' ? 'danger' : intent,
+              })}
+          /**
+           * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
+           * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
+           */
+          aria-label={closeButtonProps['aria-label'] as string}
+          /**
+           * onPress event is strongly related to React Spectrum internal APIs,
+           * so we need to cast callback type to avoid TS errors.
+           */
+          onClick={closeButtonProps.onPress as unknown as MouseEventHandler<HTMLButtonElement>}
+        >
+          <Icon>
+            <Close />
+          </Icon>
+        </IconButton>
+      </div>
+    )
+  }
+)
 
 SnackbarItem.displayName = 'Snackbar.Item'
