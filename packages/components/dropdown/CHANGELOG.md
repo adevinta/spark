@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.2...@spark-ui/dropdown@1.0.3) (2024-03-01)
+
+### Bug Fixes
+
+- **dropdown:** fix autofocus of dropdown following downshift update ([16a2261](https://github.com/adevinta/spark/commit/16a226159c962be3f17afd4cb687a6e7fa0703c5))
+
 ## [1.0.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.1...@spark-ui/dropdown@1.0.2) (2024-02-29)
 
 ### Bug Fixes
