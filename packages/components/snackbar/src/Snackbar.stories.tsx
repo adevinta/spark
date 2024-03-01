@@ -1,4 +1,5 @@
 import { Button } from '@spark-ui/button'
+import { FavoriteFill } from '@spark-ui/icons/dist/icons/FavoriteFill'
 import { Meta, StoryObj } from '@storybook/react'
 
 import { addSnackbar, type AddSnackbarArgs, Snackbar } from '.'
@@ -118,6 +119,85 @@ export const Intent: StoryObj = {
       source: {
         code: `
 const handleClick = () => addSnackbar({ message: "You're done!", intent })\n
+return (
+  <div>
+    <Snackbar />
+  
+    <Button onClick={handleClick}>Display snackbar</Button>
+  </div>
+)
+         `,
+      },
+    },
+  },
+}
+
+export const Icon: StoryObj = {
+  render: () => {
+    return (
+      <div>
+        <Snackbar />
+
+        <Button
+          onClick={() =>
+            addSnackbar({
+              message: "You're done!",
+              icon: <FavoriteFill />,
+            })
+          }
+        >
+          Display snackbar
+        </Button>
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+const handleClick = () => addSnackbar({ message: "You're done!", icon: <FavoriteFill /> })\n
+return (
+  <div>
+    <Snackbar />
+  
+    <Button onClick={handleClick}>Display snackbar</Button>
+  </div>
+)
+         `,
+      },
+    },
+  },
+}
+
+export const Close: StoryObj = {
+  render: () => {
+    return (
+      <div>
+        <Snackbar />
+
+        <Button
+          onClick={() =>
+            addSnackbar({
+              message: "You're done!",
+              isClosable: true,
+              onClose: () => console.log('Snackbar closed!'),
+            })
+          }
+        >
+          Display snackbar
+        </Button>
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+const handleClick = () => addSnackbar({
+  message: "You're done!",
+  isClosable: true,
+  onClose: () => console.log('Snackbar closed!'),
+})\n
 return (
   <div>
     <Snackbar />

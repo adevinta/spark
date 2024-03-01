@@ -62,3 +62,19 @@ Use `design` prop on snackbar item, or as `addSnackbar` option, to set different
 Use `intent` prop on snackbar item, or as `addSnackbar` option, to set color intent.
 
 <Canvas of={stories.Intent} />
+
+### Icon
+
+Use `icon` prop on snackbar item to add an icon before message.
+
+<Canvas of={stories.Icon} />
+
+### Dismiss
+
+**To dismiss snackbar automatically** use `timeout` option. For accessibility reasons the value of this timeout shouldn't be less than 5 seconds.
+
+**To allow the user to close by himself the snackbar** thanks to a dedicated close button, use `isClosable` prop on snackbar item, or as `addSnackbar` option.
+
+For both cases there is a specific `onClose` handler which is called when snackbar closes.
+
+<Canvas of={stories.Close} />

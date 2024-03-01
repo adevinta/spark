@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import { type AriaToastProps, useToast } from '@react-aria/toast'
 import { Icon } from '@spark-ui/icon'
 import { IconButton } from '@spark-ui/icon-button'
@@ -19,11 +20,17 @@ export interface SnackbarItemValue extends SnackbarItemVariantProps {
    */
   icon?: ReactNode
   message: ReactNode
+  /**
+   * If `true` snackbar will display a close button
+   * @default false
+   */
+  isClosable?: boolean
 }
 
 export interface SnackbarItemProps
   extends ComponentPropsWithoutRef<'div'>,
     Omit<AriaToastProps<SnackbarItemValue>, 'toast'>,
+    Pick<SnackbarItemValue, 'isClosable'>,
     SnackbarItemVariantProps {}
 
 export const SnackbarItem = forwardRef<HTMLDivElement, SnackbarItemProps>(
@@ -35,6 +42,7 @@ export const SnackbarItem = forwardRef<HTMLDivElement, SnackbarItemProps>(
       'aria-details': ariaDetails,
       design: designProp = 'filled',
       intent: intentProp = 'neutral',
+      isClosable: isClosableProp = false,
       className,
       ...rest
     },
@@ -45,9 +53,10 @@ export const SnackbarItem = forwardRef<HTMLDivElement, SnackbarItemProps>(
 
     const { toast, state } = useSnackbarItemContext()
 
-    const { message } = toast.content
+    const { message, icon } = toast.content
     const intent = toast.content.intent ?? intentProp
     const design = toast.content.design ?? designProp
+    const isClosable = toast.content.isClosable ?? isClosableProp
 
     const ariaProps = {
       ariaLabel,
@@ -74,37 +83,45 @@ export const SnackbarItem = forwardRef<HTMLDivElement, SnackbarItemProps>(
         })}
         className={snackbarItemVariant({ design, intent, className })}
       >
-        <p className="px-md py-lg text-body-2" {...titleProps}>
+        {icon && (
+          <Icon size="sm" className="ml-md">
+            {icon}
+          </Icon>
+        )}
+
+        <p className="py-lg text-body-2 first:ml-md last:mr-md" {...titleProps}>
           {message}
         </p>
 
-        <IconButton
-          size="md"
-          shape="rounded"
-          {...(intent === 'inverse'
-            ? {
-                design: 'ghost',
-                intent: 'surface',
-              }
-            : {
-                design,
-                intent: intent === 'error' ? 'danger' : intent,
-              })}
-          /**
-           * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
-           * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
-           */
-          aria-label={closeButtonProps['aria-label'] as string}
-          /**
-           * onPress event is strongly related to React Spectrum internal APIs,
-           * so we need to cast callback type to avoid TS errors.
-           */
-          onClick={closeButtonProps.onPress as unknown as MouseEventHandler<HTMLButtonElement>}
-        >
-          <Icon>
-            <Close />
-          </Icon>
-        </IconButton>
+        {isClosable && (
+          <IconButton
+            size="md"
+            shape="rounded"
+            {...(intent === 'inverse'
+              ? {
+                  design: 'ghost',
+                  intent: 'surface',
+                }
+              : {
+                  design,
+                  intent: intent === 'error' ? 'danger' : intent,
+                })}
+            /**
+             * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
+             * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
+             */
+            aria-label={closeButtonProps['aria-label'] as string}
+            /**
+             * onPress event is strongly related to React Spectrum internal APIs,
+             * so we need to cast callback type to avoid TS errors.
+             */
+            onClick={closeButtonProps.onPress as unknown as MouseEventHandler<HTMLButtonElement>}
+          >
+            <Icon size="sm">
+              <Close />
+            </Icon>
+          </IconButton>
+        )}
       </div>
     )
   }

@@ -112,7 +112,7 @@ export const addSnackbar = ({ onClose, timeout = 5000, priority, ...content }: A
 
   queue.add(content, {
     onClose,
-    timeout: Math.max(timeout || 5000, 5000),
+    timeout: timeout ? Math.max(timeout, 5000) : undefined,
     priority,
   })
 }

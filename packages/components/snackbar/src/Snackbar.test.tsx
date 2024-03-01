@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { FavoriteFill } from 'packages/components/icons/dist'
 import type { ReactElement } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 
@@ -79,12 +80,15 @@ describe('Snackbar', () => {
     const props = {
       onClose: vi.fn(),
       intent: 'error' as AddSnackbarArgs['intent'],
+      icon: <FavoriteFill title="Yeah!" />,
     }
 
     render(<SnackbarImplementation {...props} />)
 
     await user.click(screen.getByText('Show me a snackbar'))
+
     expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-error')
+    expect(screen.getByTitle('Yeah!')).toBeInTheDocument()
 
     await user.click(screen.getByLabelText('Close'))
     expect(props.onClose).toHaveBeenCalledTimes(1)
