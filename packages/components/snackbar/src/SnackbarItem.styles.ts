@@ -39,10 +39,18 @@ export const snackbarItemVariant = cva(
   ],
   {
     variants: {
+      /**
+       * Set different look and feel
+       * @default 'filled'
+       */
       design: {
         filled: '',
         tinted: '',
       },
+      /**
+       * Set color intent
+       * @default 'neutral'
+       */
       intent: {
         success: '',
         alert: '',
