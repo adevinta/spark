@@ -105,7 +105,22 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
 
 Snackbar.displayName = 'Snackbar'
 
-export interface AddSnackbarArgs extends SnackbarItemValue, SnackBarItemOptions {}
+export interface AddSnackbarArgs extends SnackbarItemValue, SnackBarItemOptions {
+  /**
+   * Handler that is called when the snackbar is closed, either by the user
+   * or after a timeout.
+   */
+  onClose?: () => void
+  /**
+   * A timeout to automatically close the snackbar after, in milliseconds.
+   * @default 5000
+   */
+  timeout?: number
+  /**
+   * The priority of the snackbar relative to other snackbars. Larger numbers indicate higher priority.
+   */
+  priority?: number
+}
 
 export const addSnackbar = ({ onClose, timeout = 5000, priority, ...content }: AddSnackbarArgs) => {
   const queue = getGlobalSnackBarQueue()
