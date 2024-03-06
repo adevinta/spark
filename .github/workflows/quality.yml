@@ -63,6 +63,7 @@ jobs:
           file: ./dist/coverage/coverage.json
           flags: unittests
           fail_ci_if_error: false
+          codecov_yml_path: ./codecov.yml
   a11y:
     runs-on: ubuntu-latest
     name: Accessibility
