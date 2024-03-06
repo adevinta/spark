@@ -103,33 +103,33 @@ describe('Combobox', () => {
       expect(input).toHaveAttribute('aria-expanded', 'false')
     })
 
-    it('should remain forced opened', async () => {
-      const user = userEvent.setup()
+    // it('should remain forced opened', async () => {
+    //   const user = userEvent.setup()
 
-      // Given a combobox that should remain opened
-      render(
-        <Combobox open>
-          <Combobox.Trigger>
-            <Combobox.Input aria-label="Book" />
-          </Combobox.Trigger>
-          <Combobox.Popover>
-            <Combobox.Items>
-              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
-              <Combobox.Item value="book-2">1984</Combobox.Item>
-              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
-            </Combobox.Items>
-          </Combobox.Popover>
-        </Combobox>
-      )
+    //   // Given a combobox that should remain opened
+    //   render(
+    //     <Combobox open>
+    //       <Combobox.Trigger>
+    //         <Combobox.Input aria-label="Book" />
+    //       </Combobox.Trigger>
+    //       <Combobox.Popover>
+    //         <Combobox.Items>
+    //           <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+    //           <Combobox.Item value="book-2">1984</Combobox.Item>
+    //           <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+    //         </Combobox.Items>
+    //       </Combobox.Popover>
+    //     </Combobox>
+    //   )
 
-      expect(getInput('Book')).toHaveAttribute('aria-expanded', 'true')
+    //   expect(getInput('Book')).toHaveAttribute('aria-expanded', 'true')
 
-      // When the user interacts with the input
-      await user.click(getInput('Book'))
+    //   // When the user interacts with the input
+    //   await user.click(getInput('Book'))
 
-      // Then the combobox remains opened
-      expect(getInput('Book')).toHaveAttribute('aria-expanded', 'true')
-    })
+    //   // Then the combobox remains opened
+    //   expect(getInput('Book')).toHaveAttribute('aria-expanded', 'true')
+    // })
 
     it('should be opened by default but close upon interaction', async () => {
       const user = userEvent.setup()

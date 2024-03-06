@@ -1,6 +1,7 @@
 import { useId } from '@radix-ui/react-id'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
+import { useCombobox as useDownshiftCombobox, useMultipleSelection } from 'downshift'
 import {
   createContext,
   Dispatch,
@@ -13,7 +14,8 @@ import {
 } from 'react'
 
 import { type ComboboxItem, type DownshiftState, type ItemsMap } from './types'
-import { useCombobox } from './useCombobox'
+import { multipleSelectionReducer } from './useCombobox/multipleSelectionReducer'
+import { singleSelectionReducer } from './useCombobox/singleSelectionReducer'
 import { getElementByIndex, getItemsFromChildren, hasChildComponent } from './utils'
 
 export interface ComboboxContextState extends DownshiftState {
@@ -119,36 +121,36 @@ const getFilteredItemsMap = (map: ItemsMap, inputValue: string | undefined): Ite
 }
 
 export const ComboboxProvider = ({
+  allowCustomValue = false,
   autoFilter = true,
   children,
-  defaultValue,
-  value,
-  onValueChange,
-  open,
-  onOpenChange,
   defaultOpen,
-  multiple = false,
+  defaultValue,
   disabled: disabledProp = false,
+  multiple = false,
+  onValueChange,
   readOnly: readOnlyProp = false,
-  allowCustomValue = false,
   state: stateProp,
 }: ComboboxContextProps) => {
   // Input state
-  const field = useFormFieldControl()
   const [inputValue, setInputValue] = useState<string | undefined>('')
   const [onInputValueChange, setOnInputValueChange] = useState<(value: string) => void>()
   const [isInputControlled, setIsInputControlled] = useState(false)
-  const state = field.state || stateProp
-  const id = useId(field.id)
-  const labelId = useId(field.labelId)
-  const disabled = field.disabled ?? disabledProp
-  const readOnly = field.readOnly ?? readOnlyProp
 
   // Items state
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
   const [filteredItemsMap, setFilteredItems] = useState(
     autoFilter ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap
   )
+
+  // Form field state
+  const field = useFormFieldControl()
+  const id = useId(field.id)
+  const labelId = useId(field.labelId)
+  const state = field.state || stateProp
+  const disabled = field.disabled ?? disabledProp
+  const readOnly = field.readOnly ?? readOnlyProp
+
   const [hasPopover, setHasPopover] = useState<boolean>(
     hasChildComponent(children, 'Combobox.Popover')
   )
@@ -158,29 +160,60 @@ export const ComboboxProvider = ({
     setFilteredItems(autoFilter ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap)
   }, [inputValue, itemsMap])
 
-  const handleDownshiftInputChange = (value: string | undefined) => {
-    if (!isInputControlled) {
-      setInputValue(value)
+  const updateInputValue = (inputValue: string | undefined) => {
+    if (onInputValueChange) {
+      if (inputValue != null) onInputValueChange(inputValue)
+    } else if (!isInputControlled) {
+      setInputValue(inputValue)
     }
   }
 
-  // Downshift state
-  const comboboxState = useCombobox({
-    itemsMap,
-    defaultValue,
-    value,
-    onValueChange,
-    open,
-    onOpenChange,
-    defaultOpen,
-    multiple,
+  const downshiftMultipleSelection = useMultipleSelection<ComboboxItem>({
+    onSelectedItemsChange: ({ selectedItems }) => {
+      const selectedValues = (selectedItems as ComboboxItem[]).map(item => item.value)
+      onValueChange?.(selectedValues as string & string[])
+    },
+    initialSelectedItems: defaultValue
+      ? [...itemsMap.values()].filter(item => (defaultValue as string[]).includes(item.value))
+      : undefined,
+  })
+
+  /**
+   * - props: https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox#basic-props
+   * - state (for state reducer): https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox#statechangetypes
+   * - output: https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox#returned-props
+   */
+  const downshift = useDownshiftCombobox<ComboboxItem>({
+    items: [...itemsMap.values()],
+    itemToString: item => item?.text ?? '',
+    onSelectedItemChange: ({ selectedItem }) => {
+      if (selectedItem?.value && !multiple) {
+        onValueChange?.(selectedItem?.value as string & string[])
+      }
+    },
+    stateReducer: multiple
+      ? multipleSelectionReducer({
+          updateInputValue,
+          allowCustomValue,
+          selectedItems: downshiftMultipleSelection.selectedItems,
+          removeSelectedItem: downshiftMultipleSelection.removeSelectedItem,
+          addSelectedItem: downshiftMultipleSelection.addSelectedItem,
+        })
+      : singleSelectionReducer({ itemsMap, updateInputValue, allowCustomValue }),
+    isItemDisabled: item => {
+      const isFilteredOut =
+        !!inputValue &&
+        ![...filteredItemsMap].some(([_, filteredItem]) => {
+          return item.value === filteredItem.value
+        })
+
+      return item.disabled || isFilteredOut
+    },
+    initialSelectedItem: defaultValue ? itemsMap.get(defaultValue as string) : undefined,
+    initialIsOpen: defaultOpen ?? false,
+    inputValue,
     id,
     labelId,
-    inputValue,
-    allowCustomValue,
-    setInputValue: handleDownshiftInputChange,
-    onInputValueChange,
-    filteredItems: filteredItemsMap,
   })
 
   /**
@@ -227,10 +260,11 @@ export const ComboboxProvider = ({
         multiple,
         disabled,
         readOnly,
-        ...comboboxState,
+        ...downshift,
+        ...downshiftMultipleSelection,
         itemsMap,
         filteredItemsMap,
-        highlightedItem: getElementByIndex(itemsMap, comboboxState.highlightedIndex),
+        highlightedItem: getElementByIndex(itemsMap, downshift.highlightedIndex),
         hasPopover,
         setHasPopover,
         state,
