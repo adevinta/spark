@@ -60,7 +60,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           name: Codecov UI
-          file: ./dist/coverage/coverage.json
+          file: ./dist/coverage/.coverage.json
           flags: unittests
           fail_ci_if_error: false
           codecov_yml_path: ./codecov.yml
