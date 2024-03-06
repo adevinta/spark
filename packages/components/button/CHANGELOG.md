@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.2](https://github.com/adevinta/spark/compare/@spark-ui/button@2.4.1...@spark-ui/button@2.4.2) (2024-03-06)
+
+### Bug Fixes
+
+- **button:** set button type by default to prevent unwanted form submissions ([b4b15c6](https://github.com/adevinta/spark/commit/b4b15c65fbd3eff87463144553d7fbc5701a1fca))
+
 ## [2.4.1](https://github.com/adevinta/spark/compare/@spark-ui/button@2.4.0...@spark-ui/button@2.4.1) (2023-12-05)
 
 **Note:** Version bump only for package @spark-ui/button
