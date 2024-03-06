@@ -41,7 +41,7 @@ describe('Snackbar', () => {
     const user = userEvent.setup({ advanceTimers: vi.runOnlyPendingTimers })
     vi.useFakeTimers()
 
-    render(<SnackbarImplementation />)
+    render(<SnackbarImplementation isClosable />)
 
     await user.click(screen.getByText('Show me a snackbar'))
     await user.click(screen.getByLabelText('Close'))
@@ -79,6 +79,7 @@ describe('Snackbar', () => {
     const user = userEvent.setup()
     const props = {
       onClose: vi.fn(),
+      isClosable: true,
       intent: 'error' as AddSnackbarArgs['intent'],
       icon: <FavoriteFill title="Yeah!" />,
     }
@@ -99,7 +100,12 @@ describe('Snackbar', () => {
 
     render(
       <SnackbarImplementation>
-        <Snackbar.Item style={{ width: 100 }} intent="inverse" />
+        <Snackbar.Item style={{ width: 100 }} intent="inverse">
+          <Snackbar.ItemIcon>
+            <FavoriteFill title="Thumb up" />
+          </Snackbar.ItemIcon>
+          <Snackbar.ItemClose aria-label="Close snackbar" />
+        </Snackbar.Item>
       </SnackbarImplementation>
     )
 
@@ -107,5 +113,8 @@ describe('Snackbar', () => {
 
     expect(screen.getByText('You did it!')).toHaveStyle({ width: 100 })
     expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-surface-inverse')
+
+    expect(screen.getByTitle('Thumb up')).toBeInTheDocument()
+    expect(screen.getByLabelText('Close snackbar')).toBeInTheDocument()
   })
 })

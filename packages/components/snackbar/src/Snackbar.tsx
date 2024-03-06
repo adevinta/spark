@@ -17,7 +17,7 @@ import { createPortal } from 'react-dom'
 
 import { snackbarRegionVariant, type SnackbarRegionVariantProps } from './Snackbar.styles'
 import { SnackbarItem, type SnackbarItemProps, type SnackbarItemValue } from './SnackbarItem'
-import { SnackbarItemContext } from './SnackBarItemContext'
+import { SnackbarItemContext } from './SnackbarItemContext'
 import { useSnackbarGlobalStore } from './useSnackbarGlobalStore'
 
 export interface SnackbarProps

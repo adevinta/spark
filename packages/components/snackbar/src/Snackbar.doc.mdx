@@ -35,6 +35,14 @@ import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
       of: Snackbar.Item,
       description: "The component that display each snackbar's content.",
     },
+    'Snackbar.ItemIcon': {
+      of: Snackbar.ItemIcon,
+      description: 'The component that prepend an icon in the snackbar.',
+    },
+    'Snackbar.ItemClose': {
+      of: Snackbar.ItemClose,
+      description: 'The component that closes the snackbar.',
+    },
     addSnackbar: {
       of: addSnackbar,
       description: 'The function that triggers snackbars by adding them to a global queue.',
@@ -65,7 +73,7 @@ Use `intent` prop on snackbar item, or as `addSnackbar` option, to set color int
 
 ### Icon
 
-Use `icon` prop on snackbar item to add an icon before message.
+To add an icon before message use `icon` option from `addSnackbar`, or use `<Snackbar.ItemIcon />` within your custom `<Snackbar.Item />`.
 
 <Canvas of={stories.Icon} />
 
@@ -73,7 +81,7 @@ Use `icon` prop on snackbar item to add an icon before message.
 
 **To dismiss snackbar automatically** use `timeout` option. For accessibility reasons the value of this timeout shouldn't be less than 5 seconds. Also for the same reasons timers will automatically pause when the user focuses or hovers over a snackbar.
 
-**To allow the user to close the snackbar** thanks to a dedicated close button, use `isClosable` prop on snackbar item, or as `addSnackbar` option.
+**To allow the user to close the snackbar** thanks to a dedicated close button, use `isClosable` option from `addSnackbar`, or use `<Snackbar.ItemClose />` within your custom `<Snackbar.Item />`.
 
 For both cases there is a specific `onClose` handler which is called when snackbar closes.
 
