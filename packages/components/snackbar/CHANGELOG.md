@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.2.0...@spark-ui/snackbar@0.2.1) (2024-03-06)
+
+**Note:** Version bump only for package @spark-ui/snackbar
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.1.0...@spark-ui/snackbar@0.2.0) (2024-02-26)
 
 ### Features
