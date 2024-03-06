@@ -11,45 +11,23 @@ type InputPrimitiveProps = ComponentPropsWithoutRef<'input'>
 interface InputProps extends Omit<InputPrimitiveProps, 'value' | 'placeholder'> {
   className?: string
   placeholder?: string
-  value?: string
-  onValueChange?: (value: string) => void
 }
 
 export const Input = forwardRef(
   (
-    {
-      'aria-label': ariaLabel,
-      className,
-      value: valueProp,
-      placeholder: placeholderProp,
-      onValueChange,
-      ...props
-    }: InputProps,
+    { 'aria-label': ariaLabel, className, placeholder: placeholderProp, ...props }: InputProps,
     forwardedRef: Ref<HTMLInputElement>
   ) => {
     const ctx = useComboboxContext()
 
-    const isControlled = valueProp != null
     const placeholder =
       ctx.multiple && ctx.selectedItems.length
         ? ctx.selectedItems.map(i => i.text).join(', ')
         : placeholderProp
 
     useEffect(() => {
-      ctx.setIsInputControlled(isControlled)
-      if (isControlled) {
-        ctx.setInputValue(valueProp as string)
-      }
-    }, [isControlled, valueProp])
-
-    useEffect(() => {
-      // Make Downshift aware of `onValueChange` prop to dispatch it
-      if (onValueChange) {
-        ctx.setOnInputValueChange(() => onValueChange)
-      }
-
       // Sync input with combobox default value
-      if (!ctx.multiple && ctx.selectedItem && !isControlled) {
+      if (!ctx.multiple && ctx.selectedItem) {
         ctx.setInputValue(ctx.selectedItem.text)
       }
     }, [])

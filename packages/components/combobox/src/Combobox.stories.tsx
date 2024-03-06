@@ -176,47 +176,47 @@ export const Disabled: StoryFn = _args => {
   )
 }
 
-export const FilteringManual: StoryFn = () => {
-  const items = {
-    'book-1': 'To Kill a Mockingbird',
-    'book-2': 'War and Peace',
-    'book-3': 'The Idiot',
-    'book-4': 'A Picture of Dorian Gray',
-    'book-5': '1984',
-    'book-6': 'Pride and Prejudice',
-  }
-  const [inputValue, setInputValue] = useState('')
+// export const FilteringManual: StoryFn = () => {
+//   const items = {
+//     'book-1': 'To Kill a Mockingbird',
+//     'book-2': 'War and Peace',
+//     'book-3': 'The Idiot',
+//     'book-4': 'A Picture of Dorian Gray',
+//     'book-5': '1984',
+//     'book-6': 'Pride and Prejudice',
+//   }
+//   const [inputValue, setInputValue] = useState('')
 
-  return (
-    <div className="pb-[300px]">
-      <Combobox autoFilter={false}>
-        <Combobox.Trigger>
-          <Combobox.Input
-            aria-label="Book"
-            placeholder="Pick a book"
-            value={inputValue}
-            onValueChange={setInputValue}
-          />
-        </Combobox.Trigger>
+//   return (
+//     <div className="pb-[300px]">
+//       <Combobox autoFilter={false}>
+//         <Combobox.Trigger>
+//           <Combobox.Input
+//             aria-label="Book"
+//             placeholder="Pick a book"
+//             value={inputValue}
+//             onValueChange={setInputValue}
+//           />
+//         </Combobox.Trigger>
 
-        <Combobox.Popover>
-          <Combobox.Items>
-            <Combobox.Empty>No results found</Combobox.Empty>
-            {Object.entries(items).map(([value, text]) => {
-              if (!text.includes(inputValue)) return null
+//         <Combobox.Popover>
+//           <Combobox.Items>
+//             <Combobox.Empty>No results found</Combobox.Empty>
+//             {Object.entries(items).map(([value, text]) => {
+//               if (!text.includes(inputValue)) return null
 
-              return (
-                <Combobox.Item value={value} key={value}>
-                  {text}
-                </Combobox.Item>
-              )
-            })}
-          </Combobox.Items>
-        </Combobox.Popover>
-      </Combobox>
-    </div>
-  )
-}
+//               return (
+//                 <Combobox.Item value={value} key={value}>
+//                   {text}
+//                 </Combobox.Item>
+//               )
+//             })}
+//           </Combobox.Items>
+//         </Combobox.Popover>
+//       </Combobox>
+//     </div>
+//   )
+// }
 
 export const ReadOnly: StoryFn = _args => {
   return (

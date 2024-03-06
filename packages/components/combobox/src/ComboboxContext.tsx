@@ -30,8 +30,6 @@ export interface ComboboxContextState extends DownshiftState {
   state?: 'error' | 'alert' | 'success'
   lastInteractionType: 'mouse' | 'keyboard'
   setLastInteractionType: (type: 'mouse' | 'keyboard') => void
-  setIsInputControlled: Dispatch<SetStateAction<boolean>>
-  setOnInputValueChange: Dispatch<SetStateAction<((value: string) => void) | undefined>>
 }
 
 export type ComboboxContextCommonProps = PropsWithChildren<{
@@ -134,8 +132,6 @@ export const ComboboxProvider = ({
 }: ComboboxContextProps) => {
   // Input state
   const [inputValue, setInputValue] = useState<string | undefined>('')
-  const [onInputValueChange, setOnInputValueChange] = useState<(value: string) => void>()
-  const [isInputControlled, setIsInputControlled] = useState(false)
 
   // Items state
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
@@ -161,11 +157,7 @@ export const ComboboxProvider = ({
   }, [inputValue, itemsMap])
 
   const updateInputValue = (inputValue: string | undefined) => {
-    if (onInputValueChange) {
-      if (inputValue != null) onInputValueChange(inputValue)
-    } else if (!isInputControlled) {
-      setInputValue(inputValue)
-    }
+    setInputValue(inputValue)
   }
 
   const downshiftMultipleSelection = useMultipleSelection<ComboboxItem>({
@@ -184,8 +176,8 @@ export const ComboboxProvider = ({
    * - output: https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox#returned-props
    */
   const downshift = useDownshiftCombobox<ComboboxItem>({
-    items: [...itemsMap.values()],
-    itemToString: item => item?.text ?? '',
+    items: [...filteredItemsMap.values()],
+    itemToString: item => (item as ComboboxItem).text,
     onSelectedItemChange: ({ selectedItem }) => {
       if (selectedItem?.value && !multiple) {
         onValueChange?.(selectedItem?.value as string & string[])
@@ -200,15 +192,7 @@ export const ComboboxProvider = ({
           addSelectedItem: downshiftMultipleSelection.addSelectedItem,
         })
       : singleSelectionReducer({ itemsMap, updateInputValue, allowCustomValue }),
-    isItemDisabled: item => {
-      const isFilteredOut =
-        !!inputValue &&
-        ![...filteredItemsMap].some(([_, filteredItem]) => {
-          return item.value === filteredItem.value
-        })
-
-      return item.disabled || isFilteredOut
-    },
+    isItemDisabled: item => item.disabled,
     initialSelectedItem: defaultValue ? itemsMap.get(defaultValue as string) : undefined,
     initialIsOpen: defaultOpen ?? false,
     inputValue,
@@ -270,9 +254,7 @@ export const ComboboxProvider = ({
         state,
         lastInteractionType,
         setLastInteractionType,
-        setIsInputControlled,
         setInputValue,
-        setOnInputValueChange,
       }}
     >
       <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>
