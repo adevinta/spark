@@ -92,6 +92,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Component
         data-spark-component="button"
+        {...(Component === 'button' && { type: 'button' })}
         ref={ref}
         className={buttonStyles({
           className,
