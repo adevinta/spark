@@ -210,3 +210,53 @@ return (
     },
   },
 }
+
+export const Action: StoryObj = {
+  render: () => {
+    return (
+      <div>
+        <Snackbar>
+          <Snackbar.Item intent="success">
+            <Snackbar.ItemClose aria-label="Fermer" />
+          </Snackbar.Item>
+        </Snackbar>
+
+        <Button
+          onClick={() =>
+            addSnackbar({
+              message: "You're done!",
+              actionLabel: 'Undo',
+              onAction: () => console.log('Undone'),
+            })
+          }
+        >
+          Display snackbar
+        </Button>
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+const handleClick = () => addSnackbar({
+  message: "You're done!",
+  actionLabel: 'Undo',
+  onAction: () => console.log('Undone'),
+})\n
+return (
+  <div>
+    <Snackbar>
+      <Snackbar.Item>
+        <Snackbar.ItemClose aria-label="Fermer" />
+      </Snackbar.Item>
+    </Snackbar>
+  
+    <Button onClick={handleClick}>Display snackbar</Button>
+  </div>
+)
+         `,
+      },
+    },
+  },
+}

@@ -37,14 +37,13 @@ describe('Snackbar', () => {
     expect(screen.getByText('You did it!')).toBeInTheDocument()
   })
 
-  it('should remove snackbar item from DOM after dismissal', async () => {
+  it('should remove snackbar item from DOM after closure', async () => {
     const user = userEvent.setup({ advanceTimers: vi.runOnlyPendingTimers })
     vi.useFakeTimers()
 
-    render(<SnackbarImplementation isClosable />)
+    render(<SnackbarImplementation />)
 
     await user.click(screen.getByText('Show me a snackbar'))
-    await user.click(screen.getByLabelText('Close'))
 
     vi.runOnlyPendingTimers()
 
@@ -75,36 +74,59 @@ describe('Snackbar', () => {
     expect(screen.getAllByRole('region')).toHaveLength(1)
   })
 
-  it('should handle options to customize snackbar styles and behaviour', async () => {
+  it('should render an icon before the snackbar message', async () => {
     const user = userEvent.setup()
+
     const props = {
-      onClose: vi.fn(),
-      isClosable: true,
-      intent: 'error' as AddSnackbarArgs['intent'],
-      icon: <FavoriteFill title="Yeah!" />,
+      icon: <FavoriteFill title="Thumb up" />,
+      intent: 'inverse' as AddSnackbarArgs['intent'],
     }
 
     render(<SnackbarImplementation {...props} />)
 
     await user.click(screen.getByText('Show me a snackbar'))
 
-    expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-error')
-    expect(screen.getByTitle('Yeah!')).toBeInTheDocument()
-
-    await user.click(screen.getByLabelText('Close'))
-    expect(props.onClose).toHaveBeenCalledTimes(1)
+    expect(screen.getByTitle('Thumb up')).toBeInTheDocument()
   })
 
-  it('should render with custom snackbar item', async () => {
+  it('should handle actions through addSnackbar options', async () => {
     const user = userEvent.setup()
+
+    const props = {
+      isClosable: true,
+      onClose: vi.fn(),
+      onAction: vi.fn(),
+      actionLabel: 'Undo',
+    }
+
+    render(<SnackbarImplementation {...props} />)
+
+    await user.click(screen.getByText('Show me a snackbar'))
+
+    expect(screen.getByLabelText('Close')).toBeInTheDocument()
+
+    await user.click(screen.getByText('Undo'))
+    expect(props.onAction).toHaveBeenCalledTimes(1)
+    expect(props.onClose).toHaveBeenCalledTimes(1)
+
+    /**
+     * onanimationend is not supported by `user-event` library,
+     * and has to be triggered programmatically with `fireEvent`.
+     */
+    fireEvent.animationEnd(screen.getByRole('alert', { hidden: true }))
+    expect(screen.queryByText('You did it!')).not.toBeInTheDocument()
+  })
+
+  it('should allow actions using custom snackbar item', async () => {
+    const user = userEvent.setup()
+
+    const closeSpy = vi.fn()
 
     render(
       <SnackbarImplementation>
-        <Snackbar.Item style={{ width: 100 }} intent="inverse">
-          <Snackbar.ItemIcon>
-            <FavoriteFill title="Thumb up" />
-          </Snackbar.ItemIcon>
-          <Snackbar.ItemClose aria-label="Close snackbar" />
+        <Snackbar.Item style={{ width: 100 }} intent="error">
+          <Snackbar.ItemAction onClick={vi.fn()}>Undo</Snackbar.ItemAction>
+          <Snackbar.ItemClose onClick={closeSpy} aria-label="Close snackbar" />
         </Snackbar.Item>
       </SnackbarImplementation>
     )
@@ -112,9 +134,11 @@ describe('Snackbar', () => {
     await user.click(screen.getByText('Show me a snackbar'))
 
     expect(screen.getByText('You did it!')).toHaveStyle({ width: 100 })
-    expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-surface-inverse')
+    expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-error')
 
-    expect(screen.getByTitle('Thumb up')).toBeInTheDocument()
-    expect(screen.getByLabelText('Close snackbar')).toBeInTheDocument()
+    expect(screen.getByText('Undo')).toBeInTheDocument()
+
+    await user.click(screen.getByLabelText('Close snackbar'))
+    expect(closeSpy).toHaveBeenCalledTimes(1)
   })
 })

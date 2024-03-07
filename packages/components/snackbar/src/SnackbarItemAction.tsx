@@ -1,23 +1,19 @@
-import { Icon } from '@spark-ui/icon'
-import { IconButton, type IconButtonProps } from '@spark-ui/icon-button'
-import { Close } from '@spark-ui/icons/dist/icons/Close'
-import { type ComponentPropsWithoutRef, forwardRef } from 'react'
+import { Button, type ButtonProps } from '@spark-ui/button'
+import { forwardRef } from 'react'
 
 import type { SnackbarItemVariantProps } from './SnackbarItem.styles'
 import { useSnackbarItemContext } from './SnackbarItemContext'
 
-export interface SnackbarItemCloseProps
-  extends Omit<ComponentPropsWithoutRef<'button'>, 'aria-label' | 'disabled'>,
-    Pick<IconButtonProps, 'aria-label'>,
-    SnackbarItemVariantProps {}
+export type SnackbarItemActionProps = Omit<ButtonProps, 'size' | 'shape' | 'intent'> &
+  SnackbarItemVariantProps
 
-export const SnackbarItemClose = forwardRef<HTMLButtonElement, SnackbarItemCloseProps>(
+export const SnackbarItemAction = forwardRef<HTMLButtonElement, SnackbarItemActionProps>(
   (
     {
       design: designProp = 'filled',
       intent: intentProp = 'neutral',
-      'aria-label': ariaLabel,
       onClick,
+      children,
       className,
       ...rest
     },
@@ -29,7 +25,7 @@ export const SnackbarItemClose = forwardRef<HTMLButtonElement, SnackbarItemClose
     const design = toast.content.design ?? designProp
 
     return (
-      <IconButton
+      <Button
         ref={ref}
         size="md"
         shape="rounded"
@@ -42,7 +38,6 @@ export const SnackbarItemClose = forwardRef<HTMLButtonElement, SnackbarItemClose
               design,
               intent: intent === 'error' ? 'danger' : intent,
             })}
-        aria-label={ariaLabel}
         onClick={e => {
           onClick?.(e)
           state.close(toast.key)
@@ -50,12 +45,10 @@ export const SnackbarItemClose = forwardRef<HTMLButtonElement, SnackbarItemClose
         className={className}
         {...rest}
       >
-        <Icon size="sm">
-          <Close />
-        </Icon>
-      </IconButton>
+        {children}
+      </Button>
     )
   }
 )
 
-SnackbarItemClose.displayName = 'Snackbar.ItemClose'
+SnackbarItemAction.displayName = 'Snackbar.ItemAction'

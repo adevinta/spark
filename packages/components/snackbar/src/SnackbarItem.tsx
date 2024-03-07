@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import { useToast } from '@react-aria/toast'
 import {
   type ComponentPropsWithoutRef,
@@ -8,6 +9,7 @@ import {
 } from 'react'
 
 import { snackbarItemVariant, type SnackbarItemVariantProps } from './SnackbarItem.styles'
+import { SnackbarItemAction } from './SnackbarItemAction'
 import { SnackbarItemClose } from './SnackbarItemClose'
 import { useSnackbarItemContext } from './SnackbarItemContext'
 import { SnackbarItemIcon } from './SnackbarItemIcon'
@@ -23,6 +25,14 @@ export interface SnackbarItemValue extends SnackbarItemVariantProps {
    * @default false
    */
   isClosable?: boolean
+  /**
+   * A label for the action button within the toast.
+   */
+  actionLabel?: string
+  /**
+   * Handler that is called when the action button is pressed.
+   */
+  onAction?: () => void
 }
 
 export interface SnackbarItemProps
@@ -66,7 +76,7 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
 
     const { toast, state } = useSnackbarItemContext()
 
-    const { message, icon, isClosable } = toast.content
+    const { message, icon, isClosable, onAction, actionLabel } = toast.content
     const intent = toast.content.intent ?? intentProp
     const design = toast.content.design ?? designProp
 
@@ -97,14 +107,22 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
       >
         {icon && <SnackbarItemIcon>{icon}</SnackbarItemIcon>}
 
-        <p className="py-lg text-body-2 first:ml-md last:mr-md" {...titleProps}>
+        <p className="px-md py-lg text-body-2" {...titleProps}>
           {message}
         </p>
 
         {children}
 
+        {actionLabel && onAction && (
+          <SnackbarItemAction intent={intent} design={design} onClick={onAction}>
+            {actionLabel}
+          </SnackbarItemAction>
+        )}
+
         {isClosable && (
           <SnackbarItemClose
+            intent={intent}
+            design={design}
             /**
              * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
              * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
