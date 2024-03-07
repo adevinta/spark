@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { Button } from '@spark-ui/button'
+// import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
 import { Tag } from '@spark-ui/tag'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
@@ -81,75 +81,6 @@ export const Default: StoryFn = _args => {
           </Combobox.Items>
         </Combobox.Popover>
       </Combobox>
-    </div>
-  )
-}
-
-export const Controlled: StoryFn = () => {
-  const [value, setValue] = useState('book-1')
-  const [inputValue, setInputValue] = useState('')
-
-  return (
-    <div className="pb-[300px]">
-      <Combobox value={value} onValueChange={setValue}>
-        <Combobox.Trigger>
-          <Combobox.Input
-            aria-label="Book"
-            placeholder="Pick a book"
-            value={inputValue}
-            onValueChange={setInputValue}
-          />
-        </Combobox.Trigger>
-
-        <Combobox.Popover>
-          <Combobox.Items>
-            <Combobox.Empty>No results found</Combobox.Empty>
-            <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
-            <Combobox.Item value="book-2">War and Peace</Combobox.Item>
-            <Combobox.Item value="book-3">The Idiot</Combobox.Item>
-            <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
-            <Combobox.Item value="book-5">1984</Combobox.Item>
-            <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
-          </Combobox.Items>
-        </Combobox.Popover>
-      </Combobox>
-    </div>
-  )
-}
-
-export const ControlledOpenState: StoryFn = () => {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <div className="flex flex-col gap-lg">
-      <div className="flex gap-md">
-        <Button design="outlined" intent="success" disabled={open} onClick={() => setOpen(true)}>
-          Open
-        </Button>
-        <Button design="outlined" intent="danger" disabled={!open} onClick={() => setOpen(false)}>
-          Close
-        </Button>
-      </div>
-
-      <div className="pb-[300px]">
-        <Combobox open={open} onOpenChange={setOpen}>
-          <Combobox.Trigger>
-            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
-          </Combobox.Trigger>
-
-          <Combobox.Popover>
-            <Combobox.Items>
-              <Combobox.Empty>No results found</Combobox.Empty>
-              <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
-              <Combobox.Item value="book-2">War and Peace</Combobox.Item>
-              <Combobox.Item value="book-3">The Idiot</Combobox.Item>
-              <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
-              <Combobox.Item value="book-5">1984</Combobox.Item>
-              <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
-            </Combobox.Items>
-          </Combobox.Popover>
-        </Combobox>
-      </div>
     </div>
   )
 }
@@ -245,47 +176,47 @@ export const Disabled: StoryFn = _args => {
   )
 }
 
-export const FilteringManual: StoryFn = () => {
-  const items = {
-    'book-1': 'To Kill a Mockingbird',
-    'book-2': 'War and Peace',
-    'book-3': 'The Idiot',
-    'book-4': 'A Picture of Dorian Gray',
-    'book-5': '1984',
-    'book-6': 'Pride and Prejudice',
-  }
-  const [inputValue, setInputValue] = useState('')
+// export const FilteringManual: StoryFn = () => {
+//   const items = {
+//     'book-1': 'To Kill a Mockingbird',
+//     'book-2': 'War and Peace',
+//     'book-3': 'The Idiot',
+//     'book-4': 'A Picture of Dorian Gray',
+//     'book-5': '1984',
+//     'book-6': 'Pride and Prejudice',
+//   }
+//   const [inputValue, setInputValue] = useState('')
 
-  return (
-    <div className="pb-[300px]">
-      <Combobox autoFilter={false}>
-        <Combobox.Trigger>
-          <Combobox.Input
-            aria-label="Book"
-            placeholder="Pick a book"
-            value={inputValue}
-            onValueChange={setInputValue}
-          />
-        </Combobox.Trigger>
+//   return (
+//     <div className="pb-[300px]">
+//       <Combobox autoFilter={false}>
+//         <Combobox.Trigger>
+//           <Combobox.Input
+//             aria-label="Book"
+//             placeholder="Pick a book"
+//             value={inputValue}
+//             onValueChange={setInputValue}
+//           />
+//         </Combobox.Trigger>
 
-        <Combobox.Popover>
-          <Combobox.Items>
-            <Combobox.Empty>No results found</Combobox.Empty>
-            {Object.entries(items).map(([value, text]) => {
-              if (!text.includes(inputValue)) return null
+//         <Combobox.Popover>
+//           <Combobox.Items>
+//             <Combobox.Empty>No results found</Combobox.Empty>
+//             {Object.entries(items).map(([value, text]) => {
+//               if (!text.includes(inputValue)) return null
 
-              return (
-                <Combobox.Item value={value} key={value}>
-                  {text}
-                </Combobox.Item>
-              )
-            })}
-          </Combobox.Items>
-        </Combobox.Popover>
-      </Combobox>
-    </div>
-  )
-}
+//               return (
+//                 <Combobox.Item value={value} key={value}>
+//                   {text}
+//                 </Combobox.Item>
+//               )
+//             })}
+//           </Combobox.Items>
+//         </Combobox.Popover>
+//       </Combobox>
+//     </div>
+//   )
+// }
 
 export const ReadOnly: StoryFn = _args => {
   return (
@@ -486,47 +417,6 @@ export const MultipleSelection: StoryFn = _args => {
             <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
             <Combobox.Item value="book-5">1984</Combobox.Item>
             <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
-          </Combobox.Items>
-        </Combobox.Popover>
-      </Combobox>
-    </div>
-  )
-}
-
-export const MultipleSelectionControlled: StoryFn = () => {
-  const [inputValue, setInputValue] = useState('a')
-  const [selectedValues, setSelectedValues] = useState(['book-1', 'book-2'])
-  const items = {
-    'book-1': 'To Kill a Mockingbird',
-    'book-2': 'War and Peace',
-    'book-3': 'The Idiot',
-    'book-4': 'A Picture of Dorian Gray',
-    'book-5': '1984',
-    'book-6': 'Pride and Prejudice',
-  }
-
-  return (
-    <div className="flex flex-col  gap-md pb-[300px]">
-      <Combobox multiple value={selectedValues} onValueChange={setSelectedValues}>
-        <Combobox.Trigger>
-          <Combobox.Input
-            aria-label="Book"
-            placeholder="Pick a book"
-            value={inputValue}
-            onValueChange={setInputValue}
-          />
-        </Combobox.Trigger>
-
-        <Combobox.Popover>
-          <Combobox.Items>
-            <Combobox.Empty>No results found</Combobox.Empty>
-            {Object.entries(items).map(([key, value]) => {
-              return (
-                <Combobox.Item value={key} key={key}>
-                  {value}
-                </Combobox.Item>
-              )
-            })}
           </Combobox.Items>
         </Combobox.Popover>
       </Combobox>
