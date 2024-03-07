@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.3.0...@spark-ui/snackbar@0.4.0) (2024-03-07)
+
+### Features
+
+- **snackbar:** add base animation ([ef09637](https://github.com/adevinta/spark/commit/ef096371ce47b8298b9415559b2b5977556f7bc0))
+- **snackbar:** add snackbar basic styles ([630b6f7](https://github.com/adevinta/spark/commit/630b6f7bec316c8eead110d594cdf34509007b35))
+- **snackbar:** add snackbar positionning ([093a00c](https://github.com/adevinta/spark/commit/093a00c65129c75a369eda02ff1e59dd98373776))
+
 # [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.2.1...@spark-ui/snackbar@0.3.0) (2024-03-07)
 
 ### Features
