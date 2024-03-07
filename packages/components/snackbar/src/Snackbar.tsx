@@ -107,7 +107,7 @@ Snackbar.displayName = 'Snackbar'
 
 export interface AddSnackbarArgs extends SnackbarItemValue, SnackBarItemOptions {}
 
-export const addSnackbar = ({ onClose, timeout, priority, ...content }: AddSnackbarArgs) => {
+export const addSnackbar = ({ onClose, timeout = 5000, priority, ...content }: AddSnackbarArgs) => {
   const queue = getGlobalSnackBarQueue()
 
   queue.add(content, {

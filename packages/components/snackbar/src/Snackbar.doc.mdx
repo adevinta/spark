@@ -1,7 +1,8 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Source } from '@storybook/blocks'
 
-import { Snackbar } from '.'
+import { Snackbar, addSnackbar } from '.'
 
 import * as stories from './Snackbar.stories'
 
@@ -9,7 +10,7 @@ import * as stories from './Snackbar.stories'
 
 # Snackbar
 
-Display brief, temporary notifications. Meant to be noticed without disrupting a user's experience or requiring an action to be taken.
+Display brief, temporary notifications of actions, errors, or other events in an application.
 
 ## Install
 
@@ -23,16 +24,20 @@ npm install @spark-ui/snackbar
 import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
 ```
 
-## Props
+## Props & Options
 
 <ArgTypes
   of={Snackbar}
   description="A container for queued snackbars. It should be placed at the root of the app."
-  exclude={['position']}
+  exclude={['position', 'priority']}
   subcomponents={{
     'Snackbar.Item': {
       of: Snackbar.Item,
       description: "The component that display each snackbar's content.",
+    },
+    addSnackbar: {
+      of: addSnackbar,
+      description: 'The function that triggers snackbars by adding them to a global queue.',
     },
   }}
 />
@@ -41,16 +46,19 @@ import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
 
 ### Default
 
+First you'll need to render a `<Snackbar />` Component, that will be in charge of global snackbar queue and state.
+Then you'll simply have to queue a snackbar from anywhere in the app with `addSnackbar` function.
+
 <Canvas of={stories.Default} />
 
 ### Design
 
-Use `design` prop on snackbar item to set different look and feels.
+Use `design` prop on snackbar item, or as `addSnackbar` option, to set different look and feels.
 
 <Canvas of={stories.Design} />
 
 ### Intent
 
-Use `intent` prop on snackbar item to set color intent.
+Use `intent` prop on snackbar item, or as `addSnackbar` option, to set color intent.
 
 <Canvas of={stories.Intent} />

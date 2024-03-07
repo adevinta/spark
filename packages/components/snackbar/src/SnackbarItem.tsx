@@ -14,6 +14,9 @@ import { snackbarItemVariant, type SnackbarItemVariantProps } from './SnackbarIt
 import { useSnackbarItemContext } from './SnackBarItemContext'
 
 export interface SnackbarItemValue extends SnackbarItemVariantProps {
+  /**
+   * Icon that will be prepended before snackbar message
+   */
   icon?: ReactNode
   message: ReactNode
 }

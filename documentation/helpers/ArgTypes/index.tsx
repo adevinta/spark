@@ -10,9 +10,11 @@ interface Props<T> {
 }
 
 const ComponentDescription = ({ name, children }: { name: string; children: ReactNode }) => {
+  const displayName = name.charAt(0) === name.charAt(0).toUpperCase() ? `<${name} />` : `${name}()`
+
   return (
     <div className="rounded-t-lg pb-none text-on-surface">
-      <p className="mb-md text-body-1 font-bold">{`<${name} />`}</p>
+      <p className="mb-md text-body-1 font-bold">{displayName}</p>
       <p className="text-body-2 italic">{children}</p>
     </div>
   )

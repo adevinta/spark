@@ -1,5 +1,5 @@
 import { Button } from '@spark-ui/button'
-import { Meta, StoryFn } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { addSnackbar, type AddSnackbarArgs, Snackbar } from '.'
 
@@ -25,54 +25,108 @@ const intents: ExcludeNull<AddSnackbarArgs>['intent'][] = [
   'inverse',
 ]
 
-export const Default: StoryFn = _args => {
-  return (
-    <div>
-      <Snackbar />
+export const Default: StoryObj = {
+  render: () => {
+    return (
+      <div>
+        <Snackbar />
 
-      <Button onClick={() => addSnackbar({ message: "You're done!" })}>Display snackbar</Button>
-    </div>
-  )
+        <Button onClick={() => addSnackbar({ message: "You're done!" })}>Display snackbar</Button>
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+const handleClick = () => addSnackbar({ message: "You're done!" })\n
+return (
+  <div>
+    <Snackbar />
+  
+    <Button onClick={handleClick}>Display snackbar</Button>
+  </div>
+)
+         `,
+      },
+    },
+  },
 }
 
-export const Design: StoryFn = _args => {
-  return (
-    <div>
-      <Snackbar />
+export const Design: StoryObj = {
+  render: () => {
+    return (
+      <div>
+        <Snackbar />
 
-      <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
-        {designs.map(design => (
-          <Button key={design} onClick={() => addSnackbar({ message: "You're done!", design })}>
-            {`Display ${design}${design === 'filled' ? ' (default)' : ''} snackbar`}
-          </Button>
-        ))}
+        <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+          {designs.map(design => (
+            <Button key={design} onClick={() => addSnackbar({ message: "You're done!", design })}>
+              {`Display ${design}${design === 'filled' ? ' (default)' : ''} snackbar`}
+            </Button>
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+const handleClick = () => addSnackbar({ message: "You're done!", design })\n
+return (
+  <div>
+    <Snackbar />
+  
+    <Button onClick={handleClick}>Display snackbar</Button>
+  </div>
+)
+         `,
+      },
+    },
+  },
 }
 
-export const Intent: StoryFn = _args => {
-  return (
-    <div>
-      <Snackbar />
+export const Intent: StoryObj = {
+  render: () => {
+    return (
+      <div>
+        <Snackbar />
 
-      <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
-        {intents.map(intent => (
-          <Button
-            key={intent}
-            {...(intent === 'inverse'
-              ? {
-                  intent: 'surface',
-                }
-              : {
-                  intent: intent === 'error' ? 'danger' : intent,
-                })}
-            onClick={() => addSnackbar({ message: "You're done!", intent })}
-          >
-            {`Display ${intent}${intent === 'neutral' ? ' (default)' : ''} snackbar`}
-          </Button>
-        ))}
+        <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+          {intents.map(intent => (
+            <Button
+              key={intent}
+              {...(intent === 'inverse'
+                ? {
+                    intent: 'surface',
+                  }
+                : {
+                    intent: intent === 'error' ? 'danger' : intent,
+                  })}
+              onClick={() => addSnackbar({ message: "You're done!", intent })}
+            >
+              {`Display ${intent}${intent === 'neutral' ? ' (default)' : ''} snackbar`}
+            </Button>
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+const handleClick = () => addSnackbar({ message: "You're done!", intent })\n
+return (
+  <div>
+    <Snackbar />
+  
+    <Button onClick={handleClick}>Display snackbar</Button>
+  </div>
+)
+         `,
+      },
+    },
+  },
 }
