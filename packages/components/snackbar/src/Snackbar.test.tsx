@@ -13,22 +13,15 @@ import {
 
 interface ImplProps extends SnackbarProps, SnackBarItemOptions {}
 
-const SnackbarImplementation = ({ children, ...options }: ImplProps): ReactElement => {
-  const opts: Parameters<typeof addSnackbar>[1] = {
-    timeout: 2000,
-    ...options,
-  }
+const SnackbarImplementation = ({ children, ...options }: ImplProps): ReactElement => (
+  <div>
+    <Snackbar>{children}</Snackbar>
 
-  return (
-    <div>
-      <Snackbar>{children}</Snackbar>
-
-      <button onClick={() => addSnackbar({ message: 'You did it!' }, opts)}>
-        Show me a snackbar
-      </button>
-    </div>
-  )
-}
+    <button onClick={() => addSnackbar({ message: 'You did it!' }, options)}>
+      Show me a snackbar
+    </button>
+  </div>
+)
 
 describe('Snackbar', () => {
   beforeEach(() => clearSnackbarQueue())
@@ -41,6 +34,23 @@ describe('Snackbar', () => {
     await user.click(screen.getByText('Show me a snackbar'))
 
     expect(screen.getByText('You did it!')).toBeInTheDocument()
+  })
+
+  it('should only render one snackbar container', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <div>
+        <Snackbar />
+        <Snackbar />
+
+        <button onClick={() => addSnackbar({ message: 'You did it!' })}>Show me a snackbar</button>
+      </div>
+    )
+
+    await user.click(screen.getByText('Show me a snackbar'))
+
+    expect(screen.getAllByRole('region')).toHaveLength(1)
   })
 
   it('should handle optionnal callback on snackbar closure', async () => {
