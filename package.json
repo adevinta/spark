@@ -28,7 +28,8 @@
     "prettify": "npm run lint && npm run prettier",
     "node:check": "node bin/check-node-version.js",
     "a11y:check": "concurrently -P --kill-others -g -s first -n storybook,a11y \"storybook build -o dist --loglevel silent && npx http-server dist -p 6006 -s\" \"wait-on tcp:6006 && node bin/check-a11y.js -- {@} \"",
-    "generate": "spark-generate"
+    "generate": "spark-generate",
+    "codecov:check-yml": "cat .codecov.yml | curl --data-binary @- https://codecov.io/validate"
   },
   "repository": {
     "type": "git",
