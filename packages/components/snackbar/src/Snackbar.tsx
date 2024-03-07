@@ -6,6 +6,7 @@ import {
 } from '@react-stately/toast'
 import {
   cloneElement,
+  type ComponentPropsWithoutRef,
   forwardRef,
   type ReactElement,
   type RefObject,
@@ -14,11 +15,15 @@ import {
 } from 'react'
 import { createPortal } from 'react-dom'
 
+import { snackbarRegionVariant, type SnackbarRegionVariantProps } from './Snackbar.styles'
 import { SnackbarItem, type SnackbarItemProps, type SnackbarItemValue } from './SnackbarItem'
 import { SnackbarItemContext } from './SnackBarItemContext'
 import { useSnackbarGlobalStore } from './useSnackbarGlobalStore'
 
-export interface SnackbarProps extends AriaToastRegionProps {
+export interface SnackbarProps
+  extends ComponentPropsWithoutRef<'div'>,
+    AriaToastRegionProps,
+    SnackbarRegionVariantProps {
   /**
    * The component/template used to display each snackbar from the queue
    * @default 'Snackbar.Item'
@@ -37,7 +42,8 @@ let GLOBAL_SNACKBAR_QUEUE: ToastQueue<SnackbarItemValue> | null = null
 const getGlobalSnackBarQueue = () => {
   if (!GLOBAL_SNACKBAR_QUEUE) {
     GLOBAL_SNACKBAR_QUEUE = new ToastQueue({
-      maxVisibleToasts: 5,
+      maxVisibleToasts: 1,
+      hasExitAnimation: true,
     })
   }
 
@@ -58,7 +64,10 @@ const GLOBAL_SNACKBAR_STORE = {
 }
 
 export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
-  ({ children = <SnackbarItem />, ...rest }, forwardedRef): ReactElement | null => {
+  (
+    { children = <SnackbarItem />, position = 'bottom', className, ...rest },
+    forwardedRef
+  ): ReactElement | null => {
     const innerRef = useRef<HTMLDivElement>(null)
     const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
 
@@ -76,7 +85,12 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
 
     return ref === provider && state.visibleToasts.length > 0
       ? createPortal(
-          <div {...regionProps} ref={ref}>
+          <div
+            {...regionProps}
+            ref={ref}
+            data-position={position}
+            className={snackbarRegionVariant({ position, className })}
+          >
             {state.visibleToasts.map(toast => (
               <SnackbarItemContext.Provider key={toast.key} value={{ toast, state }}>
                 {cloneElement(children, { key: toast.key })}
@@ -91,9 +105,14 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
 
 Snackbar.displayName = 'Snackbar'
 
-export const addSnackbar = (value: SnackbarItemValue, options: SnackBarItemOptions = {}) => {
-  const timeout = options.timeout ? Math.max(options.timeout, 5000) : 5000
+export interface AddSnackbarArgs extends SnackbarItemValue, SnackBarItemOptions {}
+
+export const addSnackbar = ({ onClose, timeout, priority, ...content }: AddSnackbarArgs) => {
   const queue = getGlobalSnackBarQueue()
 
-  queue.add(value, { ...options, timeout })
+  queue.add(content, {
+    onClose,
+    timeout: Math.max(timeout || 5000, 5000),
+    priority,
+  })
 }

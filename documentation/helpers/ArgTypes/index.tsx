@@ -38,7 +38,12 @@ function useTabsOrientation() {
   return tabsOrientation
 }
 
-export const ArgTypes = <T extends FC>({ of, description, subcomponents = null }: Props<T>) => {
+export const ArgTypes = <T extends FC>({
+  of,
+  description,
+  subcomponents = null,
+  ...rest
+}: Props<T>) => {
   const tabsOrientation = useTabsOrientation()
 
   if (!subcomponents) return <StorybookArgTypes of={of} />
@@ -67,14 +72,14 @@ export const ArgTypes = <T extends FC>({ of, description, subcomponents = null }
 
       <Tabs.Content key={name} value={name} className="py-lg">
         {description && <ComponentDescription name={name}>{description}</ComponentDescription>}
-        <StorybookArgTypes of={of} />
+        <StorybookArgTypes of={of} {...rest} />
       </Tabs.Content>
 
       {subComponentsList.map(([name, { of, description }]) => {
         return (
           <Tabs.Content key={name} value={name} className="py-lg">
             {description && <ComponentDescription name={name}>{description}</ComponentDescription>}
-            <StorybookArgTypes of={of} />
+            <StorybookArgTypes of={of} {...rest} />
           </Tabs.Content>
         )
       })}

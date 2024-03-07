@@ -28,6 +28,7 @@ import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
 <ArgTypes
   of={Snackbar}
   description="A container for queued snackbars. It should be placed at the root of the app."
+  exclude={['position']}
   subcomponents={{
     'Snackbar.Item': {
       of: Snackbar.Item,
@@ -41,3 +42,15 @@ import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
 ### Default
 
 <Canvas of={stories.Default} />
+
+### Design
+
+Use `design` prop on snackbar item to set different look and feels.
+
+<Canvas of={stories.Design} />
+
+### Intent
+
+Use `intent` prop on snackbar item to set color intent.
+
+<Canvas of={stories.Intent} />
