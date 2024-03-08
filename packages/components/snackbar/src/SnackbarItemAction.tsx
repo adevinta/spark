@@ -21,8 +21,8 @@ export const SnackbarItemAction = forwardRef<HTMLButtonElement, SnackbarItemActi
   ) => {
     const { toast, state } = useSnackbarItemContext()
 
-    const intent = toast.content.intent ?? intentProp
-    const design = toast.content.design ?? designProp
+    const intent = intentProp ?? toast.content.intent
+    const design = designProp ?? toast.content.design
 
     return (
       <Button

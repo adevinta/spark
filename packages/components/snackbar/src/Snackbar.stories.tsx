@@ -100,7 +100,7 @@ export const Intent: StoryObj = {
               key={intent}
               {...(intent === 'inverse'
                 ? {
-                    intent: 'surface',
+                    intent: 'neutral',
                   }
                 : {
                     intent: intent === 'error' ? 'danger' : intent,
@@ -216,7 +216,7 @@ export const Action: StoryObj = {
     return (
       <div>
         <Snackbar>
-          <Snackbar.Item intent="success">
+          <Snackbar.Item>
             <Snackbar.ItemClose aria-label="Fermer" />
           </Snackbar.Item>
         </Snackbar>
