@@ -1,5 +1,5 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
-import { type ReactElement } from 'react'
+import { type ReactElement, useEffect, useRef } from 'react'
 
 import { DialogProvider } from './DialogContext'
 
@@ -26,10 +26,33 @@ export interface DialogProps {
   modal?: RadixDialog.DialogProps['modal']
 }
 
-export const Dialog = ({ children, ...rest }: DialogProps): ReactElement => (
-  <DialogProvider>
-    <RadixDialog.Root {...rest}>{children}</RadixDialog.Root>
-  </DialogProvider>
-)
+export const Dialog = ({ children, ...rest }: DialogProps): ReactElement => {
+  const open = rest.open
+  const activeElementRef = useRef<HTMLElement>()
+
+  /**
+   * This function captures the active element when the Dialog is opened
+   * and sets focus back to it when the Dialog is closed.
+   */
+  function handleActiveElementFocus() {
+    if (open && document.activeElement) {
+      activeElementRef.current = document.activeElement as HTMLElement
+    }
+
+    if (!open) {
+      setTimeout(() => {
+        activeElementRef.current?.focus()
+      }, 0)
+    }
+  }
+
+  useEffect(handleActiveElementFocus, [open])
+
+  return (
+    <DialogProvider>
+      <RadixDialog.Root {...rest}>{children}</RadixDialog.Root>
+    </DialogProvider>
+  )
+}
 
 Dialog.displayName = 'Dialog.Root'
