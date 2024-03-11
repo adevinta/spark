@@ -144,7 +144,11 @@ export const ComboboxProvider = ({
   const [filteredItemsMap, setFilteredItems] = useState(
     autoFilter ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap
   )
-  const [selectedItems, setSelectedItems] = useState<ComboboxItem[]>([])
+  const [selectedItems, setSelectedItems] = useState<ComboboxItem[]>(
+    defaultValue
+      ? [...itemsMap.values()].filter(item => (defaultValue as string[]).includes(item.value))
+      : []
+  )
 
   // Form field state
   const field = useFormFieldControl()
@@ -165,9 +169,6 @@ export const ComboboxProvider = ({
 
   const multiselect = useMultipleSelection<ComboboxItem>({
     selectedItems,
-    initialSelectedItems: defaultValue
-      ? [...itemsMap.values()].filter(item => (defaultValue as string[]).includes(item.value))
-      : undefined,
     stateReducer: (state, { type, changes }) => {
       switch (type) {
         case useMultipleSelection.stateChangeTypes.SelectedItemKeyDownDelete:
@@ -222,10 +223,13 @@ export const ComboboxProvider = ({
     items: filteredItems,
     id,
     labelId,
+    inputValue,
     initialIsOpen: defaultOpen,
     initialSelectedItem: defaultValue ? itemsMap.get(defaultValue as string) : undefined,
     ...(multiple && { selectedItem: undefined }),
-    itemToString: item => (item as ComboboxItem).text,
+    itemToString: item => {
+      return (item as ComboboxItem)?.text
+    },
     isItemDisabled: item => {
       const isFilteredOut =
         !!inputValue &&
@@ -236,6 +240,8 @@ export const ComboboxProvider = ({
       return item.disabled || isFilteredOut
     },
     onInputValueChange: ({ inputValue }) => {
+      setInputValue(inputValue)
+
       if (autoFilter) {
         const filtered = getFilteredItemsMap(itemsMap, inputValue || '')
         setFilteredItems(filtered)

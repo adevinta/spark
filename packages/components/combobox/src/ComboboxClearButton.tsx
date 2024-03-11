@@ -18,9 +18,10 @@ export const ClearButton = forwardRef<HTMLButtonElement, ClearButtonProps>(
 
       if (!ctx.multiple) ctx.selectItem(null)
 
+      ctx.setInputValue('')
+
       if (ctx.innerInputRef.current) {
         ctx.innerInputRef.current.focus()
-        ctx.reset()
       }
 
       if (onClick) {

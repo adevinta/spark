@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
 import { Combobox } from '..'
-import { getInput, getItem, getSelectedItem, querySelectedItem } from './test-utils'
+import { getClearButton, getInput, getItem, getSelectedItem, querySelectedItem } from './test-utils'
 
 describe('Combobox', () => {
   describe('multiple selection', () => {
@@ -179,6 +179,43 @@ describe('Combobox', () => {
 
         // Then input value has been cleared
         expect(screen.getByDisplayValue('')).toBeInTheDocument()
+      })
+
+      it('should clear using clearButton', async () => {
+        const user = userEvent.setup()
+
+        // Given a combobox that allows custom value and has a selected item
+        render(
+          <Combobox multiple allowCustomValue defaultValue={['book-2']} autoFilter={false}>
+            <Combobox.Trigger>
+              <Combobox.SelectedItems />
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+              <Combobox.ClearButton aria-label="Clear input" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // When the user type "pri" to filter first item matching, then select it
+        await user.click(getInput('Book'))
+        await user.keyboard('{p}{r}{i}')
+
+        // Then the input has the typed value and item is still selected
+        expect(screen.getByDisplayValue('pri')).toBeInTheDocument()
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+
+        // When the user clicks the clear button
+        await user.click(getClearButton('Clear input'))
+
+        // Then input value has been cleared but selected items remain selected
+        expect(screen.getByDisplayValue('')).toBeInTheDocument()
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
       })
     })
   })

@@ -31,3 +31,7 @@ export const querySelectedItem = (accessibleName: string) => {
     selector: '[data-spark-component="combobox-selected-items"]',
   })
 }
+
+export const getClearButton = (accessibleName: string) => {
+  return screen.getByRole('button', { name: accessibleName })
+}

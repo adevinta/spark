@@ -138,6 +138,7 @@ export const CustomValueEntry: StoryFn = _args => {
       <Combobox allowCustomValue>
         <Combobox.Trigger>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.ClearButton aria-label="Clear input" />
           <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
         </Combobox.Trigger>
 
@@ -412,7 +413,7 @@ export const Statuses: StoryFn = () => {
 export const MultipleSelection: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox multiple defaultValue={['book-1', 'book-2']}>
+      <Combobox multiple allowCustomValue defaultValue={['book-1', 'book-2']}>
         <Combobox.Trigger>
           <Combobox.LeadingIcon>
             <PenOutline />

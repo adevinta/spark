@@ -7,7 +7,13 @@ interface DividerProps {
 
 export const Divider = forwardRef(
   ({ className }: DividerProps, forwardedRef: Ref<HTMLDivElement>) => {
-    return <div ref={forwardedRef} className={cx('my-md border-b-sm border-outline', className)} />
+    return (
+      <div
+        ref={forwardedRef}
+        role="separator"
+        className={cx('my-md border-b-sm border-outline', className)}
+      />
+    )
   }
 )
 
