@@ -16,51 +16,6 @@ const meta: Meta<typeof Combobox> = {
 
 export default meta
 
-/**
- * Minimal anatomy:
- * - Combobox
- *  - Combobox.Trigger
- *    - Combobox.Input
- *  - Combobox.Popover
- *    - Combobox.Items
- *      - Combobox.Item
- *
- * Full anatomy:
- * - Combobox
- *  - Combobox.Trigger
- *    - Combobox.LeadingIcon
- *    - Combobox.SelectedItems
- *    - Combobox.Input
- *    - Combobox.ClearButton
- *    - Combobox.Disclosure
- *  - Combobox.Popover
- *    - Combobox.Items
- *      - Combobox.Group
- *        - Combobox.Label
- *        - Combobox.Item
- *          - Combobox.ItemIndicator
- *          - Combobox.ItemText
- *
- * Filtering behaviour:
- * - default: no filtering.
- * - autoFilter: filters out values not matching the input.
- * - autoSelect: filters out values not matching the input AND highlight the first matching item.
- * - autoComplete: restrict typing in the input to any of the items values and highlight the rest of the first matching item behind the typing cursor
- * - custom filtering: controlled mode for advancer filtering. Not managed by Spark.
- *
- * Optional parts:
- * - Combobox.LeadingIcon
- * - Combobox.ClearButton
- * - Combobox.Disclosure
- * - Combobox.Empty
- * - Combobox.SelectedItems (chips)
- * - Combobox.Popover
- *
- * Selection type:
- * - single
- * - multiple
- */
-
 export const Default: StoryFn = _args => {
   return (
     <div className="pb-[300px]">

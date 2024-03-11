@@ -27,7 +27,10 @@ export const SelectedItems = () => {
             tabIndex={-1}
           >
             {selectedItemForRender.text}
-            <span
+            <button
+              type="button"
+              tabIndex={-1}
+              aria-hidden
               className="h-full cursor-pointer rounded-r-sm bg-neutral-container px-md"
               onClick={e => {
                 e.stopPropagation()
@@ -46,7 +49,7 @@ export const SelectedItems = () => {
               <Icon size="sm">
                 <Close />
               </Icon>
-            </span>
+            </button>
           </span>
         )
       })}

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // import { useState } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vitest } from 'vitest'
 
 import { Combobox } from '..'
 import { getClearButton, getInput, getItem, queryItem } from './test-utils'
@@ -21,7 +21,9 @@ describe('Combobox', () => {
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
               <Combobox.Item value="book-2">1984</Combobox.Item>
-              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              <Combobox.Item value="book-3">
+                <Combobox.ItemText>Pride and Prejudice</Combobox.ItemText>
+              </Combobox.Item>
             </Combobox.Items>
           </Combobox.Popover>
         </Combobox>
@@ -337,8 +339,9 @@ describe('Combobox', () => {
         expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
       })
 
-      it.only('should clear using clearButton', async () => {
+      it('should clear using clearButton', async () => {
         const user = userEvent.setup()
+        const onClickSpy = vitest.fn()
 
         // Given a combobox that allows custom value and has a selected item
         render(
@@ -346,7 +349,7 @@ describe('Combobox', () => {
             <Combobox.Trigger>
               <Combobox.SelectedItems />
               <Combobox.Input aria-label="Book" placeholder="Pick a book" />
-              <Combobox.ClearButton aria-label="Clear input" />
+              <Combobox.ClearButton aria-label="Clear input" onClick={onClickSpy} />
             </Combobox.Trigger>
             <Combobox.Popover>
               <Combobox.Items>
@@ -371,6 +374,7 @@ describe('Combobox', () => {
         // Then input value has been cleared and selected item is unselected
         expect(screen.getByDisplayValue('')).toBeInTheDocument()
         expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+        expect(onClickSpy).toHaveBeenCalledTimes(1)
       })
     })
   })

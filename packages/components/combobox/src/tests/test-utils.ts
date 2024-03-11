@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 
 export const getInput = (accessibleName: string) => {
   return screen.getByRole('combobox', { name: accessibleName })
@@ -24,6 +24,12 @@ export const getSelectedItem = (accessibleName: string) => {
   return screen.getByText(accessibleName, {
     selector: '[data-spark-component="combobox-selected-items"]',
   })
+}
+
+export const getSelectedItemClearButton = (accessibleName: string) => {
+  const selectedItem = getSelectedItem(accessibleName)
+
+  return within(selectedItem).getByRole('button', { hidden: true })
 }
 
 export const querySelectedItem = (accessibleName: string) => {

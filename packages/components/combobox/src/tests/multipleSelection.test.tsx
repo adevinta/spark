@@ -3,7 +3,14 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
 import { Combobox } from '..'
-import { getClearButton, getInput, getItem, getSelectedItem, querySelectedItem } from './test-utils'
+import {
+  getClearButton,
+  getInput,
+  getItem,
+  getSelectedItem,
+  getSelectedItemClearButton,
+  querySelectedItem,
+} from './test-utils'
 
 describe('Combobox', () => {
   describe('multiple selection', () => {
@@ -115,6 +122,210 @@ describe('Combobox', () => {
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
     })
 
+    it('should clear using clearButton', async () => {
+      const user = userEvent.setup()
+
+      // Given a combobox that allows custom value and has a selected item
+      render(
+        <Combobox multiple allowCustomValue defaultValue={['book-2']} autoFilter={false}>
+          <Combobox.Trigger>
+            <Combobox.SelectedItems />
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            <Combobox.ClearButton aria-label="Clear input" />
+          </Combobox.Trigger>
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-2">1984</Combobox.Item>
+              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      )
+
+      // When the user type "pri" to filter first item matching, then select it
+      await user.click(getInput('Book'))
+      await user.keyboard('{p}{r}{i}')
+
+      // Then the input has the typed value and item is still selected
+      expect(screen.getByDisplayValue('pri')).toBeInTheDocument()
+      expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+
+      // When the user clicks the clear button
+      await user.click(getClearButton('Clear input'))
+
+      // Then input value has been cleared but selected items remain selected
+      expect(screen.getByDisplayValue('')).toBeInTheDocument()
+      expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+    })
+
+    it('should focus on last selected item chip from input', async () => {
+      const user = userEvent.setup()
+
+      // Given a combobox with two selected items
+      render(
+        <Combobox multiple defaultValue={['book-1', 'book-2']}>
+          <Combobox.Trigger>
+            <Combobox.SelectedItems />
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            <Combobox.ClearButton aria-label="Clear input" />
+          </Combobox.Trigger>
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-2">1984</Combobox.Item>
+              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      )
+
+      // When the user focuses the input
+      await user.click(getInput('Book'))
+
+      // Then the input is focused
+      expect(getInput('Book')).toHaveFocus()
+
+      // When the user use ArrowLeft
+      await user.keyboard('[ArrowLeft]')
+
+      // Then the last selected item chip is focused
+      expect(getSelectedItem('1984')).toHaveFocus()
+    })
+
+    it('should remove selected item from chip using the keyboard (delete)', async () => {
+      const user = userEvent.setup()
+
+      // Given a combobox with two selected items
+      render(
+        <Combobox multiple defaultValue={['book-1', 'book-2']}>
+          <Combobox.Trigger>
+            <Combobox.SelectedItems />
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            <Combobox.ClearButton aria-label="Clear input" />
+          </Combobox.Trigger>
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-2">1984</Combobox.Item>
+              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      )
+
+      // When the user focuses the input
+      await user.click(getInput('Book'))
+
+      // Then the input is focused
+      expect(getInput('Book')).toHaveFocus()
+
+      // When the user use ArrowLeft then Delete to focus the last selected item chip and remove it
+      await user.keyboard('[ArrowLeft][Delete]')
+
+      // Then the focus is moved to the input and item is unselected
+      expect(getInput('Book')).toHaveFocus()
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
+      expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+    })
+
+    it('should remove selected item from chip using the keyboard (backspace)', async () => {
+      const user = userEvent.setup()
+
+      // Given a combobox with two selected items
+      render(
+        <Combobox multiple defaultValue={['book-1', 'book-2']}>
+          <Combobox.Trigger>
+            <Combobox.SelectedItems />
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            <Combobox.ClearButton aria-label="Clear input" />
+          </Combobox.Trigger>
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-2">1984</Combobox.Item>
+              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      )
+
+      // When the user focuses the input
+      await user.click(getInput('Book'))
+
+      // Then the input is focused
+      expect(getInput('Book')).toHaveFocus()
+
+      // When the user use ArrowLeft then BackSpace to focus the last selected item chip and remove it
+      await user.keyboard('[ArrowLeft][BackSpace]')
+
+      // Then the focus is moved to the previous chip instead of the input
+      expect(getSelectedItem('War and Peace')).toHaveFocus()
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
+      expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+    })
+
+    it('should remove selected item from chip using the mouse', async () => {
+      const user = userEvent.setup()
+
+      // Given a combobox with two selected items
+      render(
+        <Combobox multiple defaultValue={['book-1', 'book-2']}>
+          <Combobox.Trigger>
+            <Combobox.SelectedItems />
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            <Combobox.ClearButton aria-label="Clear input" />
+          </Combobox.Trigger>
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-2">1984</Combobox.Item>
+              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      )
+
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
+      expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+
+      // When the user clicks the delete button of the last selected item
+      await user.click(getSelectedItemClearButton('1984'))
+
+      // Then the focus is moved to the input and item has been unselected
+      expect(getInput('Book')).toHaveFocus()
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
+      expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+    })
+
+    it('should focus the input when clicking on a selected item chip', async () => {
+      const user = userEvent.setup()
+
+      // Given a combobox with two selected items
+      render(
+        <Combobox multiple defaultValue={['book-1', 'book-2']}>
+          <Combobox.Trigger>
+            <Combobox.SelectedItems />
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+            <Combobox.ClearButton aria-label="Clear input" />
+          </Combobox.Trigger>
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-2">1984</Combobox.Item>
+              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      )
+
+      // When the user clicks the delete button of the last selected item
+      await user.click(getSelectedItem('1984'))
+
+      // Then the focus is moved to the input and item has been unselected
+      expect(getInput('Book')).toHaveFocus()
+    })
+
     describe('blur behaviour', () => {
       it('should not clear input value when custom value is allowed', async () => {
         const user = userEvent.setup()
@@ -179,43 +390,6 @@ describe('Combobox', () => {
 
         // Then input value has been cleared
         expect(screen.getByDisplayValue('')).toBeInTheDocument()
-      })
-
-      it('should clear using clearButton', async () => {
-        const user = userEvent.setup()
-
-        // Given a combobox that allows custom value and has a selected item
-        render(
-          <Combobox multiple allowCustomValue defaultValue={['book-2']} autoFilter={false}>
-            <Combobox.Trigger>
-              <Combobox.SelectedItems />
-              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
-              <Combobox.ClearButton aria-label="Clear input" />
-            </Combobox.Trigger>
-            <Combobox.Popover>
-              <Combobox.Items>
-                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
-                <Combobox.Item value="book-2">1984</Combobox.Item>
-                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
-              </Combobox.Items>
-            </Combobox.Popover>
-          </Combobox>
-        )
-
-        // When the user type "pri" to filter first item matching, then select it
-        await user.click(getInput('Book'))
-        await user.keyboard('{p}{r}{i}')
-
-        // Then the input has the typed value and item is still selected
-        expect(screen.getByDisplayValue('pri')).toBeInTheDocument()
-        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
-
-        // When the user clicks the clear button
-        await user.click(getClearButton('Clear input'))
-
-        // Then input value has been cleared but selected items remain selected
-        expect(screen.getByDisplayValue('')).toBeInTheDocument()
-        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
       })
     })
   })

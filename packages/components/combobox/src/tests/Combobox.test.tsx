@@ -1,3 +1,4 @@
+import { InfoFill } from '@spark-ui/icons'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
@@ -10,6 +11,9 @@ describe('Combobox', () => {
     render(
       <Combobox>
         <Combobox.Trigger>
+          <Combobox.LeadingIcon>
+            <InfoFill />
+          </Combobox.LeadingIcon>
           <Combobox.Input aria-label="Book" />
         </Combobox.Trigger>
         <Combobox.Popover>
