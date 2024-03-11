@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
 import { Combobox } from '..'
-import { getInput, getItem } from './test-utils'
+import { getInput, getItem, getSelectedItem, querySelectedItem } from './test-utils'
 
 describe('Combobox', () => {
   describe('multiple selection', () => {
@@ -14,6 +14,7 @@ describe('Combobox', () => {
       render(
         <Combobox multiple>
           <Combobox.Trigger>
+            <Combobox.SelectedItems />
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           </Combobox.Trigger>
           <Combobox.Popover>
@@ -26,16 +27,14 @@ describe('Combobox', () => {
         </Combobox>
       )
 
-      // Then placeholder should be displayed
-      expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
-
       // When the user select two items
       await user.click(getInput('Book'))
       await user.click(getItem('1984'))
       await user.click(getItem('Pride and Prejudice'))
 
-      // Then placeholder is replaced by the selected value and suffix indicating remaining items
-      expect(getInput('Book').getAttribute('placeholder')).toBe('1984, Pride and Prejudice')
+      // Then matching selected items (chips) are displayed
+      expect(getSelectedItem('1984')).toBeInTheDocument()
+      expect(getSelectedItem('Pride and Prejudice')).toBeInTheDocument()
 
       // Then the proper items are selected
       expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'false')
@@ -50,6 +49,7 @@ describe('Combobox', () => {
       render(
         <Combobox multiple>
           <Combobox.Trigger>
+            <Combobox.SelectedItems />
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           </Combobox.Trigger>
           <Combobox.Popover>
@@ -62,9 +62,6 @@ describe('Combobox', () => {
         </Combobox>
       )
 
-      // Then placeholder should be displayed
-      expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
-
       // When the user select all the items one by one using the keyboard
       await user.click(getInput('Book'))
       await user.keyboard('[ArrowDown][Enter]')
@@ -72,11 +69,13 @@ describe('Combobox', () => {
       await user.keyboard('[ArrowDown][Enter]')
 
       // Then all items are selected
-      expect(getInput('Book').getAttribute('placeholder')).toBe(
-        'War and Peace, 1984, Pride and Prejudice'
-      )
+      expect(getSelectedItem('War and Peace')).toBeInTheDocument()
       expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
+
+      expect(getSelectedItem('1984')).toBeInTheDocument()
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+
+      expect(getSelectedItem('Pride and Prejudice')).toBeInTheDocument()
       expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
     })
 
@@ -87,6 +86,7 @@ describe('Combobox', () => {
       render(
         <Combobox multiple>
           <Combobox.Trigger>
+            <Combobox.SelectedItems />
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           </Combobox.Trigger>
           <Combobox.Popover>
@@ -103,15 +103,15 @@ describe('Combobox', () => {
       await user.click(getInput('Book'))
       await user.click(getItem('1984'))
 
-      // Then placeholder is replaced by the selected value
-      expect(getInput('Book').getAttribute('placeholder')).toBe('1984')
+      // Then selected item chip is displayed
+      expect(getSelectedItem('1984')).toBeInTheDocument()
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
 
       // When the user unselect that item
       await user.click(getItem('1984'))
 
-      // Then placeholder is shown again as the item is no longer selected
-      expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
+      // Then chip has been removed and item is unselected
+      expect(querySelectedItem('1984')).not.toBeInTheDocument()
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
     })
 
@@ -123,6 +123,7 @@ describe('Combobox', () => {
         render(
           <Combobox multiple allowCustomValue>
             <Combobox.Trigger>
+              <Combobox.SelectedItems />
               <Combobox.Input aria-label="Book" placeholder="Pick a book" />
             </Combobox.Trigger>
             <Combobox.Popover>
@@ -134,9 +135,6 @@ describe('Combobox', () => {
             </Combobox.Popover>
           </Combobox>
         )
-
-        // Then placeholder should be displayed
-        expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
 
         // When the user type "pri" in the input
         await user.click(getInput('Book'))
@@ -156,6 +154,7 @@ describe('Combobox', () => {
         render(
           <Combobox multiple allowCustomValue={false}>
             <Combobox.Trigger>
+              <Combobox.SelectedItems />
               <Combobox.Input aria-label="Book" placeholder="Pick a book" />
             </Combobox.Trigger>
             <Combobox.Popover>

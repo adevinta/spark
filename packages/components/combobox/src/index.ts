@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 
 import { Combobox as Root, type ComboboxProps } from './Combobox'
+import { ClearButton } from './ComboboxClearButton'
 import { ComboboxProvider, useComboboxContext } from './ComboboxContext'
 import { Disclosure } from './ComboboxDisclosure'
 import { Divider } from './ComboboxDivider'
@@ -14,6 +15,7 @@ import { ItemText } from './ComboboxItemText'
 import { Label } from './ComboboxLabel'
 import { LeadingIcon } from './ComboboxLeadingIcon'
 import { Popover } from './ComboboxPopover'
+import { SelectedItems } from './ComboboxSelectedItems'
 import { Trigger } from './ComboboxTrigger'
 
 export { useComboboxContext, ComboboxProvider }
@@ -32,6 +34,8 @@ export const Combobox: FC<ComboboxProps> & {
   Empty: typeof Empty
   Input: typeof Input
   Disclosure: typeof Disclosure
+  SelectedItems: typeof SelectedItems
+  ClearButton: typeof ClearButton
 } = Object.assign(Root, {
   Group,
   Item,
@@ -46,6 +50,8 @@ export const Combobox: FC<ComboboxProps> & {
   Empty,
   Input,
   Disclosure,
+  SelectedItems,
+  ClearButton,
 })
 
 Combobox.displayName = 'Combobox'
@@ -62,3 +68,5 @@ LeadingIcon.displayName = 'Combobox.LeadingIcon'
 Empty.displayName = 'Combobox.Empty'
 Input.displayName = 'Combobox.Input'
 Disclosure.displayName = 'Combobox.Disclosure'
+SelectedItems.displayName = 'Combobox.SelectedItems'
+ClearButton.displayName = 'Combobox.ClearButton'

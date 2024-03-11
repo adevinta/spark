@@ -15,12 +15,12 @@ export const Popover = forwardRef(
     }: ComponentProps<typeof SparkPopover.Content>,
     forwardedRef: Ref<HTMLDivElement>
   ) => {
-    const { isOpen, setHasPopover } = useComboboxContext()
+    const ctx = useComboboxContext()
 
     useEffect(() => {
-      setHasPopover(true)
+      ctx.setHasPopover(true)
 
-      return () => setHasPopover(false)
+      return () => ctx.setHasPopover(false)
     }, [])
 
     return (
@@ -29,7 +29,7 @@ export const Popover = forwardRef(
         inset
         asChild
         matchTriggerWidth={matchTriggerWidth}
-        className={cx('!z-dropdown', !isOpen && 'hidden', className)}
+        className={cx('!z-dropdown', !ctx.isOpen && 'hidden', className)}
         sideOffset={sideOffset}
         onOpenAutoFocus={e => {
           /**

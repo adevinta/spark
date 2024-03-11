@@ -326,6 +326,7 @@ describe('Combobox', () => {
         expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
 
         const input = getInput('Book')
+
         // When the user changes the input to the value of another item and focus outside of it
         await user.clear(input)
         await user.type(input, 'A value that does not match any item')

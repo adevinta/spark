@@ -26,11 +26,14 @@ export const Disclosure = forwardRef(
     }: DisclosureProps,
     forwardedRef: Ref<HTMLButtonElement>
   ) => {
-    const { getToggleButtonProps } = useComboboxContext()
+    const ctx = useComboboxContext()
 
-    const { ref: downshiftRef, ...downshiftDisclosureProps } = getToggleButtonProps()
+    const { ref: downshiftRef, ...downshiftDisclosureProps } = ctx.getToggleButtonProps({
+      onClick: event => {
+        event.stopPropagation()
+      },
+    })
     const isOpen = downshiftDisclosureProps['aria-expanded']
-
     const ref = useMergeRefs(forwardedRef, downshiftRef)
 
     return (

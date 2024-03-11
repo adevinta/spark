@@ -1,6 +1,7 @@
 import { cx } from 'class-variance-authority'
-import { forwardRef, ReactNode, type Ref } from 'react'
+import React, { forwardRef, ReactNode, type Ref } from 'react'
 
+import { useComboboxContext } from './ComboboxContext'
 import { ComboboxGroupProvider, useComboboxGroupContext } from './ComboboxItemsGroupContext'
 
 interface GroupProps {
@@ -22,13 +23,23 @@ export const Group = forwardRef(
 
 const GroupContent = forwardRef(
   ({ children, className }: GroupProps, forwardedRef: Ref<HTMLDivElement>) => {
-    const { labelId } = useComboboxGroupContext()
+    const ctx = useComboboxContext()
+    const groupCtx = useComboboxGroupContext()
 
-    return (
-      <div ref={forwardedRef} role="group" aria-labelledby={labelId} className={cx(className)}>
+    const hasVisibleOptions = React.Children.toArray(children).some(child => {
+      return React.isValidElement(child) && ctx.filteredItemsMap.get(child.props.value)
+    })
+
+    return hasVisibleOptions ? (
+      <div
+        ref={forwardedRef}
+        role="group"
+        aria-labelledby={groupCtx.groupLabelId}
+        className={cx(className)}
+      >
         {children}
       </div>
-    )
+    ) : null
   }
 )
 

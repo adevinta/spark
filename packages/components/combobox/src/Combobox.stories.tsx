@@ -1,6 +1,7 @@
 /* eslint-disable max-lines */
 // import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
+import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
 import { Tag } from '@spark-ui/tag'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
@@ -65,7 +66,11 @@ export const Default: StoryFn = _args => {
     <div className="pb-[300px]">
       <Combobox>
         <Combobox.Trigger>
+          <Combobox.LeadingIcon>
+            <PenOutline />
+          </Combobox.LeadingIcon>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.ClearButton aria-label="Clear input" />
           <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
         </Combobox.Trigger>
 
@@ -305,6 +310,9 @@ export const LeadingIcon: StoryFn = _args => {
     <div className="pb-[300px]">
       <Combobox>
         <Combobox.Trigger>
+          <Combobox.LeadingIcon>
+            <PenOutline />
+          </Combobox.LeadingIcon>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         </Combobox.Trigger>
 
@@ -331,6 +339,7 @@ export const ItemIndicator: StoryFn = _args => {
     <div className="pb-[300px]">
       <Combobox multiple defaultValue={['book-1', 'book-2']}>
         <Combobox.Trigger aria-label="Book">
+          <Combobox.SelectedItems />
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         </Combobox.Trigger>
 
@@ -405,7 +414,13 @@ export const MultipleSelection: StoryFn = _args => {
     <div className="pb-[300px]">
       <Combobox multiple defaultValue={['book-1', 'book-2']}>
         <Combobox.Trigger>
+          <Combobox.LeadingIcon>
+            <PenOutline />
+          </Combobox.LeadingIcon>
+          <Combobox.SelectedItems />
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.ClearButton aria-label="Clear input" />
+          <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
         </Combobox.Trigger>
 
         <Combobox.Popover>

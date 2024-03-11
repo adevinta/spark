@@ -2,15 +2,15 @@ import { cva } from 'class-variance-authority'
 
 export const styles = cva(
   [
-    'flex w-full items-center justify-between',
-    'min-h-sz-44 rounded-lg bg-surface text-on-surface px-lg',
+    'flex w-full items-start gap-md cursor-text',
+    'min-h-sz-44 p-md rounded-lg bg-surface text-on-surface px-lg',
     // outline styles
-    'ring-1 outline-none ring-inset focus:ring-2',
+    'ring-1 outline-none ring-inset focus-within:ring-2',
   ],
   {
     variants: {
       state: {
-        undefined: 'ring-outline focus:ring-outline-high',
+        undefined: 'ring-outline focus-within:ring-outline-high',
         error: 'ring-error',
         alert: 'ring-alert',
         success: 'ring-success',

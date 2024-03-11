@@ -19,3 +19,15 @@ export const getItem = (accessibleName: string) => {
 export const queryItem = (accessibleName: string) => {
   return screen.queryByRole('option', { name: accessibleName })
 }
+
+export const getSelectedItem = (accessibleName: string) => {
+  return screen.getByText(accessibleName, {
+    selector: '[data-spark-component="combobox-selected-items"]',
+  })
+}
+
+export const querySelectedItem = (accessibleName: string) => {
+  return screen.queryByText(accessibleName, {
+    selector: '[data-spark-component="combobox-selected-items"]',
+  })
+}

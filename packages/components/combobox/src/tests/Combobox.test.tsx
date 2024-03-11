@@ -61,10 +61,10 @@ describe('Combobox', () => {
       // Then the combobox has expanded
       expect(input).toHaveAttribute('aria-expanded', 'true')
 
-      // When the user interact with the input while expanded
-      await user.click(input)
+      // When the user interact outside the combobox
+      await user.click(document.body)
 
-      // Then the combobox is closed again
+      // Then the combobox is closed
       expect(input).toHaveAttribute('aria-expanded', 'false')
     })
 
@@ -96,10 +96,10 @@ describe('Combobox', () => {
       // Then the combobox has expanded
       expect(input).toHaveAttribute('aria-expanded', 'true')
 
-      // When the user interact with the input while expanded
-      await user.click(input)
+      // When the user interact outside the combobox
+      await user.click(document.body)
 
-      // Then the combobox is closed again
+      // Then the combobox is closed
       expect(input).toHaveAttribute('aria-expanded', 'false')
     })
 
@@ -131,7 +131,7 @@ describe('Combobox', () => {
     //   expect(getInput('Book')).toHaveAttribute('aria-expanded', 'true')
     // })
 
-    it('should be opened by default but close upon interaction', async () => {
+    it('should be opened by default and remain opened upon interaction', async () => {
       const user = userEvent.setup()
 
       // Given a combobox that should remain opened
@@ -155,8 +155,8 @@ describe('Combobox', () => {
       // When the user interacts with the input
       await user.click(getInput('Book'))
 
-      // Then the combobox remains opened
-      expect(getInput('Book')).toHaveAttribute('aria-expanded', 'false')
+      // Then the combobox remain opened
+      expect(getInput('Book')).toHaveAttribute('aria-expanded', 'true')
     })
 
     it('should display Combobox.Empty when no items matches the input value', async () => {
