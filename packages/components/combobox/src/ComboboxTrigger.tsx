@@ -1,3 +1,4 @@
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import React, { forwardRef, Fragment, ReactNode, type Ref } from 'react'
@@ -14,6 +15,7 @@ interface TriggerProps {
 export const Trigger = forwardRef(
   ({ className, children }: TriggerProps, forwardedRef: Ref<HTMLDivElement>) => {
     const ctx = useComboboxContext()
+    const field = useFormFieldControl()
 
     // Trigger compound elements
     const leadingIcon = findElement(children, 'Combobox.LeadingIcon')
@@ -28,6 +30,12 @@ export const Trigger = forwardRef(
 
     const ref = useMergeRefs(forwardedRef, ctx.triggerAreaRef)
 
+    const disabled = field.disabled || ctx.disabled
+    const readOnly = field.readOnly || ctx.readOnly
+
+    const hasClearButton = !!clearButton && !disabled && !readOnly
+    const hasDisclosure = !!disclosure && !disabled && !readOnly
+
     return (
       <>
         <PopoverAnchor {...popoverAnchorProps}>
@@ -36,11 +44,13 @@ export const Trigger = forwardRef(
             className={styles({
               className,
               state: ctx.state,
-              disabled: ctx.disabled,
-              readOnly: ctx.readOnly,
+              disabled,
+              readOnly,
             })}
+            aria-disabled={disabled}
+            aria-readonly={readOnly}
             onClick={() => {
-              if (!ctx.isOpen) {
+              if (!ctx.isOpen && !disabled && !readOnly) {
                 ctx.openMenu()
                 if (ctx.innerInputRef.current) {
                   ctx.innerInputRef.current.focus()
@@ -53,8 +63,8 @@ export const Trigger = forwardRef(
               {selectedItems}
               {input}
             </div>
-            {clearButton}
-            {disclosure}
+            {hasClearButton && clearButton}
+            {hasDisclosure && disclosure}
           </div>
         </PopoverAnchor>
       </>

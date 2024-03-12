@@ -116,7 +116,7 @@ export const CustomValueEntry: StoryFn = _args => {
 export const Disabled: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox disabled>
+      <Combobox disabled defaultValue="book-1">
         <Combobox.Trigger>
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         </Combobox.Trigger>
@@ -182,7 +182,7 @@ export const Disabled: StoryFn = _args => {
 export const ReadOnly: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox readOnly>
+      <Combobox readOnly defaultValue="book-1">
         <Combobox.Trigger aria-label="Book">
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         </Combobox.Trigger>
@@ -454,7 +454,7 @@ export const FormFieldReadOnly: StoryFn = _args => {
     <div className="pb-[300px]">
       <FormField readOnly>
         <FormField.Label>Book</FormField.Label>
-        <Combobox>
+        <Combobox defaultValue="book-1">
           <Combobox.Trigger>
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           </Combobox.Trigger>
@@ -481,7 +481,7 @@ export const FormFieldDisabled: StoryFn = _args => {
     <div className="pb-[300px]">
       <FormField disabled>
         <FormField.Label>Book</FormField.Label>
-        <Combobox>
+        <Combobox defaultValue="book-1">
           <Combobox.Trigger>
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           </Combobox.Trigger>

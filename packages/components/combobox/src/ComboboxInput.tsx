@@ -34,6 +34,7 @@ export const Input = forwardRef(
     const multiselectInputProps = ctx.getDropdownProps()
     const inputRef = useMergeRefs(forwardedRef, ctx.innerInputRef, multiselectInputProps.ref)
     const downshiftInputProps = ctx.getInputProps({
+      disabled: ctx.disabled || ctx.readOnly,
       ...multiselectInputProps,
       onKeyDown: event => {
         multiselectInputProps.onKeyDown?.(event)
@@ -54,15 +55,18 @@ export const Input = forwardRef(
             data-spark-component="combobox-input"
             type="text"
             placeholder={placeholder}
-            disabled={ctx.disabled || ctx.readOnly}
             className={cx(
               'shrink-0 flex-grow basis-[80px] text-ellipsis px-sm outline-none',
+              'disabled:cursor-not-allowed disabled:bg-transparent disabled:text-on-surface/dim-3',
+              'read-only:cursor-default read-only:bg-transparent read-only:text-on-surface',
               className
             )}
             {...props}
             {...downshiftInputProps}
             value={ctx.inputValue}
             aria-label={ariaLabel}
+            disabled={ctx.disabled}
+            readOnly={ctx.readOnly}
           />
         </PopoverTrigger>
       </>
