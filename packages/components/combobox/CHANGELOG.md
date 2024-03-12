@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.3.5...@spark-ui/combobox@0.4.0) (2024-03-12)
+
+### Features
+
+- **combobox:** reset selected items on clear (multiple selection) ([d681c05](https://github.com/adevinta/spark/commit/d681c05cc8d6a0224be18d2434a793c62e952349))
+
 ## [0.3.5](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.3.4...@spark-ui/combobox@0.3.5) (2024-03-07)
 
 **Note:** Version bump only for package @spark-ui/combobox
