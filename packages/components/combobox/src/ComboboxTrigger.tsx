@@ -47,8 +47,6 @@ export const Trigger = forwardRef(
               disabled,
               readOnly,
             })}
-            aria-disabled={disabled}
-            aria-readonly={readOnly}
             onClick={() => {
               if (!ctx.isOpen && !disabled && !readOnly) {
                 ctx.openMenu()
