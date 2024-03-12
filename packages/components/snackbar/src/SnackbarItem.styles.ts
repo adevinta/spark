@@ -8,7 +8,7 @@ export const snackbarItemVariant = cva(
     'px-md',
     'rounded-md shadow',
     'max-w-[600px]',
-    'pointer-events-auto',
+    'pointer-events-auto touch-none',
     'absolute',
     /**
      * Focus
