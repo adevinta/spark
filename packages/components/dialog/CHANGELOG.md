@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.9.6...@spark-ui/dialog@1.10.0) (2024-03-11)
+
+### Features
+
+- **dialog:** implement focus capture and restoration in dialog component ([a2ceba7](https://github.com/adevinta/spark/commit/a2ceba7ed54d9ec67594c0992d99173893b413bb)), closes [#1930](https://github.com/adevinta/spark/issues/1930)
+
 ## [1.9.6](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.9.5...@spark-ui/dialog@1.9.6) (2024-03-06)
 
 **Note:** Version bump only for package @spark-ui/dialog

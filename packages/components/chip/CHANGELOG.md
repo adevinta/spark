@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.10](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.2.9...@spark-ui/chip@1.2.10) (2024-03-12)
+
+### Bug Fixes
+
+- **chip:** update TS related things for forthcoming @react/types update ([bf5dd29](https://github.com/adevinta/spark/commit/bf5dd2976c89f7f69d85253cc1fee2e759fb8bf9))
+
 ## [1.2.9](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.2.8...@spark-ui/chip@1.2.9) (2024-01-16)
 
 **Note:** Version bump only for package @spark-ui/chip

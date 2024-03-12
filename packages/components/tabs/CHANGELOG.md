@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.13](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.3.12...@spark-ui/tabs@2.3.13) (2024-03-11)
+
+### Bug Fixes
+
+- **tabs:** a11y pattern link ([6a2b47e](https://github.com/adevinta/spark/commit/6a2b47e2b3445b565042196552c238a7fccfd528))
+
 ## [2.3.12](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.3.11...@spark-ui/tabs@2.3.12) (2024-03-06)
 
 **Note:** Version bump only for package @spark-ui/tabs

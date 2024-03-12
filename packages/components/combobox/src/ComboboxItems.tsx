@@ -11,11 +11,11 @@ interface ItemsProps {
 
 export const Items = forwardRef(
   ({ children, className, ...props }: ItemsProps, forwardedRef: Ref<HTMLUListElement>) => {
-    const { isOpen, getMenuProps, hasPopover, setLastInteractionType } = useComboboxContext()
+    const ctx = useComboboxContext()
 
-    const { ref: downshiftRef, ...downshiftMenuProps } = getMenuProps({
+    const { ref: downshiftRef, ...downshiftMenuProps } = ctx.getMenuProps({
       onMouseMove: () => {
-        setLastInteractionType('mouse')
+        ctx.setLastInteractionType('mouse')
       },
     })
 
@@ -27,8 +27,8 @@ export const Items = forwardRef(
         className={cx(
           className,
           'flex flex-col',
-          isOpen ? 'block' : 'pointer-events-none opacity-0',
-          hasPopover && 'p-lg'
+          ctx.isOpen ? 'block' : 'pointer-events-none opacity-0',
+          ctx.hasPopover && 'p-lg'
         )}
         {...props}
         {...downshiftMenuProps}

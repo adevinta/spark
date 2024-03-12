@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import { ComponentProps, FC } from 'react'
 
-import { Chip as Root, type ChipProps } from './Chip'
+import { Chip as Root } from './Chip'
 import { ChipClearButton } from './ChipClearButton'
 import { ChipContent } from './ChipContent'
 import { ChipLeadingIcon } from './ChipLeadingIcon'
@@ -10,6 +10,8 @@ export { type ChipClearButtonProps } from './ChipClearButton'
 export { type ChipContentProps } from './ChipContent'
 export { type ChipLeadingIconProps } from './ChipLeadingIcon'
 export { type ChipTrailingIconProps } from './ChipTrailingIcon'
+
+type ChipProps = ComponentProps<typeof Root>
 
 export const Chip: FC<ChipProps> & {
   Content: typeof ChipContent

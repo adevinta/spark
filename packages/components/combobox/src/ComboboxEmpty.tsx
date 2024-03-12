@@ -9,9 +9,10 @@ interface EmptyProps {
 
 export const Empty = forwardRef(
   ({ className, children }: EmptyProps, forwardedRef: Ref<HTMLDivElement>) => {
-    const { filteredItemsMap } = useComboboxContext()
+    const ctx = useComboboxContext()
+    const hasNoItemVisible = ctx.filteredItemsMap.size === 0
 
-    return filteredItemsMap.size === 0 ? (
+    return hasNoItemVisible ? (
       <div ref={forwardedRef} className={className}>
         {children}
       </div>

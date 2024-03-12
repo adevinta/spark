@@ -22,16 +22,16 @@ export const ComboboxItemProvider = ({
   disabled = false,
   children,
 }: PropsWithChildren<{ value: string; disabled?: boolean }>) => {
-  const { multiple, itemsMap, selectedItem, selectedItems } = useComboboxContext()
+  const ctx = useComboboxContext()
 
   const [textId, setTextId] = useState<ItemTextId>(undefined)
 
-  const index = getIndexByKey(itemsMap, value)
+  const index = getIndexByKey(ctx.itemsMap, value)
   const itemData: ComboboxItem = { disabled, value, text: getItemText(children) }
 
-  const isSelected = multiple
-    ? selectedItems.some(selectedItem => selectedItem.value === value)
-    : selectedItem?.value === value
+  const isSelected = ctx.multiple
+    ? ctx.selectedItems.some(selectedItem => selectedItem.value === value)
+    : ctx.selectedItem?.value === value
 
   return (
     <ComboboxItemContext.Provider

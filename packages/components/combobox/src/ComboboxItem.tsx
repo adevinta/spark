@@ -62,15 +62,14 @@ const ItemContent = forwardRef(
     { className, disabled = false, value, children }: ItemProps,
     forwardedRef: Ref<HTMLLIElement>
   ) => {
-    const { getItemProps, highlightedItem, lastInteractionType, filteredItemsMap } =
-      useComboboxContext()
-    const { textId, index, itemData, isSelected } = useComboboxItemContext()
+    const ctx = useComboboxContext()
+    const itemCtx = useComboboxItemContext()
 
-    const isHighlighted = highlightedItem?.value === value
-
-    const isVisible = Array.from(filteredItemsMap).some(([key]) => key === value)
-
-    const { ref: downshiftRef, ...downshiftItemProps } = getItemProps({ item: itemData, index })
+    const isVisible = !!ctx.filteredItemsMap.get(value)
+    const { ref: downshiftRef, ...downshiftItemProps } = ctx.getItemProps({
+      item: itemCtx.itemData,
+      index: itemCtx.index,
+    })
     const ref = useMergeRefs(forwardedRef, downshiftRef)
 
     if (!isVisible) return null
@@ -80,17 +79,17 @@ const ItemContent = forwardRef(
         ref={ref}
         className={cx(
           styles({
-            selected: isSelected,
+            selected: itemCtx.isSelected,
             disabled,
-            highlighted: isHighlighted,
-            interactionType: lastInteractionType,
+            highlighted: ctx.highlightedItem?.value === value,
+            interactionType: ctx.lastInteractionType,
             className,
           })
         )}
         key={value}
         {...downshiftItemProps}
-        aria-selected={isSelected}
-        aria-labelledby={textId}
+        aria-selected={itemCtx.isSelected}
+        aria-labelledby={itemCtx.textId}
       >
         {children}
       </li>

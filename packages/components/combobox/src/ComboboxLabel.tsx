@@ -10,12 +10,12 @@ interface LabelProps {
 
 export const Label = forwardRef(
   ({ children, className }: LabelProps, forwardedRef: Ref<HTMLDivElement>) => {
-    const { labelId } = useComboboxGroupContext()
+    const groupCtx = useComboboxGroupContext()
 
     return (
       <div
         ref={forwardedRef}
-        id={labelId}
+        id={groupCtx.groupLabelId}
         className={cx('px-md py-sm text-body-2 italic text-neutral', className)}
       >
         {children}
