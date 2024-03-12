@@ -1,61 +1,66 @@
-/* eslint-disable complexity */
-/* eslint-disable max-lines-per-function */
-/* eslint-disable no-console */
-import { useCombobox as useDownshiftCombobox, UseComboboxProps } from 'downshift'
+import { useCombobox, UseComboboxProps, UseMultipleSelectionReturnValue } from 'downshift'
 
-import { type ComboboxItem } from '../types'
+import { ComboboxItem } from '../types'
 
 interface Props {
-  updateInputValue: (inputValue: string | undefined) => void
-  allowCustomValue: boolean
+  allowCustomValue?: boolean
   selectedItems: ComboboxItem[]
-  removeSelectedItem: (item: ComboboxItem) => void
-  addSelectedItem: (item: ComboboxItem) => void
+  multiselect: UseMultipleSelectionReturnValue<ComboboxItem>
+  setSelectedItems: (value: React.SetStateAction<ComboboxItem[]>) => void
+  triggerAreaRef: React.RefObject<HTMLDivElement>
 }
 
 export const multipleSelectionReducer = ({
-  allowCustomValue,
-  updateInputValue,
+  multiselect,
   selectedItems,
-  removeSelectedItem,
-  addSelectedItem,
+  allowCustomValue = false,
+  setSelectedItems,
+  triggerAreaRef,
 }: Props) => {
-  /**
-   * Custom state reducer for multiple selection behaviour:
-   * - keeps the component opened when the user selects an item
-   * - preserves the higlighted index when the user select an item
-   * - selected items can be unselected, even the last selected item (as opposed to single selection behaviour)
-   */
   const reducer: UseComboboxProps<ComboboxItem>['stateReducer'] = (state, { changes, type }) => {
+    const isFocusInsideTriggerArea = triggerAreaRef.current?.contains?.(document.activeElement)
+
     switch (type) {
-      case useDownshiftCombobox.stateChangeTypes.InputChange:
-        updateInputValue(changes.inputValue)
+      case useCombobox.stateChangeTypes.InputClick:
+        return {
+          ...changes,
+          isOpen: true, // keep menu opened
+        }
+      case useCombobox.stateChangeTypes.InputKeyDownEnter:
+      case useCombobox.stateChangeTypes.ItemClick: {
+        const newState = { ...changes }
 
-        return changes
-      case useDownshiftCombobox.stateChangeTypes.InputBlur:
-        if (allowCustomValue) return changes
-
-        updateInputValue('')
-
-        return { ...changes, inputValue: '' }
-
-      case useDownshiftCombobox.stateChangeTypes.InputKeyDownEnter:
-      case useDownshiftCombobox.stateChangeTypes.ItemClick:
         if (changes.selectedItem != null) {
-          updateInputValue('')
-          const isAlreadySelected = selectedItems.some(
+          newState.inputValue = '' // keep input value after selection
+          newState.isOpen = true // keep menu opened after selection
+          newState.highlightedIndex = state.highlightedIndex // preserve highlighted item index after selection
+
+          const isAlreadySelected = multiselect.selectedItems.some(
             selectedItem => selectedItem.value === changes.selectedItem?.value
           )
 
-          if (isAlreadySelected) removeSelectedItem(changes.selectedItem)
-          else addSelectedItem(changes.selectedItem)
+          const updatedItems = isAlreadySelected
+            ? selectedItems.filter(item => item.value !== changes.selectedItem?.value)
+            : [...selectedItems, changes.selectedItem]
+
+          setSelectedItems(updatedItems)
         }
 
+        return newState
+      }
+
+      case useCombobox.stateChangeTypes.ToggleButtonClick:
         return {
           ...changes,
-          isOpen: true, // keep the menu open after selection.
-          highlightedIndex: state.highlightedIndex, // preserve highlighted index position
+          inputValue: allowCustomValue ? changes.inputValue : '',
         }
+      case useCombobox.stateChangeTypes.InputBlur:
+        return {
+          ...changes,
+          inputValue: allowCustomValue ? changes.inputValue : '',
+          isOpen: isFocusInsideTriggerArea,
+        }
+
       default:
         return changes
     }

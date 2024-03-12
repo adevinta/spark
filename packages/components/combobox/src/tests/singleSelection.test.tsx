@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // import { useState } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vitest } from 'vitest'
 
 import { Combobox } from '..'
-import { getInput, getItem, queryItem } from './test-utils'
+import { getClearButton, getInput, getItem, queryItem } from './test-utils'
 
 describe('Combobox', () => {
   describe('single selection', () => {
@@ -21,7 +21,9 @@ describe('Combobox', () => {
             <Combobox.Items>
               <Combobox.Item value="book-1">War and Peace</Combobox.Item>
               <Combobox.Item value="book-2">1984</Combobox.Item>
-              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              <Combobox.Item value="book-3">
+                <Combobox.ItemText>Pride and Prejudice</Combobox.ItemText>
+              </Combobox.Item>
             </Combobox.Items>
           </Combobox.Popover>
         </Combobox>
@@ -326,6 +328,7 @@ describe('Combobox', () => {
         expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
 
         const input = getInput('Book')
+
         // When the user changes the input to the value of another item and focus outside of it
         await user.clear(input)
         await user.type(input, 'A value that does not match any item')
@@ -334,6 +337,44 @@ describe('Combobox', () => {
         // Then item remain selected and the input is synced with its text value
         expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
         expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
+      })
+
+      it('should clear using clearButton', async () => {
+        const user = userEvent.setup()
+        const onClickSpy = vitest.fn()
+
+        // Given a combobox that allows custom value and has a selected item
+        render(
+          <Combobox allowCustomValue defaultValue="book-2" autoFilter={false}>
+            <Combobox.Trigger>
+              <Combobox.SelectedItems />
+              <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+              <Combobox.ClearButton aria-label="Clear input" onClick={onClickSpy} />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+
+        // When the user focused inside the input
+        await user.click(getInput('Book'))
+
+        // Then the input has the selected item text as a value and value is selected in the list
+        expect(screen.getByDisplayValue('1984')).toBeInTheDocument()
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+
+        // When the user clicks the clear button
+        await user.click(getClearButton('Clear input'))
+
+        // Then input value has been cleared and selected item is unselected
+        expect(screen.getByDisplayValue('')).toBeInTheDocument()
+        expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
+        expect(onClickSpy).toHaveBeenCalledTimes(1)
       })
     })
   })

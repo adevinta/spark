@@ -107,3 +107,9 @@ export const hasChildComponent = (children: ReactNode, displayName: string): boo
     return false
   })
 }
+
+export const findElement = (children: ReactNode, value: string) => {
+  return React.Children.toArray(children)
+    .filter(React.isValidElement)
+    .find(child => value === getElementDisplayName(child) || '')
+}
