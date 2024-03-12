@@ -127,7 +127,7 @@ describe('Combobox', () => {
 
       // Given a combobox that allows custom value and has a selected item
       render(
-        <Combobox multiple allowCustomValue defaultValue={['book-2']} autoFilter={false}>
+        <Combobox multiple allowCustomValue defaultValue={['book-1', 'book-2']} autoFilter={false}>
           <Combobox.Trigger>
             <Combobox.SelectedItems />
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
@@ -149,14 +149,16 @@ describe('Combobox', () => {
 
       // Then the input has the typed value and item is still selected
       expect(screen.getByDisplayValue('pri')).toBeInTheDocument()
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
 
       // When the user clicks the clear button
       await user.click(getClearButton('Clear input'))
 
-      // Then input value has been cleared but selected items remain selected
+      // Then input value has been cleared and all items have been unselected
       expect(screen.getByDisplayValue('')).toBeInTheDocument()
-      expect(getItem('1984')).toHaveAttribute('aria-selected', 'true')
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'false')
+      expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
     })
 
     it('should focus on last selected item chip from input', async () => {

@@ -368,7 +368,7 @@ export const Statuses: StoryFn = () => {
 export const MultipleSelection: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox multiple allowCustomValue defaultValue={['book-1', 'book-2']}>
+      <Combobox multiple defaultValue={['book-1', 'book-2']}>
         <Combobox.Trigger>
           <Combobox.LeadingIcon>
             <PenOutline />
