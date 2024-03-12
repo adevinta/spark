@@ -19,6 +19,7 @@ import { SnackbarItemAction } from './SnackbarItemAction'
 import { SnackbarItemClose } from './SnackbarItemClose'
 import { useSnackbarItemContext } from './SnackbarItemContext'
 import { SnackbarItemIcon } from './SnackbarItemIcon'
+import { useSwipe } from './useSwipe'
 
 export interface SnackbarItemValue extends SnackbarItemVariantProps {
   /**
@@ -80,6 +81,8 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
     const innerRef = useRef(null)
     const ref = typeof forwardedRef !== 'function' ? forwardedRef || innerRef : innerRef
 
+    const { state: swipeState, direction: swipeDirection } = useSwipe({ swipeRef: ref })
+
     const { toast, state } = useSnackbarItemContext()
 
     const { message, icon, isClosable, onAction, actionLabel } = toast.content
@@ -122,6 +125,8 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
         {...toastProps}
         {...rest}
         data-animation={toast.animation}
+        data-swipe={swipeState}
+        data-swipe-direction={swipeDirection}
         {...(toast.animation === 'exiting' && {
           // Remove snackbar when the exiting animation completes
           onAnimationEnd: () => state.remove(toast.key),
