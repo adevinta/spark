@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/adevinta/spark/compare/@spark-ui/divider@0.1.0...@spark-ui/divider@1.0.0) (2024-03-12)
+
+### Bug Fixes
+
+- **divider:** release the divider component ([d8740a7](https://github.com/adevinta/spark/commit/d8740a7ee2386f48f5c6682faab0e8e9d9caf5cc))
+
 # 0.1.0 (2023-10-31)
 
 ### Bug Fixes
