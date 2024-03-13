@@ -34,7 +34,6 @@ export const Trigger = forwardRef(
     const readOnly = field.readOnly || ctx.readOnly
 
     const hasClearButton = !!clearButton && !disabled && !readOnly
-    const hasDisclosure = !!disclosure && !disabled && !readOnly
 
     return (
       <>
@@ -62,7 +61,7 @@ export const Trigger = forwardRef(
               {input}
             </div>
             {hasClearButton && clearButton}
-            {hasDisclosure && disclosure}
+            {disclosure}
           </div>
         </PopoverAnchor>
       </>
