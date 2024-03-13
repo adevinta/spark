@@ -4,6 +4,7 @@ import { filledVariants, tintedVariants } from './snackbarVariants'
 
 export const snackbarItemVariant = cva(
   [
+    'col-start-1 row-start-1',
     'inline-flex items-center gap-md',
     'px-md',
     'rounded-md shadow',
@@ -27,19 +28,25 @@ export const snackbarItemVariant = cva(
     'data-[animation=entering]:spark-anime-easing-decelerate-back',
     'data-[animation=exiting]:spark-anime-easing-standard',
     // Parent position bottom|bottom-left|bottom-right
-    'group-data-[position=bottom]:data-[animation=entering]:animate-slide-in-bottom',
-    'group-data-[position=bottom]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
-    'group-data-[position=bottom-left]:data-[animation=entering]:animate-slide-in-bottom',
-    'group-data-[position=bottom-left]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
-    'group-data-[position=bottom-right]:data-[animation=entering]:animate-slide-in-bottom',
-    'group-data-[position=bottom-right]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
+    '[&:not([data-swipe])]:group-data-[position=bottom]:data-[animation=entering]:animate-slide-in-bottom',
+    '[&:not([data-swipe])]:group-data-[position=bottom]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
+    '[&:not([data-swipe])]:group-data-[position=bottom-left]:data-[animation=entering]:animate-slide-in-bottom',
+    '[&:not([data-swipe])]:group-data-[position=bottom-left]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
+    '[&:not([data-swipe])]:group-data-[position=bottom-right]:data-[animation=entering]:animate-slide-in-bottom',
+    '[&:not([data-swipe])]:group-data-[position=bottom-right]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
     // Parent position top|top-left|top-right
-    'group-data-[position=top]:data-[animation=entering]:animate-slide-in-top',
-    'group-data-[position=top]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
-    'group-data-[position=top-left]:data-[animation=entering]:animate-slide-in-top',
-    'group-data-[position=top-left]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
-    'group-data-[position=top-right]:data-[animation=entering]:animate-slide-in-top',
-    'group-data-[position=top-right]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
+    '[&:not([data-swipe])]:group-data-[position=top]:data-[animation=entering]:animate-slide-in-top',
+    '[&:not([data-swipe])]:group-data-[position=top]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
+    '[&:not([data-swipe])]:group-data-[position=top-left]:data-[animation=entering]:animate-slide-in-top',
+    '[&:not([data-swipe])]:group-data-[position=top-left]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
+    '[&:not([data-swipe])]:group-data-[position=top-right]:data-[animation=entering]:animate-slide-in-top',
+    '[&:not([data-swipe])]:group-data-[position=top-right]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
+    /**
+     * Swipe
+     */
+    'data-[swipe=move]:data-[swipe-direction=right]:translate-x-[--swipe-position-x]',
+    'data-[swipe=cancel]:translate-x-none',
+    'data-[swipe=end]:data-[swipe-direction=right]:animate-swipe-out-right',
   ],
   {
     variants: {

@@ -1,60 +1,97 @@
+/* eslint-disable complexity */
 import { type RefObject, useEffect, useRef, useState } from 'react'
 
 interface UseSwipeArgs<T> {
   swipeRef: RefObject<T>
+  onSwipeStart?: () => void
+  onSwipeMove?: () => void
+  onSwipeCancel?: () => void
+  onSwipeEnd?: () => void
   threshold?: number
 }
 
 interface UseSwipeReturn {
-  state?: 'start' | 'move' | 'end'
+  state?: 'start' | 'move' | 'cancel' | 'end'
   direction?: 'up' | 'down' | 'right' | 'left'
 }
 
+const SWIPE_THRESHOLD = 75
+
 export const useSwipe = <T extends HTMLElement>({
   swipeRef,
+  onSwipeStart,
+  onSwipeMove,
+  onSwipeCancel,
+  onSwipeEnd,
   threshold = 10,
 }: UseSwipeArgs<T>): UseSwipeReturn => {
-  const [state, setState] = useState<UseSwipeReturn['state'] | undefined>()
-  const [direction, setDirection] = useState<UseSwipeReturn['direction'] | undefined>()
+  const [state, setState] = useState<UseSwipeReturn['state']>()
+  const [direction, setDirection] = useState<UseSwipeReturn['direction']>()
 
-  const P0 = useRef<Record<'x' | 'y', number> | null>(null)
-  const P1 = useRef<Record<'x' | 'y', number> | null>(null)
+  const origin = useRef<Record<'x' | 'y', number> | null>(null)
+  const delta = useRef<Record<'x' | 'y', number> | null>(null)
 
-  const onSwipeStart = (evt: PointerEvent) => {
-    P0.current = { x: evt.clientX, y: evt.clientY }
+  const handleSwipeStart = (evt: PointerEvent) => {
+    origin.current = { x: evt.clientX, y: evt.clientY }
+    onSwipeStart?.()
   }
 
-  const onSwipeMove = (evt: PointerEvent) => {
-    if (!P0.current) return
+  const handleSwipeMove = (evt: PointerEvent) => {
+    if (!origin.current) return
 
-    const diffX = Math.abs(evt.clientX - P0.current.x)
-    const diffY = Math.abs(evt.clientY - P0.current.y)
+    const deltaX = Math.abs(evt.clientX - origin.current.x)
+    const deltaY = Math.abs(evt.clientY - origin.current.y)
 
-    if (diffX > diffY && diffX >= threshold) {
-      setDirection(evt.clientX > P0.current.x ? 'right' : 'left')
-    } else if (diffY > threshold) {
-      setDirection(evt.clientY > P0.current.y ? 'down' : 'up')
+    if (deltaX > deltaY && deltaX > threshold) {
+      setDirection(evt.clientX > origin.current.x ? 'right' : 'left')
+    } else if (deltaY > threshold) {
+      setDirection(evt.clientY > origin.current.y ? 'down' : 'up')
     }
 
-    if (!P1.current) {
+    if (!delta.current) {
       setState('start')
-      P1.current = { x: evt.clientX, y: evt.clientY }
+      delta.current = { x: deltaX, y: deltaY }
     } else {
       setState('move')
-      P1.current = { x: evt.clientX, y: evt.clientY }
-      ;(evt.currentTarget as T).style.setProperty('--swipe-move-x', `${Math.round(evt.clientX)}px`)
-      ;(evt.currentTarget as T).style.setProperty('--swipe-move-y', `${Math.round(evt.clientY)}px`)
+      delta.current = { x: deltaX, y: deltaY }
+      ;(evt.currentTarget as T).style.setProperty(
+        '--swipe-position-x',
+        `${deltaX > deltaY ? evt.clientX - origin.current.x : 0}px`
+      )
+      ;(evt.currentTarget as T).style.setProperty(
+        '--swipe-position-y',
+        `${!(deltaX > deltaY) ? evt.clientY - origin.current.y : 0}px`
+      )
     }
+
+    onSwipeMove?.()
   }
 
-  const onSwipeEnd = (evt: PointerEvent) => {
-    if (!P1.current) return
-    setState('end')
+  const handleSwipeEnd = () => {
+    if (!delta.current) return
 
-    P0.current = null
-    P1.current = null
-    ;(evt.currentTarget as T).style.removeProperty('--swipe-move-x')
-    ;(evt.currentTarget as T).style.removeProperty('--swipe-move-y')
+    const { x: deltaX, y: deltaY } = delta.current
+
+    origin.current = null
+    delta.current = null
+
+    if (deltaX > deltaY) {
+      if (deltaX > SWIPE_THRESHOLD) {
+        setState('end')
+        onSwipeEnd?.()
+      } else {
+        setState('cancel')
+        onSwipeCancel?.()
+      }
+    } else {
+      if (deltaY > SWIPE_THRESHOLD) {
+        setState('end')
+        onSwipeEnd?.()
+      } else {
+        setState('cancel')
+        onSwipeCancel?.()
+      }
+    }
   }
 
   useEffect(() => {
@@ -62,14 +99,14 @@ export const useSwipe = <T extends HTMLElement>({
 
     const swipeElement = swipeRef.current
 
-    swipeElement.addEventListener('pointerdown', onSwipeStart)
-    swipeElement.addEventListener('pointermove', onSwipeMove)
-    swipeElement.addEventListener('pointerup', onSwipeEnd)
+    swipeElement.addEventListener('pointerdown', handleSwipeStart)
+    swipeElement.addEventListener('pointermove', handleSwipeMove)
+    swipeElement.addEventListener('pointerup', handleSwipeEnd)
 
     return () => {
-      swipeElement.removeEventListener('pointerdown', onSwipeStart)
-      swipeElement.removeEventListener('pointermove', onSwipeMove)
-      swipeElement.removeEventListener('pointerup', onSwipeEnd)
+      swipeElement.removeEventListener('pointerdown', handleSwipeStart)
+      swipeElement.removeEventListener('pointermove', handleSwipeMove)
+      swipeElement.removeEventListener('pointerup', handleSwipeEnd)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
