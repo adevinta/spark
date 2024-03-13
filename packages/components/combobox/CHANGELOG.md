@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.4.0...@spark-ui/combobox@0.5.0) (2024-03-13)
+
+### Bug Fixes
+
+- **combobox:** a11y ([6149b6b](https://github.com/adevinta/spark/commit/6149b6ba0a99fb3fbd189a9db175385e21b53adb))
+- **combobox:** disclosure ([52eb035](https://github.com/adevinta/spark/commit/52eb035abd5880840a9f83467f655a07b3e97605))
+- **combobox:** multiple selection logic ([8b8424b](https://github.com/adevinta/spark/commit/8b8424b77d227703aa61f95b2d66fdf1555946a3))
+
+### Features
+
+- **combobox:** add readOnly and disabled state ([203a26f](https://github.com/adevinta/spark/commit/203a26f385d8c5757e239802943ec09079e6ad64))
+
 # [0.4.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.3.5...@spark-ui/combobox@0.4.0) (2024-03-12)
 
 ### Features
