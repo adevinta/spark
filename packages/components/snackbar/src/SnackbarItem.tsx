@@ -81,9 +81,12 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
     const innerRef = useRef(null)
     const ref = typeof forwardedRef !== 'function' ? forwardedRef || innerRef : innerRef
 
-    const { state: swipeState, direction: swipeDirection } = useSwipe({ swipeRef: ref })
-
     const { toast, state } = useSnackbarItemContext()
+
+    const { state: swipeState, direction: swipeDirection } = useSwipe({
+      swipeRef: ref,
+      onSwipeEnd: () => state.close(toast.key),
+    })
 
     const { message, icon, isClosable, onAction, actionLabel } = toast.content
     const intent = intentProp ?? toast.content.intent
