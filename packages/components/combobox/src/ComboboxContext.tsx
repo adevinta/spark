@@ -1,6 +1,7 @@
 import { useId } from '@radix-ui/react-id'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
+import { useCombinedState } from '@spark-ui/use-combined-state'
 import { useCombobox, useMultipleSelection } from 'downshift'
 import {
   createContext,
@@ -83,11 +84,11 @@ interface ComboboxPropsSingle {
   /**
    * The controlled value of the select. Should be used in conjunction with `onValueChange`.
    */
-  value?: string
+  value?: string | null
   /**
    * Event handler called when the value changes.
    */
-  onValueChange?: (value: string) => void
+  onValueChange?: (value: string | undefined) => void
 }
 
 interface ComboboxPropsMultiple {
@@ -130,25 +131,74 @@ export const ComboboxProvider = ({
   defaultValue,
   disabled: disabledProp = false,
   multiple = false,
-  // onValueChange,
   readOnly: readOnlyProp = false,
   state: stateProp,
+  // controlled behaviour,
+  value: controlledValue,
+  onValueChange,
 }: ComboboxContextProps) => {
+  const isMounted = useRef(false)
+
   // Input state
   const [inputValue, setInputValue] = useState<string | undefined>('')
   const triggerAreaRef = useRef<HTMLDivElement>(null)
   const innerInputRef = useRef<HTMLInputElement>(null)
+
+  const [comboboxValue] = useCombinedState(controlledValue, defaultValue)
 
   // Items state
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
   const [filteredItemsMap, setFilteredItems] = useState(
     autoFilter ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap
   )
+
+  const [selectedItem, setSelectedItem] = useState<ComboboxItem | null>(
+    itemsMap.get(comboboxValue as string) || null
+  )
+
   const [selectedItems, setSelectedItems] = useState<ComboboxItem[]>(
-    defaultValue
-      ? [...itemsMap.values()].filter(item => (defaultValue as string[]).includes(item.value))
+    comboboxValue
+      ? [...itemsMap.values()].filter(item => (comboboxValue as string[]).includes(item.value))
       : []
   )
+
+  const onInternalSelectedItemChange = (item: ComboboxItem | null) => {
+    setSelectedItem(item)
+    setTimeout(() => {
+      onValueChange?.(item?.value as string & string[])
+    }, 0)
+  }
+
+  const onInternalSelectedItemsChange = (items: ComboboxItem[]) => {
+    setSelectedItems(items)
+    setTimeout(() => {
+      onValueChange?.(items.map(i => i.value) as string & string[])
+    }, 0)
+  }
+
+  // Sync internal state with controlled value
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true
+
+      return
+    }
+
+    if (multiple) {
+      const newSelectedItems = (comboboxValue as string[]).reduce(
+        (accum: ComboboxItem[], value) => {
+          const match = itemsMap.get(value)
+
+          return match ? [...accum, match] : accum
+        },
+        []
+      )
+
+      setSelectedItems(comboboxValue ? newSelectedItems : [])
+    } else {
+      setSelectedItem(itemsMap.get(comboboxValue as string) || null)
+    }
+  }, [multiple ? JSON.stringify(comboboxValue) : comboboxValue])
 
   // Form field state
   const field = useFormFieldControl()
@@ -170,25 +220,29 @@ export const ComboboxProvider = ({
   const multiselect = useMultipleSelection<ComboboxItem>({
     selectedItems,
     stateReducer: (state, { type, changes }) => {
+      const types = useMultipleSelection.stateChangeTypes
+
       switch (type) {
-        case useMultipleSelection.stateChangeTypes.SelectedItemKeyDownDelete:
-          setSelectedItems(changes.selectedItems || [])
+        case types.SelectedItemKeyDownBackspace:
+        case types.SelectedItemKeyDownDelete: {
+          onInternalSelectedItemsChange(changes.selectedItems || [])
+
+          let activeIndex
+
+          if (type === types.SelectedItemKeyDownDelete) {
+            const isLastItem = state?.activeIndex === changes.selectedItems?.length
+            activeIndex = isLastItem ? -1 : state.activeIndex
+          } else {
+            const hasItemBefore = (changes?.activeIndex || 0) - 1 >= 0
+            activeIndex = hasItemBefore ? state.activeIndex - 1 : changes?.activeIndex
+          }
 
           return {
             ...changes,
-            activeIndex:
-              state?.activeIndex === changes.selectedItems?.length ? -1 : state.activeIndex,
+            activeIndex,
           }
-        case useMultipleSelection.stateChangeTypes.SelectedItemKeyDownBackspace:
-          setSelectedItems(changes.selectedItems || [])
-
-          return {
-            ...changes,
-            ...((changes?.activeIndex || 0) - 1 >= 0 && {
-              activeIndex: state.activeIndex - 1,
-            }),
-          }
-        case useMultipleSelection.stateChangeTypes.SelectedItemClick:
+        }
+        case types.SelectedItemClick:
           if (innerInputRef.current) {
             innerInputRef.current.focus()
           }
@@ -197,12 +251,12 @@ export const ComboboxProvider = ({
             ...changes,
             activeIndex: -1, // the focus will remain on the input
           }
-        case useMultipleSelection.stateChangeTypes.FunctionRemoveSelectedItem:
+        case types.FunctionRemoveSelectedItem:
           return {
             ...changes,
             activeIndex: -1, // the focus will remain on the input
           }
-        case useMultipleSelection.stateChangeTypes.DropdownKeyDownNavigationPrevious:
+        case types.DropdownKeyDownNavigationPrevious:
           downshift.closeMenu()
 
           return changes
@@ -221,11 +275,12 @@ export const ComboboxProvider = ({
    */
   const downshift = useCombobox<ComboboxItem>({
     items: filteredItems,
+    selectedItem,
+    // initialSelectedItem: comboboxValue ? itemsMap.get(comboboxValue as string) : undefined,
     id,
     labelId,
     inputValue,
     initialIsOpen: defaultOpen,
-    initialSelectedItem: defaultValue ? itemsMap.get(defaultValue as string) : undefined,
     ...(multiple && { selectedItem: undefined }),
     itemToString: item => {
       return (item as ComboboxItem)?.text
@@ -252,11 +307,12 @@ export const ComboboxProvider = ({
           multiselect,
           selectedItems,
           allowCustomValue,
-          setSelectedItems,
+          setSelectedItems: onInternalSelectedItemsChange,
           triggerAreaRef,
         })
       : singleSelectionReducer({
           allowCustomValue,
+          setSelectedItem: onInternalSelectedItemChange,
           filteredItems: [...filteredItemsMap.values()],
         }),
   })
@@ -321,8 +377,9 @@ export const ComboboxProvider = ({
         // Downshift state
         ...downshift,
         ...multiselect,
-        setInputValue, // todo -override downshift logic (merge)
-        setSelectedItems, // todo -override downshift logic (merge)
+        setInputValue,
+        selectItem: onInternalSelectedItemChange,
+        setSelectedItems: onInternalSelectedItemsChange,
       }}
     >
       <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>
