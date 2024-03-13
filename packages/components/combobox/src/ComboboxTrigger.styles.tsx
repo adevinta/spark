@@ -2,8 +2,8 @@ import { cva } from 'class-variance-authority'
 
 export const styles = cva(
   [
-    'flex w-full items-start gap-md cursor-text',
-    'min-h-sz-44 p-md rounded-lg bg-surface text-on-surface px-lg',
+    'flex w-full items-start gap-md',
+    'min-h-sz-44 p-md rounded-lg px-lg',
     // outline styles
     'ring-1 outline-none ring-inset focus-within:ring-2',
   ],
@@ -16,10 +16,10 @@ export const styles = cva(
         success: 'ring-success',
       },
       disabled: {
-        true: 'disabled:bg-on-surface/dim-5 cursor-not-allowed text-on-surface/dim-3',
+        true: 'cursor-not-allowed border-outline bg-on-surface/dim-5 text-on-surface/dim-3',
       },
       readOnly: {
-        true: 'disabled:bg-on-surface/dim-5 cursor-not-allowed text-on-surface/dim-3',
+        true: 'cursor-default bg-on-surface/dim-5 text-on-surface',
       },
     },
     compoundVariants: [
@@ -28,6 +28,16 @@ export const styles = cva(
         state: undefined,
         class: 'hover:ring-outline-high',
       },
+      {
+        disabled: false,
+        readOnly: false,
+        class: 'bg-surface text-on-surface cursor-text',
+      },
     ],
+    defaultVariants: {
+      state: undefined,
+      disabled: false,
+      readOnly: false,
+    },
   }
 )

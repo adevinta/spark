@@ -29,6 +29,7 @@ export const Disclosure = forwardRef(
     const ctx = useComboboxContext()
 
     const { ref: downshiftRef, ...downshiftDisclosureProps } = ctx.getToggleButtonProps({
+      disabled: ctx.disabled || ctx.readOnly,
       onClick: event => {
         event.stopPropagation()
       },
@@ -46,6 +47,7 @@ export const Disclosure = forwardRef(
         {...downshiftDisclosureProps}
         {...props}
         aria-label={isOpen ? openedLabel : closedLabel}
+        disabled={ctx.disabled}
       >
         <Icon>
           <Icon className="shrink-0" size="sm">
