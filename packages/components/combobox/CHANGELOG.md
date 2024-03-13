@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.5.0...@spark-ui/combobox@0.6.0) (2024-03-13)
+
+### Features
+
+- **combobox:** combobox controlled value behaviour ([b6e513a](https://github.com/adevinta/spark/commit/b6e513a08683095e1ce9e5e1b65ff525d40cacd3))
+
 # [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.4.0...@spark-ui/combobox@0.5.0) (2024-03-13)
 
 ### Bug Fixes
