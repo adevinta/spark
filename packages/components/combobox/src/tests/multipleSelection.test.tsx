@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { useState } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { Combobox } from '..'
@@ -326,6 +327,51 @@ describe('Combobox', () => {
 
       // Then the focus is moved to the input and item has been unselected
       expect(getInput('Book')).toHaveFocus()
+    })
+
+    it('should update value in controlled mode', async () => {
+      const user = userEvent.setup()
+
+      // Given we control value by outside state and selected value
+      const ControlledImplementation = () => {
+        const [value, setValue] = useState(['book-1'])
+
+        return (
+          <Combobox multiple value={value} onValueChange={setValue} autoFilter={false}>
+            <Combobox.Trigger>
+              <Combobox.SelectedItems />
+              <Combobox.Input aria-label="Book" />
+            </Combobox.Trigger>
+            <Combobox.Popover>
+              <Combobox.Items>
+                <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+                <Combobox.Item value="book-2">1984</Combobox.Item>
+                <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+              </Combobox.Items>
+            </Combobox.Popover>
+          </Combobox>
+        )
+      }
+
+      render(<ControlledImplementation />)
+
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
+      expect(getSelectedItem('War and Peace')).toBeInTheDocument()
+
+      expect(screen.getByDisplayValue('')).toBeInTheDocument()
+
+      // when the user select another item
+      await user.click(getInput('Book'))
+      await user.click(getItem('Pride and Prejudice'))
+
+      // Then the selected values have been updated and input remain empty
+      expect(screen.getByDisplayValue('')).toBeInTheDocument()
+
+      expect(getSelectedItem('War and Peace')).toBeInTheDocument()
+      expect(getItem('War and Peace')).toHaveAttribute('aria-selected', 'true')
+
+      expect(getSelectedItem('Pride and Prejudice')).toBeInTheDocument()
+      expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
     })
 
     describe('blur behaviour', () => {

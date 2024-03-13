@@ -2,8 +2,8 @@ import { cva } from 'class-variance-authority'
 
 export const styles = cva(
   [
-    'flex w-full items-start gap-md',
-    'min-h-sz-44 p-md rounded-lg px-lg',
+    'flex items-start gap-md',
+    'min-h-sz-44 h-fit p-md rounded-lg px-lg',
     // outline styles
     'ring-1 outline-none ring-inset focus-within:ring-2',
   ],

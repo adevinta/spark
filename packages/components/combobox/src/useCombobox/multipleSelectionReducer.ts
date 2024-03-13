@@ -6,7 +6,7 @@ interface Props {
   allowCustomValue?: boolean
   selectedItems: ComboboxItem[]
   multiselect: UseMultipleSelectionReturnValue<ComboboxItem>
-  setSelectedItems: (value: React.SetStateAction<ComboboxItem[]>) => void
+  setSelectedItems: (items: ComboboxItem[]) => void
   triggerAreaRef: React.RefObject<HTMLDivElement>
 }
 

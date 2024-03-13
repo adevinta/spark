@@ -1,7 +1,9 @@
 /* eslint-disable max-lines */
 // import { Button } from '@spark-ui/button'
+import { Checkbox, CheckboxGroup } from '@spark-ui/checkbox'
 import { FormField } from '@spark-ui/form-field'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
+import { RadioGroup } from '@spark-ui/radio-group'
 import { Tag } from '@spark-ui/tag'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { Meta, StoryFn } from '@storybook/react'
@@ -41,6 +43,46 @@ export const Default: StoryFn = _args => {
           </Combobox.Items>
         </Combobox.Popover>
       </Combobox>
+    </div>
+  )
+}
+
+export const Controlled: StoryFn = _args => {
+  const [value, setValue] = useState<string | undefined>('book-2')
+
+  return (
+    <div className="flex flex-wrap gap-lg pb-[300px]">
+      <Combobox autoFilter={false} value={value} onValueChange={setValue}>
+        <Combobox.Trigger className="grow">
+          <Combobox.LeadingIcon>
+            <PenOutline />
+          </Combobox.LeadingIcon>
+          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.ClearButton aria-label="Clear input" />
+          <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
+        </Combobox.Trigger>
+
+        <Combobox.Popover>
+          <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
+            <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
+            <Combobox.Item value="book-2">War and Peace</Combobox.Item>
+            <Combobox.Item value="book-3">The Idiot</Combobox.Item>
+            <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
+            <Combobox.Item value="book-5">1984</Combobox.Item>
+            <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
+          </Combobox.Items>
+        </Combobox.Popover>
+      </Combobox>
+
+      <RadioGroup value={value || ''} onValueChange={setValue} className="grow">
+        <RadioGroup.Radio value="book-1">To Kill a Mockingbird</RadioGroup.Radio>
+        <RadioGroup.Radio value="book-2">War and Peace</RadioGroup.Radio>
+        <RadioGroup.Radio value="book-3">The Idiot</RadioGroup.Radio>
+        <RadioGroup.Radio value="book-4">A Picture of Dorian Gray</RadioGroup.Radio>
+        <RadioGroup.Radio value="book-5">1984</RadioGroup.Radio>
+        <RadioGroup.Radio value="book-6">Pride and Prejudice</RadioGroup.Radio>
+      </RadioGroup>
     </div>
   )
 }
@@ -373,6 +415,44 @@ export const MultipleSelection: StoryFn = _args => {
           <Combobox.LeadingIcon>
             <PenOutline />
           </Combobox.LeadingIcon>
+          <Combobox.SelectedItems />
+          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.ClearButton aria-label="Clear input" />
+          <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
+        </Combobox.Trigger>
+
+        <Combobox.Popover>
+          <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
+            <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
+            <Combobox.Item value="book-2">War and Peace</Combobox.Item>
+            <Combobox.Item value="book-3">The Idiot</Combobox.Item>
+            <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
+            <Combobox.Item value="book-5">1984</Combobox.Item>
+            <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
+          </Combobox.Items>
+        </Combobox.Popover>
+      </Combobox>
+    </div>
+  )
+}
+
+export const MultipleSelectionControlled: StoryFn = _args => {
+  const [value, setValue] = useState<string[]>(['book-2'])
+
+  return (
+    <div className="flex flex-col gap-lg pb-[300px]">
+      <CheckboxGroup value={value} onCheckedChange={setValue} className="grow">
+        <Checkbox value="book-1">To Kill a Mockingbird</Checkbox>
+        <Checkbox value="book-2">War and Peace</Checkbox>
+        <Checkbox value="book-3">The Idiot</Checkbox>
+        <Checkbox value="book-4">A Picture of Dorian Gray</Checkbox>
+        <Checkbox value="book-5">1984</Checkbox>
+        <Checkbox value="book-6">Pride and Prejudice</Checkbox>
+      </CheckboxGroup>
+
+      <Combobox multiple autoFilter={false} value={value} onValueChange={setValue}>
+        <Combobox.Trigger>
           <Combobox.SelectedItems />
           <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           <Combobox.ClearButton aria-label="Clear input" />
