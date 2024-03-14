@@ -101,6 +101,22 @@ describe('RadioGroup', () => {
     expect(props.onValueChange).not.toHaveBeenCalled()
   })
 
+  it('should be possible to disable a specific Radio item within a group', async () => {
+    const props = { value: '2', onValueChange: vi.fn() }
+
+    render(
+      <RadioGroup {...props}>
+        <RadioGroup.Radio disabled value="1">
+          1
+        </RadioGroup.Radio>
+        <RadioGroup.Radio value="2">2</RadioGroup.Radio>
+        <RadioGroup.Radio value="3">3</RadioGroup.Radio>
+      </RadioGroup>
+    )
+
+    expect(screen.getByLabelText('1')).toBeDisabled()
+  })
+
   describe('with FormField', () => {
     it('should render with label', () => {
       render(
