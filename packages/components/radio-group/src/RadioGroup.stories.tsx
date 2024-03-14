@@ -121,6 +121,16 @@ export const Disabled: StoryFn = _args => (
   </RadioGroup>
 )
 
+export const DisabledItem: StoryFn = _args => (
+  <RadioGroup>
+    <RadioGroup.Radio value="1">First</RadioGroup.Radio>
+    <RadioGroup.Radio disabled value="2">
+      Second
+    </RadioGroup.Radio>
+    <RadioGroup.Radio value="3">Third</RadioGroup.Radio>
+  </RadioGroup>
+)
+
 export const CustomImplementation: StoryFn = () => {
   const CustomRadio = ({
     children,

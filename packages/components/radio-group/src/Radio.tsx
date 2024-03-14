@@ -23,6 +23,7 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
           intent={intent}
           aria-labelledby={children ? innerLabelId : undefined}
           {...others}
+          disabled={disabledProp}
         />
 
         {children && (
