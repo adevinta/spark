@@ -180,17 +180,24 @@ This is up to the developer to make it clear to the user which items are selecte
 
 <Canvas of={stories.MultipleSelectionControlled} />
 
+### Disabled
+
+Use `disabled` on the root component to disable the combobox entirely.
+
+<Canvas of={stories.MultipleSelectionDisabled} />
+
 ### Read only
 
 Use `readOnly` prop to indicate the combobox is only readable.
 
 <Canvas of={stories.MultipleSelectionReadonly} />
 
-### Disabled
+### Single line
 
-Use `disabled` on the root component to disable the combobox entirely.
+Set `wrap` property to `false` if you wish to keep the component on a single line.
+This can be useful when the component is used inside a sticky navbar.
 
-<Canvas of={stories.MultipleSelectionDisabled} />
+<Canvas of={stories.MultipleSelectionNoWrap} />
 
 ## Advanced usage
 

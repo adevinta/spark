@@ -2,13 +2,17 @@ import { cva } from 'class-variance-authority'
 
 export const styles = cva(
   [
-    'flex items-start gap-md',
-    'min-h-sz-44 h-fit p-md rounded-lg px-lg',
+    'flex items-start gap-md min-h-sz-44',
+    'h-fit rounded-lg px-lg',
     // outline styles
     'ring-1 outline-none ring-inset focus-within:ring-2',
   ],
   {
     variants: {
+      allowWrap: {
+        true: '',
+        false: 'h-sz-44',
+      },
       state: {
         undefined: 'ring-outline focus-within:ring-outline-high',
         error: 'ring-error',

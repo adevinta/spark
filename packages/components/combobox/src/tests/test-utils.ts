@@ -21,21 +21,19 @@ export const queryItem = (accessibleName: string) => {
 }
 
 export const getSelectedItem = (accessibleName: string) => {
-  return screen.getByText(accessibleName, {
-    selector: '[data-spark-component="combobox-selected-items"]',
+  const selectedItemDivs = screen.queryAllByRole('presentation')
+
+  const matchingItem = selectedItemDivs.find(item => {
+    return within(item).queryByText(accessibleName)
   })
+
+  return matchingItem || (null as any as HTMLElement)
 }
 
 export const getSelectedItemClearButton = (accessibleName: string) => {
   const selectedItem = getSelectedItem(accessibleName)
 
-  return within(selectedItem).getByRole('button', { hidden: true })
-}
-
-export const querySelectedItem = (accessibleName: string) => {
-  return screen.queryByText(accessibleName, {
-    selector: '[data-spark-component="combobox-selected-items"]',
-  })
+  return within(selectedItem as HTMLElement).getByRole('button', { hidden: true })
 }
 
 export const getClearButton = (accessibleName: string) => {

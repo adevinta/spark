@@ -3,6 +3,7 @@ import { Icon } from '@spark-ui/icon'
 import { IconButton } from '@spark-ui/icon-button'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
+import { cx } from 'class-variance-authority'
 import { ComponentProps, forwardRef, type Ref } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
@@ -40,7 +41,7 @@ export const Disclosure = forwardRef(
     return (
       <IconButton
         ref={ref}
-        className={className}
+        className={cx(className, 'mt-[calc((44px-32px)/2)]')}
         intent={intent}
         design={design}
         size={size}

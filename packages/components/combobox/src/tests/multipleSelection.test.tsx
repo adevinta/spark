@@ -10,7 +10,6 @@ import {
   getItem,
   getSelectedItem,
   getSelectedItemClearButton,
-  querySelectedItem,
 } from './test-utils'
 
 describe('Combobox', () => {
@@ -119,7 +118,7 @@ describe('Combobox', () => {
       await user.click(getItem('1984'))
 
       // Then chip has been removed and item is unselected
-      expect(querySelectedItem('1984')).not.toBeInTheDocument()
+      expect(getSelectedItem('1984')).not.toBeInTheDocument()
       expect(getItem('1984')).toHaveAttribute('aria-selected', 'false')
     })
 

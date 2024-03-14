@@ -1,11 +1,13 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import React, { forwardRef, Fragment, ReactNode, type Ref } from 'react'
+import { cx } from 'class-variance-authority'
+import React, { forwardRef, Fragment, ReactNode, type Ref, useEffect, useRef } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 import { styles } from './ComboboxTrigger.styles'
 import { findElement } from './utils'
+import { useWidthIncreaseCallback } from './utils/useWidthIncreaseCallback'
 
 interface TriggerProps {
   className?: string
@@ -29,11 +31,41 @@ export const Trigger = forwardRef(
       : [Fragment, {}]
 
     const ref = useMergeRefs(forwardedRef, ctx.triggerAreaRef)
+    const scrollableAreaRef = useRef<HTMLDivElement>(null)
 
     const disabled = field.disabled || ctx.disabled
     const readOnly = field.readOnly || ctx.readOnly
 
     const hasClearButton = !!clearButton && !disabled && !readOnly
+
+    /**
+     * In case wrap behaviour is disabled, we sometimes need to scroll to the right-side of the trigger:
+     * - when a selected item chip is added.
+     * - when the component width changes (window resizing, etc.)
+     *
+     * The goal is that the typing area remains visible at all times.
+     */
+    const scrollToRight = () => {
+      if (scrollableAreaRef.current && !ctx.wrap) {
+        const { scrollWidth, clientWidth } = scrollableAreaRef.current
+        // Scroll to the rightmost position
+        scrollableAreaRef.current.scrollLeft = scrollWidth - clientWidth
+      }
+    }
+
+    useWidthIncreaseCallback(scrollableAreaRef, scrollToRight)
+
+    useEffect(() => {
+      const resizeObserver = new ResizeObserver(scrollToRight)
+
+      if (scrollableAreaRef.current) {
+        resizeObserver.observe(scrollableAreaRef.current)
+      }
+
+      return () => {
+        resizeObserver.disconnect()
+      }
+    }, [])
 
     return (
       <>
@@ -45,6 +77,7 @@ export const Trigger = forwardRef(
               state: ctx.state,
               disabled,
               readOnly,
+              allowWrap: ctx.wrap,
             })}
             onClick={() => {
               if (!ctx.isOpen && !disabled && !readOnly) {
@@ -56,7 +89,13 @@ export const Trigger = forwardRef(
             }}
           >
             {leadingIcon}
-            <div className="inline-flex grow flex-wrap items-center gap-sm py-sm">
+            <div
+              ref={scrollableAreaRef}
+              className={cx(
+                'inline-flex grow items-start gap-sm py-md',
+                ctx.wrap ? 'flex-wrap' : 'overflow-x-auto p-[2px] u-no-scrollbar'
+              )}
+            >
               {selectedItems}
               {input}
             </div>

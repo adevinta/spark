@@ -32,7 +32,7 @@ export const ClearButton = forwardRef<HTMLButtonElement, ClearButtonProps>(
     return (
       <button
         ref={ref}
-        className={cx(className, 'py-md text-neutral hover:text-neutral-hovered')}
+        className={cx(className, 'h-sz-44 text-neutral hover:text-neutral-hovered')}
         tabIndex={tabIndex}
         onClick={handleClick}
         type="button"
