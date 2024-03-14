@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.2.1...@spark-ui/radio-group@2.2.2) (2024-03-14)
+
+### Bug Fixes
+
+- **radio-group:** properly enable the disabling of individual radio items ([8324795](https://github.com/adevinta/spark/commit/8324795fe0a1bf2fdf2e0dd2b9c438861a65ecb4))
+
 ## [2.2.1](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.2.0...@spark-ui/radio-group@2.2.1) (2023-12-05)
 
 ### Bug Fixes
