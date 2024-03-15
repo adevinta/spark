@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.7.1...@spark-ui/combobox@0.8.0) (2024-03-15)
+
+### Features
+
+- **combobox:** controlled combobox open state ([72cc803](https://github.com/adevinta/spark/commit/72cc8031e71ed3d9d83e87661dc3bd8e9cb12740))
+
 ## [0.7.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.7.0...@spark-ui/combobox@0.7.1) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/combobox
