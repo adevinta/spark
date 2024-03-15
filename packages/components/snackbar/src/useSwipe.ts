@@ -1,16 +1,16 @@
 /* eslint-disable complexity */
 import { type RefObject, useEffect, useRef, useState } from 'react'
 
-interface UseSwipeArgs<T> {
+interface SwipeArgs<T> {
   swipeRef: RefObject<T>
-  onSwipeStart?: () => void
-  onSwipeMove?: () => void
-  onSwipeCancel?: () => void
-  onSwipeEnd?: () => void
+  onSwipeStart?: ({ state, direction }: SwipeReturn) => void
+  onSwipeMove?: ({ state, direction }: SwipeReturn) => void
+  onSwipeCancel?: ({ state, direction }: SwipeReturn) => void
+  onSwipeEnd?: ({ state, direction }: SwipeReturn) => void
   threshold?: number
 }
 
-interface UseSwipeReturn {
+interface SwipeReturn {
   state?: 'start' | 'move' | 'cancel' | 'end'
   direction?: 'up' | 'down' | 'right' | 'left'
 }
@@ -24,16 +24,17 @@ export const useSwipe = <T extends HTMLElement>({
   onSwipeCancel,
   onSwipeEnd,
   threshold = 10,
-}: UseSwipeArgs<T>): UseSwipeReturn => {
-  const [state, setState] = useState<UseSwipeReturn['state']>()
-  const [direction, setDirection] = useState<UseSwipeReturn['direction']>()
+}: SwipeArgs<T>): SwipeReturn => {
+  const [state, setState] = useState<SwipeReturn['state']>()
+  const [direction, setDirection] = useState<SwipeReturn['direction']>()
+
+  const directionRef = useRef<SwipeReturn['direction']>(direction)
 
   const origin = useRef<Record<'x' | 'y', number> | null>(null)
   const delta = useRef<Record<'x' | 'y', number> | null>(null)
 
   const handleSwipeStart = (evt: PointerEvent) => {
     origin.current = { x: evt.clientX, y: evt.clientY }
-    onSwipeStart?.()
   }
 
   const handleSwipeMove = (evt: PointerEvent) => {
@@ -42,17 +43,21 @@ export const useSwipe = <T extends HTMLElement>({
     const deltaX = Math.abs(evt.clientX - origin.current.x)
     const deltaY = Math.abs(evt.clientY - origin.current.y)
 
+    let moveState: SwipeReturn['state']
+    let moveDirection: SwipeReturn['direction']
+
     if (deltaX > deltaY && deltaX > threshold) {
-      setDirection(evt.clientX > origin.current.x ? 'right' : 'left')
+      moveDirection = evt.clientX > origin.current.x ? 'right' : 'left'
     } else if (deltaY > threshold) {
-      setDirection(evt.clientY > origin.current.y ? 'down' : 'up')
+      moveDirection = evt.clientY > origin.current.y ? 'down' : 'up'
     }
 
     if (!delta.current) {
-      setState('start')
+      moveState = 'start'
       delta.current = { x: deltaX, y: deltaY }
+      onSwipeStart?.({ state: moveState, direction: moveDirection })
     } else {
-      setState('move')
+      moveState = 'move'
       delta.current = { x: deltaX, y: deltaY }
       ;(evt.currentTarget as T).style.setProperty(
         '--swipe-position-x',
@@ -62,9 +67,12 @@ export const useSwipe = <T extends HTMLElement>({
         '--swipe-position-y',
         `${!(deltaX > deltaY) ? evt.clientY - origin.current.y : 0}px`
       )
+      onSwipeMove?.({ state: moveState, direction: moveDirection })
     }
 
-    onSwipeMove?.()
+    directionRef.current = moveDirection
+    setState(moveState)
+    setDirection(moveDirection)
   }
 
   const handleSwipeEnd = () => {
@@ -75,23 +83,27 @@ export const useSwipe = <T extends HTMLElement>({
     origin.current = null
     delta.current = null
 
+    let endState: SwipeReturn['state']
+
     if (deltaX > deltaY) {
       if (deltaX > SWIPE_THRESHOLD) {
-        setState('end')
-        onSwipeEnd?.()
+        endState = 'end'
+        onSwipeEnd?.({ state: endState, direction: directionRef.current })
       } else {
-        setState('cancel')
-        onSwipeCancel?.()
+        endState = 'cancel'
+        onSwipeCancel?.({ state: endState, direction: directionRef.current })
       }
     } else {
       if (deltaY > SWIPE_THRESHOLD) {
-        setState('end')
-        onSwipeEnd?.()
+        endState = 'end'
+        onSwipeEnd?.({ state: endState, direction: directionRef.current })
       } else {
-        setState('cancel')
-        onSwipeCancel?.()
+        endState = 'cancel'
+        onSwipeCancel?.({ state: endState, direction: directionRef.current })
       }
     }
+
+    setState(endState)
   }
 
   useEffect(() => {
