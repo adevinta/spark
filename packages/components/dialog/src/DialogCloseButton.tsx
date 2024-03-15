@@ -10,7 +10,7 @@ type CloseButtonElement = ElementRef<typeof Close>
 export type CloseButtonProps = CloseProps &
   Pick<IconButtonProps, 'size' | 'intent' | 'design' | 'aria-label'>
 
-export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
+const Root = forwardRef<CloseButtonElement, CloseButtonProps>(
   (
     {
       'aria-label': ariaLabel,
@@ -35,5 +35,9 @@ export const CloseButton = forwardRef<CloseButtonElement, CloseButtonProps>(
     </Close>
   )
 )
+
+export const CloseButton = Object.assign(Root, {
+  id: 'CloseButton',
+})
 
 CloseButton.displayName = 'Dialog.CloseButton'
