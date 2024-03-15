@@ -410,7 +410,7 @@ export const Statuses: StoryFn = () => {
 export const MultipleSelection: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox multiple defaultValue={['book-1', 'book-2']}>
+      <Combobox allowCustomValue multiple defaultValue={['book-1', 'book-2']}>
         <Combobox.Trigger>
           <Combobox.LeadingIcon>
             <PenOutline />
@@ -429,7 +429,9 @@ export const MultipleSelection: StoryFn = _args => {
             <Combobox.Item value="book-3">The Idiot</Combobox.Item>
             <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
             <Combobox.Item value="book-5">1984</Combobox.Item>
-            <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
+            <Combobox.Item value="book-6">
+              Pride and Prejudice but it is an extremely long title
+            </Combobox.Item>
           </Combobox.Items>
         </Combobox.Popover>
       </Combobox>
@@ -468,6 +470,43 @@ export const MultipleSelectionControlled: StoryFn = _args => {
             <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
             <Combobox.Item value="book-5">1984</Combobox.Item>
             <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
+          </Combobox.Items>
+        </Combobox.Popover>
+      </Combobox>
+    </div>
+  )
+}
+
+export const MultipleSelectionNoWrap: StoryFn = _args => {
+  return (
+    <div className="pb-[300px]">
+      <Combobox
+        wrap={false}
+        allowCustomValue
+        multiple
+        defaultValue={['book-1', 'book-2', 'book-3', 'book-4', 'book-5', 'book-6']}
+      >
+        <Combobox.Trigger>
+          <Combobox.LeadingIcon>
+            <PenOutline />
+          </Combobox.LeadingIcon>
+          <Combobox.SelectedItems />
+          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.ClearButton aria-label="Clear input" />
+          <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
+        </Combobox.Trigger>
+
+        <Combobox.Popover>
+          <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
+            <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
+            <Combobox.Item value="book-2">War and Peace</Combobox.Item>
+            <Combobox.Item value="book-3">The Idiot</Combobox.Item>
+            <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
+            <Combobox.Item value="book-5">1984</Combobox.Item>
+            <Combobox.Item value="book-6">
+              Pride and Prejudice but it is an extremely long title
+            </Combobox.Item>
           </Combobox.Items>
         </Combobox.Popover>
       </Combobox>

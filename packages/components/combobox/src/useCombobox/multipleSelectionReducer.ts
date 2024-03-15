@@ -1,4 +1,5 @@
 import { useCombobox, UseComboboxProps, UseMultipleSelectionReturnValue } from 'downshift'
+import React from 'react'
 
 import { ComboboxItem } from '../types'
 

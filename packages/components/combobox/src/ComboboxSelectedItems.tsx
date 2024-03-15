@@ -1,5 +1,5 @@
 import { Icon } from '@spark-ui/icon'
-import { Close } from '@spark-ui/icons/dist/icons/Close'
+import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
 import { cx } from 'class-variance-authority'
 
 import { useComboboxContext } from './ComboboxContext'
@@ -22,25 +22,46 @@ export const SelectedItems = () => {
           index,
         })
 
+        const handleFocus = (e: React.FocusEvent<HTMLSpanElement>) => {
+          const element = e.target as HTMLSpanElement
+          if (ctx.lastInteractionType === 'keyboard') {
+            element.scrollIntoView({
+              behavior: 'instant',
+              block: 'nearest',
+              inline: 'nearest',
+            })
+          }
+        }
+
         return (
           <span
-            data-spark-component="combobox-selected-items"
+            role="presentation"
+            data-spark-component="combobox-selected-item"
             key={`selected-item-${index}`}
             className={cx(
-              'flex items-center rounded-sm bg-neutral-container text-on-neutral-container',
+              'flex h-sz-28 items-center rounded-md bg-neutral-container align-middle',
+              'text-body-2 text-on-neutral-container',
               { 'px-md': !isCleanable, 'pl-md': isCleanable }
             )}
             {...selectedItemProps}
             tabIndex={-1}
+            onFocus={handleFocus}
           >
-            {selectedItemForRender.text}
+            <span
+              className={cx(
+                'line-clamp-1 overflow-x-hidden text-ellipsis break-all leading-normal',
+                { 'w-max': !ctx.wrap }
+              )}
+            >
+              {selectedItemForRender.text}
+            </span>
             {ctx.disabled}
             {isCleanable && (
               <button
                 type="button"
                 tabIndex={-1}
                 aria-hidden
-                className="h-full cursor-pointer rounded-r-sm bg-neutral-container px-md"
+                className="h-full cursor-pointer px-md"
                 onClick={e => {
                   e.stopPropagation()
 
@@ -51,12 +72,12 @@ export const SelectedItems = () => {
                   ctx.setSelectedItems(updatedSelectedItems)
 
                   if (ctx.innerInputRef.current) {
-                    ctx.innerInputRef.current.focus()
+                    ctx.innerInputRef.current.focus({ preventScroll: true })
                   }
                 }}
               >
                 <Icon size="sm">
-                  <Close />
+                  <DeleteOutline />
                 </Icon>
               </button>
             )}

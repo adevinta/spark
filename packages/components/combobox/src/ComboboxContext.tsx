@@ -25,14 +25,14 @@ export interface ComboboxContextState extends DownshiftState {
   filteredItemsMap: ItemsMap
   highlightedItem: ComboboxItem | undefined
   hasPopover: boolean
-  setHasPopover: Dispatch<SetStateAction<boolean>>
   multiple: boolean
   disabled: boolean
   readOnly: boolean
+  wrap?: boolean
   state?: 'error' | 'alert' | 'success'
   lastInteractionType: 'mouse' | 'keyboard'
+  setHasPopover: Dispatch<SetStateAction<boolean>>
   setLastInteractionType: (type: 'mouse' | 'keyboard') => void
-
   innerInputRef: React.RefObject<HTMLInputElement>
   triggerAreaRef: React.RefObject<HTMLDivElement>
 }
@@ -70,6 +70,11 @@ export type ComboboxContextCommonProps = PropsWithChildren<{
    * By default, the combobox will clear or restore the input value to the selected item value on blur.
    */
   allowCustomValue?: boolean
+  /**
+   * In multiple selection, many selected items might be displayed. Be default, the combobox trigger will expand vertically to display them all.
+   * If you wish to keep every item on a single line, disabled this property.
+   */
+  wrap?: boolean
 }>
 
 interface ComboboxPropsSingle {
@@ -131,11 +136,11 @@ export const ComboboxProvider = ({
   defaultValue,
   disabled: disabledProp = false,
   multiple = false,
+  onValueChange,
   readOnly: readOnlyProp = false,
   state: stateProp,
-  // controlled behaviour,
   value: controlledValue,
-  onValueChange,
+  wrap = true,
 }: ComboboxContextProps) => {
   const isMounted = useRef(false)
 
@@ -371,6 +376,7 @@ export const ComboboxProvider = ({
         state,
         lastInteractionType,
         setLastInteractionType,
+        wrap,
         // Refs
         innerInputRef,
         triggerAreaRef,

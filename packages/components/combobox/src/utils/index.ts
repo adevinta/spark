@@ -1,7 +1,7 @@
 import React, { type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
 
-import { type ItemProps } from './ComboboxItem'
-import { type ComboboxItem, type ItemsMap } from './types'
+import { type ItemProps } from '../ComboboxItem'
+import { type ComboboxItem, type ItemsMap } from '../types'
 
 export function getIndexByKey(map: ItemsMap, targetKey: string) {
   let index = 0

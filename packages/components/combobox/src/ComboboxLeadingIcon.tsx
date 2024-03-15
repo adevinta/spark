@@ -3,7 +3,7 @@ import { ReactElement } from 'react'
 
 export const LeadingIcon = ({ children }: { children: ReactElement }) => {
   return (
-    <Icon size={'sm'} className="my-md shrink-0">
+    <Icon size={'sm'} className="h-sz-44 shrink-0">
       {children}
     </Icon>
   )
