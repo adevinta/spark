@@ -85,7 +85,9 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
 
     const { state: swipeState, direction: swipeDirection } = useSwipe({
       swipeRef: ref,
-      onSwipeEnd: () => state.close(toast.key),
+      onSwipeEnd: ({ direction }) => {
+        direction === 'right' && state.close(toast.key)
+      },
     })
 
     const { message, icon, isClosable, onAction, actionLabel } = toast.content
