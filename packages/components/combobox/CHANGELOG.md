@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.6.0...@spark-ui/combobox@0.7.0) (2024-03-15)
+
+### Features
+
+- **combobox:** nowrap behaviour for multiselect ([73936e8](https://github.com/adevinta/spark/commit/73936e85d3f379bf5f4823e8cf783919cde3645b))
+
 # [0.6.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.5.0...@spark-ui/combobox@0.6.0) (2024-03-13)
 
 ### Features
