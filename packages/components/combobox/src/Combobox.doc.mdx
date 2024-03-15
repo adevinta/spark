@@ -93,7 +93,9 @@ AutoSuggest is used as the default behaviour. The user can type anything in the 
 
 ### Controlled
 
-Use `value` and `onValueChange` props to control the value of the combobox.
+Use `value` and `onValueChange` props to control the selected item of the combobox.
+
+Use `open` and `onOpenChange` props to control the opened state of the combobox menu.
 
 <Canvas of={stories.Controlled} />
 
@@ -177,6 +179,10 @@ This is up to the developer to make it clear to the user which items are selecte
 <Canvas of={stories.MultipleSelection} />
 
 ### Controlled
+
+Use `value` and `onValueChange` props to control the selected items of the combobox.
+
+Use `open` and `onOpenChange` props to control the opened state of the combobox menu.
 
 <Canvas of={stories.MultipleSelectionControlled} />
 

@@ -129,18 +129,22 @@ const getFilteredItemsMap = (map: ItemsMap, inputValue: string | undefined): Ite
 }
 
 export const ComboboxProvider = ({
+  children,
+  state: stateProp,
   allowCustomValue = false,
   autoFilter = true,
-  children,
-  defaultOpen,
-  defaultValue,
   disabled: disabledProp = false,
   multiple = false,
-  onValueChange,
   readOnly: readOnlyProp = false,
-  state: stateProp,
-  value: controlledValue,
   wrap = true,
+  // Value
+  value: controlledValue,
+  defaultValue,
+  onValueChange,
+  // Open
+  open: controlledOpen,
+  defaultOpen,
+  onOpenChange,
 }: ComboboxContextProps) => {
   const isMounted = useRef(false)
 
@@ -281,10 +285,15 @@ export const ComboboxProvider = ({
   const downshift = useCombobox<ComboboxItem>({
     items: filteredItems,
     selectedItem,
-    // initialSelectedItem: comboboxValue ? itemsMap.get(comboboxValue as string) : undefined,
     id,
     labelId,
     inputValue,
+    ...(controlledOpen != null && { isOpen: controlledOpen }),
+    onIsOpenChange: changes => {
+      if (changes.isOpen != null) {
+        onOpenChange?.(changes.isOpen)
+      }
+    },
     initialIsOpen: defaultOpen,
     ...(multiple && { selectedItem: undefined }),
     itemToString: item => {
