@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.2.0...@spark-ui/internal-utils@2.3.0) (2024-03-15)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- **internal-utils:** doc ([0014463](https://github.com/adevinta/spark/commit/00144635922cfc8a082a137070a758261e9fa162))
+
+### Features
+
+- **internal-utils:** add deepFind internal util ([597d534](https://github.com/adevinta/spark/commit/597d53412aeac6fcb5cdf890ba6c1f86e4f540c9))
+
 # [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.1.3...@spark-ui/internal-utils@2.2.0) (2023-09-28)
 
 ### Features
