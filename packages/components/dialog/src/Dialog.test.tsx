@@ -188,4 +188,31 @@ describe('Dialog', () => {
 
     expect(screen.getByText(/dialog contents/i).parentElement).not.toHaveClass('px-xl py-lg')
   })
+
+  it('should apply padding-right to the Dialog.Title if Dialog.CloseButton is present', async () => {
+    render(
+      <Dialog defaultOpen>
+        <Dialog.Portal>
+          <Dialog.Overlay />
+          <Dialog.Content>
+            <Dialog.Header>
+              <Dialog.Title>Edit profile</Dialog.Title>
+            </Dialog.Header>
+
+            <Dialog.Body>
+              <p>Dialog contents</p>
+            </Dialog.Body>
+
+            <Dialog.Footer>
+              <Button>Close</Button>
+            </Dialog.Footer>
+
+            <Dialog.CloseButton aria-label="Close" />
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog>
+    )
+
+    expect(screen.getByText(/Edit profile/i)).toHaveClass('pr-3xl')
+  })
 })
