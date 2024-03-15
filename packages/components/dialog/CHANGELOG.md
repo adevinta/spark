@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.10.1...@spark-ui/dialog@1.11.0) (2024-03-15)
+
+### Features
+
+- **dialog:** apply padding right to dialog title when closebutton is present ([0c4976b](https://github.com/adevinta/spark/commit/0c4976b0bfaf6bc742bf8fb2d8acdfb9e76c6242)), closes [#1948](https://github.com/adevinta/spark/issues/1948)
+
 ## [1.10.1](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.10.0...@spark-ui/dialog@1.10.1) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/dialog
