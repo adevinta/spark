@@ -1,4 +1,5 @@
 import { Popover } from '@spark-ui/popover'
+import { useCombinedState } from '@spark-ui/use-combined-state'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { cx } from 'class-variance-authority'
@@ -11,16 +12,38 @@ type InputPrimitiveProps = ComponentPropsWithoutRef<'input'>
 interface InputProps extends Omit<InputPrimitiveProps, 'value' | 'placeholder'> {
   className?: string
   placeholder?: string
+  value?: string
+  defaultValue?: string
+  onValueChange?: (value: string) => void
 }
 
 export const Input = forwardRef(
   (
-    { 'aria-label': ariaLabel, className, placeholder, ...props }: InputProps,
+    {
+      'aria-label': ariaLabel,
+      className,
+      placeholder,
+      value,
+      defaultValue,
+      onValueChange,
+      ...props
+    }: InputProps,
     forwardedRef: Ref<HTMLInputElement>
   ) => {
     const ctx = useComboboxContext()
+    const [inputValue] = useCombinedState(value, defaultValue)
 
     useEffect(() => {
+      if (inputValue != null) {
+        ctx.setInputValue(inputValue)
+      }
+    }, [inputValue])
+
+    useEffect(() => {
+      if (onValueChange) {
+        ctx.setOnInputValueChange(() => onValueChange)
+      }
+
       // Sync input with combobox default value
       if (!ctx.multiple && ctx.selectedItem) {
         ctx.setInputValue(ctx.selectedItem.text)

@@ -7,7 +7,7 @@ import { useComboboxContext } from './ComboboxContext'
 export const SelectedItems = () => {
   const ctx = useComboboxContext()
 
-  if (!ctx.selectedItems.length) {
+  if (!ctx.selectedItems.length || !ctx.multiple) {
     return null
   }
 
@@ -26,7 +26,7 @@ export const SelectedItems = () => {
           const element = e.target as HTMLSpanElement
           if (ctx.lastInteractionType === 'keyboard') {
             element.scrollIntoView({
-              behavior: 'instant',
+              behavior: 'smooth',
               block: 'nearest',
               inline: 'nearest',
             })
