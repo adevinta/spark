@@ -11,6 +11,10 @@ export const snackbarItemVariant = cva(
     'pointer-events-auto',
     'absolute',
     /**
+     * Focus
+     */
+    'group-focus-visible:outline-none group-focus-visible:u-ring group-[&:not(:focus-visible)]:ring-inset',
+    /**
      * Positionning
      */
     'group-data-[position=bottom]:bottom-none group-data-[position=bottom-left]:bottom-none group-data-[position=bottom-right]:bottom-none',

@@ -4,6 +4,10 @@ export const snackbarRegionVariant = cva(
   ['fixed inset-x-lg z-toast group', 'outline-none pointer-events-none', 'flex flex-col gap-lg'],
   {
     variants: {
+      /**
+       * Set snackbar item position
+       * @default 'bottom'
+       */
       position: {
         top: 'top-lg items-center',
         'top-right': 'top-lg items-end',
