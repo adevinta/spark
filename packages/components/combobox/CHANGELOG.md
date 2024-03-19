@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.8.0...@spark-ui/combobox@0.9.0) (2024-03-19)
+
+### Features
+
+- **combobox:** isLoading ([1700ee9](https://github.com/adevinta/spark/commit/1700ee9404c8e1d8462c3f4a77950a3a12e35f42))
+- **combobox:** missed dependency ([ae4a0a9](https://github.com/adevinta/spark/commit/ae4a0a9c7b667d3adb21c570574803446b3309d7))
+
 # [0.8.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.7.1...@spark-ui/combobox@0.8.0) (2024-03-15)
 
 ### Features
