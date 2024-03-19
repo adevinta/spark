@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.4.2...@spark-ui/snackbar@0.5.0) (2024-03-19)
+
+### Features
+
+- **snackbar:** add leading icon ([76a2894](https://github.com/adevinta/spark/commit/76a2894eaf00a3900a589edc79dc58f28325bb6a))
+- **snackbar:** add snackbar opt. action ([3b38ccd](https://github.com/adevinta/spark/commit/3b38ccdce762fae2f65c76d44963b1ad95c87b9d))
+- **snackbar:** upd snackbar dismissal mechanisms ([a288d56](https://github.com/adevinta/spark/commit/a288d56f3ec0ab31a2ac7f6df9409b155e2febcb))
+
 ## [0.4.2](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.4.1...@spark-ui/snackbar@0.4.2) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/snackbar
