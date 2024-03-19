@@ -35,6 +35,7 @@ export interface ComboboxContextState extends DownshiftState {
   setLastInteractionType: (type: 'mouse' | 'keyboard') => void
   innerInputRef: React.RefObject<HTMLInputElement>
   triggerAreaRef: React.RefObject<HTMLDivElement>
+  isLoading?: boolean
 }
 
 export type ComboboxContextCommonProps = PropsWithChildren<{
@@ -75,6 +76,10 @@ export type ComboboxContextCommonProps = PropsWithChildren<{
    * If you wish to keep every item on a single line, disabled this property.
    */
   wrap?: boolean
+  /**
+   * Display a spinner to indicate to the user that the combobox is loading results for .
+   */
+  isLoading?: boolean
 }>
 
 interface ComboboxPropsSingle {
@@ -145,6 +150,7 @@ export const ComboboxProvider = ({
   open: controlledOpen,
   defaultOpen,
   onOpenChange,
+  isLoading,
 }: ComboboxContextProps) => {
   const isMounted = useRef(false)
 
@@ -395,6 +401,7 @@ export const ComboboxProvider = ({
         setInputValue,
         selectItem: onInternalSelectedItemChange,
         setSelectedItems: onInternalSelectedItemsChange,
+        isLoading,
       }}
     >
       <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>

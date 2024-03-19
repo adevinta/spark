@@ -1,3 +1,4 @@
+import { Spinner } from '@spark-ui/spinner'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
 import { forwardRef, ReactNode, type Ref } from 'react'
@@ -21,19 +22,25 @@ export const Items = forwardRef(
 
     const ref = useMergeRefs(forwardedRef, downshiftRef)
 
+    const isOpen = ctx.hasPopover ? ctx.isOpen : true
+
+    console.log('isLoading', ctx.isLoading)
+
     return (
       <ul
         ref={ref}
         className={cx(
           className,
-          'flex flex-col',
-          ctx.isOpen ? 'block' : 'pointer-events-none opacity-0',
+          'relative flex flex-col',
+          isOpen ? 'block' : 'pointer-events-none opacity-0',
           ctx.hasPopover && 'p-lg'
         )}
         {...props}
         {...downshiftMenuProps}
+        aria-busy={ctx.isLoading}
         data-spark-component="combobox-items"
       >
+        {ctx.isLoading && <Spinner size="sm" className="absolute right-lg" />}
         {children}
       </ul>
     )
