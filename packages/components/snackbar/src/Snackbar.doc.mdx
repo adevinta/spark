@@ -35,6 +35,18 @@ import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
       of: Snackbar.Item,
       description: "The component that display each snackbar's content.",
     },
+    'Snackbar.ItemIcon': {
+      of: Snackbar.ItemIcon,
+      description: 'The component that prepend an icon in the snackbar.',
+    },
+    'Snackbar.ItemAction': {
+      of: Snackbar.ItemAction,
+      description: 'The component that renders a button which action is safe to ignore.',
+    },
+    'Snackbar.ItemClose': {
+      of: Snackbar.ItemClose,
+      description: 'The component that closes the snackbar.',
+    },
     addSnackbar: {
       of: addSnackbar,
       description: 'The function that triggers snackbars by adding them to a global queue.',
@@ -62,3 +74,29 @@ Use `design` prop on snackbar item, or as `addSnackbar` option, to set different
 Use `intent` prop on snackbar item, or as `addSnackbar` option, to set color intent.
 
 <Canvas of={stories.Intent} />
+
+### Icon
+
+To add an icon before message use `icon` option from `addSnackbar`, or use `<Snackbar.ItemIcon />` within your custom `<Snackbar.Item />`.
+
+<Canvas of={stories.Icon} />
+
+### Close
+
+**To dismiss snackbar automatically** use `timeout` option. For accessibility reasons the value of this timeout shouldn't be less than 5 seconds. Also for the same reasons **timers will automatically pause when the user focuses or hovers over a snackbar**.
+
+**To allow the user to close the snackbar** thanks to a dedicated close button, use `isClosable` option from `addSnackbar`, or use `<Snackbar.ItemClose />` within your custom `<Snackbar.Item />`.
+
+For both cases there is a specific `onClose` handler which is called when snackbar closes.
+
+<Canvas of={stories.Close} />
+
+### Action
+
+To add an action to the snackbar use `onAction` and `actionLabel` options from `addSnackbar`, or use `<Snackbar.ItemAction />` within your custom `<Snackbar.Item />`. After interacting with it the snackbar will close automatically.
+
+Keep in mind that users might miss snackbar actions and thus these shouldn't concern important things. In such case please use instead the `AlertDialog` component.
+
+For accessibility reasons **snackbars won't dismiss automatically when an action is provided**.
+
+<Canvas of={stories.Action} />

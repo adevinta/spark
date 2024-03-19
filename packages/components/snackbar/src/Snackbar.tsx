@@ -17,7 +17,7 @@ import { createPortal } from 'react-dom'
 
 import { snackbarRegionVariant, type SnackbarRegionVariantProps } from './Snackbar.styles'
 import { SnackbarItem, type SnackbarItemProps, type SnackbarItemValue } from './SnackbarItem'
-import { SnackbarItemContext } from './SnackBarItemContext'
+import { SnackbarItemContext } from './SnackbarItemContext'
 import { useSnackbarGlobalStore } from './useSnackbarGlobalStore'
 
 export interface SnackbarProps
@@ -105,14 +105,29 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
 
 Snackbar.displayName = 'Snackbar'
 
-export interface AddSnackbarArgs extends SnackbarItemValue, SnackBarItemOptions {}
+export interface AddSnackbarArgs extends SnackbarItemValue, SnackBarItemOptions {
+  /**
+   * Handler that is called when the snackbar is closed, either by the user
+   * or after a timeout.
+   */
+  onClose?: () => void
+  /**
+   * A timeout to automatically close the snackbar after, in milliseconds.
+   * @default 5000
+   */
+  timeout?: number
+  /**
+   * The priority of the snackbar relative to other snackbars. Larger numbers indicate higher priority.
+   */
+  priority?: number
+}
 
 export const addSnackbar = ({ onClose, timeout = 5000, priority, ...content }: AddSnackbarArgs) => {
   const queue = getGlobalSnackBarQueue()
 
   queue.add(content, {
     onClose,
-    timeout: Math.max(timeout || 5000, 5000),
+    timeout: timeout && !content.onAction ? Math.max(timeout, 5000) : undefined,
     priority,
   })
 }
