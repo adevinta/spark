@@ -33,6 +33,7 @@ export interface ComboboxContextState extends DownshiftState {
   lastInteractionType: 'mouse' | 'keyboard'
   setHasPopover: Dispatch<SetStateAction<boolean>>
   setLastInteractionType: (type: 'mouse' | 'keyboard') => void
+  setOnInputValueChange: Dispatch<SetStateAction<((v: string) => void) | null>>
   innerInputRef: React.RefObject<HTMLInputElement>
   triggerAreaRef: React.RefObject<HTMLDivElement>
   isLoading?: boolean
@@ -158,6 +159,7 @@ export const ComboboxProvider = ({
   const [inputValue, setInputValue] = useState<string | undefined>('')
   const triggerAreaRef = useRef<HTMLDivElement>(null)
   const innerInputRef = useRef<HTMLInputElement>(null)
+  const [onInputValueChange, setOnInputValueChange] = useState<((v: string) => void) | null>(null)
 
   const [comboboxValue] = useCombinedState(controlledValue, defaultValue)
 
@@ -283,6 +285,10 @@ export const ComboboxProvider = ({
 
   const filteredItems = Array.from(filteredItemsMap.values())
 
+  useEffect(() => {
+    onInputValueChange?.(inputValue || '')
+  }, [inputValue])
+
   /**
    * - props: https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox#basic-props
    * - state (for state reducer): https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox#statechangetypes
@@ -290,18 +296,28 @@ export const ComboboxProvider = ({
    */
   const downshift = useCombobox<ComboboxItem>({
     items: filteredItems,
-    selectedItem,
+    selectedItem: multiple ? undefined : selectedItem,
     id,
     labelId,
+    // Input
     inputValue,
+    onInputValueChange: ({ inputValue: newInputValue }) => {
+      setInputValue(newInputValue)
+
+      if (autoFilter) {
+        const filtered = getFilteredItemsMap(itemsMap, newInputValue || '')
+        setFilteredItems(filtered)
+      }
+    },
+    // Open
+    initialIsOpen: defaultOpen,
     ...(controlledOpen != null && { isOpen: controlledOpen }),
     onIsOpenChange: changes => {
       if (changes.isOpen != null) {
         onOpenChange?.(changes.isOpen)
       }
     },
-    initialIsOpen: defaultOpen,
-    ...(multiple && { selectedItem: undefined }),
+    // Custom Spark item object parsing
     itemToString: item => {
       return (item as ComboboxItem)?.text
     },
@@ -314,14 +330,7 @@ export const ComboboxProvider = ({
 
       return item.disabled || isFilteredOut
     },
-    onInputValueChange: ({ inputValue }) => {
-      setInputValue(inputValue)
-
-      if (autoFilter) {
-        const filtered = getFilteredItemsMap(itemsMap, inputValue || '')
-        setFilteredItems(filtered)
-      }
-    },
+    // Main reducer
     stateReducer: multiple
       ? multipleSelectionReducer({
           multiselect,
@@ -402,6 +411,7 @@ export const ComboboxProvider = ({
         selectItem: onInternalSelectedItemChange,
         setSelectedItems: onInternalSelectedItemsChange,
         isLoading,
+        setOnInputValueChange,
       }}
     >
       <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>

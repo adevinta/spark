@@ -6,6 +6,7 @@ import { Chip } from '@spark-ui/chip'
 import { Dialog } from '@spark-ui/dialog'
 import { FormField } from '@spark-ui/form-field'
 import { PenOutline } from '@spark-ui/icons/dist/icons/PenOutline'
+import { Input } from '@spark-ui/input'
 import { RadioGroup } from '@spark-ui/radio-group'
 import { Switch } from '@spark-ui/switch'
 import { Tag } from '@spark-ui/tag'
@@ -52,8 +53,17 @@ export const Default: StoryFn = _args => {
 }
 
 export const Controlled: StoryFn = () => {
+  const books = {
+    'book-1': 'To Kill a Mockingbird',
+    'book-2': 'War and Peace',
+    'book-3': 'The Idiot',
+    'book-4': 'A Picture of Dorian Gray',
+    'book-5': '1984',
+    'book-6': 'Pride and Prejudice',
+  }
   const [value, setValue] = useState<string | undefined>('book-2')
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
+  const [inputValue, setInputValue] = useState<string>('')
 
   return (
     <div className="flex flex-wrap gap-lg pb-[300px]">
@@ -67,13 +77,25 @@ export const Controlled: StoryFn = () => {
         <FormField>
           <FormField.Label className="font-bold">Selected item:</FormField.Label>
           <RadioGroup value={value || ''} onValueChange={setValue}>
-            <RadioGroup.Radio value="book-1">To Kill a Mockingbird</RadioGroup.Radio>
-            <RadioGroup.Radio value="book-2">War and Peace</RadioGroup.Radio>
-            <RadioGroup.Radio value="book-3">The Idiot</RadioGroup.Radio>
-            <RadioGroup.Radio value="book-4">A Picture of Dorian Gray</RadioGroup.Radio>
-            <RadioGroup.Radio value="book-5">1984</RadioGroup.Radio>
-            <RadioGroup.Radio value="book-6">Pride and Prejudice</RadioGroup.Radio>
+            {Object.entries(books).map(([key, label]) => (
+              <RadioGroup.Radio key={key} value={key}>
+                {label}
+              </RadioGroup.Radio>
+            ))}
           </RadioGroup>
+        </FormField>
+        <FormField>
+          <FormField.Label className="font-bold">Input value:</FormField.Label>
+          <Input
+            value={inputValue}
+            onValueChange={setInputValue}
+            placeholder="Combobox input value"
+            onBlur={() => {
+              setInputValue(
+                value ? Object.entries(books).find(([id]) => value === id)?.[1] || '' : ''
+              )
+            }}
+          ></Input>
         </FormField>
       </div>
 
@@ -88,7 +110,13 @@ export const Controlled: StoryFn = () => {
           <Combobox.LeadingIcon>
             <PenOutline />
           </Combobox.LeadingIcon>
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Input
+            aria-label="Book"
+            placeholder="Pick a book"
+            value={inputValue}
+            onValueChange={setInputValue}
+            defaultValue={inputValue}
+          />
           <Combobox.ClearButton aria-label="Clear input" />
           <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
         </Combobox.Trigger>
@@ -96,12 +124,11 @@ export const Controlled: StoryFn = () => {
         <Combobox.Popover>
           <Combobox.Items>
             <Combobox.Empty>No results found</Combobox.Empty>
-            <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
-            <Combobox.Item value="book-2">War and Peace</Combobox.Item>
-            <Combobox.Item value="book-3">The Idiot</Combobox.Item>
-            <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
-            <Combobox.Item value="book-5">1984</Combobox.Item>
-            <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
+            {Object.entries(books).map(([key, label]) => (
+              <Combobox.Item key={key} value={key}>
+                {label}
+              </Combobox.Item>
+            ))}
           </Combobox.Items>
         </Combobox.Popover>
       </Combobox>
@@ -201,47 +228,53 @@ export const Disabled: StoryFn = _args => {
   )
 }
 
-// export const FilteringManual: StoryFn = () => {
-//   const items = {
-//     'book-1': 'To Kill a Mockingbird',
-//     'book-2': 'War and Peace',
-//     'book-3': 'The Idiot',
-//     'book-4': 'A Picture of Dorian Gray',
-//     'book-5': '1984',
-//     'book-6': 'Pride and Prejudice',
-//   }
-//   const [inputValue, setInputValue] = useState('')
+export const FilteringManual: StoryFn = () => {
+  const items = {
+    'book-1': 'To Kill a Mockingbird',
+    'book-2': 'War and Peace',
+    'book-3': 'The Idiot',
+    'book-4': 'A Picture of Dorian Gray',
+    'book-5': '1984',
+    'book-6': 'Pride and Prejudice',
+  } as const
 
-//   return (
-//     <div className="pb-[300px]">
-//       <Combobox autoFilter={false}>
-//         <Combobox.Trigger>
-//           <Combobox.Input
-//             aria-label="Book"
-//             placeholder="Pick a book"
-//             value={inputValue}
-//             onValueChange={setInputValue}
-//           />
-//         </Combobox.Trigger>
+  const [inputValue, setInputValue] = useState('')
 
-//         <Combobox.Popover>
-//           <Combobox.Items>
-//             <Combobox.Empty>No results found</Combobox.Empty>
-//             {Object.entries(items).map(([value, text]) => {
-//               if (!text.includes(inputValue)) return null
+  const filteredItems = Object.keys(items).reduce((acc: Record<string, string>, key: string) => {
+    const text: string = items[key as keyof typeof items]
+    const match = text.toLowerCase().includes(inputValue.toLowerCase())
 
-//               return (
-//                 <Combobox.Item value={value} key={value}>
-//                   {text}
-//                 </Combobox.Item>
-//               )
-//             })}
-//           </Combobox.Items>
-//         </Combobox.Popover>
-//       </Combobox>
-//     </div>
-//   )
-// }
+    return match ? { ...acc, [key]: text } : acc
+  }, {})
+
+  return (
+    <div className="pb-[300px]">
+      <Combobox autoFilter={false}>
+        <Combobox.Trigger>
+          <Combobox.Input
+            aria-label="Book"
+            placeholder="Pick a book"
+            value={inputValue}
+            onValueChange={setInputValue}
+          />
+        </Combobox.Trigger>
+
+        <Combobox.Popover>
+          <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
+            {Object.entries(filteredItems).map(([value, text]) => {
+              return (
+                <Combobox.Item value={value} key={value}>
+                  {text}
+                </Combobox.Item>
+              )
+            })}
+          </Combobox.Items>
+        </Combobox.Popover>
+      </Combobox>
+    </div>
+  )
+}
 
 export const ReadOnly: StoryFn = _args => {
   return (
@@ -464,6 +497,7 @@ export const MultipleSelection: StoryFn = _args => {
 export const MultipleSelectionControlled: StoryFn = () => {
   const [value, setValue] = useState<string[]>(['book-2'])
   const [open, setOpen] = useState(false)
+  const [inputValue, setInputValue] = useState<string>('')
 
   return (
     <div className="flex flex-wrap gap-lg pb-[300px]">
@@ -485,6 +519,17 @@ export const MultipleSelectionControlled: StoryFn = () => {
             <Checkbox value="book-6">Pride and Prejudice</Checkbox>
           </CheckboxGroup>
         </FormField>
+        <FormField>
+          <FormField.Label className="font-bold">Input value:</FormField.Label>
+          <Input
+            value={inputValue}
+            onValueChange={setInputValue}
+            placeholder="Combobox input value"
+            onBlur={() => {
+              setInputValue('')
+            }}
+          ></Input>
+        </FormField>
       </div>
 
       <Combobox
@@ -497,7 +542,12 @@ export const MultipleSelectionControlled: StoryFn = () => {
       >
         <Combobox.Trigger>
           <Combobox.SelectedItems />
-          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          <Combobox.Input
+            aria-label="Book"
+            placeholder="Pick a book"
+            value={inputValue}
+            onValueChange={setInputValue}
+          />
           <Combobox.ClearButton aria-label="Clear input" />
           <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
         </Combobox.Trigger>
