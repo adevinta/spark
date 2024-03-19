@@ -155,6 +155,13 @@ Use `readOnly` prop to indicate the combobox is only readable.
 
 <Canvas of={stories.ReadOnly} />
 
+### isLoading
+
+Use the `isLoading` prop to render the combobox in loading state.
+This will prepend a spinner inside the items-list.
+
+<Canvas of={stories.IsLoading} />
+
 ### Status
 
 Use `state` prop to assign a specific state to the combobox, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a status indicator will be displayed accordingly.
@@ -214,6 +221,10 @@ If your `Combobox.Item` contains anything else than raw text, you may use any JS
 **If you do so, you MUST use `Combobox.ItemText` inside of your item to give it a proper accessible name.**
 
 <Canvas of={stories.CustomItem} />
+
+### Search Modal
+
+<Canvas of={stories.ModalSearch} />
 
 ## Form field
 
