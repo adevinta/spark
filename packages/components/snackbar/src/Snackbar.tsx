@@ -34,8 +34,8 @@ export const clearSnackbarQueue = () => {
 }
 
 /**
- * We define a global store that will be used  with React `useSyncExternalStore` hook
- * and will allow us to ensure we always have a single Snackbar container.
+ * We define a global store to keep track of all providers instances, to ensure
+ * we always have a single Snackbar container.
  */
 const GLOBAL_SNACKBAR_STORE = {
   providers: new Set<RefObject<HTMLDivElement>>(),
@@ -46,8 +46,7 @@ export type SnackbarProps = Omit<SnackbarRegionProps, 'state'>
 
 export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   (props, forwardedRef): ReactElement | null => {
-    const innerRef = useRef<HTMLDivElement>(null)
-    const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
+    const ref = useRef<HTMLDivElement>(null)
 
     const state = useToastQueue(getGlobalSnackBarQueue())
 
@@ -61,7 +60,7 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
     }, [])
 
     return ref === provider && state.visibleToasts.length > 0
-      ? createPortal(<SnackbarRegion ref={ref} state={state} {...props} />, document.body)
+      ? createPortal(<SnackbarRegion ref={forwardedRef} state={state} {...props} />, document.body)
       : null
   }
 )

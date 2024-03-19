@@ -82,6 +82,29 @@ describe('Snackbar', () => {
     expect(screen.getAllByRole('region')).toHaveLength(1)
   })
 
+  it('should focus on snackbar region using F6 key, and restore it after last snackbar closure', async () => {
+    const user = userEvent.setup()
+
+    render(<SnackbarImplementation isClosable />)
+
+    const triggerBtn = screen.getByText('Show me a snackbar')
+
+    await user.click(triggerBtn)
+    expect(document.activeElement).toBe(triggerBtn)
+
+    await user.keyboard('{F6}')
+    expect(document.activeElement).toBe(screen.getByRole('region'))
+
+    const closeBtn = screen.getByLabelText('Close')
+
+    await user.click(closeBtn)
+    expect(document.activeElement).toBe(closeBtn)
+
+    animateAndClose()
+    expect(screen.queryByText('You did it!')).not.toBeInTheDocument()
+    expect(document.activeElement).toBe(triggerBtn)
+  })
+
   describe('Icon', () => {
     it('should render an icon if defined in addSnackbar options', async () => {
       const user = userEvent.setup()

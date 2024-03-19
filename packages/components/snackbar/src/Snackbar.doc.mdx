@@ -105,6 +105,14 @@ For accessibility reasons **snackbars won't dismiss automatically when an action
 
 <Canvas of={stories.Action} />
 
+## Advanced usage
+
+### Force action/close button
+
+To always render snackbars with their associated action and/or close buttons, you simply need to declare them within a custom `<Snackbar.Item>` implementation.
+
+<Canvas of={stories.AdvancedActionClose} />
+
 ## Accessibility
 
 Adheres to the [Alert WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alert).
