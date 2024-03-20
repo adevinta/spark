@@ -85,14 +85,10 @@ import { Dropdown } from '@spark-ui/dropdown'
       of: Dropdown.Popover,
       description: 'The part that is toggled and portaled when the trigger element is clicked.',
     },
+
     'Dropdown.Items': {
       of: Dropdown.Items,
       description: 'The wrapper which contains all the options.',
-    },
-    'Dropdown.Group': {
-      of: Dropdown.Group,
-      description:
-        'A wrapper for grouping a subset of options (Dropdown.Item) when needed. Use in conjunction with Dropdown.Label to ensure good accessibility via automatic labelling.',
     },
     'Dropdown.Item': { of: Dropdown.Item, description: 'Each option of the element field' },
     'Dropdown.ItemText': {
@@ -105,13 +101,18 @@ import { Dropdown } from '@spark-ui/dropdown'
       description:
         'Renders when the item is selected. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.',
     },
-    'Dropdown.Divider': {
-      of: Dropdown.Divider,
-      description: 'Used to visually separate items in the select.',
+    'Dropdown.Group': {
+      of: Dropdown.Group,
+      description:
+        'A wrapper for grouping a subset of options (Dropdown.Item) when needed. Use in conjunction with Dropdown.Label to ensure good accessibility via automatic labelling.',
     },
     'Dropdown.Label': {
       of: Dropdown.Label,
       description: "Used to render the label of a group. It won't be focusable using arrow keys.",
+    },
+    'Dropdown.Divider': {
+      of: Dropdown.Divider,
+      description: 'Used to visually separate items in the select.',
     },
   }}
 />
