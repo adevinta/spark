@@ -10,7 +10,42 @@ import * as stories from './Combobox.stories'
 
 # Combobox
 
-TODO
+A combobox is an input widget that has an associated popup.
+
+The popup enables users to choose one or multiple values for the input from a collection. The popup itself contains a listbox of items.
+
+#### ComboBox is not a Dropdown
+
+<Callout kind="warning">
+  Dropdowns and Comboboxes are similar in that every both provide visual selectable options for
+  users. However, there are important distinctions to be aware of.
+</Callout>
+
+#### Dropdown, Select and Combobox
+
+Dropdown, Select and Combobox are visually similar when its options are not displayed
+(unfocused closed trigger element).
+All of them also share the same behavior on its options/items, toggling its own item's
+value to its parent selected state.
+
+However, they have different behaviors and purposes:
+
+- Dropdown:
+  - **Closed** list of options for the user to pick triggered by a button.
+  - The trigger element is rolled as a **button**.
+  - The options are displayed fully customizable inside a **popover** (normally).
+- Select:
+  - **Closed** list of options for the user to pick triggered by a button.
+  - The structural select role, an abstract role, is superclass role for four form widgets, `listbox`, `menu`,
+    `radiogroup`, and `tree`, which allow users to make selections from a set of choices.
+  - The options can only be text and are its look and feel is managed by the browser natively.
+  - Cannot be used for multiple selections.
+- Combobox
+  - **Open** list of options for the user to pick triggered by a button.
+  - The trigger element is rolled as an **input**.
+  - The options can be text or any other JSX markup.
+  - Can be used for multiple selections.
+  - Can be used inside a form.
 
 ## Install
 
@@ -35,18 +70,22 @@ import { Combobox } from '@spark-ui/combobox'
       description:
         'The area that toggles the combobox popover. The Select.Popover will position itself by aligning with its trigger.',
     },
+    'Combobox.SelectedItems': {
+      of: Combobox.SelectedItems,
+      description: 'Multiple selection only. Displays selected items as chips inside the trigger.',
+    },
     'Combobox.Input': {
       of: Combobox.Input,
       description:
         'The typing area in which the user can type. The input behaviour will differ if `autoComplete` is used or not.',
     },
-    'Combobox.Disclosure': {
-      of: Combobox.Disclosure,
-      description: 'Optional visual button to open and close the combobox items list.',
-    },
     'Combobox.LeadingIcon': {
       of: Combobox.LeadingIcon,
       description: 'Prepend a decorative icon inside the input (to the left).',
+    },
+    'Combobox.Disclosure': {
+      of: Combobox.Disclosure,
+      description: 'Optional visual button to open and close the combobox items list.',
     },
     'Combobox.Popover': {
       of: Combobox.Popover,
@@ -55,11 +94,6 @@ import { Combobox } from '@spark-ui/combobox'
     'Combobox.Items': {
       of: Combobox.Items,
       description: 'The wrapper which contains all the options.',
-    },
-    'Combobox.Group': {
-      of: Combobox.Group,
-      description:
-        'A wrapper for grouping a subset of options (Combobox.Item) when needed. Use in conjunction with Combobox.Label to ensure good accessibility via automatic labelling.',
     },
     'Combobox.Item': { of: Combobox.Item, description: 'Each option of the element field' },
     'Combobox.ItemText': {
@@ -72,13 +106,18 @@ import { Combobox } from '@spark-ui/combobox'
       description:
         'Renders when the item is selected. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.',
     },
-    'Combobox.Divider': {
-      of: Combobox.Divider,
-      description: 'Used to visually separate items in the select.',
+    'Combobox.Group': {
+      of: Combobox.Group,
+      description:
+        'A wrapper for grouping a subset of options (Combobox.Item) when needed. Use in conjunction with Combobox.Label to ensure good accessibility via automatic labelling.',
     },
     'Combobox.Label': {
       of: Combobox.Label,
       description: "Used to render the label of a group. It won't be focusable using arrow keys.",
+    },
+    'Combobox.Divider': {
+      of: Combobox.Divider,
+      description: 'Used to visually separate items in the select.',
     },
   }}
 />
@@ -261,3 +300,7 @@ Apply `readOnly` to the wrapping `FormField` to indicate the combobox is only re
 Set the `state` prop of the `FormField` to `error` to indicate that the combobox is invalid. Optionally use the `FormField.ErrorMessage` to describe why the combobox is invalid.
 
 <Canvas of={stories.FormFieldValidation} />
+
+## Accessibility
+
+This component adheres to the [Combobox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
