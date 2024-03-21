@@ -55,9 +55,6 @@ module.exports = {
     name: '@storybook/react-vite',
     options: {},
   },
-  features: {
-    storyStoreV7: true,
-  },
   typescript: {
     check: true,
     reactDocgen: 'react-docgen-typescript',

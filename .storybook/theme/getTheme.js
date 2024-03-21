@@ -5,15 +5,6 @@ import logoUrl from '../spark-logo.svg'
 export const getTheme = ({ base, sparkTheme }) =>
   create({
     base,
-    // Typography
-    fontBase: '"Nunito", sans-serif',
-    fontCode: 'monospace',
-
-    brandTitle: 'Spark design system',
-    brandUrl: 'https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3',
-    brandImage: logoUrl,
-    brandTarget: '_self',
-
     // Brand
     colorPrimary: sparkTheme.colors.main,
     colorSecondary: sparkTheme.colors.support,
@@ -21,12 +12,18 @@ export const getTheme = ({ base, sparkTheme }) =>
     // UI
     appBg: sparkTheme.colors.backgroundVariant,
     appContentBg: sparkTheme.colors.background,
+    // appPreviewBg: TODO
     appBorderColor: sparkTheme.colors.basicContainer,
     appBorderRadius: sparkTheme.borderRadius.lg,
+
+    // Typography
+    fontBase: '"Nunito", sans-serif',
+    fontCode: 'monospace',
 
     // Text colors
     textColor: sparkTheme.colors.onBackground,
     textInverseColor: sparkTheme.colors.background,
+    // textMutedColor: TODO
 
     // Toolbar default and active colors
     barTextColor: sparkTheme.colors.onBackground,
@@ -41,4 +38,11 @@ export const getTheme = ({ base, sparkTheme }) =>
     inputBorder: sparkTheme.colors.basic,
     inputTextColor: sparkTheme.colors.basic,
     inputBorderRadius: sparkTheme.borderRadius.sm,
+
+    brandTitle: 'Spark design system',
+    brandUrl: 'https://zeroheight.com/1186e1705/p/0879a9-colors/b/27d7a3',
+    brandImage: logoUrl,
+    brandTarget: '_self',
+
+    // gridCellSize?: TODO
   })
