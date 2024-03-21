@@ -105,12 +105,17 @@ export const useDropdown = ({
     stateReducer,
     // Controlled mode (single selection)
     selectedItem: value != null ? itemsMap.get(value as string) : undefined,
-    initialSelectedItem: defaultValue ? itemsMap.get(defaultValue as string) : undefined,
+    initialSelectedItem:
+      defaultValue != null || value ? itemsMap.get(defaultValue as string) : undefined,
     onSelectedItemChange: ({ selectedItem }) => {
       if (selectedItem?.value != null && !multiple) {
         onValueChange?.(selectedItem?.value as OnChangeValueType)
       }
     },
+    /**
+     * 1. Downshift default behaviour is to scroll into view the highlighted item when the dropdown opens. This behaviour is not stable and scrolls the dropdown to the bottom of the screen.
+     */
+    scrollIntoView: () => undefined /* 1 */,
   })
 
   return {
