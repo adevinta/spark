@@ -23,13 +23,13 @@ export const Popover = forwardRef(
       return () => setHasPopover(false)
     }, [])
 
-    return (
+    return isOpen ? (
       <SparkPopover.Content
         ref={forwardedRef}
         inset
         asChild
         matchTriggerWidth={matchTriggerWidth}
-        className={cx('!z-dropdown', !isOpen && 'hidden', className)}
+        className={cx('!z-dropdown', className)}
         sideOffset={sideOffset}
         onOpenAutoFocus={e => {
           /**
@@ -43,6 +43,8 @@ export const Popover = forwardRef(
       >
         {children}
       </SparkPopover.Content>
+    ) : (
+      children
     )
   }
 )
