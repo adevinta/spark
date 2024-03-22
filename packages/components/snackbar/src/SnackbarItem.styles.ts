@@ -45,8 +45,10 @@ export const snackbarItemVariant = cva(
      * Swipe
      */
     'data-[swipe=move]:data-[swipe-direction=right]:translate-x-[--swipe-position-x]',
+    'data-[swipe=move]:data-[swipe-direction=left]:translate-x-[--swipe-position-x]',
     'data-[swipe=cancel]:translate-x-none',
     'data-[swipe=end]:data-[swipe-direction=right]:animate-swipe-out-right',
+    'data-[swipe=end]:data-[swipe-direction=left]:animate-swipe-out-left',
   ],
   {
     variants: {
