@@ -24,8 +24,6 @@ export const Items = forwardRef(
 
     const isOpen = ctx.hasPopover ? ctx.isOpen : true
 
-    console.log('isLoading', ctx.isLoading)
-
     return (
       <ul
         ref={ref}
