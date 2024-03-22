@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.7...@spark-ui/dropdown@1.0.8) (2024-03-22)
+
+### Bug Fixes
+
+- **dropdown:** conditional portal was moving the dropdown deep in the dom ([d2ea405](https://github.com/adevinta/spark/commit/d2ea405c9b03eb67ab85d593f53a24a856f76272))
+
 ## [1.0.7](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.6...@spark-ui/dropdown@1.0.7) (2024-03-22)
 
 ### Bug Fixes
