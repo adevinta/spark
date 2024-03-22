@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.6...@spark-ui/dropdown@1.0.7) (2024-03-22)
+
+### Bug Fixes
+
+- **dropdown:** do not compute dropdown positionning when closed ([98cd3d2](https://github.com/adevinta/spark/commit/98cd3d232682d8dbe2b4af018fe55209c66a9afb))
+
 ## [1.0.6](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.5...@spark-ui/dropdown@1.0.6) (2024-03-20)
 
 **Note:** Version bump only for package @spark-ui/dropdown

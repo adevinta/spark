@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/dropdown",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Displays a list of options for the user to pick from—triggered by a button. Differs from Select in that it offers multiple select and its list is not native.",
   "publishConfig": {
     "access": "public"
