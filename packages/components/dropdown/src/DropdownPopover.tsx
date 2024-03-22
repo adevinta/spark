@@ -23,30 +23,32 @@ export const Popover = forwardRef(
       return () => setHasPopover(false)
     }, [])
 
-    return isOpen ? (
+    return (
       <SparkPopover.Portal>
-        <SparkPopover.Content
-          ref={forwardedRef}
-          inset
-          asChild
-          matchTriggerWidth={matchTriggerWidth}
-          className={cx('!z-dropdown', className)}
-          sideOffset={sideOffset}
-          onOpenAutoFocus={e => {
-            /**
-             * With a combobox pattern, the focus should remain on the trigger at all times.
-             * Passing the focus to the dropdown popover would break keyboard navigation.
-             */
-            e.preventDefault()
-          }}
-          {...props}
-          data-spark-component="dropdown-popover"
-        >
-          {children}
-        </SparkPopover.Content>
+        {isOpen ? (
+          <SparkPopover.Content
+            ref={forwardedRef}
+            inset
+            asChild
+            matchTriggerWidth={matchTriggerWidth}
+            className={cx('!z-dropdown', className)}
+            sideOffset={sideOffset}
+            onOpenAutoFocus={e => {
+              /**
+               * With a combobox pattern, the focus should remain on the trigger at all times.
+               * Passing the focus to the dropdown popover would break keyboard navigation.
+               */
+              e.preventDefault()
+            }}
+            {...props}
+            data-spark-component="dropdown-popover"
+          >
+            {children}
+          </SparkPopover.Content>
+        ) : (
+          children
+        )}
       </SparkPopover.Portal>
-    ) : (
-      children
     )
   }
 )
