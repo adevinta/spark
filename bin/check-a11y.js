@@ -14,7 +14,7 @@ const impactColor = {
   critical: chalk.red,
 }
 
-const { stories } = JSON.parse(readFileSync('dist/stories.json', 'utf8'))
+const { entries: stories } = JSON.parse(readFileSync('dist/index.json', 'utf8'))
 
 const hasFilter = process.argv.indexOf('-f') > -1
 const pkgFilter = hasFilter
