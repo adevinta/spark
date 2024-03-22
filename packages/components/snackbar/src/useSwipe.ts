@@ -76,34 +76,36 @@ export const useSwipe = <T extends HTMLElement>({
   }
 
   const handleSwipeEnd = () => {
-    if (!delta.current) return
-
-    const { x: deltaX, y: deltaY } = delta.current
+    const proxyDelta = delta.current
 
     origin.current = null
     delta.current = null
 
-    let endState: SwipeReturn['state']
+    if (proxyDelta) {
+      const { x: deltaX, y: deltaY } = proxyDelta
 
-    if (deltaX > deltaY) {
-      if (deltaX > SWIPE_THRESHOLD) {
-        endState = 'end'
-        onSwipeEnd?.({ state: endState, direction: directionRef.current })
+      let endState: SwipeReturn['state']
+
+      if (deltaX > deltaY) {
+        if (deltaX > SWIPE_THRESHOLD) {
+          endState = 'end'
+          onSwipeEnd?.({ state: endState, direction: directionRef.current })
+        } else {
+          endState = 'cancel'
+          onSwipeCancel?.({ state: endState, direction: directionRef.current })
+        }
       } else {
-        endState = 'cancel'
-        onSwipeCancel?.({ state: endState, direction: directionRef.current })
+        if (deltaY > SWIPE_THRESHOLD) {
+          endState = 'end'
+          onSwipeEnd?.({ state: endState, direction: directionRef.current })
+        } else {
+          endState = 'cancel'
+          onSwipeCancel?.({ state: endState, direction: directionRef.current })
+        }
       }
-    } else {
-      if (deltaY > SWIPE_THRESHOLD) {
-        endState = 'end'
-        onSwipeEnd?.({ state: endState, direction: directionRef.current })
-      } else {
-        endState = 'cancel'
-        onSwipeCancel?.({ state: endState, direction: directionRef.current })
-      }
+
+      setState(endState)
     }
-
-    setState(endState)
   }
 
   useEffect(() => {

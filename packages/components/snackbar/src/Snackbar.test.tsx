@@ -113,32 +113,44 @@ describe('Snackbar', () => {
     expect(document.activeElement).toBe(triggerBtn)
   })
 
-  it('should close snackbar on right swipe gesture only', async () => {
+  it('should close snackbar on right/left swipe gestures', async () => {
     const user = userEvent.setup({ advanceTimers: vi.runOnlyPendingTimers })
 
     vi.useFakeTimers()
 
     render(<SnackbarImplementation />)
 
+    // 1. To the left
     await user.click(screen.getByText('Show me a snackbar'))
+    let snackBarItem = await screen.findByText('You did it!')
 
     /**
      * PointerMove event implementation is buggy on `user-event` library,
      * so we need to replace it with `fireEvent`
      * cf. https://github.com/testing-library/user-event/issues/1047#issuecomment-1229153700
      */
-    const snackBarItem = await screen.findByText('You did it!')
-
-    fireEvent.pointerDown(snackBarItem, { clientX: 50, clientY: 0 })
-    fireEvent.pointerMove(snackBarItem, { clientX: 0, clientY: 0 })
+    fireEvent.pointerDown(snackBarItem, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(snackBarItem, { clientX: -100, clientY: 0 })
 
     expect(screen.getByText('You did it!').parentNode).toHaveAttribute(
       'data-swipe-direction',
       'left'
     )
 
+    animateAndClose()
+    expect(screen.queryByText('You did it!')).not.toBeInTheDocument()
+
+    // 2. To the right
+    await user.click(screen.getByText('Show me a snackbar'))
+    snackBarItem = await screen.findByText('You did it!')
+
+    fireEvent.pointerDown(snackBarItem, { clientX: 0, clientY: 0 })
     fireEvent.pointerMove(snackBarItem, { clientX: 100, clientY: 0 })
-    fireEvent.pointerUp(snackBarItem, { clientX: 100, clientY: 0 })
+
+    expect(screen.getByText('You did it!').parentNode).toHaveAttribute(
+      'data-swipe-direction',
+      'right'
+    )
 
     animateAndClose()
     expect(screen.queryByText('You did it!')).not.toBeInTheDocument()

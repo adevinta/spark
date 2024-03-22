@@ -167,6 +167,10 @@ module.exports = plugin.withOptions(
             '0%': { transform: 'translateX(var(--swipe-position-x))' },
             '100%': { transform: 'translateX(100vw)' },
           },
+          swipeOutLeft: {
+            '0%': { transform: 'translateX(var(--swipe-position-x))' },
+            '100%': { transform: 'translateX(-100vw)' },
+          },
           standaloneIndeterminateBar: {
             '0%': {
               left: '0',
@@ -203,6 +207,7 @@ module.exports = plugin.withOptions(
             'standaloneIndeterminateBar 1s ease-out infinite normal none running',
           // swipeOut
           'swipe-out-right': 'swipeOutRight 0.1s ease-out',
+          'swipe-out-left': 'swipeOutLeft 0.1s ease-out',
         },
       },
     },
