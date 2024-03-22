@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.10.1...@spark-ui/combobox@0.10.2) (2024-03-22)
+
+### Bug Fixes
+
+- **combobox:** invalid log ([a66a616](https://github.com/adevinta/spark/commit/a66a61667c1b17dcbead521042e4ee2ec1303c1f))
+
 ## [0.10.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.10.0...@spark-ui/combobox@0.10.1) (2024-03-20)
 
 **Note:** Version bump only for package @spark-ui/combobox
