@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/popover",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "Displays rich content in a portal, triggered by a button.",
   "publishConfig": {
     "access": "public"
@@ -48,7 +48,7 @@
     "@spark-ui/icons": "^1.21.6"
   },
   "devDependencies": {
-    "jsdom-testing-mocks": "1.11.0"
+    "jsdom-testing-mocks": "1.13.0"
   },
   "license": "MIT"
 }
