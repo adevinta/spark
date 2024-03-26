@@ -323,7 +323,7 @@ export const Statuses: StoryFn = () => {
     <div className="flex flex-col gap-lg pb-[300px]">
       {statuses.map(status => {
         return (
-          <Dropdown state={status}>
+          <Dropdown state={status} key={status}>
             <Dropdown.Trigger aria-label="Book">
               <Dropdown.Value placeholder="Pick a book" />
             </Dropdown.Trigger>

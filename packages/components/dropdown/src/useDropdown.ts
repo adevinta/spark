@@ -36,13 +36,13 @@ export const useDropdown = ({
 
   const downshiftMultipleSelection = useMultipleSelection<DropdownItem>({
     selectedItems:
-      value != null
+      value != null && multiple
         ? items.filter(item =>
             multiple ? (value as string[]).includes(item.value) : value === item.value
           )
         : undefined,
     initialSelectedItems:
-      defaultValue != null
+      defaultValue != null && multiple
         ? items.filter(item =>
             multiple ? (defaultValue as string[]).includes(item.value) : defaultValue === item.value
           )
@@ -104,9 +104,11 @@ export const useDropdown = ({
     initialIsOpen: defaultOpen ?? false,
     stateReducer,
     // Controlled mode (single selection)
-    selectedItem: value != null ? itemsMap.get(value as string) : undefined,
+    selectedItem: value != null && !multiple ? itemsMap.get(value as string) || null : undefined,
     initialSelectedItem:
-      defaultValue != null || value ? itemsMap.get(defaultValue as string) : undefined,
+      (defaultValue != null || value != null) && !multiple
+        ? itemsMap.get(defaultValue as string) || null
+        : undefined,
     onSelectedItemChange: ({ selectedItem }) => {
       if (selectedItem?.value != null && !multiple) {
         onValueChange?.(selectedItem?.value as OnChangeValueType)
@@ -115,7 +117,13 @@ export const useDropdown = ({
     /**
      * 1. Downshift default behaviour is to scroll into view the highlighted item when the dropdown opens. This behaviour is not stable and scrolls the dropdown to the bottom of the screen.
      */
-    scrollIntoView: () => undefined /* 1 */,
+    scrollIntoView: node => {
+      if (node) {
+        node.scrollIntoView({ block: 'nearest' })
+      }
+
+      return undefined
+    },
   })
 
   return {
