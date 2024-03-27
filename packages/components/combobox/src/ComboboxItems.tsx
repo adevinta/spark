@@ -31,15 +31,15 @@ export const Items = forwardRef(
           className,
           'relative flex flex-col',
           isOpen ? 'block' : 'pointer-events-none opacity-0',
-          ctx.hasPopover && 'p-lg'
+          ctx.hasPopover && 'p-lg',
+          ctx.isLoading && 'items-center overflow-y-auto'
         )}
         {...props}
         {...downshiftMenuProps}
         aria-busy={ctx.isLoading}
         data-spark-component="combobox-items"
       >
-        {ctx.isLoading && <Spinner size="sm" className="absolute right-lg" />}
-        {children}
+        {ctx.isLoading ? <Spinner size="sm" /> : children}
       </ul>
     )
   }
