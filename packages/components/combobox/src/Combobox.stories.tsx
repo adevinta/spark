@@ -903,7 +903,12 @@ export const ModalSearch: StoryFn = () => {
 
   return (
     <div className="m-sm flex h-[600px] w-full items-center justify-center border-sm border-dashed bg-gradient-to-br from-main to-support-variant text-surface">
-      <Dialog open={isOpen}>
+      <Dialog
+        open={isOpen}
+        onOpenChange={value => {
+          setIsOpen(value)
+        }}
+      >
         {value ? (
           <Chip
             intent="surface"
@@ -911,62 +916,67 @@ export const ModalSearch: StoryFn = () => {
               setValue(undefined)
               setInputValue('')
             }}
+            onClick={() => {
+              setIsOpen(true)
+            }}
           >
             <Chip.Content>{value}</Chip.Content>
             <Chip.ClearButton label={'Clear'} />
           </Chip>
         ) : (
-          <>
-            <Dialog.Trigger asChild>
-              <Button design="outlined" intent="surface" onClick={() => setIsOpen(true)}>
-                <span>Search a book...</span>
-                <Icon size="sm">
-                  <Search />
-                </Icon>
-              </Button>
-            </Dialog.Trigger>
-            {isOpen && <Dialog.Overlay />}
-            <Dialog.Portal>
-              <Dialog.Content size="sm">
-                <Combobox
-                  onValueChange={value => {
-                    if (value === undefined) {
-                      setValue(value)
-                    } else {
-                      const [_, id] = value.split('-')
-                      const book = books.find(({ id: bookId }) => `${bookId}` === id)
-                      setValue(book ? book?.name : undefined)
-                    }
-                    setIsOpen(false)
-                  }}
-                  defaultValue={value}
-                >
-                  <Dialog.Header>
-                    <Combobox.Trigger>
-                      <Combobox.Input
-                        aria-label="Book"
-                        value={inputValue}
-                        onValueChange={setInputValue}
-                        placeholder="Pick a book"
-                      />
-                      <Combobox.ClearButton aria-label={'Clear input'} />
-                    </Combobox.Trigger>
-                  </Dialog.Header>
-                  <Dialog.Body>
-                    <Combobox.Items>
-                      <Combobox.Empty>No results found</Combobox.Empty>
-                      {books.map(({ name, id }) => (
-                        <Combobox.Item key={id} value={`book-${id}`}>
-                          {name}
-                        </Combobox.Item>
-                      ))}
-                    </Combobox.Items>
-                  </Dialog.Body>
-                </Combobox>
-              </Dialog.Content>
-            </Dialog.Portal>
-          </>
+          <Button design="outlined" intent="surface" onClick={() => setIsOpen(true)}>
+            <span>Search a book...</span>
+            <Icon size="sm">
+              <Search />
+            </Icon>
+          </Button>
         )}
+        {isOpen && <Dialog.Overlay />}
+        <Dialog.Portal>
+          <Dialog.Content size="sm">
+            <Combobox
+              onValueChange={value => {
+                if (value === undefined) {
+                  setValue(value)
+                } else {
+                  const [_, id] = value.split('-')
+                  const book = books.find(({ id: bookId }) => `${bookId}` === id)
+                  setValue(book ? book?.name : undefined)
+                }
+                setIsOpen(false)
+              }}
+              defaultValue={value}
+            >
+              <Dialog.Header>
+                <Combobox.Trigger>
+                  <Combobox.Input
+                    aria-label="Book"
+                    value={inputValue}
+                    onValueChange={setInputValue}
+                    placeholder="Pick a book"
+                  />
+                  <Combobox.ClearButton
+                    aria-label={'Clear input'}
+                    onClick={() => {
+                      setIsOpen(true)
+                      debugger
+                    }}
+                  />
+                </Combobox.Trigger>
+              </Dialog.Header>
+              <Dialog.Body>
+                <Combobox.Items>
+                  <Combobox.Empty>No results found</Combobox.Empty>
+                  {books.map(({ name, id }) => (
+                    <Combobox.Item key={id} value={`book-${id}`}>
+                      {name}
+                    </Combobox.Item>
+                  ))}
+                </Combobox.Items>
+              </Dialog.Body>
+            </Combobox>
+          </Dialog.Content>
+        </Dialog.Portal>
       </Dialog>
     </div>
   )
