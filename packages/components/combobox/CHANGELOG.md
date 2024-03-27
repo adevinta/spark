@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.4](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.10.3...@spark-ui/combobox@0.10.4) (2024-03-27)
+
+### Bug Fixes
+
+- **combobox:** combobox was closing on clearing input ([b72728a](https://github.com/adevinta/spark/commit/b72728aa24e376df3a53ba7fd425c8ce85a52327))
+
 ## [0.10.3](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.10.2...@spark-ui/combobox@0.10.3) (2024-03-26)
 
 **Note:** Version bump only for package @spark-ui/combobox
