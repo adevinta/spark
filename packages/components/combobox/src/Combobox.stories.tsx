@@ -941,9 +941,12 @@ export const ModalSearch: StoryFn = () => {
                 } else {
                   const [_, id] = value.split('-')
                   const book = books.find(({ id: bookId }) => `${bookId}` === id)
-                  setValue(book ? book?.name : undefined)
+
+                  if (book) {
+                    setValue(book?.name)
+                    setIsOpen(false)
+                  }
                 }
-                setIsOpen(false)
               }}
               defaultValue={value}
             >
@@ -959,7 +962,6 @@ export const ModalSearch: StoryFn = () => {
                     aria-label={'Clear input'}
                     onClick={() => {
                       setIsOpen(true)
-                      debugger
                     }}
                   />
                 </Combobox.Trigger>
