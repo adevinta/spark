@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.5.2...@spark-ui/snackbar@0.5.3) (2024-03-27)
+
+### Bug Fixes
+
+- **snackbar:** fix a11y focus issue ([71a7a7b](https://github.com/adevinta/spark/commit/71a7a7b9bba65da47a9046b673c090f43fd997c4))
+
 ## [0.5.2](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.5.1...@spark-ui/snackbar@0.5.2) (2024-03-26)
 
 **Note:** Version bump only for package @spark-ui/snackbar
