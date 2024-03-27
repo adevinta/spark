@@ -30,7 +30,7 @@ export const Items = forwardRef(
         className={cx(
           className,
           'relative flex flex-col',
-          isOpen ? 'block' : 'pointer-events-none opacity-0',
+          isOpen ? 'block' : 'hidden',
           ctx.hasPopover && 'p-lg'
         )}
         {...props}
