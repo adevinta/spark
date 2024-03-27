@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.10...@spark-ui/dropdown@1.0.11) (2024-03-27)
+
+### Bug Fixes
+
+- **combobox:** scroll combobox items into view ([edd56f7](https://github.com/adevinta/spark/commit/edd56f7bc17f2608c2598bc4151557e138c15592))
+
 ## [1.0.10](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.9...@spark-ui/dropdown@1.0.10) (2024-03-26)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.5](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.10.4...@spark-ui/combobox@0.10.5) (2024-03-27)
+
+### Bug Fixes
+
+- **combobox:** scroll combobox items into view ([edd56f7](https://github.com/adevinta/spark/commit/edd56f7bc17f2608c2598bc4151557e138c15592))
+
 ## [0.10.4](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.10.3...@spark-ui/combobox@0.10.4) (2024-03-27)
 
 ### Bug Fixes
