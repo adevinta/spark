@@ -344,6 +344,16 @@ export const ComboboxProvider = ({
           setSelectedItem: onInternalSelectedItemChange,
           filteredItems: [...filteredItemsMap.values()],
         }),
+    /**
+     * Downshift default behaviour is to scroll into view the highlighted item when the dropdown opens. This behaviour is not stable and scrolls the dropdown to the bottom of the screen.
+     */
+    scrollIntoView: node => {
+      if (node) {
+        node.scrollIntoView({ block: 'nearest' })
+      }
+
+      return undefined
+    },
   })
 
   /**
