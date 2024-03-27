@@ -31,7 +31,7 @@ export const useSnackbarGlobalStore = <T = RefObject<HTMLDivElement>>({
     [subscriptions]
   )
 
-  const getActiveSnackbarProvider = useCallback(() => providers.values().next().value, [providers])
+  const getLastSnackbarProvider = useCallback(() => [...providers].reverse()[0] as T, [providers])
 
   const addProvider = useCallback(
     (provider: T) => {
@@ -55,11 +55,7 @@ export const useSnackbarGlobalStore = <T = RefObject<HTMLDivElement>>({
     [providers, subscriptions]
   )
 
-  const provider = useSyncExternalStore(
-    subscribe,
-    getActiveSnackbarProvider,
-    getActiveSnackbarProvider
-  )
+  const provider = useSyncExternalStore(subscribe, getLastSnackbarProvider, getLastSnackbarProvider)
 
   return {
     provider,

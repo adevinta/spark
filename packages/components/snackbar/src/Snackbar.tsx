@@ -1,35 +1,14 @@
-import { type AriaToastRegionProps, useToastRegion } from '@react-aria/toast'
 import {
   type ToastOptions as SnackBarItemOptions,
   ToastQueue,
   useToastQueue,
 } from '@react-stately/toast'
-import {
-  cloneElement,
-  type ComponentPropsWithoutRef,
-  forwardRef,
-  type ReactElement,
-  type RefObject,
-  useEffect,
-  useRef,
-} from 'react'
+import { forwardRef, type ReactElement, type RefObject, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
-import { snackbarRegionVariant, type SnackbarRegionVariantProps } from './Snackbar.styles'
-import { SnackbarItem, type SnackbarItemProps, type SnackbarItemValue } from './SnackbarItem'
-import { SnackbarItemContext } from './SnackbarItemContext'
+import { type SnackbarItemValue } from './SnackbarItem'
+import { SnackbarRegion, type SnackbarRegionProps } from './SnackbarRegion'
 import { useSnackbarGlobalStore } from './useSnackbarGlobalStore'
-
-export interface SnackbarProps
-  extends ComponentPropsWithoutRef<'div'>,
-    AriaToastRegionProps,
-    SnackbarRegionVariantProps {
-  /**
-   * The component/template used to display each snackbar from the queue
-   * @default 'Snackbar.Item'
-   */
-  children?: ReactElement<SnackbarItemProps, typeof SnackbarItem>
-}
 
 /**
  * We define here a global queue thanks to dedicated util from React Spectrum.
@@ -55,24 +34,21 @@ export const clearSnackbarQueue = () => {
 }
 
 /**
- * We define a global store that will be used  with React `useSyncExternalStore` hook
- * and will allow us to ensure we always have a single Snackbar container.
+ * We define a global store to keep track of all providers instances, to ensure
+ * we always have a single Snackbar container.
  */
 const GLOBAL_SNACKBAR_STORE = {
   providers: new Set<RefObject<HTMLDivElement>>(),
   subscriptions: new Set<() => void>(),
 }
 
+export type SnackbarProps = Omit<SnackbarRegionProps, 'state'>
+
 export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
-  (
-    { children = <SnackbarItem />, position = 'bottom', className, ...rest },
-    forwardedRef
-  ): ReactElement | null => {
-    const innerRef = useRef<HTMLDivElement>(null)
-    const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
+  (props, forwardedRef): ReactElement | null => {
+    const ref = useRef<HTMLDivElement>(null)
 
     const state = useToastQueue(getGlobalSnackBarQueue())
-    const { regionProps } = useToastRegion(rest, state, ref)
 
     const { provider, addProvider, deleteProvider } = useSnackbarGlobalStore(GLOBAL_SNACKBAR_STORE)
 
@@ -84,21 +60,7 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
     }, [])
 
     return ref === provider && state.visibleToasts.length > 0
-      ? createPortal(
-          <div
-            {...regionProps}
-            ref={ref}
-            data-position={position}
-            className={snackbarRegionVariant({ position, className })}
-          >
-            {state.visibleToasts.map(toast => (
-              <SnackbarItemContext.Provider key={toast.key} value={{ toast, state }}>
-                {cloneElement(children, { key: toast.key })}
-              </SnackbarItemContext.Provider>
-            ))}
-          </div>,
-          document.body
-        )
+      ? createPortal(<SnackbarRegion ref={forwardedRef} state={state} {...props} />, document.body)
       : null
   }
 )
