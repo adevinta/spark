@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/tabs",
-  "version": "2.3.14",
+  "version": "2.3.15",
   "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
   "publishConfig": {
     "access": "public"
@@ -43,7 +43,7 @@
     "class-variance-authority": "0.7.0"
   },
   "devDependencies": {
-    "jsdom-testing-mocks": "1.11.0"
+    "jsdom-testing-mocks": "1.13.0"
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "^4.0.0",
