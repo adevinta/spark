@@ -215,11 +215,7 @@ export const Action: StoryObj = {
   render: () => {
     return (
       <div>
-        <Snackbar>
-          <Snackbar.Item>
-            <Snackbar.ItemClose aria-label="Fermer" />
-          </Snackbar.Item>
-        </Snackbar>
+        <Snackbar />
 
         <Button
           onClick={() =>
@@ -248,7 +244,7 @@ return (
   <div>
     <Snackbar>
       <Snackbar.Item>
-        <Snackbar.ItemClose aria-label="Fermer" />
+        <Snackbar.ItemClose aria-label="Close" />
       </Snackbar.Item>
     </Snackbar>
   
@@ -256,6 +252,49 @@ return (
   </div>
 )
          `,
+      },
+    },
+  },
+}
+
+export const AdvancedActionClose: StoryObj = {
+  render: () => (
+    <div>
+      <Snackbar />
+
+      <Button
+        onClick={() =>
+          addSnackbar({
+            message: "You're done!",
+            intent: 'success',
+            isClosable: true,
+          })
+        }
+      >
+        Display snackbar
+      </Button>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+const handleClick = () => addSnackbar({
+  message: "You're done!",
+  intent: 'success',
+})\n
+return (
+  <div>
+    <Snackbar>
+      <Snackbar.Item>
+        <Snackbar.ItemClose aria-label="Close" />
+      </Snackbar.Item>
+    </Snackbar>
+
+    <Button onClick={handleClick}>Display snackbar</Button>
+  </div>
+)
+       `,
       },
     },
   },
