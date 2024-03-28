@@ -18,6 +18,12 @@ export const Default: StoryFn = _args => <Switch>Agreed</Switch>
 
 export const Uncontrolled: StoryFn = _args => <Switch defaultChecked>Agreed</Switch>
 
+export const ReversedOrder: StoryFn = _args => (
+  <Switch defaultChecked className="flex-row-reverse">
+    Agreed
+  </Switch>
+)
+
 export const Controlled: StoryFn = () => {
   const [checked, setChecked] = useState(true)
 
