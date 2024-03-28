@@ -244,7 +244,7 @@ export const FilteringManual: StoryFn = () => {
 
   const filteredItems = Object.keys(items).reduce((acc: Record<string, string>, key: string) => {
     const text: string = items[key as keyof typeof items]
-    const match = text.toLowerCase().includes(inputValue.toLowerCase())
+    const match = text.includes(inputValue)
 
     return match ? { ...acc, [key]: text } : acc
   }, {})
