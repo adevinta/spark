@@ -12,11 +12,12 @@ import {
   type SnackbarProps,
 } from '.'
 
-interface ImplProps extends SnackbarProps, Partial<AddSnackbarArgs> {}
-
 const DEFAULT_TIMEOUT = 250
 
-const SnackbarImplementation = ({ children, ...options }: ImplProps): ReactElement => (
+const SnackbarImplementation = ({
+  children,
+  ...options
+}: SnackbarProps & Partial<AddSnackbarArgs>): ReactElement => (
   <div>
     <Snackbar>{children}</Snackbar>
 
@@ -29,7 +30,16 @@ const SnackbarImplementation = ({ children, ...options }: ImplProps): ReactEleme
 )
 
 describe('Snackbar', () => {
-  beforeEach(() => clearSnackbarQueue())
+  /**
+   * PointerEvent is not available in JSDom
+   * cf: https://github.com/jsdom/jsdom/issues/2527
+   */
+  beforeAll(() => vi.stubGlobal('PointerEvent', MouseEvent))
+
+  beforeEach(() => {
+    clearSnackbarQueue()
+    vi.clearAllMocks()
+  })
 
   const animateAndClose = () => {
     /**
@@ -56,8 +66,6 @@ describe('Snackbar', () => {
     render(<SnackbarImplementation />)
 
     await user.click(screen.getByText('Show me a snackbar'))
-
-    vi.runOnlyPendingTimers()
 
     animateAndClose()
     expect(screen.queryByText('You did it!')).not.toBeInTheDocument()
@@ -103,6 +111,51 @@ describe('Snackbar', () => {
     animateAndClose()
     expect(screen.queryByText('You did it!')).not.toBeInTheDocument()
     expect(document.activeElement).toBe(triggerBtn)
+  })
+
+  it('should close snackbar on right/left swipe gestures', async () => {
+    const user = userEvent.setup({ advanceTimers: vi.runOnlyPendingTimers })
+
+    vi.useFakeTimers()
+
+    render(<SnackbarImplementation />)
+
+    // 1. To the left
+    await user.click(screen.getByText('Show me a snackbar'))
+    let snackBarItem = await screen.findByText('You did it!')
+
+    /**
+     * PointerMove event implementation is buggy on `user-event` library,
+     * so we need to replace it with `fireEvent`
+     * cf. https://github.com/testing-library/user-event/issues/1047#issuecomment-1229153700
+     */
+    fireEvent.pointerDown(snackBarItem, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(snackBarItem, { clientX: -100, clientY: 0 })
+
+    expect(screen.getByText('You did it!').parentNode).toHaveAttribute(
+      'data-swipe-direction',
+      'left'
+    )
+
+    animateAndClose()
+    expect(screen.queryByText('You did it!')).not.toBeInTheDocument()
+
+    // 2. To the right
+    await user.click(screen.getByText('Show me a snackbar'))
+    snackBarItem = await screen.findByText('You did it!')
+
+    fireEvent.pointerDown(snackBarItem, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(snackBarItem, { clientX: 100, clientY: 0 })
+
+    expect(screen.getByText('You did it!').parentNode).toHaveAttribute(
+      'data-swipe-direction',
+      'right'
+    )
+
+    animateAndClose()
+    expect(screen.queryByText('You did it!')).not.toBeInTheDocument()
+
+    vi.useRealTimers()
   })
 
   describe('Icon', () => {
@@ -185,7 +238,7 @@ describe('Snackbar', () => {
       render(
         <SnackbarImplementation>
           <Snackbar.Item intent="success">
-            <Snackbar.ItemAction intent="alert" onClick={onActionSpy}>
+            <Snackbar.ItemAction intent="error" onClick={onActionSpy}>
               Undo
             </Snackbar.ItemAction>
           </Snackbar.Item>
@@ -198,7 +251,7 @@ describe('Snackbar', () => {
        * If children item is provided then its props will be used in priority over function options.
        */
       expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-success')
-      expect(screen.getByText('Undo')).toHaveClass('bg-alert')
+      expect(screen.getByText('Undo')).toHaveClass('bg-error')
 
       await user.click(screen.getByText('Undo'))
 
@@ -266,7 +319,7 @@ describe('Snackbar', () => {
         <SnackbarImplementation onClose={onCloseSpy}>
           <Snackbar.Item intent="success">
             <Snackbar.ItemClose
-              intent="alert"
+              intent="error"
               onClick={onClickSpy}
               aria-label="Close the snackbar"
             />
@@ -277,7 +330,7 @@ describe('Snackbar', () => {
       await user.click(screen.getByText('Show me a snackbar'))
 
       expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-success')
-      expect(screen.getByLabelText('Close the snackbar')).toHaveClass('bg-alert')
+      expect(screen.getByLabelText('Close the snackbar')).toHaveClass('bg-error')
 
       await user.click(screen.getByLabelText('Close the snackbar'))
 
