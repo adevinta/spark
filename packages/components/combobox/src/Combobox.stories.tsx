@@ -441,7 +441,7 @@ export const Statuses: StoryFn = () => {
     <div className="flex flex-col gap-lg pb-[300px]">
       {statuses.map(status => {
         return (
-          <Combobox state={status}>
+          <Combobox state={status} key={status}>
             <Combobox.Trigger aria-label="Book">
               <Combobox.Input aria-label="Book" placeholder="Pick a book" />
             </Combobox.Trigger>
