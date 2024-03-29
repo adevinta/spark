@@ -117,6 +117,26 @@ describe('RadioGroup', () => {
     expect(screen.getByLabelText('1')).toBeDisabled()
   })
 
+  it('should handle the reverse prop', async () => {
+    const { container, rerender } = render(
+      <RadioGroup>
+        <RadioGroup.Radio value="1">one</RadioGroup.Radio>
+      </RadioGroup>
+    )
+
+    const label = screen.getByText('one')
+    const getFirstRelevantElement = () => container.firstChild?.firstChild?.firstChild
+
+    expect(getFirstRelevantElement()).not.toStrictEqual(label)
+
+    rerender(
+      <RadioGroup reverse>
+        <RadioGroup.Radio value="1">one</RadioGroup.Radio>
+      </RadioGroup>
+    )
+    expect(getFirstRelevantElement()).toStrictEqual(label)
+  })
+
   describe('with FormField', () => {
     it('should render with label', () => {
       render(
