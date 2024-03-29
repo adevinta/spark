@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.10.7...@spark-ui/combobox@0.11.0) (2024-03-29)
+
+### Features
+
+- **combobox:** removed Combobox.Divider ([4922607](https://github.com/adevinta/spark/commit/4922607a150474a82df4592d6c58b0c61dfc7ccc))
+
 ## [0.10.7](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.10.6...@spark-ui/combobox@0.10.7) (2024-03-28)
 
 **Note:** Version bump only for package @spark-ui/combobox
