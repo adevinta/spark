@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.11.0...@spark-ui/dialog@1.11.1) (2024-03-29)
+
+### Bug Fixes
+
+- **dialog:** use optional chaining operator to safely access node id, preventing runtime errors ([bbc6769](https://github.com/adevinta/spark/commit/bbc6769ca0399ef4180ce6fcf6c9a3e179b63f8d))
+
 # [1.11.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.10.1...@spark-ui/dialog@1.11.0) (2024-03-15)
 
 ### Features
