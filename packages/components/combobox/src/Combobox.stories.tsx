@@ -345,8 +345,6 @@ export const Grouped: StoryFn = _args => {
               <Combobox.Item value="book-3">The Idiot</Combobox.Item>
             </Combobox.Group>
 
-            <Combobox.Divider />
-
             <Combobox.Group>
               <Combobox.Label>Novelties</Combobox.Label>
               <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
