@@ -35,6 +35,10 @@ export interface CheckboxGroupContextState extends Pick<CheckboxInputStylesProps
    * Callback used to update or notify the value of the checkbox group.
    */
   onCheckedChange?: (checked: boolean, changed: string) => void
+  /**
+   * When true, the label will be placed on the left side of the Checkbox
+   */
+  reverse?: boolean
 }
 
 export const CheckboxGroupContext = createContext<Partial<CheckboxGroupContextState>>({})

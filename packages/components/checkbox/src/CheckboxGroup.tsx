@@ -8,7 +8,7 @@ import { CheckboxGroupContext, CheckboxGroupContextState } from './CheckboxGroup
 export interface CheckboxGroupProps
   extends Omit<ComponentPropsWithoutRef<'div'>, 'value' | 'defaultValue' | 'onChange'>,
     CheckboxGroupStylesProps,
-    Pick<CheckboxGroupContextState, 'intent' | 'name' | 'value'> {
+    Pick<CheckboxGroupContextState, 'intent' | 'name' | 'value' | 'reverse'> {
   /**
    * The initial value of the checkbox group
    */
@@ -29,6 +29,7 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
       intent,
       orientation = 'vertical',
       onCheckedChange: onCheckedChangeProp,
+      reverse,
       children,
       ...others
     },
@@ -62,9 +63,10 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
         isInvalid,
         description,
         isRequired,
+        reverse,
         onCheckedChange: handleCheckedChange,
       }
-    }, [id, name, value, intent, state, isInvalid, description, isRequired, setValue])
+    }, [id, name, value, intent, state, isInvalid, description, isRequired, setValue, reverse])
 
     useEffect(() => {
       onCheckedChangeRef.current = onCheckedChangeProp

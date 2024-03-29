@@ -6,11 +6,11 @@ import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
 import { forwardRef, useRef } from 'react'
 
-import { useCheckboxGroup } from './CheckboxGroupContext'
+import { CheckboxGroupContextState, useCheckboxGroup } from './CheckboxGroupContext'
 import { CheckboxInput, CheckboxInputProps } from './CheckboxInput'
 import { CheckboxLabel } from './CheckboxLabel'
 
-export type CheckboxProps = CheckboxInputProps
+export type CheckboxProps = CheckboxInputProps & Pick<CheckboxGroupContextState, 'reverse'>
 
 export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
   (
@@ -21,6 +21,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       checked: checkedProp,
       value,
       disabled,
+      reverse,
       onCheckedChange,
       children,
       ...others
@@ -76,32 +77,49 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       checkboxIntent: intentProp,
     })
 
+    const checkboxLabel = children && (
+      <CheckboxLabel disabled={disabled} htmlFor={id || innerId} id={innerLabelId}>
+        {children}
+      </CheckboxLabel>
+    )
+
+    const checkboxInput = (
+      <CheckboxInput
+        ref={ref}
+        id={id || innerId}
+        name={name}
+        value={value}
+        intent={intent}
+        checked={checked}
+        disabled={disabled}
+        required={isRequired}
+        aria-describedby={description}
+        aria-invalid={isInvalid}
+        onCheckedChange={handleCheckedChange}
+        aria-labelledby={children ? innerLabelId : field.labelId}
+        {...others}
+      />
+    )
+
+    const content =
+      group.reverse || reverse ? (
+        <>
+          {checkboxLabel}
+          {checkboxInput}
+        </>
+      ) : (
+        <>
+          {checkboxInput}
+          {checkboxLabel}
+        </>
+      )
+
     return (
       <div
         data-spark-component="checkbox"
         className={cx('relative flex items-start gap-md text-body-1', className)}
       >
-        <CheckboxInput
-          ref={ref}
-          id={id || innerId}
-          name={name}
-          value={value}
-          intent={intent}
-          checked={checked}
-          disabled={disabled}
-          required={isRequired}
-          aria-describedby={description}
-          aria-invalid={isInvalid}
-          onCheckedChange={handleCheckedChange}
-          aria-labelledby={children ? innerLabelId : field.labelId}
-          {...others}
-        />
-
-        {children && (
-          <CheckboxLabel disabled={disabled} htmlFor={id || innerId} id={innerLabelId}>
-            {children}
-          </CheckboxLabel>
-        )}
+        {content}
       </div>
     )
   }

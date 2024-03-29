@@ -116,6 +116,17 @@ describe('Checkbox', () => {
     expect(checkboxEl).not.toBeChecked()
     expect(onCheckedChange).toHaveBeenCalledTimes(0)
   })
+
+  it('should handle the reverse prop', () => {
+    const { container, rerender } = render(<Checkbox>hello</Checkbox>)
+    const label = screen.getByText('hello')
+    const getFirstRelevantElement = () => container.firstChild?.firstChild
+
+    expect(getFirstRelevantElement()).not.toStrictEqual(label)
+
+    rerender(<Checkbox reverse>hello</Checkbox>)
+    expect(getFirstRelevantElement()).toStrictEqual(label)
+  })
 })
 
 describe('CheckboxGroup', () => {
@@ -227,6 +238,26 @@ describe('CheckboxGroup', () => {
     )
 
     expect(screen.getByRole('checkbox', { name: 'My accessible field label' })).toBeInTheDocument()
+  })
+
+  it('should handle the reverse prop', () => {
+    const { container, rerender } = render(
+      <CheckboxGroup>
+        <Checkbox value="hello">hello</Checkbox>
+      </CheckboxGroup>
+    )
+    const label = screen.getByText('hello')
+
+    const getFirstRelevantElement = () => container.firstChild?.firstChild?.firstChild
+
+    expect(getFirstRelevantElement()).not.toStrictEqual(label)
+
+    rerender(
+      <CheckboxGroup reverse>
+        <Checkbox value="hello">hello</Checkbox>
+      </CheckboxGroup>
+    )
+    expect(getFirstRelevantElement()).toStrictEqual(label)
   })
 
   describe('with FormField', () => {
