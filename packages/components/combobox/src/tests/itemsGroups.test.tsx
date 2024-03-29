@@ -20,7 +20,6 @@ describe('Combobox', () => {
                 <Combobox.Item value="book-1">War and Peace</Combobox.Item>
                 <Combobox.Item value="book-2">1984</Combobox.Item>
               </Combobox.Group>
-              <Combobox.Divider />
               <Combobox.Group>
                 <Combobox.Label>Novelties</Combobox.Label>
                 <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
