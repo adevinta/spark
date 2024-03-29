@@ -28,6 +28,8 @@ export const Controlled: StoryFn = () => {
   )
 }
 
+export const Reverse: StoryFn = _args => <Switch reverse>Agreed</Switch>
+
 export const Icons: StoryFn = _args => (
   <Switch checkedIcon={<Sun />} uncheckedIcon={<StarOutline />}>
     Mode

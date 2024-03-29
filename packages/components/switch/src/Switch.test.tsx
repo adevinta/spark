@@ -52,6 +52,17 @@ describe('Switch', () => {
     expect(screen.getByRole('switch', { name: 'My accessible field label' })).toBeInTheDocument()
   })
 
+  it('should handle the reverse prop', () => {
+    const { container, rerender } = render(<Switch>hello</Switch>)
+    const label = screen.getByText('hello')
+    const getFirstRelevantElement = () => container.firstChild?.firstChild
+
+    expect(getFirstRelevantElement()).not.toStrictEqual(label)
+
+    rerender(<Switch reverse>hello</Switch>)
+    expect(getFirstRelevantElement()).toStrictEqual(label)
+  })
+
   describe('user interactions', () => {
     it('should check/uncheck upon click', async () => {
       const user = userEvent.setup()
