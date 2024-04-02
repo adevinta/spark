@@ -118,23 +118,31 @@ describe('RadioGroup', () => {
   })
 
   it('should handle the reverse prop', async () => {
-    const { container, rerender } = render(
+    const { rerender } = render(
       <RadioGroup>
         <RadioGroup.Radio value="1">one</RadioGroup.Radio>
       </RadioGroup>
     )
 
     const label = screen.getByText('one')
-    const getFirstRelevantElement = () => container.firstChild?.firstChild?.firstChild
+    const radioInput = screen.getByRole('radio', {
+      name: 'one',
+    })
 
-    expect(getFirstRelevantElement()).not.toStrictEqual(label)
+    // radio input should be before label in the DOM
+    expect(
+      radioInput.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
 
     rerender(
       <RadioGroup reverse>
         <RadioGroup.Radio value="1">one</RadioGroup.Radio>
       </RadioGroup>
     )
-    expect(getFirstRelevantElement()).toStrictEqual(label)
+    // label should be before radio input in the DOM
+    expect(
+      label.compareDocumentPosition(radioInput) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
   })
 
   describe('with FormField', () => {

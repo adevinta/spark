@@ -118,14 +118,22 @@ describe('Checkbox', () => {
   })
 
   it('should handle the reverse prop', () => {
-    const { container, rerender } = render(<Checkbox>hello</Checkbox>)
+    const { rerender } = render(<Checkbox>hello</Checkbox>)
     const label = screen.getByText('hello')
-    const getFirstRelevantElement = () => container.firstChild?.firstChild
+    const checkboxInput = screen.getByRole('checkbox', {
+      name: 'hello',
+    })
 
-    expect(getFirstRelevantElement()).not.toStrictEqual(label)
+    // checkbox input should be before label in the DOM
+    expect(
+      checkboxInput.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
 
     rerender(<Checkbox reverse>hello</Checkbox>)
-    expect(getFirstRelevantElement()).toStrictEqual(label)
+    // label should be before checkbox input in the DOM
+    expect(
+      label.compareDocumentPosition(checkboxInput) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
   })
 })
 
@@ -241,23 +249,30 @@ describe('CheckboxGroup', () => {
   })
 
   it('should handle the reverse prop', () => {
-    const { container, rerender } = render(
+    const { rerender } = render(
       <CheckboxGroup>
         <Checkbox value="hello">hello</Checkbox>
       </CheckboxGroup>
     )
     const label = screen.getByText('hello')
+    const checkboxInput = screen.getByRole('checkbox', {
+      name: 'hello',
+    })
 
-    const getFirstRelevantElement = () => container.firstChild?.firstChild?.firstChild
-
-    expect(getFirstRelevantElement()).not.toStrictEqual(label)
+    // checkbox input should be before label in the DOM
+    expect(
+      checkboxInput.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
 
     rerender(
       <CheckboxGroup reverse>
         <Checkbox value="hello">hello</Checkbox>
       </CheckboxGroup>
     )
-    expect(getFirstRelevantElement()).toStrictEqual(label)
+    // label should be before checkbox input in the DOM
+    expect(
+      label.compareDocumentPosition(checkboxInput) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
   })
 
   describe('with FormField', () => {

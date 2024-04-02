@@ -53,14 +53,22 @@ describe('Switch', () => {
   })
 
   it('should handle the reverse prop', () => {
-    const { container, rerender } = render(<Switch>hello</Switch>)
+    const { rerender } = render(<Switch>hello</Switch>)
     const label = screen.getByText('hello')
-    const getFirstRelevantElement = () => container.firstChild?.firstChild
+    const switchInput = screen.getByRole('switch', {
+      name: 'hello',
+    })
 
-    expect(getFirstRelevantElement()).not.toStrictEqual(label)
+    // switch input should be before label in the DOM
+    expect(
+      switchInput.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
 
     rerender(<Switch reverse>hello</Switch>)
-    expect(getFirstRelevantElement()).toStrictEqual(label)
+    // label should be before switch input in the DOM
+    expect(
+      label.compareDocumentPosition(switchInput) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
   })
 
   describe('user interactions', () => {
