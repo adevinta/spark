@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.11.1...@spark-ui/dialog@1.11.2) (2024-04-02)
+
+### Bug Fixes
+
+- **dialog:** ensure the activeElement is an HTMLElement before trying to call the focus method on it ([c755243](https://github.com/adevinta/spark/commit/c7552434365f37c6035cea6ff4e4d117f65c8ad1))
+
 ## [1.11.1](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.11.0...@spark-ui/dialog@1.11.1) (2024-03-29)
 
 ### Bug Fixes
