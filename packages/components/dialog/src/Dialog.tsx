@@ -28,7 +28,7 @@ export interface DialogProps {
 
 export const Dialog = ({ children, ...rest }: DialogProps): ReactElement => {
   const open = rest.open
-  const activeElementRef = useRef<HTMLElement>()
+  const activeElementRef = useRef<Element>()
 
   /**
    * This function captures the active element when the Dialog is opened
@@ -36,12 +36,13 @@ export const Dialog = ({ children, ...rest }: DialogProps): ReactElement => {
    */
   function handleActiveElementFocus() {
     if (open && document.activeElement) {
-      activeElementRef.current = document.activeElement as HTMLElement
+      activeElementRef.current = document.activeElement
     }
 
     if (!open) {
       setTimeout(() => {
-        activeElementRef.current?.focus()
+        if (!(activeElementRef.current instanceof HTMLElement)) return
+        activeElementRef.current.focus()
       }, 0)
     }
   }
