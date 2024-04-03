@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.12](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.2.11...@spark-ui/switch@2.2.12) (2024-04-03)
+
+### Bug Fixes
+
+- **switch:** remove X overflow of the Switch internals ([11ad7ee](https://github.com/adevinta/spark/commit/11ad7ee0b50138ff2dfa5e42079ce71ef28c52ef))
+
 ## [2.2.11](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.2.10...@spark-ui/switch@2.2.11) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/switch
