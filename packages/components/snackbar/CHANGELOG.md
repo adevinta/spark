@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.5.3...@spark-ui/snackbar@0.5.4) (2024-04-03)
+
+### Bug Fixes
+
+- **snackbar:** prevent snackbar components to flex (appart main content) ([cf09d89](https://github.com/adevinta/spark/commit/cf09d8902cfef8554738edf9db6419657b9943e7))
+
 ## [0.5.3](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.5.2...@spark-ui/snackbar@0.5.3) (2024-03-27)
 
 ### Bug Fixes
