@@ -15,36 +15,36 @@ export const Popover = forwardRef(
     }: ComponentProps<typeof SparkPopover.Content>,
     forwardedRef: Ref<HTMLDivElement>
   ) => {
-    const { setHasPopover } = useDropdownContext()
+    const ctx = useDropdownContext()
 
     useEffect(() => {
-      setHasPopover(true)
+      ctx.setHasPopover(true)
 
-      return () => setHasPopover(false)
+      return () => ctx.setHasPopover(false)
     }, [])
 
-    return (
-      <SparkPopover.Portal>
-        <SparkPopover.Content
-          ref={forwardedRef}
-          inset
-          asChild
-          matchTriggerWidth={matchTriggerWidth}
-          className={cx('!z-dropdown', className)}
-          sideOffset={sideOffset}
-          onOpenAutoFocus={e => {
-            /**
-             * With a combobox pattern, the focus should remain on the trigger at all times.
-             * Passing the focus to the dropdown popover would break keyboard navigation.
-             */
-            e.preventDefault()
-          }}
-          {...props}
-          data-spark-component="dropdown-popover"
-        >
-          {children}
-        </SparkPopover.Content>
-      </SparkPopover.Portal>
+    return ctx.isOpen ? (
+      <SparkPopover.Content
+        ref={forwardedRef}
+        inset
+        asChild
+        matchTriggerWidth={matchTriggerWidth}
+        className={cx('relative !z-dropdown', className)}
+        sideOffset={sideOffset}
+        onOpenAutoFocus={e => {
+          /**
+           * With a combobox pattern, the focus should remain on the trigger at all times.
+           * Passing the focus to the dropdown popover would break keyboard navigation.
+           */
+          e.preventDefault()
+        }}
+        {...props}
+        data-spark-component="dropdown-popover"
+      >
+        {children}
+      </SparkPopover.Content>
+    ) : (
+      children
     )
   }
 )
