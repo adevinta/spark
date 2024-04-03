@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.11...@spark-ui/dropdown@1.0.12) (2024-04-03)
+
+### Bug Fixes
+
+- **dropdown:** z-index conflict between dialog and dropdown ([60e4616](https://github.com/adevinta/spark/commit/60e461602274ad16f5b26207bc91e9a164e652c1))
+
 ## [1.0.11](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.10...@spark-ui/dropdown@1.0.11) (2024-03-27)
 
 ### Bug Fixes
