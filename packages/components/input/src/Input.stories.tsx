@@ -278,11 +278,9 @@ export const Addons: StoryFn = _args => {
 }
 
 export const Icons: StoryFn = () => {
-  const [isInvalid, setIsInvalid] = useState(false)
-
   return (
     <div className="flex flex-col items-start gap-lg">
-      <InputGroup className="max-w-sz-320" state={isInvalid ? 'error' : undefined}>
+      <InputGroup className="max-w-sz-320">
         <InputGroup.LeadingIcon>
           <PenOutline />
         </InputGroup.LeadingIcon>
@@ -293,10 +291,6 @@ export const Icons: StoryFn = () => {
           <Check />
         </InputGroup.TrailingIcon>
       </InputGroup>
-
-      <Checkbox checked={isInvalid} onClick={() => setIsInvalid(!isInvalid)}>
-        Toggle error state
-      </Checkbox>
     </div>
   )
 }
