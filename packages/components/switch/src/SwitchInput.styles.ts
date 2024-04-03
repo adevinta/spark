@@ -12,6 +12,7 @@ export const styles = cva(
     'focus-visible:outline-none focus-visible:u-ring',
     'spark-state-unchecked:bg-on-surface/dim-4',
     'u-shadow-border-transition',
+    'overflow-x-hidden',
   ]),
   {
     variants: {

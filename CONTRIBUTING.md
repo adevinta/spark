@@ -86,11 +86,11 @@ npm uninstall --global "@spark-ui/dummy"
 
 ### Commiting changes
 
-All commits should follow the [commit strategy](https://sparkui.vercel.app/?path=/docs/contributing-commit--docs)
+All commits should follow the [commit strategy](https://sparkui.vercel.app/?path=/docs/contributing-guidelines-commit--docs)
 
 ### Tests
 
-All commits that fix bugs or add features need a test that should follow the [testing strategy](https://sparkui.vercel.app/?path=/docs/contributing-testing--docs)
+All commits that fix bugs or add features need a test that should follow the [testing strategy](https://sparkui.vercel.app/?path=/docs/contributing-writing-packages-testing--docs)
 
 ## Creating a Pull Request
 
