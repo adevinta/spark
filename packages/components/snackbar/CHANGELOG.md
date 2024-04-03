@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.5](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.5.4...@spark-ui/snackbar@0.5.5) (2024-04-03)
+
+### Bug Fixes
+
+- **snackbar:** fix timeout option ([e7a790e](https://github.com/adevinta/spark/commit/e7a790e9a8c09229861fe147bcd407742efd9f33))
+
 ## [0.5.4](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.5.3...@spark-ui/snackbar@0.5.4) (2024-04-03)
 
 ### Bug Fixes
