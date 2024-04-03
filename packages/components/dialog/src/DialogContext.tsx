@@ -21,7 +21,7 @@ export const DialogProvider = ({ children: childrenProp }: { children: ReactNode
   const [hasCloseButton, setHasCloseButton] = useState(false)
 
   const closeButton = deepFind(childrenProp, node => {
-    const reactElementId = ((node as ReactElement)?.type as { id?: string }).id
+    const reactElementId = ((node as ReactElement)?.type as { id?: string })?.id
 
     return reactElementId === 'CloseButton'
   })
