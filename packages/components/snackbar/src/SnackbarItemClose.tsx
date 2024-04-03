@@ -1,6 +1,7 @@
 import { Icon } from '@spark-ui/icon'
 import { IconButton, type IconButtonProps } from '@spark-ui/icon-button'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
+import { cx } from 'class-variance-authority'
 import { type ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import type { SnackbarItemVariantProps } from './SnackbarItem.styles'
@@ -47,7 +48,7 @@ export const SnackbarItemClose = forwardRef<HTMLButtonElement, SnackbarItemClose
           onClick?.(e)
           state.close(toast.key)
         }}
-        className={className}
+        className={cx('flex-none', className)}
         {...rest}
       >
         <Icon size="sm">

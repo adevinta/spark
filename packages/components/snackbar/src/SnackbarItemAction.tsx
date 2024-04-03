@@ -1,4 +1,5 @@
 import { Button, type ButtonProps } from '@spark-ui/button'
+import { cx } from 'class-variance-authority'
 import { forwardRef } from 'react'
 
 import type { SnackbarItemVariantProps } from './SnackbarItem.styles'
@@ -42,7 +43,7 @@ export const SnackbarItemAction = forwardRef<HTMLButtonElement, SnackbarItemActi
           onClick?.(e)
           state.close(toast.key)
         }}
-        className={className}
+        className={cx('flex-none', className)}
         {...rest}
       >
         {children}

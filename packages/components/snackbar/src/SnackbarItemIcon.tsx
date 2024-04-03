@@ -9,7 +9,7 @@ export const SnackbarItemIcon = ({
   className,
   ...rest
 }: SnackbarItemIconProps): ReactElement => (
-  <Icon size="sm" className={cx('ml-md', className)} {...rest}>
+  <Icon size="sm" className={cx('ml-md flex-none', className)} {...rest}>
     {children}
   </Icon>
 )
