@@ -25,10 +25,6 @@ export interface ButtonProps
    * **Please note that using this can result in layout shifting when the Button goes from loading state to normal state.**
    */
   loadingText?: string
-  /**
-   * Placement for the spinner.
-   */
-  spinnerPlacement?: 'left' | 'right'
 }
 
 type DOMAttributesEventHandler = keyof Omit<
@@ -62,7 +58,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loadingText,
       shape = 'rounded',
       size = 'md',
-      spinnerPlacement = 'left',
       asChild,
       className,
       ...others
@@ -111,9 +106,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {wrapPolymorphicSlot(asChild, children, slotted =>
           isLoading ? (
             <>
-              {spinnerPlacement === 'left' && <Spinner {...spinnerProps} />}
+              <Spinner {...spinnerProps} />
               {loadingText && loadingText}
-              {spinnerPlacement === 'right' && <Spinner {...spinnerProps} />}
 
               <div
                 aria-hidden

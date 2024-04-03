@@ -141,11 +141,7 @@ export const LoadingWithText: StoryFn = () => {
         Button with long text
       </Button>
 
-      <Button
-        isLoading={isLoading}
-        loadingText="Loading (spinner to the right)..."
-        spinnerPlacement="right"
-      >
+      <Button isLoading={isLoading} loadingText="Loading (spinner to the right)...">
         <Icon>
           <FavoriteOutline />
         </Icon>
