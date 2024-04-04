@@ -29,7 +29,7 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
       intent,
       orientation = 'vertical',
       onCheckedChange: onCheckedChangeProp,
-      reverse,
+      reverse = false,
       children,
       ...others
     },

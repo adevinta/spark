@@ -21,7 +21,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       checked: checkedProp,
       value,
       disabled,
-      reverse,
+      reverse = false,
       onCheckedChange,
       children,
       ...others

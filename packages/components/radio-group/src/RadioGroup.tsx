@@ -65,7 +65,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
       disabled,
       className,
       required: requiredProp,
-      reverse,
+      reverse = false,
       ...others
     },
     ref
