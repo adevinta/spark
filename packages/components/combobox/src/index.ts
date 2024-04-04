@@ -14,6 +14,7 @@ import { ItemText } from './ComboboxItemText'
 import { Label } from './ComboboxLabel'
 import { LeadingIcon } from './ComboboxLeadingIcon'
 import { Popover } from './ComboboxPopover'
+import { Portal } from './ComboboxPortal'
 import { SelectedItems } from './ComboboxSelectedItems'
 import { Trigger } from './ComboboxTrigger'
 
@@ -34,6 +35,7 @@ export const Combobox: FC<ComboboxProps> & {
   Disclosure: typeof Disclosure
   SelectedItems: typeof SelectedItems
   ClearButton: typeof ClearButton
+  Portal: typeof Portal
 } = Object.assign(Root, {
   Group,
   Item,
@@ -49,6 +51,7 @@ export const Combobox: FC<ComboboxProps> & {
   Disclosure,
   SelectedItems,
   ClearButton,
+  Portal,
 })
 
 Combobox.displayName = 'Combobox'
@@ -66,3 +69,4 @@ Input.displayName = 'Combobox.Input'
 Disclosure.displayName = 'Combobox.Disclosure'
 SelectedItems.displayName = 'Combobox.SelectedItems'
 ClearButton.displayName = 'Combobox.ClearButton'
+Portal.displayName = 'Combobox.Portal'

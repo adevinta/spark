@@ -29,8 +29,8 @@ export const Items = forwardRef(
         ref={ref}
         className={cx(
           className,
-          'relative flex flex-col',
-          isOpen ? 'block' : 'hidden',
+          'flex flex-col',
+          isOpen ? 'block' : 'pointer-events-none invisible opacity-0',
           ctx.hasPopover && 'p-lg',
           ctx.isLoading && 'items-center overflow-y-auto'
         )}
