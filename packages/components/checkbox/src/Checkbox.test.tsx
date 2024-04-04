@@ -116,6 +116,25 @@ describe('Checkbox', () => {
     expect(checkboxEl).not.toBeChecked()
     expect(onCheckedChange).toHaveBeenCalledTimes(0)
   })
+
+  it('should handle the reverse prop', () => {
+    const { rerender } = render(<Checkbox>hello</Checkbox>)
+    const label = screen.getByText('hello')
+    const checkboxInput = screen.getByRole('checkbox', {
+      name: 'hello',
+    })
+
+    // checkbox input should be before label in the DOM
+    expect(
+      checkboxInput.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
+
+    rerender(<Checkbox reverse>hello</Checkbox>)
+    // label should be before checkbox input in the DOM
+    expect(
+      label.compareDocumentPosition(checkboxInput) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
+  })
 })
 
 describe('CheckboxGroup', () => {
@@ -227,6 +246,33 @@ describe('CheckboxGroup', () => {
     )
 
     expect(screen.getByRole('checkbox', { name: 'My accessible field label' })).toBeInTheDocument()
+  })
+
+  it('should handle the reverse prop', () => {
+    const { rerender } = render(
+      <CheckboxGroup>
+        <Checkbox value="hello">hello</Checkbox>
+      </CheckboxGroup>
+    )
+    const label = screen.getByText('hello')
+    const checkboxInput = screen.getByRole('checkbox', {
+      name: 'hello',
+    })
+
+    // checkbox input should be before label in the DOM
+    expect(
+      checkboxInput.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
+
+    rerender(
+      <CheckboxGroup reverse>
+        <Checkbox value="hello">hello</Checkbox>
+      </CheckboxGroup>
+    )
+    // label should be before checkbox input in the DOM
+    expect(
+      label.compareDocumentPosition(checkboxInput) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
   })
 
   describe('with FormField', () => {

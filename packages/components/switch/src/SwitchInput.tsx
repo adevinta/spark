@@ -56,6 +56,10 @@ export interface SwitchInputProps
    * Icon shown inside the thumb of the Switch whenever it is unchecked
    */
   uncheckedIcon?: ReactNode
+  /**
+   * When true, the label will be placed on the left side of the Switch
+   */
+  reverse?: boolean
 }
 
 export const SwitchInput = forwardRef<HTMLButtonElement, SwitchInputProps>(

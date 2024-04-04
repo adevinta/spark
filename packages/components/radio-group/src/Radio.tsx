@@ -13,26 +13,38 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
     const innerId = useId()
     const innerLabelId = useId()
 
-    const { intent, disabled } = useRadioGroup()
+    const { intent, disabled, reverse } = useRadioGroup()
 
-    return (
-      <div className={cx('flex items-start gap-md text-body-1', className)}>
-        <RadioInput
-          ref={ref}
-          id={id || innerId}
-          intent={intent}
-          aria-labelledby={children ? innerLabelId : undefined}
-          {...others}
-          disabled={disabledProp}
-        />
-
-        {children && (
-          <RadioLabel disabled={disabledProp || disabled} htmlFor={id || innerId} id={innerLabelId}>
-            {children}
-          </RadioLabel>
-        )}
-      </div>
+    const radioLabel = children && (
+      <RadioLabel disabled={disabledProp || disabled} htmlFor={id || innerId} id={innerLabelId}>
+        {children}
+      </RadioLabel>
     )
+
+    const radioInput = (
+      <RadioInput
+        ref={ref}
+        id={id || innerId}
+        intent={intent}
+        aria-labelledby={children ? innerLabelId : undefined}
+        {...others}
+        disabled={disabledProp}
+      />
+    )
+
+    const content = reverse ? (
+      <>
+        {radioLabel}
+        {radioInput}
+      </>
+    ) : (
+      <>
+        {radioInput}
+        {radioLabel}
+      </>
+    )
+
+    return <div className={cx('flex items-start gap-md text-body-1', className)}>{content}</div>
   }
 )
 

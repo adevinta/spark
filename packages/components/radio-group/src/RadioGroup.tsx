@@ -50,6 +50,10 @@ export interface RadioGroupProps
    * When true, keyboard navigation will loop from last item to first, and vice versa.
    */
   loop?: boolean
+  /**
+   * When true, the label will be placed on the left side of the Radio
+   */
+  reverse?: boolean
 }
 
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
@@ -61,6 +65,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
       disabled,
       className,
       required: requiredProp,
+      reverse = false,
       ...others
     },
     ref
@@ -69,7 +74,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
     const required = requiredProp !== undefined ? requiredProp : isRequired
 
     return (
-      <RadioGroupProvider intent={intent} disabled={disabled}>
+      <RadioGroupProvider reverse={reverse} intent={intent} disabled={disabled}>
         <RadioGroupPrimitive
           data-spark-component="radio-group"
           className={radioGroupStyles({ orientation, className })}

@@ -52,6 +52,25 @@ describe('Switch', () => {
     expect(screen.getByRole('switch', { name: 'My accessible field label' })).toBeInTheDocument()
   })
 
+  it('should handle the reverse prop', () => {
+    const { rerender } = render(<Switch>hello</Switch>)
+    const label = screen.getByText('hello')
+    const switchInput = screen.getByRole('switch', {
+      name: 'hello',
+    })
+
+    // switch input should be before label in the DOM
+    expect(
+      switchInput.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
+
+    rerender(<Switch reverse>hello</Switch>)
+    // label should be before switch input in the DOM
+    expect(
+      label.compareDocumentPosition(switchInput) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
+  })
+
   describe('user interactions', () => {
     it('should check/uncheck upon click', async () => {
       const user = userEvent.setup()
