@@ -837,7 +837,7 @@ export const FormFieldValidation: StoryFn = () => {
 export const IsLoading: StoryFn = _args => {
   return (
     <div className="pb-[300px]">
-      <Combobox isLoading defaultOpen={true}>
+      <Combobox isLoading>
         <Combobox.Trigger>
           <Combobox.LeadingIcon>
             <PenOutline />
