@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.2](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.1...@spark-ui/combobox@0.11.2) (2024-04-04)
+
+### Bug Fixes
+
+- **combobox:** align combobox fixes with dropdown ([696a870](https://github.com/adevinta/spark/commit/696a870febe92dde721bc212bccb36c181cc1ae6))
+
 ## [0.11.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.0...@spark-ui/combobox@0.11.1) (2024-04-04)
 
 **Note:** Version bump only for package @spark-ui/combobox

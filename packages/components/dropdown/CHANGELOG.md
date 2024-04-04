@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.14](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.13...@spark-ui/dropdown@1.0.14) (2024-04-04)
+
+### Bug Fixes
+
+- **combobox:** align combobox fixes with dropdown ([696a870](https://github.com/adevinta/spark/commit/696a870febe92dde721bc212bccb36c181cc1ae6))
+
 ## [1.0.13](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.12...@spark-ui/dropdown@1.0.13) (2024-04-04)
 
 **Note:** Version bump only for package @spark-ui/dropdown
