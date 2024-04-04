@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.3.15...@spark-ui/textarea@1.4.0) (2024-04-03)
+
+### Features
+
+- **textarea:** add story showcasing customised scrollbar ([1b75cd1](https://github.com/adevinta/spark/commit/1b75cd13d9db1c40d3a6c11da8a35da8ac46f5ae))
+
 ## [1.3.15](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.3.14...@spark-ui/textarea@1.3.15) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/textarea
