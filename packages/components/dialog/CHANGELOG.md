@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.11.2...@spark-ui/dialog@1.11.3) (2024-04-04)
+
+**Note:** Version bump only for package @spark-ui/dialog
+
 ## [1.11.2](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.11.1...@spark-ui/dialog@1.11.2) (2024-04-02)
 
 ### Bug Fixes

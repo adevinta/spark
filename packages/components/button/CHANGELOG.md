@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/adevinta/spark/compare/@spark-ui/button@2.4.3...@spark-ui/button@3.0.0) (2024-04-04)
+
+### Bug Fixes
+
+- **button:** doc ([fc77cc3](https://github.com/adevinta/spark/commit/fc77cc38489cf4cbb4531a0d0f85c14fe8283d40))
+
+### Features
+
+- **button:** remove the isLoading spinner placement fixing it as a trailing icon of the loadingText ([68e8e1d](https://github.com/adevinta/spark/commit/68e8e1df44bbdc11d7b6d0ffb00c45b269f903f2)), closes [#1957](https://github.com/adevinta/spark/issues/1957)
+
+### BREAKING CHANGES
+
+- **button:** removes the spinner placement prop of the button not allowing to set it as a
+  leading icon when loading state is abled
+
 ## [2.4.3](https://github.com/adevinta/spark/compare/@spark-ui/button@2.4.2...@spark-ui/button@2.4.3) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/button
