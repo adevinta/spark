@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.1.13...@spark-ui/checkbox@2.2.0) (2024-04-04)
+
+### Features
+
+- **checkbox:** add "reverse" prop to have label placed on the left side of the Checkbox ([c2eb2af](https://github.com/adevinta/spark/commit/c2eb2af338fa06aa7b70ba4ddae397a80872abeb))
+
 ## [2.1.13](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.1.12...@spark-ui/checkbox@2.1.13) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/checkbox

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.2.3...@spark-ui/radio-group@2.3.0) (2024-04-04)
+
+### Features
+
+- **radio-group:** add "reverse" prop to have label placed on the left side of the Radio ([966e675](https://github.com/adevinta/spark/commit/966e6754722a449490381da7e930258f278a2890))
+
 ## [2.2.3](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.2.2...@spark-ui/radio-group@2.2.3) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/radio-group

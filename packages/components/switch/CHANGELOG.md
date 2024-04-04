@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.2.12...@spark-ui/switch@2.3.0) (2024-04-04)
+
+### Features
+
+- **switch:** add "reverse" prop to have label placed on the left side of the Switch ([5c653a3](https://github.com/adevinta/spark/commit/5c653a3f827e6ab1887ab878c4380f1ec41eb488))
+
 ## [2.2.12](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.2.11...@spark-ui/switch@2.2.12) (2024-04-03)
 
 ### Bug Fixes
