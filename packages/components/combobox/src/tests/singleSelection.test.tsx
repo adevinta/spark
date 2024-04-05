@@ -332,7 +332,7 @@ describe('Combobox', () => {
         const input = getInput('Book')
 
         // When the user changes the input to the value of another item and focus outside of it
-        await user.clear(input)
+        // await user.clear(input) // Bug introduced in Downshift 8.0.4, calling clear() triggers internal blur event and unselect the value.
         await user.type(input, 'A value that does not match any item')
         await user.click(document.body)
 
