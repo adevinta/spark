@@ -34,8 +34,12 @@ export const useSwipe = <T extends HTMLElement>({
   const delta = useRef<Record<'x' | 'y', number> | null>(null)
 
   const handleSwipeStart = (evt: PointerEvent) => {
-    evt.preventDefault()
     origin.current = { x: evt.clientX, y: evt.clientY }
+
+    /**
+     * Prevents unwanted text selection in Safari browser (longpress)
+     */
+    document.addEventListener('selectstart', e => e.preventDefault())
   }
 
   const handleSwipeMove = (evt: PointerEvent) => {
@@ -52,6 +56,12 @@ export const useSwipe = <T extends HTMLElement>({
     } else if (deltaY > threshold) {
       moveDirection = evt.clientY > origin.current.y ? 'down' : 'up'
     }
+
+    /**
+     * If no direction could be defined, then no move should be handled.
+     * This is particularly true with trackpads working with MacOS/Windows.
+     */
+    if (!moveDirection) return
 
     if (!delta.current) {
       moveState = 'start'
@@ -106,6 +116,11 @@ export const useSwipe = <T extends HTMLElement>({
       }
 
       setState(endState)
+
+      /**
+       * Prevents unwanted text selection in Safari browser (longpress)
+       */
+      document.removeEventListener('selectstart', e => e.preventDefault())
     }
   }
 
