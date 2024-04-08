@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/input@1.6.1...@spark-ui/input@1.7.0) (2024-04-08)
+
+### Features
+
+- **form-field:** moved status icons to FormField ([225b2a6](https://github.com/adevinta/spark/commit/225b2a61d166ffda77b01591e5520ae50457c0dd))
+
 ## [1.6.1](https://github.com/adevinta/spark/compare/@spark-ui/input@1.6.0...@spark-ui/input@1.6.1) (2024-03-15)
 
 **Note:** Version bump only for package @spark-ui/input
