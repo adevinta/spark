@@ -37,10 +37,10 @@ describe('useSwipe', () => {
 
     fireEvent.pointerDown(swipeRef.current, { clientX: 0, clientY: 0 })
 
-    fireEvent.pointerMove(swipeRef.current, { clientX: 25, clientY: 0 })
+    fireEvent.pointerMove(document, { clientX: 25, clientY: 0 })
     expect(result.current).toEqual({ state: 'start', direction: 'right' })
 
-    fireEvent.pointerMove(swipeRef.current, { clientX: 25, clientY: -100 })
+    fireEvent.pointerMove(document, { clientX: 25, clientY: -100 })
     expect(result.current).toEqual({ state: 'move', direction: 'up' })
 
     expect(onSwipeStart).toHaveBeenCalledTimes(1)
@@ -55,14 +55,14 @@ describe('useSwipe', () => {
     const { result } = renderHook(() => useSwipe({ swipeRef, onSwipeCancel, onSwipeEnd }))
 
     fireEvent.pointerDown(swipeRef.current, { clientX: 0, clientY: 0 })
-    fireEvent.pointerMove(swipeRef.current, { clientX: 25, clientY: 0 })
-    fireEvent.pointerUp(swipeRef.current, { clientX: 25, clientY: 0 })
+    fireEvent.pointerMove(document, { clientX: 25, clientY: 0 })
+    fireEvent.pointerUp(document, { clientX: 25, clientY: 0 })
 
     expect(result.current).toEqual({ state: 'cancel', direction: 'right' })
 
     fireEvent.pointerDown(swipeRef.current, { clientX: 0, clientY: 0 })
-    fireEvent.pointerMove(swipeRef.current, { clientX: 0, clientY: -100 })
-    fireEvent.pointerUp(swipeRef.current, { clientX: 0, clientY: -100 })
+    fireEvent.pointerMove(document, { clientX: 0, clientY: -100 })
+    fireEvent.pointerUp(document, { clientX: 0, clientY: -100 })
 
     expect(result.current).toEqual({ state: 'end', direction: 'up' })
 

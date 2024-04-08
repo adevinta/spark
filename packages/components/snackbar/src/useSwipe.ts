@@ -34,6 +34,7 @@ export const useSwipe = <T extends HTMLElement>({
   const delta = useRef<Record<'x' | 'y', number> | null>(null)
 
   const handleSwipeStart = (evt: PointerEvent) => {
+    evt.preventDefault()
     origin.current = { x: evt.clientX, y: evt.clientY }
   }
 
@@ -59,11 +60,11 @@ export const useSwipe = <T extends HTMLElement>({
     } else {
       moveState = 'move'
       delta.current = { x: deltaX, y: deltaY }
-      ;(evt.currentTarget as T).style.setProperty(
+      ;(swipeRef.current as T).style.setProperty(
         '--swipe-position-x',
         `${deltaX > deltaY ? evt.clientX - origin.current.x : 0}px`
       )
-      ;(evt.currentTarget as T).style.setProperty(
+      ;(swipeRef.current as T).style.setProperty(
         '--swipe-position-y',
         `${!(deltaX > deltaY) ? evt.clientY - origin.current.y : 0}px`
       )
@@ -114,13 +115,13 @@ export const useSwipe = <T extends HTMLElement>({
     const swipeElement = swipeRef.current
 
     swipeElement.addEventListener('pointerdown', handleSwipeStart)
-    swipeElement.addEventListener('pointermove', handleSwipeMove)
-    swipeElement.addEventListener('pointerup', handleSwipeEnd)
+    document.addEventListener('pointermove', handleSwipeMove)
+    document.addEventListener('pointerup', handleSwipeEnd)
 
     return () => {
       swipeElement.removeEventListener('pointerdown', handleSwipeStart)
-      swipeElement.removeEventListener('pointermove', handleSwipeMove)
-      swipeElement.removeEventListener('pointerup', handleSwipeEnd)
+      document.removeEventListener('pointermove', handleSwipeMove)
+      document.removeEventListener('pointerup', handleSwipeEnd)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
