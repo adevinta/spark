@@ -11,7 +11,7 @@ export const LabelRequiredIndicator = forwardRef<HTMLSpanElement, LabelRequiredI
         data-spark-component="label-required-indicator"
         role="presentation"
         aria-hidden="true"
-        className={cx(className, 'text-caption text-on-surface/dim-3')}
+        className={cx(className, 'text-caption text-on-surface/dim-1')}
         {...others}
       >
         {children}
