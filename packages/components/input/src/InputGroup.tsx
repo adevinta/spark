@@ -27,7 +27,7 @@ import { InputGroupContext } from './InputGroupContext'
 
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
   /**
-   * Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
+   * Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated.
    */
   state?: 'error' | 'alert' | 'success'
   /**
