@@ -149,7 +149,7 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
   security:
-    name: Lava
+    name: Security
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
