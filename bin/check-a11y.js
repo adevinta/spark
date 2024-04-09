@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import chalk from 'chalk'
 
 import AxeBuilder from '@axe-core/webdriverjs'
@@ -41,13 +41,62 @@ const storiesList = Object.keys(stories).reduce((acc, cur) => {
   return acc
 }, [])
 
-let issues = {
-  minor: 0,
-  moderate: 0,
-  serious: 0,
-  critical: 0,
+const mergeResultArrays = (newArray, originArray = []) => {
+  const mergedNodes = (a, b = []) =>
+    [...a, ...b].reduce((acc, curr) => {
+      const { target, ...rest } = curr
+
+      const mergedNode = {
+        ...rest,
+        target: [
+          ...new Set([...acc.reduce((prev, curr) => [...prev, ...curr.target], []), ...target]),
+        ],
+      }
+
+      return [...acc, mergedNode]
+    }, [])
+
+  return [...originArray, ...newArray].reduce((acc, currentRule) => {
+    const duplicateRule = acc.filter(item => item.id === currentRule.id)
+
+    if (duplicateRule.length > 0) {
+      const uniqRules = acc.filter(item => item.id !== currentRule.id)
+
+      const duplicateRuleNodes = duplicateRule.reduce((acc, curr) => {
+        const { nodes, ...rest } = curr
+        return [...acc, ...nodes]
+      }, [])
+
+      const nodes = mergedNodes(duplicateRuleNodes, currentRule.nodes)
+
+      return [
+        ...uniqRules,
+        {
+          ...currentRule,
+          nodes: [nodes[nodes.length - 1]],
+        },
+      ]
+    } else {
+      const nodes = mergedNodes(currentRule.nodes)
+
+      return [
+        ...acc,
+        {
+          ...currentRule,
+          nodes: [nodes[nodes.length - 1]],
+        },
+      ]
+    }
+  }, [])
 }
 
+let report = {}
+
+/**
+ *
+ * Informations about Axe API available here:
+ * https://github.com/dequelabs/axe-core/blob/master/doc/API.md
+ */
 const checkA11y = async () => {
   const driver = new Builder()
     .forBrowser('chrome')
@@ -75,33 +124,28 @@ const checkA11y = async () => {
             'color-contrast': { enabled: false },
           },
           runOnly: ['best-practice', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'],
-          reporter: 'no-passes',
+          reporter: 'v2',
         })
         .exclude('.docblock-argstable')
         .analyze()
 
-      if (results.violations.length) {
-        issues = results.violations.reduce(
-          (acc, cur) => {
-            acc[cur.impact] += cur.nodes.length
-            return acc
-          },
-          {
-            minor: 0,
-            moderate: 0,
-            serious: 0,
-            critical: 0,
-          }
-        )
+      const duplicate = report[testedStory]
+      const { [testedStory]: _, ...rest } = report
 
-        const totalIssues = Object.values(issues).reduce((a, b) => a + b, 0)
-        console.log(chalk.red(`Found ${totalIssues} ${stories[storyId].title} issue(s)):`))
+      const { timestamp, url, incomplete, violations } = results
 
-        results.violations.forEach(issue => {
-          console.log(
-            impactColor[issue.impact](`- [${issue.impact}] ${issue.help} (${issue.nodes.length})`)
-          )
-        })
+      report = {
+        ...rest,
+        [testedStory]: {
+          timestamp,
+          ...(duplicate ? { url: [...duplicate.url, url] } : { url: [url] }),
+          ...(duplicate
+            ? { incomplete: mergeResultArrays(incomplete, duplicate.incomplete) }
+            : { incomplete: mergeResultArrays(incomplete) }),
+          ...(duplicate
+            ? { violations: mergeResultArrays(violations, duplicate.violations) }
+            : { violations: mergeResultArrays(violations) }),
+        },
       }
     } catch (e) {
       console.error(chalk.bold.red(e.message))
@@ -109,16 +153,48 @@ const checkA11y = async () => {
     }
   }
 
-  const totalIssues = Object.values(issues).reduce((a, b) => a + b, 0)
-  if (totalIssues > 0 && issues.critical) {
+  /**
+   * Export results as JSON file to Storybook static directory
+   */
+  writeFileSync(`./public/a11y-report.json`, JSON.stringify(report, null, 2), 'utf8')
+
+  /**
+   * Log violations & incompletes for each component tested
+   */
+  Object.keys(report).forEach(componentName => {
+    if (!report[componentName].violations.length && !report[componentName].incomplete.length) return
+
+    console.log(chalk.bold.red(`[${componentName}]:`))
+
+    const { violations, incomplete } = report[componentName]
+    const issues = [...violations, ...incomplete]
+
+    issues.forEach(issue => {
+      console.log(
+        impactColor[issue.impact](
+          `- [${issue.id}]: ${issue.help} [${issue.impact}] (${issue.nodes[0].target.length})`
+        )
+      )
+    })
+  })
+
+  /**
+   * Exit and fail if any critical issue is found
+   */
+  const criticalIssues = Object.keys(report).reduce((sum, componentName) => {
+    const { violations, incomplete } = report[componentName]
+    const issues = [...violations, ...incomplete].filter(issue => issue.impact === 'critical')
+
+    return sum + issues.reduce((acc, curr) => acc + curr.nodes[0].target.length, 0)
+  }, 0)
+
+  if (criticalIssues > 0) {
     console.error()
-    console.error(chalk.bold.red(`Exiting with ${issues.critical} critical issue(s)`))
+    console.error(chalk.bold.red(`💥 Exiting with ${criticalIssues} critical issue(s)`))
     process.exit(1)
   } else {
     console.log()
-    console.log(
-      chalk.bold.green('🎉 Congratulations, no critical accessibility issue has been found!')
-    )
+    console.log(chalk.bold.green('🎉 No critical accessibility issue has been found'))
   }
 
   await driver.quit()
