@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.4.1...@spark-ui/form-field@1.5.0) (2024-04-08)
+
+### Features
+
+- **form-field:** moved status icons to FormField ([225b2a6](https://github.com/adevinta/spark/commit/225b2a61d166ffda77b01591e5520ae50457c0dd))
+
 ## [1.4.1](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.4.0...@spark-ui/form-field@1.4.1) (2023-12-05)
 
 ### Bug Fixes

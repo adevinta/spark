@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.0...@spark-ui/dropdown@1.1.1) (2024-04-08)
+
+**Note:** Version bump only for package @spark-ui/dropdown
+
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.15...@spark-ui/dropdown@1.1.0) (2024-04-08)
+
+### Features
+
+- **form-field:** moved status icons to FormField ([225b2a6](https://github.com/adevinta/spark/commit/225b2a61d166ffda77b01591e5520ae50457c0dd))
+
 ## [1.0.15](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.14...@spark-ui/dropdown@1.0.15) (2024-04-05)
 
 **Note:** Version bump only for package @spark-ui/dropdown
