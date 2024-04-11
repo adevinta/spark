@@ -24,10 +24,12 @@ export const Items = forwardRef(
     const ref = useMergeRefs(forwardedRef, downshiftRef, innerRef)
 
     useLayoutEffect(() => {
+      if (!hasPopover) return
+
       if (innerRef.current?.parentElement) {
         innerRef.current.parentElement.style.pointerEvents = isOpen ? '' : 'none'
       }
-    }, [isOpen, downshiftRef])
+    }, [isOpen, hasPopover])
 
     return (
       <ul

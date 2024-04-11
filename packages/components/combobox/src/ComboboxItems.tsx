@@ -1,7 +1,7 @@
 import { Spinner } from '@spark-ui/spinner'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { forwardRef, ReactNode, type Ref } from 'react'
+import { forwardRef, ReactNode, type Ref, useLayoutEffect, useRef } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
@@ -20,9 +20,19 @@ export const Items = forwardRef(
       },
     })
 
-    const ref = useMergeRefs(forwardedRef, downshiftRef)
+    const innerRef = useRef<HTMLElement>(null)
+
+    const ref = useMergeRefs(forwardedRef, downshiftRef, innerRef)
 
     const isOpen = ctx.hasPopover ? ctx.isOpen : true
+
+    useLayoutEffect(() => {
+      if (!ctx.hasPopover) return
+
+      if (innerRef.current?.parentElement) {
+        innerRef.current.parentElement.style.pointerEvents = isOpen ? '' : 'none'
+      }
+    }, [isOpen, ctx.hasPopover])
 
     return (
       <ul
