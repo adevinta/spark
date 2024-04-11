@@ -1,6 +1,6 @@
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { CSSProperties, forwardRef, ReactNode, type Ref } from 'react'
+import { forwardRef, ReactNode, type Ref, useLayoutEffect, useRef } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 
@@ -19,7 +19,15 @@ export const Items = forwardRef(
       },
     })
 
-    const ref = useMergeRefs(forwardedRef, downshiftRef)
+    const innerRef = useRef<HTMLElement>(null)
+
+    const ref = useMergeRefs(forwardedRef, downshiftRef, innerRef)
+
+    useLayoutEffect(() => {
+      if (innerRef.current?.parentElement) {
+        innerRef.current.parentElement.style.pointerEvents = isOpen ? '' : 'none'
+      }
+    }, [isOpen, downshiftRef])
 
     return (
       <ul
@@ -41,7 +49,6 @@ export const Items = forwardRef(
          * A solution would be to make an abstraction of `Dialog.Overlay` instead of using the radix one, but that would mean managing body scroll freeze and scrollbar shifting ourselves.
          *
          */
-        style={{ ...(props as { style: CSSProperties }).style, pointerEvents: undefined }}
         data-spark-component="dropdown-items"
       >
         {children}
