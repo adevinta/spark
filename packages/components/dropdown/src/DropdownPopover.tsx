@@ -23,7 +23,7 @@ export const Popover = forwardRef(
       return () => ctx.setHasPopover(false)
     }, [])
 
-    return ctx.isOpen ? (
+    return (
       <SparkPopover.Content
         ref={forwardedRef}
         inset
@@ -43,8 +43,6 @@ export const Popover = forwardRef(
       >
         {children}
       </SparkPopover.Content>
-    ) : (
-      children
     )
   }
 )
