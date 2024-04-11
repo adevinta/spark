@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.2...@spark-ui/dropdown@1.1.3) (2024-04-11)
+
+### Bug Fixes
+
+- **combobox:** apply pointer-event styles correctly when dropdown is open ([0c16fee](https://github.com/adevinta/spark/commit/0c16fee65e7badade39199076a91d15c05673eac))
+- **dropdown:** apply pointer-event styles correctly when dropdown is open ([f450dbc](https://github.com/adevinta/spark/commit/f450dbc50caf62f4f6850f5dc67e04d46bf83440))
+
 ## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.1...@spark-ui/dropdown@1.1.2) (2024-04-11)
 
 ### Bug Fixes
