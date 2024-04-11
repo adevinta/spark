@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.1...@spark-ui/dropdown@1.1.2) (2024-04-11)
+
+### Bug Fixes
+
+- **dropdown:** perf improvement broke mobile dropdown selection ([12cfca1](https://github.com/adevinta/spark/commit/12cfca1aed39a745e270bb4adbb12dcbb95e8868))
+
 ## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.0...@spark-ui/dropdown@1.1.1) (2024-04-08)
 
 **Note:** Version bump only for package @spark-ui/dropdown
