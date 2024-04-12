@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.5.6...@spark-ui/snackbar@1.0.0) (2024-04-12)
+
+### Bug Fixes
+
+- **snackbar:** attempt to fix safari user selection on pointerdown ([ec7d1aa](https://github.com/adevinta/spark/commit/ec7d1aa94b62b2af75269a43843bf50d79983ac6))
+- **snackbar:** improved dragging behaviour ([b010a5b](https://github.com/adevinta/spark/commit/b010a5b7321baeae8af28e333e81fed3f8a41ca1))
+
+### Features
+
+- **snackbar:** add left gesture to close ([5a0fe20](https://github.com/adevinta/spark/commit/5a0fe200b8dd632b4c6f6c0319f44bc2e5183564))
+- **snackbar:** improve swipe hook and updating styles ([1addc58](https://github.com/adevinta/spark/commit/1addc584567523c149ebfc3dc863e2996f3a028b))
+- **snackbar:** init implementing swipe gesture management ([d3f2a3c](https://github.com/adevinta/spark/commit/d3f2a3cc8ffb97b220ea47c319480f21596ae913))
+- **snackbar:** init swipe hook ([fdd159f](https://github.com/adevinta/spark/commit/fdd159f3e0b7408abf8c6f8c9a833c7e33181d5a))
+
 ## [0.5.6](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@0.5.5...@spark-ui/snackbar@0.5.6) (2024-04-04)
 
 **Note:** Version bump only for package @spark-ui/snackbar

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.6.0...@spark-ui/tailwind-plugins@3.7.0) (2024-04-12)
+
+### Features
+
+- **snackbar:** add left gesture to close ([5a0fe20](https://github.com/adevinta/spark/commit/5a0fe200b8dd632b4c6f6c0319f44bc2e5183564))
+- **snackbar:** improve swipe hook and updating styles ([1addc58](https://github.com/adevinta/spark/commit/1addc584567523c149ebfc3dc863e2996f3a028b))
+
 # [3.6.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.5.0...@spark-ui/tailwind-plugins@3.6.0) (2024-01-04)
 
 ### Features
