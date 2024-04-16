@@ -1,5 +1,4 @@
-import { useId } from '@radix-ui/react-id'
-import React, { createContext, type PropsWithChildren, useContext } from 'react'
+import React, { createContext, type PropsWithChildren, useContext, useId } from 'react'
 
 export interface DropdownContextState {
   labelId: string

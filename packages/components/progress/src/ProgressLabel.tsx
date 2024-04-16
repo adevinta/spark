@@ -1,6 +1,5 @@
-import { useId } from '@radix-ui/react-id'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { ComponentPropsWithoutRef, forwardRef, useCallback } from 'react'
+import { ComponentPropsWithoutRef, forwardRef, useCallback, useId } from 'react'
 
 import { useProgress } from './ProgressContext'
 
@@ -8,7 +7,9 @@ export type ProgressLabelProps = ComponentPropsWithoutRef<'span'>
 
 export const ProgressLabel = forwardRef<HTMLSpanElement, ProgressLabelProps>(
   ({ id: idProp, children, ...others }, forwardedRef) => {
-    const id = useId(idProp)
+    const internalID = useId()
+    const id = idProp || internalID
+
     const { onLabelId } = useProgress()
     const rootRef = useCallback(
       (el: HTMLSpanElement) => {

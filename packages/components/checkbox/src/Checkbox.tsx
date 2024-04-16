@@ -1,10 +1,8 @@
 /* eslint-disable complexity */
-
-import { useId } from '@radix-ui/react-id'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { forwardRef, useRef } from 'react'
+import { forwardRef, useId, useRef } from 'react'
 
 import { CheckboxGroupContextState, useCheckboxGroup } from './CheckboxGroupContext'
 import { CheckboxInput, CheckboxInputProps } from './CheckboxInput'
@@ -28,7 +26,9 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     },
     forwardedRef
   ) => {
-    const innerId = useId(idProp)
+    const checkboxId = useId()
+    const innerId = idProp || checkboxId
+
     const innerLabelId = useId()
 
     const field = useFormFieldControl()

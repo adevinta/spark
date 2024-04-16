@@ -1,7 +1,6 @@
-import { useId } from '@radix-ui/react-id'
 import { Slot } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, forwardRef, useId } from 'react'
 
 import { FormFieldContextState } from './FormFieldContext'
 import { FormFieldProvider } from './FormFieldProvider'

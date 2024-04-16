@@ -23,7 +23,6 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-id": "1.0.1",
     "@radix-ui/react-progress": "1.0.3",
     "@spark-ui/use-merge-refs": "^0.4.0",
     "class-variance-authority": "0.7.0"

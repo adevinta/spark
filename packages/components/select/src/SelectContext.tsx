@@ -1,4 +1,3 @@
-import { useId } from '@radix-ui/react-id'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { useCombinedState } from '@spark-ui/use-combined-state'
 import {
@@ -9,6 +8,7 @@ import {
   SetStateAction,
   useContext,
   useEffect,
+  useId,
   useState,
 } from 'react'
 
@@ -100,7 +100,9 @@ export const SelectProvider = ({
   // Derivated from FormField context
   const field = useFormFieldControl()
   const state = field.state || stateProp
-  const fieldId = useId(field.id)
+
+  const internalFieldID = useId()
+  const fieldId = field.id || internalFieldID
   const fieldLabelId = field.labelId
   const disabled = field.disabled ?? disabledProp
   const readOnly = field.readOnly ?? readOnlyProp

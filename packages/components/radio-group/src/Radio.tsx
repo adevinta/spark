@@ -1,6 +1,5 @@
-import { useId } from '@radix-ui/react-id'
 import { cx } from 'class-variance-authority'
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import { useRadioGroup } from './RadioGroupContext'
 import { RadioInput, RadioInputProps } from './RadioInput'

@@ -1,4 +1,5 @@
-import { useId } from '@radix-ui/react-id'
+/* eslint-disable complexity */
+/* eslint-disable max-lines-per-function */
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
 import { useCombinedState } from '@spark-ui/use-combined-state'
@@ -11,6 +12,7 @@ import {
   SetStateAction,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState,
 } from 'react'
@@ -219,8 +221,12 @@ export const ComboboxProvider = ({
 
   // Form field state
   const field = useFormFieldControl()
-  const id = useId(field.id)
-  const labelId = useId(field.labelId)
+
+  const internalFieldLabelID = useId()
+  const internalFieldID = useId()
+  const id = field.id || internalFieldID
+  const labelId = field.labelId || internalFieldLabelID
+
   const state = field.state || stateProp
   const disabled = field.disabled ?? disabledProp
   const readOnly = field.readOnly ?? readOnlyProp

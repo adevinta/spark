@@ -1,6 +1,5 @@
-import { useId } from '@radix-ui/react-id'
 import { cx } from 'class-variance-authority'
-import { forwardRef, type ReactNode, useLayoutEffect } from 'react'
+import { forwardRef, type ReactNode, useId, useLayoutEffect } from 'react'
 
 import { usePopover } from './PopoverContext'
 
