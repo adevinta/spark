@@ -1,4 +1,6 @@
 name: quality
+env:
+  FORCE_COLOR: 3
 on:
   pull_request:
     branches:

@@ -14,7 +14,7 @@ const impactColor = {
   critical: chalk.red,
 }
 
-const { entries: stories } = JSON.parse(readFileSync('dist/index.json', 'utf8'))
+const { entries } = JSON.parse(readFileSync('dist/index.json', 'utf8'))
 
 const hasFilter = process.argv.indexOf('-f') > -1
 const pkgFilter = hasFilter
@@ -23,19 +23,20 @@ const pkgFilter = hasFilter
       .map(pkgPath => `./${pkgPath.split('/src')[0]}`) ?? []
   : []
 
-const storiesList = Object.keys(stories).reduce((acc, cur) => {
-  const isComponentStory = story =>
-    story.importPath.startsWith('./packages/components/') && !story.id.endsWith('--docs')
-  const belongsToFilter = (story, filter) =>
-    filter.includes(stories[cur].importPath.split('/src')[0])
+const docsList = Object.keys(entries).reduce((acc, cur) => {
+  const isComponentDoc = entry =>
+    entry.importPath.startsWith('./packages/components/') && !!entry.id.endsWith('--docs')
 
-  if (isComponentStory(stories[cur])) {
-    if (pkgFilter.length && !belongsToFilter(stories[cur], pkgFilter)) {
+  const belongsToFilter = (entry, filter) =>
+    filter.includes(entries[cur].importPath.split('/src')[0])
+
+  if (isComponentDoc(entries[cur])) {
+    if (pkgFilter.length && !belongsToFilter(entries[cur], pkgFilter)) {
       return acc
     }
 
-    // We'll test the whole stories collection if no filter is provided.
-    acc.push(stories[cur].id)
+    // We'll test the whole docs if no filter is provided.
+    acc.push(entries[cur].id)
   }
 
   return acc
@@ -103,21 +104,23 @@ const checkA11y = async () => {
     .setChromeOptions(new Options().addArguments('-headless'))
     .build()
 
-  let testedStory
+  let testedComponent
 
-  for (const storyId of storiesList) {
-    if (testedStory !== stories[storyId].title)
-      console.log(`Checking accessibility for ${stories[storyId].title}...`)
+  for (const docId of docsList) {
+    if (testedComponent !== entries[docId].title) {
+      console.log(`Checking accessibility for ${entries[docId].title}...`)
+    }
 
-    testedStory = stories[storyId].title
+    testedComponent = entries[docId].title.toLowerCase()
 
     try {
-      await driver.get(`http://localhost:6006/iframe.html?viewMode=story&id=${storyId}`)
+      await driver.get(`http://localhost:6006/?path=/docs/${docId}`)
 
       const results = await new AxeBuilder(driver)
         .options({
           resultTypes: ['violations', 'incomplete'],
           rules: {
+            // 'meta-viewport': { enabled: false },
             'page-has-heading-one': { enabled: false },
             'landmark-one-main': { enabled: false },
             region: { enabled: false },
@@ -126,17 +129,17 @@ const checkA11y = async () => {
           runOnly: ['best-practice', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'],
           reporter: 'v2',
         })
-        .exclude('.docblock-argstable')
+        .exclude('*:not(.docs-story)')
         .analyze()
 
-      const duplicate = report[testedStory]
-      const { [testedStory]: _, ...rest } = report
+      const duplicate = report[testedComponent]
+      const { [testedComponent]: _, ...rest } = report
 
       const { timestamp, url, incomplete, violations } = results
 
       report = {
         ...rest,
-        [testedStory]: {
+        [testedComponent]: {
           timestamp,
           ...(duplicate ? { url: [...duplicate.url, url] } : { url: [url] }),
           ...(duplicate

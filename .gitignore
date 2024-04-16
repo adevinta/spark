@@ -18,7 +18,6 @@ coverage
 .eslintcache
 .vercel
 .nx/cache
-public/a11y-report.json
 
 # Editor directories and files
 .vscode/*
