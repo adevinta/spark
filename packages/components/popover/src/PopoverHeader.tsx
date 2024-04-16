@@ -10,7 +10,7 @@ export interface HeaderProps {
 
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
   ({ children, className, ...rest }, ref) => {
-    const id = useId()
+    const id = `:popover-header-${useId()}`
     const { setHeaderId } = usePopover()
 
     useLayoutEffect(() => {

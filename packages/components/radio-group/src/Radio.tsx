@@ -9,8 +9,8 @@ export type RadioProps = RadioInputProps
 
 export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
   ({ className, children, id, disabled: disabledProp, ...others }, ref) => {
-    const innerId = useId()
-    const innerLabelId = useId()
+    const innerId = `:radio-input-${useId()}`
+    const innerLabelId = `:radio-label-${useId()}`
 
     const { intent, disabled, reverse } = useRadioGroup()
 

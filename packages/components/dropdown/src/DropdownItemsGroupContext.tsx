@@ -9,7 +9,7 @@ type DropdownContextProps = PropsWithChildren
 const DropdownGroupContext = createContext<DropdownContextState | null>(null)
 
 export const DropdownGroupProvider = ({ children }: DropdownContextProps) => {
-  const labelId = useId()
+  const labelId = `:dropdown-group-label-${useId()}`
 
   return (
     <DropdownGroupContext.Provider value={{ labelId }}>{children}</DropdownGroupContext.Provider>

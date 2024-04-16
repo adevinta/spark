@@ -222,8 +222,8 @@ export const ComboboxProvider = ({
   // Form field state
   const field = useFormFieldControl()
 
-  const internalFieldLabelID = useId()
-  const internalFieldID = useId()
+  const internalFieldLabelID = `:combobox-label-${useId()}`
+  const internalFieldID = `:combobox-field-${useId()}`
   const id = field.id || internalFieldID
   const labelId = field.labelId || internalFieldLabelID
 

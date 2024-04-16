@@ -19,7 +19,7 @@ export const FormFieldProvider = ({
   isRequired,
   children,
 }: FormFieldProviderProps) => {
-  const labelId = useId()
+  const labelId = `:form-field-label-${useId()}`
   const [messageIds, setMessageIds] = useState<string[]>([])
   const description = messageIds.length > 0 ? messageIds.join(' ') : undefined
 

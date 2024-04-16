@@ -11,12 +11,12 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
   ({ size = 'md', children, className, id, disabled, reverse = false, ...rest }, ref) => {
     const field = useFormFieldControl()
 
-    const LabelID = useId()
-    const innerID = useId()
+    const labelID = `:switch-label-${useId()}`
+    const innerID = `:switch-input-${useId()}`
     const fieldID = field.id || id || innerID
 
     const switchLabel = children && (
-      <SwitchLabel disabled={disabled} htmlFor={fieldID} id={LabelID}>
+      <SwitchLabel disabled={disabled} htmlFor={fieldID} id={labelID}>
         {children}
       </SwitchLabel>
     )
@@ -32,7 +32,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
          * get an eventual alternative label from FormField.
          * On last resort, we shouldn't forget to define an aria-label attribute.
          */
-        aria-labelledby={children ? LabelID : field.labelId}
+        aria-labelledby={children ? labelID : field.labelId}
         {...rest}
       />
     )

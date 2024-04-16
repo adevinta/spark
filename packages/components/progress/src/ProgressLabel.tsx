@@ -7,7 +7,7 @@ export type ProgressLabelProps = ComponentPropsWithoutRef<'span'>
 
 export const ProgressLabel = forwardRef<HTMLSpanElement, ProgressLabelProps>(
   ({ id: idProp, children, ...others }, forwardedRef) => {
-    const internalID = useId()
+    const internalID = `:progress-label-${useId()}`
     const id = idProp || internalID
 
     const { onLabelId } = useProgress()

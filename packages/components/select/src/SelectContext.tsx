@@ -101,7 +101,7 @@ export const SelectProvider = ({
   const field = useFormFieldControl()
   const state = field.state || stateProp
 
-  const internalFieldID = useId()
+  const internalFieldID = `:select-field-${useId()}`
   const fieldId = field.id || internalFieldID
   const fieldLabelId = field.labelId
   const disabled = field.disabled ?? disabledProp

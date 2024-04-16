@@ -28,8 +28,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       readOnly,
     } = useProgressTrackerContext()
 
-    const ID = useId()
-    const stepId = `step-${ID}`
+    const stepId = `:progress-tracker-step-${useId()}`
     const stepIndex = [...steps.keys()].indexOf(stepId)
 
     const disabledAfter = (() => {

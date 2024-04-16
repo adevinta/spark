@@ -9,7 +9,7 @@ export interface ItemTextProps {
 
 export const ItemText = forwardRef(
   ({ children }: ItemTextProps, forwardedRef: Ref<HTMLSpanElement>) => {
-    const id = useId()
+    const id = `:dropdown-item-text-${useId()}`
 
     const { setTextId } = useDropdownItemContext()
 

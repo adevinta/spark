@@ -26,10 +26,10 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     },
     forwardedRef
   ) => {
-    const checkboxId = useId()
+    const checkboxId = `:checkbox-${useId()}`
     const innerId = idProp || checkboxId
 
-    const innerLabelId = useId()
+    const innerLabelId = `:checkbox-${useId()}`
 
     const field = useFormFieldControl()
     const group = useCheckboxGroup()

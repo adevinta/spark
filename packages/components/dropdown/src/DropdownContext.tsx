@@ -122,8 +122,8 @@ export const DropdownProvider = ({
 
   const state = field.state || stateProp
 
-  const internalFieldLabelID = useId()
-  const internalFieldID = useId()
+  const internalFieldLabelID = `:dropdown-label-${useId()}`
+  const internalFieldID = `:dropdown-input-${useId()}`
   const id = field.id || internalFieldID
   const labelId = field.labelId || internalFieldLabelID
 
