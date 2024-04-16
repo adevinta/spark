@@ -981,3 +981,105 @@ export const ModalSearch: StoryFn = () => {
     </div>
   )
 }
+
+export const QAOne: StoryFn = () => {
+  const books = {
+    'book-1': 'To Kill a Mockingbird',
+    'book-2': 'War and Peace',
+    'book-3': 'The Idiot',
+    'book-4': 'A Picture of Dorian Gray',
+    'book-5': '1984',
+    'book-6': 'Pride and Prejudice',
+  }
+
+  const movies = {
+    'movie-1':
+      'movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one movie one',
+    'movie-2':
+      'movietwomovietwomovietwomovietwomovietwomovietwomovietwomovietwomovietwomovietwomovietwo',
+    'movie-3': 'movie 3',
+    'movie-4': 'movie 4',
+    'movie-5': 'movie 5',
+    'movie-6': 'movie 6',
+    'movie-7': 'movie 7',
+    'movie-8': 'movie 8',
+    'movie-9': 'movie 9',
+    'movie-10': 'movie 10',
+    'movie-11': 'movie 11',
+    'movie-12': 'movie 12',
+    'movie-13': 'movie 13',
+    'movie-14': 'movie 14',
+    'movie-15': 'movie 15',
+  }
+  const [comboboxValueOne, setComboxboxValueOne] = useState<string | undefined>('book-2')
+  const [inputValueOne, setInputValueOne] = useState<string>('')
+
+  const [comboboxValueTwo, setComboxboxValueTwo] = useState<string[]>(['movie-2'])
+  const [inputValueTwo, setInputValueTwo] = useState<string>('')
+
+  return (
+    <div className="grid gap-lg py-[800px]">
+      <Combobox value={comboboxValueOne} onValueChange={setComboxboxValueOne} autoFilter={false}>
+        <Combobox.Trigger className="grow">
+          <Combobox.LeadingIcon>
+            <PenOutline />
+          </Combobox.LeadingIcon>
+          <Combobox.Input
+            aria-label="Book"
+            placeholder="Pick a book"
+            value={inputValueOne}
+            onValueChange={setInputValueOne}
+            defaultValue={inputValueOne}
+          />
+          <Combobox.ClearButton aria-label="Clear input" />
+          <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
+        </Combobox.Trigger>
+
+        <Combobox.Popover>
+          <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
+            {Object.entries(books).map(([key, label]) => (
+              <Combobox.Item key={key} value={key}>
+                {label}
+              </Combobox.Item>
+            ))}
+          </Combobox.Items>
+        </Combobox.Popover>
+      </Combobox>
+
+      <Combobox
+        multiple
+        value={comboboxValueTwo}
+        onValueChange={setComboxboxValueTwo}
+        autoFilter={false}
+      >
+        <Combobox.Trigger className="grow">
+          <Combobox.LeadingIcon>
+            <PenOutline />
+          </Combobox.LeadingIcon>
+          <Combobox.SelectedItems />
+          <Combobox.Input
+            aria-label="Movie"
+            placeholder="Pick a movie"
+            value={inputValueTwo}
+            onValueChange={setInputValueTwo}
+            defaultValue={inputValueTwo}
+          />
+          <Combobox.ClearButton aria-label="Clear input" />
+          <Combobox.Disclosure openedLabel="Close popup" closedLabel="Open popup" />
+        </Combobox.Trigger>
+
+        <Combobox.Popover>
+          <Combobox.Items>
+            <Combobox.Empty>No results found</Combobox.Empty>
+            {Object.entries(movies).map(([key, label]) => (
+              <Combobox.Item key={key} disabled={label === 'movie 3'} value={key}>
+                {label}
+              </Combobox.Item>
+            ))}
+          </Combobox.Items>
+        </Combobox.Popover>
+      </Combobox>
+    </div>
+  )
+}
