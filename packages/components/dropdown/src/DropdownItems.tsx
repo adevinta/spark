@@ -9,6 +9,17 @@ interface ItemsProps {
   className?: string
 }
 
+/**
+ * BUGFIX
+ *
+ * 1. The !pointer-events-auto class is needed to prevent a bug
+ *    which cannot be reproduced when running Storybook locally,
+ *    in scenarios such as when a Dropdown is nested within a Dialog,
+ *    the "props" object, containing styles computed by Radix
+ *    may erroneously contain "pointerEvents = 'none'", while the Dropdown is open,
+ *    making it impossible to select a value using a pointer device
+ */
+
 export const Items = forwardRef(
   ({ children, className, ...props }: ItemsProps, forwardedRef: Ref<HTMLUListElement>) => {
     const { isOpen, getMenuProps, hasPopover, setLastInteractionType } = useDropdownContext()
@@ -25,8 +36,9 @@ export const Items = forwardRef(
 
     useLayoutEffect(() => {
       if (!hasPopover) return
+      if (!innerRef.current) return
 
-      if (innerRef.current?.parentElement) {
+      if (innerRef.current.parentElement) {
         innerRef.current.parentElement.style.pointerEvents = isOpen ? '' : 'none'
       }
     }, [isOpen, hasPopover])
@@ -37,7 +49,9 @@ export const Items = forwardRef(
         className={cx(
           className,
           'flex flex-col',
-          isOpen ? 'block' : 'pointer-events-none invisible absolute opacity-0',
+          isOpen
+            ? '!pointer-events-auto block' /* 1 */
+            : 'pointer-events-none invisible absolute opacity-0',
           hasPopover && 'p-lg'
         )}
         {...props}
