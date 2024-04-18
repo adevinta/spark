@@ -8,15 +8,17 @@ import { logger } from './utils/logger.mjs'
 import { scanDirectories } from './utils/scan-directories.mjs'
 
 const DEFAULT_CONFIG = {
-  details: false,
-  alpha: false,
-  imports: ['@spark-ui'],
-  extensions: ['.tsx', '.ts'],
-  directory: '.',
+  adoption: {
+    details: false,
+    alpha: false,
+    imports: ['@spark-ui'],
+    extensions: ['.tsx', '.ts'],
+    directory: '.',
+  },
 }
 
-export async function scan(options) {
-  let config = {}
+export async function adoption(options) {
+  let config = DEFAULT_CONFIG
 
   const configFileRoute = path.join(process.cwd(), options.configuration || '.spark-ui.cjs')
   try {
@@ -28,7 +30,7 @@ export async function scan(options) {
       config = structuredClone(customConfig, DEFAULT_CONFIG)
     }
   } catch (error) {
-    logger.error(`❌ Error loading configuration file: ${error}`)
+    logger.info('ℹ️ Loading default configuration')
   }
 
   const extensions = config.adoption.extensions
