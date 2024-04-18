@@ -13,6 +13,8 @@ export interface ProgressContextValue {
 
 export const ProgressContext = createContext<ProgressContextValue | null>(null)
 
+export const ID_PREFIX = ':progress'
+
 export const useProgress = () => {
   const context = useContext(ProgressContext)
 

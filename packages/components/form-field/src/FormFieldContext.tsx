@@ -49,6 +49,8 @@ export interface FormFieldContextState {
 
 export const FormFieldContext = createContext<FormFieldContextState | null>(null)
 
+export const ID_PREFIX = ':form-field'
+
 export const useFormField = () => {
   const context = useContext(FormFieldContext)
 

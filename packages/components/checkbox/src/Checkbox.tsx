@@ -10,6 +10,8 @@ import { CheckboxLabel } from './CheckboxLabel'
 
 export type CheckboxProps = CheckboxInputProps & Pick<CheckboxGroupContextState, 'reverse'>
 
+const ID_PREFIX = ':checkbox'
+
 export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
   (
     {
@@ -26,10 +28,10 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     },
     forwardedRef
   ) => {
-    const checkboxId = `:checkbox-${useId()}`
+    const checkboxId = `${ID_PREFIX}-${useId()}`
     const innerId = idProp || checkboxId
 
-    const innerLabelId = `:checkbox-${useId()}`
+    const innerLabelId = `${ID_PREFIX}-${useId()}`
 
     const field = useFormFieldControl()
     const group = useCheckboxGroup()

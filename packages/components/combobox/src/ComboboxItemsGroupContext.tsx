@@ -1,5 +1,7 @@
 import React, { createContext, type PropsWithChildren, useContext, useId } from 'react'
 
+import { ID_PREFIX } from './ComboboxContext'
+
 export interface ComboboxContextState {
   groupLabelId: string
 }
@@ -9,7 +11,7 @@ type ComboboxContextProps = PropsWithChildren
 const ComboboxGroupContext = createContext<ComboboxContextState | null>(null)
 
 export const ComboboxGroupProvider = ({ children }: ComboboxContextProps) => {
-  const groupLabelId = `:combobox-group-label-${useId()}`
+  const groupLabelId = `${ID_PREFIX}-group-label-${useId()}`
 
   return (
     <ComboboxGroupContext.Provider value={{ groupLabelId }}>

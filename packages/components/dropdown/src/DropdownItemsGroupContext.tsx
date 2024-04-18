@@ -1,5 +1,7 @@
 import React, { createContext, type PropsWithChildren, useContext, useId } from 'react'
 
+import { ID_PREFIX } from './DropdownContext'
+
 export interface DropdownContextState {
   labelId: string
 }
@@ -9,7 +11,7 @@ type DropdownContextProps = PropsWithChildren
 const DropdownGroupContext = createContext<DropdownContextState | null>(null)
 
 export const DropdownGroupProvider = ({ children }: DropdownContextProps) => {
-  const labelId = `:dropdown-group-label-${useId()}`
+  const labelId = `${ID_PREFIX}-group-label-${useId()}`
 
   return (
     <DropdownGroupContext.Provider value={{ labelId }}>{children}</DropdownGroupContext.Provider>

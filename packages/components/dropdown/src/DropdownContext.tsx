@@ -99,6 +99,8 @@ export type DropdownContextProps = DropdownContextCommonProps &
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
 
+export const ID_PREFIX = ':dropdown'
+
 export const DropdownProvider = ({
   children,
   defaultValue,
@@ -122,8 +124,8 @@ export const DropdownProvider = ({
 
   const state = field.state || stateProp
 
-  const internalFieldLabelID = `:dropdown-label-${useId()}`
-  const internalFieldID = `:dropdown-input-${useId()}`
+  const internalFieldLabelID = `${ID_PREFIX}-label-${useId()}`
+  const internalFieldID = `${ID_PREFIX}-input-${useId()}`
   const id = field.id || internalFieldID
   const labelId = field.labelId || internalFieldLabelID
 

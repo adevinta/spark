@@ -75,6 +75,8 @@ export type SelectContextProps = PropsWithChildren<{
 
 const SelectContext = createContext<SelectContextState | null>(null)
 
+const ID_PREFIX = ':select'
+
 export const SelectProvider = ({
   children,
   defaultValue,
@@ -101,7 +103,7 @@ export const SelectProvider = ({
   const field = useFormFieldControl()
   const state = field.state || stateProp
 
-  const internalFieldID = `:select-field-${useId()}`
+  const internalFieldID = `${ID_PREFIX}-field-${useId()}`
   const fieldId = field.id || internalFieldID
   const fieldLabelId = field.labelId
   const disabled = field.disabled ?? disabledProp

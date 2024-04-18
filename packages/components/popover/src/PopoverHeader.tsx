@@ -1,7 +1,7 @@
 import { cx } from 'class-variance-authority'
 import { forwardRef, type ReactNode, useId, useLayoutEffect } from 'react'
 
-import { usePopover } from './PopoverContext'
+import { ID_PREFIX, usePopover } from './PopoverContext'
 
 export interface HeaderProps {
   children: ReactNode
@@ -10,7 +10,7 @@ export interface HeaderProps {
 
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
   ({ children, className, ...rest }, ref) => {
-    const id = `:popover-header-${useId()}`
+    const id = `${ID_PREFIX}-header-${useId()}`
     const { setHeaderId } = usePopover()
 
     useLayoutEffect(() => {

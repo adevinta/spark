@@ -1,6 +1,10 @@
 import { type ComponentPropsWithoutRef, forwardRef, type ReactNode, useEffect, useId } from 'react'
 
-import { ProgressTrackerStepContext, useProgressTrackerContext } from './ProgressTrackerContext'
+import {
+  ID_PREFIX,
+  ProgressTrackerStepContext,
+  useProgressTrackerContext,
+} from './ProgressTrackerContext'
 import { stepButtonVariant, stepItemVariant } from './ProgressTrackerStep.styles'
 import { ProgressTrackerStepIndicator } from './ProgressTrackerStepIndicator'
 
@@ -28,7 +32,7 @@ export const ProgressTrackerStep = forwardRef<HTMLLIElement, ProgressTrackerStep
       readOnly,
     } = useProgressTrackerContext()
 
-    const stepId = `:progress-tracker-step-${useId()}`
+    const stepId = `${ID_PREFIX}-step-${useId()}`
     const stepIndex = [...steps.keys()].indexOf(stepId)
 
     const disabledAfter = (() => {

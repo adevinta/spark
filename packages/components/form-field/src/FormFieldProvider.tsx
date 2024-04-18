@@ -1,6 +1,6 @@
 import { ReactNode, useCallback, useId, useMemo, useState } from 'react'
 
-import { FormFieldContext, FormFieldContextState } from './FormFieldContext'
+import { FormFieldContext, FormFieldContextState, ID_PREFIX } from './FormFieldContext'
 
 export interface FormFieldProviderProps
   extends Pick<
@@ -19,7 +19,7 @@ export const FormFieldProvider = ({
   isRequired,
   children,
 }: FormFieldProviderProps) => {
-  const labelId = `:form-field-label-${useId()}`
+  const labelId = `${ID_PREFIX}-label-${useId()}`
   const [messageIds, setMessageIds] = useState<string[]>([])
   const description = messageIds.length > 0 ? messageIds.join(' ') : undefined
 

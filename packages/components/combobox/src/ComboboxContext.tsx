@@ -136,6 +136,8 @@ const getFilteredItemsMap = (map: ItemsMap, inputValue: string | undefined): Ite
   )
 }
 
+export const ID_PREFIX = ':combobox'
+
 export const ComboboxProvider = ({
   children,
   state: stateProp,
@@ -222,8 +224,8 @@ export const ComboboxProvider = ({
   // Form field state
   const field = useFormFieldControl()
 
-  const internalFieldLabelID = `:combobox-label-${useId()}`
-  const internalFieldID = `:combobox-field-${useId()}`
+  const internalFieldLabelID = `${ID_PREFIX}-label-${useId()}`
+  const internalFieldID = `${ID_PREFIX}-field-${useId()}`
   const id = field.id || internalFieldID
   const labelId = field.labelId || internalFieldLabelID
 

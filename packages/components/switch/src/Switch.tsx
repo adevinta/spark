@@ -7,12 +7,14 @@ import { SwitchLabel } from './SwitchLabel'
 
 export type SwitchProps = SwitchInputProps
 
+const ID_PREFIX = ':switch'
+
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
   ({ size = 'md', children, className, id, disabled, reverse = false, ...rest }, ref) => {
     const field = useFormFieldControl()
 
-    const labelID = `:switch-label-${useId()}`
-    const innerID = `:switch-input-${useId()}`
+    const labelID = `${ID_PREFIX}-label-${useId()}`
+    const innerID = `${ID_PREFIX}-input-${useId()}`
     const fieldID = field.id || id || innerID
 
     const switchLabel = children && (
