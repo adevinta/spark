@@ -3,7 +3,6 @@ import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalD
 import { forwardRef, ReactNode, type Ref, useEffect } from 'react'
 
 import { useSelectContext } from './SelectContext'
-import { SelectStateIndicator } from './SelectStateIndicator'
 import { styles } from './SelectTrigger.styles'
 
 interface TriggerProps {
@@ -37,12 +36,10 @@ export const Trigger = forwardRef(
       >
         <span className="flex items-center justify-start gap-md">{children}</span>
 
-        <div className="ml-md flex gap-lg">
-          <SelectStateIndicator />
-          <Icon className="shrink-0" size="sm">
-            <ArrowHorizontalDown />
-          </Icon>
-        </div>
+        <Icon className="ml-md shrink-0" size="sm">
+          <ArrowHorizontalDown />
+        </Icon>
+
         {itemsComponent}
       </div>
     )

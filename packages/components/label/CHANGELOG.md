@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/label@1.6.0...@spark-ui/label@1.7.0) (2024-04-08)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- **label:** doc ([e3bff61](https://github.com/adevinta/spark/commit/e3bff61a70fe68648aa1dfef9d8903f3ddd34d22))
+
+### Features
+
+- **form-field:** moved status icons to FormField ([225b2a6](https://github.com/adevinta/spark/commit/225b2a61d166ffda77b01591e5520ae50457c0dd))
+
 # [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/label@1.5.11...@spark-ui/label@1.6.0) (2023-09-28)
 
 ### Features
