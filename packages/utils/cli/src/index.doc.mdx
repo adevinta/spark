@@ -64,14 +64,13 @@ $ spark scan adoption -c <filename>
 ```
 
 example
-example
 
 ```bash
 spark scan adoption -c "./spark-ui.cjs"
 ````
 
 
-### configuration filename structure
+##### configuration filename structure
 
  ```js
  // .spark-ui.cjs
@@ -84,13 +83,14 @@ module.exports = {
     directory: './packages',
   },
 }
- `
 
-- `details` (boolean) - whether to show the details of the adoption or not. Default: false
+/***
+ - `details` (boolean) - whether to show the details of the adoption or not. Default: false
 - `alpha` (boolean) - packages are sorted alphabetically. Default: false means sorted by adoption number
 - `imports` (array) - the imports to be scanned.
 - `extensions` (array) - the extensions to be scanned
 - `directory` (string) - the directory to be scanned. Default: '.' means the current directory
+***/
 ```
 
 #### Output
