@@ -24,11 +24,10 @@ import {
 import { InputProps } from './Input'
 import { inputGroupStyles, InputGroupStylesProps } from './InputGroup.styles'
 import { InputGroupContext } from './InputGroupContext'
-import { InputStateIndicator } from './InputStateIndicator'
 
 export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputGroupStylesProps {
   /**
-   * Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
+   * Use `state` prop to assign a specific state to the group, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated.
    */
   state?: 'error' | 'alert' | 'success'
   /**
@@ -83,16 +82,14 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
     const leadingAddon = findElement('LeadingAddon')
     const leadingIcon = findElement('LeadingIcon')
     const clearButton = findElement('ClearButton')
-    const trailingIcon = state
-      ? findElement('StateIndicator') || <InputStateIndicator />
-      : findElement('TrailingIcon')
+    const trailingIcon = findElement('TrailingIcon')
     const trailingAddon = findElement('TrailingAddon')
 
     // Acknowledge which subComponents are used in the compound context
     const hasLeadingAddon = !!leadingAddon
     const hasTrailingAddon = !!trailingAddon
     const hasLeadingIcon = !!leadingIcon
-    const hasTrailingIcon = !!trailingIcon || !!state
+    const hasTrailingIcon = !!trailingIcon
     const hasClearButton = !!value && !!clearButton && !disabled && !readOnly
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {

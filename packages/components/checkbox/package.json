@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/checkbox",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A control that allows the user to toggle between checked and not checked.",
   "publishConfig": {
     "access": "public"
@@ -25,11 +25,11 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "1.0.4",
     "@radix-ui/react-id": "1.0.1",
-    "@spark-ui/form-field": "^1.4.1",
+    "@spark-ui/form-field": "^1.5.0",
     "@spark-ui/icon": "^2.1.2",
     "@spark-ui/icons": "^1.21.6",
     "@spark-ui/internal-utils": "^2.3.0",
-    "@spark-ui/label": "^1.6.0",
+    "@spark-ui/label": "^1.7.0",
     "@spark-ui/use-merge-refs": "^0.4.0",
     "class-variance-authority": "0.7.0"
   },

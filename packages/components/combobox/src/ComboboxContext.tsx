@@ -53,7 +53,7 @@ export type ComboboxContextCommonProps = PropsWithChildren<{
    */
   defaultOpen?: boolean
   /**
-   * Use `state` prop to assign a specific state to the combobox, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated, and a state indicator will be displayed accordingly.
+   * Use `state` prop to assign a specific state to the combobox, choosing from: `error`, `alert` and `success`. By doing so, the outline styles will be updated.
    */
   state?: 'error' | 'alert' | 'success'
   /**

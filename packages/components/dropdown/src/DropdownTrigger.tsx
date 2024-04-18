@@ -6,7 +6,6 @@ import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { forwardRef, Fragment, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
-import { DropdownStateIndicator } from './DropdownStateIndicator'
 import { styles } from './DropdownTrigger.styles'
 
 interface TriggerProps {
@@ -62,12 +61,9 @@ export const Trigger = forwardRef(
           >
             <span className="flex items-center justify-start gap-md">{children}</span>
 
-            <div className="ml-md flex gap-lg">
-              <DropdownStateIndicator />
-              <Icon className="shrink-0" size="sm">
-                <ArrowHorizontalDown />
-              </Icon>
-            </div>
+            <Icon className="ml-md shrink-0" size="sm">
+              <ArrowHorizontalDown />
+            </Icon>
           </button>
         </WrapperComponent>
       </>

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { addSnackbar, type AddSnackbarArgs, Snackbar } from '.'
 
 const meta: Meta<typeof Snackbar> = {
-  title: 'Experimental/Snackbar',
+  title: 'Components/Snackbar',
   component: Snackbar,
 }
 

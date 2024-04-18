@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.4...@spark-ui/dropdown@1.1.5) (2024-04-18)
+
+### Bug Fixes
+
+- **combobox:** address pointerEvents related bug ([781bdd7](https://github.com/adevinta/spark/commit/781bdd749e5a9baf3b6acdbaf1a348258eb49b84))
+
+## [1.1.4](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.3...@spark-ui/dropdown@1.1.4) (2024-04-16)
+
+**Note:** Version bump only for package @spark-ui/dropdown
+
+## [1.1.3](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.2...@spark-ui/dropdown@1.1.3) (2024-04-11)
+
+### Bug Fixes
+
+- **combobox:** apply pointer-event styles correctly when dropdown is open ([0c16fee](https://github.com/adevinta/spark/commit/0c16fee65e7badade39199076a91d15c05673eac))
+- **dropdown:** apply pointer-event styles correctly when dropdown is open ([f450dbc](https://github.com/adevinta/spark/commit/f450dbc50caf62f4f6850f5dc67e04d46bf83440))
+
+## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.1...@spark-ui/dropdown@1.1.2) (2024-04-11)
+
+### Bug Fixes
+
+- **dropdown:** perf improvement broke mobile dropdown selection ([12cfca1](https://github.com/adevinta/spark/commit/12cfca1aed39a745e270bb4adbb12dcbb95e8868))
+
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.0...@spark-ui/dropdown@1.1.1) (2024-04-08)
+
+**Note:** Version bump only for package @spark-ui/dropdown
+
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.15...@spark-ui/dropdown@1.1.0) (2024-04-08)
+
+### Features
+
+- **form-field:** moved status icons to FormField ([225b2a6](https://github.com/adevinta/spark/commit/225b2a61d166ffda77b01591e5520ae50457c0dd))
+
 ## [1.0.15](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.0.14...@spark-ui/dropdown@1.0.15) (2024-04-05)
 
 **Note:** Version bump only for package @spark-ui/dropdown
