@@ -59,9 +59,9 @@ import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
 
 ### Default
 
-To implement global snackbar functionality, start by rendering a `<Snackbar />` component. This component manages the snackbar queue and state throughout the application. To display a snackbar message from any part of the app, **simply call the** `addSnackbar` **function**.
+To get started render a `<Snackbar />` provider **at the root of your app**. It will manage the snackbar queue and state for the whole app. Then, to display a snackbar message from any part of the app, you would simply call the `addSnackbar` function.
 
-Customizing each snackbar is easy using the options provided by the `addSnackbar` function. Additionally, you can define shared attributes for all snackbars by using the compound API with `<Snackbar.Item />` as children of the `<Snackbar />` component (refer to detailed examples below).
+Customizing each snackbar is made easy using the `addSnackbar` function options. Additionally, you can define global attributes for all snackbars by using the compound API with `<Snackbar.Item />` as children of the `<Snackbar />` component (refer to detailed examples below).
 
 Please note that `addSnackbar` options will always take precedence over `<Snackbar.Item />` (and its subcomponents) props. Conversely, any element defined using the compound component, such as close or action buttons, will consistently appear on the `Snackbar` item. Additionally, their optional props will override `addSnackbar` options in this specific scenario.
 
