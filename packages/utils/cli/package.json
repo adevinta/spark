@@ -17,8 +17,7 @@
   },
   "exports": {
     ".": {
-      "import": "./src/index.mjs",
-      "require": "./src/index.js"
+      "import": "./bin/spark.mjs"
     }
   },
   "type": "module",
