@@ -12,7 +12,14 @@
   ],
   "bin": {
     "spark": "./bin/spark.mjs",
-    "spark-generate": "./bin/spark-generate.mjs"
+    "spark-generate": "./bin/spark-generate.mjs",
+    "spark-scan": "./bin/spark-scan.mjs"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.mjs",
+      "require": "./src/index.js"
+    }
   },
   "type": "module",
   "repository": {
