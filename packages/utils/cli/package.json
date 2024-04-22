@@ -15,11 +15,6 @@
     "spark-generate": "./bin/spark-generate.mjs",
     "spark-scan": "./bin/spark-scan.mjs"
   },
-  "exports": {
-    ".": {
-      "import": "./bin/spark.mjs"
-    }
-  },
   "type": "module",
   "repository": {
     "type": "git",

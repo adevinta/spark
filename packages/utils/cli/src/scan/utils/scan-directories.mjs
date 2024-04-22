@@ -12,35 +12,34 @@ export function scanDirectories(
 ) {
   const files = fs.readdirSync(directoryPath)
 
+  let response = {
+    importCount,
+    importResults,
+    importsUsed,
+    importsCount,
+  }
+
   for (const file of files) {
     const filePath = path.join(directoryPath, file)
     const stats = fs.statSync(filePath)
 
     if (stats.isDirectory()) {
-      scanDirectories(filePath, importName, extensions, scanningCallback, {
-        importCount,
-        importResults,
-        importsUsed,
-        importsCount,
-      })
+      response = scanDirectories(filePath, importName, extensions, scanningCallback, response)
     } else if (stats.isFile() && extensions.includes(path.extname(filePath))) {
       const f = fileContainsImport(filePath, importName)
 
       if (f) {
-        scanningCallback(
+        response = scanningCallback(
           {
             filePath: f.filePath,
             fileContent: f.fileContent,
           },
           importName,
-          {
-            importCount,
-            importResults,
-            importsUsed,
-            importsCount,
-          }
+          response
         )
       }
     }
   }
+
+  return response
 }

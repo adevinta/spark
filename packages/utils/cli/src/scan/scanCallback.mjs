@@ -1,7 +1,12 @@
 import extractImports from './utils/extract-imports.mjs'
 
-export function scanCallback(f, moduleName, { importResults, importsUsed, importsCount }) {
-  if (!f.fileContent) return
+export function scanCallback(
+  f,
+  moduleName,
+  { importCount, importResults, importsUsed, importsCount }
+) {
+  const response = { importCount, importResults, importsUsed, importsCount }
+  if (!f.fileContent) return response
 
   const imports = extractImports(f.filePath, moduleName)
 
@@ -39,18 +44,19 @@ export function scanCallback(f, moduleName, { importResults, importsUsed, import
         importsUsed.importsCount = importsCount[defaultImport] + 1
 
         importsCount[defaultImport] = importsCount[defaultImport] + 1 || 1
+        response.importCount++
       }
 
       if (namedImports.length) {
         namedImports.forEach(n => {
           importsUsed[moduleName].named[n] = importsUsed[moduleName].named[n] + 1 || 1
-        })
-
-        namedImports.forEach(n => {
           importsUsed[moduleName].importsCount = importsUsed[moduleName].importsCount + 1
           importsCount[n] = importsCount[n] + 1 || 1
+          response.importCount++
         })
       }
     })
   })
+
+  return response
 }

@@ -35,28 +35,28 @@ export async function adoption(options) {
 
   const extensions = config.adoption.extensions
 
-  let lastScanCount = 0
-  const importCount = 0
+  let importCount = 0
   const importResults = {}
   let importsUsed = {}
   let importsCount = {}
   config.adoption.imports.forEach(moduleName => {
     console.log(`scanning adoption for ${moduleName}`)
     const directoryPath = path.join(process.cwd(), config.adoption.directory)
-    scanDirectories(directoryPath, moduleName, extensions, scanCallback, {
+
+    const response = scanDirectories(directoryPath, moduleName, extensions, scanCallback, {
       importCount,
       importResults,
       importsUsed,
       importsCount,
     })
-    if (importCount !== lastScanCount) {
+    if (importCount !== response.importCount) {
       logger.success(
-        `Found ${importCount - lastScanCount} files with "${moduleName}" imports across directory ${directoryPath}:`
+        `Found ${response.importCount - importCount} files with "${moduleName}" imports across directory ${directoryPath}.`
       )
     } else {
       logger.warn(`No files found with "${moduleName}" imports across directory ${directoryPath}.`)
     }
-    lastScanCount = importCount
+    importCount = response.importCount
   })
 
   // Sort importsUsed by alphabet
