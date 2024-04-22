@@ -51,7 +51,7 @@ export async function adoption(options) {
     })
     if (importCount !== response.importCount) {
       logger.success(
-        `Found ${response.importCount - importCount} files with "${moduleName}" imports across directory ${directoryPath}.`
+        `Found ${response.importCount - importCount} imports with "${moduleName}" modules across directory ${directoryPath}.`
       )
     } else {
       logger.warn(`No files found with "${moduleName}" imports across directory ${directoryPath}.`)
@@ -64,9 +64,9 @@ export async function adoption(options) {
     importsUsed = Object.fromEntries(
       Object.entries(importsUsed)
         .sort(([pkgNameA], [pkgNameB]) => pkgNameA.localeCompare(pkgNameB))
-        .map(([pkgname, content]) => {
+        .map(([pkgName, content]) => {
           return [
-            pkgname,
+            pkgName,
             {
               default: Object.fromEntries(
                 Object.entries(content.default).sort(([a], [b]) => a.localeCompare(b))
