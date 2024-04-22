@@ -1,4 +1,3 @@
-import { useId } from '@radix-ui/react-id'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
 import {
@@ -9,6 +8,7 @@ import {
   SetStateAction,
   useContext,
   useEffect,
+  useId,
   useState,
 } from 'react'
 
@@ -99,6 +99,8 @@ export type DropdownContextProps = DropdownContextCommonProps &
 
 const DropdownContext = createContext<DropdownContextState | null>(null)
 
+export const ID_PREFIX = ':dropdown'
+
 export const DropdownProvider = ({
   children,
   defaultValue,
@@ -121,8 +123,12 @@ export const DropdownProvider = ({
   const field = useFormFieldControl()
 
   const state = field.state || stateProp
-  const id = useId(field.id)
-  const labelId = useId(field.labelId)
+
+  const internalFieldLabelID = `${ID_PREFIX}-label-${useId()}`
+  const internalFieldID = `${ID_PREFIX}-input-${useId()}`
+  const id = field.id || internalFieldID
+  const labelId = field.labelId || internalFieldLabelID
+
   const disabled = field.disabled ?? disabledProp
   const readOnly = field.readOnly ?? readOnlyProp
 

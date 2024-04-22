@@ -28,7 +28,6 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "@radix-ui/react-id": "1.0.1",
     "@spark-ui/form-field": "^1.5.0",
     "@spark-ui/icon": "^2.1.2",
     "@spark-ui/icons": "^1.21.6",

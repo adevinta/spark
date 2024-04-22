@@ -1,7 +1,7 @@
-import { useId } from '@radix-ui/react-id'
 import { cx } from 'class-variance-authority'
-import { forwardRef, type Ref, useEffect } from 'react'
+import { forwardRef, type Ref, useEffect, useId } from 'react'
 
+import { ID_PREFIX } from './ComboboxContext'
 import { useComboboxItemContext } from './ComboboxItemContext'
 
 export interface ItemTextProps {
@@ -10,7 +10,7 @@ export interface ItemTextProps {
 
 export const ItemText = forwardRef(
   ({ children }: ItemTextProps, forwardedRef: Ref<HTMLSpanElement>) => {
-    const id = useId()
+    const id = `${ID_PREFIX}-item-text-${useId()}`
 
     const { setTextId } = useComboboxItemContext()
 
