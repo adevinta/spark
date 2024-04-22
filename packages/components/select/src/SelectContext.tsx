@@ -111,10 +111,6 @@ export const SelectProvider = ({
   const name = field.name ?? nameProp
   const required = !!(field.isRequired ?? requiredProp)
 
-  useEffect(() => {
-    if (valueProp) setValue(valueProp)
-  }, [valueProp])
-
   /**
    * Indices in a Map are set when an element is added to the Map.
    * If for some reason, in the Select:
