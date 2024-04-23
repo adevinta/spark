@@ -1,6 +1,5 @@
-import { useId } from '@radix-ui/react-id'
 import { cx } from 'class-variance-authority'
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import { useRadioGroup } from './RadioGroupContext'
 import { RadioInput, RadioInputProps } from './RadioInput'
@@ -8,10 +7,12 @@ import { RadioLabel } from './RadioLabel'
 
 export type RadioProps = RadioInputProps
 
+const ID_PREFIX = ':radio'
+
 export const Radio = forwardRef<HTMLButtonElement, RadioProps>(
   ({ className, children, id, disabled: disabledProp, ...others }, ref) => {
-    const innerId = useId()
-    const innerLabelId = useId()
+    const innerId = `${ID_PREFIX}-input-${useId()}`
+    const innerLabelId = `${ID_PREFIX}-label-${useId()}`
 
     const { intent, disabled, reverse } = useRadioGroup()
 

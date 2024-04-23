@@ -29,3 +29,5 @@ export const ProgressTrackerStepContext = createContext<ProgressTrackerStepConte
 export const useProgressTrackerContext = () => useContext(ProgressTrackerContext)
 
 export const useProgressTrackerStepContext = () => useContext(ProgressTrackerStepContext)
+
+export const ID_PREFIX = ':progress-tracker'

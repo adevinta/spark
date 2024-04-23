@@ -1,4 +1,5 @@
-import { useId } from '@radix-ui/react-id'
+/* eslint-disable complexity */
+/* eslint-disable max-lines-per-function */
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
 import { useCombinedState } from '@spark-ui/use-combined-state'
@@ -11,6 +12,7 @@ import {
   SetStateAction,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState,
 } from 'react'
@@ -134,6 +136,8 @@ const getFilteredItemsMap = (map: ItemsMap, inputValue: string | undefined): Ite
   )
 }
 
+export const ID_PREFIX = ':combobox'
+
 export const ComboboxProvider = ({
   children,
   state: stateProp,
@@ -219,8 +223,12 @@ export const ComboboxProvider = ({
 
   // Form field state
   const field = useFormFieldControl()
-  const id = useId(field.id)
-  const labelId = useId(field.labelId)
+
+  const internalFieldLabelID = `${ID_PREFIX}-label-${useId()}`
+  const internalFieldID = `${ID_PREFIX}-field-${useId()}`
+  const id = field.id || internalFieldID
+  const labelId = field.labelId || internalFieldLabelID
+
   const state = field.state || stateProp
   const disabled = field.disabled ?? disabledProp
   const readOnly = field.readOnly ?? readOnlyProp

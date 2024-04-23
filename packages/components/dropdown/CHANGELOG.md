@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.5...@spark-ui/dropdown@1.1.6) (2024-04-22)
+
+**Note:** Version bump only for package @spark-ui/dropdown
+
 ## [1.1.5](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.4...@spark-ui/dropdown@1.1.5) (2024-04-18)
 
 ### Bug Fixes
