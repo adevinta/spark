@@ -77,7 +77,7 @@ spark scan adoption -c "./spark-ui.cjs"
 module.exports = {
   adoption: {
     details: true,
-    alpha: false,
+    sort: 'count', // 'count' or 'alphabetical'
     imports: ['@spark-ui'],
     extensions: ['.tsx', '.ts'],
     directory: './packages',
@@ -86,7 +86,7 @@ module.exports = {
 
 /***
  - `details` (boolean) - whether to show the details of the adoption or not. Default: false
-- `alpha` (boolean) - packages are sorted alphabetically. Default: false means sorted by adoption number
+- `sort` ('count' | 'alphabetical') - packages are sorted alphabetically. Default: false means sorted by adoption number
 - `imports` (array) - the imports to be scanned.
 - `extensions` (array) - the extensions to be scanned
 - `directory` (string) - the directory to be scanned. Default: '.' means the current directory

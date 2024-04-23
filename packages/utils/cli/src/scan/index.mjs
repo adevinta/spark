@@ -10,7 +10,7 @@ import { scanDirectories } from './utils/scan-directories.mjs'
 const DEFAULT_CONFIG = {
   adoption: {
     details: false,
-    alpha: false,
+    sort: 'count',
     imports: ['@spark-ui'],
     extensions: ['.tsx', '.ts'],
     directory: '.',
@@ -60,7 +60,7 @@ export async function adoption(options) {
   })
 
   // Sort importsUsed by alphabet
-  if (config.adoption.alpha) {
+  if (config.adoption.sort === 'alphabetical') {
     importsUsed = Object.fromEntries(
       Object.entries(importsUsed)
         .sort(([pkgNameA], [pkgNameB]) => pkgNameA.localeCompare(pkgNameB))
@@ -79,7 +79,7 @@ export async function adoption(options) {
           ]
         })
     )
-  } else {
+  } else if (config.adoption.sort === 'count') {
     // Sort importsUsed by most used
     importsUsed = Object.fromEntries(
       Object.entries(importsUsed)
