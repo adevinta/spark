@@ -185,6 +185,32 @@ describe('Select', () => {
     })
   })
 
+  describe('usage with FormField', () => {
+    it('should associate label and select element correctly', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <FormField>
+          <FormField.Label>Book</FormField.Label>
+          <Select>
+            <Select.Trigger>
+              <Select.Value placeholder="Pick a book" />
+            </Select.Trigger>
+
+            <Select.Items>
+              <Select.Placeholder>--Pick a book--</Select.Placeholder>
+              <Select.Item value="book-1">War and Peace</Select.Item>
+            </Select.Items>
+          </Select>
+          <FormField.ErrorMessage>You forgot to select a book</FormField.ErrorMessage>
+        </FormField>
+      )
+
+      await user.click(screen.getByText('Book'))
+      expect(getSelect('Book')).toHaveFocus()
+    })
+  })
+
   describe('single selection', () => {
     it('should select item', async () => {
       const user = userEvent.setup()

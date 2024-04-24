@@ -5,7 +5,7 @@ import { useSelectContext } from './SelectContext'
 
 export const styles = cva(
   [
-    'absolute left-none top-none h-full w-full rounded-lg opacity-0',
+    'absolute left-none top-none size-full rounded-lg opacity-0',
     'min-h-sz-44',
     // outline styles
     'ring-1 outline-none ring-inset focus:ring-2',
@@ -52,6 +52,7 @@ export const Items = forwardRef(
       setValue,
       name,
       required,
+      fieldId,
     } = useSelectContext()
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -75,6 +76,7 @@ export const Items = forwardRef(
         className={styles({ className, state, disabled, readOnly })}
         value={selectedItem?.value}
         onChange={handleChange}
+        id={fieldId}
         {...rest}
       >
         {children}
