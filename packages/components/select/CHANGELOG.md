@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/select@1.1.3...@spark-ui/select@1.2.0) (2024-04-24)
+
+### Features
+
+- **select:** associate label and select elements ([774bdaa](https://github.com/adevinta/spark/commit/774bdaaad4c37b6e7b8ab13c7591017a7983c95e))
+
+## [1.1.3](https://github.com/adevinta/spark/compare/@spark-ui/select@1.1.2...@spark-ui/select@1.1.3) (2024-04-22)
+
+### Bug Fixes
+
+- **select:** remove code causing excessive calls to the onValueChange prop ([0125440](https://github.com/adevinta/spark/commit/012544065da1d132e14990e8ec3e4670333712c4)), closes [#2062](https://github.com/adevinta/spark/issues/2062)
+
+## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/select@1.1.1...@spark-ui/select@1.1.2) (2024-04-22)
+
+**Note:** Version bump only for package @spark-ui/select
+
 ## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/select@1.1.0...@spark-ui/select@1.1.1) (2024-04-08)
 
 **Note:** Version bump only for package @spark-ui/select

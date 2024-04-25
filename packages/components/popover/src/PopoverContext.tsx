@@ -10,6 +10,8 @@ export interface PopoverContextState {
 
 const PopoverContext = createContext<PopoverContextState | null>(null)
 
+export const ID_PREFIX = ':popover'
+
 export const PopoverProvider = ({ children }: { children: ReactNode }) => {
   const [hasCloseButton, setHasCloseButton] = useState(false)
   const [headerId, setHeaderId] = useState<HeaderId>(null)

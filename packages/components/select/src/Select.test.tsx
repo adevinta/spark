@@ -4,7 +4,7 @@ import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vitest } from 'vitest'
 
 import { Select } from '.'
 
@@ -185,6 +185,32 @@ describe('Select', () => {
     })
   })
 
+  describe('usage with FormField', () => {
+    it('should associate label and select element correctly', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <FormField>
+          <FormField.Label>Book</FormField.Label>
+          <Select>
+            <Select.Trigger>
+              <Select.Value placeholder="Pick a book" />
+            </Select.Trigger>
+
+            <Select.Items>
+              <Select.Placeholder>--Pick a book--</Select.Placeholder>
+              <Select.Item value="book-1">War and Peace</Select.Item>
+            </Select.Items>
+          </Select>
+          <FormField.ErrorMessage>You forgot to select a book</FormField.ErrorMessage>
+        </FormField>
+      )
+
+      await user.click(screen.getByText('Book'))
+      expect(getSelect('Book')).toHaveFocus()
+    })
+  })
+
   describe('single selection', () => {
     it('should select item', async () => {
       const user = userEvent.setup()
@@ -275,6 +301,52 @@ describe('Select', () => {
 
       // Then the selected value has been updated
       expect(getFakeTrigger()).toHaveTextContent('Pride and Prejudice')
+    })
+  })
+
+  describe('onValueChange', () => {
+    beforeEach(vitest.clearAllMocks)
+
+    const onValueChangeSpy = vitest.fn()
+
+    const ControlledImplementation = () => {
+      const [value, setValue] = useState('book-1')
+
+      return (
+        <Select
+          value={value}
+          onValueChange={newValue => {
+            setValue(newValue)
+            onValueChangeSpy()
+          }}
+        >
+          <Select.Trigger aria-label="Book">
+            <Select.Value placeholder="Pick a book" />
+          </Select.Trigger>
+
+          <Select.Items>
+            <Select.Placeholder>--Pick a book--</Select.Placeholder>
+            <Select.Item value="book-1">War and Peace</Select.Item>
+            <Select.Item value="book-2">1984</Select.Item>
+            <Select.Item value="book-3">Pride and Prejudice</Select.Item>
+          </Select.Items>
+        </Select>
+      )
+    }
+
+    it('should only call the onValueChange prop once when value changes', async () => {
+      const user = userEvent.setup()
+
+      render(<ControlledImplementation />)
+
+      await user.selectOptions(getSelect('Book'), 'Pride and Prejudice')
+      expect(onValueChangeSpy).toHaveBeenCalledTimes(1)
+    })
+
+    it('should only call the onValueChange prop when value changes', async () => {
+      render(<ControlledImplementation />)
+
+      expect(onValueChangeSpy).not.toHaveBeenCalled()
     })
   })
 })

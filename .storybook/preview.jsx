@@ -6,6 +6,7 @@ import { ShareExpand } from '@spark-ui/icons/dist/icons/ShareExpand'
 import '../src/tailwind.css'
 import './sb-theming.css'
 import { ToC } from '@docs/helpers/ToC'
+import { A11yReport } from '@docs/helpers/A11yReport'
 
 const ExampleContainer = ({ children, ...props }) => {
   const shouldDisplayExperimentalBanner = (() => {
@@ -21,12 +22,18 @@ const ExampleContainer = ({ children, ...props }) => {
   return (
     <DocsContainer {...props}>
       <div id="spark-doc-container">
-        {shouldDisplayExperimentalBanner && <p id="experimental-banner">
-          This component is still experimental. Avoid usage in production features
-        </p>}
+        {shouldDisplayExperimentalBanner && (
+          <p id="experimental-banner">
+            This component is still experimental. Avoid usage in production features
+          </p>
+        )}
         {children}
       </div>
       <ToC />
+
+      <A11yReport
+        of={`${props.context.channel.data.docsPrepared[0].id.split('-')[0]}/${props.context.channel.data.docsPrepared[0].id.split('-')[1]}`}
+      />
     </DocsContainer>
   )
 }
