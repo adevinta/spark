@@ -1,9 +1,8 @@
-import { useId } from '@radix-ui/react-id'
 import { Slot } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, forwardRef, useId } from 'react'
 
-import { FormFieldContextState } from './FormFieldContext'
+import { FormFieldContextState, ID_PREFIX } from './FormFieldContext'
 import { FormFieldProvider } from './FormFieldProvider'
 
 export interface FormFieldProps
@@ -37,7 +36,7 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
     },
     ref
   ) => {
-    const id = useId()
+    const id = `${ID_PREFIX}-${useId()}`
     const Component = asChild ? Slot : 'div'
 
     return (

@@ -1,15 +1,14 @@
-import { useId } from '@radix-ui/react-id'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, forwardRef, useEffect } from 'react'
+import { ComponentPropsWithoutRef, forwardRef, useEffect, useId } from 'react'
 
-import { useFormField } from './FormFieldContext'
+import { ID_PREFIX, useFormField } from './FormFieldContext'
 
 export type FormFieldMessageProps = ComponentPropsWithoutRef<'span'>
 
 export const FormFieldMessage = forwardRef<HTMLSpanElement, FormFieldMessageProps>(
   ({ id: idProp, className, ...others }, ref) => {
     const { onMessageIdAdd, onMessageIdRemove } = useFormField()
-    const currentId = useId()
+    const currentId = `${ID_PREFIX}-message-${useId()}`
     const id = idProp || currentId
 
     useEffect(() => {

@@ -1,16 +1,16 @@
 /* eslint-disable complexity */
-
-import { useId } from '@radix-ui/react-id'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { forwardRef, useRef } from 'react'
+import { forwardRef, useId, useRef } from 'react'
 
 import { CheckboxGroupContextState, useCheckboxGroup } from './CheckboxGroupContext'
 import { CheckboxInput, CheckboxInputProps } from './CheckboxInput'
 import { CheckboxLabel } from './CheckboxLabel'
 
 export type CheckboxProps = CheckboxInputProps & Pick<CheckboxGroupContextState, 'reverse'>
+
+const ID_PREFIX = ':checkbox'
 
 export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
   (
@@ -28,8 +28,10 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     },
     forwardedRef
   ) => {
-    const innerId = useId(idProp)
-    const innerLabelId = useId()
+    const checkboxId = `${ID_PREFIX}-${useId()}`
+    const innerId = idProp || checkboxId
+
+    const innerLabelId = `${ID_PREFIX}-${useId()}`
 
     const field = useFormFieldControl()
     const group = useCheckboxGroup()
