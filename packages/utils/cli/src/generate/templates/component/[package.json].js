@@ -24,8 +24,8 @@ export default ({ name, description }) => `{
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "^4.0.0",
-    "react": "^16.8 || ^17.0 || ^18.0",
-    "react-dom": "^16.8 || ^17.0 || ^18.0",
+    "react": "^18.0 || ^19.0",
+    "react-dom": "^18.0 || ^19.0",
     "tailwindcss": "^3.0.0"
   },
   "repository": {
