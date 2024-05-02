@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.12...@spark-ui/combobox@0.12.0) (2024-05-02)
+
+### Features
+
+- **combobox:** rotate diclosure icon when expanding ([6bc5341](https://github.com/adevinta/spark/commit/6bc53412a3c44130b240a82dc668a89b2f56caba))
+
 ## [0.11.12](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.11...@spark-ui/combobox@0.11.12) (2024-05-02)
 
 **Note:** Version bump only for package @spark-ui/combobox
