@@ -3,6 +3,7 @@ import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalD
 import { Popover } from '@spark-ui/popover'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
+import { cx } from 'class-variance-authority'
 import { forwardRef, Fragment, ReactNode, type Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
@@ -41,6 +42,8 @@ export const Trigger = forwardRef(
       },
     })
 
+    const isExpanded = downshiftTriggerProps['aria-expanded']
+
     const ref = useMergeRefs(forwardedRef, downshiftRef)
 
     return (
@@ -61,7 +64,12 @@ export const Trigger = forwardRef(
           >
             <span className="flex items-center justify-start gap-md">{children}</span>
 
-            <Icon className="ml-md shrink-0" size="sm">
+            <Icon
+              className={cx('ml-md shrink-0 rotate-0 transition duration-100 ease-in', {
+                'rotate-180': isExpanded,
+              })}
+              size="sm"
+            >
               <ArrowHorizontalDown />
             </Icon>
           </button>
