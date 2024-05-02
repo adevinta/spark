@@ -35,7 +35,7 @@ export const Disclosure = forwardRef(
         event.stopPropagation()
       },
     })
-    const isOpen = downshiftDisclosureProps['aria-expanded']
+    const isExpanded = downshiftDisclosureProps['aria-expanded']
     const ref = useMergeRefs(forwardedRef, downshiftRef)
 
     return (
@@ -47,13 +47,16 @@ export const Disclosure = forwardRef(
         size={size}
         {...downshiftDisclosureProps}
         {...props}
-        aria-label={isOpen ? openedLabel : closedLabel}
+        aria-label={isExpanded ? openedLabel : closedLabel}
         disabled={ctx.disabled}
       >
-        <Icon>
-          <Icon className="shrink-0" size="sm">
-            <ArrowHorizontalDown />
-          </Icon>
+        <Icon
+          className={cx('shrink-0', 'rotate-0 transition duration-100 ease-in', {
+            'rotate-180': isExpanded,
+          })}
+          size="sm"
+        >
+          <ArrowHorizontalDown />
         </Icon>
       </IconButton>
     )
