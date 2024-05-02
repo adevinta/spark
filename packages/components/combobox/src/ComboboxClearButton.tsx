@@ -16,7 +16,11 @@ export const ClearButton = forwardRef<HTMLButtonElement, ClearButtonProps>(
     const handleClick: MouseEventHandler<HTMLButtonElement> = event => {
       event.stopPropagation()
 
-      ctx.multiple ? ctx.setSelectedItems([]) : ctx.selectItem(null)
+      if (ctx.multiple) {
+        ctx.setSelectedItems([])
+      } else {
+        ctx.selectItem(null)
+      }
 
       ctx.setInputValue('')
 

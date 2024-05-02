@@ -35,7 +35,7 @@ export function Question({ label }: Props) {
         onClick={handleClick}
       >
         <span className="flex basis-11/12 font-bold">{label}</span>
-        <span className="h-sz-20 w-sz-20">
+        <span className="size-sz-20">
           {state.isOpen ? <Components.MinusIcon /> : <Components.PlusIcon />}
         </span>
       </button>
