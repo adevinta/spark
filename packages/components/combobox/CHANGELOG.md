@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.9](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.8...@spark-ui/combobox@0.11.9) (2024-05-02)
+
+### Bug Fixes
+
+- **combobox:** input backgroud color for dark mode ([f809d56](https://github.com/adevinta/spark/commit/f809d56e9ee76598067f73899e2e086d13a01f66))
+
 ## [0.11.8](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.7...@spark-ui/combobox@0.11.8) (2024-04-29)
 
 **Note:** Version bump only for package @spark-ui/combobox
