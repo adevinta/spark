@@ -346,6 +346,7 @@ export const ComboboxProvider = ({
           allowCustomValue,
           setSelectedItems: onInternalSelectedItemsChange,
           triggerAreaRef,
+          items: itemsMap,
         })
       : singleSelectionReducer({
           allowCustomValue,

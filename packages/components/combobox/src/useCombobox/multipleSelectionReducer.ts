@@ -1,10 +1,12 @@
 import { useCombobox, UseComboboxProps, UseMultipleSelectionReturnValue } from 'downshift'
 import React from 'react'
 
-import { ComboboxItem } from '../types'
+import { ComboboxItem, ItemsMap } from '../types'
+import { getIndexByKey } from '../utils'
 
 interface Props {
   allowCustomValue?: boolean
+  items: ItemsMap
   selectedItems: ComboboxItem[]
   multiselect: UseMultipleSelectionReturnValue<ComboboxItem>
   setSelectedItems: (items: ComboboxItem[]) => void
@@ -17,8 +19,9 @@ export const multipleSelectionReducer = ({
   allowCustomValue = false,
   setSelectedItems,
   triggerAreaRef,
+  items,
 }: Props) => {
-  const reducer: UseComboboxProps<ComboboxItem>['stateReducer'] = (state, { changes, type }) => {
+  const reducer: UseComboboxProps<ComboboxItem>['stateReducer'] = (_, { changes, type }) => {
     const isFocusInsideTriggerArea = triggerAreaRef.current?.contains?.(document.activeElement)
 
     switch (type) {
@@ -34,7 +37,10 @@ export const multipleSelectionReducer = ({
         if (changes.selectedItem != null) {
           newState.inputValue = '' // keep input value after selection
           newState.isOpen = true // keep menu opened after selection
-          newState.highlightedIndex = state.highlightedIndex // preserve highlighted item index after selection
+
+          const highlightedIndex = getIndexByKey(items, changes.selectedItem.value)
+
+          newState.highlightedIndex = highlightedIndex // preserve highlighted item index after selection
 
           const isAlreadySelected = multiselect.selectedItems.some(
             selectedItem => selectedItem.value === changes.selectedItem?.value
@@ -54,6 +60,11 @@ export const multipleSelectionReducer = ({
         return {
           ...changes,
           inputValue: allowCustomValue ? changes.inputValue : '',
+        }
+      case useCombobox.stateChangeTypes.InputChange:
+        return {
+          ...changes,
+          selectedItem: changes.highlightedIndex === -1 ? null : changes.selectedItem,
         }
       case useCombobox.stateChangeTypes.InputBlur:
         return {
