@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.0...@spark-ui/combobox@0.12.1) (2024-05-03)
+
+### Bug Fixes
+
+- **combobox:** fix combobox highligh index while typing ([adf4c8b](https://github.com/adevinta/spark/commit/adf4c8b137d89ca3d6c5b6ace85a14bc37b64e43))
+
 # [0.12.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.12...@spark-ui/combobox@0.12.0) (2024-05-02)
 
 ### Features
