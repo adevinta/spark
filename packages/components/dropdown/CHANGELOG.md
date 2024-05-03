@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.7...@spark-ui/dropdown@1.2.0) (2024-05-02)
+
+### Features
+
+- **dropdown:** icons rotation when expanding ([d3cf4ec](https://github.com/adevinta/spark/commit/d3cf4ece0e10d2534dd7fd70abb2510650814ad0))
+
+## [1.1.7](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.6...@spark-ui/dropdown@1.1.7) (2024-04-29)
+
+**Note:** Version bump only for package @spark-ui/dropdown
+
 ## [1.1.6](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.1.5...@spark-ui/dropdown@1.1.6) (2024-04-22)
 
 **Note:** Version bump only for package @spark-ui/dropdown

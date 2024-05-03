@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.11.4...@spark-ui/dialog@1.12.0) (2024-04-30)
+
+### Features
+
+- **dialog:** add tabIndex prop ([98d3f4d](https://github.com/adevinta/spark/commit/98d3f4d93e4d6e0dbe6215f90881a91eb8ed949c))
+
+## [1.11.4](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.11.3...@spark-ui/dialog@1.11.4) (2024-04-29)
+
+**Note:** Version bump only for package @spark-ui/dialog
+
 ## [1.11.3](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.11.2...@spark-ui/dialog@1.11.3) (2024-04-04)
 
 **Note:** Version bump only for package @spark-ui/dialog

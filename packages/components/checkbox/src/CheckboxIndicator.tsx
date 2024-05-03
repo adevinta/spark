@@ -10,7 +10,7 @@ export const CheckboxIndicator = forwardRef<HTMLSpanElement, CheckboxIndicatorPr
   (props, ref) => (
     <CheckboxIndicatorPrimitive
       ref={ref}
-      className="flex h-full w-full items-center justify-center"
+      className="flex size-full items-center justify-center"
       {...props}
     />
   )
