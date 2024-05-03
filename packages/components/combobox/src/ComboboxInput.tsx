@@ -63,6 +63,15 @@ export const Input = forwardRef(
         multiselectInputProps.onKeyDown?.(event)
         ctx.setLastInteractionType('keyboard')
       },
+      /**
+       *
+       * Important:
+       * - without this, the input cursor is moved to the end after every change.
+       * @see https://github.com/downshift-js/downshift/issues/1108#issuecomment-674180157
+       */
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+        ctx.setInputValue(e.target.value)
+      },
       ref: inputRef,
     })
 
