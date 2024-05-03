@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.0...@spark-ui/combobox@0.12.1) (2024-05-03)
+
+### Bug Fixes
+
+- **combobox:** fix combobox highligh index while typing ([adf4c8b](https://github.com/adevinta/spark/commit/adf4c8b137d89ca3d6c5b6ace85a14bc37b64e43))
+
+# [0.12.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.12...@spark-ui/combobox@0.12.0) (2024-05-02)
+
+### Features
+
+- **combobox:** rotate diclosure icon when expanding ([6bc5341](https://github.com/adevinta/spark/commit/6bc53412a3c44130b240a82dc668a89b2f56caba))
+
+## [0.11.12](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.11...@spark-ui/combobox@0.11.12) (2024-05-02)
+
+**Note:** Version bump only for package @spark-ui/combobox
+
+## [0.11.11](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.10...@spark-ui/combobox@0.11.11) (2024-05-02)
+
+### Bug Fixes
+
+- **combobox:** comboox item index while filtering ([ad7bcf9](https://github.com/adevinta/spark/commit/ad7bcf9caf961e2d4b1ce9a3c9f10550e5ce798e))
+
+## [0.11.10](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.9...@spark-ui/combobox@0.11.10) (2024-05-02)
+
+### Bug Fixes
+
+- **combobox:** text size ([2ecc291](https://github.com/adevinta/spark/commit/2ecc291fd166e75394f4eb4a0951da2db80b2cd4))
+
+## [0.11.9](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.8...@spark-ui/combobox@0.11.9) (2024-05-02)
+
+### Bug Fixes
+
+- **combobox:** input backgroud color for dark mode ([f809d56](https://github.com/adevinta/spark/commit/f809d56e9ee76598067f73899e2e086d13a01f66))
+
+## [0.11.8](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.7...@spark-ui/combobox@0.11.8) (2024-04-29)
+
+**Note:** Version bump only for package @spark-ui/combobox
+
 ## [0.11.7](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.11.6...@spark-ui/combobox@0.11.7) (2024-04-22)
 
 **Note:** Version bump only for package @spark-ui/combobox

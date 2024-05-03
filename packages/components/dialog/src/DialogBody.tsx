@@ -4,6 +4,7 @@ import { dialogBodyStyles, type DialogBodyStylesProps } from './DialogBody.style
 export interface BodyProps extends DialogBodyStylesProps {
   children: ReactNode
   className?: string
+  tabIndex?: number
 }
 
 export const Body = forwardRef(

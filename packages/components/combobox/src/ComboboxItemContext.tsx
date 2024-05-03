@@ -26,7 +26,7 @@ export const ComboboxItemProvider = ({
 
   const [textId, setTextId] = useState<ItemTextId>(undefined)
 
-  const index = getIndexByKey(ctx.itemsMap, value)
+  const index = getIndexByKey(ctx.filteredItemsMap, value)
   const itemData: ComboboxItem = { disabled, value, text: getItemText(children) }
 
   const isSelected = ctx.multiple
