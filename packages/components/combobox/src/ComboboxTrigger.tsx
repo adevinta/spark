@@ -92,14 +92,16 @@ export const Trigger = forwardRef(
             <div
               ref={scrollableAreaRef}
               className={cx(
-                'inline-flex grow items-start gap-sm py-md',
+                'inline-flex min-w-none grow items-start gap-sm py-md',
                 ctx.wrap ? 'flex-wrap' : 'overflow-x-auto p-[2px] u-no-scrollbar'
               )}
             >
               {selectedItems}
               {input}
             </div>
+
             {hasClearButton && clearButton}
+
             {disclosure}
           </div>
         </PopoverAnchor>
