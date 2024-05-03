@@ -70,6 +70,7 @@ const ItemContent = forwardRef(
       item: itemCtx.itemData,
       index: itemCtx.index,
     })
+
     const ref = useMergeRefs(forwardedRef, downshiftRef)
 
     if (!isVisible) return null
