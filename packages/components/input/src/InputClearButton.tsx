@@ -1,5 +1,5 @@
 import { Icon } from '@spark-ui/icon'
-import { DeleteFill } from '@spark-ui/icons/dist/icons/DeleteFill'
+import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
 import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef, MouseEventHandler } from 'react'
 
@@ -39,7 +39,7 @@ const Root = forwardRef<HTMLButtonElement, InputClearButtonProps>(
         {...others}
       >
         <Icon size="sm">
-          <DeleteFill />
+          <DeleteOutline />
         </Icon>
       </button>
     )
