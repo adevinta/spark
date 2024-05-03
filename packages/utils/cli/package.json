@@ -12,7 +12,8 @@
   ],
   "bin": {
     "spark": "./bin/spark.mjs",
-    "spark-generate": "./bin/spark-generate.mjs"
+    "spark-generate": "./bin/spark-generate.mjs",
+    "spark-scan": "./bin/spark-scan.mjs"
   },
   "type": "module",
   "repository": {
