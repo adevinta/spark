@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.12.10...@spark-ui/cli-utils@2.13.0) (2024-05-03)
+
+### Features
+
+- **cli-utils:** add scan adoption script ([203e05e](https://github.com/adevinta/spark/commit/203e05e02285be18e5d0c6211f3ec04e4322837d))
+
 ## [2.12.10](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.12.9...@spark-ui/cli-utils@2.12.10) (2024-04-29)
 
 **Note:** Version bump only for package @spark-ui/cli-utils
