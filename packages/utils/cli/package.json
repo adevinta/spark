@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/cli-utils",
-  "version": "2.12.10",
+  "version": "2.13.1",
   "description": "Spark CLI utils",
   "publishConfig": {
     "access": "public"
@@ -12,7 +12,8 @@
   ],
   "bin": {
     "spark": "./bin/spark.mjs",
-    "spark-generate": "./bin/spark-generate.mjs"
+    "spark-generate": "./bin/spark-generate.mjs",
+    "spark-scan": "./bin/spark-scan.mjs"
   },
   "type": "module",
   "repository": {

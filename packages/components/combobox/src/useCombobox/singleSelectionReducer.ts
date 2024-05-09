@@ -19,6 +19,12 @@ export const singleSelectionReducer = ({
     )
 
     switch (type) {
+      case useCombobox.stateChangeTypes.InputKeyDownEscape:
+        if (!changes.selectedItem) {
+          setSelectedItem(null)
+        }
+
+        return changes
       case useCombobox.stateChangeTypes.ItemClick:
       case useCombobox.stateChangeTypes.InputKeyDownEnter:
         if (changes.selectedItem) {
