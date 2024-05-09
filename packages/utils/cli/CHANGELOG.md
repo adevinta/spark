@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.1](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.13.0...@spark-ui/cli-utils@2.13.1) (2024-05-06)
+
+### Bug Fixes
+
+- wrong chmod on new ci script ([7b47919](https://github.com/adevinta/spark/commit/7b479196b0fcf5be21f2f067fdcb63e1d77c3496))
+
 # [2.13.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.12.10...@spark-ui/cli-utils@2.13.0) (2024-05-03)
 
 ### Features
