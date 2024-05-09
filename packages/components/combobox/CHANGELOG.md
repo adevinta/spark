@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.2](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.1...@spark-ui/combobox@0.12.2) (2024-05-06)
+
+### Bug Fixes
+
+- **combobox:** clear internal input value on escape ([3bb5c69](https://github.com/adevinta/spark/commit/3bb5c6915669b3eacbe2627900862b025d2c7ddb))
+- **combobox:** combobox content overflow on smaller screens ([9e1d55b](https://github.com/adevinta/spark/commit/9e1d55b5b3b73074d233c92aef72ef21236c1de4))
+- **combobox:** missing padding in combobox empty view ([1d76dfc](https://github.com/adevinta/spark/commit/1d76dfc742bc1c9b35414cadc02fd4d6cfb90ba2))
+- **combobox:** preserve combobox cursor position upon change ([4ba34da](https://github.com/adevinta/spark/commit/4ba34da2a5a8dbec9d48f735b624783d4df5f2fe))
+
 ## [0.12.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.0...@spark-ui/combobox@0.12.1) (2024-05-03)
 
 ### Bug Fixes
