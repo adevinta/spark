@@ -1,3 +1,4 @@
+import { cx } from 'class-variance-authority'
 import { forwardRef, type ReactNode, type Ref } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
@@ -13,7 +14,7 @@ export const Empty = forwardRef(
     const hasNoItemVisible = ctx.filteredItemsMap.size === 0
 
     return hasNoItemVisible ? (
-      <div ref={forwardedRef} className={className}>
+      <div ref={forwardedRef} className={cx('px-lg py-md', className)}>
         {children}
       </div>
     ) : null
