@@ -42,8 +42,9 @@ export const SelectedItems = () => {
             data-spark-component="combobox-selected-item"
             key={`selected-item-${index}`}
             className={cx(
-              'flex h-sz-28 items-center rounded-md bg-neutral-container align-middle disabled:cursor-not-allowed',
+              'flex h-sz-28 items-center rounded-md bg-neutral-container align-middle',
               'text-body-2 text-on-neutral-container',
+              'disabled:cursor-not-allowed disabled:opacity-dim-3',
               { 'px-md': !isCleanable, 'pl-md': isCleanable }
             )}
             {...selectedItemProps}
