@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/input",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "Component used to get user input in a text field",
   "publishConfig": {
     "access": "public"

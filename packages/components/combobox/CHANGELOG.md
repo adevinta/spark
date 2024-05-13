@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.3](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.2...@spark-ui/combobox@0.12.3) (2024-05-09)
+
+### Bug Fixes
+
+- **combobox:** replace clear button from fill to outline ([fe0acbb](https://github.com/adevinta/spark/commit/fe0acbb0f222639b8285de3a65be196d0ea3f8ae))
+
 ## [0.12.2](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.1...@spark-ui/combobox@0.12.2) (2024-05-06)
 
 ### Bug Fixes

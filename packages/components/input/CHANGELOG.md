@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.4](https://github.com/adevinta/spark/compare/@spark-ui/input@1.7.3...@spark-ui/input@1.7.4) (2024-05-09)
+
+### Bug Fixes
+
+- **input:** replace from fill to outline clear button ([78f4cdb](https://github.com/adevinta/spark/commit/78f4cdbd22239fa8ddc6372ac02e5596af76c977))
+
 ## [1.7.3](https://github.com/adevinta/spark/compare/@spark-ui/input@1.7.2...@spark-ui/input@1.7.3) (2024-04-29)
 
 **Note:** Version bump only for package @spark-ui/input
