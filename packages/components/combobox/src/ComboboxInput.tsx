@@ -75,6 +75,10 @@ export const Input = forwardRef(
       ref: inputRef,
     })
 
+    const { selectedItems, selectedItem, multiple } = ctx
+
+    const hasPlaceholder = multiple ? selectedItems.length === 0 : selectedItem === null
+
     return (
       <>
         {ariaLabel && (
@@ -86,7 +90,7 @@ export const Input = forwardRef(
           <input
             data-spark-component="combobox-input"
             type="text"
-            placeholder={placeholder}
+            {...(hasPlaceholder && { placeholder })}
             className={cx(
               'max-w-full shrink-0 grow basis-[80px]',
               'h-sz-28 text-ellipsis bg-surface px-sm text-body-1 outline-none',
