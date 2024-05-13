@@ -28,7 +28,7 @@
     "change-case": "4.1.2",
     "minimatch": "7.4.6",
     "path-that-svg": "1.2.4",
-    "svgo": "3.2.0",
+    "svgo": "3.3.2",
     "svgson": "5.3.1"
   },
   "peerDependencies": {
