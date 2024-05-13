@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.4.4...@spark-ui/textarea@1.4.5) (2024-05-09)
+
+**Note:** Version bump only for package @spark-ui/textarea
+
 ## [1.4.4](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.4.3...@spark-ui/textarea@1.4.4) (2024-04-29)
 
 **Note:** Version bump only for package @spark-ui/textarea
