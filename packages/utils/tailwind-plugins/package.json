@@ -16,7 +16,7 @@
   "main": "index.js",
   "dependencies": {
     "@spark-ui/theme-utils": "^4.1.1",
-    "tailwindcss-radix": "2.8.0"
+    "tailwindcss-radix": "2.9.0"
   },
   "peerDependencies": {
     "tailwindcss": "^3.0.0"
