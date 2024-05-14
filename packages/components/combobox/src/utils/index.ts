@@ -59,29 +59,33 @@ export const getOrderedItems = (
   return result
 }
 
+const findNestedItemText = (children: React.ReactNode): string => {
+  if (!children) return ''
+
+  for (const child of React.Children.toArray(children)) {
+    if (React.isValidElement(child)) {
+      const childElement = child as React.ReactElement
+
+      if (getElementDisplayName(childElement) === 'Combobox.ItemText') {
+        return childElement.props.children
+      }
+
+      const foundText = findNestedItemText(childElement.props.children)
+
+      if (foundText) return foundText
+    }
+  }
+
+  return ''
+}
+
 /**
  * If Combobox.Item children:
  * - is a string, then the string is used.
  * - is JSX markup, then we look for Combobox.ItemText to get its string value.
  */
-export const getItemText = (children: ReactNode, itemText = ''): string => {
-  if (typeof children === 'string') {
-    return children
-  }
-
-  React.Children.forEach(children, child => {
-    if (!isValidElement(child)) return
-
-    if (getElementDisplayName(child) === 'Combobox.ItemText') {
-      itemText = child.props.children
-    }
-
-    if (child.props.children) {
-      getItemText(child.props.children, itemText)
-    }
-  })
-
-  return itemText
+export const getItemText = (children: React.ReactNode): string => {
+  return typeof children === 'string' ? children : findNestedItemText(children)
 }
 
 export const getItemsFromChildren = (children: ReactNode): ItemsMap => {

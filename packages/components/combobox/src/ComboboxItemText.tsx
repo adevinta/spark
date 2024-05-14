@@ -6,10 +6,11 @@ import { useComboboxItemContext } from './ComboboxItemContext'
 
 export interface ItemTextProps {
   children: string
+  className?: string
 }
 
 export const ItemText = forwardRef(
-  ({ children }: ItemTextProps, forwardedRef: Ref<HTMLSpanElement>) => {
+  ({ children, className }: ItemTextProps, forwardedRef: Ref<HTMLSpanElement>) => {
     const id = `${ID_PREFIX}-item-text-${useId()}`
 
     const { setTextId } = useComboboxItemContext()
@@ -21,7 +22,7 @@ export const ItemText = forwardRef(
     })
 
     return (
-      <span id={id} className={cx('inline')} ref={forwardedRef}>
+      <span id={id} className={cx('inline', className)} ref={forwardedRef}>
         {children}
       </span>
     )
