@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.4](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.3...@spark-ui/combobox@0.12.4) (2024-05-14)
+
+### Bug Fixes
+
+- **combobox:** disabled chips ([d71f9f0](https://github.com/adevinta/spark/commit/d71f9f0cb81bef07a28fbe7b1f5d3e485be2b44c))
+- **combobox:** multi select disabled hoverable ([c550f62](https://github.com/adevinta/spark/commit/c550f623a6e79a18d77e7f973b27280122fbd455))
+
 ## [0.12.3](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.2...@spark-ui/combobox@0.12.3) (2024-05-09)
 
 ### Bug Fixes
