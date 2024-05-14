@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.6](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.5...@spark-ui/combobox@0.12.6) (2024-05-14)
+
+### Bug Fixes
+
+- **combobox:** wrong logic for nested combobox item text filtering ([9b21770](https://github.com/adevinta/spark/commit/9b217705c56180bd98d1cba899ed8dcbef652cc9))
+
 ## [0.12.5](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.4...@spark-ui/combobox@0.12.5) (2024-05-14)
 
 **Note:** Version bump only for package @spark-ui/combobox
