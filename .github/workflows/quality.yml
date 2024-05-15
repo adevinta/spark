@@ -25,7 +25,7 @@ jobs:
     name: Lint
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -37,7 +37,7 @@ jobs:
     name: Typecheck
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -49,7 +49,7 @@ jobs:
     name: Test
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -70,7 +70,7 @@ jobs:
     name: Accessibility
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -103,7 +103,7 @@ jobs:
     name: Visual testing
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -125,7 +125,7 @@ jobs:
       url: ${{ steps.deployment.outputs.url }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
