@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/snackbar",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Display brief, temporary notifications of actions, errors, or other events in an application.",
   "publishConfig": {
     "access": "public"
