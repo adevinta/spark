@@ -79,6 +79,13 @@ export const Trigger = forwardRef(
               readOnly,
               allowWrap: ctx.wrap,
             })}
+            onBlur={() => {
+              if (!ctx.multiple && ctx.selectedItem && ctx.innerInputRef.current) {
+                if (ctx.selectedItem.text !== ctx.innerInputRef.current.value) {
+                  ctx.setInputValue(ctx.selectedItem?.text)
+                }
+              }
+            }}
             onClick={() => {
               if (!ctx.isOpen && !disabled && !readOnly) {
                 ctx.openMenu()
