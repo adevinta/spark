@@ -16,7 +16,7 @@ const tailwindcssRadix = require('tailwindcss-radix')
 
 /**
  * @param {Object} options The options for the plugin.
- * @param {Object} [options.themes={}] An object containing your themes where each key corresponds to a data-theme attribute value.
+ * @param {Object} [options.themes={}] An object containing your themes, where each key corresponds to a data-theme attribute value.
  * @param {string} [options.htmlFontSize=16] The base font size to use to properly compute rem values.
  * @returns {Function} The PostCSS plugin function.
  */
