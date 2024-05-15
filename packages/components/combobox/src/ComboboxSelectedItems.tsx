@@ -1,6 +1,7 @@
 import { Icon } from '@spark-ui/icon'
 import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
 import { cx } from 'class-variance-authority'
+import { FocusEvent } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
@@ -13,38 +14,42 @@ export const SelectedItems = () => {
 
   const isCleanable = !ctx.disabled && !ctx.readOnly
 
+  const handleFocus = (e: FocusEvent<HTMLSpanElement>) => {
+    const element = e.target as HTMLSpanElement
+    if (ctx.lastInteractionType === 'keyboard') {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest',
+      })
+    }
+  }
+
   return (
     <>
       {ctx.selectedItems.map((selectedItemForRender, index) => {
-        const selectedItemProps = ctx.getSelectedItemProps({
+        const { disabled, ...selectedItemProps } = ctx.getSelectedItemProps({
           disabled: ctx.disabled || ctx.readOnly,
           selectedItem: selectedItemForRender,
           index,
         })
 
-        const handleFocus = (e: React.FocusEvent<HTMLSpanElement>) => {
-          const element = e.target as HTMLSpanElement
-          if (ctx.lastInteractionType === 'keyboard') {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'nearest',
-              inline: 'nearest',
-            })
-          }
-        }
+        const Element = disabled ? 'button' : 'span'
 
         return (
-          <span
+          <Element
             role="presentation"
             data-spark-component="combobox-selected-item"
             key={`selected-item-${index}`}
             className={cx(
               'flex h-sz-28 items-center rounded-md bg-neutral-container align-middle',
               'text-body-2 text-on-neutral-container',
+              'disabled:cursor-not-allowed disabled:opacity-dim-3',
               { 'px-md': !isCleanable, 'pl-md': isCleanable }
             )}
             {...selectedItemProps}
             tabIndex={-1}
+            {...(disabled && { disabled: true })}
             onFocus={handleFocus}
           >
             <span
@@ -81,7 +86,7 @@ export const SelectedItems = () => {
                 </Icon>
               </button>
             )}
-          </span>
+          </Element>
         )
       })}
     </>

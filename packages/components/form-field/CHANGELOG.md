@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.5.2...@spark-ui/form-field@1.5.3) (2024-05-14)
+
+**Note:** Version bump only for package @spark-ui/form-field
+
 ## [1.5.2](https://github.com/adevinta/spark/compare/@spark-ui/form-field@1.5.1...@spark-ui/form-field@1.5.2) (2024-04-29)
 
 **Note:** Version bump only for package @spark-ui/form-field
