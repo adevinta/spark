@@ -75,9 +75,7 @@ export const Input = forwardRef(
       ref: inputRef,
     })
 
-    const { selectedItems, selectedItem, multiple } = ctx
-
-    const hasPlaceholder = multiple ? selectedItems.length === 0 : selectedItem === null
+    const hasPlaceholder = ctx.multiple ? ctx.selectedItems.length === 0 : ctx.selectedItem === null
 
     return (
       <>
