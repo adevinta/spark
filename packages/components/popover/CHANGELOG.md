@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.11](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.5.10...@spark-ui/popover@1.5.11) (2024-05-16)
+
+**Note:** Version bump only for package @spark-ui/popover
+
 ## [1.5.10](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.5.9...@spark-ui/popover@1.5.10) (2024-05-14)
 
 **Note:** Version bump only for package @spark-ui/popover
