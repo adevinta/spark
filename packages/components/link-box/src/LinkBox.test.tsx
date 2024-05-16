@@ -9,7 +9,7 @@ describe('LinkOverlay', () => {
       <LinkBox asChild>
         <article>
           <h2>
-            <LinkBox.Overlay href="#">Title</LinkBox.Overlay>
+            <LinkBox.Link href="#">Title</LinkBox.Link>
           </h2>
         </article>
       </LinkBox>

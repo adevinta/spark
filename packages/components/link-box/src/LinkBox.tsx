@@ -14,10 +14,7 @@ export const LinkBox = forwardRef<HTMLDivElement, LinkBoxProps>(
       <Component
         ref={ref}
         data-spark-component="link-box"
-        className={cx(
-          'relative [&_a[href]:not([data-spark-component="link-overlay"])]:relative [&_a[href]:not([data-spark-component="link-overlay"])]:z-raised [&_button]:relative [&_button]:z-raised',
-          className
-        )}
+        className={cx('relative', className)}
         {...props}
       />
     )
