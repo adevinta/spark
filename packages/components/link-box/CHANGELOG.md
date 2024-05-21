@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/link-box@0.1.1...@spark-ui/link-box@0.2.0) (2024-05-21)
+
+### Features
+
+- **link-box:** added Linkbox.Link to raised components inside the box ([fc48ec4](https://github.com/adevinta/spark/commit/fc48ec46da08b878bf785eb8c92c53f95531b54c))
+
 ## [0.1.1](https://github.com/adevinta/spark/compare/@spark-ui/link-box@0.1.0...@spark-ui/link-box@0.1.1) (2024-04-29)
 
 **Note:** Version bump only for package @spark-ui/link-box
