@@ -217,17 +217,32 @@ export const Action: StoryObj = {
       <div>
         <Snackbar />
 
-        <Button
-          onClick={() =>
-            addSnackbar({
-              message: "You're done!",
-              actionLabel: 'Undo',
-              onAction: () => console.log('Undone'),
-            })
-          }
-        >
-          Display snackbar
-        </Button>
+        <div className="grid grid-cols-1 gap-xl md:grid-cols-2">
+          <Button
+            onClick={() =>
+              addSnackbar({
+                message: "You're done!",
+                actionLabel: 'Undo',
+                onAction: () => console.log('Undone'),
+              })
+            }
+          >
+            Display snackbar with action (default)
+          </Button>
+
+          <Button
+            onClick={() =>
+              addSnackbar({
+                message: "You're done! But maybe you should care about what you just did?",
+                actionLabel: 'Undo',
+                onAction: () => console.log('Undone'),
+                forceActionOnNewline: true,
+              })
+            }
+          >
+            Display snackbar with action on a new line
+          </Button>
+        </div>
       </div>
     )
   },
@@ -239,6 +254,7 @@ const handleClick = () => addSnackbar({
   message: "You're done!",
   actionLabel: 'Undo',
   onAction: () => console.log('Undone'),
+  forceActionOnNewline,
 })\n
 return (
   <div>

@@ -9,7 +9,12 @@ export const SnackbarItemIcon = ({
   className,
   ...rest
 }: SnackbarItemIconProps): ReactElement => (
-  <Icon size="sm" className={cx('ml-md flex-none', className)} {...rest}>
+  <Icon
+    size="md"
+    className={cx('mx-md', className)}
+    style={{ gridArea: 'icon', ...rest.style }}
+    {...rest}
+  >
     {children}
   </Icon>
 )

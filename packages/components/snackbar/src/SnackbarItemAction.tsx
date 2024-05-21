@@ -43,7 +43,8 @@ export const SnackbarItemAction = forwardRef<HTMLButtonElement, SnackbarItemActi
           onClick?.(e)
           state.close(toast.key)
         }}
-        className={cx('flex-none', className)}
+        style={{ gridArea: 'action', ...rest.style }}
+        className={cx('ml-md', className)}
         {...rest}
       >
         {children}
