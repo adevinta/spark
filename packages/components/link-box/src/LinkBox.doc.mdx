@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks';
+import { ArgTypes } from '@storybook/blocks'
 
 import { LinkBox } from '.'
 
@@ -20,7 +20,7 @@ npm install @spark-ui/link-box
 ## Import
 
 ```tsx
-import { LinkBox } from "@spark-ui/link-box"
+import { LinkBox } from '@spark-ui/link-box'
 ```
 
 ## Props
@@ -37,6 +37,8 @@ Simply wrapping an entire component in an `a` tag may seem convenient for linkin
 
 ### Nesting
 
-Any nested links and buttons inside `LinkBox` are elevated to the top using `z-index` to ensure proper navigation between links.
+If your linkbox contains interactive elements inside of it, wrap them with `LinkBox.Raised`.
+
+It will raise their `z-index` to stay above the main link of your `LinkBox`.
 
 <Canvas of={stories.Nesting} />
