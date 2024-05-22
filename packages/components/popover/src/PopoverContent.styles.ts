@@ -2,7 +2,6 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 export const styles = cva(
   [
-    'z-popover',
     'rounded-md',
     'bg-surface text-on-surface',
     'shadow',
@@ -27,6 +26,10 @@ export const styles = cva(
         true: 'overflow-hidden',
         false: 'p-lg',
       },
+      elevation: {
+        dropdown: 'z-dropdown',
+        popover: 'z-popover',
+      },
     },
     compoundVariants: [
       {
@@ -45,6 +48,7 @@ export const styles = cva(
       enforceBoundaries: false,
       hasCloseButton: false,
       inset: false,
+      elevation: 'popover',
     },
   }
 )
