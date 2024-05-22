@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/link-box",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "description": "Semantic component used to wrap elements (cards, blog posts, articles, etc.) in a link.",
   "publishConfig": {
     "access": "public"

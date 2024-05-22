@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/adevinta/spark/compare/@spark-ui/link-box@0.2.0...@spark-ui/link-box@1.0.0) (2024-05-22)
+
+### Bug Fixes
+
+- **link-box:** release stable version of LinkBox ([8606b05](https://github.com/adevinta/spark/commit/8606b0517a5879dfaa7a08b4744781426c69d384))
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/link-box@0.1.1...@spark-ui/link-box@0.2.0) (2024-05-21)
 
 ### Features
