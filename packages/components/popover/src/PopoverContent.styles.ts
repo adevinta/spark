@@ -3,13 +3,24 @@ import { cva, type VariantProps } from 'class-variance-authority'
 export const styles = cva(
   [
     'rounded-md',
-    'bg-surface text-on-surface',
     'shadow',
     'focus-visible:outline-none focus-visible:u-ring',
     'max-h-[--radix-popper-available-height] overflow-y-auto',
   ],
   {
     variants: {
+      intent: {
+        surface: 'bg-surface text-on-surface',
+        main: 'bg-main-container text-on-main-container',
+        support: 'bg-support-container text-on-support-container',
+        accent: 'bg-accent-container text-on-accent-container',
+        basic: 'bg-basic-container text-on-basic-container',
+        success: 'bg-success-container text-on-success-container',
+        alert: 'bg-alert-container text-on-alert-container',
+        danger: 'bg-error-container text-on-error-container',
+        info: 'bg-info-container text-on-info-container',
+        neutral: 'bg-neutral-container text-on-neutral-container',
+      },
       matchTriggerWidth: {
         true: 'w-[--radix-popper-anchor-width]',
       },
@@ -48,6 +59,7 @@ export const styles = cva(
       enforceBoundaries: false,
       hasCloseButton: false,
       inset: false,
+      intent: 'surface',
       elevation: 'popover',
     },
   }

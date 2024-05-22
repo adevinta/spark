@@ -1,12 +1,14 @@
 import * as RadixPopover from '@radix-ui/react-popover'
 
-import { PopoverProvider } from './PopoverContext'
+import { type PopoverIntent, PopoverProvider } from './PopoverContext'
 
-export type PopoverProps = RadixPopover.PopoverProps
+export type PopoverProps = RadixPopover.PopoverProps & {
+  intent?: PopoverIntent
+}
 
-export const Popover = ({ children, modal = false, ...rest }: PopoverProps) => {
+export const Popover = ({ children, intent = 'surface', modal = false, ...rest }: PopoverProps) => {
   return (
-    <PopoverProvider>
+    <PopoverProvider intent={intent}>
       <RadixPopover.Root data-spark-component="popover" modal={modal} {...rest}>
         {children}
       </RadixPopover.Root>

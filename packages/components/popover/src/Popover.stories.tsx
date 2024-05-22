@@ -70,6 +70,43 @@ export const Inset: StoryFn = _args => {
   )
 }
 
+export const Intents: StoryFn = _args => {
+  const intents = [
+    'surface',
+    'main',
+    'support',
+    'accent',
+    'basic',
+    'success',
+    'alert',
+    'danger',
+    'info',
+    'neutral',
+  ] as const
+
+  return (
+    <div className="flex gap-md">
+      {intents.map(intent => {
+        return (
+          <Popover key={intent} intent={intent}>
+            <Popover.Trigger asChild>
+              <Button intent={intent}>{intent}</Button>
+            </Popover.Trigger>
+            <Popover.Portal>
+              <Popover.Content>
+                <Popover.Header>{intent}</Popover.Header>
+                <p>Are you sure you want to have that cookie now ?</p>
+                <Popover.Arrow />
+                <Popover.CloseButton aria-label="Close the popover" />
+              </Popover.Content>
+            </Popover.Portal>
+          </Popover>
+        )
+      })}
+    </div>
+  )
+}
+
 export const Uncontrolled: StoryFn = () => {
   return (
     <ShowcaseContainer>

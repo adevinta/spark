@@ -31,7 +31,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
     },
     ref
   ) => {
-    const { hasCloseButton, headerId } = usePopover()
+    const { hasCloseButton, headerId, intent } = usePopover()
 
     return (
       <RadixPopover.Content
@@ -42,6 +42,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
           hasCloseButton,
           inset,
           elevation,
+          intent,
           className,
         })}
         data-spark-component="popover-content"
