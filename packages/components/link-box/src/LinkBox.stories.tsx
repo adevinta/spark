@@ -7,7 +7,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { LinkBox } from '.'
 
 const meta: Meta<typeof LinkBox> = {
-  title: 'Experimental/LinkBox',
+  title: 'Components/LinkBox',
   component: LinkBox,
 }
 
