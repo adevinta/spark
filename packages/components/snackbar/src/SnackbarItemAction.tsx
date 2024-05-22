@@ -44,7 +44,7 @@ export const SnackbarItemAction = forwardRef<HTMLButtonElement, SnackbarItemActi
           state.close(toast.key)
         }}
         style={{ gridArea: 'action', ...rest.style }}
-        className={cx('ml-md', className)}
+        className={cx('ml-md justify-self-end', className)}
         {...rest}
       >
         {children}

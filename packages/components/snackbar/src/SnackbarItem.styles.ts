@@ -80,11 +80,11 @@ export const snackbarItemVariant = cva(
        * Force action button displaying on a new line
        * @default false
        */
-      forceActionOnNewline: {
+      actionOnNewline: {
         true: [
           'grid-rows-[52px_1fr_52px]',
           'grid-cols-[min-content_1fr_min-content]',
-          "[grid-template-areas:'icon_message_close'_'._message_.'_'._._action']",
+          "[grid-template-areas:'icon_message_close'_'._message_.'_'action_action_action']",
         ],
         false: [
           'grid-rows-[52px_1fr]',
@@ -97,7 +97,7 @@ export const snackbarItemVariant = cva(
     defaultVariants: {
       design: 'filled',
       intent: 'neutral',
-      forceActionOnNewline: false,
+      actionOnNewline: false,
     },
   }
 )

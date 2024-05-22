@@ -1,6 +1,6 @@
 import { Button } from '@spark-ui/button'
 import { FavoriteFill } from '@spark-ui/icons/dist/icons/FavoriteFill'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { addSnackbar, type AddSnackbarArgs, Snackbar } from '.'
 
@@ -211,6 +211,29 @@ return (
   },
 }
 
+export const QAWithNewLineAction: StoryFn = _args => (
+  <div>
+    <Snackbar />
+
+    <Button
+      onClick={() =>
+        addSnackbar({
+          message:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora voluptatum cupiditate ut natus distinctio illum modi, id mollitia sequi dolorem nostrum autem suscipit eius sapiente vitae ipsum amet doloribus praesentium.',
+          actionLabel: 'Undo',
+          onAction: () => console.log('Undone'),
+          icon: <FavoriteFill />,
+          isClosable: true,
+          actionOnNewline: true,
+          timeout: null,
+        })
+      }
+    >
+      Display snackbar
+    </Button>
+  </div>
+)
+
 export const Action: StoryObj = {
   render: () => {
     return (
@@ -236,7 +259,7 @@ export const Action: StoryObj = {
                 message: "You're done! But maybe you should care about what you just did?",
                 actionLabel: 'Undo',
                 onAction: () => console.log('Undone'),
-                forceActionOnNewline: true,
+                actionOnNewline: true,
               })
             }
           >
@@ -254,7 +277,7 @@ const handleClick = () => addSnackbar({
   message: "You're done!",
   actionLabel: 'Undo',
   onAction: () => console.log('Undone'),
-  forceActionOnNewline,
+  actionOnNewline,
 })\n
 return (
   <div>
