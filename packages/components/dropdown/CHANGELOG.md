@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.2.3...@spark-ui/dropdown@1.3.0) (2024-05-22)
+
+### Features
+
+- **popover:** added control over popover elevation ([efb7f86](https://github.com/adevinta/spark/commit/efb7f8639c38dbd99a6416d381ab709e93d42696))
+
 ## [1.2.3](https://github.com/adevinta/spark/compare/@spark-ui/dropdown@1.2.2...@spark-ui/dropdown@1.2.3) (2024-05-16)
 
 **Note:** Version bump only for package @spark-ui/dropdown

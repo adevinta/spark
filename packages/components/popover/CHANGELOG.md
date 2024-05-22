@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.5.11...@spark-ui/popover@1.6.0) (2024-05-22)
+
+### Features
+
+- **popover:** added control over popover elevation ([efb7f86](https://github.com/adevinta/spark/commit/efb7f8639c38dbd99a6416d381ab709e93d42696))
+
 ## [1.5.11](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.5.10...@spark-ui/popover@1.5.11) (2024-05-16)
 
 **Note:** Version bump only for package @spark-ui/popover
