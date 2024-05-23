@@ -1,4 +1,4 @@
-name: manual-deploy
+name: adoption
 on:
   workflow_dispatch:
   pull_request:
