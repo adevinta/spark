@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/cli-utils",
-  "version": "2.13.1",
+  "version": "2.13.2",
   "description": "Spark CLI utils",
   "publishConfig": {
     "access": "public"
@@ -35,7 +35,7 @@
     "camel-case": "4.1.2",
     "chalk": "5.3.0",
     "commander": "10.0.1",
-    "esbuild": "0.20.2",
+    "esbuild": "0.21.3",
     "fs-extra": "11.2.0",
     "glob": "8.1.0",
     "pascal-case": "3.1.2"

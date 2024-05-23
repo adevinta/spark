@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.0.0...@spark-ui/combobox@1.0.1) (2024-05-22)
+
+**Note:** Version bump only for package @spark-ui/combobox
+
+# [1.0.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.13...@spark-ui/combobox@1.0.0) (2024-05-17)
+
+### Bug Fixes
+
+- **combobox:** combobox stable release ([0f3ecc6](https://github.com/adevinta/spark/commit/0f3ecc6e5c8f7ae8f788197f2ff090dce658d779))
+
+## [0.12.13](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.12...@spark-ui/combobox@0.12.13) (2024-05-16)
+
+### Bug Fixes
+
+- **combobox:** placeholder only appears when there is no value on combobox ([9a8215f](https://github.com/adevinta/spark/commit/9a8215f5b5c26c1190a3acf2347e2446dab61fa5))
+
+## [0.12.12](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.11...@spark-ui/combobox@0.12.12) (2024-05-16)
+
+**Note:** Version bump only for package @spark-ui/combobox
+
+## [0.12.11](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.10...@spark-ui/combobox@0.12.11) (2024-05-16)
+
+**Note:** Version bump only for package @spark-ui/combobox
+
+## [0.12.10](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.9...@spark-ui/combobox@0.12.10) (2024-05-16)
+
+### Bug Fixes
+
+- **combobox:** apply focus styled to combobox selected items ([14f0434](https://github.com/adevinta/spark/commit/14f0434193ea6449ab989704079482209980632f))
+
 ## [0.12.9](https://github.com/adevinta/spark/compare/@spark-ui/combobox@0.12.8...@spark-ui/combobox@0.12.9) (2024-05-15)
 
 **Note:** Version bump only for package @spark-ui/combobox

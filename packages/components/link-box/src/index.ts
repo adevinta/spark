@@ -1,14 +1,17 @@
 import type { FC } from 'react'
 
 import { LinkBox as Root, LinkBoxProps } from './LinkBox'
-import { LinkOverlay } from './LinkOverlay'
+import { LinkBoxLink } from './LinkBoxLink'
+import { LinkBoxRaised } from './LinkBoxRaised'
 
 export const LinkBox: FC<LinkBoxProps> & {
-  Overlay: typeof LinkOverlay
-} = Object.assign(Root, { Overlay: LinkOverlay })
+  Link: typeof LinkBoxLink
+  Raised: typeof LinkBoxRaised
+} = Object.assign(Root, { Link: LinkBoxLink, Raised: LinkBoxRaised })
 
 LinkBox.displayName = 'LinkBox'
-LinkBox.Overlay.displayName = 'LinkBox.Overlay'
+LinkBox.Link.displayName = 'LinkBox.Link'
+LinkBox.Raised.displayName = 'LinkBox.Raised'
 
 export { type LinkBoxProps } from './LinkBox'
-export { type LinkOverlayProps } from './LinkOverlay'
+export { type LinkBoxLinkProps } from './LinkBoxLink'
