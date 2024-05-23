@@ -11,6 +11,7 @@ export const Popover = forwardRef(
       matchTriggerWidth = true,
       sideOffset = 4,
       className,
+      elevation = 'dropdown',
       ...props
     }: ComponentProps<typeof SparkPopover.Content>,
     forwardedRef: Ref<HTMLDivElement>
@@ -29,7 +30,8 @@ export const Popover = forwardRef(
         inset
         asChild
         matchTriggerWidth={matchTriggerWidth}
-        className={cx('relative !z-dropdown', className)}
+        elevation={elevation}
+        className={cx('relative', className)}
         sideOffset={sideOffset}
         onOpenAutoFocus={e => {
           /**

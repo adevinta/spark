@@ -19,7 +19,7 @@ import React, { ComponentProps, useState } from 'react'
 import { Combobox } from '.'
 
 const meta: Meta<typeof Combobox> = {
-  title: 'Experimental/Combobox',
+  title: 'Components/Combobox',
   component: Combobox,
 }
 
