@@ -19,6 +19,6 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'npm'
       - name: Adoption script
-        uses: adevinta/spark-action-scan-adoption@v0
+        uses: adevinta/spark-action-scan-adoption@v0-draft
         with:
           token: ${{ secrets.SPARK_TOKEN }}
