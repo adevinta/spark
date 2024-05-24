@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@1.0.8...@spark-ui/snackbar@1.1.0) (2024-05-24)
+
+### Features
+
+- **snackbar:** add option to force action btn display on new line ([902a867](https://github.com/adevinta/spark/commit/902a86799bcf64e0ad938dc08695d4529148f751))
+
 ## [1.0.8](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@1.0.7...@spark-ui/snackbar@1.0.8) (2024-05-16)
 
 **Note:** Version bump only for package @spark-ui/snackbar

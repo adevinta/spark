@@ -99,6 +99,8 @@ For both cases there is a specific `onClose` handler which is called when snackb
 
 To add an action to the snackbar use `onAction` and `actionLabel` options from `addSnackbar`, or use `<Snackbar.ItemAction />` within your custom `<Snackbar.Item />`. After interacting with it the snackbar will close automatically.
 
+This action button can also be forced to display on a new line, using the `actionOnNewline` option from `addSnackbar`, or `<Snackbar.Item />` associated prop.
+
 Keep in mind that users might miss snackbar actions and thus these shouldn't concern important things. In such case please use instead the `AlertDialog` component.
 
 For accessibility reasons **snackbars won't dismiss automatically when an action is provided**.
