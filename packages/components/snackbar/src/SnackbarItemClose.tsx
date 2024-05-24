@@ -48,7 +48,8 @@ export const SnackbarItemClose = forwardRef<HTMLButtonElement, SnackbarItemClose
           onClick?.(e)
           state.close(toast.key)
         }}
-        className={cx('flex-none', className)}
+        style={{ gridArea: 'close', ...rest.style }}
+        className={cx('ml-md justify-self-end', className)}
         {...rest}
       >
         <Icon size="sm">

@@ -206,6 +206,7 @@ describe('Snackbar', () => {
       const props = {
         onAction: vi.fn(),
         actionLabel: 'Undo',
+        actionOnNewline: true,
       }
 
       render(

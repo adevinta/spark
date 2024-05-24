@@ -5,7 +5,7 @@ import { filledVariants, tintedVariants } from './snackbarVariants'
 export const snackbarItemVariant = cva(
   [
     'col-start-1 row-start-1',
-    'inline-flex items-center gap-md',
+    'inline-grid items-center',
     'px-md',
     'rounded-md shadow',
     'max-w-[600px]',
@@ -76,11 +76,28 @@ export const snackbarItemVariant = cva(
         accent: '',
         inverse: '',
       },
+      /**
+       * Force action button displaying on a new line
+       * @default false
+       */
+      actionOnNewline: {
+        true: [
+          'grid-rows-[52px_1fr_52px]',
+          'grid-cols-[min-content_1fr_min-content]',
+          "[grid-template-areas:'icon_message_close'_'._message_.'_'action_action_action']",
+        ],
+        false: [
+          'grid-rows-[52px_1fr]',
+          'grid-cols-[min-content_1fr_min-content_min-content]',
+          "[grid-template-areas:'icon_message_action_close'_'._message_._.']",
+        ],
+      },
     },
     compoundVariants: [...filledVariants, ...tintedVariants],
     defaultVariants: {
       design: 'filled',
       intent: 'neutral',
+      actionOnNewline: false,
     },
   }
 )

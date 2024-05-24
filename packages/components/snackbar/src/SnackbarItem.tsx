@@ -40,6 +40,11 @@ export interface SnackbarItemValue extends SnackbarItemVariantProps {
    * Handler that is called when the action button is pressed.
    */
   onAction?: () => void
+  /**
+   * If `true` the action button will be displayed on a new line.
+   * @default false
+   */
+  actionOnNewline?: boolean
 }
 
 export interface SnackbarItemProps
@@ -72,6 +77,7 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
       'aria-details': ariaDetails,
       design: designProp,
       intent: intentProp,
+      actionOnNewline: actionOnNewlineProp,
       className,
       children,
       ...rest
@@ -93,6 +99,7 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
     const { message, icon, isClosable, onAction, actionLabel } = toast.content
     const intent = intentProp ?? toast.content.intent
     const design = designProp ?? toast.content.design
+    const actionOnNewline = actionOnNewlineProp ?? toast.content.actionOnNewline
 
     const ariaProps = {
       ariaLabel,
@@ -136,7 +143,7 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
           // Remove snackbar when the exiting animation completes
           onAnimationEnd: () => state.remove(toast.key),
         })}
-        className={snackbarItemVariant({ design, intent, className })}
+        className={snackbarItemVariant({ design, intent, actionOnNewline, className })}
       >
         {/* 1. ICON */}
         {renderSubComponent(iconFromChildren, icon ? SnackbarItemIcon : null, {
@@ -144,7 +151,11 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
         })}
 
         {/* 2. MESSAGE */}
-        <p className="px-md py-lg text-body-2" {...titleProps}>
+        <p
+          className="row-span-3 px-md py-lg text-body-2"
+          style={{ gridArea: 'message' }}
+          {...titleProps}
+        >
           {message}
         </p>
 
