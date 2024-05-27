@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/cli-utils",
-  "version": "2.13.2",
+  "version": "2.13.4",
   "description": "Spark CLI utils",
   "publishConfig": {
     "access": "public"
@@ -11,6 +11,7 @@
     "utility"
   ],
   "bin": {
+    ".": "./bin/spark.mjs",
     "spark": "./bin/spark.mjs",
     "spark-generate": "./bin/spark-generate.mjs",
     "spark-scan": "./bin/spark-scan.mjs"
@@ -38,7 +39,8 @@
     "esbuild": "0.21.3",
     "fs-extra": "11.2.0",
     "glob": "8.1.0",
-    "pascal-case": "3.1.2"
+    "pascal-case": "3.1.2",
+    "ts-morph": "22.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.4"

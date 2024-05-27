@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.4](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.13.3...@spark-ui/cli-utils@2.13.4) (2024-05-27)
+
+### Bug Fixes
+
+- **cli-utils:** fix binary file indicator ([02af669](https://github.com/adevinta/spark/commit/02af669d5f7a583ee36ba86902c182384460c346))
+
+## [2.13.3](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.13.2...@spark-ui/cli-utils@2.13.3) (2024-05-27)
+
+### Bug Fixes
+
+- **internal-utils:** missed dependency ([67b5a6b](https://github.com/adevinta/spark/commit/67b5a6b8ebe959686c611d0cf64efe1532b31422))
+
 ## [2.13.2](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.13.1...@spark-ui/cli-utils@2.13.2) (2024-05-22)
 
 **Note:** Version bump only for package @spark-ui/cli-utils
