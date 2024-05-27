@@ -11,6 +11,7 @@
     "utility"
   ],
   "bin": {
+    ".": "./bin/spark.mjs",
     "spark": "./bin/spark.mjs",
     "spark-generate": "./bin/spark-generate.mjs",
     "spark-scan": "./bin/spark-scan.mjs"
