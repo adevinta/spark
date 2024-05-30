@@ -4,8 +4,7 @@ import { appendFileSync, existsSync } from 'fs'
 import path from 'path'
 
 import { scanCallback } from './scanCallback.mjs'
-import { logger } from './utils/logger.mjs'
-import { scanDirectories } from './utils/scan-directories.mjs'
+import { logger, scanDirectories } from './utils/index.mjs'
 
 const DEFAULT_CONFIG = {
   adoption: {
@@ -23,14 +22,17 @@ export async function adoption(options) {
   const configFileRoute = path.join(process.cwd(), options.configuration || '.spark-ui.cjs')
   try {
     if (existsSync(configFileRoute)) {
-      console.log('✨✨✨ loading spark-ui custom configuration file ✨✨✨')
+      logger.info('ℹ️ Loading spark-ui custom configuration file')
       const { default: customConfig } = await import(
         path.join(process.cwd(), options.configuration)
       )
       config = structuredClone(customConfig, DEFAULT_CONFIG)
+    } else {
+      logger.warn('⚠️ No custom configuration file found')
+      logger.info('ℹ️ Loading default configuration')
     }
   } catch (error) {
-    logger.info('ℹ️ Loading default configuration')
+    logger.error('💥 Something went wrong loading the custom configuration file')
   }
 
   const extensions = config.adoption.extensions
@@ -40,7 +42,7 @@ export async function adoption(options) {
   let importsUsed = {}
   let importsCount = {}
   config.adoption.imports.forEach(moduleName => {
-    console.log(`scanning adoption for ${moduleName}`)
+    logger.info(`ℹ️ Scanning adoption for ${moduleName}`)
     const directoryPath = path.join(process.cwd(), config.adoption.directory)
 
     const response = scanDirectories(directoryPath, moduleName, extensions, scanCallback, {
@@ -51,10 +53,12 @@ export async function adoption(options) {
     })
     if (importCount !== response.importCount) {
       logger.success(
-        `Found ${response.importCount - importCount} imports with "${moduleName}" modules across directory ${directoryPath}.`
+        `🎉 Found ${response.importCount - importCount} imports with "${moduleName}" modules across directory ${directoryPath}.`
       )
     } else {
-      logger.warn(`No files found with "${moduleName}" imports across directory ${directoryPath}.`)
+      logger.warn(
+        `⚠️ No files found with "${moduleName}" imports across directory ${directoryPath}.`
+      )
     }
     importCount = response.importCount
   })
@@ -114,7 +118,7 @@ export async function adoption(options) {
     try {
       appendFileSync(`${options.output}`, JSON.stringify(result, null, 2))
     } catch (err) {
-      logger.error(`Error writing file: ${err}`)
+      logger.error(`💥 Error writing file: ${err}`)
     }
   } else {
     logger.info(JSON.stringify(result, null, 2))
