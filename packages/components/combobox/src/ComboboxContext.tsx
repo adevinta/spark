@@ -39,6 +39,8 @@ export interface ComboboxContextState extends DownshiftState {
   innerInputRef: React.RefObject<HTMLInputElement>
   triggerAreaRef: React.RefObject<HTMLDivElement>
   isLoading?: boolean
+  isTyping?: boolean
+  setIsTyping: Dispatch<SetStateAction<boolean>>
 }
 
 export type ComboboxContextCommonProps = PropsWithChildren<{
@@ -69,7 +71,7 @@ export type ComboboxContextCommonProps = PropsWithChildren<{
   /**
    * When true, the items will be filtered depending on the value of the input (not case-sensitive).
    */
-  autoFilter?: boolean
+  filtering?: 'none' | 'auto' | 'strict'
   /**
    * By default, the combobox will clear or restore the input value to the selected item value on blur.
    */
@@ -142,7 +144,7 @@ export const ComboboxProvider = ({
   children,
   state: stateProp,
   allowCustomValue = false,
-  autoFilter = true,
+  filtering = 'auto',
   disabled: disabledProp = false,
   multiple = false,
   readOnly: readOnlyProp = false,
@@ -161,16 +163,19 @@ export const ComboboxProvider = ({
 
   // Input state
   const [inputValue, setInputValue] = useState<string | undefined>('')
+  const [isTyping, setIsTyping] = useState<boolean>(filtering === 'strict')
   const triggerAreaRef = useRef<HTMLDivElement>(null)
   const innerInputRef = useRef<HTMLInputElement>(null)
   const [onInputValueChange, setOnInputValueChange] = useState<((v: string) => void) | null>(null)
 
   const [comboboxValue] = useCombinedState(controlledValue, defaultValue)
 
+  const shouldFilterItems = filtering === 'strict' || (filtering === 'auto' && isTyping)
+
   // Items state
   const [itemsMap, setItemsMap] = useState<ItemsMap>(getItemsFromChildren(children))
   const [filteredItemsMap, setFilteredItems] = useState(
-    autoFilter ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap
+    shouldFilterItems ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap
   )
 
   const [selectedItem, setSelectedItem] = useState<ComboboxItem | null>(
@@ -185,6 +190,7 @@ export const ComboboxProvider = ({
 
   const onInternalSelectedItemChange = (item: ComboboxItem | null) => {
     setSelectedItem(item)
+    setIsTyping(false)
     setTimeout(() => {
       onValueChange?.(item?.value as string & string[])
     }, 0)
@@ -239,7 +245,7 @@ export const ComboboxProvider = ({
   const [lastInteractionType, setLastInteractionType] = useState<'mouse' | 'keyboard'>('mouse')
 
   useEffect(() => {
-    setFilteredItems(autoFilter ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap)
+    setFilteredItems(shouldFilterItems ? getFilteredItemsMap(itemsMap, inputValue) : itemsMap)
   }, [inputValue, itemsMap])
 
   const multiselect = useMultipleSelection<ComboboxItem>({
@@ -312,7 +318,7 @@ export const ComboboxProvider = ({
     onInputValueChange: ({ inputValue: newInputValue }) => {
       setInputValue(newInputValue)
 
-      if (autoFilter) {
+      if (shouldFilterItems) {
         const filtered = getFilteredItemsMap(itemsMap, newInputValue || '')
         setFilteredItems(filtered)
       }
@@ -431,6 +437,8 @@ export const ComboboxProvider = ({
         setSelectedItems: onInternalSelectedItemsChange,
         isLoading,
         setOnInputValueChange,
+        isTyping,
+        setIsTyping,
       }}
     >
       <WrapperComponent {...wrapperProps}>{children}</WrapperComponent>

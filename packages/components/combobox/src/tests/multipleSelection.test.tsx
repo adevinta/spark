@@ -127,7 +127,7 @@ describe('Combobox', () => {
 
       // Given a combobox that allows custom value and has a selected item
       render(
-        <Combobox multiple allowCustomValue defaultValue={['book-1', 'book-2']} autoFilter={false}>
+        <Combobox multiple allowCustomValue defaultValue={['book-1', 'book-2']} filtering="none">
           <Combobox.Trigger>
             <Combobox.SelectedItems />
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
@@ -336,7 +336,7 @@ describe('Combobox', () => {
         const [value, setValue] = useState(['book-1'])
 
         return (
-          <Combobox multiple value={value} onValueChange={setValue} autoFilter={false}>
+          <Combobox multiple value={value} onValueChange={setValue} filtering="none">
             <Combobox.Trigger>
               <Combobox.SelectedItems />
               <Combobox.Input aria-label="Book" />

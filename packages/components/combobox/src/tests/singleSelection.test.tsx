@@ -14,7 +14,7 @@ describe('Combobox', () => {
 
       // Given a combobox with no selected value yet
       render(
-        <Combobox autoFilter={false}>
+        <Combobox filtering="none">
           <Combobox.Trigger>
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           </Combobox.Trigger>
@@ -106,7 +106,7 @@ describe('Combobox', () => {
         const [value, setValue] = useState<string | undefined>('book-1')
 
         return (
-          <Combobox value={value} onValueChange={setValue} autoFilter={false}>
+          <Combobox value={value} onValueChange={setValue} filtering="none">
             <Combobox.Trigger>
               <Combobox.Input aria-label="Book" />
             </Combobox.Trigger>
@@ -137,12 +137,12 @@ describe('Combobox', () => {
       expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
     })
 
-    it('should select item using autoFilter (keyboard)', async () => {
+    it('should select item using auto filtering (keyboard)', async () => {
       const user = userEvent.setup()
 
       // Given a combobox with no selected value yet
       render(
-        <Combobox autoFilter>
+        <Combobox filtering="auto">
           <Combobox.Trigger>
             <Combobox.Input aria-label="Book" placeholder="Pick a book" />
           </Combobox.Trigger>
@@ -166,7 +166,42 @@ describe('Combobox', () => {
       // Then placeholder is replaced by the selected value
       expect(screen.getByDisplayValue('Pride and Prejudice')).toBeInTheDocument()
 
-      // Then the proper item is selected
+      // Then the proper item is selected and other items are still rendered
+      expect(queryItem('War and Peace')).toBeInTheDocument()
+      expect(queryItem('1984')).toBeInTheDocument()
+      expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
+    })
+
+    it('should select item using strict filtering (keyboard)', async () => {
+      const user = userEvent.setup()
+
+      // Given a combobox with no selected value yet
+      render(
+        <Combobox filtering="strict">
+          <Combobox.Trigger>
+            <Combobox.Input aria-label="Book" placeholder="Pick a book" />
+          </Combobox.Trigger>
+          <Combobox.Popover>
+            <Combobox.Items>
+              <Combobox.Item value="book-1">War and Peace</Combobox.Item>
+              <Combobox.Item value="book-2">1984</Combobox.Item>
+              <Combobox.Item value="book-3">Pride and Prejudice</Combobox.Item>
+            </Combobox.Items>
+          </Combobox.Popover>
+        </Combobox>
+      )
+
+      // Then placeholder should be displayed
+      expect(getInput('Book').getAttribute('placeholder')).toBe('Pick a book')
+
+      // When the user type "pri" to filter first item matching, then select it
+      await user.click(getInput('Book'))
+      await user.keyboard('{p}{r}{i}{ArrowDown}{Enter}')
+
+      // Then placeholder is replaced by the selected value
+      expect(screen.getByDisplayValue('Pride and Prejudice')).toBeInTheDocument()
+
+      // Then the proper item is selected and other items are filtered out
       expect(queryItem('War and Peace')).not.toBeInTheDocument()
       expect(queryItem('1984')).not.toBeInTheDocument()
       expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
@@ -276,7 +311,7 @@ describe('Combobox', () => {
 
         // Given a combobox that does not allow custom input value
         render(
-          <Combobox defaultValue="book-2" autoFilter={false}>
+          <Combobox defaultValue="book-2" filtering="none">
             <Combobox.Trigger>
               <Combobox.Input aria-label="Book" placeholder="Pick a book" />
             </Combobox.Trigger>
@@ -311,7 +346,7 @@ describe('Combobox', () => {
 
         // Given a combobox that does not allow custom input value
         render(
-          <Combobox defaultValue="book-2" autoFilter={false}>
+          <Combobox defaultValue="book-2" filtering="none">
             <Combobox.Trigger>
               <Combobox.Input aria-label="Book" placeholder="Pick a book" />
             </Combobox.Trigger>
@@ -347,7 +382,7 @@ describe('Combobox', () => {
 
         // Given a combobox that allows custom value and has a selected item
         render(
-          <Combobox allowCustomValue defaultValue="book-2" autoFilter={false}>
+          <Combobox allowCustomValue defaultValue="book-2" filtering="none">
             <Combobox.Trigger>
               <Combobox.SelectedItems />
               <Combobox.Input aria-label="Book" placeholder="Pick a book" />

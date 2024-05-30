@@ -66,6 +66,7 @@ const ItemContent = forwardRef(
     const itemCtx = useComboboxItemContext()
 
     const isVisible = !!ctx.filteredItemsMap.get(value)
+
     const { ref: downshiftRef, ...downshiftItemProps } = ctx.getItemProps({
       item: itemCtx.itemData,
       index: itemCtx.index,

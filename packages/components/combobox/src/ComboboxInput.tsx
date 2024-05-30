@@ -62,6 +62,7 @@ export const Input = forwardRef(
       onKeyDown: event => {
         multiselectInputProps.onKeyDown?.(event)
         ctx.setLastInteractionType('keyboard')
+        ctx.setIsTyping(true)
       },
       /**
        *
