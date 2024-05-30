@@ -1,18 +1,37 @@
 import { createContext, type ReactNode, useContext, useState } from 'react'
 
 type HeaderId = string | null
+
+export type PopoverIntent =
+  | 'surface'
+  | 'main'
+  | 'support'
+  | 'accent'
+  | 'basic'
+  | 'success'
+  | 'alert'
+  | 'danger'
+  | 'info'
+  | 'neutral'
 export interface PopoverContextState {
   hasCloseButton: boolean
   setHasCloseButton: (value: boolean) => void
   headerId: HeaderId
   setHeaderId: (id: HeaderId) => void
+  intent: PopoverIntent
 }
 
 const PopoverContext = createContext<PopoverContextState | null>(null)
 
 export const ID_PREFIX = ':popover'
 
-export const PopoverProvider = ({ children }: { children: ReactNode }) => {
+export const PopoverProvider = ({
+  children,
+  intent,
+}: {
+  children: ReactNode
+  intent: PopoverIntent
+}) => {
   const [hasCloseButton, setHasCloseButton] = useState(false)
   const [headerId, setHeaderId] = useState<HeaderId>(null)
 
@@ -23,6 +42,7 @@ export const PopoverProvider = ({ children }: { children: ReactNode }) => {
         setHasCloseButton,
         headerId,
         setHeaderId,
+        intent,
       }}
     >
       {children}
