@@ -16,6 +16,10 @@
   "scripts": {
     "build": "vite build"
   },
+  "peerDependencies": {
+    "react": "^18.0 || ^19.0",
+    "react-dom": "^18.0 || ^19.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/adevinta/spark.git",
