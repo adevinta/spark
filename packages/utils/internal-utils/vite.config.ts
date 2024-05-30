@@ -2,6 +2,9 @@ import { terser } from 'rollup-plugin-terser'
 import dts from 'vite-plugin-dts'
 import browserslistToEsbuild from 'browserslist-to-esbuild'
 
+const pkg = require('./package.json')
+const peerDeps = Object.keys(pkg.peerDependencies || {})
+
 export default {
   build: {
     target: browserslistToEsbuild(),
@@ -11,7 +14,7 @@ export default {
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['node:path', 'node:fs'],
+      external: ['node:path', 'node:fs', ...peerDeps],
       plugins: [terser()],
     },
   },
