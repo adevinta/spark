@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/popover",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Displays rich content in a portal, triggered by a button.",
   "publishConfig": {
     "access": "public"

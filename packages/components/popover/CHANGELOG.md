@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.6.0...@spark-ui/popover@1.7.0) (2024-05-30)
+
+### Features
+
+- **popover:** added intents to popover ([3c579e7](https://github.com/adevinta/spark/commit/3c579e7c0827fcfeac1744782a6247094d286dfa))
+
 # [1.6.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.5.11...@spark-ui/popover@1.6.0) (2024-05-22)
 
 ### Features
