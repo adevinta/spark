@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.3.0...@spark-ui/internal-utils@2.3.1) (2024-05-30)
+
+### Bug Fixes
+
+- **internal-utils:** update rollup conf, include ext peerDeps to avoid deps mismatches at call site ([fc4ec83](https://github.com/adevinta/spark/commit/fc4ec8360965735e148316304e1e2cf3c769d2b3))
+
 # [2.3.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.2.0...@spark-ui/internal-utils@2.3.0) (2024-03-15)
 
 ### Bug Fixes
