@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.5](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.13.4...@spark-ui/cli-utils@2.13.5) (2024-05-30)
+
+### Bug Fixes
+
+- **cli-utils:** improve log messages ([9623f94](https://github.com/adevinta/spark/commit/9623f9490cda5af0d00bbb10545e3769922cfc63))
+
 ## [2.13.4](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.13.3...@spark-ui/cli-utils@2.13.4) (2024-05-27)
 
 ### Bug Fixes
