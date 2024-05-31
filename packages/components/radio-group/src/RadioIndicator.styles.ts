@@ -4,7 +4,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const radioIndicatorStyles = cva(
   [
     'relative block',
-    'h-3/5 w-3/5',
+    'size-3/5',
     'after:absolute',
     'after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2',
     'after:h-none',
@@ -13,7 +13,7 @@ export const radioIndicatorStyles = cva(
     'after:rounded-[50%]',
     "after:content-['']",
     'after:transition-all',
-    'after:spark-state-checked:h-full after:spark-state-checked:w-full',
+    'after:spark-state-checked:size-full',
   ],
   {
     variants: {

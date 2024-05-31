@@ -11,7 +11,7 @@ export const radioInputVariants = cva(
     'focus-visible:u-ring',
     'disabled:cursor-not-allowed disabled:border-outline/dim-2 disabled:hover:ring-transparent',
     'u-shadow-border-transition',
-    'h-sz-24 w-sz-24',
+    'size-sz-24',
   ],
   {
     variants: {
@@ -40,9 +40,13 @@ export const radioInputVariants = cva(
           'hover:ring-neutral-container',
         ],
         info: ['border-outline', 'spark-state-checked:border-info', 'hover:ring-info-container'],
-        success: ['border-success', 'hover:ring-success-container'],
-        alert: ['border-alert', 'hover:ring-alert-container'],
-        error: ['border-error', 'hover:ring-error-container'],
+        success: [
+          'border-outline',
+          'spark-state-checked:border-success',
+          'hover:ring-success-container',
+        ],
+        alert: ['border-outline', 'spark-state-checked:border-alert', 'hover:ring-alert-container'],
+        error: ['border-outline', 'spark-state-checked:border-error', 'hover:ring-error-container'],
       }),
     },
     defaultVariants: {
