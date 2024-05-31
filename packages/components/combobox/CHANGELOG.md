@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.1.0...@spark-ui/combobox@1.1.1) (2024-05-31)
+
+### Bug Fixes
+
+- **combobox:** onValueChange was triggered even when selected item had not changed ([30d9012](https://github.com/adevinta/spark/commit/30d90127ffa074a85c04049b2542f0f10f33ac98))
+
 # [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.0.3...@spark-ui/combobox@1.1.0) (2024-05-31)
 
 ### Features
