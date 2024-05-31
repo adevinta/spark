@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@react-aria/toast": "3.0.0-beta.11",
-    "@react-stately/toast": "3.0.0-beta.3",
+    "@react-stately/toast": "3.0.0-beta.4",
     "@spark-ui/icon": "^2.1.4",
     "@spark-ui/icon-button": "^2.2.6",
     "@spark-ui/icons": "^1.21.9",
