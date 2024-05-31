@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.0.3...@spark-ui/combobox@1.1.0) (2024-05-31)
+
+### Features
+
+- **combobox:** improved UX of default combobox filtering behaviour ([cb5e97f](https://github.com/adevinta/spark/commit/cb5e97fad8498dfee5354503c924e79e65958a7b))
+
 ## [1.0.3](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.0.2...@spark-ui/combobox@1.0.3) (2024-05-30)
 
 **Note:** Version bump only for package @spark-ui/combobox
