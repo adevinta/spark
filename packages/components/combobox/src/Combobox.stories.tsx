@@ -106,7 +106,7 @@ export const Controlled: StoryFn = () => {
         onOpenChange={setOpen}
         value={value}
         onValueChange={setValue}
-        autoFilter={false}
+        filtering="none"
       >
         <Combobox.Trigger className="grow">
           <Combobox.LeadingIcon>
@@ -230,47 +230,36 @@ export const Disabled: StoryFn = _args => {
   )
 }
 
-export const FilteringManual: StoryFn = () => {
-  const items = {
-    'book-1': 'To Kill a Mockingbird',
-    'book-2': 'War and Peace',
-    'book-3': 'The Idiot',
-    'book-4': 'A Picture of Dorian Gray',
-    'book-5': '1984',
-    'book-6': 'Pride and Prejudice',
-  } as const
-
-  const [inputValue, setInputValue] = useState('')
-
-  const filteredItems = Object.keys(items).reduce((acc: Record<string, string>, key: string) => {
-    const text: string = items[key as keyof typeof items]
-    const match = text.includes(inputValue)
-
-    return match ? { ...acc, [key]: text } : acc
-  }, {})
+export const Filtering: StoryFn = () => {
+  const [filtering, setFiltering] = useState<'auto' | 'none' | 'strict'>('auto')
 
   return (
     <div className="pb-[300px]">
-      <Combobox autoFilter={false}>
+      <RadioGroup
+        orientation="horizontal"
+        defaultValue="auto"
+        onValueChange={value => setFiltering(value as typeof filtering)}
+        className="mb-lg"
+      >
+        <RadioGroup.Radio value="auto">Auto (default)</RadioGroup.Radio>
+        <RadioGroup.Radio value="none">None</RadioGroup.Radio>
+        <RadioGroup.Radio value="strict">Strict</RadioGroup.Radio>
+      </RadioGroup>
+
+      <Combobox filtering={filtering}>
         <Combobox.Trigger>
-          <Combobox.Input
-            aria-label="Book"
-            placeholder="Pick a book"
-            value={inputValue}
-            onValueChange={setInputValue}
-          />
+          <Combobox.Input aria-label="Book" placeholder="Pick a book" />
         </Combobox.Trigger>
 
         <Combobox.Popover>
           <Combobox.Items>
             <Combobox.Empty>No results found</Combobox.Empty>
-            {Object.entries(filteredItems).map(([value, text]) => {
-              return (
-                <Combobox.Item value={value} key={value}>
-                  {text}
-                </Combobox.Item>
-              )
-            })}
+            <Combobox.Item value="book-1">To Kill a Mockingbird</Combobox.Item>
+            <Combobox.Item value="book-2">War and Peace</Combobox.Item>
+            <Combobox.Item value="book-3">The Idiot</Combobox.Item>
+            <Combobox.Item value="book-4">A Picture of Dorian Gray</Combobox.Item>
+            <Combobox.Item value="book-5">1984</Combobox.Item>
+            <Combobox.Item value="book-6">Pride and Prejudice</Combobox.Item>
           </Combobox.Items>
         </Combobox.Popover>
       </Combobox>
@@ -534,7 +523,7 @@ export const MultipleSelectionControlled: StoryFn = () => {
 
       <Combobox
         multiple
-        autoFilter={false}
+        filtering="none"
         value={value}
         onValueChange={setValue}
         open={open}

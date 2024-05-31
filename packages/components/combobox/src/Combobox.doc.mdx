@@ -138,14 +138,6 @@ Use `open` and `onOpenChange` props to control the opened state of the combobox 
 
 <Canvas of={stories.Controlled} />
 
-### Custom filtering
-
-Disable `autoFilter` to implement your own logic to filter out items depending on the inputValue (or some external logic).
-
-This example showcases case-sensitive filtering.
-
-<Canvas of={stories.FilteringManual} />
-
 ### Custom value entry
 
 Combobox can be configured to allow typing custom values that aren’t included in the list of options.
@@ -163,6 +155,16 @@ Use `disabled` on the root component to disable the combobox entirely.
 Use `disabled` on individual `Combobox.Item` to disable them.
 
 <Canvas of={stories.DisabledItem} />
+
+### Filtering
+
+By default, `filtering` is set to `auto` and will only filter items when the user is typing.
+
+Set it to `none` to disabled item filtering (you can then implement your own filtering logic).
+
+Set it to `strict` to filter items based on the input value, even when the user is not typing.
+
+<Canvas of={stories.Filtering} />
 
 ### Groups
 
