@@ -189,11 +189,14 @@ export const ComboboxProvider = ({
   )
 
   const onInternalSelectedItemChange = (item: ComboboxItem | null) => {
-    setSelectedItem(item)
     setIsTyping(false)
-    setTimeout(() => {
-      onValueChange?.(item?.value as string & string[])
-    }, 0)
+
+    if (item?.value !== selectedItem?.value) {
+      setSelectedItem(item)
+      setTimeout(() => {
+        onValueChange?.(item?.value as string & string[])
+      }, 0)
+    }
   }
 
   const onInternalSelectedItemsChange = (items: ComboboxItem[]) => {
