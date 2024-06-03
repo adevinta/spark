@@ -116,7 +116,7 @@ export const ReverseGroup: StoryFn = _args => (
   </CheckboxGroup>
 )
 
-const intent = [
+const intents = [
   'main',
   'support',
   'accent',
@@ -129,12 +129,18 @@ const intent = [
 ] as const
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-col gap-lg">
-    {intent.map(color => {
+  <div className="grid grid-cols-2 gap-xl sm:grid-cols-3 md:grid-cols-5">
+    {intents.map(intent => {
       return (
-        <Checkbox className="capitalize" key={color} intent={color} defaultChecked>
-          {color}
-        </Checkbox>
+        <div key={intent}>
+          <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
+
+          <CheckboxGroup defaultValue={['soccer']} intent={intent} orientation="vertical">
+            <Checkbox value="soccer">Soccer</Checkbox>
+            <Checkbox value="tennis">Tennis</Checkbox>
+            <Checkbox value="baseball">Baseball</Checkbox>
+          </CheckboxGroup>
+        </div>
       )
     })}
   </div>

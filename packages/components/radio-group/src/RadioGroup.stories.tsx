@@ -87,7 +87,7 @@ const intents: RadioGroupProps['intent'][] = [
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="flex flex-wrap gap-xl">
+    <div className="grid grid-cols-2 gap-xl sm:grid-cols-3 md:grid-cols-5">
       {intents.map(intent => (
         <div key={intent}>
           <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
