@@ -1,0 +1,40 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks'
+
+import { Collapsible } from '.'
+
+import * as stories from './Collapsible.stories'
+
+<Meta of={stories} />
+
+# Collapsible
+
+An interactive component which expands/collapses a panel.
+
+## Install
+
+```sh
+npm install @spark-ui/collapsible
+```
+
+## Import
+
+```tsx
+import { Collapsible } from '@spark-ui/collapsible'
+```
+
+## Props
+
+<ArgTypes of={Collapsible} />
+
+## Usage
+
+### Default
+
+A `Collapsible` is closed by default. Interacting with its trigger will open the associated content.
+
+<Canvas of={stories.Default} />
+
+### Animation
+
+TODO
