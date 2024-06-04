@@ -22,3 +22,4 @@ jobs:
         uses: adevinta/spark-action-scan-adoption@v0-draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration: '.spark-ui.cjs'
