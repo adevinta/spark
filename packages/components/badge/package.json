@@ -32,7 +32,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Abadge"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+is%3Aissue+label%3A%22Component%3A+badge%22"
   },
   "dependencies": {
     "@spark-ui/internal-utils": "^2.3.1",

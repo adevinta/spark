@@ -45,7 +45,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=label%3Acomponent+label%3Aslider"
+    "url": "https://github.com/adevinta/spark/issues?q=label%3A%22Component%3A+slider%22"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

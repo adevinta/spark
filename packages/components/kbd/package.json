@@ -42,7 +42,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Akbd"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+kbd%22"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"
