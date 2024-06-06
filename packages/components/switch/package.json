@@ -48,7 +48,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Aswitch"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Aswitch"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

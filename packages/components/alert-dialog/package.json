@@ -43,7 +43,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Aalert-dialog"
+    "url": "https://github.com/adevinta/spark/labels/Component%3A%20alert-dialog"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

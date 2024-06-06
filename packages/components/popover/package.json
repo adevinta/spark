@@ -38,7 +38,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Acomponent+label%3Apopover"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+popover%22"
   },
   "dependencies": {
     "@radix-ui/react-popover": "1.0.7",
