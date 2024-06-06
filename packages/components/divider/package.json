@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/divider",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A separator between two elements, usually consisting of a horizontal line.",
   "publishConfig": {
     "access": "public"

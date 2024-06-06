@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/progress",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   "publishConfig": {
     "access": "public"
