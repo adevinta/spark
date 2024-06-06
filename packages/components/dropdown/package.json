@@ -35,7 +35,7 @@
     "@spark-ui/use-merge-refs": "^0.4.1",
     "@spark-ui/visually-hidden": "^1.2.2",
     "class-variance-authority": "0.7.0",
-    "downshift": "9.0.4"
+    "downshift": "9.0.6"
   },
   "repository": {
     "type": "git",
