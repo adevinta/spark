@@ -3,7 +3,7 @@ changelog:
     labels:
       - ignore-for-release
       - dependencies
-      - documentation
+      - 'Doc: Improvement'
     authors:
       - octocat
       - dependabot
@@ -11,15 +11,15 @@ changelog:
     - title: Breaking Changes 🛠
       labels:
         - Semver-Major
-        - breaking-change
+        - 'Type: Breaking Change'
     - title: Component 🧰
       labels:
-        - component
+        - 'Component'
         - Semver-Minor
-        - enhancement
+        - 'Type: Enhancement'
     - title: Fixed 🐛
       labels:
-        - bug
+        - 'Type: Bug'
     - title: Other Changes
       labels:
-        - "*"
+        - '*'
