@@ -2,7 +2,7 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { forwardRef, useId, useRef } from 'react'
+import { forwardRef, useId, useMemo, useRef } from 'react'
 
 import { CheckboxGroupContextState, useCheckboxGroup } from './CheckboxGroupContext'
 import { CheckboxInput, CheckboxInputProps } from './CheckboxInput'
@@ -73,11 +73,24 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       }
     }
 
-    const { id, name, isInvalid, isRequired, description, intent } = getCheckboxAttributes({
+    const {
+      id,
+      name,
+      isInvalid,
+      description,
+      intent,
+      isRequired: isRequiredAttr,
+    } = getCheckboxAttributes({
       fieldState: field,
       groupState: group,
       checkboxIntent: intentProp,
     })
+
+    const isRequired = useMemo(() => {
+      if (!group) return isRequiredAttr
+
+      return isRequiredAttr ? !group.value?.length : false
+    }, [group, isRequiredAttr])
 
     const checkboxLabel = children && (
       <CheckboxLabel disabled={disabled} htmlFor={id || innerId} id={innerLabelId}>
