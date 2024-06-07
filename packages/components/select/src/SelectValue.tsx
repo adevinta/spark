@@ -18,7 +18,7 @@ export const Value = forwardRef(
     { children, className, placeholder: customPlaceholder }: ValueProps,
     forwardedRef: Ref<HTMLSpanElement>
   ) => {
-    const { selectedItem, placeholder } = useSelectContext()
+    const { selectedItem, placeholder, disabled } = useSelectContext()
 
     const isPlaceholderSelected = selectedItem?.value == null
     const valuePlaceholder = customPlaceholder || placeholder
@@ -33,7 +33,7 @@ export const Value = forwardRef(
         <span
           className={cx(
             'line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all',
-            isPlaceholderSelected && 'text-on-surface/dim-1'
+            isPlaceholderSelected && !disabled && 'text-on-surface/dim-1'
           )}
         >
           {isPlaceholderSelected ? valuePlaceholder : children || selectedItem?.text}
