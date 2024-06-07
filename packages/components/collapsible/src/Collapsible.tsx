@@ -5,7 +5,6 @@ import {
   type ComponentPropsWithoutRef,
   createContext,
   forwardRef,
-  type ReactNode,
   useContext,
   useId,
   useMemo,
@@ -16,8 +15,6 @@ export interface CollapsibleProps extends ComponentPropsWithoutRef<'div'> {
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
   asChild?: boolean
-  children: ReactNode
-  className?: string
   /**
    * The open state of the collapsible when it is initially rendered. Use when you do not need to control its open state.
    */
@@ -26,7 +23,6 @@ export interface CollapsibleProps extends ComponentPropsWithoutRef<'div'> {
    * When `true`, prevents the user from interacting with the collapsible.
    */
   disabled?: boolean
-  id?: string
   /**
    * Event handler called when the open state of the collapsible changes.
    */

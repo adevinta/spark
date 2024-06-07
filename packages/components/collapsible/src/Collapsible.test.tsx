@@ -11,9 +11,7 @@ describe('Collapsible', () => {
 
     render(
       <Collapsible>
-        <Collapsible.Trigger asChild>
-          <button>Expand</button>
-        </Collapsible.Trigger>
+        <Collapsible.Trigger>Expand</Collapsible.Trigger>
 
         <Collapsible.Content>
           <p>Collapsible content</p>
@@ -48,7 +46,6 @@ describe('Collapsible', () => {
 
     const trigger = screen.getByRole('button', { name: 'Expand' })
 
-    expect(trigger).toBeInTheDocument()
     expect(screen.getByText('Collapsible content')).not.toBeVisible()
 
     await user.click(trigger)
@@ -88,7 +85,6 @@ describe('Collapsible', () => {
 
       const trigger = screen.getByRole('button', { name: 'Expand' })
 
-      expect(trigger).toBeInTheDocument()
       expect(screen.getByText('Collapsible content')).not.toBeVisible()
       expect(onChange).not.toHaveBeenCalled()
 
@@ -96,6 +92,7 @@ describe('Collapsible', () => {
 
       expect(screen.getByText('Collapsible content')).toBeVisible()
       expect(onChange).toHaveBeenCalledWith(true)
+      expect(onChange).toHaveBeenCalledTimes(1)
     })
 
     it('should remain open when open is forced to `true`', async () => {
@@ -115,7 +112,6 @@ describe('Collapsible', () => {
 
       const trigger = screen.getByRole('button', { name: 'Expand' })
 
-      expect(trigger).toBeInTheDocument()
       expect(screen.getByText('Collapsible content')).toBeVisible()
 
       await user.click(trigger)
@@ -140,7 +136,6 @@ describe('Collapsible', () => {
 
       const trigger = screen.getByRole('button', { name: 'Expand' })
 
-      expect(trigger).toBeInTheDocument()
       expect(screen.getByText('Collapsible content')).not.toBeVisible()
 
       await user.click(trigger)

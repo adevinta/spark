@@ -15,3 +15,7 @@ export const Collapsible: FC<CollapsibleProps> & {
 Collapsible.displayName = 'Collapsible'
 Trigger.displayName = 'Collapsible.Trigger'
 Content.displayName = 'Collapsible.Content'
+
+export { type CollapsibleProps } from './Collapsible'
+export { type CollapsibleContentProps } from './CollapsibleContent'
+export { type CollapsibleTriggerProps } from './CollapsibleTrigger'

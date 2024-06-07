@@ -4,7 +4,7 @@ import { type ComponentPropsWithoutRef, forwardRef, type ReactNode } from 'react
 
 import { useCollapsibleContext } from './Collapsible'
 
-interface CollapsibleTriggerProps extends ComponentPropsWithoutRef<'button'> {
+export interface CollapsibleTriggerProps extends ComponentPropsWithoutRef<'button'> {
   asChild?: boolean
   children: ReactNode
   className?: string
