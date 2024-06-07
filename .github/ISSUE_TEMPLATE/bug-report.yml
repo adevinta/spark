@@ -1,6 +1,7 @@
 name: 'Bug Report'
 description: 'File a bug report'
 labels: ['Needs Triage', 'Type: Bug']
+projects: ['adevinta/4']
 body:
   - type: 'markdown'
     attributes:
