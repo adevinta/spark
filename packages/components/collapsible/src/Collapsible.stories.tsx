@@ -15,9 +15,7 @@ const meta: Meta<typeof Collapsible> = {
 export default meta
 
 const CartItem = ({ children }: PropsWithChildren) => {
-  return (
-    <div className="rounded-md bg-neutral-container p-lg text-on-neutral-container">{children}</div>
-  )
+  return <div className="rounded-md bg-main-container p-lg text-on-main-container">{children}</div>
 }
 
 export const Default: StoryFn = () => {

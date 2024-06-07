@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@storybook/blocks'
+import { Kbd } from '@spark-ui/kbd'
 
 import { Collapsible } from '.'
 
@@ -38,3 +39,18 @@ A `Collapsible` is closed by default. Interacting with its trigger will open the
 ### Animation
 
 TODO
+
+## Accessibility
+
+Adheres to the [Disclosure (Show/Hide) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
+
+### Keyboard Interactions
+
+- <Kbd>Enter</Kbd> - activates the disclosure control and toggles the visibility of the disclosure content.
+- <Kbd>Space</Kbd> - activates the disclosure control and toggles the visibility of the disclosure content.
+
+### WAI-ARIA Roles, States, and Properties
+
+- The element that shows and hides the content has role [button](https://w3c.github.io/aria/#button).
+- When the content is visible, the element with role button has [aria-expanded](https://w3c.github.io/aria/#aria-expanded) set to `true`. When the content area is hidden, it is set to `false`.
+- Optionally, the element with role button has a value specified for [aria-controls](https://w3c.github.io/aria/#aria-controls) that refers to the element that contains all the content that is shown or hidden.

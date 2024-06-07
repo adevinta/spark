@@ -14,7 +14,8 @@
     "wai-aria",
     "aria",
     "a11y",
-    "collapsible"
+    "collapsible",
+    "disclosure"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
