@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.7](https://github.com/adevinta/spark/compare/@spark-ui/select@1.2.6...@spark-ui/select@1.2.7) (2024-06-07)
+
+### Bug Fixes
+
+- **select:** fix disabled and readonly styles ([6ca1bb5](https://github.com/adevinta/spark/commit/6ca1bb57887342f85e6a0bd6cab06a6a0cbcab56))
+
 ## [1.2.6](https://github.com/adevinta/spark/compare/@spark-ui/select@1.2.5...@spark-ui/select@1.2.6) (2024-06-06)
 
 **Note:** Version bump only for package @spark-ui/select
