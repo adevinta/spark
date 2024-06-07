@@ -4,7 +4,7 @@ export const styles = cva(
   [
     'relative flex w-full items-center justify-between',
     'min-h-sz-44 rounded-lg px-lg',
-    'text-body-1 bg-surface text-on-surface',
+    'text-body-1',
     // outline styles
     'ring-1 outline-none ring-inset',
   ],
@@ -17,14 +17,26 @@ export const styles = cva(
         success: 'ring-success',
       },
       disabled: {
-        true: '!bg-on-surface/dim-5 cursor-not-allowed !text-on-surface/dim-3',
         false: 'focus-within:ring-2',
       },
       readOnly: {
-        true: '!bg-on-surface/dim-5 cursor-default',
+        true: '',
       },
     },
     compoundVariants: [
+      {
+        readOnly: false,
+        disabled: false,
+        class: 'bg-surface text-on-surface',
+      },
+      {
+        readOnly: true,
+        class: 'bg-on-surface/dim-5 text-on-surface cursor-default',
+      },
+      {
+        disabled: true,
+        class: ['bg-on-surface/dim-5 text-on-surface/dim-3', 'cursor-not-allowed'],
+      },
       {
         disabled: false,
         state: undefined,
