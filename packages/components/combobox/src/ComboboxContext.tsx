@@ -103,7 +103,7 @@ interface ComboboxPropsSingle {
   /**
    * Event handler called when the value changes.
    */
-  onValueChange?: (value: string | undefined) => void
+  onValueChange?: (value: string) => void
 }
 
 interface ComboboxPropsMultiple {

@@ -922,16 +922,12 @@ export const ModalSearch: StoryFn = () => {
           <Dialog.Content size="sm">
             <Combobox
               onValueChange={value => {
-                if (value === undefined) {
-                  setValue(value)
-                } else {
-                  const [_, id] = value.split('-')
-                  const book = books.find(({ id: bookId }) => `${bookId}` === id)
+                const [_, id] = value.split('-')
+                const book = books.find(({ id: bookId }) => `${bookId}` === id)
 
-                  if (book) {
-                    setValue(book?.name)
-                    setIsOpen(false)
-                  }
+                if (book) {
+                  setValue(book.name)
+                  setIsOpen(false)
                 }
               }}
               defaultValue={value}
