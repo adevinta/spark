@@ -1,6 +1,7 @@
 name: 'Feature Request'
 description: 'Request a feature or enhancement'
 labels: ['Needs Triage', 'Type: Feature Request']
+projects: ['adevinta/4']
 body:
   - type: 'markdown'
     attributes:
