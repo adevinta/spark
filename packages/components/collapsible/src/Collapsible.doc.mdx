@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Kbd } from '@spark-ui/kbd'
 
 import { Collapsible } from '.'
@@ -26,7 +26,20 @@ import { Collapsible } from '@spark-ui/collapsible'
 
 ## Props
 
-<ArgTypes of={Collapsible} />
+<ArgTypes
+  of={Collapsible}
+  description="An interactive component which expands/collapses a panel."
+  subcomponents={{
+    'Collapsible.Trigger': {
+      of: Collapsible.Trigger,
+      description: 'The button that toggles the collapsible.',
+    },
+    'Collapsible.Content': {
+      of: Collapsible.Content,
+      description: 'The component that contains the collapsible content.',
+    },
+  }}
+/>
 
 ## Usage
 

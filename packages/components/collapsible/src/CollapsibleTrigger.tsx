@@ -1,13 +1,11 @@
 import { Slot } from '@spark-ui/slot'
 import { mergeProps } from '@zag-js/react'
-import { type ComponentPropsWithoutRef, forwardRef, type ReactNode } from 'react'
+import { type ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { useCollapsibleContext } from './Collapsible'
 
 export interface CollapsibleTriggerProps extends ComponentPropsWithoutRef<'button'> {
   asChild?: boolean
-  children: ReactNode
-  className?: string
 }
 
 export const Trigger = forwardRef<HTMLButtonElement, CollapsibleTriggerProps>(
