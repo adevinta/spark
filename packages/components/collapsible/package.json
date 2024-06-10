@@ -46,6 +46,6 @@
   "dependencies": {
     "@spark-ui/slot": "^1.7.1",
     "@zag-js/collapsible": "^0.53.0",
-    "@zag-js/react": "^0.53.0"
+    "@zag-js/react": "^0.55.0"
   }
 }
