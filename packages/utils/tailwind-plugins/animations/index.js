@@ -121,13 +121,13 @@ module.exports = plugin.withOptions(
     theme: {
       extend: {
         keyframes: {
-          collapseIn: {
-            '0%': { height: 0 },
-            '100%': { height: 'var(--height)' },
+          standaloneCollapseIn: {
+            '0%': { opacity: 0, height: 0 },
+            '100%': { opacity: 1, height: 'var(--height)' },
           },
-          collapseOut: {
-            '0%': { height: 'var(--height)' },
-            '100%': { height: 0 },
+          standaloneCollapseOut: {
+            '0%': { opacity: 1, height: 'var(--height)' },
+            '100%': { opacity: 0, height: 0 },
           },
           fadeIn: {
             '0%': { opacity: 0 },
@@ -201,8 +201,8 @@ module.exports = plugin.withOptions(
         animation: {
           'fade-in': 'fadeIn 0.25s cubic-bezier(0.2, 0, 0, 1)',
           'fade-out': 'fadeOut 0.25s cubic-bezier(0.2, 0, 0, 1)',
-          'collapse-in': 'collapseIn 0.25s cubic-bezier(0.2, 0, 0, 1)',
-          'collapse-out': 'collapseOut 0.25s cubic-bezier(0.2, 0, 0, 1)',
+          'standalone-collapse-in': 'standaloneCollapseIn 0.25s cubic-bezier(0.2, 0, 0, 1)',
+          'standalone-collapse-out': 'standaloneCollapseOut 0.25s cubic-bezier(0.2, 0, 0, 1)',
           // slideIn
           'slide-in-top': 'slideInTop 0.4s cubic-bezier(0.05, 0.7, 0.1, 1)',
           'slide-in-right': 'slideInRight 0.4s cubic-bezier(0.05, 0.7, 0.1, 1)',

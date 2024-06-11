@@ -1,14 +1,7 @@
 import { Slot } from '@spark-ui/slot'
 import * as collapsible from '@zag-js/collapsible'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
-import {
-  type ComponentPropsWithoutRef,
-  createContext,
-  forwardRef,
-  useContext,
-  useId,
-  useMemo,
-} from 'react'
+import { type ComponentPropsWithoutRef, createContext, forwardRef, useContext, useId } from 'react'
 
 export interface CollapsibleProps extends ComponentPropsWithoutRef<'div'> {
   /**
@@ -36,15 +29,18 @@ export interface CollapsibleProps extends ComponentPropsWithoutRef<'div'> {
 const CollapsibleContext = createContext<collapsible.Api<PropTypes> | null>(null)
 
 export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
-  ({
-    asChild = false,
-    children,
-    defaultOpen = false,
-    disabled = false,
-    onOpenChange,
-    open,
-    ...props
-  }) => {
+  (
+    {
+      asChild = false,
+      children,
+      defaultOpen = false,
+      disabled = false,
+      onOpenChange,
+      open,
+      ...props
+    },
+    ref
+  ) => {
     const initialContext: collapsible.Context = {
       'open.controlled': open !== undefined,
       open: defaultOpen || open,
@@ -63,13 +59,17 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
 
     const [state, send] = useMachine(collapsible.machine(initialContext), { context })
 
-    const api = useMemo(() => collapsible.connect(state, send, normalizeProps), [send, state])
+    const api = collapsible.connect(state, send, normalizeProps)
 
     const Component = asChild ? Slot : 'div'
 
     return (
       <CollapsibleContext.Provider value={api}>
-        <Component data-spark-component="collapsible" {...mergeProps(api.getRootProps(), props)}>
+        <Component
+          data-spark-component="collapsible"
+          ref={ref}
+          {...mergeProps(api.getRootProps(), props)}
+        >
           {children}
         </Component>
       </CollapsibleContext.Provider>

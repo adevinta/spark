@@ -10,18 +10,20 @@ export interface CollapsibleContentProps extends ComponentPropsWithoutRef<'div'>
 }
 
 export const Content = forwardRef<HTMLDivElement, CollapsibleContentProps>(
-  ({ asChild = false, className, children, ...props }) => {
+  ({ asChild = false, className, children, ...props }, ref) => {
     const { getContentProps } = useCollapsibleContext()
 
     const Component = asChild ? Slot : 'div'
 
     return (
       <Component
+        ref={ref}
         {...mergeProps(getContentProps(), {
           className: cx(
             'overflow-hidden',
+            'motion-reduce:!animate-none',
             '[&[hidden]]:hidden',
-            'data-[state=open]:animate-collapse-in data-[state=closed]:animate-collapse-out',
+            'data-[state=open]:animate-standalone-collapse-in data-[state=closed]:animate-standalone-collapse-out',
             className
           ),
           ...props,

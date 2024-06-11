@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { Collapsible } from '.'
 
 const meta: Meta<typeof Collapsible> = {
-  title: 'Experimental/Collapsible',
+  title: 'Components/Collapsible',
   component: Collapsible,
 }
 
