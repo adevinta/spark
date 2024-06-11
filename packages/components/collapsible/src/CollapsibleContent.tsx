@@ -11,14 +11,19 @@ export interface CollapsibleContentProps extends ComponentPropsWithoutRef<'div'>
 
 export const Content = forwardRef<HTMLDivElement, CollapsibleContentProps>(
   ({ asChild = false, className, children, ...props }) => {
-    const { contentProps } = useCollapsibleContext()
+    const { getContentProps } = useCollapsibleContext()
 
     const Component = asChild ? Slot : 'div'
 
     return (
       <Component
-        {...mergeProps(contentProps, {
-          className: cx('data-[state=closed]:hidden', className),
+        {...mergeProps(getContentProps(), {
+          className: cx(
+            'overflow-hidden',
+            '[&[hidden]]:hidden',
+            'data-[state=open]:animate-collapse-in data-[state=closed]:animate-collapse-out',
+            className
+          ),
           ...props,
         })}
         data-spark-component="collapsible-content"

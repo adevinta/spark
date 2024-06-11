@@ -69,7 +69,7 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
 
     return (
       <CollapsibleContext.Provider value={api}>
-        <Component data-spark-component="collapsible" {...mergeProps(api.rootProps, props)}>
+        <Component data-spark-component="collapsible" {...mergeProps(api.getRootProps(), props)}>
           {children}
         </Component>
       </CollapsibleContext.Provider>
