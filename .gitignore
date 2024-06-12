@@ -18,6 +18,7 @@ coverage
 .eslintcache
 .vercel
 .nx/cache
+.spark-ui/*
 
 # Editor directories and files
 .vscode/*
