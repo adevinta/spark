@@ -1,19 +1,55 @@
 import chalk from 'chalk'
 
-export const logger = {
+export class Logger {
+  #force = false
+
+  constructor({ verbose }) {
+    this.verbose = verbose
+
+    if (typeof Logger.instance === 'object') {
+      return Logger.instance
+    }
+
+    Logger.instance = this
+
+    return this
+  }
+
+  #log({ type = v => v, force, verbose }, ...args) {
+    if (force || verbose) {
+      console.log(type(...args)) // eslint-disable-line no-console
+    }
+    this.#force = false
+  }
+
+  force() {
+    this.#force = true
+
+    return this
+  }
+
   error(...args) {
-    console.log(chalk.red(...args))
-  },
+    this.#log({ type: chalk.red, force: this.#force, verbose: this.verbose }, ...args)
+    // this.verbose && console.log(chalk.red(...args))
+  }
+
   warn(...args) {
-    console.log(chalk.yellow(...args))
-  },
+    this.#log({ type: chalk.yellow, force: this.#force, verbose: this.verbose }, ...args)
+    // this.verbose && console.log(chalk.yellow(...args))
+  }
+
   info(...args) {
-    console.log(chalk.cyan(...args))
-  },
+    this.#log({ type: chalk.cyan, force: this.#force, verbose: this.verbose }, ...args)
+    // this.verbose && console.log(chalk.cyan(...args))
+  }
+
   success(...args) {
-    console.log(chalk.green(...args))
-  },
+    this.#log({ type: chalk.green, force: this.#force, verbose: this.verbose }, ...args)
+    // this.verbose && console.log(chalk.green(...args))
+  }
+
   break() {
-    console.log('')
-  },
+    this.#log({ type: chalk.green, force: this.#force, verbose: this.verbose }, '')
+    // this.verbose && console.log('')
+  }
 }
