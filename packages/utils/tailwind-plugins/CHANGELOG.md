@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.7.2...@spark-ui/tailwind-plugins@3.8.0) (2024-06-12)
+
+### Features
+
+- **collapsible:** collapsible stable release ([867eed8](https://github.com/adevinta/spark/commit/867eed8fc17a3653d4abda31a450f4edea03a033))
+
 ## [3.7.2](https://github.com/adevinta/spark/compare/@spark-ui/tailwind-plugins@3.7.1...@spark-ui/tailwind-plugins@3.7.2) (2024-05-15)
 
 **Note:** Version bump only for package @spark-ui/tailwind-plugins

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/tailwind-plugins",
-  "version": "3.7.2",
+  "version": "3.8.0",
   "description": "Spark Tailwind plugins",
   "publishConfig": {
     "access": "public"
