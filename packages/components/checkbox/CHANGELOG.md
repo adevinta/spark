@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.11](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.2.10...@spark-ui/checkbox@2.2.11) (2024-06-07)
+
+### Bug Fixes
+
+- **checkbox:** remove the required attr from checkboxes as soon as 1 checkbox is checked ([bea7ccf](https://github.com/adevinta/spark/commit/bea7ccf3d2c67821d85c937c2129d189e274c8a9)), closes [#2205](https://github.com/adevinta/spark/issues/2205)
+
 ## [2.2.10](https://github.com/adevinta/spark/compare/@spark-ui/checkbox@2.2.9...@spark-ui/checkbox@2.2.10) (2024-06-06)
 
 **Note:** Version bump only for package @spark-ui/checkbox

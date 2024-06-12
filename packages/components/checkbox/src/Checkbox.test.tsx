@@ -322,5 +322,37 @@ describe('CheckboxGroup', () => {
         })
       ).toBeInTheDocument()
     })
+
+    it('should remove the required attribute from individual checkboxes when at least one checkbox is checked', async () => {
+      render(
+        <FormField name="sports" isRequired>
+          <FormField.Label>Sports</FormField.Label>
+
+          <CheckboxGroup>
+            <Checkbox value="soccer">Soccer</Checkbox>
+            <Checkbox value="baseball">Baseball</Checkbox>
+          </CheckboxGroup>
+        </FormField>
+      )
+
+      const checkboxEls = within(screen.getByRole('group', { name: 'Sports' })).getAllByRole(
+        'checkbox'
+      )
+
+      expect(checkboxEls[0]).toHaveAttribute('aria-required', 'true')
+      expect(checkboxEls[1]).toHaveAttribute('aria-required', 'true')
+
+      await userEvent.click(
+        screen.getByRole('checkbox', {
+          name: 'Baseball',
+        })
+      )
+
+      expect(checkboxEls[0]).toHaveAttribute('aria-required', 'false')
+      expect(checkboxEls[0]).not.toBeRequired()
+
+      expect(checkboxEls[1]).toHaveAttribute('aria-required', 'false')
+      expect(checkboxEls[1]).not.toBeRequired()
+    })
   })
 })

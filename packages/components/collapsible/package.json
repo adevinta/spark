@@ -1,7 +1,7 @@
 {
-  "name": "@spark-ui/select",
-  "version": "1.2.7",
-  "description": "Displays a list of options for the user to pick from—triggered by a button.",
+  "name": "@spark-ui/collapsible",
+  "version": "0.1.1",
+  "description": "An interactive component which expands/collapses a panel.",
   "publishConfig": {
     "access": "public"
   },
@@ -14,7 +14,8 @@
     "wai-aria",
     "aria",
     "a11y",
-    "select"
+    "collapsible",
+    "disclosure"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -23,6 +24,7 @@
     "build": "vite build"
   },
   "peerDependencies": {
+    "@spark-ui/theme-utils": "^4.0.0",
     "react": "^18.0 || ^19.0",
     "react-dom": "^18.0 || ^19.0",
     "tailwindcss": "^3.0.0"
@@ -30,21 +32,20 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/adevinta/spark.git",
-    "directory": "packages/components/select"
+    "directory": "packages/components/collapsible"
   },
   "config": {
-    "title": "select",
+    "title": "collapsible",
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+select%22"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3Acollapsible"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/form-field": "^1.5.7",
-    "@spark-ui/icon": "^2.1.5",
-    "@spark-ui/icons": "^1.21.10",
-    "@spark-ui/use-combined-state": "^0.6.3"
+    "@spark-ui/slot": "^1.7.1",
+    "@zag-js/collapsible": "^0.53.0",
+    "@zag-js/react": "^0.53.0"
   }
 }

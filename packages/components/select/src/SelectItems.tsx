@@ -22,7 +22,7 @@ export const styles = cva(
         true: 'cursor-not-allowed',
       },
       readOnly: {
-        true: 'cursor-not-allowed',
+        true: 'cursor-default',
       },
     },
     compoundVariants: [

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.1.2...@spark-ui/combobox@1.1.3) (2024-06-11)
+
+### Bug Fixes
+
+- **combobox:** missing key attribute on selected items ([c1f7d60](https://github.com/adevinta/spark/commit/c1f7d60e31cb4deb7b4341e4ecb3affbb6ff7121))
+
 ## [1.1.2](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.1.1...@spark-ui/combobox@1.1.2) (2024-06-06)
 
 **Note:** Version bump only for package @spark-ui/combobox
