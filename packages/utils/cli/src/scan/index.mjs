@@ -1,32 +1,34 @@
 import * as process from 'node:process'
 
-import { appendFileSync, existsSync } from 'fs'
+import { appendFileSync, existsSync, mkdirSync } from 'fs'
+import merge from 'lodash.merge'
 import path from 'path'
 
+import * as defaultConfig from './config.mjs'
 import { scanCallback } from './scanCallback.mjs'
-import { logger, scanDirectories } from './utils/index.mjs'
-
-const DEFAULT_CONFIG = {
-  adoption: {
-    details: false,
-    sort: 'count',
-    imports: ['@spark-ui'],
-    extensions: ['.tsx', '.ts'],
-    directory: '.',
-  },
-}
+import { Logger, scanDirectories } from './utils/index.mjs'
 
 export async function adoption(options) {
-  let config = DEFAULT_CONFIG
+  const { configuration, ...optionsConfig } = options
+  const configFileRoute = path.join(process.cwd(), configuration || '.spark-ui.cjs')
 
-  const configFileRoute = path.join(process.cwd(), options.configuration || '.spark-ui.cjs')
+  let config = {
+    adoption: Object.assign(
+      { ...defaultConfig },
+      {
+        ...optionsConfig,
+      }
+    ),
+  }
+
+  const { verbose } = config.adoption
+  const logger = new Logger({ verbose })
+
   try {
     if (existsSync(configFileRoute)) {
       logger.info('ℹ️ Loading spark-ui custom configuration file')
-      const { default: customConfig } = await import(
-        path.join(process.cwd(), options.configuration)
-      )
-      config = structuredClone(customConfig, DEFAULT_CONFIG)
+      const { default: customConfig } = await import(configFileRoute)
+      config = merge(config, customConfig)
     } else {
       logger.warn('⚠️ No custom configuration file found')
       logger.info('ℹ️ Loading default configuration')
@@ -35,15 +37,16 @@ export async function adoption(options) {
     logger.error('💥 Something went wrong loading the custom configuration file')
   }
 
-  const extensions = config.adoption.extensions
-
   let importCount = 0
   const importResults = {}
   let importsUsed = {}
   let importsCount = {}
-  config.adoption.imports.forEach(moduleName => {
+
+  const { details, directory, extensions, imports, sort, output } = config.adoption
+
+  imports.forEach(moduleName => {
     logger.info(`ℹ️ Scanning adoption for ${moduleName}`)
-    const directoryPath = path.join(process.cwd(), config.adoption.directory)
+    const directoryPath = path.join(process.cwd(), directory)
 
     const response = scanDirectories(directoryPath, moduleName, extensions, scanCallback, {
       importCount,
@@ -64,7 +67,7 @@ export async function adoption(options) {
   })
 
   // Sort importsUsed by alphabet
-  if (config.adoption.sort === 'alphabetical') {
+  if (sort === 'alphabetical') {
     importsUsed = Object.fromEntries(
       Object.entries(importsUsed)
         .sort(([pkgNameA], [pkgNameB]) => pkgNameA.localeCompare(pkgNameB))
@@ -83,7 +86,7 @@ export async function adoption(options) {
           ]
         })
     )
-  } else if (config.adoption.sort === 'count') {
+  } else if (sort === 'count') {
     // Sort importsUsed by most used
     importsUsed = Object.fromEntries(
       Object.entries(importsUsed)
@@ -110,17 +113,25 @@ export async function adoption(options) {
   const result = Object.fromEntries(
     Object.entries(importsUsed).map(([pkgName, value]) => [
       pkgName,
-      { ...value, ...(config.adoption.details && { results: importResults[pkgName] }) },
+      { ...value, ...(details && { results: importResults[pkgName] }) },
     ])
   )
 
-  if (options.output) {
+  if (output) {
     try {
-      appendFileSync(`${options.output}`, JSON.stringify(result, null, 2))
+      const { dir } = path.parse(path.join(process.cwd(), output))
+      if (!existsSync(dir)) {
+        mkdirSync(dir, { recursive: true })
+      }
+      appendFileSync(`${path.join(process.cwd(), output)}`, JSON.stringify(result, null, 2))
     } catch (err) {
       logger.error(`💥 Error writing file: ${err}`)
+      process.exit(1)
     }
   } else {
-    logger.info(JSON.stringify(result, null, 2))
+    // logger.force().info(JSON.stringify(result, null, 2))
+    process.exit(0)
   }
 }
+
+export const config = { ...defaultConfig }
