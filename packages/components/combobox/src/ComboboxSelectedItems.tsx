@@ -90,7 +90,7 @@ export const SelectedItems = () => {
   return ctx.multiple && ctx.selectedItems.length ? (
     <>
       {ctx.selectedItems.map((item, index) => (
-        <SelectedItem item={item} index={index} />
+        <SelectedItem key={item.value} item={item} index={index} />
       ))}
     </>
   ) : null
