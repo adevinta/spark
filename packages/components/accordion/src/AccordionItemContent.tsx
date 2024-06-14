@@ -1,4 +1,4 @@
-import { Slot } from '@spark-ui/slot'
+import { Collapsible } from '@spark-ui/collapsible'
 import { mergeProps } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
 import { type ComponentPropsWithoutRef, forwardRef } from 'react'
@@ -12,26 +12,24 @@ export interface AccordionItemContentProps extends ComponentPropsWithoutRef<'div
 
 export const ItemContent = forwardRef<HTMLDivElement, AccordionItemContentProps>(
   ({ asChild = false, className, children, ...props }, ref) => {
-    const { getItemContentProps } = useAccordionContext()
-    const { value, disabled } = useAccordionItemContext()
+    const accordion = useAccordionContext()
+    const accordionItem = useAccordionItemContext()
 
-    const Component = asChild ? Slot : 'div'
+    const localProps = {
+      className: cx('p-lg text-body-1 text-on-surface', className),
+      asChild,
+      ...props,
+    }
+    const contentProps = accordion.getItemContentProps({
+      value: accordionItem.value,
+      ...(accordionItem.disabled && { disabled: accordionItem.disabled }),
+    })
+    const mergedProps = mergeProps(contentProps, localProps)
 
     return (
-      <Component
-        ref={ref}
-        {...mergeProps(getItemContentProps({ value, ...(disabled && { disabled }) }), {
-          className: cx(
-            'overflow-hidden p-lg text-body-1 text-on-surface',
-            'data-[state=closed]:hidden',
-            className
-          ),
-          ...props,
-        })}
-        data-spark-component="accordion-item-content"
-      >
+      <Collapsible.Content ref={ref} data-spark-component="accordion-item-content" {...mergedProps}>
         {children}
-      </Component>
+      </Collapsible.Content>
     )
   }
 )
