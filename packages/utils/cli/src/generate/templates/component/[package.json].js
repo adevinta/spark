@@ -38,7 +38,7 @@ export default ({ name, description }) => `{
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Autility+label%3A${name}"
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+${name}%22"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"
