@@ -24,6 +24,10 @@ export interface CollapsibleProps extends ComponentPropsWithoutRef<'div'> {
    * The controlled open state of the collapsible. Must be used in conjunction with `onOpenChange`.
    */
   open?: boolean
+  /**
+   * The ids of the elements in the collapsible. Useful for composition
+   */
+  ids?: collapsible.Context['ids']
 }
 
 const CollapsibleContext = createContext<collapsible.Api<PropTypes> | null>(null)
@@ -37,6 +41,7 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
       disabled = false,
       onOpenChange,
       open,
+      ids,
       ...props
     },
     ref
@@ -46,13 +51,14 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
       open: defaultOpen || open,
       disabled,
       id: useId(),
-      onOpenChange(details) {
-        onOpenChange?.(details.open)
-      },
+      ids,
     }
 
     const context: collapsible.Context = {
       ...initialContext,
+      onOpenChange(details) {
+        onOpenChange?.(details.open)
+      },
       open,
       disabled,
     }
@@ -63,13 +69,11 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
 
     const Component = asChild ? Slot : 'div'
 
+    const mergedProps = mergeProps(api.getRootProps(), props)
+
     return (
       <CollapsibleContext.Provider value={api}>
-        <Component
-          data-spark-component="collapsible"
-          ref={ref}
-          {...mergeProps(api.getRootProps(), props)}
-        >
+        <Component data-spark-component="collapsible" ref={ref} {...mergedProps}>
           {children}
         </Component>
       </CollapsibleContext.Provider>
