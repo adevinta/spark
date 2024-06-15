@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/rating",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Ratings let users see and/or set a star rating for a product or other item",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@spark-ui/icon": "^2.1.5",
+    "@spark-ui/icon": "^2.1.6",
     "@spark-ui/icons": "^1.21.10"
   },
   "peerDependencies": {

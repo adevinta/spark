@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.3.1...@spark-ui/internal-utils@2.4.0) (2024-06-15)
+
+### Features
+
+- **internal-utils:** add new createSplitProps util ([7e6827a](https://github.com/adevinta/spark/commit/7e6827a7ee556edb1288b38a7eb1a6bd033b9816))
+
 ## [2.3.1](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.3.0...@spark-ui/internal-utils@2.3.1) (2024-05-30)
 
 ### Bug Fixes
