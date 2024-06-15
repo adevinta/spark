@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/collapsible@1.1.0...@spark-ui/collapsible@1.2.0) (2024-06-15)
+
+### Features
+
+- **collapsible:** add "ids" props, useful for composition ([10c3ade](https://github.com/adevinta/spark/commit/10c3ade6d16b396ede579fd1ebed5911a89f087f))
+
 # [1.1.0](https://github.com/adevinta/spark/compare/@spark-ui/collapsible@1.0.0...@spark-ui/collapsible@1.1.0) (2024-06-14)
 
 ### Features
