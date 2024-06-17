@@ -1,9 +1,9 @@
 import { Slot } from '@spark-ui/slot'
 import * as collapsible from '@zag-js/collapsible'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
-import { type ComponentPropsWithoutRef, createContext, forwardRef, useContext, useId } from 'react'
+import { type ComponentProps, createContext, forwardRef, useContext, useId } from 'react'
 
-export interface CollapsibleProps extends ComponentPropsWithoutRef<'div'> {
+export interface CollapsibleProps extends ComponentProps<'div'> {
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
@@ -64,9 +64,7 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
     }
 
     const [state, send] = useMachine(collapsible.machine(initialContext), { context })
-
     const api = collapsible.connect(state, send, normalizeProps)
-
     const Component = asChild ? Slot : 'div'
 
     const mergedProps = mergeProps(api.getRootProps(), props)

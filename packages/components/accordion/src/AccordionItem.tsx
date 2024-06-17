@@ -1,7 +1,7 @@
-import { Slot } from '@spark-ui/slot'
+import { Collapsible } from '@spark-ui/collapsible'
 import { mergeProps } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
-import { type ComponentPropsWithoutRef, forwardRef, type Ref } from 'react'
+import { type ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { useAccordionContext } from './Accordion'
 import { AccordionItemProvider } from './AccordionItemContext'
@@ -12,43 +12,39 @@ export interface AccordionItemProps extends ComponentPropsWithoutRef<'div'> {
   disabled?: boolean
 }
 
-export const Item = forwardRef(
-  ({ children, ...props }: AccordionItemProps, forwardedRef: Ref<HTMLDivElement>) => {
-    return (
-      <AccordionItemProvider value={props.value} disabled={props.disabled}>
-        <InnerItem ref={forwardedRef} {...props}>
-          {children}
-        </InnerItem>
-      </AccordionItemProvider>
-    )
-  }
-)
-
-const InnerItem = forwardRef<HTMLDivElement, AccordionItemProps>(
+export const Item = forwardRef<HTMLDivElement, AccordionItemProps>(
   ({ asChild = false, className, children, disabled = false, value, ...props }, ref) => {
-    const { getItemProps } = useAccordionContext()
+    const accordion = useAccordionContext()
 
-    const Component = asChild ? Slot : 'div'
+    const localProps = {
+      className: cx(
+        'relative border-sm border-outline',
+        'first:rounded-t-lg last:rounded-b-lg',
+        '[&:not(:last-child)]:border-b-none',
+        className
+      ),
+      asChild,
+      ...props,
+    }
 
-    const styles = cx(
-      'relative border-sm border-outline',
-      'first:rounded-t-lg last:rounded-b-lg',
-      '[&:not(:last-child)]:border-b-none',
+    const itemProps = accordion.getItemProps({ value, ...(disabled && { disabled }) })
+    const mergedProps = mergeProps(itemProps, localProps)
 
-      className
-    )
+    const item = accordion.getItemState({ value })
+    const itemContentProps = accordion.getItemContentProps({ value })
 
     return (
-      <Component
-        ref={ref}
-        {...mergeProps(getItemProps({ value, ...(disabled && { disabled }) }), {
-          className: styles,
-          ...props,
-        })}
-        data-spark-component="accordion-item"
-      >
-        {children}
-      </Component>
+      <AccordionItemProvider value={value} disabled={disabled}>
+        <Collapsible
+          ref={ref}
+          open={item.expanded}
+          data-spark-component="accordion-item"
+          ids={{ content: itemContentProps.id }}
+          {...mergedProps}
+        >
+          {children}
+        </Collapsible>
+      </AccordionItemProvider>
     )
   }
 )

@@ -81,17 +81,13 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
       { context: machineProps }
     )
 
-    const api = accordion.connect(state, send, normalizeProps)
-
     const Component = asChild ? Slot : 'div'
+    const api = accordion.connect(state, send, normalizeProps)
+    const mergedProps = mergeProps(api.getRootProps(), localProps)
 
     return (
       <AccordionContext.Provider value={api}>
-        <Component
-          data-spark-component="accordion"
-          ref={ref}
-          {...mergeProps(api.getRootProps(), localProps)}
-        >
+        <Component data-spark-component="accordion" ref={ref} {...mergedProps}>
           {children}
         </Component>
       </AccordionContext.Provider>
