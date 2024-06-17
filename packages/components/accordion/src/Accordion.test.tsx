@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
@@ -40,7 +40,9 @@ describe('Accordion', () => {
     await user.click(screen.getByRole('button', { name: 'Second trigger' }))
 
     // Then first panel has been closed and second panel has been opened
-    expect(screen.getByText('First panel')).not.toBeVisible()
-    expect(screen.getByText('Second panel')).toBeVisible()
+    await waitFor(() => {
+      expect(screen.getByText('First panel')).not.toBeVisible()
+      expect(screen.getByText('Second panel')).toBeVisible()
+    })
   })
 })
