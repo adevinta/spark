@@ -22,12 +22,12 @@ jobs:
         uses: adevinta/spark-action-scan-adoption@v0-draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          # configuration: '.spark-ui.cjs'
-          output: 'adoption-report.json'
+          # output: 'adoption-report.json'
           verbose: 'true'
           debug: 'true'
           details: 'true'
           sort: 'alphabetical'
           directory: 'package'
           imports: '@spark-ui', 'downshift'
+          configuration: '.spark-ui.cjs'
 
