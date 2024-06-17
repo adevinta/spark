@@ -27,7 +27,7 @@ jobs:
           debug: 'true'
           details: 'true'
           sort: 'alphabetical'
-          directory: 'package'
+          directory: 'packages'
           imports: '@spark-ui downshift'
           # configuration: '.spark-ui.cjs'
 
