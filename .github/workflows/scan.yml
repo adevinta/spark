@@ -25,7 +25,7 @@ jobs:
           # output: 'adoption-report.json'
           verbose: 'true'
           debug: 'true'
-          details: 'true'
+          details: 'false'
           sort: 'alphabetical'
           directory: 'packages'
           imports: '@spark-ui downshift'
