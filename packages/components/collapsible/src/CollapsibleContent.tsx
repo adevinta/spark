@@ -14,22 +14,20 @@ export const Content = forwardRef<HTMLDivElement, CollapsibleContentProps>(
     const { getContentProps } = useCollapsibleContext()
 
     const Component = asChild ? Slot : 'div'
+    const contentProps = getContentProps()
+    const mergedProps = mergeProps(contentProps, {
+      className: cx(
+        'overflow-hidden',
+        'motion-reduce:!animate-none',
+        '[&[hidden]]:hidden',
+        'data-[state=open]:animate-standalone-collapse-in data-[state=closed]:animate-standalone-collapse-out',
+        className
+      ),
+      ...props,
+    })
 
     return (
-      <Component
-        ref={ref}
-        {...mergeProps(getContentProps(), {
-          className: cx(
-            'overflow-hidden',
-            'motion-reduce:!animate-none',
-            '[&[hidden]]:hidden',
-            'data-[state=open]:animate-standalone-collapse-in data-[state=closed]:animate-standalone-collapse-out',
-            className
-          ),
-          ...props,
-        })}
-        data-spark-component="collapsible-content"
-      >
+      <Component ref={ref} data-spark-component="collapsible-content" {...mergedProps}>
         {children}
       </Component>
     )
