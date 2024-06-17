@@ -16,15 +16,16 @@ export async function adoption(options) {
   const logger = new Logger({ verbose: optionsConfig.verbose })
   let config = await loadConfig(configFileRoute, { logger })
 
-  config = merge(config, {
-    adoption: Object.assign(
+  config = {
+    adoption: merge(
       { ...defaultConfig },
       {
-        ...optionsConfig,
+        ...optionsConfig.adoption,
+        imports: optionsConfig.imports || defaultConfig.imports,
+        extensions: optionsConfig.extensions || defaultConfig.extensions,
       }
     ),
-  })
-
+  }
   console.log(JSON.stringify(config, null, 2))
 
   let importCount = 0
