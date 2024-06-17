@@ -29,4 +29,4 @@ jobs:
           sort: 'alphabetical'
           directory: 'package'
           imports: '@spark-ui', 'downshift'
-          configuration: '.spark-ui.cjs'
+          # configuration: '.spark-ui.cjs'
