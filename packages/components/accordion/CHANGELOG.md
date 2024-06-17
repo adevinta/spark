@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/adevinta/spark/compare/@spark-ui/accordion@0.2.0...@spark-ui/accordion@0.3.0) (2024-06-17)
+
+### Features
+
+- **accordion:** accordion item header ([bef11fc](https://github.com/adevinta/spark/commit/bef11fcc89f4d8492883ef276e2c6ee780dbfc09))
+
 # [0.2.0](https://github.com/adevinta/spark/compare/@spark-ui/accordion@0.1.1...@spark-ui/accordion@0.2.0) (2024-06-17)
 
 ### Features
