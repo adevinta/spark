@@ -32,8 +32,6 @@ export async function adoption(options) {
 
   const { details, directory, extensions, imports, sort, output } = config.adoption
 
-  console.log(JSON.parse(JSON.stringify(config.adoption)))
-
   imports.forEach(moduleName => {
     logger.info(`ℹ️ Scanning adoption for ${moduleName}`)
     const directoryPath = path.join(process.cwd(), directory)
