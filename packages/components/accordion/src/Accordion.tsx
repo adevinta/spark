@@ -8,7 +8,7 @@ type ExtentedZagInterface = Omit<
   accordion.Context,
   'id' | 'ids' | 'orientation' | 'getRootNode' | 'onValueChange'
 > &
-  ComponentPropsWithoutRef<'div'>
+  Omit<ComponentPropsWithoutRef<'div'>, 'defaultChecked'>
 
 export interface AccordionProps extends ExtentedZagInterface {
   /**

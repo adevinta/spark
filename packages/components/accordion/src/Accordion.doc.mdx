@@ -34,6 +34,11 @@ import { Accordion } from '@spark-ui/accordion'
       of: Accordion.Item,
       description: 'Contains all the parts of a collapsible section..',
     },
+    'Accordion.ItemHeader': {
+      of: Accordion.ItemHeader,
+      description:
+        'Set the heading level for your accordion trigger elements. By default, renders an `h3`.',
+    },
     'Accordion.ItemTrigger': {
       of: Accordion.ItemTrigger,
       description: 'Toggles the collapsed state of its associated item.',
@@ -49,7 +54,14 @@ import { Accordion } from '@spark-ui/accordion'
 
 ### Default
 
-A `Accordion` is closed by default. Interacting with its trigger will open the associated content.
+An `Accordion` is closed by default. Interacting with its trigger will open the associated content.
+
+Important, as per ARIA specifications:
+
+> **Each accordion header button is wrapped in an element with role [heading](https://w3c.github.io/aria/#heading) that has a value set for [aria-level](https://w3c.github.io/aria/#aria-level) that is appropriate for the information architecture of the page.**
+
+For this, you must wrap each `Accordion.ItemTrigger` with an `Accordion.ItemHeader` (`h3` by default, use `asChild` property of `ItemHeader` to set the heading level that matches your page structure).
+For example, in the context of this storybook page, we use `h4` because the accordion is preceded by an `h3` already.
 
 <Canvas of={stories.Default} />
 
