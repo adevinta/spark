@@ -1,5 +1,6 @@
 module.exports = {
   adoption: {
+    verbose: true,
     details: false,
     sort: 'count',
     imports: ['@spark-ui', 'downshift'],

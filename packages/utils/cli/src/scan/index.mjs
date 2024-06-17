@@ -5,6 +5,7 @@ import merge from 'lodash.merge'
 import path from 'path'
 
 import * as defaultConfig from './config.mjs'
+import { loadConfig } from './loadConfig.mjs'
 import { scanCallback } from './scanCallback.mjs'
 import { Logger, scanDirectories } from './utils/index.mjs'
 
@@ -12,30 +13,17 @@ export async function adoption(options) {
   const { configuration, ...optionsConfig } = options
   const configFileRoute = path.join(process.cwd(), configuration || '.spark-ui.cjs')
 
-  let config = {
+  const logger = new Logger({ verbose: optionsConfig.verbose })
+  let config = await loadConfig(configFileRoute, { logger })
+
+  config = merge(config, {
     adoption: Object.assign(
       { ...defaultConfig },
       {
         ...optionsConfig,
       }
     ),
-  }
-
-  const { verbose } = config.adoption
-  const logger = new Logger({ verbose })
-
-  try {
-    if (existsSync(configFileRoute)) {
-      logger.info('ℹ️ Loading spark-ui custom configuration file')
-      const { default: customConfig } = await import(configFileRoute)
-      config = merge(config, customConfig)
-    } else {
-      logger.warn('⚠️ No custom configuration file found')
-      logger.info('ℹ️ Loading default configuration')
-    }
-  } catch (error) {
-    logger.error('💥 Something went wrong loading the custom configuration file')
-  }
+  })
 
   let importCount = 0
   const importResults = {}
@@ -43,6 +31,8 @@ export async function adoption(options) {
   let importsCount = {}
 
   const { details, directory, extensions, imports, sort, output } = config.adoption
+
+  console.log(JSON.parse(JSON.stringify(config.adoption)))
 
   imports.forEach(moduleName => {
     logger.info(`ℹ️ Scanning adoption for ${moduleName}`)
@@ -129,7 +119,7 @@ export async function adoption(options) {
       process.exit(1)
     }
   } else {
-    // logger.force().info(JSON.stringify(result, null, 2))
+    logger.force().info(JSON.stringify(result, null, 2))
     process.exit(0)
   }
 }
