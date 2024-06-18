@@ -18,9 +18,9 @@ export const Item = forwardRef<HTMLDivElement, AccordionItemProps>(
 
     const localProps = {
       className: cx(
-        'relative border-sm border-outline',
-        'first:rounded-t-lg last:rounded-b-lg',
+        'relative first:rounded-t-lg last:rounded-b-lg',
         '[&:not(:last-child)]:border-b-none',
+        { 'border-sm border-outline': accordion.design === 'outlined' },
         className
       ),
       asChild,
