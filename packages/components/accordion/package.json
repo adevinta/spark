@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/accordion",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "An accordion is a vertically stacked set of interactive headings containing a title, content snippet, or thumbnail representing a section of content.",
   "publishConfig": {
     "access": "public"
