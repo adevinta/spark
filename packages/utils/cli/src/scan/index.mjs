@@ -18,11 +18,11 @@ export async function adoption(options) {
 
   config = {
     adoption: merge(
-      { ...defaultConfig },
+      { ...config.adoption },
       {
         ...optionsConfig.adoption,
-        imports: optionsConfig.imports || defaultConfig.imports,
-        extensions: optionsConfig.extensions || defaultConfig.extensions,
+        imports: optionsConfig.imports || config.imports,
+        extensions: optionsConfig.extensions || config.extensions,
       }
     ),
   }
