@@ -28,6 +28,9 @@ jobs:
           details: 'false'
           sort: 'alphabetical'
           directory: 'packages'
-          imports: '@spark-ui downshift'
+          imports: '@spark-ui'
+          datadog-metrics: 'true'
+          organisation-name: 'adevinta'
+
           # configuration: '.spark-ui.cjs'
 
