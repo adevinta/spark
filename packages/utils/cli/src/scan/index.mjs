@@ -20,7 +20,7 @@ export async function adoption(options) {
     adoption: merge(
       { ...config.adoption },
       {
-        ...optionsConfig.adoption,
+        ...optionsConfig,
         imports: optionsConfig.imports || config.imports,
         extensions: optionsConfig.extensions || config.extensions,
       }
