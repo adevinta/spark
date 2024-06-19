@@ -12,10 +12,29 @@ import { constants } from 'os'
 const PATH = process.env.PATH
 
 /**
+ * Format CMD response as a JSON object
+ */
+function getReportFromData(data) {
+  const regex = /({[\s\S]*})/ // Regular expression to match object type
+  const match = data.match(regex)
+
+  const messages = data
+    .slice(0, match?.index ?? undefined)
+    .trim()
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line)
+
+  const json = match ? JSON.parse(match[0]) : undefined
+
+  return [...messages, json]
+}
+
+/**
  * Creates a child process with script path
- * @param processPath Path of the process to execute
- * @param args Arguments to the command
- * @param env (optional) Environment variables
+ * @param {string} processPath Path of the process to execute
+ * @param {Array} args Arguments to the command
+ * @param {Object} env (optional) Environment variables
  */
 function createProcess(processPath, args = [], env = null) {
   // Ensure that path exists
@@ -44,18 +63,18 @@ function createProcess(processPath, args = [], env = null) {
  * Creates a command and executes inputs (user responses) to the stdin
  * Returns a promise that resolves when all inputs are sent
  * Rejects the promise if any error
- * @param processPath Path of the process to execute
- * @param args Arguments to the command
- * @param inputs (Optional) Array of inputs (user responses)
- * @param opts (optional) Environment variables
+ * @param {string} processPath Path of the process to execute
+ * @param {Array} args Arguments to the command
+ * @param {Array} inputs (Optional) Array of inputs (user responses)
+ * @param {Object} opts (optional) Environment variables
  */
-function executeWithInput(processPath, args, inputs, opts = {}) {
+function executeWithInput(processPath, args = [], inputs = [], opts = {}) {
   if (!Array.isArray(inputs)) {
     opts = inputs
     inputs = []
   }
 
-  const { env = null, timeout = 100, maxTimeout = 10000 } = opts
+  const { env = null, timeout = 250, maxTimeout = 10000 } = opts
   const childProcess = createProcess(processPath, args, env)
   childProcess.stdin.setEncoding('utf-8')
 
@@ -64,12 +83,12 @@ function executeWithInput(processPath, args, inputs, opts = {}) {
   // Creates a loop to feed user inputs to the child process in order to get results from the tool
   // This code is heavily inspired (if not blantantly copied) from inquirer-test:
   // https://github.com/ewnd9/inquirer-test/blob/6e2c40bbd39a061d3e52a8b1ee52cdac88f8d7f7/index.js#L14
-  const loop = ins => {
+  const loop = inputs => {
     if (killIOTimeout) {
       clearTimeout(killIOTimeout)
     }
 
-    if (!ins.length) {
+    if (!inputs.length) {
       childProcess.stdin.end()
 
       // Set a timeout to wait for CLI response. If CLI takes longer than
@@ -83,12 +102,12 @@ function executeWithInput(processPath, args, inputs, opts = {}) {
     }
 
     currentInputTimeout = setTimeout(() => {
-      childProcess.stdin.write(ins[0])
+      childProcess.stdin.write(inputs[0])
       // Log debug I/O statements on tests
       if (env && env.DEBUG) {
-        console.log('input:', ins[0]) // eslint-disable-line no-console
+        console.log('input:', inputs[0])
       }
-      loop(ins.slice(1))
+      loop(inputs.slice(1))
     }, timeout)
   }
 
@@ -97,7 +116,7 @@ function executeWithInput(processPath, args, inputs, opts = {}) {
     childProcess.stderr.on('data', data => {
       // Log debug I/O statements on tests
       if (env && env.DEBUG) {
-        console.log('error:', data.toString()) // eslint-disable-line no-console
+        console.log('error:', data.toString())
       }
     })
 
@@ -105,7 +124,7 @@ function executeWithInput(processPath, args, inputs, opts = {}) {
     childProcess.stdout.on('data', data => {
       // Log debug I/O statements on tests
       if (env && env.DEBUG) {
-        console.log('output:', data.toString()) // eslint-disable-line no-console
+        console.log('output:', data.toString())
       }
     })
 
@@ -130,7 +149,7 @@ function executeWithInput(processPath, args, inputs, opts = {}) {
           clearTimeout(killIOTimeout)
         }
 
-        resolve(result.toString())
+        resolve(getReportFromData(result.toString()))
       })
     )
   })

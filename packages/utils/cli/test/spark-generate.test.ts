@@ -40,7 +40,7 @@ describe('CLI `spark generate` (component package)', () => {
     ]
 
     const assertExpectedFiles = (filePath: string) => {
-      expect(response).toContain(`Created ${packagePath}${filePath}`)
+      expect(response.toString()).toContain(`Created ${packagePath}${filePath}`)
       expect(fse.pathExistsSync(`${packagePath}${filePath}`)).toBe(true)
     }
 
@@ -61,7 +61,7 @@ describe('CLI `spark generate` (component package)', () => {
     const packagePath = path.join(process.cwd(), 'packages', contextPath, packageName)
 
     // THEN it throws an error and fails to create files for this package
-    expect(response).toContain(
+    expect(response.toString()).toContain(
       'Name name must contain letters and dash symbols only (ex: "my-package")'
     )
     expect(fse.pathExistsSync(packagePath)).toBe(false)

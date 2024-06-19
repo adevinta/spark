@@ -16,7 +16,7 @@ const DEFAULT_CONFIG = {
   },
 }
 
-export async function adoption(options) {
+export async function adoption(options = {}) {
   let config = DEFAULT_CONFIG
 
   const configFileRoute = path.join(process.cwd(), options.configuration || '.spark-ui.cjs')
