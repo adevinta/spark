@@ -1,6 +1,6 @@
 import * as process from 'node:process'
 
-import { appendFileSync, existsSync, mkdirSync } from 'fs'
+import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import merge from 'lodash.merge'
 import path from 'path'
 
@@ -114,7 +114,7 @@ export async function adoption(options) {
       if (!existsSync(dir)) {
         mkdirSync(dir, { recursive: true })
       }
-      appendFileSync(`${path.join(process.cwd(), output)}`, JSON.stringify(result, null, 2))
+      writeFileSync(`${path.join(process.cwd(), output)}`, JSON.stringify(result, null, 2))
     } catch (err) {
       logger.error(`💥 Error writing file: ${err}`)
       process.exit(1)
