@@ -25,7 +25,7 @@ export interface AccordionProps extends ExtentedZagInterface {
    */
   disabled?: boolean
   /**
-   * Whether multple accordion items can be expanded at the same time.
+   * Whether multiple accordion items can be expanded at the same time.
    */
   multiple?: boolean
   /**
