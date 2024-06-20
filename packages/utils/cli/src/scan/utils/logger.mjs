@@ -30,26 +30,21 @@ export class Logger {
 
   error(...args) {
     this.#log({ type: chalk.red, force: this.#force, verbose: this.verbose }, ...args)
-    // this.verbose && console.log(chalk.red(...args))
   }
 
   warn(...args) {
     this.#log({ type: chalk.yellow, force: this.#force, verbose: this.verbose }, ...args)
-    // this.verbose && console.log(chalk.yellow(...args))
   }
 
   info(...args) {
     this.#log({ type: chalk.cyan, force: this.#force, verbose: this.verbose }, ...args)
-    // this.verbose && console.log(chalk.cyan(...args))
   }
 
   success(...args) {
     this.#log({ type: chalk.green, force: this.#force, verbose: this.verbose }, ...args)
-    // this.verbose && console.log(chalk.green(...args))
   }
 
   break() {
     this.#log({ type: chalk.green, force: this.#force, verbose: this.verbose }, '')
-    // this.verbose && console.log('')
   }
 }
