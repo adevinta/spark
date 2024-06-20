@@ -4,10 +4,11 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import merge from 'lodash.merge'
 import path from 'path'
 
+import { Logger } from '../core/index.mjs'
 import * as defaultConfig from './config.mjs'
 import { loadConfig } from './loadConfig.mjs'
 import { scanCallback } from './scanCallback.mjs'
-import { Logger, scanDirectories } from './utils/index.mjs'
+import { scanDirectories } from './utils/index.mjs'
 
 export async function adoption(options) {
   const { configuration, ...optionsConfig } = options
@@ -49,7 +50,7 @@ export async function adoption(options) {
         `🎉 Found ${response.importCount - importCount} imports with "${moduleName}" modules across directory ${directoryPath}.`
       )
     } else {
-      logger.warn(
+      logger.warning(
         `⚠️ No files found with "${moduleName}" imports across directory ${directoryPath}.`
       )
     }

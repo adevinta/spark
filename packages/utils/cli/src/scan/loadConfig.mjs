@@ -19,7 +19,7 @@ export async function loadConfig(configFileRoute, { logger }) {
 
       return config
     } else {
-      logger.warn('⚠️ No custom configuration file found')
+      logger.warning('⚠️ No custom configuration file found')
       logger.info('ℹ️ Loading default configuration')
 
       return { ...defaultConfig }
