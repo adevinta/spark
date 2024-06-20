@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/icon",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "Accessible icon wrapper",
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/popover",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "Displays rich content in a portal, triggered by a button.",
   "publishConfig": {
     "access": "public"
@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@radix-ui/react-popover": "1.0.7",
-    "@spark-ui/icon": "^2.1.6",
+    "@spark-ui/icon": "^2.1.7",
     "@spark-ui/icon-button": "^2.2.8",
     "@spark-ui/icons": "^1.21.10"
   },

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/adevinta/spark/compare/@spark-ui/icon@2.1.6...@spark-ui/icon@2.1.7) (2024-06-20)
+
+### Bug Fixes
+
+- **icon:** fix icon shrinking inside flex containers ([15fa0ca](https://github.com/adevinta/spark/commit/15fa0ca2353973699ed97f4faae152ba96d90880))
+
 ## [2.1.6](https://github.com/adevinta/spark/compare/@spark-ui/icon@2.1.5...@spark-ui/icon@2.1.6) (2024-06-15)
 
 **Note:** Version bump only for package @spark-ui/icon
