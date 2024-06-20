@@ -45,7 +45,7 @@ describe('CLI `spark generate` (component package)', () => {
       '/src/Bar.stories.tsx',
       '/tsconfig.json',
     ].forEach((filePath: string) => {
-      expect(response).toContain(`Created ${packagePath}${filePath}`)
+      expect(response.toString()).toContain(`Created ${packagePath}${filePath}`)
       expect(fse.pathExistsSync(`${packagePath}${filePath}`)).toBe(true)
     })
   })
@@ -53,7 +53,7 @@ describe('CLI `spark generate` (component package)', () => {
   it('should prevent generating package when argument are invalid', async () => {
     const response = await cliProcess.execute(['generate'], ['123', ENTER])
 
-    expect(response).toContain(
+    expect(response.toString()).toContain(
       'Name name must contain letters and dash symbols only (ex: "my-package")'
     )
 
