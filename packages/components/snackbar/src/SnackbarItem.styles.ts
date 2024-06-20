@@ -87,9 +87,8 @@ export const snackbarItemVariant = cva(
           "[grid-template-areas:'icon_message_close'_'._message_.'_'action_action_action']",
         ],
         false: [
-          'grid-rows-[52px_1fr]',
           'grid-cols-[min-content_1fr_min-content_min-content]',
-          "[grid-template-areas:'icon_message_action_close'_'._message_._.']",
+          "[grid-template-areas:'icon_message_action_close']",
         ],
       },
     },

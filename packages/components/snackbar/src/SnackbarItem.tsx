@@ -91,6 +91,8 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
 
     const { state: swipeState, direction: swipeDirection } = useSwipe({
       swipeRef: ref,
+      onSwipeStart: state.pauseAll,
+      onSwipeCancel: state.resumeAll,
       onSwipeEnd: ({ direction }) => {
         ;['left', 'right'].includes(`${direction}`) && state.close(toast.key)
       },
@@ -137,8 +139,10 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
         {...toastProps}
         {...rest}
         data-animation={toast.animation}
-        data-swipe={swipeState}
-        data-swipe-direction={swipeDirection}
+        {...(!(swipeState === 'cancel' && toast.animation === 'exiting') && {
+          'data-swipe': swipeState,
+          'data-swipe-direction': swipeDirection,
+        })}
         {...(toast.animation === 'exiting' && {
           // Remove snackbar when the exiting animation completes
           onAnimationEnd: () => state.remove(toast.key),

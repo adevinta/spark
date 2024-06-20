@@ -1,4 +1,5 @@
 import { Checkbox, CheckboxGroup } from '@spark-ui/checkbox'
+import { Tag } from '@spark-ui/tag'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
@@ -13,9 +14,13 @@ export default meta
 
 export const Default: StoryFn = () => {
   return (
-    <Accordion>
-      <Accordion.Item value="a">
-        <Accordion.ItemTrigger>Watercraft</Accordion.ItemTrigger>
+    <Accordion defaultValue={['watercraft']}>
+      <Accordion.Item value="watercraft">
+        <Accordion.ItemHeader asChild>
+          <h4>
+            <Accordion.ItemTrigger>Watercraft</Accordion.ItemTrigger>
+          </h4>
+        </Accordion.ItemHeader>
         <Accordion.ItemContent>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
@@ -24,8 +29,12 @@ export const Default: StoryFn = () => {
         </Accordion.ItemContent>
       </Accordion.Item>
 
-      <Accordion.Item value="b">
-        <Accordion.ItemTrigger>Automobiles</Accordion.ItemTrigger>
+      <Accordion.Item value="automobiles">
+        <Accordion.ItemHeader asChild>
+          <h4>
+            <Accordion.ItemTrigger>Automobiles</Accordion.ItemTrigger>
+          </h4>
+        </Accordion.ItemHeader>
         <Accordion.ItemContent>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
@@ -34,8 +43,12 @@ export const Default: StoryFn = () => {
         </Accordion.ItemContent>
       </Accordion.Item>
 
-      <Accordion.Item value="c">
-        <Accordion.ItemTrigger>Aircrafts</Accordion.ItemTrigger>
+      <Accordion.Item value="aircrafts">
+        <Accordion.ItemHeader asChild>
+          <h4>
+            <Accordion.ItemTrigger>Aircrafts</Accordion.ItemTrigger>
+          </h4>
+        </Accordion.ItemHeader>
         <Accordion.ItemContent>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
@@ -50,7 +63,7 @@ export const Default: StoryFn = () => {
 export const Disabled: StoryFn = () => {
   return (
     <Accordion disabled>
-      <Accordion.Item value="a">
+      <Accordion.Item value="watercraft">
         <Accordion.ItemTrigger>Watercraft</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -60,7 +73,7 @@ export const Disabled: StoryFn = () => {
         </Accordion.ItemContent>
       </Accordion.Item>
 
-      <Accordion.Item value="b">
+      <Accordion.Item value="automobiles">
         <Accordion.ItemTrigger>Automobiles</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -70,7 +83,7 @@ export const Disabled: StoryFn = () => {
         </Accordion.ItemContent>
       </Accordion.Item>
 
-      <Accordion.Item value="c">
+      <Accordion.Item value="aircrafts">
         <Accordion.ItemTrigger>Aircrafts</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -83,10 +96,57 @@ export const Disabled: StoryFn = () => {
   )
 }
 
+export const Design: StoryFn = _args => {
+  const designs = ['outlined', 'filled'] as const
+
+  return (
+    <div className="grid grid-cols-2 gap-xl bg-main-container p-xl">
+      {designs.map(design => {
+        return (
+          <div>
+            <Tag className="mb-sm">{design}</Tag>
+            <Accordion design={design} defaultValue={['watercraft']}>
+              <Accordion.Item value="watercraft">
+                <Accordion.ItemTrigger>Watercraft</Accordion.ItemTrigger>
+                <Accordion.ItemContent>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </Accordion.ItemContent>
+              </Accordion.Item>
+
+              <Accordion.Item value="automobiles">
+                <Accordion.ItemTrigger>Automobiles</Accordion.ItemTrigger>
+                <Accordion.ItemContent>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </Accordion.ItemContent>
+              </Accordion.Item>
+
+              <Accordion.Item value="aircrafts">
+                <Accordion.ItemTrigger>Aircrafts</Accordion.ItemTrigger>
+                <Accordion.ItemContent>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </Accordion.ItemContent>
+              </Accordion.Item>
+            </Accordion>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export const DisabledItem: StoryFn = () => {
   return (
-    <Accordion>
-      <Accordion.Item value="a">
+    <Accordion defaultValue={['watercraft']}>
+      <Accordion.Item value="watercraft">
         <Accordion.ItemTrigger>Watercraft</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -96,7 +156,7 @@ export const DisabledItem: StoryFn = () => {
         </Accordion.ItemContent>
       </Accordion.Item>
 
-      <Accordion.Item value="b" disabled>
+      <Accordion.Item value="automobiles" disabled>
         <Accordion.ItemTrigger>Automobiles</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -106,7 +166,7 @@ export const DisabledItem: StoryFn = () => {
         </Accordion.ItemContent>
       </Accordion.Item>
 
-      <Accordion.Item value="c">
+      <Accordion.Item value="aircrafts">
         <Accordion.ItemTrigger>Aircrafts</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -121,8 +181,8 @@ export const DisabledItem: StoryFn = () => {
 
 export const Multiple: StoryFn = () => {
   return (
-    <Accordion multiple defaultValue={['b', 'c']}>
-      <Accordion.Item value="a">
+    <Accordion multiple defaultValue={['watercraft']}>
+      <Accordion.Item value="watercraft">
         <Accordion.ItemTrigger>Watercraft</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -132,7 +192,7 @@ export const Multiple: StoryFn = () => {
         </Accordion.ItemContent>
       </Accordion.Item>
 
-      <Accordion.Item value="b">
+      <Accordion.Item value="automobiles">
         <Accordion.ItemTrigger>Automobiles</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -142,7 +202,7 @@ export const Multiple: StoryFn = () => {
         </Accordion.ItemContent>
       </Accordion.Item>
 
-      <Accordion.Item value="c">
+      <Accordion.Item value="aircrafts">
         <Accordion.ItemTrigger>Aircrafts</Accordion.ItemTrigger>
         <Accordion.ItemContent>
           <p>
@@ -156,7 +216,7 @@ export const Multiple: StoryFn = () => {
 }
 
 export const Controlled: StoryFn = () => {
-  const [value, setValue] = useState(['b', 'c'])
+  const [value, setValue] = useState(['watercraft'])
 
   return (
     <div>
@@ -166,13 +226,13 @@ export const Controlled: StoryFn = () => {
         onCheckedChange={setValue}
         className="mb-lg"
       >
-        <Checkbox value="a">Watercraft</Checkbox>
-        <Checkbox value="b">Automobiles</Checkbox>
-        <Checkbox value="c">Aircrafts</Checkbox>
+        <Checkbox value="watercraft">Watercraft</Checkbox>
+        <Checkbox value="automobiles">Automobiles</Checkbox>
+        <Checkbox value="aircrafts">Aircrafts</Checkbox>
       </CheckboxGroup>
 
       <Accordion multiple value={value} onValueChange={setValue}>
-        <Accordion.Item value="a">
+        <Accordion.Item value="watercraft">
           <Accordion.ItemTrigger>Watercraft</Accordion.ItemTrigger>
           <Accordion.ItemContent>
             <p>
@@ -182,7 +242,7 @@ export const Controlled: StoryFn = () => {
           </Accordion.ItemContent>
         </Accordion.Item>
 
-        <Accordion.Item value="b">
+        <Accordion.Item value="automobiles">
           <Accordion.ItemTrigger>Automobiles</Accordion.ItemTrigger>
           <Accordion.ItemContent>
             <p>
@@ -192,7 +252,7 @@ export const Controlled: StoryFn = () => {
           </Accordion.ItemContent>
         </Accordion.Item>
 
-        <Accordion.Item value="c">
+        <Accordion.Item value="aircrafts">
           <Accordion.ItemTrigger>Aircrafts</Accordion.ItemTrigger>
           <Accordion.ItemContent>
             <p>

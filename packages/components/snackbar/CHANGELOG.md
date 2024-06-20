@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@1.1.5...@spark-ui/snackbar@1.1.6) (2024-06-18)
+
+### Bug Fixes
+
+- **snackbar:** adds timer pause during swipe gesture ([d300e03](https://github.com/adevinta/spark/commit/d300e036e5970dfa3f40fa05ab0c20523b6e162b))
+- **snackbar:** reset data-attributes related to swipe after cancel ([9917041](https://github.com/adevinta/spark/commit/9917041a93f8faa1fa796af2821b089b5496ff39))
+
 ## [1.1.5](https://github.com/adevinta/spark/compare/@spark-ui/snackbar@1.1.4...@spark-ui/snackbar@1.1.5) (2024-06-15)
 
 **Note:** Version bump only for package @spark-ui/snackbar

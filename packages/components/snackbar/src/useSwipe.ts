@@ -26,10 +26,8 @@ export const useSwipe = <T extends HTMLElement>({
   threshold = 10,
 }: SwipeArgs<T>): SwipeReturn => {
   const [state, setState] = useState<SwipeReturn['state']>()
-  const [direction, setDirection] = useState<SwipeReturn['direction']>()
 
-  const directionRef = useRef<SwipeReturn['direction']>(direction)
-
+  const direction = useRef<SwipeReturn['direction']>()
   const origin = useRef<Record<'x' | 'y', number> | null>(null)
   const delta = useRef<Record<'x' | 'y', number> | null>(null)
 
@@ -49,24 +47,23 @@ export const useSwipe = <T extends HTMLElement>({
     const deltaY = Math.abs(evt.clientY - origin.current.y)
 
     let moveState: SwipeReturn['state']
-    let moveDirection: SwipeReturn['direction']
 
     if (deltaX > deltaY && deltaX > threshold) {
-      moveDirection = evt.clientX > origin.current.x ? 'right' : 'left'
+      direction.current = evt.clientX > origin.current.x ? 'right' : 'left'
     } else if (deltaY > threshold) {
-      moveDirection = evt.clientY > origin.current.y ? 'down' : 'up'
+      direction.current = evt.clientY > origin.current.y ? 'down' : 'up'
     }
 
     /**
      * If no direction could be defined, then no move should be handled.
      * This is particularly true with trackpads working with MacOS/Windows.
      */
-    if (!moveDirection) return
+    if (!direction.current) return
 
     if (!delta.current) {
       moveState = 'start'
       delta.current = { x: deltaX, y: deltaY }
-      onSwipeStart?.({ state: moveState, direction: moveDirection })
+      onSwipeStart?.({ state: moveState, direction: direction.current })
     } else {
       moveState = 'move'
       delta.current = { x: deltaX, y: deltaY }
@@ -78,12 +75,10 @@ export const useSwipe = <T extends HTMLElement>({
         '--swipe-position-y',
         `${!(deltaX > deltaY) ? evt.clientY - origin.current.y : 0}px`
       )
-      onSwipeMove?.({ state: moveState, direction: moveDirection })
+      onSwipeMove?.({ state: moveState, direction: direction.current })
     }
 
-    directionRef.current = moveDirection
     setState(moveState)
-    setDirection(moveDirection)
   }
 
   const handleSwipeEnd = () => {
@@ -100,18 +95,18 @@ export const useSwipe = <T extends HTMLElement>({
       if (deltaX > deltaY) {
         if (deltaX > SWIPE_THRESHOLD) {
           endState = 'end'
-          onSwipeEnd?.({ state: endState, direction: directionRef.current })
+          onSwipeEnd?.({ state: endState, direction: direction.current })
         } else {
           endState = 'cancel'
-          onSwipeCancel?.({ state: endState, direction: directionRef.current })
+          onSwipeCancel?.({ state: endState, direction: direction.current })
         }
       } else {
         if (deltaY > SWIPE_THRESHOLD) {
           endState = 'end'
-          onSwipeEnd?.({ state: endState, direction: directionRef.current })
+          onSwipeEnd?.({ state: endState, direction: direction.current })
         } else {
           endState = 'cancel'
-          onSwipeCancel?.({ state: endState, direction: directionRef.current })
+          onSwipeCancel?.({ state: endState, direction: direction.current })
         }
       }
 
@@ -143,6 +138,6 @@ export const useSwipe = <T extends HTMLElement>({
 
   return {
     state,
-    direction,
+    direction: direction.current,
   }
 }

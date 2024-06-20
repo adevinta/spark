@@ -55,7 +55,13 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
     useEffect(() => {
       addProvider(ref)
 
-      return () => deleteProvider(ref)
+      return () => {
+        for (const toast of getGlobalSnackBarQueue().visibleToasts) {
+          toast.animation = undefined
+        }
+
+        deleteProvider(ref)
+      }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
