@@ -8,7 +8,7 @@ type ExtentedZagInterface = Omit<
   accordion.Context,
   'id' | 'ids' | 'orientation' | 'getRootNode' | 'onValueChange'
 > &
-  ComponentPropsWithoutRef<'div'>
+  Omit<ComponentPropsWithoutRef<'div'>, 'defaultChecked'>
 
 export interface AccordionProps extends ExtentedZagInterface {
   /**
@@ -25,7 +25,7 @@ export interface AccordionProps extends ExtentedZagInterface {
    */
   disabled?: boolean
   /**
-   * Whether multple accordion items can be expanded at the same time.
+   * Whether multiple accordion items can be expanded at the same time.
    */
   multiple?: boolean
   /**
@@ -36,9 +36,15 @@ export interface AccordionProps extends ExtentedZagInterface {
    * The callback fired when the state of expanded/collapsed accordion items changes.
    */
   onValueChange?: (value: string[]) => void
+  design?: 'filled' | 'outlined'
 }
 
-const AccordionContext = createContext<accordion.Api<PropTypes> | null>(null)
+const AccordionContext = createContext<
+  | (accordion.Api<PropTypes> & {
+      design: 'filled' | 'outlined'
+    })
+  | null
+>(null)
 
 export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   (
@@ -48,6 +54,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
       collapsible = true,
       className,
       defaultValue,
+      design = 'outlined',
       disabled = false,
       multiple = false,
       value,
@@ -63,7 +70,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
       value,
       disabled,
       // onValueChange,
-      className: cx('bg-surface rounded-lg', className),
+      className: cx('bg-surface rounded-lg h-fit', className),
       ...props,
     })
 
@@ -81,17 +88,13 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
       { context: machineProps }
     )
 
-    const api = accordion.connect(state, send, normalizeProps)
-
     const Component = asChild ? Slot : 'div'
+    const api = accordion.connect(state, send, normalizeProps)
+    const mergedProps = mergeProps(api.getRootProps(), localProps)
 
     return (
-      <AccordionContext.Provider value={api}>
-        <Component
-          data-spark-component="accordion"
-          ref={ref}
-          {...mergeProps(api.getRootProps(), localProps)}
-        >
+      <AccordionContext.Provider value={{ ...api, design }}>
+        <Component data-spark-component="accordion" ref={ref} {...mergedProps}>
           {children}
         </Component>
       </AccordionContext.Provider>

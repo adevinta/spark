@@ -19,28 +19,31 @@ export const ItemTrigger = forwardRef<HTMLButtonElement, AccordionItemTriggerPro
 
     const Component = asChild ? Slot : 'button'
 
-    const itemTriggerProps = mergeProps(
+    const localProps = {
+      ...props,
+      className: cx(
+        'relative flex gap-lg justify-between items-center min-h-sz-48',
+        'w-full px-lg py-md text-left text-headline-2 text-on-surface rounded-[inherit] data-[state=open]:rounded-b-none',
+        'hover:enabled:bg-surface-hovered focus:bg-surface-hovered',
+        'focus-visible:u-ring focus-visible:outline-none focus-visible:z-raised',
+        'disabled:opacity-dim-3 disabled:cursor-not-allowed',
+        className
+      ),
+    }
+
+    const mergedProps = mergeProps(
       getItemTriggerProps({ value, ...(disabled && { disabled }) }),
-      {
-        ...props,
-        className: cx(
-          'relative flex gap-lg justify-between items-center',
-          'w-full px-lg py-md text-left text-headline-2 text-on-surface rounded-[inherit] data-[state=open]:rounded-b-none',
-          'hover:enabled:bg-surface-hovered focus:bg-surface-hovered',
-          'focus-visible:u-ring focus-visible:outline-none focus-visible:z-raised',
-          'disabled:opacity-dim-3 disabled:cursor-not-allowed',
-          className
-        ),
-      }
+      localProps
     )
 
-    const isOpen = !!itemTriggerProps['aria-expanded']
+    const isOpen = !!mergedProps['aria-expanded']
 
     return (
-      <Component ref={ref} data-spark-component="accordion-item-trigger" {...itemTriggerProps}>
-        <div>{children}</div>
+      <Component ref={ref} data-spark-component="accordion-item-trigger" {...mergedProps}>
+        <div className="flex items-center gap-lg">{children}</div>
         <Icon
-          className={cx('ml-md shrink-0 rotate-0 transition duration-100 ease-in', {
+          intent="neutral"
+          className={cx('shrink-0 rotate-0 transition duration-100 ease-in', {
             'rotate-180': isOpen,
           })}
           size="sm"

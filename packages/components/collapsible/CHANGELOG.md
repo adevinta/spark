@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/adevinta/spark/compare/@spark-ui/collapsible@1.2.0...@spark-ui/collapsible@1.3.0) (2024-06-17)
+
+### Features
+
+- **collapsible:** update types ([1acf698](https://github.com/adevinta/spark/commit/1acf698293da84110acb7d7930cb48e3ed1c8f80))
+
 # [1.2.0](https://github.com/adevinta/spark/compare/@spark-ui/collapsible@1.1.0...@spark-ui/collapsible@1.2.0) (2024-06-15)
 
 ### Features

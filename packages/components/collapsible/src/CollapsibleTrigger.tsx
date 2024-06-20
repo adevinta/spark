@@ -10,16 +10,12 @@ export interface CollapsibleTriggerProps extends ComponentPropsWithoutRef<'butto
 
 export const Trigger = forwardRef<HTMLButtonElement, CollapsibleTriggerProps>(
   ({ asChild = false, children, ...props }, ref) => {
-    const { getTriggerProps } = useCollapsibleContext()
-
+    const collapsibleContext = useCollapsibleContext()
     const Component = asChild ? Slot : 'button'
+    const mergedProps = mergeProps(collapsibleContext.getTriggerProps(), props)
 
     return (
-      <Component
-        ref={ref}
-        data-spark-component="collapsible-trigger"
-        {...mergeProps(getTriggerProps(), props)}
-      >
+      <Component ref={ref} data-spark-component="collapsible-trigger" {...mergedProps}>
         {children}
       </Component>
     )
