@@ -26,7 +26,6 @@ export async function adoption(options) {
       }
     ),
   }
-  console.log(JSON.stringify(config, null, 2))
 
   let importCount = 0
   const importResults = {}
