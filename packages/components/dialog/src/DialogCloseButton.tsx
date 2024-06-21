@@ -22,18 +22,21 @@ const Root = forwardRef<CloseButtonElement, CloseButtonProps>(
       ...rest
     },
     ref
-  ) => (
-    <Close
-      ref={ref}
-      className={cx(['absolute', 'top-md', 'right-xl'], className)}
-      asChild
-      {...rest}
-    >
-      <IconButton intent={intent} size={size} design={design} aria-label={ariaLabel}>
-        <Icon>{children}</Icon>
-      </IconButton>
-    </Close>
-  )
+  ) => {
+    return (
+      <Close
+        data-part="close"
+        ref={ref}
+        className={cx(['absolute', 'top-md', 'right-xl'], className)}
+        asChild
+        {...rest}
+      >
+        <IconButton intent={intent} size={size} design={design} aria-label={ariaLabel}>
+          <Icon>{children}</Icon>
+        </IconButton>
+      </Close>
+    )
+  }
 )
 
 export const CloseButton = Object.assign(Root, {
