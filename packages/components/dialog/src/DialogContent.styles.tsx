@@ -1,11 +1,11 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
 export const dialogContentStyles = cva(
-  ['z-modal flex flex-col bg-surface', 'focus-visible:outline-none focus-visible:u-ring'],
+  ['z-modal flex flex-col bg-surface group', 'focus-visible:outline-none focus-visible:u-ring'],
   {
     variants: {
       size: {
-        fullscreen: 'fixed w-full h-full  top-none left-none',
+        fullscreen: 'fixed size-full top-none  left-none',
         sm: 'max-w-sz-480',
         md: 'max-w-sz-672',
         lg: 'max-w-sz-864',
