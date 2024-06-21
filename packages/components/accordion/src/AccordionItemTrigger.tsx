@@ -43,7 +43,7 @@ export const ItemTrigger = forwardRef<HTMLButtonElement, AccordionItemTriggerPro
         <div className="flex items-center gap-lg">{children}</div>
         <Icon
           intent="neutral"
-          className={cx('shrink-0 rotate-0 transition duration-100 ease-in', {
+          className={cx('shrink-0 rotate-0 duration-100 ease-in motion-reduce:transition-none', {
             'rotate-180': isOpen,
           })}
           size="sm"
