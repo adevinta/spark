@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.7](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.12.6...@spark-ui/dialog@1.12.7) (2024-06-21)
+
+### Bug Fixes
+
+- **dialog:** adjust the handling of hasCloseButton flag to avoid potential infinite loop (React 19) ([9a6db95](https://github.com/adevinta/spark/commit/9a6db959dd6298c74300b842a424cdf690b85653))
+
 ## [1.12.6](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.12.5...@spark-ui/dialog@1.12.6) (2024-06-20)
 
 **Note:** Version bump only for package @spark-ui/dialog
