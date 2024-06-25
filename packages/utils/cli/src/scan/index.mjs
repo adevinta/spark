@@ -7,7 +7,7 @@ import merge from 'lodash.merge'
 import path from 'path'
 
 import { Logger } from '../core/index.mjs'
-import defaultConfig from './config.mjs'
+import * as defaultConfig from './config.mjs'
 import { loadConfig } from './loadConfig.mjs'
 import { scanCallback } from './scanCallback.mjs'
 import { scanDirectories } from './utils/index.mjs'
