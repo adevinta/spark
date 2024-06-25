@@ -11,15 +11,11 @@ program
   .option('-c, --configuration <config>', 'configuration file route')
   .option('-o, --output <output>', 'output file route')
   .option('-v, --verbose', 'output log information', false)
-  .option('-d, --details', 'output information about each match', config.adoption.details)
-  .option('-s, --sort <sort>', 'sort results (count or alphabetical)', config.adoption.sort)
-  .option('-dir, --directory <directory>', 'directory to parse', config.adoption.directory)
-  .option(
-    '-ext, --extensions <extensions...>',
-    'file extensions to parse',
-    config.adoption.extensions
-  )
-  .option('-i, --imports <imports...>', 'import patterns to identify', config.adoption.imports)
+  .option('-d, --details', 'output information about each match', config.details)
+  .option('-s, --sort <sort>', 'sort results (count or alphabetical)', config.sort)
+  .option('-dir, --directory <directory>', 'directory to parse', config.directory)
+  .option('-ext, --extensions <extensions...>', 'file extensions to parse', config.extensions)
+  .option('-i, --imports <imports...>', 'import patterns to identify', config.imports)
   .action(adoption)
 
 program.parse(process.argv)
