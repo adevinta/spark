@@ -3,7 +3,7 @@ import process from 'node:process'
 import { existsSync } from 'fs'
 import path from 'path'
 
-import * as defaultConfig from './config.mjs'
+import defaultConfig from './config.cjs'
 
 export async function loadConfig(configuration, { logger }) {
   try {
@@ -14,10 +14,10 @@ export async function loadConfig(configuration, { logger }) {
 
       const config = {
         adoption: {
-          ...defaultConfig,
+          ...defaultConfig.adoption,
           ...customConfig.adoption,
-          imports: customConfig.adoption.imports || defaultConfig.imports,
-          extensions: customConfig.adoption.extensions || defaultConfig.extensions,
+          imports: customConfig.adoption.imports || defaultConfig.adoption.imports,
+          extensions: customConfig.adoption.extensions || defaultConfig.adoption.extensions,
         },
       }
 
