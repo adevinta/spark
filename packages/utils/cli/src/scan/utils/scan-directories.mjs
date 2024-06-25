@@ -19,6 +19,8 @@ export function scanDirectories(
     importsCount,
   }
 
+  console.log('extensions: ', extensions)
+
   for (const file of files) {
     const filePath = path.join(directoryPath, file)
     const stats = fs.statSync(filePath)

@@ -3,7 +3,7 @@ export default {
     details: false,
     sort: 'count',
     imports: ['@spark-ui'],
-    extensions: ['.tsx', '.ts'],
+    extensions: ['.css'],
     directory: '.',
     output: null,
   },

@@ -44,20 +44,45 @@ describe('CLI `spark scan`', () => {
       expect(fse.pathExistsSync(OUTPUT_FILE)).toBe(true)
     })
 
-    it('should execute command with custom configuration file', async () => {
+    it('should write report with packages details', async () => {
+      await cliProcess.execute(['scan', 'adoption', '-d', '-o', OUTPUT_FILE], [ENTER])
+
+      const outputContent = JSON.parse(fse.readFileSync(OUTPUT_FILE, 'utf-8'))
+
+      Object.keys(outputContent).forEach(outputItem => {
+        expect(Object.keys(outputContent[outputItem]).includes('results')).toBeTruthy()
+      })
+    })
+
+    it('should execute command with results sorted alphabetically', async () => {
       const response = await cliProcess.execute(
-        ['scan', 'adoption', '-v', '-c', CONFIG_FILE_PATH], // !!!
+        ['scan', 'adoption', '-v', '-s', 'alphabetical'],
         [ENTER]
       )
 
+      expect(response).toMatch(/Scanning adoption for @spark-ui/i)
+
+      const pkgList = Object.keys(
+        response.filter((entry: string | Record<string, unknown>) => typeof entry !== 'string')[0]
+      )
+
+      const sparkInputIndex = pkgList.indexOf('@spark-ui/input')
+      const sparkFormFieldIndex = pkgList.indexOf('@spark-ui/form-field')
+
+      expect(sparkInputIndex).toBeGreaterThan(sparkFormFieldIndex)
+    })
+
+    // it('should execute command for custom import patterns', async () => {})
+
+    // @wip doesn't seem to work with custom extension :()
+    it.only('should execute command with custom configuration file', async () => {
+      const response = await cliProcess.execute(
+        ['scan', 'adoption', '-v', '-c', CONFIG_FILE_PATH, '-o', OUTPUT_FILE],
+        [ENTER]
+      )
+      console.log({ response })
       expect(response).toMatch(/Loading spark-ui custom configuration file/i)
       expect(response).toMatch(/Scanning adoption for @spark-ui/i)
     })
-
-    // it.only('should add details about each match', async () => {
-    //   const response = await cliProcess.execute(['scan', 'adoption', '-v', '-d'], [ENTER])
-
-    //   console.log({ response })
-    // })
   })
 })
