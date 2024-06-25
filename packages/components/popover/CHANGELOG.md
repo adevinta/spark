@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.7.4...@spark-ui/popover@1.8.0) (2024-06-25)
+
+### Features
+
+- **popover:** use css "has" selector rather than JS to apply specific styles ([293fe01](https://github.com/adevinta/spark/commit/293fe014f041011044e3a5b13000871daadab7b5))
+
 ## [1.7.4](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.7.3...@spark-ui/popover@1.7.4) (2024-06-20)
 
 **Note:** Version bump only for package @spark-ui/popover
