@@ -7,17 +7,16 @@ import merge from 'lodash.merge'
 import path from 'path'
 
 import { Logger } from '../core/index.mjs'
-import * as defaultConfig from './config.mjs'
+import defaultConfig from './config.mjs'
 import { loadConfig } from './loadConfig.mjs'
 import { scanCallback } from './scanCallback.mjs'
 import { scanDirectories } from './utils/index.mjs'
 
 export async function adoption(options = {}) {
   const { configuration, ...optionsConfig } = options
-  const configFileRoute = path.join(process.cwd(), configuration || '.spark-ui.cjs')
 
   const logger = new Logger({ verbose: optionsConfig.verbose })
-  let config = await loadConfig(configFileRoute, { logger })
+  let config = await loadConfig(configuration, { logger })
 
   config = {
     adoption: merge(
@@ -117,8 +116,8 @@ export async function adoption(options = {}) {
         mkdirSync(dir, { recursive: true })
       }
       writeFileSync(`${path.join(process.cwd(), output)}`, JSON.stringify(result, null, 2))
-    } catch (err) {
-      logger.error(`💥 Error writing file: ${err}`)
+    } catch (error) {
+      logger.error(`💥 Error writing file: ${error}`)
       process.exit(1)
     }
   } else {
