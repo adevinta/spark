@@ -1,7 +1,11 @@
-export const details = false
-export const sort = 'count'
-export const imports = ['@spark-ui']
-export const extensions = ['.tsx', '.ts']
-export const directory = '.'
-export const verbose = false
-export const output = null
+module.exports = {
+  adoption: {
+    details: false,
+    sort: 'count',
+    imports: ['@spark-ui'],
+    extensions: ['.tsx', '.ts'],
+    directory: '.',
+    verbose: false,
+    output: null,
+  },
+}

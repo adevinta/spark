@@ -1,3 +1,5 @@
+/* eslint-disable complexity */
+/* eslint-disable max-lines-per-function */
 import * as process from 'node:process'
 
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
@@ -10,7 +12,7 @@ import { loadConfig } from './loadConfig.mjs'
 import { scanCallback } from './scanCallback.mjs'
 import { scanDirectories } from './utils/index.mjs'
 
-export async function adoption(options) {
+export async function adoption(options = {}) {
   const { configuration, ...optionsConfig } = options
   const configFileRoute = path.join(process.cwd(), configuration || '.spark-ui.cjs')
 
