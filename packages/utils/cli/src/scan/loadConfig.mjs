@@ -8,6 +8,7 @@ import defaultConfig from './config.cjs'
 export async function loadConfig(configuration, { logger }) {
   try {
     const configFileRoute = path.join(process.cwd(), configuration || '.spark-ui.cjs')
+
     if (existsSync(configFileRoute)) {
       logger.info('ℹ️ Loading spark-ui custom configuration file')
       const { default: customConfig } = await import(configFileRoute)
