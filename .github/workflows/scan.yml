@@ -26,7 +26,7 @@ jobs:
           debug: 'true'
           details: 'false'
           sort: 'alphabetical'
-          directory: 'packages'
+          directory: 'packages/components/accordion'
           imports: '@spark-ui'
           datadog-metrics: 'true'
           organisation-name: 'adevinta'
