@@ -30,6 +30,5 @@ jobs:
           imports: '@spark-ui'
           datadog-metrics: 'true'
           organisation-name: 'adevinta'
-          extensions: '.tsx,.ts'
           authorisation_user: ${{ secrets.ADEVINTA_AUTHORISATION_USER }}
           authorisation_password: ${{ secrets.ADEVINTA_AUTHORISATION_PASSWORD }}
