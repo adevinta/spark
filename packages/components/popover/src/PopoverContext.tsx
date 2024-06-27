@@ -14,8 +14,6 @@ export type PopoverIntent =
   | 'info'
   | 'neutral'
 export interface PopoverContextState {
-  hasCloseButton: boolean
-  setHasCloseButton: (value: boolean) => void
   headerId: HeaderId
   setHeaderId: (id: HeaderId) => void
   intent: PopoverIntent
@@ -32,14 +30,11 @@ export const PopoverProvider = ({
   children: ReactNode
   intent: PopoverIntent
 }) => {
-  const [hasCloseButton, setHasCloseButton] = useState(false)
   const [headerId, setHeaderId] = useState<HeaderId>(null)
 
   return (
     <PopoverContext.Provider
       value={{
-        hasCloseButton,
-        setHasCloseButton,
         headerId,
         setHeaderId,
         intent,

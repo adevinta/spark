@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/adevinta/spark/compare/@spark-ui/accordion@1.0.0...@spark-ui/accordion@1.0.1) (2024-06-25)
+
+**Note:** Version bump only for package @spark-ui/accordion
+
+# [1.0.0](https://github.com/adevinta/spark/compare/@spark-ui/accordion@0.4.3...@spark-ui/accordion@1.0.0) (2024-06-20)
+
+### Bug Fixes
+
+- **accordion:** accordion stable release ([c957f90](https://github.com/adevinta/spark/commit/c957f90b9240b89f1be714436c50bbb64c50505e))
+
+## [0.4.3](https://github.com/adevinta/spark/compare/@spark-ui/accordion@0.4.2...@spark-ui/accordion@0.4.3) (2024-06-20)
+
+**Note:** Version bump only for package @spark-ui/accordion
+
 ## [0.4.2](https://github.com/adevinta/spark/compare/@spark-ui/accordion@0.4.1...@spark-ui/accordion@0.4.2) (2024-06-20)
 
 ### Bug Fixes

@@ -31,7 +31,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
     },
     ref
   ) => {
-    const { hasCloseButton, headerId, intent } = usePopover()
+    const { headerId, intent } = usePopover()
 
     return (
       <RadixPopover.Content
@@ -39,7 +39,6 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
         className={styles({
           enforceBoundaries: !!collisionBoundary,
           matchTriggerWidth,
-          hasCloseButton,
           inset,
           elevation,
           intent,

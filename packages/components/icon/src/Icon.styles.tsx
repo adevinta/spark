@@ -1,7 +1,7 @@
 import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const iconStyles = cva(['fill-current'], {
+export const iconStyles = cva(['fill-current shrink-0'], {
   variants: {
     /**
      * Color scheme of the icon.

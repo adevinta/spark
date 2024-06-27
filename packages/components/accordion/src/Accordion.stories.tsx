@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { Accordion } from '.'
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Experimental/Accordion',
+  title: 'Components/Accordion',
   component: Accordion,
 }
 
