@@ -27,12 +27,7 @@ export const styles = cva(
       enforceBoundaries: {
         true: ['max-w-[--radix-popper-available-width]'],
       },
-      /**
-       * When there is a close button, padding to the right side must be adjusted to avoid content overlapping with it.
-       */
-      hasCloseButton: {
-        true: 'pr-[40px]',
-      },
+
       inset: {
         true: 'overflow-hidden',
         false: 'p-lg',
@@ -44,9 +39,11 @@ export const styles = cva(
     },
     compoundVariants: [
       {
-        hasCloseButton: true,
-        inset: true,
-        class: 'pr-none',
+        inset: false,
+        /**
+         * When there is a close button, padding to the right side must be adjusted to avoid content overlapping with it.
+         */
+        class: 'has-[[data-spark-component=popover-close-button]]:pr-3xl',
       },
       {
         enforceBoundaries: false,
@@ -57,7 +54,6 @@ export const styles = cva(
     defaultVariants: {
       matchTriggerWidth: false,
       enforceBoundaries: false,
-      hasCloseButton: false,
       inset: false,
       intent: 'surface',
       elevation: 'popover',

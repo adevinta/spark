@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.13](https://github.com/adevinta/spark/compare/@spark-ui/input@1.7.12...@spark-ui/input@1.7.13) (2024-06-25)
+
+**Note:** Version bump only for package @spark-ui/input
+
+## [1.7.12](https://github.com/adevinta/spark/compare/@spark-ui/input@1.7.11...@spark-ui/input@1.7.12) (2024-06-20)
+
+**Note:** Version bump only for package @spark-ui/input
+
 ## [1.7.11](https://github.com/adevinta/spark/compare/@spark-ui/input@1.7.10...@spark-ui/input@1.7.11) (2024-06-15)
 
 **Note:** Version bump only for package @spark-ui/input
