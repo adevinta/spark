@@ -3,7 +3,6 @@
 import * as process from 'node:process'
 
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
-import merge from 'lodash.merge'
 import path from 'path'
 
 import { Logger } from '../core/index.mjs'
@@ -19,14 +18,12 @@ export async function adoption(options = {}) {
   let config = await loadConfig(configuration, { logger })
 
   config = {
-    adoption: merge(
-      { ...config.adoption },
-      {
-        ...optionsConfig,
-        imports: optionsConfig.imports || config.imports,
-        extensions: optionsConfig.extensions || config.extensions,
-      }
-    ),
+    adoption: {
+      ...config.adoption,
+      ...optionsConfig,
+      imports: optionsConfig.imports || config.adoption.imports,
+      extensions: optionsConfig.extensions || config.adoption.extensions,
+    },
   }
 
   let importCount = 0

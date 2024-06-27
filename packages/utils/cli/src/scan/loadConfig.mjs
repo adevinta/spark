@@ -1,7 +1,6 @@
 import process from 'node:process'
 
 import { existsSync } from 'fs'
-import merge from 'lodash.merge'
 import path from 'path'
 
 import * as defaultConfig from './config.mjs'
@@ -14,11 +13,12 @@ export async function loadConfig(configuration, { logger }) {
       const { default: customConfig } = await import(configFileRoute)
 
       const config = {
-        adoption: merge(defaultConfig, {
+        adoption: {
+          ...defaultConfig,
           ...customConfig.adoption,
-          imports: customConfig.imports || defaultConfig.imports,
-          extensions: customConfig.extensions || defaultConfig.extensions,
-        }),
+          imports: customConfig.adoption.imports || defaultConfig.imports,
+          extensions: customConfig.adoption.extensions || defaultConfig.extensions,
+        },
       }
 
       return config
