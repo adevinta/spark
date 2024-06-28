@@ -3,7 +3,7 @@ import chalk from 'chalk'
 export class Logger {
   #force = false
 
-  constructor({ verbose }) {
+  constructor({ verbose } = {}) {
     this.verbose = verbose
 
     if (typeof Logger.instance === 'object') {
