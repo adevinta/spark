@@ -6,7 +6,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import path from 'path'
 
 import { Logger } from '../core/index.mjs'
-import * as defaultConfig from './config.mjs'
+import defaultConfig from './config.cjs'
 import { loadConfig } from './loadConfig.mjs'
 import { scanCallback } from './scanCallback.mjs'
 import { scanDirectories } from './utils/index.mjs'
