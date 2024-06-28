@@ -24,6 +24,7 @@ const intents: TagProps['intent'][] = [
   'danger',
   'info',
   'neutral',
+  'surface',
 ]
 const designs: TagProps['design'][] = ['filled', 'outlined', 'tinted']
 
@@ -43,11 +44,17 @@ export const Intent: StoryFn = _args => (
   <div className="flex flex-col gap-md">
     {designs.map(design => (
       <div key={design} className="flex flex-row gap-md">
-        {intents.map(intent => (
-          <Tag key={intent} design={design} intent={intent}>
-            {intent} tag
-          </Tag>
-        ))}
+        {intents.map(intent => {
+          if (design !== 'filled' && intent === 'surface') {
+            return <span className="self-center text-small">N/A</span>
+          }
+
+          return (
+            <Tag key={intent} design={design} intent={intent as any}>
+              {intent} tag
+            </Tag>
+          )
+        })}
       </div>
     ))}
   </div>
