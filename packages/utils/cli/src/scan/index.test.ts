@@ -16,15 +16,31 @@ describe('CLI `spark scan`', () => {
 
   const EXT_CONFIG_FILE_PATH = 'packages/utils/cli/test/stubs/scanConfigWithCustomExtensions.js'
   const SORT_CONFIG_FILE_PATH = 'packages/utils/cli/test/stubs/scanConfigWithCustomSorting.js'
-  const DETAILS_CONFIG_FILE_PATH = 'packages/utils/cli/test/stubs/scanConfigWithDetails.js'
+  const DETAILED_OUTPUT_CONFIG_FILE_PATH =
+    'packages/utils/cli/test/stubs/scanConfigWithDetailedOutput.js'
+  const IMPORTS_CONFIG_FILE_PATH = 'packages/utils/cli/test/stubs/scanConfigWithCustomImports.js'
+
+  const adoptionCommand = async (args: string[] = []) => {
+    /**
+     * We define here some common options such as custom directory (for performance reasons).
+     */
+    return await cliProcess.execute(
+      ['scan', 'adoption', '-dir', './packages/components', ...args],
+      [ENTER]
+    )
+  }
 
   beforeEach(() => {
     if (fse.existsSync(OUTPUT_FILE)) fse.removeSync(OUTPUT_FILE)
   })
 
+  afterAll(() => {
+    if (fse.existsSync(OUTPUT_FILE)) fse.removeSync(OUTPUT_FILE)
+  })
+
   describe('Adoption (components adoption)', () => {
     it('should execute command with default config', async () => {
-      const response = await cliProcess.execute(['scan', 'adoption', '-v'], [ENTER])
+      const response = await adoptionCommand(['-v'])
 
       expect(response).toMatch(/Loading default configuration/i)
       expect(response).toMatch(/Scanning adoption for @spark-ui/i)
@@ -42,19 +58,11 @@ describe('CLI `spark scan`', () => {
       ).toBeDefined()
     })
 
-    describe('output', () => {
-      it('should write report to output file path from command option', async () => {
-        await cliProcess.execute(['scan', 'adoption', '-o', OUTPUT_FILE], [ENTER])
+    describe('Results details with output', () => {
+      it('should output results with packages details from command option', async () => {
+        await adoptionCommand(['-d', '-o', OUTPUT_FILE])
 
         expect(fse.pathExistsSync(OUTPUT_FILE)).toBe(true)
-      })
-
-      // it('should write report to output file path from configuration file', async () => {})
-    })
-
-    describe('results details', () => {
-      it('should output results with packages details from command option', async () => {
-        await cliProcess.execute(['scan', 'adoption', '-d', '-o', OUTPUT_FILE], [ENTER])
 
         const outputContent = JSON.parse(fse.readFileSync(OUTPUT_FILE, 'utf-8'))
 
@@ -64,10 +72,9 @@ describe('CLI `spark scan`', () => {
       })
 
       it('should output results with packages details from configuration file', async () => {
-        await cliProcess.execute(
-          ['scan', 'adoption', '-c', DETAILS_CONFIG_FILE_PATH, '-o', OUTPUT_FILE],
-          [ENTER]
-        )
+        await adoptionCommand(['-c', DETAILED_OUTPUT_CONFIG_FILE_PATH])
+
+        expect(fse.pathExistsSync(OUTPUT_FILE)).toBe(true)
 
         const outputContent = JSON.parse(fse.readFileSync(OUTPUT_FILE, 'utf-8'))
 
@@ -77,12 +84,9 @@ describe('CLI `spark scan`', () => {
       })
     })
 
-    describe('results sorting', () => {
+    describe('Results sorting', () => {
       it('should sort results alphabetically from command option', async () => {
-        const response = await cliProcess.execute(
-          ['scan', 'adoption', '-v', '-s', 'alphabetical'],
-          [ENTER]
-        )
+        const response = await adoptionCommand(['-v', '-s', 'alphabetical'])
 
         expect(response).toMatch(/Loading default configuration/i)
         expect(response).toMatch(/Scanning adoption for @spark-ui/i)
@@ -98,10 +102,7 @@ describe('CLI `spark scan`', () => {
       })
 
       it('should sort results alphabetically from configuration file', async () => {
-        const response = await cliProcess.execute(
-          ['scan', 'adoption', '-v', '-c', SORT_CONFIG_FILE_PATH],
-          [ENTER]
-        )
+        const response = await adoptionCommand(['-v', '-c', SORT_CONFIG_FILE_PATH])
 
         expect(response).toMatch(/Loading spark-ui custom configuration file/i)
         expect(response).toMatch(/Scanning adoption for @spark-ui/i)
@@ -117,18 +118,9 @@ describe('CLI `spark scan`', () => {
       })
     })
 
-    // describe('custom directory', () => {
-    //   it('should execute command with custom directory from command option', async () => {})
-
-    //   it('should execute command with custom directory from configuration file', async () => {})
-    // })
-
-    describe('file extensions', () => {
+    describe('File extensions', () => {
       it('should execute command with custom extensions from command option', async () => {
-        const response = await cliProcess.execute(
-          ['scan', 'adoption', '-v', '-ext', '.css'],
-          [ENTER]
-        )
+        const response = await adoptionCommand(['-v', '-ext', '.css'])
 
         expect(response).toMatch(/Loading default configuration/i)
         expect(response).toMatch(/Scanning adoption for @spark-ui/i)
@@ -137,10 +129,7 @@ describe('CLI `spark scan`', () => {
       })
 
       it('should execute command with custom extensions from configuration file', async () => {
-        const response = await cliProcess.execute(
-          ['scan', 'adoption', '-v', '-c', EXT_CONFIG_FILE_PATH],
-          [ENTER]
-        )
+        const response = await adoptionCommand(['-v', '-c', EXT_CONFIG_FILE_PATH])
 
         expect(response).toMatch(/Loading spark-ui custom configuration file/i)
         expect(response).toMatch(/Scanning adoption for @spark-ui/i)
@@ -149,10 +138,20 @@ describe('CLI `spark scan`', () => {
       })
     })
 
-    // describe('custom import patterns', () => {
-    //   it('should execute command for custom import patterns from command option', async () => {})
+    describe('Imports patterns', () => {
+      it('should execute command for custom import patterns from command option', async () => {
+        const response = await adoptionCommand(['-v', '-i', '@react-aria', '@react-stately'])
 
-    //   it('should execute command for custom import patterns from configuration file', async () => {})
-    // })
+        expect(response).toMatch(/Scanning adoption for @react-aria/i)
+        expect(response).toMatch(/Scanning adoption for @react-stately/i)
+      })
+
+      it('should execute command for custom import patterns from configuration file', async () => {
+        const response = await adoptionCommand(['-v', '-c', IMPORTS_CONFIG_FILE_PATH])
+
+        expect(response).toMatch(/Scanning adoption for @react-aria/i)
+        expect(response).toMatch(/Scanning adoption for @react-stately/i)
+      })
+    })
   })
 })
