@@ -3,7 +3,7 @@ import { forwardRef, type PropsWithChildren } from 'react'
 
 import { tagStyles, type TagStylesProps } from './Tag.styles'
 
-export interface TagProps
+interface BaseTagProps
   extends PropsWithChildren<React.ButtonHTMLAttributes<HTMLSpanElement>>,
     TagStylesProps {
   /**
@@ -11,6 +11,21 @@ export interface TagProps
    */
   asChild?: boolean
 }
+
+interface FilteredDesignIntent<
+  Design extends TagProps['design'],
+  K extends TagStylesProps['intent'] | never = never,
+> {
+  design?: Design
+  intent?: Exclude<TagStylesProps['intent'], K>
+}
+
+type ValidTagDesignIntent =
+  | FilteredDesignIntent<'tinted', 'surface'>
+  | FilteredDesignIntent<'outlined', 'surface'>
+  | FilteredDesignIntent<'filled'>
+
+export type TagProps = BaseTagProps & ValidTagDesignIntent
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
   ({ design = 'filled', intent = 'basic', asChild, className, ...others }, ref) => {

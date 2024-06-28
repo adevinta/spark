@@ -28,7 +28,18 @@ export const tagStyles = cva(
        */
       intent: makeVariants<
         'intent',
-        ['main', 'support', 'accent', 'basic', 'success', 'alert', 'info', 'neutral', 'danger']
+        [
+          'main',
+          'support',
+          'accent',
+          'basic',
+          'success',
+          'alert',
+          'info',
+          'neutral',
+          'danger',
+          'surface',
+        ]
       >({
         main: [],
         support: [],
@@ -39,6 +50,7 @@ export const tagStyles = cva(
         danger: [],
         info: [],
         neutral: [],
+        surface: [],
       }),
     },
     compoundVariants: [...filledVariants, ...outlinedVariants, ...tintedVariants],
