@@ -5,6 +5,6 @@ export default {
     imports: ['@spark-ui'],
     extensions: ['.tsx', '.ts'],
     directory: '.',
-    output: null,
+    output: 'report.json',
   },
 }
