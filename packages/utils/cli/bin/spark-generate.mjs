@@ -6,7 +6,7 @@ import { TemplateGenerator } from '../src/generate/generators/index.mjs'
 import { Logger, System } from '../src/core/index.mjs'
 import { DescriptionValidator, NameValidator } from '../src/generate/validators/index.mjs'
 
-const logger = new Logger()
+const logger = new Logger({ verbose: true })
 const system = new System({ logger })
 const generator = new TemplateGenerator({ system })
 
