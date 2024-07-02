@@ -43,7 +43,7 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@radix-ui/react-dialog": "1.0.5",
+    "@radix-ui/react-dialog": "1.1.1",
     "@spark-ui/icon": "^2.1.8",
     "@spark-ui/icon-button": "^2.2.9",
     "@spark-ui/icons": "^1.21.11",
