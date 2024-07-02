@@ -39,6 +39,7 @@
     "esbuild": "0.21.5",
     "fs-extra": "11.2.0",
     "glob": "8.1.0",
+    "lodash.merge": "4.6.2",
     "pascal-case": "3.1.2",
     "ts-morph": "22.0.0"
   },

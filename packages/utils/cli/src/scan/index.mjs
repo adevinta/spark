@@ -1,49 +1,44 @@
+/* eslint-disable complexity */
+/* eslint-disable max-lines-per-function */
 import * as process from 'node:process'
 
-import { appendFileSync, existsSync } from 'fs'
+import { existsSync, mkdirSync, writeFileSync } from 'fs'
+import merge from 'lodash.merge'
 import path from 'path'
 
+import { Logger } from '../core/index.mjs'
+import * as defaultConfig from './config.mjs'
+import { loadConfig } from './loadConfig.mjs'
 import { scanCallback } from './scanCallback.mjs'
-import { logger, scanDirectories } from './utils/index.mjs'
+import { scanDirectories } from './utils/index.mjs'
 
-const DEFAULT_CONFIG = {
-  adoption: {
-    details: false,
-    sort: 'count',
-    imports: ['@spark-ui'],
-    extensions: ['.tsx', '.ts'],
-    directory: '.',
-  },
-}
+export async function adoption(options = {}) {
+  const { configuration, ...optionsConfig } = options
 
-export async function adoption(options) {
-  let config = DEFAULT_CONFIG
+  const logger = new Logger({ verbose: optionsConfig.verbose })
+  let config = await loadConfig(configuration, { logger })
 
-  const configFileRoute = path.join(process.cwd(), options.configuration || '.spark-ui.cjs')
-  try {
-    if (existsSync(configFileRoute)) {
-      logger.info('ℹ️ Loading spark-ui custom configuration file')
-      const { default: customConfig } = await import(
-        path.join(process.cwd(), options.configuration)
-      )
-      config = structuredClone(customConfig, DEFAULT_CONFIG)
-    } else {
-      logger.warn('⚠️ No custom configuration file found')
-      logger.info('ℹ️ Loading default configuration')
-    }
-  } catch (error) {
-    logger.error('💥 Something went wrong loading the custom configuration file')
+  config = {
+    adoption: merge(
+      { ...config.adoption },
+      {
+        ...optionsConfig,
+        imports: optionsConfig.imports || config.imports,
+        extensions: optionsConfig.extensions || config.extensions,
+      }
+    ),
   }
-
-  const extensions = config.adoption.extensions
 
   let importCount = 0
   const importResults = {}
   let importsUsed = {}
   let importsCount = {}
-  config.adoption.imports.forEach(moduleName => {
+
+  const { details, directory, extensions, imports, sort, output } = config.adoption
+
+  imports.forEach(moduleName => {
     logger.info(`ℹ️ Scanning adoption for ${moduleName}`)
-    const directoryPath = path.join(process.cwd(), config.adoption.directory)
+    const directoryPath = path.join(process.cwd(), directory)
 
     const response = scanDirectories(directoryPath, moduleName, extensions, scanCallback, {
       importCount,
@@ -56,7 +51,7 @@ export async function adoption(options) {
         `🎉 Found ${response.importCount - importCount} imports with "${moduleName}" modules across directory ${directoryPath}.`
       )
     } else {
-      logger.warn(
+      logger.warning(
         `⚠️ No files found with "${moduleName}" imports across directory ${directoryPath}.`
       )
     }
@@ -64,7 +59,7 @@ export async function adoption(options) {
   })
 
   // Sort importsUsed by alphabet
-  if (config.adoption.sort === 'alphabetical') {
+  if (sort === 'alphabetical') {
     importsUsed = Object.fromEntries(
       Object.entries(importsUsed)
         .sort(([pkgNameA], [pkgNameB]) => pkgNameA.localeCompare(pkgNameB))
@@ -83,7 +78,7 @@ export async function adoption(options) {
           ]
         })
     )
-  } else if (config.adoption.sort === 'count') {
+  } else if (sort === 'count') {
     // Sort importsUsed by most used
     importsUsed = Object.fromEntries(
       Object.entries(importsUsed)
@@ -110,17 +105,25 @@ export async function adoption(options) {
   const result = Object.fromEntries(
     Object.entries(importsUsed).map(([pkgName, value]) => [
       pkgName,
-      { ...value, ...(config.adoption.details && { results: importResults[pkgName] }) },
+      { ...value, ...(details && { results: importResults[pkgName] }) },
     ])
   )
 
-  if (options.output) {
+  if (output) {
     try {
-      appendFileSync(`${options.output}`, JSON.stringify(result, null, 2))
-    } catch (err) {
-      logger.error(`💥 Error writing file: ${err}`)
+      const { dir } = path.parse(path.join(process.cwd(), output))
+      if (!existsSync(dir)) {
+        mkdirSync(dir, { recursive: true })
+      }
+      writeFileSync(`${path.join(process.cwd(), output)}`, JSON.stringify(result, null, 2))
+    } catch (error) {
+      logger.error(`💥 Error writing file: ${error}`)
+      process.exit(1)
     }
   } else {
-    logger.info(JSON.stringify(result, null, 2))
+    logger.force().info(JSON.stringify(result, null, 2))
+    process.exit(0)
   }
 }
+
+export const config = { ...defaultConfig }
