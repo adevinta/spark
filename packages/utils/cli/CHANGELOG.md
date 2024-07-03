@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.14.0...@spark-ui/cli-utils@2.15.0) (2024-07-03)
+
+### Bug Fixes
+
+- **cli-utils:** add some feedback when not loading a given config file ([1231fe6](https://github.com/adevinta/spark/commit/1231fe6cb94c15643a11278c3210836e81059364))
+- **cli-utils:** fix config merge method to allow proper option override ([8b6a124](https://github.com/adevinta/spark/commit/8b6a124c6e70f05769305bf6ca84137c7a05510c))
+- **cli-utils:** fix logger issue on generate script after changes ([083c9b0](https://github.com/adevinta/spark/commit/083c9b043d1837a807b159a8143fd16bf8d7087e))
+- **cli-utils:** merge values ([a7e8129](https://github.com/adevinta/spark/commit/a7e81292d452d4ee026f3d4705198ac4ecc6363e))
+- **cli-utils:** merging configs ([aeb6251](https://github.com/adevinta/spark/commit/aeb6251d23bc506674e4545ebad928081292f520))
+- **cli-utils:** missalignment on the default config values nesting ([79729f7](https://github.com/adevinta/spark/commit/79729f722f4ecf6f0c671e2c1c1d5929a87d98c9))
+- **cli-utils:** output file creates new content ([973ffa8](https://github.com/adevinta/spark/commit/973ffa85e6987dbd87a119e9253db57556a705d4))
+- **cli-utils:** remove betta tagging ([96cafae](https://github.com/adevinta/spark/commit/96cafae45e4a4759ef9ff4a763963f26cb898cb6))
+- **cli-utils:** remove extra logs ([f588649](https://github.com/adevinta/spark/commit/f588649eb299fc42ef9d6dbf8f8f4eebd0cfd6a9))
+- **cli-utils:** remove unnecesary log ([614d834](https://github.com/adevinta/spark/commit/614d834d5d7a0f3084b3097e2dee5436b369fbb6))
+- log config setted ([190a058](https://github.com/adevinta/spark/commit/190a0581ab6219591c5d3a3ecde2ee46d504d7ca))
+- priority of commands ([ed178a5](https://github.com/adevinta/spark/commit/ed178a51a8cea0255c96467b0d8760daf8f851dd))
+
+### Features
+
+- **cli-utils:** exoposes all configuration parameters as a build argument ([3e88a99](https://github.com/adevinta/spark/commit/3e88a998c05da026cd196b3dd54a2ad50506266c))
+- mixing parameters ([da1bf1d](https://github.com/adevinta/spark/commit/da1bf1d838df2c577755eb3c651cd0bba8d07203))
+
 # [2.14.0](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.13.8...@spark-ui/cli-utils@2.14.0) (2024-06-14)
 
 ### Features
