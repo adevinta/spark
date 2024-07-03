@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.3.6...@spark-ui/tag@2.4.0) (2024-06-28)
+
+### Features
+
+- **tag:** add "surface" intent ([d79192d](https://github.com/adevinta/spark/commit/d79192db0cc81baa8b90f56b139e847ffeda854b)), closes [#2243](https://github.com/adevinta/spark/issues/2243)
+
 ## [2.3.6](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.3.5...@spark-ui/tag@2.3.6) (2024-06-15)
 
 **Note:** Version bump only for package @spark-ui/tag

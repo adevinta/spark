@@ -46,4 +46,9 @@ export const filledVariants = [
     design: 'filled',
     class: tw(['bg-neutral', 'text-on-neutral']),
   },
+  {
+    intent: 'surface',
+    design: 'filled',
+    class: tw(['bg-surface', 'text-on-surface']),
+  },
 ] as const
