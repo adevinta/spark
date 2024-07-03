@@ -263,6 +263,16 @@ export const Size: StoryFn = _args => (
   </div>
 )
 
+export const ForceMount: StoryFn = _args => (
+  <div>
+    <StoryLabel>forceMount</StoryLabel>
+    {createTabs({
+      rootProps: { defaultValue: 'tab1', forceMount: true },
+      tabs: defaultTabs,
+    })}
+  </div>
+)
+
 export const State: StoryFn = _args => (
   <div className="flex flex-row gap-lg">
     <div className="shrink basis-auto overflow-auto">

@@ -209,6 +209,19 @@ describe('Tabs', () => {
           behavior: 'smooth',
         })
       })
+
+      it('should keep inactive tabs in the DOM (but hidden) when forceMount prop is true', async () => {
+        render(
+          createTabs({
+            tabs,
+            rootProps: { defaultValue: 'tab1', forceMount: true },
+          })
+        )
+
+        expect(screen.getByText(/Make things happen!/)).toBeInTheDocument()
+
+        expect(screen.getAllByRole('tabpanel').at(-1)).toHaveClass('data-[state=inactive]:hidden')
+      })
     })
   })
 })
