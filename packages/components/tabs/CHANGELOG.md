@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.3.25...@spark-ui/tabs@2.4.0) (2024-07-04)
+
+### Features
+
+- **tabs:** add forceMount prop to retain inactive tab content in the DOM ([87c7ddd](https://github.com/adevinta/spark/commit/87c7ddd8d2c073a77f57b55787df127dda1bad06)), closes [#2283](https://github.com/adevinta/spark/issues/2283)
+
 ## [2.3.25](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.3.24...@spark-ui/tabs@2.3.25) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/tabs
