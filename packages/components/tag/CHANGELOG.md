@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.4.0...@spark-ui/tag@2.5.0) (2024-07-04)
+
+### Features
+
+- **tag:** expose ValidTagDesignIntent type ([97ecc35](https://github.com/adevinta/spark/commit/97ecc3559fb0699eff6a183134a4ee5c200ccfbb))
+
 # [2.4.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.3.6...@spark-ui/tag@2.4.0) (2024-06-28)
 
 ### Features
