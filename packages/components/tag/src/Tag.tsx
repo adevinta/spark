@@ -20,7 +20,7 @@ interface FilteredDesignIntent<
   intent?: Exclude<TagStylesProps['intent'], K>
 }
 
-type ValidTagDesignIntent =
+export type ValidTagDesignIntent =
   | FilteredDesignIntent<'tinted', 'surface'>
   | FilteredDesignIntent<'outlined', 'surface'>
   | FilteredDesignIntent<'filled'>
