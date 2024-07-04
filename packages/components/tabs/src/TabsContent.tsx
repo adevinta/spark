@@ -2,6 +2,7 @@ import * as RadixTabs from '@radix-ui/react-tabs'
 import { forwardRef, type PropsWithChildren } from 'react'
 
 import { contentStyles } from './TabsContent.styles'
+import { useTabsContext } from './TabsContext'
 
 export interface TabsContentProps
   extends PropsWithChildren<Omit<RadixTabs.TabsContentProps, 'forceMount'>> {
@@ -34,10 +35,13 @@ export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
     },
     ref
   ) => {
+    const { forceMount } = useTabsContext()
+
     return (
       <RadixTabs.Content
         ref={ref}
-        className={contentStyles({ className })}
+        forceMount={forceMount || rest.forceMount}
+        className={contentStyles({ className, forceMount })}
         asChild={asChild}
         {...rest}
       >

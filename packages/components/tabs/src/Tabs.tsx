@@ -13,6 +13,11 @@ export interface TabsProps
    * @default false
    */
   asChild?: boolean
+  /**
+   * Whether to keep inactive tabs content in the DOM.
+   * @default false
+   */
+  forceMount?: boolean
 }
 
 /**
@@ -30,6 +35,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
        * see https://www.radix-ui.com/docs/primitives/components/tabs#root
        */
       asChild = false,
+      forceMount = false,
       orientation = 'horizontal',
       children,
       className,
@@ -43,6 +49,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
           intent,
           size,
           orientation,
+          forceMount,
         }}
       >
         <RadixTabs.Root

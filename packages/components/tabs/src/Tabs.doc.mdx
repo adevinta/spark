@@ -86,6 +86,14 @@ Use `size` prop to set the size of items.
 
 <Canvas of={stories.Size} />
 
+### forceMount
+
+Use `forceMount` on `Tabs` when you want the content of your inactive tabs to remain in the DOM instead of being removed.
+
+This can be useful if your tabs load heavy resources on mount, such as heavy images, videos, iframes, etc...
+
+<Canvas of={stories.ForceMount} />
+
 ## Accessibility
 
 Adheres to the [Tabs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs).
