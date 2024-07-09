@@ -1,7 +1,7 @@
-const sparkPlugins = require('@spark-ui/tailwind-plugins')
-const themeUtils = require('@spark-ui/theme-utils')
+import sparkPlugins from '@spark-ui/tailwind-plugins'
+import themeUtils from '@spark-ui/theme-utils'
 
-module.exports = {
+export default {
   theme: {
     configViewer: {
       baseFontSize: 16,
@@ -12,7 +12,7 @@ module.exports = {
     ...sparkPlugins.sparkConfig({
       themes: {
         default: themeUtils.defaultTheme,
-        dark: themeUtils.defaultThemeDark
+        dark: themeUtils.defaultThemeDark,
       },
     }),
   ],

@@ -13,8 +13,8 @@
     "release": "lerna publish --yes",
     "storybook:start": "storybook dev -p 6006",
     "storybook:build": "storybook build -o dist",
-    "tailwind-config-viewer": "npx @adevinta/tailwind-config-viewer -c ./tailwind.config.viewer.cjs",
-    "tailwind-config-viewer:build": "mkdir -p ./dist/viewer && npx @adevinta/tailwind-config-viewer -c ./tailwind.config.viewer.cjs export ./dist/viewer",
+    "tailwind-config-viewer": "npx @adevinta/tailwind-config-viewer -c ./tailwind.config.viewer.mjs",
+    "tailwind-config-viewer:build": "mkdir -p ./dist/viewer && npx @adevinta/tailwind-config-viewer -c ./tailwind.config.viewer.mjs export ./dist/viewer",
     "test": "vitest",
     "test:ui": "vitest watch --ui",
     "test:run": "vitest run",
@@ -43,7 +43,7 @@
     "selenium-webdriver": "^4.18.1"
   },
   "devDependencies": {
-    "@adevinta/tailwind-config-viewer": "2.0.0",
+    "@adevinta/tailwind-config-viewer": "3.0.0",
     "@babel/core": "7.24.7",
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
