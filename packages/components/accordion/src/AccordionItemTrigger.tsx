@@ -40,7 +40,7 @@ export const ItemTrigger = forwardRef<HTMLButtonElement, AccordionItemTriggerPro
 
     return (
       <Component ref={ref} data-spark-component="accordion-item-trigger" {...mergedProps}>
-        <div className="flex items-center gap-lg">{children}</div>
+        <div className="flex grow items-center gap-lg">{children}</div>
         <Icon
           intent="neutral"
           className={cx('shrink-0 rotate-0 duration-100 ease-in motion-reduce:transition-none', {
