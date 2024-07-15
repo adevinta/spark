@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/adevinta/spark/compare/@spark-ui/accordion@1.0.3...@spark-ui/accordion@1.0.4) (2024-07-15)
+
+### Bug Fixes
+
+- **accordion:** flex grow behaviour in accordion headers ([1756d57](https://github.com/adevinta/spark/commit/1756d57384a5613ef860f6713d09d17895d1a894))
+
 ## [1.0.3](https://github.com/adevinta/spark/compare/@spark-ui/accordion@1.0.2...@spark-ui/accordion@1.0.3) (2024-07-08)
 
 **Note:** Version bump only for package @spark-ui/accordion
