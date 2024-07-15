@@ -22,11 +22,7 @@ export const ItemContent = forwardRef<HTMLDivElement, AccordionItemContentProps>
     const accordionItem = useAccordionItemContext()
 
     const localProps = {
-      className: cx(
-        'p-lg duration-50 transition-all text-body-1 text-on-surface',
-        'data-[state=closed]:py-none',
-        className
-      ),
+      className: cx('[&>:first-child]:p-lg', 'text-body-1 text-on-surface', className),
       asChild,
       ...props,
     }
