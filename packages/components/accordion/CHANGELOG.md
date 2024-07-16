@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/adevinta/spark/compare/@spark-ui/accordion@1.0.4...@spark-ui/accordion@1.0.5) (2024-07-16)
+
+### Bug Fixes
+
+- **accordion:** move padding to first element of AccordionItemContent to fix animation shifts ([fbb00f5](https://github.com/adevinta/spark/commit/fbb00f50a40b6f92e11d6cc1cfc585dac6a04427))
+
 ## [1.0.4](https://github.com/adevinta/spark/compare/@spark-ui/accordion@1.0.3...@spark-ui/accordion@1.0.4) (2024-07-15)
 
 ### Bug Fixes
