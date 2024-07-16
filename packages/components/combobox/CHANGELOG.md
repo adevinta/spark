@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.1.9...@spark-ui/combobox@1.1.10) (2024-07-16)
+
+**Note:** Version bump only for package @spark-ui/combobox
+
 ## [1.1.9](https://github.com/adevinta/spark/compare/@spark-ui/combobox@1.1.8...@spark-ui/combobox@1.1.9) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/combobox
