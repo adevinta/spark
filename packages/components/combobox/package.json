@@ -27,6 +27,9 @@
     "react-dom": "^18.0 || ^19.0",
     "tailwindcss": "^3.0.0"
   },
+  "devDependencies": {
+    "@spark-ui/dialog": "^1.12.10"
+  },
   "dependencies": {
     "@spark-ui/form-field": "^1.5.11",
     "@spark-ui/icon": "^2.1.8",
