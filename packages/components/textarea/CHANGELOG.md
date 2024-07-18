@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- **textarea:** doc ([5b515fd](https://github.com/adevinta/spark/commit/5b515fd7f290ddd1fc4bb443fb9a1eb67e93ae05))
+- **textarea:** fix quality checks ([2fb5842](https://github.com/adevinta/spark/commit/2fb5842d5eb70bd7b476d26f99a979f8eee64c80))
+- **textarea:** harmonize textarea displayNames ([ba70d4e](https://github.com/adevinta/spark/commit/ba70d4e0a700aa669844bb114d31da2654e7238a))
+- **textarea:** meta-tags ([12f02d2](https://github.com/adevinta/spark/commit/12f02d25329fdc7ef72b58d52895900bd885c451))
+
+### Features
+
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+- **textarea:** add docs and tests ([7d2a85a](https://github.com/adevinta/spark/commit/7d2a85aec55fa95e08b418555648915cffc21699))
+- **textarea:** add resize prop ([81d2e92](https://github.com/adevinta/spark/commit/81d2e92d89424cd3f85ea7f8ca2bdcaf58b77737))
+- **textarea:** add story showcasing customised scrollbar ([1b75cd1](https://github.com/adevinta/spark/commit/1b75cd13d9db1c40d3a6c11da8a35da8ac46f5ae))
+- **textarea:** add textarea component ([7d7887a](https://github.com/adevinta/spark/commit/7d7887ad3775216199b944c59bad918a393ac3e8))
+- **textarea:** change resizable prop ([3074c96](https://github.com/adevinta/spark/commit/3074c96ab2289be34c1dee1202ded1021a246e8d))
+- **textarea:** change textarea version ([668b67b](https://github.com/adevinta/spark/commit/668b67baae103cc6666de084824bf85cd3852db0))
+- **textarea:** doc ([2c928b9](https://github.com/adevinta/spark/commit/2c928b985635fca9ddc9048cfdca05e0ee083868))
+- **textarea:** improve textarea props and doc ([af8cce2](https://github.com/adevinta/spark/commit/af8cce23ce98240549cb71e4ce4ec4e8ebfe7d99))
+- **textarea:** release first version ([c3dc3f6](https://github.com/adevinta/spark/commit/c3dc3f69538c8aad31acb8b1b56d31a291478dd6))
+- **textarea:** remove not needed file ([9340313](https://github.com/adevinta/spark/commit/9340313324184127d046cc0d10da20572dca12e6))
+- **textarea:** review dependencies ([1e888d4](https://github.com/adevinta/spark/commit/1e888d40eec5edb9efb0957660ea074a240deadc))
+- **textarea:** update deps ([048067a](https://github.com/adevinta/spark/commit/048067ab38a5b9b3dd5854cb6830e8f4444f007b))
+- **textarea:** update deps ([ba8beb6](https://github.com/adevinta/spark/commit/ba8beb610496a8fd6b4d4c42fa39e117b4852705))
+- **textarea:** update intent ([26e70df](https://github.com/adevinta/spark/commit/26e70df51f49ce17d394e218337caf237fb637f4))
+- **textarea:** update resizable ([b05463c](https://github.com/adevinta/spark/commit/b05463cd7fe6fc1746f37bf63159dd9ddc1447e1))
+- **textarea:** update tests and styles ([8ef1b36](https://github.com/adevinta/spark/commit/8ef1b368d3c2a4afa7df12e1a0b0464d53dd110c))
+- **textarea:** update textarea ([efab349](https://github.com/adevinta/spark/commit/efab3499ecb7c46a24e856a0bb5f211f85df6eda))
+- **textarea:** update textarea based on input changes ([f466b2b](https://github.com/adevinta/spark/commit/f466b2b0a07283379fc8a2b4de3e762d37026cda))
+- **textarea:** update using id ([dfc2d29](https://github.com/adevinta/spark/commit/dfc2d293153a20282a3f8f90208c4c9d21e794e9))
+- **textarea:** upgrade input version ([8e6b35d](https://github.com/adevinta/spark/commit/8e6b35dee7c5681475aea86e0bac900a69ac62e8))
+- update deps ([91cdaa3](https://github.com/adevinta/spark/commit/91cdaa3ec2f084ab19b336ae4b52cdc23b95744d))
+- update deps ([9a8e4e3](https://github.com/adevinta/spark/commit/9a8e4e3e9541d47a3e610a36ade9ddfd349e6e71))
+
 ## [1.4.15](https://github.com/adevinta/spark/compare/@spark-ui/textarea@1.4.14...@spark-ui/textarea@1.4.15) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/textarea

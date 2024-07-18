@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- packages deps ([3543766](https://github.com/adevinta/spark/commit/354376668ebb773d8efa553ce7f5ef1ecad42416))
+- revise code in accordance with the updated vite configuration ([4f4174a](https://github.com/adevinta/spark/commit/4f4174a0ef8df71f28af5c77acf0c5f7c7837e58)), closes [#503](https://github.com/adevinta/spark/issues/503)
+- **tag:** doc ([7ec6990](https://github.com/adevinta/spark/commit/7ec6990642ad8771cb61237d2a3882a38b7b6ce6))
+- **tag:** fix deps ([0b12a4e](https://github.com/adevinta/spark/commit/0b12a4e6c4ad541c1334639e47a6d07d9d8297d0))
+- **tag:** meta-tags ([f5df31c](https://github.com/adevinta/spark/commit/f5df31c798cb6703655ba3457c1080442fbddbe6))
+- **tag:** props table ([7308044](https://github.com/adevinta/spark/commit/7308044aa4e660d3154ced0ceccfa3b9ce70c520))
+- **tag:** remove shape prop from tag (design resync) ([e26f612](https://github.com/adevinta/spark/commit/e26f61245b55519266af3995224f80bee5ff3070))
+- **tag:** replaced boxShadow by a border ([a0b0636](https://github.com/adevinta/spark/commit/a0b0636da9fc426778c25768df577c33df0f072a))
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+- set all inner deps as latest ([dbc135e](https://github.com/adevinta/spark/commit/dbc135e41ddba29451fc2e0a036f189b94604d07))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+- **tag:** add "surface" intent ([d79192d](https://github.com/adevinta/spark/commit/d79192db0cc81baa8b90f56b139e847ffeda854b)), closes [#2243](https://github.com/adevinta/spark/issues/2243)
+- **tag:** apply new colours strategy ([9817b81](https://github.com/adevinta/spark/commit/9817b81ec47335e15f395adfffa65030d4bbada7))
+- **tag:** apply new custom ring for focus styles ([9fd6785](https://github.com/adevinta/spark/commit/9fd6785ccc59bdf8f208ddb60f3735a33f2a8ed9)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+- **tag:** bump ([cb7924f](https://github.com/adevinta/spark/commit/cb7924f06b7b3f0f9efc6854e92ada8dc63c22c4))
+- **tag:** doc ([a07cb26](https://github.com/adevinta/spark/commit/a07cb260085dccc3344e0b9b4bff90813525211a))
+- **tag:** expose ValidTagDesignIntent type ([97ecc35](https://github.com/adevinta/spark/commit/97ecc3559fb0699eff6a183134a4ee5c200ccfbb))
+- **tag:** froze versions ([5ffd0c2](https://github.com/adevinta/spark/commit/5ffd0c267f565c7deb13ca9f914a7fe94e9fdf5b))
+- **tag:** tag component ([447699c](https://github.com/adevinta/spark/commit/447699c3f799d957ab5cf57a1b03069e2135c9ef))
+- **tag:** update make variants function ([c8bab4e](https://github.com/adevinta/spark/commit/c8bab4e8ef3d1388e4688d8bce07ead47f142af6))
+- **tag:** update styles for outlined variant ([0851f07](https://github.com/adevinta/spark/commit/0851f07e53ca794583747bfd09285355c65c1b7d))
+- **theme-utils:** setup shadow tokens ([947441a](https://github.com/adevinta/spark/commit/947441a6dbac59840e2fb775e2078a499ddf160d))
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+
+### BREAKING CHANGES
+
+- **tag:** apply new colours strategy
+
 # [2.5.0](https://github.com/adevinta/spark/compare/@spark-ui/tag@2.4.0...@spark-ui/tag@2.5.0) (2024-07-04)
 
 ### Features

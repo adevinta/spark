@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- fix errors after eslint update ([3dae947](https://github.com/adevinta/spark/commit/3dae947dc169d9db3c7252f54a6224ded335980e))
+- fixed warnings in stories ([d258423](https://github.com/adevinta/spark/commit/d258423e2dcc8f220b3cc6164fcb3bf6319106a8))
+- fixing broken docgen because of forwardRef ([4fac93f](https://github.com/adevinta/spark/commit/4fac93f76f0405a29613b12bddee474bf62be0e3))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- global fix for custom styles and cva ([083e5ec](https://github.com/adevinta/spark/commit/083e5ec890f41b526a040282355757bc5501f040))
+- revise code in accordance with the updated vite configuration ([4f4174a](https://github.com/adevinta/spark/commit/4f4174a0ef8df71f28af5c77acf0c5f7c7837e58)), closes [#503](https://github.com/adevinta/spark/issues/503)
+- **switch:** add state support and update docs ([556abbf](https://github.com/adevinta/spark/commit/556abbf000a9f5d5ff9e25b18e2619356896970c))
+- **switch:** doc ([30d4137](https://github.com/adevinta/spark/commit/30d41375e5de40a7bbf3c8c324a235734e9313ce))
+- **switch:** fix versioning ([bc7b091](https://github.com/adevinta/spark/commit/bc7b091e09b9a4d97e80e78d364bf5a559786745))
+- **switch:** hover with disable state ([c76697d](https://github.com/adevinta/spark/commit/c76697d5e6c1b243460eb888347060911f794dff))
+- **switch:** icons import ([cca1aa4](https://github.com/adevinta/spark/commit/cca1aa43a44e91d7fc6095ddb54436286025e66e))
+- **switch:** immproved animation performance ([dc7ed15](https://github.com/adevinta/spark/commit/dc7ed15d40a96c42502e938344fd2f2d64681b90))
+- **switch:** meta-tags ([93b2bc6](https://github.com/adevinta/spark/commit/93b2bc62404e88d1f2454c772e78724f887ec214))
+- **switch:** props table ([8cd5096](https://github.com/adevinta/spark/commit/8cd50960e18324589e799de3f16fd41ab27dedc8))
+- **switch:** redefine size values ([1ff0577](https://github.com/adevinta/spark/commit/1ff05773876ff407e0cc5e7a392fe6ac9dc7b905))
+- **switch:** remove X overflow of the Switch internals ([11ad7ee](https://github.com/adevinta/spark/commit/11ad7ee0b50138ff2dfa5e42079ce71ef28c52ef))
+- updating deprecated formField versions ([a8aacc8](https://github.com/adevinta/spark/commit/a8aacc87818dcf7c7e5ca1ad75e9cd42bedeb4df))
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+- set all inner deps as latest ([dbc135e](https://github.com/adevinta/spark/commit/dbc135e41ddba29451fc2e0a036f189b94604d07))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+- **spinner:** doc ([f792622](https://github.com/adevinta/spark/commit/f792622155e8855e154ea8c3882b43e33082a3a9))
+- **switch:** add "reverse" prop to have label placed on the left side of the Switch ([5c653a3](https://github.com/adevinta/spark/commit/5c653a3f827e6ab1887ab878c4380f1ec41eb488))
+- **switch:** add new colours strategy ([7013e7f](https://github.com/adevinta/spark/commit/7013e7fd5aa2d6fefa4a41b92121fb846cd4aaff))
+- **switch:** allowing formfield usage for switch component ([b248302](https://github.com/adevinta/spark/commit/b248302f3882790ff9e75123ca9363f14f6838c3))
+- **switch:** apply motion on hover ([27a9185](https://github.com/adevinta/spark/commit/27a9185c7b4269fd6af5a9c01368aff23786645a))
+- **switch:** apply new custom ring for focus styles ([1234dfe](https://github.com/adevinta/spark/commit/1234dfef9b21ca9ee7a3d5f8a5f262a479fef1dc)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+- **switch:** created switch component ([58b2456](https://github.com/adevinta/spark/commit/58b24563d239af40dc8243135a496d1076406f9e))
+- **switch:** customisable icons for switch, controlled mode ([543568e](https://github.com/adevinta/spark/commit/543568e5c5eedc9a6e2ea6a0ef669c73f4b1ce12))
+- **switch:** embed label in switch component ([3a1f9c6](https://github.com/adevinta/spark/commit/3a1f9c6347793a5c883d84ece4ab10cdb805d58a))
+- **switch:** froze versions ([57a31e5](https://github.com/adevinta/spark/commit/57a31e51b1813e8581d59050f505c1f53be9957c))
+- **switch:** update make variants function ([15fbea1](https://github.com/adevinta/spark/commit/15fbea17469ddd7c0ecb471565d07953c34069e1))
+- **switch:** use validation state ([a2730b5](https://github.com/adevinta/spark/commit/a2730b5411ed9363c4229a6817d3f85d006f186d))
+- **tailwind-plugins:** add new "shadow-border-transition" utility class ([289ff71](https://github.com/adevinta/spark/commit/289ff71d39e2c064132ed0d8c55e758a1ab21695)), closes [#676](https://github.com/adevinta/spark/issues/676)
+- **theme-utils:** setup shadow tokens ([947441a](https://github.com/adevinta/spark/commit/947441a6dbac59840e2fb775e2078a499ddf160d))
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+- update deps ([9a8e4e3](https://github.com/adevinta/spark/commit/9a8e4e3e9541d47a3e610a36ade9ddfd349e6e71))
+- update form field version ([738b1b3](https://github.com/adevinta/spark/commit/738b1b3f86e541e10aa2499d5840972208370703))
+
+### BREAKING CHANGES
+
+- **switch:** new colours strategy
+
 ## [2.3.12](https://github.com/adevinta/spark/compare/@spark-ui/switch@2.3.11...@spark-ui/switch@2.3.12) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/switch

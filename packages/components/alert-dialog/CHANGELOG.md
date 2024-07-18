@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- **alert-dialog:** doc ([d943339](https://github.com/adevinta/spark/commit/d943339f51256a27399a8cb706230e318b644ed9))
+- **alert-dialog:** doc ([68fdc7b](https://github.com/adevinta/spark/commit/68fdc7b5d1e7f8df084406de2b67918f3db0ad63))
+- **alert-dialog:** doc ([2329dec](https://github.com/adevinta/spark/commit/2329decb4d0f1501f75c386b36509aa7aa145525))
+- **alert-dialog:** meta-tags ([67d494f](https://github.com/adevinta/spark/commit/67d494fcf03362e662022bab24dd4f14ada465a6))
+- **dialog:** fixing dialog displayNames for docgen ([b905ed1](https://github.com/adevinta/spark/commit/b905ed1dd482ed0ec3523d9bf7a77bb74625228d))
+- update cva ([bd00ba5](https://github.com/adevinta/spark/commit/bd00ba5804311ba21e7685903487f18bf7968efd))
+
+### Features
+
+- **alert-dialog:** add first iteration of alert dialog ([a6b67af](https://github.com/adevinta/spark/commit/a6b67af73821809799465be574661276a4583eb8))
+- **alert-dialog:** doc ([b768372](https://github.com/adevinta/spark/commit/b768372763c414db000b32bcffd02b74464526c8))
+- **alert-dialog:** improvement and update doc ([e8a208e](https://github.com/adevinta/spark/commit/e8a208ed7628c5f651adcc4b51e4759e7c6fc577))
+- **alert-dialog:** release first version ([614d3ab](https://github.com/adevinta/spark/commit/614d3ab614be126146800cafb9050dbe4d85b866))
+- **alert-dialog:** remove size prop support ([e99e370](https://github.com/adevinta/spark/commit/e99e3706174089c62a4f2e75bfa40904ba1c9151))
+- **alert-dialog:** update alert dialog ([968066e](https://github.com/adevinta/spark/commit/968066e32678583fafa9ee016b23de0183112146))
+- **alert-dialog:** update display name ([ae1a653](https://github.com/adevinta/spark/commit/ae1a653fba0167e7aa976cd7ec61353ec7f53eea))
+- **alert-dialog:** update version ([496ac0d](https://github.com/adevinta/spark/commit/496ac0dad7c30ef80d1294d7cd483f9125258b74))
+- set all inner deps as latest ([dbc135e](https://github.com/adevinta/spark/commit/dbc135e41ddba29451fc2e0a036f189b94604d07))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+- update deps ([f96b318](https://github.com/adevinta/spark/commit/f96b3186c77e2a28d15532dfb6608a69e95b4581))
+
 ## [1.0.26](https://github.com/adevinta/spark/compare/@spark-ui/alert-dialog@1.0.25...@spark-ui/alert-dialog@1.0.26) (2024-07-12)
 
 **Note:** Version bump only for package @spark-ui/alert-dialog

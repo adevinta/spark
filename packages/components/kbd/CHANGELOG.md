@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- **kbd:** doc ([54579b9](https://github.com/adevinta/spark/commit/54579b963a335e02fbff596167509a0a7353b30b))
+- **kbd:** meta-tags ([4931c38](https://github.com/adevinta/spark/commit/4931c38dc746c32f30433acd6f681068103bd1b3))
+
+### Features
+
+- **kbd:** apply suggestions ([99f3839](https://github.com/adevinta/spark/commit/99f3839865d7c99c6f1a45c0580e2f89a8988716))
+- **kbd:** apply suggestions ([888077b](https://github.com/adevinta/spark/commit/888077b0a5b87055a58553b885b85030adee9a46))
+- **kbd:** dependencies review ([923a927](https://github.com/adevinta/spark/commit/923a92701ef88d332483b663dc38136413155c78))
+- **kbd:** doc ([1d8357f](https://github.com/adevinta/spark/commit/1d8357f2cac9e5611027484993167f8af9b6d3f1))
+- **kbd:** firts implementation ([412f1b4](https://github.com/adevinta/spark/commit/412f1b4840c6855007502f7bbad4521ff5eb9e09))
+- **kbd:** minor styling fixes ([9828d80](https://github.com/adevinta/spark/commit/9828d805e5cdc6fe05aeab3b01ef08e5c0a32106))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+
 ## [1.2.2](https://github.com/adevinta/spark/compare/@spark-ui/kbd@1.2.1...@spark-ui/kbd@1.2.2) (2024-06-06)
 
 **Note:** Version bump only for package @spark-ui/kbd

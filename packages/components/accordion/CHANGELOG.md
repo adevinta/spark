@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- **accordion:** accordion stable release ([c957f90](https://github.com/adevinta/spark/commit/c957f90b9240b89f1be714436c50bbb64c50505e))
+- **accordion:** flex grow behaviour in accordion headers ([1756d57](https://github.com/adevinta/spark/commit/1756d57384a5613ef860f6713d09d17895d1a894))
+- **accordion:** move padding to first element of AccordionItemContent to fix animation shifts ([fbb00f5](https://github.com/adevinta/spark/commit/fbb00f50a40b6f92e11d6cc1cfc585dac6a04427))
+- **accordion:** updated accordion header height ([cd02a17](https://github.com/adevinta/spark/commit/cd02a1770b151fff05000a8f6f6cb17f8bdf5767))
+
+### Features
+
+- **accordion:** accordion component ([023c2f9](https://github.com/adevinta/spark/commit/023c2f94cd5af6dc6ed48d39fe8224e3c7373847))
+- **accordion:** accordion item header ([bef11fc](https://github.com/adevinta/spark/commit/bef11fcc89f4d8492883ef276e2c6ee780dbfc09))
+- **accordion:** add dependencies ([40a10ad](https://github.com/adevinta/spark/commit/40a10adf482e0fb5ae2eab96aa793177a29c2a85))
+- **accordion:** composition with collapsible ([7dd8446](https://github.com/adevinta/spark/commit/7dd8446d40f2a1331327ba3c4c70ba9ff85c584e))
+- **accordion:** outlined and filled designs ([0968a8d](https://github.com/adevinta/spark/commit/0968a8dcadfbdeceb64459d0b9446670b88d51fd))
+- **accordion:** split props ([309ec9b](https://github.com/adevinta/spark/commit/309ec9bf356aaf8875e03b0929e815891666da50))
+
 ## [1.0.5](https://github.com/adevinta/spark/compare/@spark-ui/accordion@1.0.4...@spark-ui/accordion@1.0.5) (2024-07-16)
 
 ### Bug Fixes

@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- fix code snippets on component docs ([f2e8163](https://github.com/adevinta/spark/commit/f2e8163130257ba86bd61fbce77846f373a642d6))
+- fixing broken docgen because of forwardRef ([4fac93f](https://github.com/adevinta/spark/commit/4fac93f76f0405a29613b12bddee474bf62be0e3))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- packages deps ([3543766](https://github.com/adevinta/spark/commit/354376668ebb773d8efa553ce7f5ef1ecad42416))
+- **tabs:** a11y pattern link ([6a2b47e](https://github.com/adevinta/spark/commit/6a2b47e2b3445b565042196552c238a7fccfd528))
+- **tabs:** a11y styles on content and className prop ([2ca976f](https://github.com/adevinta/spark/commit/2ca976f8718254c40b6abcd4ecd5e5df2462513a))
+- **tabs:** add license ([99bedc9](https://github.com/adevinta/spark/commit/99bedc96b20932d4897e00fa724ea9c0e791d36f))
+- **tabs:** add scroll to focused tab element ([2d59794](https://github.com/adevinta/spark/commit/2d59794a42d1a5f9bcd37363df7235701b275dca))
+- **tabs:** doc ([adf93b1](https://github.com/adevinta/spark/commit/adf93b10ae2df3d5357bf57bb936fc5b5d022990))
+- **tabs:** fix deps ([d6da1c9](https://github.com/adevinta/spark/commit/d6da1c91bc57c9184c4d769b2025aab674788545))
+- **tabs:** fixed argtypes of stories for compound components ([cf84ce6](https://github.com/adevinta/spark/commit/cf84ce69449b4bd627903e0b42ea94317f69d967))
+- **tabs:** harmonize tabs displayNames ([c031c03](https://github.com/adevinta/spark/commit/c031c03ad32d89e3c0c3dd2521477f8044c5c007))
+- **tabs:** meta-tags ([d74f420](https://github.com/adevinta/spark/commit/d74f420a09afc151ff7a6ab13778ebf6d4d7a895))
+- **tabs:** optional chaining on array access ([53e4000](https://github.com/adevinta/spark/commit/53e4000c706a40c1e67344fc4dfa3177bed634db))
+- **tabs:** styling after button+icon pkg update ([dd72d64](https://github.com/adevinta/spark/commit/dd72d6406308eb1b42ad6e2fb79aed6f045ce898))
+- **tabs:** tabs orientation fix ([470c6fa](https://github.com/adevinta/spark/commit/470c6fa2dd6fa1d236f1bed06ad7ef3a20cf3450))
+- typechecks ([75c3262](https://github.com/adevinta/spark/commit/75c32621298ad8160233af8e062b47760e3c3c5a))
+- update cva ([bd00ba5](https://github.com/adevinta/spark/commit/bd00ba5804311ba21e7685903487f18bf7968efd))
+
+### Features
+
+- set all inner deps as latest ([dbc135e](https://github.com/adevinta/spark/commit/dbc135e41ddba29451fc2e0a036f189b94604d07))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+- **tabs:** add forceMount prop to retain inactive tab content in the DOM ([87c7ddd](https://github.com/adevinta/spark/commit/87c7ddd8d2c073a77f57b55787df127dda1bad06)), closes [#2283](https://github.com/adevinta/spark/issues/2283)
+- **tabs:** add icon+label feat to tab item ([106d524](https://github.com/adevinta/spark/commit/106d524ca60b3f34f44fb2a7fc7ada8ed90bb2f8))
+- **tabs:** add orientation feature ([b70b1d8](https://github.com/adevinta/spark/commit/b70b1d8ab9704da40c8e62426e673d692636938b))
+- **tabs:** add overflow w. arrows feature ([5fbfaa8](https://github.com/adevinta/spark/commit/5fbfaa884d657d32d83baf2b86321fc14bd9b691))
+- **tabs:** adds resize observer for arrow navigation ([87355dd](https://github.com/adevinta/spark/commit/87355dd277f835b7a022e5e553b0e822bb9c1ec0))
+- **tabs:** adds state management on tabs ([6cba54c](https://github.com/adevinta/spark/commit/6cba54c8c75c16777dbd7cb68a78d0dca89ca826))
+- **tabs:** adds tabs ctx and first props (intent and size) ([049945c](https://github.com/adevinta/spark/commit/049945cb9af0c66b5cab3c34b487578abcdbf4db))
+- **tabs:** apply new colour strategy ([6354f52](https://github.com/adevinta/spark/commit/6354f52df7734d13c367a0fe96e5b00d1eaca2ce))
+- **tabs:** apply new custom ring for focus styles ([4dc9b11](https://github.com/adevinta/spark/commit/4dc9b1131559226daf3654ad7da3413048b51e5f)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+- **tabs:** doc ([297a846](https://github.com/adevinta/spark/commit/297a846f3954a9c21fe08b5bf52bccb458071a49))
+- **tabs:** started tabs compound component ([28c811d](https://github.com/adevinta/spark/commit/28c811d9b2c16d96098115e3af1ab98d32ec6c4e))
+- **tabs:** update background styles ([ba0363d](https://github.com/adevinta/spark/commit/ba0363dbbcf66aaba49f0ade8306e2c58e2dfb05)), closes [#1423](https://github.com/adevinta/spark/issues/1423)
+- **tabs:** updating arrow navigations behavior on click ([e2a5937](https://github.com/adevinta/spark/commit/e2a5937a129e09906999424edcc19aef716e4da6))
+- update esling config following PR feedbacks ([609e6e4](https://github.com/adevinta/spark/commit/609e6e44fce1a38a4a8d44a9e2dc77b95ca25650))
+
+### BREAKING CHANGES
+
+- **tabs:** apply new colour strategy
+
 # [2.4.0](https://github.com/adevinta/spark/compare/@spark-ui/tabs@2.3.25...@spark-ui/tabs@2.4.0) (2024-07-04)
 
 ### Features

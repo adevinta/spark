@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- **cli-utils:** add some feedback when not loading a given config file ([1231fe6](https://github.com/adevinta/spark/commit/1231fe6cb94c15643a11278c3210836e81059364))
+- **cli-utils:** cli command was failing ([719200e](https://github.com/adevinta/spark/commit/719200e62c210c7763950501553b9088187bd179))
+- **cli-utils:** doc ([a9e50f2](https://github.com/adevinta/spark/commit/a9e50f203dfb4e3ba7c2f9b758c46eb923a222c6))
+- **cli-utils:** fix binary file indicator ([02af669](https://github.com/adevinta/spark/commit/02af669d5f7a583ee36ba86902c182384460c346))
+- **cli-utils:** fix config merge method to allow proper option override ([8b6a124](https://github.com/adevinta/spark/commit/8b6a124c6e70f05769305bf6ca84137c7a05510c))
+- **cli-utils:** fix logger issue on generate script after changes ([083c9b0](https://github.com/adevinta/spark/commit/083c9b043d1837a807b159a8143fd16bf8d7087e))
+- **cli-utils:** fix release ([e1c5ee0](https://github.com/adevinta/spark/commit/e1c5ee0923a2beaa8172be2c54c4cc4191ef13b7))
+- **cli-utils:** fix tests ([91e7cd0](https://github.com/adevinta/spark/commit/91e7cd024e24b86738bd45180b812eac794df8e5))
+- **cli-utils:** fix types ([4e4ee36](https://github.com/adevinta/spark/commit/4e4ee362b0af53c994c7b8c682d04c8160294854))
+- **cli-utils:** improve log messages ([9623f94](https://github.com/adevinta/spark/commit/9623f9490cda5af0d00bbb10545e3769922cfc63))
+- **cli-utils:** merge values ([a7e8129](https://github.com/adevinta/spark/commit/a7e81292d452d4ee026f3d4705198ac4ecc6363e))
+- **cli-utils:** merging configs ([aeb6251](https://github.com/adevinta/spark/commit/aeb6251d23bc506674e4545ebad928081292f520))
+- **cli-utils:** meta-tags ([0574960](https://github.com/adevinta/spark/commit/05749604ae830653c04209baa46bd39e11b6d44d))
+- **cli-utils:** missalignment on the default config values nesting ([79729f7](https://github.com/adevinta/spark/commit/79729f722f4ecf6f0c671e2c1c1d5929a87d98c9))
+- **cli-utils:** missing export ([9c7b61e](https://github.com/adevinta/spark/commit/9c7b61ee1ac3da9dd8838bda20a9cc906b927bee))
+- **cli-utils:** modify entry file extension ([6f2671f](https://github.com/adevinta/spark/commit/6f2671f43edfa6082a8d3b9d377c1a7cbb1c67dc))
+- **cli-utils:** output file creates new content ([973ffa8](https://github.com/adevinta/spark/commit/973ffa85e6987dbd87a119e9253db57556a705d4))
+- **cli-utils:** remove betta tagging ([96cafae](https://github.com/adevinta/spark/commit/96cafae45e4a4759ef9ff4a763963f26cb898cb6))
+- **cli-utils:** remove extra logs ([f588649](https://github.com/adevinta/spark/commit/f588649eb299fc42ef9d6dbf8f8f4eebd0cfd6a9))
+- **cli-utils:** remove unnecesary log ([614d834](https://github.com/adevinta/spark/commit/614d834d5d7a0f3084b3097e2dee5436b369fbb6))
+- **cli-utils:** small tweaks ([e83ff63](https://github.com/adevinta/spark/commit/e83ff634a212163d2a102d091b66c2c810d90387))
+- **cli-utils:** update component template ([2e939ca](https://github.com/adevinta/spark/commit/2e939caef61ce616ff046a9eb00d2e720452502e))
+- fix errors after eslint update ([3dae947](https://github.com/adevinta/spark/commit/3dae947dc169d9db3c7252f54a6224ded335980e))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- **internal-utils:** missed dependency ([67b5a6b](https://github.com/adevinta/spark/commit/67b5a6b8ebe959686c611d0cf64efe1532b31422))
+- log config setted ([190a058](https://github.com/adevinta/spark/commit/190a0581ab6219591c5d3a3ecde2ee46d504d7ca))
+- priority of commands ([ed178a5](https://github.com/adevinta/spark/commit/ed178a51a8cea0255c96467b0d8760daf8f851dd))
+- update vite config for package-level external dependencies ([fa21c73](https://github.com/adevinta/spark/commit/fa21c73d8ea579a1c5059f48cabca7188696d32e)), closes [#503](https://github.com/adevinta/spark/issues/503)
+- wrong chmod on new ci script ([7b47919](https://github.com/adevinta/spark/commit/7b479196b0fcf5be21f2f067fdcb63e1d77c3496))
+
+### Code Refactoring
+
+- **cli-utils:** clean up code following PR feedbacks ([724c83e](https://github.com/adevinta/spark/commit/724c83e771307addeabd1fcea45b810d56f41e2f))
+
+### Features
+
+- **accordion:** accordion component ([023c2f9](https://github.com/adevinta/spark/commit/023c2f94cd5af6dc6ed48d39fe8224e3c7373847))
+- add peerDeps field inside templates ([66791cc](https://github.com/adevinta/spark/commit/66791cc8f0af3ce561c11561e01b41e256ece242))
+- **cli-utils:** add cli command to generate new components ([4e79fa1](https://github.com/adevinta/spark/commit/4e79fa19c2e84f98ac8fd7f9b75ecfaab2ea8227))
+- **cli-utils:** add hook and utils template ([e22d672](https://github.com/adevinta/spark/commit/e22d672e349909cc4bc8673312846d10d77e7ea5))
+- **cli-utils:** add new "spark setup-theme" cli command ([5b51126](https://github.com/adevinta/spark/commit/5b51126206ba0440d78f6429dcba3a7dd2f3af81)), closes [#253](https://github.com/adevinta/spark/issues/253)
+- **cli-utils:** add scan adoption script ([203e05e](https://github.com/adevinta/spark/commit/203e05e02285be18e5d0c6211f3ec04e4322837d))
+- **cli-utils:** bump version ([0f5664e](https://github.com/adevinta/spark/commit/0f5664e4c12bba0c8c7115109cbbe0a94e5220c1))
+- **cli-utils:** component package template updated to match agreements ([10e7159](https://github.com/adevinta/spark/commit/10e71594f604f946e94c6f776f559ca0d0212860)), closes [#465](https://github.com/adevinta/spark/issues/465)
+- **cli-utils:** doc ([d9446aa](https://github.com/adevinta/spark/commit/d9446aa20a054496042ff828f2b99dbf3c8c964f))
+- **cli-utils:** exoposes all configuration parameters as a build argument ([3e88a99](https://github.com/adevinta/spark/commit/3e88a998c05da026cd196b3dd54a2ad50506266c))
+- **cli-utils:** fix some issues ([cd0cc3e](https://github.com/adevinta/spark/commit/cd0cc3e31100316c2b544cc6ef74994e1a124fa0))
+- **cli-utils:** fix some typos in component generation template ([d819446](https://github.com/adevinta/spark/commit/d8194465db48473f201e3634e1a149f91b5bb400))
+- **cli-utils:** fix typo ([afcaf10](https://github.com/adevinta/spark/commit/afcaf1088284a7c87e7fdc8d36331ea4ab7571c8))
+- **cli-utils:** flattened cli args for theme config ([ccb13de](https://github.com/adevinta/spark/commit/ccb13de785f2d6d2f8893bdff83b032af6416a38))
+- **cli-utils:** handle overlooked edge cases ([d5c1ae3](https://github.com/adevinta/spark/commit/d5c1ae3d1eb41aa7c7c8a265d63e74dd7c416531))
+- **cli-utils:** implement support for various base font sizes in theme building process ([7734203](https://github.com/adevinta/spark/commit/7734203330a411ba9c6898c6c1b4a84f6c168537)), closes [#385](https://github.com/adevinta/spark/issues/385)
+- **cli-utils:** optimize DS configuration for spark consumers ([8d18892](https://github.com/adevinta/spark/commit/8d188920cffc3d24f96b1d5a9398eb22149c1640))
+- **cli-utils:** prompt system for spark generate command ([12aec9b](https://github.com/adevinta/spark/commit/12aec9bb2af9aacdf2337e0de92e97ea608db962)), closes [#237](https://github.com/adevinta/spark/issues/237) [#237](https://github.com/adevinta/spark/issues/237)
+- **cli-utils:** remove deprecated spark-setup-themes cli package ([a2efa9c](https://github.com/adevinta/spark/commit/a2efa9c15b3ece4285043fd25858435f455f257d))
+- **cli-utils:** trigger script from bin alias ([c81f054](https://github.com/adevinta/spark/commit/c81f054ef2fb004203da3e5b77c02e4a83e2c191))
+- **cli-utils:** update cli setup-themes functions ([8723891](https://github.com/adevinta/spark/commit/8723891243a11a81176a3cdefe7fadf2951ce613))
+- **cli-utils:** update code and files structure ([be32555](https://github.com/adevinta/spark/commit/be325553849c51667ca1dad24042b8305775212f))
+- **cli-utils:** update setup-themes transformer functions ([5c9a305](https://github.com/adevinta/spark/commit/5c9a3056807758e3178f1ae183b7d5718f06f3b7))
+- **cli-utils:** update toTailwindConfig mapper to handle edge cases ([2af919a](https://github.com/adevinta/spark/commit/2af919a3dd7bbab02d00cd9892c1e9a7971aec38))
+- mixing parameters ([da1bf1d](https://github.com/adevinta/spark/commit/da1bf1d838df2c577755eb3c651cd0bba8d07203))
+
+### BREAKING CHANGES
+
+- **cli-utils:** update the way the cli spark-setup-theme command works
+- **cli-utils:** update the way the cli spark-setup-theme command works
+
 ## [2.15.1](https://github.com/adevinta/spark/compare/@spark-ui/cli-utils@2.15.0...@spark-ui/cli-utils@2.15.1) (2024-07-03)
 
 **Note:** Version bump only for package @spark-ui/cli-utils

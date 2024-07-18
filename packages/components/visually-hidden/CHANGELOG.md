@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- packages deps ([3543766](https://github.com/adevinta/spark/commit/354376668ebb773d8efa553ce7f5ef1ecad42416))
+- revise code in accordance with the updated vite configuration ([4f4174a](https://github.com/adevinta/spark/commit/4f4174a0ef8df71f28af5c77acf0c5f7c7837e58)), closes [#503](https://github.com/adevinta/spark/issues/503)
+- **visually-hidden:** add missing display name ([80fd5d2](https://github.com/adevinta/spark/commit/80fd5d2a639d4540c5180a8438d1a17a8074309e))
+- **visually-hidden:** doc ([410e53d](https://github.com/adevinta/spark/commit/410e53d874b3d413d05880802d67ae6074e97a0f))
+- **visually-hidden:** fix dependencies ([490beed](https://github.com/adevinta/spark/commit/490beed0676cd54572452e10cba9a5e399ae8e35))
+- **visually-hidden:** fix deps ([8365b6d](https://github.com/adevinta/spark/commit/8365b6ddb9a970a9449ca6ddbbe3e5e21995f63f))
+- **visually-hidden:** meta-tags ([2bc4d02](https://github.com/adevinta/spark/commit/2bc4d0204fa093868b9b49a15dbbefca1265b75c))
+- **visually-hidden:** props export name ([ec58953](https://github.com/adevinta/spark/commit/ec589538b21f11e5fa2c5e34a02bcbaabe0815f5))
+- **visually-hidden:** typo in peerdependency package name, from tailwind to tailwindcss ([484dd8d](https://github.com/adevinta/spark/commit/484dd8d8945bf3d981e7f99b68bacc2fb89dd270))
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+- got some beta packages out of beta ([599e348](https://github.com/adevinta/spark/commit/599e3487d1fee532d93015dbac495cf230452c8a))
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+- **visuall-hidden:** add repository info in package.json ([85d53d9](https://github.com/adevinta/spark/commit/85d53d9cddf95548096470d028fa8db8f4699236))
+- **visuall-hidden:** create component ([d84d0aa](https://github.com/adevinta/spark/commit/d84d0aa71e09bee0a5806a3dd6e37b6a9fa608e9))
+- **visually-hidden:** doc ([9b02d4f](https://github.com/adevinta/spark/commit/9b02d4fb9135995264c1101c05a79de0828bd691))
+- **visually-hidden:** froze versions ([a209985](https://github.com/adevinta/spark/commit/a209985c0a3506e34c7f57888d8fda09452be0b2))
+- **visually-hidden:** new package name ([69bfe78](https://github.com/adevinta/spark/commit/69bfe78e443b7a1bff1d1820f9f522daa23e3eb0))
+
+### BREAKING CHANGES
+
+- **visually-hidden:** package name
+
 ## [1.2.3](https://github.com/adevinta/spark/compare/@spark-ui/visually-hidden@1.2.2...@spark-ui/visually-hidden@1.2.3) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/visually-hidden

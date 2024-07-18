@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- **dropdown:** release dropdown and select as stable ([f15217c](https://github.com/adevinta/spark/commit/f15217cbfb130f073cb064b8b9c5b9a3aa5d6803))
+- **select:** fix disabled and readonly styles ([6ca1bb5](https://github.com/adevinta/spark/commit/6ca1bb57887342f85e6a0bd6cab06a6a0cbcab56))
+- **select:** fix select deps ([9d8f4f2](https://github.com/adevinta/spark/commit/9d8f4f2490ecd1f3c52ee6134f476ff4721cc7ad))
+- **select:** fix text-size defined ([da597e1](https://github.com/adevinta/spark/commit/da597e1cbf9b047435b6dc91f00ae740b165dccf))
+- **select:** forward ref to select items ([1177140](https://github.com/adevinta/spark/commit/11771408e59fd026fe7b68237857d159397d4608))
+- **select:** missed dependencies ([008f616](https://github.com/adevinta/spark/commit/008f616b7f005eca6950dc07fe1641df4c51501b))
+- **select:** placeholder item for select ([f31e83c](https://github.com/adevinta/spark/commit/f31e83c7104eb8af95b8e7b82b1318120cac0e45))
+- **select:** placeholder item for select ([b05b30c](https://github.com/adevinta/spark/commit/b05b30c0a92cf7eecc6c98e80d627b263ace13eb))
+- **select:** remove code causing excessive calls to the onValueChange prop ([0125440](https://github.com/adevinta/spark/commit/012544065da1d132e14990e8ec3e4670333712c4)), closes [#2062](https://github.com/adevinta/spark/issues/2062)
+
+### Features
+
+- **dropdown:** dropdown downshift implementation ([3f72002](https://github.com/adevinta/spark/commit/3f720026212e2002f1b034a270e04aa67ae83c4e))
+- **form-field:** moved status icons to FormField ([225b2a6](https://github.com/adevinta/spark/commit/225b2a61d166ffda77b01591e5520ae50457c0dd))
+- **select:** add Select.Value subComponnet ([d0ea977](https://github.com/adevinta/spark/commit/d0ea977a206eaad876901bdd5efaf5297a23eb30))
+- **select:** associate label and select elements ([774bdaa](https://github.com/adevinta/spark/commit/774bdaaad4c37b6e7b8ab13c7591017a7983c95e))
+- **select:** bootstrap select package ([bf3bfb0](https://github.com/adevinta/spark/commit/bf3bfb094ab9e5a7e141c812a64e6c33446a0470))
+- **select:** inherit require attr from formfield ([2104842](https://github.com/adevinta/spark/commit/210484214b79cf83037be2a5639e32e52f9cffd5))
+- **select:** linked select items with select value ([f9a62d4](https://github.com/adevinta/spark/commit/f9a62d49ed04a776e96c155c328634b62f8b1718))
+- **select:** linked select items with select value ([cdbe40d](https://github.com/adevinta/spark/commit/cdbe40deb04737b0af39743aef960addc12fe3c7))
+- **select:** merge dropdown logic into select ([50a190d](https://github.com/adevinta/spark/commit/50a190df9fdf9bc435742a02e2f4fc242cc4f876))
+- **select:** name attribute on select ([8d41bb9](https://github.com/adevinta/spark/commit/8d41bb92281d1faf4a49dcfa57c9619f28ce5961))
+- **select:** select api ([0de75ec](https://github.com/adevinta/spark/commit/0de75ece845b1a1a23e2d0c890e2d42331752dee))
+- **select:** select focus styles ([9350a0d](https://github.com/adevinta/spark/commit/9350a0d4988afce104b2d96f66d4822682292525))
+
 ## [1.2.11](https://github.com/adevinta/spark/compare/@spark-ui/select@1.2.10...@spark-ui/select@1.2.11) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/select

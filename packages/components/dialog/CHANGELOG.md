@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- **dialog:** adjust the handling of hasCloseButton flag to avoid potential infinite loop (React 19) ([9a6db95](https://github.com/adevinta/spark/commit/9a6db959dd6298c74300b842a424cdf690b85653))
+- **dialog:** dialog prevent mouse events in controlled mode ([535e11e](https://github.com/adevinta/spark/commit/535e11e229e95fbbef5f81c894a532770c8c1e84))
+- **dialog:** do not render overlay in fullscreen size ([2c0ed76](https://github.com/adevinta/spark/commit/2c0ed7658536889fd320a1ee0c5431aafc22782d))
+- **dialog:** doc ([5415273](https://github.com/adevinta/spark/commit/5415273fdd4a8999f1a3e04d5541c3b008bd28e6))
+- **dialog:** ensure the activeElement is an HTMLElement before trying to call the focus method on it ([c755243](https://github.com/adevinta/spark/commit/c7552434365f37c6035cea6ff4e4d117f65c8ad1))
+- **dialog:** fixing dialog displayNames for docgen ([b905ed1](https://github.com/adevinta/spark/commit/b905ed1dd482ed0ec3523d9bf7a77bb74625228d))
+- **dialog:** improved focus styles when focusable children disappear ([d417850](https://github.com/adevinta/spark/commit/d417850e7d78b572b9be72ede3a248b8cdc9d4d1))
+- **dialog:** meta-tags ([aaf8764](https://github.com/adevinta/spark/commit/aaf8764122593d138793b9d64a0a6ea25946781b))
+- **dialog:** release stable dialog ([9440807](https://github.com/adevinta/spark/commit/9440807c573e0c087c7f012d236c215759078407))
+- **dialog:** remove min h ([fdab549](https://github.com/adevinta/spark/commit/fdab549ac6e2e3803c89efe8e4e036e87770483f))
+- **dialog:** render overlay also in fullscreen to freeze scroll on body ([9035826](https://github.com/adevinta/spark/commit/9035826dea14dc09f6aa5275e4ce8c6e40d81c04))
+- **dialog:** use optional chaining operator to safely access node id, preventing runtime errors ([bbc6769](https://github.com/adevinta/spark/commit/bbc6769ca0399ef4180ce6fcf6c9a3e179b63f8d))
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- fix types ([a3cda79](https://github.com/adevinta/spark/commit/a3cda79e886ac50470a914a4354129ae6a643dce))
+- typechecks ([75c3262](https://github.com/adevinta/spark/commit/75c32621298ad8160233af8e062b47760e3c3c5a))
+- update cva ([bd00ba5](https://github.com/adevinta/spark/commit/bd00ba5804311ba21e7685903487f18bf7968efd))
+
+### Features
+
+- **alert-dialog:** dependencies review ([0519681](https://github.com/adevinta/spark/commit/05196812b2226d52be336a6d18b50fda963d0187))
+- **dialog:** add inset prop ([eec4b24](https://github.com/adevinta/spark/commit/eec4b24e6ae61e4315d9bd8e841b91b7ab2383a1))
+- **dialog:** add narrow prop ([598301a](https://github.com/adevinta/spark/commit/598301afcf2be63878192acffcc7383895fbf64a))
+- **dialog:** add tabIndex prop ([98d3f4d](https://github.com/adevinta/spark/commit/98d3f4d93e4d6e0dbe6215f90881a91eb8ed949c))
+- **dialog:** apply new custom ring for focus styles ([8c2355c](https://github.com/adevinta/spark/commit/8c2355c6ab6b56df4037c3062ef5eb016d606e5b)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+- **dialog:** apply padding right to dialog title when closebutton is present ([0c4976b](https://github.com/adevinta/spark/commit/0c4976b0bfaf6bc742bf8fb2d8acdfb9e76c6242)), closes [#1948](https://github.com/adevinta/spark/issues/1948)
+- **dialog:** close button styles ([d05edc4](https://github.com/adevinta/spark/commit/d05edc43bc85948227539cd0115cc137509deb8e))
+- **dialog:** dialog disclosure animation ([1f9cad8](https://github.com/adevinta/spark/commit/1f9cad8b2668ba5fe3a81204d8633751cddb9310))
+- **dialog:** doc ([3fe6c26](https://github.com/adevinta/spark/commit/3fe6c263739ed3b8a0947d4c60c049006ed127fe))
+- **dialog:** exporting types and removing data-spark-attrs ([14a778c](https://github.com/adevinta/spark/commit/14a778ca6f6acc5e01799519d213fe92c964ab77))
+- **dialog:** header footer and body behaviour ([3b1ab25](https://github.com/adevinta/spark/commit/3b1ab259084edbb8e34e5ce7d9dc43f929ecf0c5))
+- **dialog:** implement focus capture and restoration in dialog component ([a2ceba7](https://github.com/adevinta/spark/commit/a2ceba7ed54d9ec67594c0992d99173893b413bb)), closes [#1930](https://github.com/adevinta/spark/issues/1930)
+- **dialog:** introduced sizes ([bf79c0f](https://github.com/adevinta/spark/commit/bf79c0f2ce7cab03afad42a3bd443771e76ca28e))
+- **dialog:** setup barebones of dialog compound from radix ([bd7920f](https://github.com/adevinta/spark/commit/bd7920f35973c39452f7169504c7adb1dfd8c36a))
+- **dialog:** setup dialog template ([e2fd6fa](https://github.com/adevinta/spark/commit/e2fd6fa503d59eb8e13e3da02e806bee3229d51c))
+- **dialog:** update minor changes ([b31946a](https://github.com/adevinta/spark/commit/b31946a4582fcdefd47c040c953051a5de88ffcd))
+- set all inner deps as latest ([dbc135e](https://github.com/adevinta/spark/commit/dbc135e41ddba29451fc2e0a036f189b94604d07))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+
 ## [1.12.10](https://github.com/adevinta/spark/compare/@spark-ui/dialog@1.12.9...@spark-ui/dialog@1.12.10) (2024-07-12)
 
 **Note:** Version bump only for package @spark-ui/dialog

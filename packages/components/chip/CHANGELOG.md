@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- **chip:** a11y of the suggestion demo ([a74a9ee](https://github.com/adevinta/spark/commit/a74a9eeb7860724f857b164684c33e1d42226094))
+- **chip:** clear button disabled ([7988feb](https://github.com/adevinta/spark/commit/7988feb9bcb4a4a4d5d4535a286c42a8aa496899))
+- **chip:** clear button disabled ([e188680](https://github.com/adevinta/spark/commit/e1886809c5b3adffee60332d3353de8d21015e74))
+- **chip:** clearbutton styles ([cc7e89b](https://github.com/adevinta/spark/commit/cc7e89be692d34ee6f20b47d733502990d5a1704))
+- **chip:** doc ([be9df15](https://github.com/adevinta/spark/commit/be9df157b3b19dbfc6d09e506e43afa95cac64a3))
+- **chip:** fix console log missed ([eba098a](https://github.com/adevinta/spark/commit/eba098a778e077ff3ac2730611c5301dcd28ae94))
+- **chip:** initial release ([20723ba](https://github.com/adevinta/spark/commit/20723bae9da9640e77690d0e5d35ba8543c78f9c))
+- **chip:** meta-tags ([b6aae05](https://github.com/adevinta/spark/commit/b6aae0588e645b3e447272802b410cf27f5f3cd1))
+- **chip:** outline focuses ([93f0fd5](https://github.com/adevinta/spark/commit/93f0fd5419b8c8b3b305a6929bb4b2e75e9918d7))
+- **chip:** remove unnecesary tets.only ([83c2936](https://github.com/adevinta/spark/commit/83c2936245423739df008a4a7a4bcd4f97814288))
+- **chip:** revert cahnges ([d0e44a0](https://github.com/adevinta/spark/commit/d0e44a049de115c0dab81d786852e292f5e02be8))
+- **chip:** update TS related things for forthcoming @react/types update ([bf5dd29](https://github.com/adevinta/spark/commit/bf5dd2976c89f7f69d85253cc1fee2e759fb8bf9))
+- **chip:** width divergence between designs ([388959b](https://github.com/adevinta/spark/commit/388959b350fb5dabfe37645ba705d99650c474f4))
+- **dialog:** fixing dialog displayNames for docgen ([b905ed1](https://github.com/adevinta/spark/commit/b905ed1dd482ed0ec3523d9bf7a77bb74625228d))
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+
+### Features
+
+- **chip:** add element and clear button ([cef8cfc](https://github.com/adevinta/spark/commit/cef8cfcc2e1e65349fa604a0434c25d8881df063))
+- **chip:** add good type for forwardRef ([fcae949](https://github.com/adevinta/spark/commit/fcae949741370051263c526cd5ddf43c1941e101))
+- **chip:** add intent designs ([73d095e](https://github.com/adevinta/spark/commit/73d095efd829d33293420f96ed5d585b2c71fa65))
+- **chip:** add intent designs ([4006570](https://github.com/adevinta/spark/commit/400657073b64a1124cee05d97edcaa7436f95fea))
+- **chip:** add intent designs ([a858e36](https://github.com/adevinta/spark/commit/a858e36bb9c99f8557878980417ca50325ec2870))
+- **chip:** add last extra improvements ([a126c54](https://github.com/adevinta/spark/commit/a126c542ae7be4bc582099353f1fa3833ce0197d))
+- **chip:** add ref type to prop ([dfab82e](https://github.com/adevinta/spark/commit/dfab82edb7d66cf3a90c32d250c60044755af98e))
+- **chip:** adjust the margin ([2720954](https://github.com/adevinta/spark/commit/2720954f84b9d2bf5fdb808dbe853e575b3f66fd))
+- **chip:** adjust to new specs ([fb8f355](https://github.com/adevinta/spark/commit/fb8f3559c7b54955f2429604a8414c6444992337))
+- **chip:** apply clear button styles ([0f1f977](https://github.com/adevinta/spark/commit/0f1f9778e88fed39e159b7f55729d594b76d95d0))
+- **chip:** apply feedback given to stage 6 and key definitions ([f7899bc](https://github.com/adevinta/spark/commit/f7899bc0ed7e24a56589276c846c851ba249a995))
+- **chip:** apply new custom ring for focus styles ([f104cbb](https://github.com/adevinta/spark/commit/f104cbb29790cece8ec14825f859d6c122620bd8))
+- **chip:** apply PR suggestions ([c469d8e](https://github.com/adevinta/spark/commit/c469d8ef47b455cca0bea3d1702a3c2d1fa61e94))
+- **chip:** apply PR suggestions ([7b9818c](https://github.com/adevinta/spark/commit/7b9818c658994e8809962809596165db00adf8b9))
+- **chip:** doc ([5ec7366](https://github.com/adevinta/spark/commit/5ec7366c39fe59f636ef2a2911a2060eacbaeec8))
+- **chip:** doc ([36b452f](https://github.com/adevinta/spark/commit/36b452f07614fc68747c88aea679d8f926bef7f6))
+- **chip:** fix content details ([a5259be](https://github.com/adevinta/spark/commit/a5259be9f22c36e95ca97a065226a4b4d5f10f40))
+- **chip:** fix content details ([77aedf5](https://github.com/adevinta/spark/commit/77aedf580b13101f8727e56809e74b4f8ce7173e))
+- **chip:** fix content details ([8d68c98](https://github.com/adevinta/spark/commit/8d68c98581af957e5714c96ac5aa5f8fa4e50b1e))
+- **chip:** fix content details ([39384b2](https://github.com/adevinta/spark/commit/39384b28627b741181402af275dfadbb03806125))
+- **chip:** fix rebases ([26d8394](https://github.com/adevinta/spark/commit/26d83943b95647a9970b36620bb7f189134d924e))
+- **chip:** import Ref from react ([71f5046](https://github.com/adevinta/spark/commit/71f5046d3edc68e17768d1b770c2eb158e3d2f76))
+- **chip:** initial template ([6f83516](https://github.com/adevinta/spark/commit/6f835169ffaa0ec4c519096b8dc076908c8374a3))
+- **chip:** leading icon ([08429f5](https://github.com/adevinta/spark/commit/08429f51387be35b08df223faa0e5a1093899088))
+- **chip:** minor changes aligning the stages ([6a01c84](https://github.com/adevinta/spark/commit/6a01c845454fccd5ef3baab54bceaef657b721f5))
+- **chip:** release candidate ([cd1df7d](https://github.com/adevinta/spark/commit/cd1df7db0833a11361a1a54d6f92da0077c4e656))
+- **chip:** remove unnecesary file ([52c9f9a](https://github.com/adevinta/spark/commit/52c9f9af1c74555ce738e14677092abe0f4c32b2))
+- **chip:** remove unnecesary file ([f3df549](https://github.com/adevinta/spark/commit/f3df5490ee5e3be6839519a320edb2b5673d7e1d))
+- **chip:** remove unnecesary file ([3536030](https://github.com/adevinta/spark/commit/35360302926c6583cd2cebb4f7c8e670b43968ea))
+- **chip:** remove unnecesary file ([72d4bd6](https://github.com/adevinta/spark/commit/72d4bd6d890556b85262787173bfa873e82f1f23))
+- **chip:** specify ussage ([b73c644](https://github.com/adevinta/spark/commit/b73c6445ea98c78defb048025792205d13c98b59))
+- **chip:** styling surface intents designs ([84300de](https://github.com/adevinta/spark/commit/84300dec95596fb604dbc743e53fef517bb7dafa))
+- **chip:** update deps ([54c163d](https://github.com/adevinta/spark/commit/54c163d5ee93c6aab946e7225fd0d8828fd1f657))
+
+### BREAKING CHANGES
+
+- **chip:** doc
+- **chip:** first initial release
+- **chip:** release candidate
+
 ## [1.2.20](https://github.com/adevinta/spark/compare/@spark-ui/chip@1.2.19...@spark-ui/chip@1.2.20) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/chip

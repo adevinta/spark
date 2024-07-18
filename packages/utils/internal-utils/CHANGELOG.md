@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- **internal-utils:** doc ([0014463](https://github.com/adevinta/spark/commit/00144635922cfc8a082a137070a758261e9fa162))
+- **internal-utils:** meta-tags ([c2b0855](https://github.com/adevinta/spark/commit/c2b08556bf583af152c1b59faeb15bb0252ed896))
+- **internal-utils:** props table ([3552bc8](https://github.com/adevinta/spark/commit/3552bc8ec8b7012a2cbdb74317f9fb531e43f585))
+- **internal-utils:** update rollup conf, include ext peerDeps to avoid deps mismatches at call site ([fc4ec83](https://github.com/adevinta/spark/commit/fc4ec8360965735e148316304e1e2cf3c769d2b3))
+
+### Features
+
+- **icon:** added xl size for icon package ([5fb352a](https://github.com/adevinta/spark/commit/5fb352aae839a4d9e0c642624fcf05126d4ac7e5))
+- **internal-utils:** add basic and accent as available intent values ([2e38632](https://github.com/adevinta/spark/commit/2e3863247c8a6eedd723ad30af623a7d1a8c2f7a))
+- **internal-utils:** add comment ([fde9ab5](https://github.com/adevinta/spark/commit/fde9ab550895a0d362aaf7edb3975bf89560f965))
+- **internal-utils:** add current values and make variants partial ([5b1eb81](https://github.com/adevinta/spark/commit/5b1eb817fcbf1f05143e919fb4d37864828c257c))
+- **internal-utils:** add dashed design to internal utils constants ([e814c5e](https://github.com/adevinta/spark/commit/e814c5e142dd51285e05a88783b135153f03e78d))
+- **internal-utils:** add deepFind internal util ([597d534](https://github.com/adevinta/spark/commit/597d53412aeac6fcb5cdf890ba6c1f86e4f540c9))
+- **internal-utils:** add new createSplitProps util ([7e6827a](https://github.com/adevinta/spark/commit/7e6827a7ee556edb1288b38a7eb1a6bd033b9816))
+- **internal-utils:** add variants folder ([c286382](https://github.com/adevinta/spark/commit/c28638297833ce50db909e1d43bdfd94bdb92ab8))
+- **internal-utils:** clean up code (variants folder) ([9f62a0f](https://github.com/adevinta/spark/commit/9f62a0f876d37c4962704c107eb0567bef2eeb1c))
+- **internal-utils:** create internal-utils package ([d24e079](https://github.com/adevinta/spark/commit/d24e0799908f3342ac745b4ae10a6452cbccb914)), closes [#497](https://github.com/adevinta/spark/issues/497)
+- **internal-utils:** doc ([a25de3f](https://github.com/adevinta/spark/commit/a25de3ffcb2c83eef835cd42e9811a5f17f88cd6))
+- **internal-utils:** make package publicly accessible on npm ([db002a9](https://github.com/adevinta/spark/commit/db002a9a779f36fd0cdb21117f2c9f9ef66c3c25))
+- **internal-utils:** replace "primary", "secondary" intents with "main" & "support" ([b737a14](https://github.com/adevinta/spark/commit/b737a143c595e033a3b52b0f1b9a1eac496bf6bd))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+
 # [2.4.0](https://github.com/adevinta/spark/compare/@spark-ui/internal-utils@2.3.1...@spark-ui/internal-utils@2.4.0) (2024-06-15)
 
 ### Features

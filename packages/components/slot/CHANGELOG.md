@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- handle TS errors ([e33f0cd](https://github.com/adevinta/spark/commit/e33f0cd6e3651b8818d84e94cfabc4ce8dd37c1a))
+- revise code in accordance with the updated vite configuration ([4f4174a](https://github.com/adevinta/spark/commit/4f4174a0ef8df71f28af5c77acf0c5f7c7837e58)), closes [#503](https://github.com/adevinta/spark/issues/503)
+- **slot:** doc ([a1bccd2](https://github.com/adevinta/spark/commit/a1bccd2f2cc1b206c8d4f5260257f79dbea5b337))
+- **slot:** fix deps ([9ce1d0f](https://github.com/adevinta/spark/commit/9ce1d0f67d620f12e5d38c7f20c5864d5c56520e))
+- **slot:** meta-tags ([665c7ba](https://github.com/adevinta/spark/commit/665c7ba6bbab1967a84a419f0a325b3da798b065))
+- **slot:** update deps ([8923cb7](https://github.com/adevinta/spark/commit/8923cb7ee0ea36b2322c938cad421b3529035b64))
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+- **slot:** add slot component ([d1f43c7](https://github.com/adevinta/spark/commit/d1f43c7dcbea7d743c94b9a25d5270dfdeb362ce))
+- **slot:** add slottable component ([c2e6d7b](https://github.com/adevinta/spark/commit/c2e6d7b800317a23b474023ddffd69d61830f72c))
+- **slot:** doc ([d4f0cb9](https://github.com/adevinta/spark/commit/d4f0cb92196ef5aa001516a4f538163ade0b2796))
+- **slot:** update slot component props definition ([0a3e228](https://github.com/adevinta/spark/commit/0a3e2288f77c338220f3420252e6f352a9c89aa6))
+- **slot:** wrapPolymorphicSlot method ([5ba6615](https://github.com/adevinta/spark/commit/5ba661528d9e375b8720f8cf9c62cf222fb34c95))
+- update all dependencies to use caret versions in every packages ([35e329c](https://github.com/adevinta/spark/commit/35e329c39bdc661f477d22e770d82e72d7f93a75))
+
 ## [1.7.2](https://github.com/adevinta/spark/compare/@spark-ui/slot@1.7.1...@spark-ui/slot@1.7.2) (2024-06-06)
 
 **Note:** Version bump only for package @spark-ui/slot

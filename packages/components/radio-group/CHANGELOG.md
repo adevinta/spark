@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- fix code snippets on component docs ([f2e8163](https://github.com/adevinta/spark/commit/f2e8163130257ba86bd61fbce77846f373a642d6))
+- fix errors after eslint update ([3dae947](https://github.com/adevinta/spark/commit/3dae947dc169d9db3c7252f54a6224ded335980e))
+- **radio-group:** doc ([c9f057b](https://github.com/adevinta/spark/commit/c9f057ba0d8889ac4a8fb8111c435e4748cab514))
+- **radio-group:** fix multiline labeled styles ([0a797f1](https://github.com/adevinta/spark/commit/0a797f1dc2302e252ba872e20d56c20fe8b254fd))
+- **radio-group:** harmonize radio displayNames ([1c1aaa9](https://github.com/adevinta/spark/commit/1c1aaa9067ec45720dc5561184a54147199029a6))
+- **radio-group:** meta-tags ([ecf5ba9](https://github.com/adevinta/spark/commit/ecf5ba9b088755ab65d47e71f7a01da320b05ae2))
+- **radio-group:** properly enable the disabling of individual radio items ([8324795](https://github.com/adevinta/spark/commit/8324795fe0a1bf2fdf2e0dd2b9c438861a65ecb4))
+- **radio-group:** remove misleading onChange props from types as it is not actually supported ([de01078](https://github.com/adevinta/spark/commit/de01078d47ae0dc5ef70be022a3a51aa6504a243)), closes [#1320](https://github.com/adevinta/spark/issues/1320)
+- **radio-group:** update intent success, alert and error styles ([a41e50c](https://github.com/adevinta/spark/commit/a41e50cc6f20d1e99431a195c7694ab34d375086))
+- undo radix label bump ([04b5d2f](https://github.com/adevinta/spark/commit/04b5d2f138d850f9d0bd14bc4e160299b46ac62b))
+- updating deprecated formField versions ([a8aacc8](https://github.com/adevinta/spark/commit/a8aacc87818dcf7c7e5ca1ad75e9cd42bedeb4df))
+
+### Features
+
+- **radio-group:** add "reverse" prop to have label placed on the left side of the Radio ([966e675](https://github.com/adevinta/spark/commit/966e6754722a449490381da7e930258f278a2890))
+- **radio-group:** apply new custom ring for focus styles ([d2bca18](https://github.com/adevinta/spark/commit/d2bca182ae5e533db2fff1e525134748801c5c51)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+- **radio-group:** doc ([7af987a](https://github.com/adevinta/spark/commit/7af987a4fa00d4459fa5c550ec725b61618ac5ad))
+- **radio-group:** new colours strategy ([db4c2cf](https://github.com/adevinta/spark/commit/db4c2cf30f4a07bf420feaca38205bd05ab5d446))
+- **radio-group:** update radio styles to allow full label width ([d6303d5](https://github.com/adevinta/spark/commit/d6303d5bf406ec54f9668cea298ff9490868a7b8)), closes [#1039](https://github.com/adevinta/spark/issues/1039)
+- **radio-group:** use validation state ([f926c0b](https://github.com/adevinta/spark/commit/f926c0b0d14515b51e8ac0f94a6965851233a91a))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+- update deps ([9a8e4e3](https://github.com/adevinta/spark/commit/9a8e4e3e9541d47a3e610a36ade9ddfd349e6e71))
+- update form field spacing ([5ef4773](https://github.com/adevinta/spark/commit/5ef4773c27867d83bd6b21ba1f1d2589ca773065))
+- update form field version ([738b1b3](https://github.com/adevinta/spark/commit/738b1b3f86e541e10aa2499d5840972208370703))
+
+### BREAKING CHANGES
+
+- **radio-group:** new colours strategy
+
 ## [2.3.13](https://github.com/adevinta/spark/compare/@spark-ui/radio-group@2.3.12...@spark-ui/radio-group@2.3.13) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/radio-group

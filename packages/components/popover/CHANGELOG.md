@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- **dropdown:** fix z-index issue in dropdown ([a8e3431](https://github.com/adevinta/spark/commit/a8e34318e70fb94b52bd7a7da0fc2b0dd3a710ee))
+- fix errors after eslint update ([3dae947](https://github.com/adevinta/spark/commit/3dae947dc169d9db3c7252f54a6224ded335980e))
+- **popover:** adapt popover width on smaller screens ([808271c](https://github.com/adevinta/spark/commit/808271cd93b7685e6ceb059799367d7499eec52f))
+- **popover:** add license ([6ea8711](https://github.com/adevinta/spark/commit/6ea8711140d4f9346dfeb5e792f05211d12f7773))
+- **popover:** broken popover arrow caused by relative positionning ([4f239ad](https://github.com/adevinta/spark/commit/4f239ad92518992182173b7666a6cd29dd62c53c))
+- **popover:** doc ([6282d64](https://github.com/adevinta/spark/commit/6282d6406f9ce22c71dcd66dc29868611daf9134))
+- **popover:** fix dep version ([69af96d](https://github.com/adevinta/spark/commit/69af96d062b22ab64f57f310da3d82eb066bc28b))
+- **popover:** fix ref warning when forward ref without using it ([a93320b](https://github.com/adevinta/spark/commit/a93320bfcbcf000a5c5e4fd1fc4cd5bec4ffd636))
+- **popover:** fixed radioGroup imports following breaking change ([c79279e](https://github.com/adevinta/spark/commit/c79279eb05c8fe90419b6ec32b4895db8210e6d1))
+- **popover:** harmonize popover displayNames ([a16b80b](https://github.com/adevinta/spark/commit/a16b80bbd8c61cbfc41aafb2fbdbab9c582898c3))
+- **popover:** meta-tags ([db8a836](https://github.com/adevinta/spark/commit/db8a8365d71be2de7afda726d4b6a8c68dcd6c7d))
+- **popover:** popover trigger was using forwardRef without ref ([4591995](https://github.com/adevinta/spark/commit/4591995572bf019bb806eb2c61f4ec955938c3e8))
+- **popover:** sync use id hook dep ([b7f4d17](https://github.com/adevinta/spark/commit/b7f4d1701e67ca19144697e2c22a49301e81edce))
+- **popover:** sync use id hook dep ([a5767f8](https://github.com/adevinta/spark/commit/a5767f8b80d6d550c338c4f4a171dbc27d0aeae4))
+- typechecks ([75c3262](https://github.com/adevinta/spark/commit/75c32621298ad8160233af8e062b47760e3c3c5a))
+
+### Features
+
+- **popover:** add inset prop to popover ([a3482e4](https://github.com/adevinta/spark/commit/a3482e4a2baa5624f3b58f389d302973b530b322))
+- **popover:** added control over popover elevation ([efb7f86](https://github.com/adevinta/spark/commit/efb7f8639c38dbd99a6416d381ab709e93d42696))
+- **popover:** added intents to popover ([3c579e7](https://github.com/adevinta/spark/commit/3c579e7c0827fcfeac1744782a6247094d286dfa))
+- **popover:** adjust styles when popover.close is used ([bd3a1fa](https://github.com/adevinta/spark/commit/bd3a1fac807afac78324462a6754afacfcda2c22))
+- **popover:** apply new custom ring for focus styles ([f1e8e77](https://github.com/adevinta/spark/commit/f1e8e77c0a3e06af9c64c7391feeed3071d13094)), closes [#1437](https://github.com/adevinta/spark/issues/1437)
+- **popover:** dependencies review ([8243e00](https://github.com/adevinta/spark/commit/8243e002951d4843edab7804f5e80b4412ca9aba))
+- **popover:** do not restrict popover width in matchTriggerWidth mode ([9b4beea](https://github.com/adevinta/spark/commit/9b4beeaec097d415e37625e8eaeb44a0474f5152))
+- **popover:** doc ([b0044db](https://github.com/adevinta/spark/commit/b0044db1c2fca9ac4ad6741eba9e9e0f28065479))
+- **popover:** dynamic height management ([ecda003](https://github.com/adevinta/spark/commit/ecda0036234b8c859642d4d4d984a25e3da21ca3))
+- **popover:** popover arrow subcomponent ([ea4e4ed](https://github.com/adevinta/spark/commit/ea4e4ed56b2af9d4401f56082d56b51cb305b8b7))
+- **popover:** popover boundaries ([ef3acac](https://github.com/adevinta/spark/commit/ef3acac6fb1b073e2abb0dfe192cc34386d37909))
+- **popover:** popover close button ([7eb5f3e](https://github.com/adevinta/spark/commit/7eb5f3e2faf3b637d53c61338ba232cc5e13610f))
+- **popover:** popover controlled mode example ([5ba35f5](https://github.com/adevinta/spark/commit/5ba35f50133dddae5be1021086d8a175ec3b4436))
+- **popover:** popover header subcomponent ([937d87c](https://github.com/adevinta/spark/commit/937d87c7f34f1b0de716f242a26f4706c3e43d7a))
+- **popover:** popover match trigger width ([2e6c4a8](https://github.com/adevinta/spark/commit/2e6c4a8267c4f30fc03e11641c345f02138bc23d))
+- **popover:** popover portal subcomponent ([2968e4f](https://github.com/adevinta/spark/commit/2968e4f34937d4ea8660539e06f4f66980df886a))
+- **popover:** popover radix primitives ([8f35869](https://github.com/adevinta/spark/commit/8f35869213182b16e932884788d4e493eb397284))
+- **popover:** use css "has" selector rather than JS to apply specific styles ([293fe01](https://github.com/adevinta/spark/commit/293fe014f041011044e3a5b13000871daadab7b5))
+- set all inner deps as latest ([dbc135e](https://github.com/adevinta/spark/commit/dbc135e41ddba29451fc2e0a036f189b94604d07))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+- update eslint rules based on team consensus ([d20f04c](https://github.com/adevinta/spark/commit/d20f04c5f4e6b5ed381d3db412108f58196767a1))
+
 ## [1.8.2](https://github.com/adevinta/spark/compare/@spark-ui/popover@1.8.1...@spark-ui/popover@1.8.2) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/popover

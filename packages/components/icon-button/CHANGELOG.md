@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- fixing broken docgen because of forwardRef ([4fac93f](https://github.com/adevinta/spark/commit/4fac93f76f0405a29613b12bddee474bf62be0e3))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- global fix for custom styles and cva ([083e5ec](https://github.com/adevinta/spark/commit/083e5ec890f41b526a040282355757bc5501f040))
+- **icon-button:** default value changed to main ([1090d56](https://github.com/adevinta/spark/commit/1090d562cee2695edd45ef060ec1f078a2b84f09))
+- **icon-button:** doc ([1e16218](https://github.com/adevinta/spark/commit/1e16218016615c2d00b6182a75cb8f1df80fb94b))
+- **icon-button:** fix deps ([fbdfbdd](https://github.com/adevinta/spark/commit/fbdfbdd4b5fdad22f810a5e41f942f628f24ffa8))
+- **icon-button:** meta-tags ([ff1f89d](https://github.com/adevinta/spark/commit/ff1f89d0525110208c4abab223a541057e3dd572))
+- **icon-button:** update button version ([eb4b9ed](https://github.com/adevinta/spark/commit/eb4b9edce1c6b1e917427c58d466b77ea2f8d6a5))
+- **icon-button:** update small IconButton icon size to 16x16 ([50b9f86](https://github.com/adevinta/spark/commit/50b9f865fa73b18f4a10ec710227204631d9824c))
+- **icon-button:** update version ([eee7340](https://github.com/adevinta/spark/commit/eee73408b8dfd646dfb115da19e2e9aebc40a95c))
+
+### Features
+
+- **button:** toggle button example ([eb96a7a](https://github.com/adevinta/spark/commit/eb96a7a95f749794724dca8f661159c74ecddbe8))
+- **icon-button:** add icon button component ([8518030](https://github.com/adevinta/spark/commit/85180305b6270c7814b59ff9f5595bd7a4a4896e))
+- **icon-button:** doc ([c8aff1c](https://github.com/adevinta/spark/commit/c8aff1c47a48804e9d7a52ba41c65bd7f3bedd07))
+- **icon-button:** get the new colours approach ([50e09d3](https://github.com/adevinta/spark/commit/50e09d34c43461a75e8fb7f6b45aa4d3b9c1daf1))
+- **icon-button:** loading state ([3181b32](https://github.com/adevinta/spark/commit/3181b32d4bf11cae5858f50fe10fa64af187a274))
+- **icon-button:** simplify example, tests and add displayName ([5e31cc2](https://github.com/adevinta/spark/commit/5e31cc26f6af6c95786d62b745ed9dcbfe21905e))
+- **icon-button:** unify style files criteria ([386846f](https://github.com/adevinta/spark/commit/386846f89b8c7d7a009bb2274f878553e1c210ec))
+- **icon-button:** update cva version ([bf5533e](https://github.com/adevinta/spark/commit/bf5533e16ab6354debb7243db605a0833624ea62))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+
+### BREAKING CHANGES
+
+- **icon-button:** using the new colours approach
+
 ## [2.2.9](https://github.com/adevinta/spark/compare/@spark-ui/icon-button@2.2.8...@spark-ui/icon-button@2.2.9) (2024-07-02)
 
 **Note:** Version bump only for package @spark-ui/icon-button

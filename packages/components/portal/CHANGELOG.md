@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-07-18)
+
+### Bug Fixes
+
+- doc ([5506203](https://github.com/adevinta/spark/commit/55062039dc67c3532be42a4661540052094163d9))
+- fixing broken docgen because of forwardRef ([4fac93f](https://github.com/adevinta/spark/commit/4fac93f76f0405a29613b12bddee474bf62be0e3))
+- force new release to all packages ([d7f5136](https://github.com/adevinta/spark/commit/d7f513698cf48dd9c102fafaeb336096818c6b2b))
+- packages deps ([3543766](https://github.com/adevinta/spark/commit/354376668ebb773d8efa553ce7f5ef1ecad42416))
+- **portal:** doc ([d661510](https://github.com/adevinta/spark/commit/d661510125825e2b0a663c9aa5dc10f9ec611675))
+- **portal:** meta-tags ([257d672](https://github.com/adevinta/spark/commit/257d672bf7291dc81df650f896c04e7845e5cfd5))
+- revise code in accordance with the updated vite configuration ([4f4174a](https://github.com/adevinta/spark/commit/4f4174a0ef8df71f28af5c77acf0c5f7c7837e58)), closes [#503](https://github.com/adevinta/spark/issues/503)
+
+### Features
+
+- add peerDeps field ([18e758d](https://github.com/adevinta/spark/commit/18e758d4796389711040fed1c9b738270c505abf))
+- **portal:** dependencies review ([7ec344a](https://github.com/adevinta/spark/commit/7ec344a06a5379321dbceeb03aa9bcb3fcc0498f))
+- **portal:** doc ([0bd7b2d](https://github.com/adevinta/spark/commit/0bd7b2d62257a4402ec42fb339180cf2be8943ff))
+- **portal:** initialized portal component from template ([65766be](https://github.com/adevinta/spark/commit/65766bebd1019e0542ddbd3dd3152afd68432a3c))
+- **portal:** setup portal logic and documentation ([5ae5a30](https://github.com/adevinta/spark/commit/5ae5a3025b24bfaffd8299be0760bbba58155919))
+- set inner deps as latest ([bb1180a](https://github.com/adevinta/spark/commit/bb1180abc8a112b12a65108e53df5f3a6481659f))
+
 ## [1.3.3](https://github.com/adevinta/spark/compare/@spark-ui/portal@1.3.2...@spark-ui/portal@1.3.3) (2024-06-06)
 
 **Note:** Version bump only for package @spark-ui/portal
