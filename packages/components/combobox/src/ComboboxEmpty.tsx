@@ -14,7 +14,10 @@ export const Empty = forwardRef(
     const hasNoItemVisible = ctx.filteredItemsMap.size === 0
 
     return hasNoItemVisible ? (
-      <div ref={forwardedRef} className={cx('px-lg py-md', className)}>
+      <div
+        ref={forwardedRef}
+        className={cx('px-lg py-md text-body-1 text-on-surface/dim-1', className)}
+      >
         {children}
       </div>
     ) : null
