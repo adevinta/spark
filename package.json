@@ -10,7 +10,7 @@
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "lerna run build",
     "build:watch": "lerna run build && lerna watch -- lerna run build --since",
-    "release": "lerna publish --yes",
+    "release": "lerna publish --yes --force-publish",
     "storybook:start": "storybook dev -p 6006",
     "storybook:build": "storybook build -o dist",
     "tailwind-config-viewer": "npx @adevinta/tailwind-config-viewer -c ./tailwind.config.viewer.mjs",
