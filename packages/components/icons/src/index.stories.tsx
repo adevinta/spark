@@ -61,7 +61,7 @@ export const List: StoryFn = _args => {
         onChange={handleChange}
       />
 
-      <div className="flex flex-wrap content-center items-start justify-evenly gap-lg">
+      <div className="grid grid-cols-4 gap-lg md:grid-cols-8 xl:grid-cols-12">
         {filteredIcons.map(([originalName, , element]) => (
           <Components.IconElement key={originalName} name={originalName} element={element} />
         ))}
