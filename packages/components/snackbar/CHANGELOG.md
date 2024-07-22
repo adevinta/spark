@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.3](https://github.com/adevinta/spark/compare/v5.0.2...v5.0.3) (2024-07-22)
+
+### Bug Fixes
+
+- **snackbar:** update vite config to exclude JSX runtime bundling ([5a8dcca](https://github.com/adevinta/spark/commit/5a8dccaf108103b02e0ab59a694ff38956ed72f2))
+
 ## [5.0.2](https://github.com/adevinta/spark/compare/v5.0.1...v5.0.2) (2024-07-22)
 
 **Note:** Version bump only for package @spark-ui/snackbar
