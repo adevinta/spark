@@ -14,9 +14,13 @@ const rootPkg = require('../package.json')
 const rootDeps = Object.keys(rootPkg.dependencies || {})
 const rootDevDeps = Object.keys(rootPkg.devDependencies || {})
 
-export function buildComponentConfig(path: string, preserveModules: boolean) {
+export function buildComponentConfig(
+  path: string,
+  preserveModules: boolean,
+  external: string[] = []
+) {
   const pkg = require(join(path, '/package.json'))
-  const deps = Object.keys(pkg.dependencies || {})
+  const deps = [...Object.keys(pkg.dependencies || {}), ...external]
   const devDeps = Object.keys(pkg.devDependencies || {})
 
   return {
