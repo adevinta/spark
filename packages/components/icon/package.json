@@ -39,7 +39,7 @@
     "@spark-ui/visually-hidden": "^5.0.3"
   },
   "peerDependencies": {
-    "@spark-ui/theme-utils": "^4.0.0",
+    "@spark-ui/theme-utils": "^5.0.3",
     "react": "^18.0 || ^19.0",
     "react-dom": "^18.0 || ^19.0",
     "tailwindcss": "^3.0.0"
