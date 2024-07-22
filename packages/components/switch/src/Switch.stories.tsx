@@ -1,7 +1,7 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { FormField } from '@spark-ui/form-field'
+import { StarFill } from '@spark-ui/icons/dist/icons/StarFill'
 import { StarOutline } from '@spark-ui/icons/dist/icons/StarOutline'
-import { Sun } from '@spark-ui/icons/dist/icons/Sun'
 import type { Meta, StoryFn } from '@storybook/react'
 import { type ComponentProps, useState } from 'react'
 
@@ -31,7 +31,7 @@ export const Controlled: StoryFn = () => {
 export const Reverse: StoryFn = _args => <Switch reverse>Agreed</Switch>
 
 export const Icons: StoryFn = _args => (
-  <Switch checkedIcon={<Sun />} uncheckedIcon={<StarOutline />}>
+  <Switch checkedIcon={<StarFill />} uncheckedIcon={<StarOutline />}>
     Mode
   </Switch>
 )

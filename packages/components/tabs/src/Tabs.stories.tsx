@@ -1,7 +1,7 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Icon } from '@spark-ui/icon'
 import { ConversationFill } from '@spark-ui/icons/dist/icons/ConversationFill'
-import { HolidayFill } from '@spark-ui/icons/dist/icons/HolidayFill'
+import { FireFill } from '@spark-ui/icons/dist/icons/FireFill'
 import { MailFill } from '@spark-ui/icons/dist/icons/MailFill'
 import type { Meta, StoryFn } from '@storybook/react'
 import type { ReactNode } from 'react'
@@ -76,7 +76,7 @@ const withIconTabs = [
     children: (
       <>
         <Icon size="sm">
-          <HolidayFill />
+          <FireFill />
         </Icon>
         <span>Upcoming</span>
       </>
@@ -113,7 +113,7 @@ const withIconOnlyTabs = [
   {
     children: (
       <Icon size="sm">
-        <HolidayFill />
+        <FireFill />
       </Icon>
     ),
     a11yLabel: 'Upcoming',
