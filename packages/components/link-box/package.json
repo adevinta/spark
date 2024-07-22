@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/link-box",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "description": "Semantic component used to wrap elements (cards, blog posts, articles, etc.) in a link.",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/slot": "^5.0.3",
+    "@spark-ui/slot": "^5.0.4",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
