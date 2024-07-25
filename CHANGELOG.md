@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.6](https://github.com/adevinta/spark/compare/v5.0.5...v5.0.6) (2024-07-25)
+
+### Features
+
+- update Playwright config to retain videos on failure ([bfa5512](https://github.com/adevinta/spark/commit/bfa551245eeb591a03b258b251ac973046d25fb5))
+
 ## [5.0.5](https://github.com/adevinta/spark/compare/v5.0.4...v5.0.5) (2024-07-25)
 
 ### Features
