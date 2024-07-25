@@ -41,7 +41,7 @@
     "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+popover%22"
   },
   "dependencies": {
-    "@radix-ui/react-popover": "1.0.7",
+    "@radix-ui/react-popover": "1.1.1",
     "@spark-ui/icon": "^5.0.6",
     "@spark-ui/icon-button": "^5.0.6",
     "@spark-ui/icons": "^5.0.6"
