@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.5](https://github.com/adevinta/spark/compare/v5.0.4...v5.0.5) (2024-07-25)
+
+### Features
+
+- install Playwright for comprehensive e2e testing of component interactions ([8e06616](https://github.com/adevinta/spark/commit/8e066160ae1a5fc4f6d1ceaa49512eb9ebc05396)), closes [#2311](https://github.com/adevinta/spark/issues/2311)
+
 ## [5.0.4](https://github.com/adevinta/spark/compare/v5.0.3...v5.0.4) (2024-07-22)
 
 **Note:** Version bump only for package spark
