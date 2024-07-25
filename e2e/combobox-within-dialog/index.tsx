@@ -1,15 +1,12 @@
 import { Button } from '@spark-ui/button'
+import { Combobox } from '@spark-ui/combobox'
 import { Dialog } from '@spark-ui/dialog'
 import { FormField } from '@spark-ui/form-field'
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { useState } from 'react'
+import React from 'react'
 
-import { Combobox } from '..'
-import { getInput, getItem } from './test-utils'
-
-export function ComboboxInsideDialog() {
-  const [open, setOpen] = useState(false)
+export function ComboboxWithinDialog() {
+  const [open, setOpen] = React.useState(false)
+  const [buttonText, setButtonText] = React.useState('hello')
 
   const handleOpenChange = (open: boolean) => {
     setOpen(open)
@@ -52,6 +49,7 @@ export function ComboboxInsideDialog() {
                   </Combobox.Popover>
                 </Combobox>
               </FormField>
+              <Button onClick={() => setButtonText('clicked')}>{buttonText}</Button>
             </Dialog.Body>
 
             <Dialog.CloseButton aria-label="Close dialog" />
@@ -61,23 +59,3 @@ export function ComboboxInsideDialog() {
     </div>
   )
 }
-
-describe('Combobox inside a Dialog', () => {
-  it('should be able to select item', async () => {
-    const user = userEvent.setup()
-
-    render(<ComboboxInsideDialog />)
-
-    // open dialog
-    await user.click(screen.getByRole('button', { name: 'Create account' }))
-
-    // open combobox
-    await user.click(getInput('books'))
-
-    // select item
-    await user.click(getItem('Pride and Prejudice'))
-
-    expect(screen.getByDisplayValue('Pride and Prejudice')).toBeInTheDocument()
-    expect(getItem('Pride and Prejudice')).toHaveAttribute('aria-selected', 'true')
-  })
-})

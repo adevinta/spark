@@ -1,6 +1,5 @@
 /* eslint-disable max-lines */
 import { Button } from '@spark-ui/button'
-import { Dialog } from '@spark-ui/dialog'
 import { FormField } from '@spark-ui/form-field'
 import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { Tag } from '@spark-ui/tag'
@@ -554,75 +553,5 @@ export const FormFieldValidation: StoryFn = () => {
         <FormField.ErrorMessage>The field is invalid</FormField.ErrorMessage>
       </FormField>
     </div>
-  )
-}
-
-export const QAWithButtons: StoryFn = _args => {
-  return (
-    <div className="py-[1000px]">
-      <Button className="my-sm" onClick={() => console.log('hello')}>
-        hello
-      </Button>
-      <Dropdown>
-        <Dropdown.Trigger aria-label="Book">
-          <Dropdown.LeadingIcon>
-            <BookmarkFill />
-          </Dropdown.LeadingIcon>
-          <Dropdown.Value placeholder="Pick a book" />
-        </Dropdown.Trigger>
-
-        <Dropdown.Popover>
-          <Dropdown.Items>
-            <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
-            <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
-            <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
-            <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
-            <Dropdown.Item value="book-5">1984</Dropdown.Item>
-            <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
-          </Dropdown.Items>
-        </Dropdown.Popover>
-      </Dropdown>
-      <Button className="my-sm" onClick={() => console.log('there')}>
-        there
-      </Button>
-    </div>
-  )
-}
-
-export const QAWithDialog: StoryFn = _args => {
-  return (
-    <Dialog>
-      <Dialog.Trigger asChild>
-        <Button>Open</Button>
-      </Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Content size="md">
-          <Dialog.Body className="pb-[200px]">
-            <FormField>
-              <FormField.Label>Some Label</FormField.Label>
-              <Dropdown>
-                <Dropdown.Trigger aria-label="Book">
-                  <Dropdown.Value placeholder="Pick a book" />
-                </Dropdown.Trigger>
-
-                <Dropdown.Popover>
-                  <Dropdown.Items>
-                    <Dropdown.Item value="book-1">To Kill a Mockingbird</Dropdown.Item>
-                    <Dropdown.Item value="book-2">War and Peace</Dropdown.Item>
-                    <Dropdown.Item value="book-3">The Idiot</Dropdown.Item>
-                    <Dropdown.Item value="book-4">A Picture of Dorian Gray</Dropdown.Item>
-                    <Dropdown.Item value="book-5">1984</Dropdown.Item>
-                    <Dropdown.Item value="book-6">Pride and Prejudice</Dropdown.Item>
-                  </Dropdown.Items>
-                </Dropdown.Popover>
-              </Dropdown>
-            </FormField>
-            <Button className="my-md" onClick={() => console.log('hello')}>
-              hello
-            </Button>
-          </Dialog.Body>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog>
   )
 }
