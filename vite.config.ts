@@ -18,7 +18,11 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: 'vitest.setup.ts',
-    exclude: [...configDefaults.exclude, `**/components/${NOT_VALID_COMPONENTS_PATTERN}/**`],
+    exclude: [
+      ...configDefaults.exclude,
+      `**/components/${NOT_VALID_COMPONENTS_PATTERN}/**`,
+      'e2e/**',
+    ],
     // you might want to disable it, if you don't have tests that rely on CSS
     // since parsing CSS is slow
     css: true,
