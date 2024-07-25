@@ -1,11 +1,18 @@
 import { Spinner } from '@spark-ui/spinner'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { forwardRef, ReactNode, type Ref, useLayoutEffect, useRef } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  forwardRef,
+  ReactNode,
+  type Ref,
+  useLayoutEffect,
+  useRef,
+} from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
-interface ItemsProps {
+interface ItemsProps extends ComponentPropsWithoutRef<'ul'> {
   children: ReactNode
   className?: string
 }
@@ -26,13 +33,14 @@ export const Items = forwardRef(
 
     const isOpen = ctx.hasPopover ? ctx.isOpen : true
 
-    useLayoutEffect(() => {
-      if (!ctx.hasPopover) return
+    const isPointerEventsDisabled = ctx.hasPopover && !isOpen
 
+    useLayoutEffect(() => {
       if (innerRef.current?.parentElement) {
-        innerRef.current.parentElement.style.pointerEvents = isOpen ? '' : 'none'
+        innerRef.current.parentElement.style.pointerEvents = isPointerEventsDisabled ? 'none' : ''
+        innerRef.current.style.pointerEvents = isPointerEventsDisabled ? 'none' : ''
       }
-    }, [isOpen, ctx.hasPopover])
+    }, [isPointerEventsDisabled])
 
     return (
       <ul

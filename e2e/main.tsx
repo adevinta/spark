@@ -5,12 +5,17 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { ComboboxWithinDialog } from './combobox-within-dialog'
+import { DropdownWithinDialog } from './dropdown-within-dialog'
 import { DropdownWithAdjacentButtons } from './dropdown-with-adjacent-buttons'
 
 const router = createBrowserRouter([
   {
     path: 'combobox-within-dialog',
     element: <ComboboxWithinDialog />,
+  },
+  {
+    path: 'dropdown-within-dialog',
+    element: <DropdownWithinDialog />,
   },
   {
     path: 'dropdown-with-adjacent-buttons',
