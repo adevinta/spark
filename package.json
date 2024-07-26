@@ -21,6 +21,7 @@
     "test:coverage": "rm -rf ./dist/coverage && vitest run --coverage",
     "test:coverage:open": "npx open-cli ./dist/coverage/index.html",
     "test:e2e": "npx playwright test",
+    "test:a11y": "npx playwright test a11y",
     "typecheck": "tsc --noEmit",
     "commit": "git-cz",
     "lint": "eslint --config .eslintrc.cjs packages/**/*.{ts,tsx,js,mjs} documentation/**/*.{ts,tsx} --cache",
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "3.0.0",
+    "@axe-core/playwright": "^4.9.1",
     "@babel/core": "7.24.7",
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
