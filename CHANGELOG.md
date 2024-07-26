@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.7](https://github.com/adevinta/spark/compare/v5.0.6...v5.0.7) (2024-07-26)
+
+### Bug Fixes
+
+- **combobox:** make combobox popover non clickable while closed ([b1a8d54](https://github.com/adevinta/spark/commit/b1a8d5441239e1dad4e86fe571ed08c3984563a2))
+
 ## [5.0.6](https://github.com/adevinta/spark/compare/v5.0.5...v5.0.6) (2024-07-25)
 
 ### Features
