@@ -40,6 +40,7 @@ export const Items = forwardRef(
 
       if (innerRef.current.parentElement) {
         innerRef.current.parentElement.style.pointerEvents = isOpen ? '' : 'none'
+        innerRef.current.style.pointerEvents = isOpen ? '' : 'none'
       }
     }, [isOpen, hasPopover])
 
