@@ -18,22 +18,16 @@ test.describe('Spark UI accessibility', () => {
     test(`${component} should not have any accessibility issues`, async ({ page }, testInfo) => {
       await page.goto(`${BASE_URL}/a11y/${component}`)
 
-      try {
-        const results = await new AxeBuilder({ page }).options({ ...AxeOptions }).analyze()
+      const results = await new AxeBuilder({ page }).options({ ...AxeOptions }).analyze()
 
-        await buildComponentReport({
-          component,
-          results,
-          testInfo,
-        })
+      await buildComponentReport({
+        component,
+        results,
+        testInfo,
+      })
 
-        expect(results.incomplete).toEqual([])
-        expect(results.violations).toEqual([])
-      } catch (e) {
-        const error = e instanceof Error ? e.message : e
-
-        console.error(error)
-      }
+      expect(results.incomplete).toEqual([])
+      expect(results.violations).toEqual([])
     })
   })
 

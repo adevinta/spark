@@ -139,8 +139,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-a11y-report
-          path: playwright-a11y-report/
+          name: a11y-report
+          path: 'e2e/report/a11y/'
           retention-days: 30
 
   deploy:
