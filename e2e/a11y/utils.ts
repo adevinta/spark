@@ -1,6 +1,15 @@
 import type { TestInfo } from '@playwright/test'
 import type { AxeResults } from 'axe-core'
-import { writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
+
+import { type A11yComponentsKey } from './routes/components'
+
+interface Report {
+  timestamp: string
+  url: string
+  incomplete: AxeResults['incomplete']
+  violations: AxeResults['violations']
+}
 
 export const buildComponentReport = async ({
   component,
@@ -13,7 +22,7 @@ export const buildComponentReport = async ({
 }) => {
   const { timestamp, url, incomplete, violations } = results
 
-  const report = {
+  const report: Record<string, Report> = {
     [`@spark-ui/${component}`]: {
       timestamp,
       url,
@@ -34,4 +43,17 @@ export const buildComponentReport = async ({
     body: JSON.stringify(report, null, 2),
     contentType: 'application/json',
   })
+}
+
+export const buildGlobalReport = ({ components }: { components: A11yComponentsKey[] }) => {
+  const report = components.reduce(
+    (acc, curr) => {
+      const local = JSON.parse(readFileSync(`./public/a11y-report-${curr}.json`, 'utf8'))
+
+      return { ...acc, ...local }
+    },
+    {} as Record<string, Report>
+  )
+
+  writeFileSync('./public/a11y-report.json', JSON.stringify(report, null, 2), 'utf8')
 }
