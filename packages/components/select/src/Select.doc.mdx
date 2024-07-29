@@ -52,6 +52,10 @@ import { Select } from '@spark-ui/select'
       of: Select.Items,
       description: 'The wrapper which contains all the options.',
     },
+    'Select.Placeholder': {
+      of: Select.Placeholder,
+      description: 'Option selected when no value is set',
+    },
     'Select.Item': { of: Select.Item, description: 'Each option of the element field' },
     'Select.Group': {
       of: Select.Group,
@@ -96,6 +100,14 @@ Similar to `optgroup` HTML tag, you can gather your items in groups.
 It is important to use `Select.Label` inside each `Select.Group` to give it an accessible name.
 
 <Canvas of={stories.Grouped} />
+
+### Placeholder
+
+Using a placeholder is optional, but you must know that an HTML `select` is always in a selected state. It means if you don't provide any placeholder, the first item will be selected by default.
+
+When using `Select.Placeholder`, you can apply `disabled` on it if the user should not be able to go to unselected state again.
+
+<Canvas of={stories.Placeholder} />
 
 ### Read only
 

@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { FormField } from '@spark-ui/form-field'
 import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
@@ -22,11 +23,11 @@ export const Default: StoryFn = _args => {
           <Select.LeadingIcon>
             <BookmarkFill />
           </Select.LeadingIcon>
-          <Select.Value placeholder="Pick a book" />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Items>
-          <Select.Placeholder>--Pick a book--</Select.Placeholder>
+          <Select.Placeholder>Pick a book</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -46,11 +47,11 @@ export const Controlled: StoryFn = () => {
     <div>
       <Select name="book" value={value} onValueChange={setValue}>
         <Select.Trigger aria-label="Book">
-          <Select.Value placeholder="Pick a book" />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Items>
-          <Select.Placeholder>--Pick a book--</Select.Placeholder>
+          <Select.Placeholder>Pick a book</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -68,11 +69,11 @@ export const Disabled: StoryFn = _args => {
     <div>
       <Select name="book" disabled>
         <Select.Trigger aria-label="Book">
-          <Select.Value placeholder="Pick a book" />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Items>
-          <Select.Placeholder>--Pick a book--</Select.Placeholder>
+          <Select.Placeholder>Pick a book</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -85,16 +86,60 @@ export const Disabled: StoryFn = _args => {
   )
 }
 
+export const Placeholder: StoryFn = _args => {
+  return (
+    <div className="flex flex-col gap-lg">
+      <div>
+        <StoryLabel>default placeholder</StoryLabel>
+        <Select name="book">
+          <Select.Trigger aria-label="Book">
+            <Select.Value />
+          </Select.Trigger>
+
+          <Select.Items>
+            <Select.Placeholder>Pick a book</Select.Placeholder>
+            <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
+            <Select.Item value="book-2">War and Peace</Select.Item>
+            <Select.Item value="book-3">The Idiot</Select.Item>
+            <Select.Item value="book-4">A Picture of Dorian Gray</Select.Item>
+            <Select.Item value="book-5">1984</Select.Item>
+            <Select.Item value="book-6">Pride and Prejudice</Select.Item>
+          </Select.Items>
+        </Select>
+      </div>
+
+      <div>
+        <StoryLabel>disabled placeholder</StoryLabel>
+        <Select name="book">
+          <Select.Trigger aria-label="Book">
+            <Select.Value />
+          </Select.Trigger>
+
+          <Select.Items>
+            <Select.Placeholder disabled>Pick a book</Select.Placeholder>
+            <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
+            <Select.Item value="book-2">War and Peace</Select.Item>
+            <Select.Item value="book-3">The Idiot</Select.Item>
+            <Select.Item value="book-4">A Picture of Dorian Gray</Select.Item>
+            <Select.Item value="book-5">1984</Select.Item>
+            <Select.Item value="book-6">Pride and Prejudice</Select.Item>
+          </Select.Items>
+        </Select>
+      </div>
+    </div>
+  )
+}
+
 export const ReadOnly: StoryFn = _args => {
   return (
     <div>
       <Select name="book" readOnly>
         <Select.Trigger aria-label="Book">
-          <Select.Value placeholder="Pick a book" />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Items>
-          <Select.Placeholder>--Pick a book--</Select.Placeholder>
+          <Select.Placeholder>Pick a book</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -112,11 +157,11 @@ export const DisabledItem: StoryFn = _args => {
     <div>
       <Select name="book">
         <Select.Trigger aria-label="Book">
-          <Select.Value placeholder="Pick a book" />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Items>
-          <Select.Placeholder>--Pick a book--</Select.Placeholder>
+          <Select.Placeholder>Pick a book</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3" disabled>
@@ -136,11 +181,11 @@ export const Grouped: StoryFn = _args => {
     <div>
       <Select name="book">
         <Select.Trigger aria-label="Book">
-          <Select.Value placeholder="Pick a book" />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Items>
-          <Select.Placeholder>--Pick a book--</Select.Placeholder>
+          <Select.Placeholder>Pick a book</Select.Placeholder>
           <Select.Group>
             <Select.Label>Best-sellers</Select.Label>
             <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
@@ -168,11 +213,11 @@ export const LeadingIcon: StoryFn = _args => {
           <Select.LeadingIcon>
             <BookmarkFill />
           </Select.LeadingIcon>
-          <Select.Value placeholder="Pick a book" />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Items>
-          <Select.Placeholder>--Pick a book--</Select.Placeholder>
+          <Select.Placeholder>Pick a book</Select.Placeholder>
           <Select.Item value="book-1">To Kill a Mockingbird</Select.Item>
           <Select.Item value="book-2">War and Peace</Select.Item>
           <Select.Item value="book-3">The Idiot</Select.Item>
@@ -194,9 +239,9 @@ export const Statuses: StoryFn = () => {
     <div className="flex flex-col gap-lg">
       {statuses.map(status => {
         return (
-          <Select name={'book-' + status} state={status}>
+          <Select key={status} name={'book-' + status} state={status}>
             <Select.Trigger aria-label="Book">
-              <Select.Value placeholder="Pick a book" />
+              <Select.Value />
             </Select.Trigger>
 
             <Select.Items>
@@ -221,7 +266,7 @@ export const FormFieldLabel: StoryFn = _args => {
         <FormField.Label>Book</FormField.Label>
         <Select>
           <Select.Trigger>
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>
@@ -247,7 +292,7 @@ export const FormFieldHiddenLabel: StoryFn = _args => {
         </FormField.Label>
         <Select>
           <Select.Trigger>
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>
@@ -271,7 +316,7 @@ export const FormFieldReadOnly: StoryFn = _args => {
         <FormField.Label>Book</FormField.Label>
         <Select>
           <Select.Trigger aria-label="Book">
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>
@@ -295,7 +340,7 @@ export const FormFieldDisabled: StoryFn = _args => {
         <FormField.Label>Book</FormField.Label>
         <Select>
           <Select.Trigger>
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>
@@ -319,7 +364,7 @@ export const FormFieldRequired: StoryFn = _args => {
         <FormField.Label>Book</FormField.Label>
         <Select>
           <Select.Trigger>
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>
@@ -348,7 +393,7 @@ export const FormFieldValidation: StoryFn = () => {
           }}
         >
           <Select.Trigger>
-            <Select.Value placeholder="Pick an state" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>

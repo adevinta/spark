@@ -6,7 +6,7 @@ import { useDropdownContext } from './DropdownContext'
 export interface ValueProps {
   children?: ReactNode
   className?: string
-  placeholder: string
+  placeholder?: string
 }
 
 export const Value = forwardRef(
