@@ -117,6 +117,32 @@ jobs:
         if: steps.files.outputs.all_changed_files_count > 0
         uses: ./.github/composite-actions/a11y
 
+  a11y-with-playwright:
+    runs-on: ubuntu-latest
+    name: Playwright Accessibility
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run tests
+        run: npm run test:a11y
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-a11y-report
+          path: playwright-a11y-report/
+          retention-days: 30
+
   deploy:
     runs-on: ubuntu-latest
     name: Deployment

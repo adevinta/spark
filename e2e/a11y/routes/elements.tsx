@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import React, { type ReactNode } from 'react'
 
 import { A11yButton } from '../pages/Button'
 import { A11yDialog } from '../pages/Dialog'
