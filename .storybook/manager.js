@@ -9,5 +9,8 @@ addons.setConfig({
   sidebar: {
     showRoots: true,
     collapsedRoots: ['using-spark', 'hooks', 'contributing', 'experimental', 'utils'],
+    filters: {
+      hidden: item => !item.tags?.includes('hidden'),
+    },
   },
 })

@@ -9,17 +9,10 @@ import { Check as IconCheck } from './icons/Check'
 const meta: Meta = {
   title: 'Components/Icons',
   component: IconCheck,
+  tags: ['hidden'],
 }
 
 export default meta
-
-export const Default: StoryFn = _args => {
-  return (
-    <Icon size="lg">
-      <IconCheck />
-    </Icon>
-  )
-}
 
 export const List: StoryFn = _args => {
   const [icons, setIcons] = useState<[originalName: string, lowercaseName: string, iconElm: FC][]>(
