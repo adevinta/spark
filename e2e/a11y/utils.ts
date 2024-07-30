@@ -4,6 +4,8 @@ import { readFileSync, writeFileSync } from 'fs'
 
 import { type A11yComponentsKey } from './routes/components'
 
+const PUBLIC_A11Y_REPORT_PATH = './public/a11y'
+
 interface Report {
   timestamp: string
   url: string
@@ -34,7 +36,11 @@ export const buildComponentReport = async ({
   /**
    * Exposes the report as public JSON file
    */
-  writeFileSync(`./public/a11y-report-${component}.json`, JSON.stringify(report, null, 2), 'utf8')
+  writeFileSync(
+    `${PUBLIC_A11Y_REPORT_PATH}/a11y-report-${component}.json`,
+    JSON.stringify(report, null, 2),
+    'utf8'
+  )
 
   /**
    * Attaches the report to Playwright reporter
@@ -48,12 +54,18 @@ export const buildComponentReport = async ({
 export const buildGlobalReport = ({ components }: { components: A11yComponentsKey[] }) => {
   const report = components.reduce(
     (acc, curr) => {
-      const local = JSON.parse(readFileSync(`./public/a11y-report-${curr}.json`, 'utf8'))
+      const local = JSON.parse(
+        readFileSync(`${PUBLIC_A11Y_REPORT_PATH}/a11y-report-${curr}.json`, 'utf8')
+      )
 
       return { ...acc, ...local }
     },
     {} as Record<string, Report>
   )
 
-  writeFileSync('./public/a11y-report.json', JSON.stringify(report, null, 2), 'utf8')
+  writeFileSync(
+    `${PUBLIC_A11Y_REPORT_PATH}/a11y-report.json`,
+    JSON.stringify(report, null, 2),
+    'utf8'
+  )
 }

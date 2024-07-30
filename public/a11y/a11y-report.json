@@ -1,6 +1,12 @@
 {
+  "@spark-ui/button": {
+    "timestamp": "2024-07-30T14:55:52.559Z",
+    "url": "http://localhost:3002/a11y/button",
+    "incomplete": [],
+    "violations": []
+  },
   "@spark-ui/dialog": {
-    "timestamp": "2024-07-30T14:28:10.184Z",
+    "timestamp": "2024-07-30T14:55:52.681Z",
     "url": "http://localhost:3002/a11y/dialog",
     "incomplete": [
       {
