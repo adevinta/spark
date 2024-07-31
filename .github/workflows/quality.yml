@@ -20,6 +20,7 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
   lint:
     runs-on: ubuntu-latest
     name: Lint
@@ -32,6 +33,7 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
   typecheck:
     runs-on: ubuntu-latest
     name: Typecheck
@@ -44,6 +46,7 @@ jobs:
 
       - name: Type checking
         run: npm run typecheck
+
   test:
     runs-on: ubuntu-latest
     name: Test
@@ -65,6 +68,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           name: Codecov UI
           codecov_yml_path: ./.codecov.yml
+
   a11y:
     runs-on: ubuntu-latest
     name: Accessibility
@@ -98,25 +102,7 @@ jobs:
       - name: Accessibility checking
         if: steps.files.outputs.all_changed_files_count > 0
         run: node bin/check-a11y.js -f ${{ steps.files.outputs.all_changed_files }}
-  visual-testing:
-    runs-on: ubuntu-latest
-    name: Visual testing
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Install
-        uses: ./.github/composite-actions/install
-
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: 'storybook:build'
-          onlyChanged: true
-          untraced: 'packages/utils/\*\*"'
   deploy:
     runs-on: ubuntu-latest
     name: Deploy
@@ -150,6 +136,7 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
+
   security:
     name: Security
     runs-on: ubuntu-latest
