@@ -27,7 +27,7 @@ jobs:
     name: Lint
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: ./.github/composite-actions/checkout
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -40,7 +40,7 @@ jobs:
     name: Typecheck
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: ./.github/composite-actions/checkout
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -53,7 +53,7 @@ jobs:
     name: Unit tests
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: ./.github/composite-actions/checkout
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -76,11 +76,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
+        uses: ./.github/composite-actions/checkout
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -94,8 +90,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
-          path: playwright-report/
+          name: e2e-report
+          path: 'e2e/report/'
           retention-days: 30
 
   a11y:
@@ -103,9 +99,7 @@ jobs:
     name: Accessibility
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: ./.github/composite-actions/checkout
 
       - name: Get changed files
         uses: tj-actions/changed-files@v41
@@ -140,9 +134,7 @@ jobs:
       url: ${{ steps.deployment.outputs.url }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: ./.github/composite-actions/checkout
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -170,7 +162,8 @@ jobs:
     name: Security
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: ./.github/composite-actions/checkout
+
       - name: Run Lava Action
         uses: adevinta/lava-action@v0
