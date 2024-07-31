@@ -5,10 +5,10 @@ import { BASE_URL } from '../constant'
 test('combobox within a dialog', async ({ page }) => {
   await page.goto(`${BASE_URL}/combobox-within-dialog`)
 
-  await test.step('can interact with a combobox within a dialog', async () => {
-    const openDialogButton = page.getByRole('button', { name: 'Create account' })
+  const dialogTrigger = page.getByRole('button', { name: 'Create account' })
 
-    await openDialogButton.click()
+  await test.step('can interact with a combobox within a dialog', async () => {
+    await dialogTrigger.click()
 
     await page.getByPlaceholder('Pick a book').click()
     await page.getByRole('option', { name: 'To Kill a Mockingbird' }).click()
