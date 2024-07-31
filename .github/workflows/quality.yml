@@ -100,7 +100,7 @@ jobs:
 
   a11y:
     runs-on: ubuntu-latest
-    name: Accessibility
+    name: Accessibility checking
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -119,7 +119,7 @@ jobs:
 
   a11y-with-playwright:
     runs-on: ubuntu-latest
-    name: Playwright Accessibility
+    name: Accessibility testing (with Playwright)
     timeout-minutes: 60
     steps:
       - name: Checkout
@@ -127,21 +127,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install
-        uses: ./.github/composite-actions/install
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Run tests
-        run: npm run test:a11y
-
-      - uses: actions/upload-artifact@v4
-        if: always()
+      - name: Get changed files
+        uses: tj-actions/changed-files@v41
+        id: a11yfiles
         with:
-          name: a11y-report
-          path: 'e2e/report/a11y/'
-          retention-days: 30
+          files: |
+            ./e2e/a11y/pages/**/*.tsx
+            ./packages/components/**/*.{ts,tsx,mdx,json}
+
+      - name: Accessibility checking
+        if: steps.a11yfiles.outputs.all_changed_files_count > 0
+        uses: ./.github/composite-actions/pw-a11y
 
   deploy:
     runs-on: ubuntu-latest
