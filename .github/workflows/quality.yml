@@ -10,6 +10,7 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
 jobs:
   assign-pr-owner:
     runs-on: ubuntu-latest
@@ -20,36 +21,45 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
   lint:
     runs-on: ubuntu-latest
     name: Lint
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
 
       - name: Lint
         run: npm run lint
+
   typecheck:
     runs-on: ubuntu-latest
     name: Typecheck
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
 
       - name: Type checking
         run: npm run typecheck
+
   test:
     runs-on: ubuntu-latest
-    name: Test
+    name: Unit tests
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -65,6 +75,29 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           name: Codecov UI
           codecov_yml_path: ./.codecov.yml
+
+  test-e2e:
+    runs-on: ubuntu-latest
+    name: E2E tests
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        uses: tj-actions/changed-files@v41
+        id: e2efiles
+        with:
+          files: |
+            ./e2e/**/*.{ts,tsx}
+            ./packages/components/**/*.{ts,tsx,mdx,json}
+
+      - name: E2E testing
+        if: steps.e2efiles.outputs.all_changed_files_count > 0
+        uses: ./.github/composite-actions/e2e
+
   a11y:
     runs-on: ubuntu-latest
     name: Accessibility
@@ -80,46 +113,13 @@ jobs:
         with:
           files: ./packages/components/**/*.{ts,tsx,mdx,json}
 
-      - name: Install
-        if: steps.files.outputs.all_changed_files_count > 0
-        uses: ./.github/composite-actions/install
-
-      - name: Build Project Artifacts
-        if: steps.files.outputs.all_changed_files_count > 0
-        run: npm run storybook:build
-
-      - name: Serve Storybook files
-        if: steps.files.outputs.all_changed_files_count > 0
-        uses: Eun/http-server-action@v1
-        with:
-          directory: ./dist
-          port: 6006
-
       - name: Accessibility checking
         if: steps.files.outputs.all_changed_files_count > 0
-        run: node bin/check-a11y.js -f ${{ steps.files.outputs.all_changed_files }}
-  visual-testing:
-    runs-on: ubuntu-latest
-    name: Visual testing
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: ./.github/composite-actions/a11y
 
-      - name: Install
-        uses: ./.github/composite-actions/install
-
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: 'storybook:build'
-          onlyChanged: true
-          untraced: 'packages/utils/\*\*"'
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Deployment
     environment:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
       url: ${{ steps.deployment.outputs.url }}
@@ -150,11 +150,15 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
+
   security:
     name: Security
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Run Lava Action
         uses: adevinta/lava-action@v0
