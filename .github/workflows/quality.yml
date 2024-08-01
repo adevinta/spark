@@ -27,7 +27,9 @@ jobs:
     name: Lint
     steps:
       - name: Checkout
-        uses: ./.github/composite-actions/checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -40,7 +42,9 @@ jobs:
     name: Typecheck
     steps:
       - name: Checkout
-        uses: ./.github/composite-actions/checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -53,7 +57,9 @@ jobs:
     name: Unit tests
     steps:
       - name: Checkout
-        uses: ./.github/composite-actions/checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -76,30 +82,28 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Checkout
-        uses: ./.github/composite-actions/checkout
-
-      - name: Install
-        uses: ./.github/composite-actions/install
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Run Playwright tests
-        run: npm run test:e2e
-
-      - uses: actions/upload-artifact@v4
-        if: always()
+        uses: actions/checkout@v4
         with:
-          name: e2e-report
-          path: 'e2e/report/'
-          retention-days: 30
+          fetch-depth: 0
+
+      - name: Get changed files
+        uses: tj-actions/changed-files@v41
+        id: e2efiles
+        with:
+          files: ./e2e/**/*.{ts,tsx}
+
+      - name: E2E testing
+        if: steps.e2efiles.outputs.all_changed_files_count > 0
+        uses: ./.github/composite-actions/e2e
 
   a11y:
     runs-on: ubuntu-latest
     name: Accessibility
     steps:
       - name: Checkout
-        uses: ./.github/composite-actions/checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Get changed files
         uses: tj-actions/changed-files@v41
@@ -107,24 +111,9 @@ jobs:
         with:
           files: ./packages/components/**/*.{ts,tsx,mdx,json}
 
-      - name: Install
-        if: steps.files.outputs.all_changed_files_count > 0
-        uses: ./.github/composite-actions/install
-
-      - name: Build Project Artifacts
-        if: steps.files.outputs.all_changed_files_count > 0
-        run: npm run storybook:build
-
-      - name: Serve Storybook files
-        if: steps.files.outputs.all_changed_files_count > 0
-        uses: Eun/http-server-action@v1
-        with:
-          directory: ./dist
-          port: 6006
-
       - name: Accessibility checking
         if: steps.files.outputs.all_changed_files_count > 0
-        run: node bin/check-a11y.js -f ${{ steps.files.outputs.all_changed_files }}
+        uses: ./.github/composite-actions/a11y
 
   deploy:
     runs-on: ubuntu-latest
@@ -134,7 +123,9 @@ jobs:
       url: ${{ steps.deployment.outputs.url }}
     steps:
       - name: Checkout
-        uses: ./.github/composite-actions/checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -163,7 +154,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: ./.github/composite-actions/checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Run Lava Action
         uses: adevinta/lava-action@v0

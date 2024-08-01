@@ -1,0 +1,19 @@
+name: 'Accessibility checking'
+description: 'Build and serve Storybook pages then check accessibility'
+runs:
+  using: composite
+  steps:
+    - name: Install
+      uses: ./.github/composite-actions/install
+
+    - name: Build Project Artifacts
+      run: npm run storybook:build
+
+    - name: Serve Storybook files
+      uses: Eun/http-server-action@v1
+      with:
+        directory: ./dist
+        port: 6006
+
+    - name: Accessibility checking
+      run: node bin/check-a11y.js -f ${{ steps.files.outputs.all_changed_files }}
