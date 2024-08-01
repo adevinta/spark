@@ -1,12 +1,12 @@
 {
   "@spark-ui/button": {
-    "timestamp": "2024-07-30T14:55:52.559Z",
+    "timestamp": "2024-08-02T08:30:14.967Z",
     "url": "http://localhost:3002/a11y/button",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/dialog": {
-    "timestamp": "2024-07-30T14:55:52.681Z",
+    "timestamp": "2024-08-02T08:30:15.255Z",
     "url": "http://localhost:3002/a11y/dialog",
     "incomplete": [
       {
@@ -35,7 +35,7 @@
                   {
                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
-                      "span:nth-child(1)"
+                      "span[data-radix-focus-guard=\"\"]:nth-child(1)"
                     ]
                   }
                 ],
@@ -47,7 +47,7 @@
             "impact": "serious",
             "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
-              "span:nth-child(1)"
+              "span[data-radix-focus-guard=\"\"]:nth-child(1)"
             ]
           },
           {
@@ -60,7 +60,7 @@
                   {
                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
-                      "span:nth-child(6)"
+                      "span[data-radix-focus-guard=\"\"]:nth-child(6)"
                     ]
                   }
                 ],
@@ -72,7 +72,7 @@
             "impact": "serious",
             "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
-              "span:nth-child(6)"
+              "span[data-radix-focus-guard=\"\"]:nth-child(6)"
             ]
           }
         ]
@@ -110,6 +110,27 @@
             "html": "<button data-spark-component=\"button\" type=\"button\" class=\"u-shadow-border-transition box-border inline-flex items-center justify-center gap-md whitespace-nowrap px-lg text-body-1 font-bold focus-visible:outline-none focus-visible:u-ring [&amp;:not(:focus-visible)]:ring-inset min-w-sz-44 h-sz-44 rounded-lg bg-main text-on-main hover:bg-main-hovered enabled:active:bg-main-pressed focus-visible:bg-main-focused\" aria-busy=\"false\" aria-live=\"off\" aria-haspopup=\"dialog\" aria-expanded=\"true\" aria-controls=\"radix-:r3:\" data-state=\"open\">",
             "target": [
               "button[aria-haspopup=\"dialog\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "noId",
+                  "needsReview": "aria-describedby=\"radix-:r5:\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute element ID does not exist on the page: aria-describedby=\"radix-:r5:\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<div role=\"dialog\" id=\"radix-:r3:\" aria-describedby=\"radix-:r5:\" aria-labelledby=\"radix-:r4:\" data-state=\"open\" data-spark-component=\"dialog-content\" class=\"z-modal flex flex-col bg-surface group focus-visible:outline-none focus-visible:u-ring max-w-sz-672 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[80%] shadow-md rounded-lg data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out w-full\" tabindex=\"-1\" style=\"pointer-events: auto;\">",
+            "target": [
+              "#radix-\\:r3\\:"
             ]
           }
         ]

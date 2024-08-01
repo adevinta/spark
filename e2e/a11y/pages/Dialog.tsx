@@ -1,37 +1,40 @@
 import { Button } from '@spark-ui/button'
 import { Dialog } from '@spark-ui/dialog'
+import { FormField } from '@spark-ui/form-field'
+import { Input } from '@spark-ui/input'
 import React from 'react'
 
 export const A11yDialog = () => (
-  <Dialog defaultOpen>
-    <Dialog.Trigger asChild>
-      <Button>Edit profile</Button>
-    </Dialog.Trigger>
+  <section>
+    <Dialog defaultOpen>
+      <Dialog.Trigger asChild>
+        <Button>Create account</Button>
+      </Dialog.Trigger>
 
-    <Dialog.Portal>
-      <Dialog.Overlay />
+      <Dialog.Portal>
+        <Dialog.Overlay />
 
-      <Dialog.Content>
-        <Dialog.Header>
-          <Dialog.Title>Edit profile</Dialog.Title>
-        </Dialog.Header>
+        <Dialog.Content>
+          <form>
+            <Dialog.Header>
+              <Dialog.Title>Create account</Dialog.Title>
+            </Dialog.Header>
 
-        <Dialog.Body>
-          <Dialog.Description>
-            Make changes to your profile here. Click save when you are done.
-          </Dialog.Description>
+            <Dialog.Body className="flex flex-col gap-lg">
+              <FormField name="pseudo" isRequired className="flex-1">
+                <FormField.Label>Pseudo</FormField.Label>
+                <Input placeholder="Luke" />
+              </FormField>
+            </Dialog.Body>
 
-          <p>Lorem ipsum dolor sit amet</p>
-        </Dialog.Body>
+            <Dialog.Footer className="flex justify-end gap-md">
+              <Button type="submit">Submit</Button>
+            </Dialog.Footer>
+          </form>
 
-        <Dialog.Footer className="flex justify-end gap-md">
-          <Dialog.Close asChild>
-            <Button>Close</Button>
-          </Dialog.Close>
-        </Dialog.Footer>
-
-        <Dialog.CloseButton aria-label="Close edit profile" />
-      </Dialog.Content>
-    </Dialog.Portal>
-  </Dialog>
+          <Dialog.CloseButton aria-label="Close dialog" />
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog>
+  </section>
 )

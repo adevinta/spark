@@ -1,21 +1,23 @@
 import { Button } from '@spark-ui/button'
-// import { Icon } from '@spark-ui/icon'
-// import { FavoriteOutline } from '@spark-ui/icons/dist/icons/FavoriteOutline'
+import { Icon } from '@spark-ui/icon'
+import { FavoriteOutline } from '@spark-ui/icons/dist/icons/FavoriteOutline'
 import React from 'react'
 
-export const A11yButton = () => {
-  return (
+export const A11yButton = () => (
+  <section>
     <div>
-      <Button>
+      <Button design="outlined">
         Like
-        {/* <Icon>
+        <Icon>
           <FavoriteOutline />
-        </Icon> */}
+        </Icon>
       </Button>
+    </div>
 
+    <div>
       <Button isLoading loadingLabel="Loading...">
         Action
       </Button>
     </div>
-  )
-}
+  </section>
+)
