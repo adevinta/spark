@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.17](https://github.com/adevinta/spark/compare/v5.0.16...v5.0.17) (2024-08-01)
+
+**Note:** Version bump only for package @spark-ui/button
+
 ## [5.0.16](https://github.com/adevinta/spark/compare/v5.0.15...v5.0.16) (2024-08-01)
 
 **Note:** Version bump only for package @spark-ui/button

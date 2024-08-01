@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.17](https://github.com/adevinta/spark/compare/v5.0.16...v5.0.17) (2024-08-01)
+
+### Features
+
+- update e2e tests ([8026a28](https://github.com/adevinta/spark/commit/8026a28a0103ee66e1c440e9558cf87f8922220d))
+
 ## [5.0.16](https://github.com/adevinta/spark/compare/v5.0.15...v5.0.16) (2024-08-01)
 
 ### Bug Fixes
