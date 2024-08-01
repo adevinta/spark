@@ -90,7 +90,9 @@ jobs:
         uses: tj-actions/changed-files@v41
         id: e2efiles
         with:
-          files: ./e2e/**/*.{ts,tsx}
+          files: |
+            ./e2e/**/*.{ts,tsx}
+            ./packages/components/**/*.{ts,tsx,mdx,json}
 
       - name: E2E testing
         if: steps.e2efiles.outputs.all_changed_files_count > 0
