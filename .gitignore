@@ -31,7 +31,10 @@ coverage
 *.sln
 *.sw?
 .nx
+
+# Testing reports
 /test-results/
 /playwright-report/
+/e2e/report/
 /blob-report/
 /playwright/.cache/
