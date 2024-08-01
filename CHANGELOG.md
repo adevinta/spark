@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.16](https://github.com/adevinta/spark/compare/v5.0.15...v5.0.16) (2024-08-01)
+
+### Bug Fixes
+
+- fix gha composite actions ([94beedf](https://github.com/adevinta/spark/commit/94beedf70abd9dff3c15fdf369c32a7175a6d49c))
+
 ## [5.0.15](https://github.com/adevinta/spark/compare/v5.0.14...v5.0.15) (2024-08-01)
 
 **Note:** Version bump only for package spark
