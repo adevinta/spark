@@ -1,12 +1,80 @@
 {
+  "@spark-ui/accordion": {
+    "timestamp": "2024-08-02T12:40:34.463Z",
+    "url": "http://localhost:3002/a11y/accordion",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/alert-dialog": {
+    "timestamp": "2024-08-02T12:40:36.050Z",
+    "url": "http://localhost:3002/a11y/alert-dialog",
+    "incomplete": [
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensures all ARIA attributes have valid values",
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\"radix-:r3:\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"radix-:r3:\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<button data-spark-component=\"alert-dialog-title\" type=\"button\" class=\"u-shadow-border-transition box-border inline-flex items-center justify-center gap-md whitespace-nowrap px-lg text-body-1 font-bold focus-visible:outline-none focus-visible:u-ring [&amp;:not(:focus-visible)]:ring-inset min-w-sz-44 h-sz-44 rounded-lg text-on-error bg-error hover:bg-error-hovered enabled:active:bg-error-pressed focus-visible:bg-error-focused\" aria-busy=\"false\" aria-live=\"off\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:r3:\" data-state=\"closed\">",
+            "target": [
+              "button"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  },
+  "@spark-ui/badge": {
+    "timestamp": "2024-08-02T12:40:34.719Z",
+    "url": "http://localhost:3002/a11y/badge",
+    "incomplete": [],
+    "violations": []
+  },
   "@spark-ui/button": {
-    "timestamp": "2024-08-02T08:30:14.967Z",
+    "timestamp": "2024-08-02T12:40:36.495Z",
     "url": "http://localhost:3002/a11y/button",
     "incomplete": [],
     "violations": []
   },
+  "@spark-ui/checkbox": {
+    "timestamp": "2024-08-02T12:40:35.337Z",
+    "url": "http://localhost:3002/a11y/checkbox",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/collapsible": {
+    "timestamp": "2024-08-02T12:40:37.138Z",
+    "url": "http://localhost:3002/a11y/collapsible",
+    "incomplete": [],
+    "violations": []
+  },
   "@spark-ui/dialog": {
-    "timestamp": "2024-08-02T08:30:15.255Z",
+    "timestamp": "2024-08-02T12:40:36.254Z",
     "url": "http://localhost:3002/a11y/dialog",
     "incomplete": [
       {

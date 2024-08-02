@@ -5,7 +5,12 @@
  */
 
 export const a11yComponents = {
+  accordion: 'accordion',
+  'alert-dialog': 'alert-dialog',
+  badge: 'badge',
   button: 'button',
+  checkbox: 'checkbox',
+  collapsible: 'collapsible',
   dialog: 'dialog',
 }
 

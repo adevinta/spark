@@ -1,6 +1,11 @@
 import React, { type ReactNode } from 'react'
 
+import { A11yAccordion } from '../pages/Accordion'
+import { A11yAlertDialog } from '../pages/AlertDialog'
+import { A11yBadge } from '../pages/Badge'
 import { A11yButton } from '../pages/Button'
+import { A11yCheckbox } from '../pages/Checkbox'
+import { A11yCollapsible } from '../pages/Collapsible'
 import { A11yDialog } from '../pages/Dialog'
 import { type A11yComponentsKey } from './components'
 
@@ -11,6 +16,11 @@ import { type A11yComponentsKey } from './components'
  */
 
 export const a11yElements: Record<A11yComponentsKey, ReactNode> = {
+  accordion: <A11yAccordion />,
+  'alert-dialog': <A11yAlertDialog />,
+  badge: <A11yBadge />,
   button: <A11yButton />,
+  checkbox: <A11yCheckbox />,
+  collapsible: <A11yCollapsible />,
   dialog: <A11yDialog />,
 }
