@@ -11,7 +11,13 @@ export const a11yComponents = {
   button: 'button',
   checkbox: 'checkbox',
   collapsible: 'collapsible',
+  combobox: 'combobox',
   dialog: 'dialog',
+  divider: 'divider',
+  drawer: 'drawer',
+  dropdown: 'dropdown',
+  'form-field': 'form-field',
+  'icon-button': 'icon-button',
 }
 
 export type A11yComponentsKey = keyof typeof a11yComponents

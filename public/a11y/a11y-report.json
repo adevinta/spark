@@ -1,14 +1,82 @@
 {
   "@spark-ui/accordion": {
-    "timestamp": "2024-08-02T12:40:34.463Z",
+    "timestamp": "2024-08-06T14:48:18.100Z",
     "url": "http://localhost:3002/a11y/accordion",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/alert-dialog": {
-    "timestamp": "2024-08-02T12:40:36.050Z",
+    "timestamp": "2024-08-06T14:48:20.066Z",
     "url": "http://localhost:3002/a11y/alert-dialog",
     "incomplete": [
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "tags": [
+          "cat.name-role-value",
+          "wcag2a",
+          "wcag412",
+          "TTv5",
+          "TT6.a",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-hidden-focus?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-modal-open",
+                "data": null,
+                "relatedNodes": [
+                  {
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "target": [
+                      "span:nth-child(1)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Check that focusable elements are not tabbable in the current state"
+              }
+            ],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "target": [
+              "span:nth-child(1)"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-modal-open",
+                "data": null,
+                "relatedNodes": [
+                  {
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "target": [
+                      "span:nth-child(6)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Check that focusable elements are not tabbable in the current state"
+              }
+            ],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "target": [
+              "span:nth-child(6)"
+            ]
+          }
+        ]
+      },
       {
         "id": "aria-valid-attr-value",
         "impact": "critical",
@@ -39,9 +107,9 @@
             ],
             "none": [],
             "impact": "critical",
-            "html": "<button data-spark-component=\"alert-dialog-title\" type=\"button\" class=\"u-shadow-border-transition box-border inline-flex items-center justify-center gap-md whitespace-nowrap px-lg text-body-1 font-bold focus-visible:outline-none focus-visible:u-ring [&amp;:not(:focus-visible)]:ring-inset min-w-sz-44 h-sz-44 rounded-lg text-on-error bg-error hover:bg-error-hovered enabled:active:bg-error-pressed focus-visible:bg-error-focused\" aria-busy=\"false\" aria-live=\"off\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:r3:\" data-state=\"closed\">",
+            "html": "<button data-spark-component=\"alert-dialog-title\" type=\"button\" class=\"u-shadow-border-transition box-border inline-flex items-center justify-center gap-md whitespace-nowrap px-lg text-body-1 font-bold focus-visible:outline-none focus-visible:u-ring [&amp;:not(:focus-visible)]:ring-inset min-w-sz-44 h-sz-44 rounded-lg text-on-error bg-error hover:bg-error-hovered enabled:active:bg-error-pressed focus-visible:bg-error-focused\" aria-busy=\"false\" aria-live=\"off\" aria-haspopup=\"dialog\" aria-expanded=\"true\" aria-controls=\"radix-:r3:\" data-state=\"open\">",
             "target": [
-              "button"
+              "button[aria-haspopup=\"dialog\"]"
             ]
           }
         ]
@@ -50,31 +118,96 @@
     "violations": []
   },
   "@spark-ui/badge": {
-    "timestamp": "2024-08-02T12:40:34.719Z",
+    "timestamp": "2024-08-06T14:48:21.561Z",
     "url": "http://localhost:3002/a11y/badge",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/button": {
-    "timestamp": "2024-08-02T12:40:36.495Z",
+    "timestamp": "2024-08-06T14:48:23.444Z",
     "url": "http://localhost:3002/a11y/button",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/checkbox": {
-    "timestamp": "2024-08-02T12:40:35.337Z",
+    "timestamp": "2024-08-06T14:48:19.111Z",
     "url": "http://localhost:3002/a11y/checkbox",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/collapsible": {
-    "timestamp": "2024-08-02T12:40:37.138Z",
+    "timestamp": "2024-08-06T14:48:20.702Z",
     "url": "http://localhost:3002/a11y/collapsible",
     "incomplete": [],
     "violations": []
   },
+  "@spark-ui/combobox": {
+    "timestamp": "2024-08-06T14:48:22.632Z",
+    "url": "http://localhost:3002/a11y/combobox",
+    "incomplete": [
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensures all ARIA attributes have valid values",
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\":combobox-field-:r4:-menu\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\":combobox-field-:r4:-menu\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<input data-spark-component=\"combobox-input\" type=\"text\" placeholder=\"Pick a book\" class=\"max-w-full shrink-0 grow basis-[80px] h-sz-28 text-ellipsis bg-surface px-sm text-body-1 outline-none disabled:cursor-not-allowed disabled:bg-transparent disabled:text-on-surface/dim-3 read-only:cursor-default read-only:bg-transparent read-only:text-on-surface\" aria-activedescendant=\"\" aria-autocomplete=\"list\" aria-controls=\":combobox-field-:r4:-menu\" aria-expanded=\"false\" aria-labelledby=\":combobox-label-:r3:\" autocomplete=\"off\" id=\":combobox-field-:r4:-input\" role=\"combobox\" aria-label=\"Book\" aria-haspopup=\"dialog\" data-state=\"open\" value=\"\">",
+            "target": [
+              "#\\:combobox-field-\\:r4\\:-input"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\":combobox-field-:rc:-menu\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\":combobox-field-:rc:-menu\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<input data-spark-component=\"combobox-input\" type=\"text\" class=\"max-w-full shrink-0 grow basis-[80px] h-sz-28 text-ellipsis bg-surface px-sm text-body-1 outline-none disabled:cursor-not-allowed disabled:bg-transparent disabled:text-on-surface/dim-3 read-only:cursor-default read-only:bg-transparent read-only:text-on-surface\" aria-activedescendant=\"\" aria-autocomplete=\"list\" aria-controls=\":combobox-field-:rc:-menu\" aria-expanded=\"true\" aria-labelledby=\":combobox-label-:rb:\" autocomplete=\"off\" id=\":combobox-field-:rc:-input\" role=\"combobox\" aria-label=\"Book\" aria-haspopup=\"dialog\" data-state=\"open\" value=\"\">",
+            "target": [
+              "#\\:combobox-field-\\:rc\\:-input"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  },
   "@spark-ui/dialog": {
-    "timestamp": "2024-08-02T12:40:36.254Z",
+    "timestamp": "2024-08-06T14:48:25.202Z",
     "url": "http://localhost:3002/a11y/dialog",
     "incomplete": [
       {
@@ -204,6 +337,201 @@
         ]
       }
     ],
+    "violations": []
+  },
+  "@spark-ui/divider": {
+    "timestamp": "2024-08-06T14:48:22.883Z",
+    "url": "http://localhost:3002/a11y/divider",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/drawer": {
+    "timestamp": "2024-08-06T14:48:24.860Z",
+    "url": "http://localhost:3002/a11y/drawer",
+    "incomplete": [
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "tags": [
+          "cat.name-role-value",
+          "wcag2a",
+          "wcag412",
+          "TTv5",
+          "TT6.a",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-hidden-focus?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-modal-open",
+                "data": null,
+                "relatedNodes": [
+                  {
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "target": [
+                      "span:nth-child(1)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Check that focusable elements are not tabbable in the current state"
+              }
+            ],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "target": [
+              "span:nth-child(1)"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-modal-open",
+                "data": null,
+                "relatedNodes": [
+                  {
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "target": [
+                      "span:nth-child(6)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Check that focusable elements are not tabbable in the current state"
+              }
+            ],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "target": [
+              "span:nth-child(6)"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensures all ARIA attributes have valid values",
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\"radix-:r3:\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"radix-:r3:\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<button data-spark-component=\"button\" type=\"button\" class=\"u-shadow-border-transition box-border inline-flex items-center justify-center gap-md whitespace-nowrap px-lg text-body-1 font-bold focus-visible:outline-none focus-visible:u-ring [&amp;:not(:focus-visible)]:ring-inset min-w-sz-44 h-sz-44 rounded-lg bg-main text-on-main hover:bg-main-hovered enabled:active:bg-main-pressed focus-visible:bg-main-focused\" aria-busy=\"false\" aria-live=\"off\" aria-haspopup=\"dialog\" aria-expanded=\"true\" aria-controls=\"radix-:r3:\" data-state=\"open\">",
+            "target": [
+              "button[aria-haspopup=\"dialog\"]"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  },
+  "@spark-ui/dropdown": {
+    "timestamp": "2024-08-06T14:48:26.527Z",
+    "url": "http://localhost:3002/a11y/dropdown",
+    "incomplete": [
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensures all ARIA attributes have valid values",
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\":dropdown-input-:r4:-menu\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\":dropdown-input-:r4:-menu\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<button type=\"button\" class=\"flex w-full items-center justify-between min-h-sz-44 rounded-lg bg-surface text-on-surface px-lg text-body-1 ring-1 outline-none ring-inset focus:ring-2 ring-outline focus:ring-outline-high hover:ring-outline-high\" aria-activedescendant=\"\" aria-controls=\":dropdown-input-:r4:-menu\" aria-expanded=\"false\" aria-haspopup=\"listbox\" aria-labelledby=\":dropdown-label-:r3:\" id=\":dropdown-input-:r4:-toggle-button\" role=\"combobox\" tabindex=\"0\" data-spark-component=\"dropdown-trigger\" data-state=\"open\">",
+            "target": [
+              "#\\:dropdown-input-\\:r4\\:-toggle-button"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\":dropdown-input-:rc:-menu\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\":dropdown-input-:rc:-menu\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<button type=\"button\" class=\"flex w-full items-center justify-between min-h-sz-44 rounded-lg bg-surface text-on-surface px-lg text-body-1 ring-1 outline-none ring-inset focus:ring-2 ring-outline focus:ring-outline-high hover:ring-outline-high\" aria-activedescendant=\"\" aria-controls=\":dropdown-input-:rc:-menu\" aria-expanded=\"false\" aria-haspopup=\"listbox\" aria-labelledby=\":dropdown-label-:rb:\" id=\":dropdown-input-:rc:-toggle-button\" role=\"combobox\" tabindex=\"0\" data-spark-component=\"dropdown-trigger\" data-state=\"open\">",
+            "target": [
+              "#\\:dropdown-input-\\:rc\\:-toggle-button"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  },
+  "@spark-ui/form-field": {
+    "timestamp": "2024-08-06T14:48:27.323Z",
+    "url": "http://localhost:3002/a11y/form-field",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/icon-button": {
+    "timestamp": "2024-08-06T14:48:23.053Z",
+    "url": "http://localhost:3002/a11y/icon-button",
+    "incomplete": [],
     "violations": []
   }
 }
