@@ -20,7 +20,8 @@
     "test:run": "vitest run",
     "test:coverage": "rm -rf ./dist/coverage && vitest run --coverage",
     "test:coverage:open": "npx open-cli ./dist/coverage/index.html",
-    "test:e2e": "npx playwright test",
+    "test:e2e": "npx playwright test -gv 'should not have any accessibility issues'",
+    "test:a11y": "npx playwright test -g 'should not have any accessibility issues'",
     "typecheck": "tsc --noEmit",
     "commit": "git-cz",
     "lint": "eslint --config .eslintrc.cjs packages/**/*.{ts,tsx,js,mjs} documentation/**/*.{ts,tsx} --cache",
@@ -28,7 +29,7 @@
     "prettier": "prettier --config .prettierrc.cjs --write \"{packages,documentation,src}/**/*.{ts,tsx,js}\"",
     "prettify": "npm run lint && npm run prettier",
     "node:check": "node bin/check-node-version.js",
-    "a11y:check": "concurrently -P --kill-others -g -s first -n storybook,a11y \"storybook build -o dist --loglevel silent && npx http-server dist -p 6008 -s\" \"wait-on tcp:6008 && node bin/check-a11y.js -- {@} \"",
+    "a11y:check": "concurrently -P --kill-others -g -s first -n storybook,a11y \"storybook build -o dist --loglevel silent && npx http-server dist -p 6008 -s\" \"wait-on -t 60000 tcp:6008 && node bin/check-a11y.js -- {@} \"",
     "generate": "spark-generate",
     "codecov:check-yml": "cat .codecov.yml | curl --data-binary @- https://codecov.io/validate"
   },
@@ -37,14 +38,14 @@
     "url": "git@github.com:adevinta/spark.git"
   },
   "dependencies": {
-    "@axe-core/webdriverjs": "^4.8.5",
     "@spark-ui/tabs": "^2.0.0",
     "@spark-ui/theme-utils": "^4.0.0",
-    "@storybook/test": "^8.0.2",
-    "selenium-webdriver": "^4.18.1"
+    "@storybook/test": "^8.0.2"
   },
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "3.0.0",
+    "@axe-core/webdriverjs": "^4.9.1",
+    "@axe-core/playwright": "^4.9.1",
     "@babel/core": "7.24.7",
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
@@ -121,6 +122,7 @@
     "rollup": "^3.28.1",
     "rollup-plugin-terser": "7.0.2",
     "scroll-into-view-if-needed": "^3.0.10",
+    "selenium-webdriver": "^4.8.1",
     "storybook": "^8.0.2",
     "tailwindcss": "3.4.4",
     "tailwindcss-radix": "2.9.0",
