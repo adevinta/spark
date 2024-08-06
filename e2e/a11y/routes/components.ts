@@ -15,6 +15,7 @@ export const a11yComponents = {
   dialog: 'dialog',
   divider: 'divider',
   drawer: 'drawer',
+  dropdown: 'dropdown',
 }
 
 export type A11yComponentsKey = keyof typeof a11yComponents
