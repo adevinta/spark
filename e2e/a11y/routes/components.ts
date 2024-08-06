@@ -13,6 +13,8 @@ export const a11yComponents = {
   collapsible: 'collapsible',
   combobox: 'combobox',
   dialog: 'dialog',
+  divider: 'divider',
+  drawer: 'drawer',
 }
 
 export type A11yComponentsKey = keyof typeof a11yComponents
