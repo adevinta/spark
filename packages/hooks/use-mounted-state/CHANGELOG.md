@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.22](https://github.com/adevinta/spark/compare/v5.0.21...v5.0.22) (2024-08-06)
+
+**Note:** Version bump only for package @spark-ui/use-mounted-state
+
 ## [5.0.21](https://github.com/adevinta/spark/compare/v5.0.20...v5.0.21) (2024-08-06)
 
 **Note:** Version bump only for package @spark-ui/use-mounted-state
