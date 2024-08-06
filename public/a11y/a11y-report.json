@@ -1,0 +1,141 @@
+{
+  "@spark-ui/button": {
+    "timestamp": "2024-08-02T08:30:14.967Z",
+    "url": "http://localhost:3002/a11y/button",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/dialog": {
+    "timestamp": "2024-08-02T08:30:15.255Z",
+    "url": "http://localhost:3002/a11y/dialog",
+    "incomplete": [
+      {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "tags": [
+          "cat.name-role-value",
+          "wcag2a",
+          "wcag412",
+          "TTv5",
+          "TT6.a",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-hidden-focus?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-modal-open",
+                "data": null,
+                "relatedNodes": [
+                  {
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "target": [
+                      "span[data-radix-focus-guard=\"\"]:nth-child(1)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Check that focusable elements are not tabbable in the current state"
+              }
+            ],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "target": [
+              "span[data-radix-focus-guard=\"\"]:nth-child(1)"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-modal-open",
+                "data": null,
+                "relatedNodes": [
+                  {
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "target": [
+                      "span[data-radix-focus-guard=\"\"]:nth-child(6)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Check that focusable elements are not tabbable in the current state"
+              }
+            ],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "target": [
+              "span[data-radix-focus-guard=\"\"]:nth-child(6)"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensures all ARIA attributes have valid values",
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\"radix-:r3:\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"radix-:r3:\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<button data-spark-component=\"button\" type=\"button\" class=\"u-shadow-border-transition box-border inline-flex items-center justify-center gap-md whitespace-nowrap px-lg text-body-1 font-bold focus-visible:outline-none focus-visible:u-ring [&amp;:not(:focus-visible)]:ring-inset min-w-sz-44 h-sz-44 rounded-lg bg-main text-on-main hover:bg-main-hovered enabled:active:bg-main-pressed focus-visible:bg-main-focused\" aria-busy=\"false\" aria-live=\"off\" aria-haspopup=\"dialog\" aria-expanded=\"true\" aria-controls=\"radix-:r3:\" data-state=\"open\">",
+            "target": [
+              "button[aria-haspopup=\"dialog\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "noId",
+                  "needsReview": "aria-describedby=\"radix-:r5:\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute element ID does not exist on the page: aria-describedby=\"radix-:r5:\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<div role=\"dialog\" id=\"radix-:r3:\" aria-describedby=\"radix-:r5:\" aria-labelledby=\"radix-:r4:\" data-state=\"open\" data-spark-component=\"dialog-content\" class=\"z-modal flex flex-col bg-surface group focus-visible:outline-none focus-visible:u-ring max-w-sz-672 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[80%] shadow-md rounded-lg data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out w-full\" tabindex=\"-1\" style=\"pointer-events: auto;\">",
+            "target": [
+              "#radix-\\:r3\\:"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  }
+}

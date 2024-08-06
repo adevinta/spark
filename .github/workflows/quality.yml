@@ -100,7 +100,7 @@ jobs:
 
   a11y:
     runs-on: ubuntu-latest
-    name: Accessibility
+    name: Accessibility checking
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -116,6 +116,28 @@ jobs:
       - name: Accessibility checking
         if: steps.files.outputs.all_changed_files_count > 0
         uses: ./.github/composite-actions/a11y
+
+  a11y-with-playwright:
+    runs-on: ubuntu-latest
+    name: Accessibility testing (with Playwright)
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        uses: tj-actions/changed-files@v41
+        id: a11yfiles
+        with:
+          files: |
+            ./e2e/a11y/pages/**/*.tsx
+            ./packages/components/**/*.{ts,tsx,mdx,json}
+
+      - name: Accessibility checking
+        if: steps.a11yfiles.outputs.all_changed_files_count > 0
+        uses: ./.github/composite-actions/pw-a11y
 
   deploy:
     runs-on: ubuntu-latest
