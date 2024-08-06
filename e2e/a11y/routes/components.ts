@@ -11,6 +11,7 @@ export const a11yComponents = {
   button: 'button',
   checkbox: 'checkbox',
   collapsible: 'collapsible',
+  combobox: 'combobox',
   dialog: 'dialog',
 }
 
