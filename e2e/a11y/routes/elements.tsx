@@ -10,6 +10,7 @@ import { A11yCombobox } from '../pages/Combobox'
 import { A11yDialog } from '../pages/Dialog'
 import { A11yDivider } from '../pages/Divider'
 import { A11yDrawer } from '../pages/Drawer'
+import { A11yDropdown } from '../pages/Dropdown'
 import { type A11yComponentsKey } from './components'
 
 /**
@@ -29,4 +30,5 @@ export const a11yElements: Record<A11yComponentsKey, ReactNode> = {
   dialog: <A11yDialog />,
   divider: <A11yDivider />,
   drawer: <A11yDrawer />,
+  dropdown: <A11yDropdown />,
 }
