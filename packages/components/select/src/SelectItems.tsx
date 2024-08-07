@@ -74,7 +74,7 @@ export const Items = forwardRef(
         aria-labelledby={fieldLabelId}
         {...(ariaLabel && { 'aria-label': ariaLabel })}
         className={styles({ className, state, disabled, readOnly })}
-        value={selectedItem?.value}
+        value={selectedItem?.value || ''}
         onChange={handleChange}
         id={fieldId}
         {...rest}

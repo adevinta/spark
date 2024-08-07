@@ -6,22 +6,13 @@ import { useSelectContext } from './SelectContext'
 export interface ValueProps {
   children?: ReactNode
   className?: string
-  /**
-   * Optional placeholder value for the trigger.
-   * If not specified, the value inside `Select.Placeholder` item will be used.
-   */
-  placeholder?: string
 }
 
 export const Value = forwardRef(
-  (
-    { children, className, placeholder: customPlaceholder }: ValueProps,
-    forwardedRef: Ref<HTMLSpanElement>
-  ) => {
+  ({ children, className }: ValueProps, forwardedRef: Ref<HTMLSpanElement>) => {
     const { selectedItem, placeholder, disabled } = useSelectContext()
 
-    const isPlaceholderSelected = selectedItem?.value == null
-    const valuePlaceholder = customPlaceholder || placeholder
+    const isPlaceholderSelected = !selectedItem?.value
 
     return (
       <span
@@ -36,7 +27,7 @@ export const Value = forwardRef(
             isPlaceholderSelected && !disabled && 'text-on-surface/dim-1'
           )}
         >
-          {isPlaceholderSelected ? valuePlaceholder : children || selectedItem?.text}
+          {isPlaceholderSelected ? placeholder : children || selectedItem?.text}
         </span>
       </span>
     )
