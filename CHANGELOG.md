@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.24](https://github.com/adevinta/spark/compare/v5.0.23...v5.0.24) (2024-08-08)
+
+### Bug Fixes
+
+- correct the return type annotation for the tailwind config builder ([3bda4e3](https://github.com/adevinta/spark/commit/3bda4e3edecb0026d13b464f6f6ea1d416d8d242))
+
 ## [5.0.23](https://github.com/adevinta/spark/compare/v5.0.22...v5.0.23) (2024-08-06)
 
 **Note:** Version bump only for package spark
