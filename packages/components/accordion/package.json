@@ -50,7 +50,7 @@
     "@spark-ui/icons": "^5.0.26",
     "@spark-ui/internal-utils": "^5.0.26",
     "@spark-ui/slot": "^5.0.26",
-    "@zag-js/accordion": "^0.56.1",
-    "@zag-js/react": "^0.56.1"
+    "@zag-js/accordion": "^0.65.0",
+    "@zag-js/react": "^0.65.0"
   }
 }
