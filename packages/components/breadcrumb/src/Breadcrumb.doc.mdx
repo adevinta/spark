@@ -1,0 +1,54 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+
+import { Breadcrumb } from '.'
+
+import * as stories from './Breadcrumb.stories'
+
+<Meta of={stories} />
+
+# Breadcrumb
+
+Navigation pattern that helps users understand the hierarchy of a website
+
+## Install
+
+```sh
+npm install @spark-ui/breadcrumb
+```
+
+## Import
+
+```tsx
+import { Breadcrumb } from '@spark-ui/breadcrumb'
+```
+
+## Props
+
+<ArgTypes
+  of={Breadcrumb}
+  description="Contains all the parts of a breakpoint. Navigation area."
+  subcomponents={{
+    'Breadcrumb.Item': {
+      of: Breadcrumb.Item,
+      description: 'List item to use inside of `Breadcrumb` directly.',
+    },
+    'Breadcrumb.Link': {
+      of: Breadcrumb.Link,
+      description: 'Use inside `Breadcrumb.Item` if your item must be a link.',
+    },
+    'Breadcrumb.CurrentPage': {
+      of: Breadcrumb.CurrentPage,
+      description:
+        'Use inside `Breadcrumb.Item` if your item is the current page (non-interactive link).',
+    },
+    'Breadcrumb.Separator': {
+      of: Breadcrumb.Separator,
+      description: 'Separator to use between each `Breadcrumb.Item`. Content can be customized.',
+    },
+  }}
+/>
+
+## Variants
+
+<Canvas of={stories.Default} />
