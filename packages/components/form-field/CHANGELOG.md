@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/adevinta/spark/compare/v5.0.27...v5.1.0) (2024-08-13)
+
+### Features
+
+- **form-field:** update FormField.Label markup following @radix-ui/react-slot v1.1.0 bump ([344f364](https://github.com/adevinta/spark/commit/344f36498e5dbe992daa46f85a71374743c46286))
+
 ## [5.0.27](https://github.com/adevinta/spark/compare/v5.0.26...v5.0.27) (2024-08-12)
 
 **Note:** Version bump only for package @spark-ui/form-field
