@@ -1,3 +1,5 @@
+import { Icon } from '@spark-ui/icon'
+import { ArrowVerticalRight } from '@spark-ui/icons/dist/icons/ArrowVerticalRight'
 import { Slot } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef } from 'react'
@@ -20,7 +22,11 @@ export const Separator = forwardRef<HTMLLIElement, SeparatorProps>(
         className={cx('inline-flex items-center gap-sm', className)}
         {...rest}
       >
-        {children ?? '/'}
+        {children ?? (
+          <Icon>
+            <ArrowVerticalRight />
+          </Icon>
+        )}
       </Component>
     )
   }
