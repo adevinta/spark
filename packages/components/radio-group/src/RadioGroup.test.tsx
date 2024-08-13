@@ -146,10 +146,10 @@ describe('RadioGroup', () => {
   })
 
   describe('with FormField', () => {
-    it('should render with label', () => {
+    it('should render with custom label', () => {
       render(
         <FormField name="category">
-          <FormField.Label asChild>
+          <FormField.Label>
             <p>Category</p>
           </FormField.Label>
 
@@ -166,7 +166,7 @@ describe('RadioGroup', () => {
     it('should render aria-attributes following FormField implementation', () => {
       render(
         <FormField name="category" state="error" isRequired>
-          <FormField.Label asChild>
+          <FormField.Label>
             <p>Category</p>
           </FormField.Label>
 

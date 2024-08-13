@@ -97,7 +97,7 @@ describe('FormField', () => {
   it('should render using custom label', () => {
     render(
       <FormField name="category">
-        <FormField.Label asChild>
+        <FormField.Label>
           <p>Category</p>
         </FormField.Label>
 
