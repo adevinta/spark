@@ -28,7 +28,7 @@ export const Default: StoryFn = _args => (
     <Breadcrumb.Separator />
 
     <Breadcrumb.Item>
-      <Breadcrumb.CurrentPage aria-disabled>Breadcrumb</Breadcrumb.CurrentPage>
+      <Breadcrumb.CurrentPage>Breadcrumb</Breadcrumb.CurrentPage>
     </Breadcrumb.Item>
   </Breadcrumb>
 )

@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Kbd } from '@spark-ui/kbd'
 
 import { Breadcrumb } from '.'
 
@@ -66,3 +67,19 @@ Use the `children` property of `Breadcrumb.Separator` to use a different icon fo
 Apply a maximum width on an element to truncate it automatically.
 
 <Canvas of={stories.Truncate} />
+
+## Accessibility
+
+Adheres to the [Breadcrumb WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/).
+
+### Keyboard Interaction
+
+- <Kbd>Tab</Kbd>: Focuses the next item.
+- <Kbd>Shift</Kbd> + <Kbd>Tab</Kbd>: Focuses the previous item.
+- <Kbd>Enter</Kbd>: Triggers an item link.
+
+### WAI-ARIA Roles, States, and Properties
+
+- Breadcrumb trail is contained within a navigation landmark region.
+- The landmark region is labelled via [aria-label](https://w3c.github.io/aria/#aria-label) or [aria-labelledby](https://w3c.github.io/aria/#aria-labelledby).
+- The link to the current page has [aria-current](https://w3c.github.io/aria/#aria-current) set to `page`. If the element representing the current page is not a link, aria-current is optional.

@@ -21,7 +21,7 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Separator />
 
         <Breadcrumb.Item>
-          <Breadcrumb.Page>Breadcrumb</Breadcrumb.Page>
+          <Breadcrumb.CurrentPage>Breadcrumb</Breadcrumb.CurrentPage>
         </Breadcrumb.Item>
       </Breadcrumb>
     )
@@ -36,7 +36,9 @@ describe('Breadcrumb', () => {
     )
 
     // Then breadcrumb current page should be rendered
-    expect(screen.getByRole('link', { name: 'Breadcrumb' })).not.toHaveAttribute('href')
+    const currentPageLink = screen.getByRole('link', { name: 'Breadcrumb' })
+    expect(currentPageLink).toHaveAttribute('href', '')
+    expect(currentPageLink).toHaveAttribute('aria-current', 'page')
 
     // Then separators should be rendered (hidden)
     expect(screen.getAllByRole('presentation', { hidden: true })).toHaveLength(2)
@@ -59,7 +61,7 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Separator>__</Breadcrumb.Separator>
 
         <Breadcrumb.Item>
-          <Breadcrumb.Page>Breadcrumb</Breadcrumb.Page>
+          <Breadcrumb.CurrentPage>Breadcrumb</Breadcrumb.CurrentPage>
         </Breadcrumb.Item>
       </Breadcrumb>
     )
