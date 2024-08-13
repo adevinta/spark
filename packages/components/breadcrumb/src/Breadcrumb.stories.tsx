@@ -20,7 +20,9 @@ export const Default: StoryFn = _args => (
     <Breadcrumb.Separator />
 
     <Breadcrumb.Item>
-      <Breadcrumb.Link href="/docs/components">Components</Breadcrumb.Link>
+      <Breadcrumb.Link href="/?path=/docs/experimental-breadcrumb--docs">
+        Components
+      </Breadcrumb.Link>
     </Breadcrumb.Item>
 
     <Breadcrumb.Separator />
@@ -44,7 +46,9 @@ export const CustomSeparator: StoryFn = _args => (
     </Breadcrumb.Separator>
 
     <Breadcrumb.Item>
-      <Breadcrumb.Link href="/docs/components">Components</Breadcrumb.Link>
+      <Breadcrumb.Link href="/?path=/docs/experimental-breadcrumb--docs">
+        Components
+      </Breadcrumb.Link>
     </Breadcrumb.Item>
 
     <Breadcrumb.Separator>

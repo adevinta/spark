@@ -13,7 +13,7 @@ export const Breadcrumb = forwardRef<HTMLOListElement, BreadcrumbProps>(
         data-spark-component="breadcrumb"
         ref={ref}
         aria-label={ariaLabel}
-        className={cx('text-caption', className)}
+        className={cx('text-caption text-neutral', className)}
       >
         <ol className={cx('flex flex-wrap items-center gap-sm break-words')} {...rest} />
       </nav>
