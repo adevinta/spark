@@ -1,5 +1,6 @@
 import { Slot } from '@spark-ui/slot'
 import { TextLink } from '@spark-ui/text-link'
+import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 export interface LinkProps extends ComponentPropsWithoutRef<typeof TextLink> {
@@ -28,7 +29,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         data-spark-component="breadcrumb-link"
         href={href}
         ref={ref}
-        className={className}
+        className={cx('!inline overflow-hidden text-ellipsis whitespace-nowrap', className)}
         bold={bold}
         intent={intent}
         underline={underline}

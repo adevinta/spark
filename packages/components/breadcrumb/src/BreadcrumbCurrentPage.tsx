@@ -1,22 +1,30 @@
 import { Slot } from '@spark-ui/slot'
+import { TextLink } from '@spark-ui/text-link'
+import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
-export interface CurrentPageProps extends ComponentPropsWithoutRef<'span'> {
+export interface CurrentPageProps extends ComponentPropsWithoutRef<typeof TextLink> {
   asChild?: boolean
   className?: string
 }
 
-export const CurrentPage = forwardRef<HTMLSpanElement, CurrentPageProps>(
-  ({ asChild = false, className, ...rest }, ref) => {
-    const Component = asChild ? Slot : 'span'
+export const CurrentPage = forwardRef<HTMLAnchorElement, CurrentPageProps>(
+  (
+    { asChild = false, className, bold = true, intent = 'current', underline = false, ...rest },
+    ref
+  ) => {
+    const Component = asChild ? Slot : TextLink
 
     return (
       <Component
         data-spark-component="breadcrumb-current-page"
         role="link"
+        href=""
         aria-current="page"
-        aria-disabled
-        className={className}
+        className={cx('!inline overflow-hidden text-ellipsis whitespace-nowrap', className)}
+        bold={bold}
+        intent={intent}
+        underline={underline}
         ref={ref}
         {...rest}
       />

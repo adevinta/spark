@@ -28,7 +28,7 @@ export const Default: StoryFn = _args => (
     <Breadcrumb.Separator />
 
     <Breadcrumb.Item>
-      <Breadcrumb.CurrentPage>Breadcrumb</Breadcrumb.CurrentPage>
+      <Breadcrumb.CurrentPage aria-disabled>Breadcrumb</Breadcrumb.CurrentPage>
     </Breadcrumb.Item>
   </Breadcrumb>
 )
@@ -56,6 +56,28 @@ export const CustomSeparator: StoryFn = _args => (
         <ArrowRight />
       </Icon>
     </Breadcrumb.Separator>
+
+    <Breadcrumb.Item>
+      <Breadcrumb.CurrentPage>Breadcrumb</Breadcrumb.CurrentPage>
+    </Breadcrumb.Item>
+  </Breadcrumb>
+)
+
+export const Truncate: StoryFn = _args => (
+  <Breadcrumb aria-label="Breadcrumb">
+    <Breadcrumb.Item>
+      <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+    </Breadcrumb.Item>
+
+    <Breadcrumb.Separator />
+
+    <Breadcrumb.Item>
+      <Breadcrumb.Link href="/?path=/docs/experimental-breadcrumb--docs" className="max-w-[100px]">
+        Components list - Feel free to use them
+      </Breadcrumb.Link>
+    </Breadcrumb.Item>
+
+    <Breadcrumb.Separator />
 
     <Breadcrumb.Item>
       <Breadcrumb.CurrentPage>Breadcrumb</Breadcrumb.CurrentPage>
