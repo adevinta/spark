@@ -116,7 +116,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-live": "3.2.0",
-    "react-router-dom": "6.26.0",
+    "react-router-dom": "6.26.1",
     "remark-gfm": "^4.0.0",
     "resize-observer-polyfill": "^1.5.1",
     "rollup": "^3.28.1",
