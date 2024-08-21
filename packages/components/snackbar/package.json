@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/snackbar",
-  "version": "5.1.2",
+  "version": "5.1.3",
   "description": "Display brief, temporary notifications of actions, errors, or other events in an application.",
   "publishConfig": {
     "access": "public"
@@ -25,9 +25,9 @@
   "dependencies": {
     "@react-aria/toast": "3.0.0-beta.12",
     "@react-stately/toast": "3.0.0-beta.4",
-    "@spark-ui/icon": "^5.1.2",
-    "@spark-ui/icon-button": "^5.1.2",
-    "@spark-ui/icons": "^5.1.2",
+    "@spark-ui/icon": "^5.1.3",
+    "@spark-ui/icon-button": "^5.1.3",
+    "@spark-ui/icons": "^5.1.3",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
