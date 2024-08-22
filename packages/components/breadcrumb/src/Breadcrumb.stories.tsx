@@ -5,7 +5,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Breadcrumb } from '.'
 
 const meta: Meta<typeof Breadcrumb> = {
-  title: 'Experimental/Breadcrumb',
+  title: 'Components/Breadcrumb',
   component: Breadcrumb,
 }
 

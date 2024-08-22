@@ -37,7 +37,6 @@ describe('Breadcrumb', () => {
 
     // Then breadcrumb current page should be rendered
     const currentPageLink = screen.getByRole('link', { name: 'Breadcrumb' })
-    expect(currentPageLink).toHaveAttribute('href', '')
     expect(currentPageLink).toHaveAttribute('aria-current', 'page')
 
     // Then separators should be rendered (hidden)

@@ -9,25 +9,24 @@ export interface CurrentPageProps extends ComponentPropsWithoutRef<typeof TextLi
 }
 
 export const CurrentPage = forwardRef<HTMLAnchorElement, CurrentPageProps>(
-  (
-    { asChild = false, className, bold = true, intent = 'current', underline = false, ...rest },
-    ref
-  ) => {
-    const Component = asChild ? Slot : TextLink
+  ({ asChild = false, className, children, ...rest }, ref) => {
+    const Component = asChild ? Slot : 'span'
 
     return (
       <Component
         data-spark-component="breadcrumb-current-page"
         role="link"
-        href=""
+        aria-disabled
         aria-current="page"
-        className={cx('!inline overflow-hidden text-ellipsis whitespace-nowrap', className)}
-        bold={bold}
-        intent={intent}
-        underline={underline}
+        className={cx(
+          '!inline overflow-hidden text-ellipsis whitespace-nowrap font-bold text-current',
+          className
+        )}
         ref={ref}
         {...rest}
-      />
+      >
+        {children}
+      </Component>
     )
   }
 )
