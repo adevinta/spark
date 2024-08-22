@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/text-link",
-  "version": "5.1.4",
+  "version": "5.2.0",
   "description": "TextLink is an accessible element for navigation.",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/slot": "^5.1.4",
+    "@spark-ui/slot": "^5.2.0",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
