@@ -1,0 +1,53 @@
+{
+  "name": "@spark-ui/breadcrumb",
+  "version": "0.0.0",
+  "description": "navigation pattern that helps users understand the hierarchy of a website",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "breadcrumb"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "@spark-ui/tailwind-plugins": "latest",
+    "@spark-ui/theme-utils": "latest",
+    "react": "^18.0 || ^19.0",
+    "react-dom": "^18.0 || ^19.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "dependencies": {
+    "@spark-ui/slot": "^5.0.27",
+    "@spark-ui/text-link": "^5.0.27",
+    "@spark-ui/icon": "^5.0.27",
+    "@spark-ui/icons": "^5.0.27",
+    "class-variance-authority": "0.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/components/breadcrumb"
+  },
+  "config": {
+    "title": "breadcrumb",
+    "category": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+breadcrumb%22"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
+}
