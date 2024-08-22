@@ -2,6 +2,14 @@ import { createTheme } from './createTheme'
 import { type Theme } from './types'
 
 export const defaultThemeDark: Theme = createTheme({
+  boxShadow: {
+    sm: '0 1px 2px 0 rgba(0 0 0 / 0.50)',
+    DEFAULT: '0 4px 8px 0 rgba(0 0 0 / 0.50)',
+    md: '0 6px 12px 0 rgba(0 0 0 / 0.50)',
+    lg: '0 8px 16px 0 rgba(0 0 0 / 0.50)',
+    xl: '0 12px 24px 0 rgba(0 0 0 / 0.50)',
+    none: 'none',
+  },
   colors: {
     // Basic
     basic: '#C2E0FA',
