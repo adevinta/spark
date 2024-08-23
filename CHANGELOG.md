@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.3](https://github.com/adevinta/spark/compare/v5.2.2...v5.2.3) (2024-08-23)
+
+### Bug Fixes
+
+- **theme-utils:** default dark theme now has custom shadow tokens ([f736ebb](https://github.com/adevinta/spark/commit/f736ebb8e490cbc949e9d89d5c8fde3787f792ec))
+
 ## [5.2.2](https://github.com/adevinta/spark/compare/v5.2.1...v5.2.2) (2024-08-23)
 
 **Note:** Version bump only for package spark
