@@ -4,7 +4,7 @@ import React from 'react'
 
 export const A11yAlertDialog = () => (
   <section>
-    <AlertDialog>
+    <AlertDialog defaultOpen>
       <AlertDialog.Trigger asChild>
         <Button intent="danger">Delete</Button>
       </AlertDialog.Trigger>
