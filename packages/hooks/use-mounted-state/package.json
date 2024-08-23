@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/use-mounted-state",
-  "version": "5.2.1",
+  "version": "5.2.2",
   "description": "check the component's mount state",
   "publishConfig": {
     "access": "public"
