@@ -1,4 +1,4 @@
-export default () => `import { terser } from 'rollup-plugin-terser'
+export default () => `import terser from '@rollup/plugin-terser'
 import dts from 'vite-plugin-dts'
 import browserslistToEsbuild from 'browserslist-to-esbuild'
 

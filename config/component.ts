@@ -1,9 +1,9 @@
 import { createRequire } from 'node:module'
 import { join } from 'node:path'
 
+import terser from '@rollup/plugin-terser'
 import react from '@vitejs/plugin-react'
 import browserslistToEsbuild from 'browserslist-to-esbuild'
-import { terser } from 'rollup-plugin-terser'
 import dts from 'vite-plugin-dts'
 
 import sparkDocgen from './plugins/sparkDocgen'
