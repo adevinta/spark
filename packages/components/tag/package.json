@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/tag",
-  "version": "5.2.3",
+  "version": "5.2.4",
   "description": "Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.",
   "publishConfig": {
     "access": "public"
@@ -24,8 +24,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "^5.2.3",
-    "@spark-ui/slot": "^5.2.3",
+    "@spark-ui/internal-utils": "^5.2.4",
+    "@spark-ui/slot": "^5.2.4",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
