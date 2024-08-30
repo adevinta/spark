@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.6](https://github.com/adevinta/spark/compare/v5.2.5...v5.2.6) (2024-08-30)
+
+### Bug Fixes
+
+- use moduleResolution 'bundler' instead legacy 'node' (node10) for correct support of ESM ([d25e644](https://github.com/adevinta/spark/commit/d25e644d3dcf7937abecd5ed6d79fd95ae4cbd7b))
+
 ## [5.2.5](https://github.com/adevinta/spark/compare/v5.2.4...v5.2.5) (2024-08-27)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
