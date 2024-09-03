@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/dropdown",
-  "version": "5.2.6",
+  "version": "5.2.7",
   "description": "Displays a list of options for the user to pick from—triggered by a button. Differs from Select in that it offers multiple select and its list is not native.",
   "publishConfig": {
     "access": "public"
@@ -28,12 +28,12 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "@spark-ui/form-field": "^5.2.6",
-    "@spark-ui/icon": "^5.2.6",
-    "@spark-ui/icons": "^5.2.6",
-    "@spark-ui/popover": "^5.2.6",
-    "@spark-ui/use-merge-refs": "^5.2.6",
-    "@spark-ui/visually-hidden": "^5.2.6",
+    "@spark-ui/form-field": "^5.2.7",
+    "@spark-ui/icon": "^5.2.7",
+    "@spark-ui/icons": "^5.2.7",
+    "@spark-ui/popover": "^5.2.7",
+    "@spark-ui/use-merge-refs": "^5.2.7",
+    "@spark-ui/visually-hidden": "^5.2.7",
     "class-variance-authority": "0.7.0",
     "downshift": "9.0.7"
   },

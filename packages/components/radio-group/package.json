@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/radio-group",
-  "version": "5.2.6",
+  "version": "5.2.7",
   "description": "Component used when only one choice may be selected in a series of options",
   "publishConfig": {
     "access": "public"
@@ -26,8 +26,8 @@
   "dependencies": {
     "@radix-ui/react-label": "2.0.1",
     "@radix-ui/react-radio-group": "1.2.0",
-    "@spark-ui/form-field": "^5.2.6",
-    "@spark-ui/internal-utils": "^5.2.6",
+    "@spark-ui/form-field": "^5.2.7",
+    "@spark-ui/internal-utils": "^5.2.7",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
