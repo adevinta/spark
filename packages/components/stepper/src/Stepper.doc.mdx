@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Stepper } from '.'
+
+import * as stories from './Stepper.stories'
+
+<Meta of={stories} />
+
+# Stepper
+
+Stepper allows a user to enter a number, and increment or decrement the value using dedicated buttons.
+
+## Install
+
+```sh
+npm install @spark-ui/stepper
+```
+
+## Import
+
+```tsx
+import { Stepper } from "@spark-ui/stepper"
+```
+
+## Props
+
+<ArgTypes of={Stepper} />
+
+## Variants
+<Canvas of={stories.Default} />
