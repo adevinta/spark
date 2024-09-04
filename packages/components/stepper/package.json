@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/stepper",
-  "version": "0.0.0",
+  "version": "5.3.0",
   "description": "Stepper allows a user to enter a number, and increment or decrement the value using dedicated buttons.",
   "publishConfig": {
     "access": "public"
