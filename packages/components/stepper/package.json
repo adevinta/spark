@@ -22,7 +22,12 @@
   "scripts": {
     "build": "vite build"
   },
+  "dependencies": {
+    "@react-aria/numberfield": "3.11.6",
+    "@react-stately/numberfield": "3.9.6"
+  },
   "peerDependencies": {
+    "@react-types/numberfield": "3.8.5",
     "@spark-ui/tailwind-plugins": "latest",
     "@spark-ui/theme-utils": "latest",
     "react": "^18.0 || ^19.0",

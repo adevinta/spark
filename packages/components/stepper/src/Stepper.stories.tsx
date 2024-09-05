@@ -9,4 +9,4 @@ const meta: Meta<typeof Stepper> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Stepper>Hello World!</Stepper>
+export const Default: StoryFn = _args => <Stepper />
