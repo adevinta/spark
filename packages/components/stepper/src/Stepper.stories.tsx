@@ -9,4 +9,13 @@ const meta: Meta<typeof Stepper> = {
 
 export default meta
 
-export const Default: StoryFn = _args => <Stepper />
+export const Default: StoryFn = _args => (
+  <Stepper
+    label="Price"
+    defaultValue={6}
+    formatOptions={{
+      style: 'currency',
+      currency: 'USD',
+    }}
+  />
+)

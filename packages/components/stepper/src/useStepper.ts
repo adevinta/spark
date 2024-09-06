@@ -3,8 +3,20 @@ import { type NumberFieldStateOptions, useNumberFieldState } from '@react-statel
 import type { AriaNumberFieldProps } from '@react-types/numberfield'
 import type { RefObject } from 'react'
 
-interface UseStepperArgs extends Omit<NumberFieldStateOptions, 'locale'>, AriaNumberFieldProps {
-  stepperRef: RefObject<HTMLInputElement | null>
+export interface UseStepperArgs
+  extends Omit<NumberFieldStateOptions, 'locale'>, // + validate, validationBehavior, errorMessage ?
+    Omit<
+      AriaNumberFieldProps,
+      | 'onCopy'
+      | 'onCut'
+      | 'onPaste'
+      | 'onCompositionStart'
+      | 'onCompositionEnd'
+      | 'onCompositionUpdate'
+      | 'isWheelDisabled'
+      // isInvalid, validate, validationBehavior, errorMessage ?
+    > {
+  inputRef: RefObject<HTMLInputElement | null>
   /**
    * The [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code for the locale.
    * @default 'fr'
@@ -15,7 +27,7 @@ interface UseStepperArgs extends Omit<NumberFieldStateOptions, 'locale'>, AriaNu
 type UseStepperReturn = NumberFieldAria
 
 export const useStepper = ({
-  stepperRef,
+  inputRef,
   locale = 'fr',
   ...rest
 }: UseStepperArgs): UseStepperReturn => {
@@ -26,12 +38,12 @@ export const useStepper = ({
     inputProps,
     incrementButtonProps,
     decrementButtonProps,
-    errorMessageProps,
     descriptionProps,
-    isInvalid,
-    validationErrors,
-    validationDetails,
-  } = useNumberField(rest, state, stepperRef)
+    isInvalid, // ??
+    errorMessageProps, // ??
+    validationErrors, // ??
+    validationDetails, // ??
+  } = useNumberField({ isWheelDisabled: false, ...rest }, state, inputRef)
 
   return {
     groupProps,
@@ -39,10 +51,10 @@ export const useStepper = ({
     inputProps,
     incrementButtonProps,
     decrementButtonProps,
-    errorMessageProps,
     descriptionProps,
-    isInvalid,
-    validationErrors,
-    validationDetails,
+    isInvalid, // ??
+    errorMessageProps, // ??
+    validationErrors, // ??
+    validationDetails, // ??
   }
 }
