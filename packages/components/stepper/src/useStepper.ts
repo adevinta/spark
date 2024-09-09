@@ -4,7 +4,7 @@ import type { AriaNumberFieldProps } from '@react-types/numberfield'
 import type { RefObject } from 'react'
 
 export interface UseStepperArgs
-  extends Omit<NumberFieldStateOptions, 'locale'>, // + validate, validationBehavior, errorMessage ?
+  extends Omit<NumberFieldStateOptions, 'locale' | 'validate' | 'validationState' | 'errorMessage'>,
     Omit<
       AriaNumberFieldProps,
       | 'onCopy'
@@ -14,9 +14,11 @@ export interface UseStepperArgs
       | 'onCompositionEnd'
       | 'onCompositionUpdate'
       | 'isWheelDisabled'
-      // isInvalid, validate, validationBehavior, errorMessage ?
+      | 'validate'
+      | 'validationState'
+      | 'errorMessage'
     > {
-  inputRef: RefObject<HTMLInputElement | null>
+  inputRef: RefObject<HTMLInputElement>
   /**
    * The [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code for the locale.
    * @default 'fr'
@@ -24,7 +26,10 @@ export interface UseStepperArgs
   locale?: string
 }
 
-type UseStepperReturn = NumberFieldAria
+type UseStepperReturn = Omit<
+  NumberFieldAria,
+  'errorMessageProps' | 'validationErrors' | 'validationDetails' | 'labelProps'
+>
 
 export const useStepper = ({
   inputRef,
@@ -34,27 +39,19 @@ export const useStepper = ({
   const state = useNumberFieldState({ ...rest, locale })
   const {
     groupProps,
-    labelProps,
     inputProps,
     incrementButtonProps,
     decrementButtonProps,
     descriptionProps,
-    isInvalid, // ??
-    errorMessageProps, // ??
-    validationErrors, // ??
-    validationDetails, // ??
+    isInvalid,
   } = useNumberField({ isWheelDisabled: false, ...rest }, state, inputRef)
 
   return {
     groupProps,
-    labelProps,
     inputProps,
     incrementButtonProps,
     decrementButtonProps,
     descriptionProps,
-    isInvalid, // ??
-    errorMessageProps, // ??
-    validationErrors, // ??
-    validationDetails, // ??
+    isInvalid,
   }
 }

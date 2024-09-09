@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Stepper } from '.'
 
@@ -25,10 +25,29 @@ import { Stepper } from '@spark-ui/stepper'
 
 ## Props
 
-<ArgTypes of={Stepper} />
+<ArgTypes
+  of={Stepper}
+  description="A container for all the stepper component parts."
+  subcomponents={{
+    'Stepper.Input': {
+      of: Stepper.Input,
+      description: 'The input field to display and change the value.',
+    },
+    'Stepper.IncrementButton': {
+      of: Stepper.IncrementButton,
+      description: 'The button to increment the value of the input.',
+    },
+    'Stepper.DecrementButton': {
+      of: Stepper.DecrementButton,
+      description: 'The button to decrement the value of the input.',
+    },
+  }}
+/>
 
 ## Usage
 
 ### Default
 
 <Canvas of={stories.Default} />
+
+<Canvas of={stories.WithFormField} />
