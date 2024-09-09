@@ -1,11 +1,9 @@
-import { FC } from 'react'
-
-import { Progress as Root, ProgressProps } from './Progress'
+import { Progress as Root } from './Progress'
 import { ProgressBar } from './ProgressBar'
 import { ProgressIndicator } from './ProgressIndicator'
 import { ProgressLabel } from './ProgressLabel'
 
-export const Progress: FC<ProgressProps> & {
+export const Progress: typeof Root & {
   Label: typeof ProgressLabel
   Bar: typeof ProgressBar
   Indicator: typeof ProgressIndicator

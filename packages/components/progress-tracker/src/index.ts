@@ -1,5 +1,3 @@
-import type { FC } from 'react'
-
 import { ProgressTracker as Root, type ProgressTrackerProps } from './ProgressTracker'
 import { ProgressTrackerStep as Step, type ProgressTrackerStepProps } from './ProgressTrackerStep'
 import {
@@ -8,7 +6,7 @@ import {
 } from './ProgressTrackerStepIndicator'
 import { ProgressTrackerStepLabel as StepLabel } from './ProgressTrackerStepLabel'
 
-export const ProgressTracker: FC<ProgressTrackerProps> & {
+export const ProgressTracker: typeof Root & {
   Step: typeof Step
   StepLabel: typeof StepLabel
   StepIndicator: typeof StepIndicator

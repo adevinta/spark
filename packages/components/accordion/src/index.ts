@@ -1,12 +1,10 @@
-import type { FC } from 'react'
-
-import { Accordion as Root, type AccordionProps } from './Accordion'
+import { Accordion as Root } from './Accordion'
 import { Item } from './AccordionItem'
 import { ItemContent } from './AccordionItemContent'
 import { ItemHeader } from './AccordionItemHeader'
 import { ItemTrigger } from './AccordionItemTrigger'
 
-export const Accordion: FC<AccordionProps> & {
+export const Accordion: typeof Root & {
   Item: typeof Item
   ItemHeader: typeof ItemHeader
   ItemTrigger: typeof ItemTrigger

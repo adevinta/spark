@@ -1,6 +1,4 @@
-import type { FC } from 'react'
-
-import { Popover as Root, type PopoverProps } from './Popover'
+import { Popover as Root } from './Popover'
 import { Anchor } from './PopoverAnchor'
 import { Arrow } from './PopoverArrow'
 import { CloseButton } from './PopoverCloseButton'
@@ -9,7 +7,7 @@ import { Header } from './PopoverHeader'
 import { Portal } from './PopoverPortal'
 import { Trigger } from './PopoverTrigger'
 
-export const Popover: FC<PopoverProps> & {
+export const Popover: typeof Root & {
   Anchor: typeof Anchor
   Arrow: typeof Arrow
   CloseButton: typeof CloseButton

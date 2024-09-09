@@ -1,12 +1,10 @@
-import { FC } from 'react'
-
-import { TextareaGroup as Root, type TextareaGroupProps } from './TextareaGroup'
+import { TextareaGroup as Root } from './TextareaGroup'
 import { TextareaLeadingIcon } from './TextareaLeadingIcon'
 import { TextareaTrailingIcon } from './TextareaTrailingIcon'
 
 export * from './Textarea'
 
-export const TextareaGroup: FC<TextareaGroupProps> & {
+export const TextareaGroup: typeof Root & {
   LeadingIcon: typeof TextareaLeadingIcon
   TrailingIcon: typeof TextareaTrailingIcon
 } = Object.assign(Root, {

@@ -1,6 +1,4 @@
-import type { FC } from 'react'
-
-import { Combobox as Root, type ComboboxProps } from './Combobox'
+import { Combobox as Root } from './Combobox'
 import { ClearButton } from './ComboboxClearButton'
 import { ComboboxProvider, useComboboxContext } from './ComboboxContext'
 import { Disclosure } from './ComboboxDisclosure'
@@ -20,7 +18,7 @@ import { Trigger } from './ComboboxTrigger'
 
 export { useComboboxContext, ComboboxProvider }
 
-export const Combobox: FC<ComboboxProps> & {
+export const Combobox: typeof Root & {
   Group: typeof Group
   Item: typeof Item
   Items: typeof Items

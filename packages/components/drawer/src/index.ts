@@ -1,6 +1,4 @@
-import type { FC } from 'react'
-
-import { Drawer as Root, type DrawerProps } from './Drawer'
+import { Drawer as Root } from './Drawer'
 import { DrawerBody } from './DrawerBody'
 import { DrawerCloseButton } from './DrawerCloseButton'
 import { DrawerContent } from './DrawerContent'
@@ -12,7 +10,7 @@ import { DrawerPortal } from './DrawerPortal'
 import { DrawerTitle } from './DrawerTitle'
 import { DrawerTrigger } from './DrawerTrigger'
 
-export const Drawer: FC<DrawerProps> & {
+export const Drawer: typeof Root & {
   Trigger: typeof DrawerTrigger
   Portal: typeof DrawerPortal
   Overlay: typeof DrawerOverlay

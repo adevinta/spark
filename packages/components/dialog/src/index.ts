@@ -1,6 +1,4 @@
-import type { FC } from 'react'
-
-import { Dialog as Root, type DialogProps } from './Dialog'
+import { Dialog as Root } from './Dialog'
 import { Body } from './DialogBody'
 import { Close } from './DialogClose'
 import { CloseButton } from './DialogCloseButton'
@@ -13,7 +11,7 @@ import { Portal } from './DialogPortal'
 import { Title } from './DialogTitle' // aria-labelledby
 import { Trigger } from './DialogTrigger'
 
-export const Dialog: FC<DialogProps> & {
+export const Dialog: typeof Root & {
   Trigger: typeof Trigger
   Portal: typeof Portal
   Overlay: typeof Overlay

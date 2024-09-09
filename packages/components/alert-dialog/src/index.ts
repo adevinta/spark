@@ -1,6 +1,4 @@
-import { FC } from 'react'
-
-import { AlertDialog as Root, AlertDialogProps } from './AlertDialog'
+import { AlertDialog as Root } from './AlertDialog'
 import { AlertDialogAction } from './AlertDialogAction'
 import { AlertDialogBody } from './AlertDialogBody'
 import { AlertDialogCancel } from './AlertDialogCancel'
@@ -27,7 +25,7 @@ export { type AlertDialogPortalProps } from './AlertDialogPortal'
 export { type AlertDialogTitleProps } from './AlertDialogTitle'
 export { type AlertDialogTriggerProps } from './AlertDialogTrigger'
 
-export const AlertDialog: FC<AlertDialogProps> & {
+export const AlertDialog: typeof Root & {
   Action: typeof AlertDialogAction
   Body: typeof AlertDialogBody
   Cancel: typeof AlertDialogCancel

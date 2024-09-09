@@ -1,5 +1,3 @@
-import type { FC } from 'react'
-
 import {
   addSnackbar,
   type AddSnackbarArgs,
@@ -15,7 +13,7 @@ import {
 import { SnackbarItemClose as ItemClose, type SnackbarItemCloseProps } from './SnackbarItemClose'
 import { SnackbarItemIcon as ItemIcon, type SnackbarItemIconProps } from './SnackbarItemIcon'
 
-export const Snackbar: FC<SnackbarProps> & {
+export const Snackbar: typeof Root & {
   Item: typeof Item
   ItemAction: typeof ItemAction
   ItemClose: typeof ItemClose
