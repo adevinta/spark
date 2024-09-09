@@ -1,3 +1,4 @@
+import { FormField } from '@spark-ui/form-field'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { Stepper } from '.'
@@ -9,13 +10,12 @@ const meta: Meta<typeof Stepper> = {
 
 export default meta
 
-export const Default: StoryFn = _args => (
-  <Stepper
-    label="Price"
-    defaultValue={6}
-    formatOptions={{
-      style: 'currency',
-      currency: 'USD',
-    }}
-  />
+export const Default: StoryFn = _args => <Stepper />
+
+export const WithFormField: StoryFn = _args => (
+  <FormField name="Rooms">
+    <FormField.Label>Rooms</FormField.Label>
+
+    <Stepper />
+  </FormField>
 )
