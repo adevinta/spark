@@ -10,35 +10,33 @@ import { mapReactSpectrumAttrs, type StepperButtonProps, type StepperProps } fro
 import { useStepper } from './useStepper'
 
 export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps>>(
-  ({ ...props }, forwardedRef) => {
+  ({ ...stepperProps }, forwardedRef) => {
     const inputRef = useRef(null)
 
     const { groupProps, inputProps, incrementButtonProps, decrementButtonProps } = useStepper({
-      ...mapReactSpectrumAttrs(props),
+      ...mapReactSpectrumAttrs(stepperProps),
       inputRef,
     })
 
     return (
-      <div ref={forwardedRef}>
-        <InputGroup {...groupProps}>
-          {/* 1. DECREMENT BTN */}
-          <StepperDecrementButton {...(decrementButtonProps as StepperButtonProps)}>
-            <Icon>
-              <Minus />
-            </Icon>
-          </StepperDecrementButton>
+      <InputGroup {...stepperProps} {...groupProps} ref={forwardedRef}>
+        {/* 1. DECREMENT BTN */}
+        <StepperDecrementButton {...(decrementButtonProps as StepperButtonProps)}>
+          <Icon>
+            <Minus />
+          </Icon>
+        </StepperDecrementButton>
 
-          {/* 2. INPUT */}
-          <StepperInput {...inputProps} ref={inputRef} />
+        {/* 2. INPUT */}
+        <StepperInput {...inputProps} ref={inputRef} />
 
-          {/* 3. INCREMENT BTN */}
-          <StepperIncrementButton {...(incrementButtonProps as StepperButtonProps)}>
-            <Icon>
-              <Plus />
-            </Icon>
-          </StepperIncrementButton>
-        </InputGroup>
-      </div>
+        {/* 3. INCREMENT BTN */}
+        <StepperIncrementButton {...(incrementButtonProps as StepperButtonProps)}>
+          <Icon>
+            <Plus />
+          </Icon>
+        </StepperIncrementButton>
+      </InputGroup>
     )
   }
 )

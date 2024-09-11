@@ -40,6 +40,7 @@ import { Stepper } from '@spark-ui/stepper'
     'aria-details',
     'onKeyDown',
     'onKeyUp',
+    'placeholder',
   ]}
   subcomponents={{
     'Stepper.Input': {
@@ -63,4 +64,14 @@ import { Stepper } from '@spark-ui/stepper'
 
 <Canvas of={stories.Default} />
 
-<Canvas of={stories.WithFormField} />
+### Disabled
+
+Use `disabled` prop to indicate that the stepper is disabled and not interactive.
+
+<Canvas of={stories.Disabled} />
+
+### Read Only
+
+Use `readOnly` prop to indicate that the stepper is only for display and not interactive.
+
+<Canvas of={stories.ReadOnly} />
