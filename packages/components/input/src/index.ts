@@ -1,7 +1,5 @@
-import { FC } from 'react'
-
 import { InputClearButton } from './InputClearButton'
-import { InputGroup as Root, type InputGroupProps } from './InputGroup'
+import { InputGroup as Root } from './InputGroup'
 import { InputLeadingAddon } from './InputLeadingAddon'
 import { InputLeadingIcon } from './InputLeadingIcon'
 import { InputTrailingAddon } from './InputTrailingAddon'
@@ -9,7 +7,7 @@ import { InputTrailingIcon } from './InputTrailingIcon'
 
 export * from './Input'
 
-export const InputGroup: FC<InputGroupProps> & {
+export const InputGroup: typeof Root & {
   LeadingAddon: typeof InputLeadingAddon
   TrailingAddon: typeof InputTrailingAddon
   LeadingIcon: typeof InputLeadingIcon

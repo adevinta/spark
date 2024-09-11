@@ -1,10 +1,8 @@
-import type { FC } from 'react'
-
-import { Collapsible as Root, type CollapsibleProps } from './Collapsible'
+import { Collapsible as Root } from './Collapsible'
 import { Content } from './CollapsibleContent'
 import { Trigger } from './CollapsibleTrigger'
 
-export const Collapsible: FC<CollapsibleProps> & {
+export const Collapsible: typeof Root & {
   Trigger: typeof Trigger
   Content: typeof Content
 } = Object.assign(Root, {

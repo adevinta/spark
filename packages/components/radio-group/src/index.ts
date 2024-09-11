@@ -1,9 +1,7 @@
-import type { FC } from 'react'
-
 import { Radio } from './Radio'
-import { RadioGroup as Root, type RadioGroupProps } from './RadioGroup'
+import { RadioGroup as Root } from './RadioGroup'
 
-export const RadioGroup: FC<RadioGroupProps> & {
+export const RadioGroup: typeof Root & {
   Radio: typeof Radio
 } = Object.assign(Root, {
   Radio,

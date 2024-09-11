@@ -1,6 +1,4 @@
-import type { FC } from 'react'
-
-import { Select as Root, type SelectProps } from './Select'
+import { Select as Root } from './Select'
 import { SelectProvider, useSelectContext } from './SelectContext'
 import { Group } from './SelectGroup'
 import { Item } from './SelectItem'
@@ -13,7 +11,7 @@ import { Value } from './SelectValue'
 
 export { useSelectContext, SelectProvider }
 
-export const Select: FC<SelectProps> & {
+export const Select: typeof Root & {
   Group: typeof Group
   Item: typeof Item
   Items: typeof Items

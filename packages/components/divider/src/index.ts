@@ -1,11 +1,9 @@
-import { FC } from 'react'
-
-import { Divider as Root, type DividerProps } from './Divider'
+import { Divider as Root } from './Divider'
 import { DividerContent } from './DividerContent'
 
 export { type DividerContentProps } from './DividerContent'
 
-export const Divider: FC<DividerProps> & {
+export const Divider: typeof Root & {
   Content: typeof DividerContent
 } = Object.assign(Root, {
   Content: DividerContent,

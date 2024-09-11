@@ -1,10 +1,8 @@
-import type { FC } from 'react'
-
-import { LinkBox as Root, LinkBoxProps } from './LinkBox'
+import { LinkBox as Root } from './LinkBox'
 import { LinkBoxLink } from './LinkBoxLink'
 import { LinkBoxRaised } from './LinkBoxRaised'
 
-export const LinkBox: FC<LinkBoxProps> & {
+export const LinkBox: typeof Root & {
   Link: typeof LinkBoxLink
   Raised: typeof LinkBoxRaised
 } = Object.assign(Root, { Link: LinkBoxLink, Raised: LinkBoxRaised })

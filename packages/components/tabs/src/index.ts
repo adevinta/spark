@@ -1,11 +1,9 @@
-import type { FC } from 'react'
-
-import { Tabs as Root, type TabsProps } from './Tabs'
+import { Tabs as Root } from './Tabs'
 import { TabsContent as Content } from './TabsContent'
 import { TabsList as List } from './TabsList'
 import { TabsTrigger as Trigger } from './TabsTrigger'
 
-export const Tabs: FC<TabsProps> & {
+export const Tabs: typeof Root & {
   List: typeof List
   Trigger: typeof Trigger
   Content: typeof Content

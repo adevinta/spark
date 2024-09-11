@@ -1,6 +1,4 @@
-import { FC } from 'react'
-
-import { FormField as Root, FormFieldProps } from './FormField'
+import { FormField as Root } from './FormField'
 import { FormFieldAlertMessage } from './FormFieldAlertMessage'
 import { FormFieldCharactersCount } from './FormFieldCharactersCount'
 import { FormFieldControl } from './FormFieldControl'
@@ -11,7 +9,7 @@ import { FormFieldRequiredIndicator } from './FormFieldRequiredIndicator'
 import { FormFieldStateMessage } from './FormFieldStateMessage'
 import { FormFieldSuccessMessage } from './FormFieldSuccessMessage'
 
-export const FormField: FC<FormFieldProps> & {
+export const FormField: typeof Root & {
   Label: typeof FormFieldLabel
   Control: typeof FormFieldControl
   StateMessage: typeof FormFieldStateMessage

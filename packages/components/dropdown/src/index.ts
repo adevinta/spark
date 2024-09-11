@@ -1,6 +1,4 @@
-import type { FC } from 'react'
-
-import { Dropdown as Root, type DropdownProps } from './Dropdown'
+import { Dropdown as Root } from './Dropdown'
 import { DropdownProvider, useDropdownContext } from './DropdownContext'
 import { Divider } from './DropdownDivider'
 import { Group } from './DropdownGroup'
@@ -17,7 +15,7 @@ import { Value } from './DropdownValue'
 
 export { useDropdownContext, DropdownProvider }
 
-export const Dropdown: FC<DropdownProps> & {
+export const Dropdown: typeof Root & {
   Group: typeof Group
   Item: typeof Item
   Items: typeof Items
