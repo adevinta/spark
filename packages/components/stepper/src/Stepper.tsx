@@ -4,28 +4,17 @@ import { Plus } from '@spark-ui/icons/dist/icons/Plus'
 import { InputGroup } from '@spark-ui/input'
 import { forwardRef, type PropsWithChildren, useRef } from 'react'
 
-import {
-  type StepperButtonProps,
-  StepperDecrementButton,
-  StepperIncrementButton,
-} from './StepperButton'
+import { StepperDecrementButton, StepperIncrementButton } from './StepperButton'
 import { StepperInput } from './StepperInput'
-import { useStepper, type UseStepperArgs } from './useStepper'
-
-export interface StepperProps extends Omit<UseStepperArgs, 'inputRef' | 'label' | 'aria-label'> {
-  /**
-   * The [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code for the locale.
-   * @default 'fr'
-   */
-  locale?: string
-}
+import { mapReactSpectrumAttrs, type StepperButtonProps, type StepperProps } from './types'
+import { useStepper } from './useStepper'
 
 export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps>>(
-  (props, forwardedRef) => {
+  ({ ...props }, forwardedRef) => {
     const inputRef = useRef(null)
 
     const { groupProps, inputProps, incrementButtonProps, decrementButtonProps } = useStepper({
-      ...props,
+      ...mapReactSpectrumAttrs(props),
       inputRef,
     })
 

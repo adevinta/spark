@@ -1,20 +1,16 @@
-import { type AriaButtonOptions, useButton } from '@react-aria/button'
-import { IconButton, type IconButtonProps } from '@spark-ui/icon-button'
+import { useButton } from '@react-aria/button'
+import { IconButton } from '@spark-ui/icon-button'
 import { InputGroup } from '@spark-ui/input'
 import { forwardRef, type PropsWithChildren, useRef } from 'react'
 
-export type StepperButtonProps = IconButtonProps &
-  Omit<
-    AriaButtonOptions<'button'>,
-    'href' | 'target' | 'elementType' | 'isDisabled' | 'excludeFromTabOrder' | 'aria-label'
-  >
+import { mapReactSpectrumAttrs, type StepperButtonProps } from './types'
 
 const IncrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperButtonProps>>(
   ({ children, className, ...rest }, forwardedRef) => {
     const innerRef = useRef<HTMLButtonElement>(null)
     const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
 
-    const { buttonProps } = useButton({ ...rest, isDisabled: rest.disabled ?? undefined }, ref)
+    const { buttonProps } = useButton({ ...mapReactSpectrumAttrs(rest) }, ref)
 
     return (
       <InputGroup.TrailingAddon id="TrailingAddon" asChild>
@@ -38,7 +34,7 @@ const DecrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperB
     const innerRef = useRef<HTMLButtonElement>(null)
     const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
 
-    const { buttonProps } = useButton({ ...rest, isDisabled: rest.disabled ?? undefined }, ref)
+    const { buttonProps } = useButton({ ...mapReactSpectrumAttrs(rest) }, ref)
 
     return (
       <InputGroup.LeadingAddon asChild>

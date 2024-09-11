@@ -28,6 +28,19 @@ import { Stepper } from '@spark-ui/stepper'
 <ArgTypes
   of={Stepper}
   description="A container for all the stepper component parts."
+  exclude={[
+    'onPress',
+    'onPressStart',
+    'onPressEnd',
+    'onPressChange',
+    'onPressUp',
+    'onFocusChange',
+    'aria-labelledby',
+    'aria-describedby',
+    'aria-details',
+    'onKeyDown',
+    'onKeyUp',
+  ]}
   subcomponents={{
     'Stepper.Input': {
       of: Stepper.Input,
