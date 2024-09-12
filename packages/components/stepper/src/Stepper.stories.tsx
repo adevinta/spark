@@ -11,6 +11,8 @@ export default meta
 
 export const Default: StoryFn = _args => <Stepper aria-label="Default stepper" />
 
-export const Disabled: StoryFn = _args => <Stepper aria-label="Default stepper" disabled />
+export const Disabled: StoryFn = _args => (
+  <Stepper aria-label="Disabled stepper" disabled onChange={() => console.log('disabled')} />
+)
 
-export const ReadOnly: StoryFn = _args => <Stepper aria-label="Default stepper" readOnly />
+export const ReadOnly: StoryFn = _args => <Stepper aria-label="Readonly stepper" readOnly />

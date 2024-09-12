@@ -73,37 +73,3 @@ export type UseStepperReturn = Pick<
 >
 
 export type StepperProps = Omit<UseStepperArgs, 'inputRef' | 'aria-label'> & InputGroupProps
-
-/**
- * Some properties coming from React Spectrum exist in our APIs
- * but we need to do a simple mapping for consistency.
- */
-const isStepperButton = (
-  args: StepperProps | StepperButtonProps | Omit<UseStepperArgs, 'inputRef'>
-): args is StepperButtonProps =>
-  ['button', 'submit', 'reset', undefined].includes((args as StepperButtonProps).type)
-
-export function mapReactSpectrumAttrs(args: StepperProps): Omit<UseStepperArgs, 'inputRef'>
-export function mapReactSpectrumAttrs(args: StepperButtonProps): AriaButtonOptions<'button'>
-export function mapReactSpectrumAttrs(
-  args: Omit<UseStepperArgs, 'inputRef'>
-): NumberFieldStateOptions | AriaNumberFieldProps
-
-export function mapReactSpectrumAttrs(
-  args: StepperProps | StepperButtonProps | Omit<UseStepperArgs, 'inputRef'>
-):
-  | Omit<UseStepperArgs, 'inputRef'>
-  | AriaButtonOptions<'button'>
-  | (NumberFieldStateOptions | AriaNumberFieldProps) {
-  return isStepperButton(args)
-    ? ({
-        ...args,
-        ...(args.disabled && { isDisabled: args.disabled }),
-      } as AriaButtonOptions<'button'>)
-    : ({
-        ...args,
-        ...(args.disabled && { isDisabled: args.disabled }),
-        ...(args.readOnly && { isReadOnly: args.readOnly }),
-        ...(args.required && { isRequired: args.required }),
-      } as AriaButtonOptions<'button'> | NumberFieldStateOptions | AriaNumberFieldProps)
-}

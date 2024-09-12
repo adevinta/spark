@@ -3,17 +3,17 @@ import { IconButton } from '@spark-ui/icon-button'
 import { InputGroup } from '@spark-ui/input'
 import { forwardRef, type PropsWithChildren, useRef } from 'react'
 
-import { mapReactSpectrumAttrs, type StepperButtonProps } from './types'
+import type { StepperButtonProps } from './types'
 
 const IncrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperButtonProps>>(
   ({ children, className, ...rest }, forwardedRef) => {
     const innerRef = useRef<HTMLButtonElement>(null)
     const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
 
-    const { buttonProps } = useButton({ ...mapReactSpectrumAttrs(rest) }, ref)
+    const { buttonProps } = useButton({ ...rest }, ref)
 
     return (
-      <InputGroup.TrailingAddon id="TrailingAddon" asChild>
+      <InputGroup.TrailingAddon asChild>
         <IconButton
           ref={ref}
           design="ghost"
@@ -34,7 +34,7 @@ const DecrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperB
     const innerRef = useRef<HTMLButtonElement>(null)
     const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
 
-    const { buttonProps } = useButton({ ...mapReactSpectrumAttrs(rest) }, ref)
+    const { buttonProps } = useButton({ ...rest }, ref)
 
     return (
       <InputGroup.LeadingAddon asChild>

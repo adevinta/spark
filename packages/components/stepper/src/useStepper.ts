@@ -1,16 +1,29 @@
 import { useNumberField } from '@react-aria/numberfield'
 import { useNumberFieldState } from '@react-stately/numberfield'
 
-import { mapReactSpectrumAttrs, type UseStepperArgs, type UseStepperReturn } from './types'
+import type { UseStepperArgs, UseStepperReturn } from './types'
 
 export const useStepper = ({
   inputRef,
   locale = 'fr',
   ...rest
 }: UseStepperArgs): UseStepperReturn => {
-  const state = useNumberFieldState({ ...mapReactSpectrumAttrs(rest), locale })
+  const state = useNumberFieldState({
+    ...rest,
+    isDisabled: rest.disabled,
+    isReadOnly: rest.readOnly,
+    isRequired: rest.required,
+    locale,
+  })
+
   const { groupProps, inputProps, incrementButtonProps, decrementButtonProps } = useNumberField(
-    { isWheelDisabled: false, ...mapReactSpectrumAttrs(rest) },
+    {
+      isWheelDisabled: false,
+      ...rest,
+      isDisabled: rest.disabled,
+      isReadOnly: rest.readOnly,
+      isRequired: rest.required,
+    },
     state,
     inputRef
   )
