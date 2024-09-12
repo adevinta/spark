@@ -4,32 +4,29 @@ import { describe, expect, it } from 'vitest'
 
 import { Pagination } from '.'
 
+// UAT: https://docs.google.com/spreadsheets/d/17jv2dBf961p1BIRQ6mKHOmwnoqdYypcFt6od2xeMAGo/edit?gid=762410094#gid=762410094
+
 describe('Pagination', () => {
   it('Should render pagination', async () => {
     const user = userEvent.setup()
 
-    // Given a pagination with 10 pages of 10 item items each, and a sibling count display of 1
+    // Given a pagination with 10 pages of 10 item items each, and a length of 7 items
     render(
-      <Pagination
-        count={100}
-        pageSize={10}
-        length={7}
-        translations={{
-          rootLabel: 'Pagination',
-          prevTriggerLabel: 'Previous page',
-          nextTriggerLabel: 'Next page',
-          itemLabel: details =>
-            details.page === details.totalPages
-              ? `Last page, page ${details.page}`
-              : `Page ${details.page}`,
-        }}
-      >
-        <Pagination.PrevTrigger />
+      <Pagination aria-label="Pagination" count={100} pageSize={10} length={7}>
+        <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
-          {({ pages }) =>
+          {({ pages, totalPages }) =>
             pages.map((page, index) =>
               page.type === 'page' ? (
-                <Pagination.Item key={index} value={page.value}>
+                <Pagination.Item
+                  key={index}
+                  value={page.value}
+                  aria-label={
+                    page.value === totalPages
+                      ? `Last page, page ${page.value}`
+                      : `Page ${page.value}`
+                  }
+                >
                   {page.value}
                 </Pagination.Item>
               ) : (
@@ -38,7 +35,7 @@ describe('Pagination', () => {
             )
           }
         </Pagination.Pages>
-        <Pagination.NextTrigger />
+        <Pagination.NextTrigger aria-label="Next page" />
       </Pagination>
     )
 
@@ -91,32 +88,24 @@ describe('Pagination', () => {
     expect(screen.getByRole('button', { name: 'Next page' })).toBeDisabled()
   })
 
-  it('Should render pagination (no ellipsis)', async () => {
-    const user = userEvent.setup()
-
-    // Given a pagination with 10 pages of 10 item items each, and a sibling count display of 1
+  it('Should render pagination (single page)', async () => {
+    // Given a pagination with a single page
     render(
-      <Pagination
-        count={100}
-        pageSize={10}
-        length={5}
-        noEllipsis
-        translations={{
-          rootLabel: 'Pagination',
-          prevTriggerLabel: 'Previous page',
-          nextTriggerLabel: 'Next page',
-          itemLabel: details =>
-            details.page === details.totalPages
-              ? `Last page, page ${details.page}`
-              : `Page ${details.page}`,
-        }}
-      >
-        <Pagination.PrevTrigger />
+      <Pagination aria-label="Pagination" count={10} pageSize={10} length={7}>
+        <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
-          {({ pages }) =>
+          {({ pages, totalPages }) =>
             pages.map((page, index) =>
               page.type === 'page' ? (
-                <Pagination.Item key={index} value={page.value}>
+                <Pagination.Item
+                  key={index}
+                  value={page.value}
+                  aria-label={
+                    page.value === totalPages
+                      ? `Last page, page ${page.value}`
+                      : `Page ${page.value}`
+                  }
+                >
                   {page.value}
                 </Pagination.Item>
               ) : (
@@ -125,7 +114,45 @@ describe('Pagination', () => {
             )
           }
         </Pagination.Pages>
-        <Pagination.NextTrigger />
+        <Pagination.NextTrigger aria-label="Next page" />
+      </Pagination>
+    )
+
+    // The only page is visible, and next/previous buttons are disabled
+    expect(screen.getByRole('button', { name: 'Previous page' })).toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Last page, page 1' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Next page' })).toBeDisabled()
+  })
+
+  it('Should render pagination (no ellipsis)', async () => {
+    const user = userEvent.setup()
+
+    // Given a pagination with 10 pages of 10 item items each, and a length of 5 items
+    render(
+      <Pagination aria-label="Pagination" count={100} pageSize={10} length={5} noEllipsis>
+        <Pagination.PrevTrigger aria-label="Previous page" />
+        <Pagination.Pages>
+          {({ pages, totalPages }) =>
+            pages.map((page, index) =>
+              page.type === 'page' ? (
+                <Pagination.Item
+                  key={index}
+                  value={page.value}
+                  aria-label={
+                    page.value === totalPages
+                      ? `Last page, page ${page.value}`
+                      : `Page ${page.value}`
+                  }
+                >
+                  {page.value}
+                </Pagination.Item>
+              ) : (
+                <Pagination.Ellipsis key={index} index={index} />
+              )
+            )
+          }
+        </Pagination.Pages>
+        <Pagination.NextTrigger aria-label="Next page" />
       </Pagination>
     )
 

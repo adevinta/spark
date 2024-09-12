@@ -9,6 +9,7 @@ import { usePagination } from './PaginationContext'
 interface LastPageTriggerProps extends ComponentPropsWithoutRef<'button'> {
   children?: ReactNode
   className?: string
+  'aria-label': string
 }
 
 export const LastPageTrigger = forwardRef<HTMLButtonElement, LastPageTriggerProps>(

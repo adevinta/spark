@@ -9,6 +9,7 @@ import { usePagination } from './PaginationContext'
 interface PrevTriggerProps extends ComponentPropsWithoutRef<'button'> {
   children?: ReactNode
   className?: string
+  'aria-label': string
 }
 
 export const PrevTrigger = forwardRef<HTMLButtonElement, PrevTriggerProps>(

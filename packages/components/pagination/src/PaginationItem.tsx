@@ -7,6 +7,7 @@ import { usePagination } from './PaginationContext'
 interface ItemProps extends ComponentPropsWithoutRef<'button'> {
   children?: ReactNode
   value: number
+  'aria-label': string
 }
 
 export const Item = forwardRef<HTMLButtonElement, ItemProps>(
