@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/progress-tracker",
-  "version": "5.3.3",
+  "version": "5.3.4",
   "description": "A progress tracker component is a visual navigation element typically used to display progress or guide user through a multi-step process.",
   "publishConfig": {
     "access": "public"
@@ -23,8 +23,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/icon": "^5.3.3",
-    "@spark-ui/icons": "^5.3.3",
+    "@spark-ui/icon": "^5.3.4",
+    "@spark-ui/icons": "^5.3.4",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
