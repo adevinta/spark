@@ -30,7 +30,7 @@ export const inputAddonStyles = cva(
        * Changes input addon styles based on the read only status from the input.
        */
       readOnly: {
-        true: [],
+        true: ['pointer-events-none'],
       },
       /**
        * Main style of the input addon.
