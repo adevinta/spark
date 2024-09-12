@@ -6,7 +6,7 @@ import { forwardRef, type PropsWithChildren, useRef } from 'react'
 
 import { StepperDecrementButton, StepperIncrementButton } from './StepperButton'
 import { StepperInput } from './StepperInput'
-import { mapReactSpectrumAttrs, type StepperButtonProps, type StepperProps } from './types'
+import type { StepperButtonProps, StepperProps } from './types'
 import { useStepper } from './useStepper'
 
 export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps>>(
@@ -14,7 +14,7 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
     const inputRef = useRef(null)
 
     const { groupProps, inputProps, incrementButtonProps, decrementButtonProps } = useStepper({
-      ...mapReactSpectrumAttrs(stepperProps),
+      ...stepperProps,
       inputRef,
     })
 
