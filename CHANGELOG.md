@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.7](https://github.com/adevinta/spark/compare/v5.3.6...v5.3.7) (2024-09-12)
+
+### Bug Fixes
+
+- **input:** fix intereactivity in input groups (addon) ([7b37929](https://github.com/adevinta/spark/commit/7b379294636983bc05d1ee7c3da4e1788b7e3a25))
+
 ## [5.3.6](https://github.com/adevinta/spark/compare/v5.3.5...v5.3.6) (2024-09-12)
 
 **Note:** Version bump only for package spark
