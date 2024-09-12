@@ -8,9 +8,14 @@ import {
 
 export type PaginationProps = PaginationProviderProps
 
-export const Pagination = ({ children, length = 7, ...rest }: PaginationProviderProps) => {
+export const Pagination = ({
+  children,
+  length = 7,
+  noEllipsis = false,
+  ...rest
+}: PaginationProviderProps) => {
   return (
-    <PaginationProvider length={length} {...rest}>
+    <PaginationProvider length={length} noEllipsis={noEllipsis} {...rest}>
       <PaginationWrapper>{children}</PaginationWrapper>
     </PaginationProvider>
   )

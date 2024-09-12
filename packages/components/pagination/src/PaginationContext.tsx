@@ -7,8 +7,8 @@ import { sliceArrayWithIndex } from './utils'
 
 export interface PaginationContextState {
   pagination: pagination.Api & {
-    getFirstPageTriggerProps: () => Partial<IconButtonProps> & { 'aria-label': string }
-    getLastPageTriggerProps: () => Partial<IconButtonProps> & { 'aria-label': string }
+    getFirstPageTriggerProps: () => Partial<IconButtonProps>
+    getLastPageTriggerProps: () => Partial<IconButtonProps>
   }
 }
 
@@ -34,10 +34,6 @@ export interface PaginationProviderProps {
   page?: pagination.Context['page']
   onPageChange?: pagination.Context['onPageChange']
   noEllipsis?: boolean
-  translations?: pagination.Context['translations'] & {
-    firstPageTriggerLabel?: string
-    lastPageTriggerLabel?: string
-  }
 }
 
 export const PaginationProvider = ({
@@ -48,7 +44,6 @@ export const PaginationProvider = ({
   page,
   onPageChange,
   noEllipsis,
-  translations,
 }: PaginationProviderProps) => {
   /**
    * Here `Infinity` is used because we apply a custom slice ourselves to manage the "no ellipsis" version.
@@ -66,11 +61,10 @@ export const PaginationProvider = ({
       pageSize,
       page,
       onPageChange,
-      translations,
       type: 'button',
     }),
     // Dynamic state
-    { context: { page, count, siblingCount, pageSize, translations } }
+    { context: { page, count, siblingCount, pageSize } }
   )
 
   const api = pagination.connect(state, send, normalizeProps)
@@ -90,7 +84,6 @@ export const PaginationProvider = ({
               ...apiProps,
               id: `${api.getRootProps().id}:first`,
               'data-part': 'first-page-trigger',
-              'aria-label': translations?.firstPageTriggerLabel || 'first page',
               onClick: api.goToFirstPage,
             }
           },
@@ -101,7 +94,6 @@ export const PaginationProvider = ({
               ...apiProps,
               id: `${api.getRootProps().id}:last`,
               'data-part': 'last-page-trigger',
-              'aria-label': translations?.lastPageTriggerLabel || 'last page',
               onClick: api.goToLastPage,
             }
           },
