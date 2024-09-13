@@ -14,3 +14,6 @@ export const Stepper: typeof Root & {
 Stepper.displayName = 'Stepper'
 IncrementButton.displayName = 'Stepper.IncrementButton'
 DecrementButton.displayName = 'Stepper.DecrementButton'
+Input.displayName = 'Stepper.Input'
+
+export type { StepperProps, StepperButtonProps, StepperInputProps } from './types'

@@ -3,7 +3,7 @@ import type { NumberFieldAria } from '@react-aria/numberfield'
 import type { NumberFieldStateOptions } from '@react-stately/numberfield'
 import type { AriaNumberFieldProps } from '@react-types/numberfield'
 import type { IconButtonProps } from '@spark-ui/icon-button'
-import type { InputGroupProps } from '@spark-ui/input'
+import type { InputGroupProps, InputProps } from '@spark-ui/input'
 import type { RefObject } from 'react'
 
 /**
@@ -13,11 +13,12 @@ import type { RefObject } from 'react'
  */
 
 export type StepperButtonProps = Omit<IconButtonProps, 'disabled'> &
-  Record<'disabled', boolean> &
   Omit<
     AriaButtonOptions<'button'>,
     'elementType' | 'href' | 'target' | 'isDisabled' | 'excludeFromTabOrder' | 'aria-label'
-  >
+  > & {
+    disabled?: boolean
+  }
 
 type SpectrumNumberFieldPropsFilter =
   | 'isDisabled'
@@ -73,3 +74,5 @@ export type UseStepperReturn = Pick<
 >
 
 export type StepperProps = Omit<UseStepperArgs, 'inputRef' | 'aria-label'> & InputGroupProps
+
+export type StepperInputProps = InputProps

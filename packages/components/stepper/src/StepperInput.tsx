@@ -1,7 +1,9 @@
-import { Input as SparkInput, type InputProps } from '@spark-ui/input'
+import { Input as SparkInput } from '@spark-ui/input'
 import { forwardRef } from 'react'
 
-const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+import type { StepperInputProps } from './types'
+
+const Input = forwardRef<HTMLInputElement, StepperInputProps>((props, ref) => {
   return <SparkInput ref={ref} {...props} />
 })
 

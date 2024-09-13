@@ -1,3 +1,5 @@
+import { Icon } from '@spark-ui/icon'
+import { ArrowHorizontalUp } from '@spark-ui/icons/dist/icons/ArrowHorizontalUp'
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
@@ -115,9 +117,26 @@ describe('Stepper', () => {
     })
   })
 
-  describe('min and max values', () => {
-    // @todo: ensure behavior is compliant with specs
+  it('should allow composability', async () => {
+    const user = userEvent.setup()
 
+    render(
+      <Stepper {...defaultProps} defaultValue={8}>
+        <Stepper.IncrementButton aria-label="Custom increment">
+          <Icon>
+            <ArrowHorizontalUp />
+          </Icon>
+        </Stepper.IncrementButton>
+      </Stepper>
+    )
+
+    await user.click(screen.getByLabelText('Custom increment'))
+
+    expect(screen.getByRole('textbox')).toHaveValue('9')
+    expect(defaultProps.onChange).toHaveBeenCalledTimes(1)
+  })
+
+  describe('min and max values', () => {
     it('should not change the value if max limit has been reached', async () => {
       const user = userEvent.setup()
 
@@ -144,6 +163,19 @@ describe('Stepper', () => {
 
       await user.click(screen.getByLabelText('Decrement'))
       expect(defaultProps.onChange).toHaveBeenCalledTimes(2)
+    })
+
+    it('should clamp the value on blur if input is beyond range bounds', async () => {
+      const user = userEvent.setup()
+
+      render(<Stepper {...defaultProps} minValue={0} maxValue={10} />)
+
+      const input = screen.getByRole('textbox')
+
+      await user.type(input, '13')
+      act(() => input.blur())
+
+      expect(input).toHaveValue('10')
     })
   })
 })

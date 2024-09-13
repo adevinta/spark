@@ -6,7 +6,7 @@ import { forwardRef, type PropsWithChildren, useRef } from 'react'
 import type { StepperButtonProps } from './types'
 
 const IncrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperButtonProps>>(
-  ({ children, className, ...rest }, forwardedRef) => {
+  ({ children, design = 'ghost', intent = 'neutral', className, ...rest }, forwardedRef) => {
     const innerRef = useRef<HTMLButtonElement>(null)
     const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
 
@@ -16,8 +16,8 @@ const IncrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperB
       <InputGroup.TrailingAddon asChild>
         <IconButton
           ref={ref}
-          design="ghost"
-          intent="neutral"
+          design={design}
+          intent={intent}
           className={className}
           aria-label={buttonProps['aria-label'] as string}
           {...buttonProps}
@@ -30,7 +30,7 @@ const IncrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperB
 )
 
 const DecrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperButtonProps>>(
-  ({ children, className, ...rest }, forwardedRef) => {
+  ({ children, design = 'ghost', intent = 'neutral', className, ...rest }, forwardedRef) => {
     const innerRef = useRef<HTMLButtonElement>(null)
     const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
 
@@ -40,8 +40,8 @@ const DecrementButton = forwardRef<HTMLButtonElement, PropsWithChildren<StepperB
       <InputGroup.LeadingAddon asChild>
         <IconButton
           ref={ref}
-          design="ghost"
-          intent="neutral"
+          design={design}
+          intent={intent}
           className={className}
           aria-label={buttonProps['aria-label'] as string}
           {...buttonProps}
