@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/use-merge-refs",
-  "version": "5.3.7",
+  "version": "5.3.8",
   "description": "merge and sync the passed references into a single one",
   "publishConfig": {
     "access": "public"
