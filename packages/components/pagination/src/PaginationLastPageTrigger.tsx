@@ -6,21 +6,33 @@ import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
 
 import { usePagination } from './PaginationContext'
 
-interface LastPageTriggerProps extends ComponentPropsWithoutRef<'button'> {
+interface LastPageTriggerCommonProps extends ComponentPropsWithoutRef<'button'> {
   children?: ReactNode
   className?: string
   'aria-label': string
 }
 
+interface LastPageTriggerLinkProps extends ComponentPropsWithoutRef<'a'> {
+  href: string
+}
+
+interface LastPageTriggerButtonProps extends IconButtonProps {
+  href?: undefined
+}
+
+export type LastPageTriggerProps = LastPageTriggerCommonProps &
+  (LastPageTriggerLinkProps | LastPageTriggerButtonProps)
+
 export const LastPageTrigger = forwardRef<HTMLButtonElement, LastPageTriggerProps>(
-  ({ children, className, ...props }, ref) => {
+  ({ children, className, href, ...props }, ref) => {
     const { pagination } = usePagination()
 
     // ZagJS props
-    const apiProps = pagination.getLastPageTriggerProps()
+    const apiProps: any = pagination.getLastPageTriggerProps()
 
     // Locally managed props
-    const localProps: Partial<IconButtonProps> = {
+    const localProps = {
+      'data-spark-component': 'pagination-last-page-trigger',
       intent: 'support',
       design: 'ghost',
       ...props,
@@ -29,15 +41,23 @@ export const LastPageTrigger = forwardRef<HTMLButtonElement, LastPageTriggerProp
 
     const mergedProps = mergeProps(apiProps, localProps)
 
+    const content = children || (
+      <Icon>
+        <ArrowDoubleRight />
+      </Icon>
+    )
+
     return (
       <li>
-        <IconButton data-spark-component="pagination-last-page-trigger" ref={ref} {...mergedProps}>
-          {children || (
-            <Icon>
-              <ArrowDoubleRight />
-            </Icon>
-          )}
-        </IconButton>
+        {href ? (
+          <IconButton ref={ref} {...mergedProps} asChild>
+            <a href={href}>{content}</a>
+          </IconButton>
+        ) : (
+          <IconButton ref={ref} {...mergedProps}>
+            {content}
+          </IconButton>
+        )}
       </li>
     )
   }

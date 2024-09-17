@@ -14,7 +14,7 @@ export default meta
 
 export const Default: StoryFn = () => {
   return (
-    <Pagination aria-label="Pagination" count={100} pageSize={10}>
+    <Pagination type="button" aria-label="Pagination" count={100} pageSize={10}>
       <Pagination.PrevTrigger aria-label="Previous page" />
       <Pagination.Pages>
         {({ pages, totalPages }) =>
@@ -40,7 +40,7 @@ export const Default: StoryFn = () => {
 
 export const NoEllipsis: StoryFn = () => {
   return (
-    <Pagination aria-label="Pagination" count={10} pageSize={1} length={5} noEllipsis>
+    <Pagination type="button" aria-label="Pagination" count={10} pageSize={1} length={5} noEllipsis>
       <Pagination.FirstPageTrigger aria-label="First page" />
       <Pagination.PrevTrigger aria-label="Previous page" />
       <Pagination.Pages>
@@ -85,7 +85,13 @@ export const PaginationLength: StoryFn = () => {
         </RadioGroup>
       </FormField>
 
-      <Pagination aria-label="Pagination" count={1000} pageSize={10} length={paginationLength}>
+      <Pagination
+        type="button"
+        aria-label="Pagination"
+        count={1000}
+        pageSize={10}
+        length={paginationLength}
+      >
         <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
           {({ pages, totalPages }) =>
@@ -142,6 +148,7 @@ export const Controlled: StoryFn = () => {
         })}
       </div>
       <Pagination
+        type="button"
         aria-label="Pagination"
         count={items.length}
         pageSize={pageSize}
