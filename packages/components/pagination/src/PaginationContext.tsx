@@ -32,6 +32,10 @@ export interface PaginationProviderProps {
    * The current page (active page)
    */
   page?: pagination.Context['page']
+  /**
+   * If your pagination contains buttons instead of links, set `type` to `button`, extra attributes will be applied on page items for a11y.
+   */
+  type?: pagination.Context['type']
   onPageChange?: pagination.Context['onPageChange']
   noEllipsis?: boolean
 }
@@ -44,6 +48,7 @@ export const PaginationProvider = ({
   page,
   onPageChange,
   noEllipsis,
+  type = 'link',
 }: PaginationProviderProps) => {
   /**
    * Here `Infinity` is used because we apply a custom slice ourselves to manage the "no ellipsis" version.
@@ -61,7 +66,7 @@ export const PaginationProvider = ({
       pageSize,
       page,
       onPageChange,
-      type: 'button',
+      type,
     }),
     // Dynamic state
     { context: { page, count, siblingCount, pageSize } }
@@ -78,20 +83,16 @@ export const PaginationProvider = ({
           pages,
           // Extending ZagJS anatomy
           getFirstPageTriggerProps: () => {
-            const apiProps = api.getPrevTriggerProps()
-
             return {
-              ...apiProps,
+              ...api.getPrevTriggerProps(),
               id: `${api.getRootProps().id}:first`,
               'data-part': 'first-page-trigger',
               onClick: api.goToFirstPage,
             }
           },
           getLastPageTriggerProps: () => {
-            const apiProps = api.getNextTriggerProps()
-
             return {
-              ...apiProps,
+              ...api.getNextTriggerProps(),
               id: `${api.getRootProps().id}:last`,
               'data-part': 'last-page-trigger',
               onClick: api.goToLastPage,

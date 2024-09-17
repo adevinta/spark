@@ -6,41 +6,58 @@ import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
 
 import { usePagination } from './PaginationContext'
 
-interface PrevTriggerProps extends ComponentPropsWithoutRef<'button'> {
+interface PrevTriggerCommonProps {
   children?: ReactNode
   className?: string
   'aria-label': string
 }
 
+interface PrevTriggerLinkProps extends ComponentPropsWithoutRef<'a'> {
+  href: string
+}
+
+interface PrevTriggerButtonProps extends IconButtonProps {
+  href?: undefined
+}
+
+export type PrevTriggerProps = PrevTriggerCommonProps &
+  (PrevTriggerLinkProps | PrevTriggerButtonProps)
+
 export const PrevTrigger = forwardRef<HTMLButtonElement, PrevTriggerProps>(
-  ({ children, className, ...props }, ref) => {
+  ({ children, className, href, ...props }, ref) => {
     const { pagination } = usePagination()
 
     // ZagJS props
     const apiProps: any = pagination.getPrevTriggerProps()
 
     // Locally managed props
-    const localProps: Partial<IconButtonProps> = {
+    const localProps = {
+      'data-spark-component': 'pagination-prev-trigger',
       intent: 'support',
       design: 'ghost',
       ...props,
       className,
     }
 
-    const mergedProps: Partial<IconButtonProps> & { 'aria-label': string } = mergeProps(
-      apiProps,
-      localProps
+    const mergedProps = mergeProps(apiProps, localProps)
+
+    const content = children || (
+      <Icon>
+        <ArrowVerticalLeft />
+      </Icon>
     )
 
     return (
       <li>
-        <IconButton data-spark-component="pagination-prev-trigger" ref={ref} {...mergedProps}>
-          {children || (
-            <Icon>
-              <ArrowVerticalLeft />
-            </Icon>
-          )}
-        </IconButton>
+        {href ? (
+          <IconButton ref={ref} {...mergedProps} asChild>
+            <a href={href}>{content}</a>
+          </IconButton>
+        ) : (
+          <IconButton ref={ref} {...mergedProps}>
+            {content}
+          </IconButton>
+        )}
       </li>
     )
   }

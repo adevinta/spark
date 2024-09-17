@@ -11,11 +11,12 @@ export type PaginationProps = PaginationProviderProps
 export const Pagination = ({
   children,
   length = 7,
+  type = 'link',
   noEllipsis = false,
   ...rest
 }: PaginationProviderProps) => {
   return (
-    <PaginationProvider length={length} noEllipsis={noEllipsis} {...rest}>
+    <PaginationProvider length={length} noEllipsis={noEllipsis} type={type} {...rest}>
       <PaginationWrapper>{children}</PaginationWrapper>
     </PaginationProvider>
   )
