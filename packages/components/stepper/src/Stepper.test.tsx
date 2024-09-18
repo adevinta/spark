@@ -1,3 +1,4 @@
+import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { ArrowHorizontalUp } from '@spark-ui/icons/dist/icons/ArrowHorizontalUp'
 import { act, fireEvent, render, screen } from '@testing-library/react'
@@ -177,5 +178,40 @@ describe('Stepper', () => {
 
       expect(input).toHaveValue('10')
     })
+  })
+})
+
+describe.only('Stepper with FormField', () => {
+  it('should properly inherit some attributes when Stepper is wrapped by FormField', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <FormField name="title" isRequired state="error">
+        <FormField.Label>Title</FormField.Label>
+        <Stepper {...defaultProps} />
+        <FormField.ErrorMessage>oops</FormField.ErrorMessage>
+        <FormField.HelperMessage>This is a helper message</FormField.HelperMessage>
+      </FormField>
+    )
+
+    const label = screen.getByText(/title/i)
+    const input = screen.getByRole('textbox', {
+      name: 'Stepper',
+    })
+    const decrementBtn = screen.getByRole('button', {
+      name: /Decrement/i,
+    })
+    const incrementBtn = screen.getByRole('button', {
+      name: /Increment/i,
+    })
+
+    await user.click(label)
+
+    expect(input).toHaveFocus()
+    expect(input).toHaveAttribute('required')
+    expect(input).toHaveAttribute('aria-invalid', 'true')
+
+    expect(decrementBtn).toHaveAttribute('aria-controls', input.id)
+    expect(incrementBtn).toHaveAttribute('aria-controls', input.id)
   })
 })

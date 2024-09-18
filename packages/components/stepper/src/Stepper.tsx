@@ -1,3 +1,4 @@
+import { useFormFieldControl } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { Minus } from '@spark-ui/icons/dist/icons/Minus'
 import { Plus } from '@spark-ui/icons/dist/icons/Plus'
@@ -34,7 +35,12 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
   ) => {
     const inputRef = useRef(null)
 
-    const { groupProps, inputProps, incrementButtonProps, decrementButtonProps } = useStepper({
+    const {
+      groupProps,
+      inputProps: _inputProps,
+      incrementButtonProps: _incrementButtonProps,
+      decrementButtonProps: _decrementButtonProps,
+    } = useStepper({
       ...stepperProps,
       formatOptions,
       minValue,
@@ -60,6 +66,28 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
     const incrementBtnFromChildren = findElement('Stepper.IncrementButton')
     const decrementBtnFromChildren = findElement('Stepper.DecrementButton')
     const inputFromChildren = findElement('Stepper.Input')
+
+    const formFieldControlProps = useFormFieldControl()
+    const isWrappedInFormField = !!formFieldControlProps.id
+
+    const incrementButtonProps = {
+      ..._incrementButtonProps,
+      ...(isWrappedInFormField && { 'aria-controls': formFieldControlProps.id }),
+    }
+
+    const decrementButtonProps = {
+      ..._decrementButtonProps,
+      ...(isWrappedInFormField && { 'aria-controls': formFieldControlProps.id }),
+    }
+
+    const inputProps = {
+      ..._inputProps,
+      ...(isWrappedInFormField && {
+        id: formFieldControlProps.id,
+        required: formFieldControlProps.isRequired,
+        'aria-invalid': formFieldControlProps.isInvalid ? true : undefined,
+      }),
+    }
 
     return (
       <InputGroup {...stepperProps} {...groupProps} ref={forwardedRef}>
