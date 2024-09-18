@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/adevinta/spark/compare/v5.3.9...v5.4.0) (2024-09-18)
+
+**Note:** Version bump only for package @spark-ui/accordion
+
 ## [5.3.9](https://github.com/adevinta/spark/compare/v5.3.8...v5.3.9) (2024-09-17)
 
 **Note:** Version bump only for package @spark-ui/accordion

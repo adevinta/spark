@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/adevinta/spark/compare/v5.3.9...v5.4.0) (2024-09-18)
+
+### Features
+
+- **internal-utils:** add "omit" internal util ([288f3cc](https://github.com/adevinta/spark/commit/288f3cc2fbc6bb49a5ce4d2cf6e43088be2c49a6))
+
 ## [5.3.9](https://github.com/adevinta/spark/compare/v5.3.8...v5.3.9) (2024-09-17)
 
 **Note:** Version bump only for package spark
