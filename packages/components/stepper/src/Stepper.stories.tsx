@@ -1,4 +1,5 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
+import { FormField } from '@spark-ui/form-field'
 import { Icon } from '@spark-ui/icon'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { ArrowHorizontalUp } from '@spark-ui/icons/dist/icons/ArrowHorizontalUp'
@@ -82,9 +83,23 @@ export const FormatOptions: StoryFn = _args => (
       <StoryLabel>Units</StoryLabel>
       <Stepper
         aria-label="Stepper with units"
-        defaultValue={451}
-        formatOptions={{ style: 'unit', unit: 'fahrenheit' }}
+        defaultValue={20}
+        formatOptions={{ style: 'unit', unit: 'celsius' }}
       />
     </div>
   </div>
+)
+
+export const WithFormField: StoryFn = _args => (
+  <FormField name="title" isRequired state="error">
+    <FormField.Label>Title</FormField.Label>
+    <Stepper
+      aria-label="Stepper with min/max values"
+      minValue={0}
+      maxValue={100}
+      defaultValue={0}
+    />
+    <FormField.ErrorMessage>oops</FormField.ErrorMessage>
+    <FormField.HelperMessage>This is a helper message</FormField.HelperMessage>
+  </FormField>
 )
