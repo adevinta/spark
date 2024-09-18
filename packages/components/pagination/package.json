@@ -1,0 +1,52 @@
+{
+  "name": "@spark-ui/pagination",
+  "version": "0.0.0",
+  "description": "interface that allows navigating between pages that contain split information, instead of being shown on a single page",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "pagination"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "@spark-ui/tailwind-plugins": "latest",
+    "@spark-ui/theme-utils": "latest",
+    "react": "^18.0 || ^19.0",
+    "react-dom": "^18.0 || ^19.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/components/pagination"
+  },
+  "config": {
+    "title": "pagination",
+    "category": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+pagination%22"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT",
+  "dependencies": {
+    "@zag-js/pagination": "0.65.0",
+    "@zag-js/react": "0.65.0",
+    "@spark-ui/icon": "^5.3.0",
+    "@spark-ui/icons": "^5.3.0"
+  }
+}
