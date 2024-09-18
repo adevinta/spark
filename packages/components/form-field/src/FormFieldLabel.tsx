@@ -38,7 +38,6 @@ export const FormFieldLabel = forwardRef<HTMLLabelElement, FormFieldLabelProps>(
         htmlFor={htmlFor}
         className={cx(
           className,
-          'flex items-center gap-sm',
           disabled ? 'pointer-events-none text-on-surface/dim-3' : undefined
         )}
         asChild={asChild}
