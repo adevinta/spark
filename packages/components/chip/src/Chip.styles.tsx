@@ -5,7 +5,7 @@ import { dashedVariants, outlinedVariants, tintedVariants } from './variants'
 
 export const chipStyles = cva(
   [
-    'box-border max-w-sz-240 inline-flex h-sz-32 flex-nowrap items-center justify-center rounded-md text-body-1 font-regular',
+    'box-border inline-flex h-sz-32 flex-nowrap items-center justify-center rounded-md text-body-1 font-regular',
     'focus-visible:outline-none focus-visible:u-ring [&:not(:focus-visible)]:ring-inset',
     'ease-out duration-150',
   ],
