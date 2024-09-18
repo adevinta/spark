@@ -1,34 +1,28 @@
 import { Icon } from '@spark-ui/icon'
-import { IconButton, type IconButtonProps } from '@spark-ui/icon-button'
+import { IconButton } from '@spark-ui/icon-button'
 import { ArrowVerticalLeft } from '@spark-ui/icons/dist/icons/ArrowVerticalLeft'
 import { mergeProps } from '@zag-js/react'
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { usePagination } from './PaginationContext'
 
-interface PrevTriggerCommonProps {
-  children?: ReactNode
-  className?: string
-  'aria-label': string
-}
-
-interface PrevTriggerLinkProps extends ComponentPropsWithoutRef<'a'> {
+interface AnchorProps extends ComponentPropsWithoutRef<'a'> {
   href: string
 }
 
-interface PrevTriggerButtonProps extends IconButtonProps {
+interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   href?: undefined
 }
-
-export type PrevTriggerProps = PrevTriggerCommonProps &
-  (PrevTriggerLinkProps | PrevTriggerButtonProps)
+export type PrevTriggerProps = Omit<AnchorProps | ButtonProps, 'aria-label'> & {
+  'aria-label': string
+}
 
 export const PrevTrigger = forwardRef<HTMLButtonElement, PrevTriggerProps>(
   ({ children, className, href, ...props }, ref) => {
     const { pagination } = usePagination()
 
     // ZagJS props
-    const apiProps: any = pagination.getPrevTriggerProps()
+    const apiProps = pagination.getPrevTriggerProps()
 
     // Locally managed props
     const localProps = {
@@ -39,7 +33,13 @@ export const PrevTrigger = forwardRef<HTMLButtonElement, PrevTriggerProps>(
       className,
     }
 
-    const mergedProps = mergeProps(apiProps, localProps)
+    // We know 'aria-label' is included in props
+    type WithAriaLabel = Omit<typeof apiProps, 'aria-label'> & { 'aria-label': string }
+
+    const mergedProps = mergeProps(
+      apiProps,
+      localProps as unknown as typeof apiProps
+    ) as WithAriaLabel
 
     const content = children || (
       <Icon>
