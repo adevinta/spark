@@ -40,7 +40,14 @@ export const Default: StoryFn = () => {
 
 export const NoEllipsis: StoryFn = () => {
   return (
-    <Pagination type="button" aria-label="Pagination" count={10} pageSize={1} length={5} noEllipsis>
+    <Pagination
+      type="button"
+      aria-label="Pagination"
+      count={10}
+      pageSize={1}
+      visiblePageItems={5}
+      noEllipsis
+    >
       <Pagination.FirstPageTrigger aria-label="First page" />
       <Pagination.PrevTrigger aria-label="Previous page" />
       <Pagination.Pages>
@@ -66,17 +73,19 @@ export const NoEllipsis: StoryFn = () => {
   )
 }
 
-export const PaginationLength: StoryFn = () => {
-  const [paginationLength, setPaginationLength] = useState(5)
+export const VisiblePageItems: StoryFn = () => {
+  const [visiblePageItems, setVisiblePageItems] = useState(5)
 
   return (
     <div>
       <FormField name="email" className="mb-xl">
-        <FormField.Label>Length (these are just example value, you can go above):</FormField.Label>
+        <FormField.Label>
+          Visible page items (these are just example value, you can go above):
+        </FormField.Label>
 
         <RadioGroup
-          value={`${paginationLength}`}
-          onValueChange={v => setPaginationLength(+v)}
+          value={`${visiblePageItems}`}
+          onValueChange={v => setVisiblePageItems(+v)}
           orientation="horizontal"
         >
           <RadioGroup.Radio value="5">5</RadioGroup.Radio>
@@ -90,7 +99,7 @@ export const PaginationLength: StoryFn = () => {
         aria-label="Pagination"
         count={1000}
         pageSize={10}
-        length={paginationLength}
+        visiblePageItems={visiblePageItems}
       >
         <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>

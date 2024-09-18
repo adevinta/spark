@@ -22,7 +22,7 @@ const PaginationContext = createContext<PaginationContextState | null>(null)
 export interface PaginationProviderProps {
   children: ReactNode
   /**
-   * How many items are displayed in total (when including all pages)
+   * Total number of data items available across all pages.
    */
   count: number
   /**
@@ -30,9 +30,9 @@ export interface PaginationProviderProps {
    */
   pageSize: number
   /**
-   * Number of items (numbered pages and/or ellipsis) to display between previous and next page triggers.
+   * Number of visible pages (or ellipsis) between previous and next page triggers.
    */
-  length?: number
+  visiblePageItems?: number
   /**
    * The current page (active page)
    */
@@ -48,7 +48,7 @@ export interface PaginationProviderProps {
 export const PaginationProvider = ({
   children,
   count,
-  length = 7,
+  visiblePageItems = 7,
   pageSize,
   page,
   onPageChange,
@@ -59,7 +59,7 @@ export const PaginationProvider = ({
    * Here `Infinity` is used because we apply a custom slice ourselves to manage the "no ellipsis" version.
    * It means Zag won't filter out any page item, allowing us to apply our own slicing logic.
    */
-  const siblingCount = noEllipsis ? Infinity : Math.max(0, Math.floor((length - 5) / 2))
+  const siblingCount = noEllipsis ? Infinity : Math.max(0, Math.floor((visiblePageItems - 5) / 2))
 
   const id = useId()
 
@@ -78,7 +78,9 @@ export const PaginationProvider = ({
   )
 
   const api = pagination.connect(state, send, normalizeProps)
-  const pages = noEllipsis ? sliceArrayWithIndex(api.pages, api.page - 1, length) : api.pages
+  const pages = noEllipsis
+    ? sliceArrayWithIndex(api.pages, api.page - 1, visiblePageItems)
+    : api.pages
 
   return (
     <PaginationContext.Provider
