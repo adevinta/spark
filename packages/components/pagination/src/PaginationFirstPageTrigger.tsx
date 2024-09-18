@@ -1,34 +1,28 @@
 import { Icon } from '@spark-ui/icon'
-import { IconButton, type IconButtonProps } from '@spark-ui/icon-button'
+import { IconButton } from '@spark-ui/icon-button'
 import { ArrowDoubleLeft } from '@spark-ui/icons/dist/icons/ArrowDoubleLeft'
 import { mergeProps } from '@zag-js/react'
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { usePagination } from './PaginationContext'
 
-interface FirstPageTriggerCommonProps {
-  children?: ReactNode
-  className?: string
-  'aria-label': string
-}
-
-interface FirstPageTriggerLinkProps extends ComponentPropsWithoutRef<'a'> {
+interface AnchorProps extends ComponentPropsWithoutRef<'a'> {
   href: string
 }
 
-interface FirstPageTriggerButtonProps extends IconButtonProps {
+interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   href?: undefined
 }
-
-export type FirstPageTriggerProps = FirstPageTriggerCommonProps &
-  (FirstPageTriggerLinkProps | FirstPageTriggerButtonProps)
+export type FirstPageTriggerProps = Omit<AnchorProps | ButtonProps, 'aria-label'> & {
+  'aria-label': string
+}
 
 export const FirstPageTrigger = forwardRef<HTMLButtonElement, FirstPageTriggerProps>(
   ({ children, className, href, ...props }, ref) => {
     const { pagination } = usePagination()
 
     // ZagJS props
-    const apiProps: any = pagination.getFirstPageTriggerProps()
+    const apiProps = pagination.getFirstPageTriggerProps()
 
     // Locally managed props
     const localProps = {
@@ -39,7 +33,13 @@ export const FirstPageTrigger = forwardRef<HTMLButtonElement, FirstPageTriggerPr
       className,
     }
 
-    const mergedProps = mergeProps(apiProps, localProps)
+    // We know 'aria-label' is included in props
+    type WithAriaLabel = Omit<typeof apiProps, 'aria-label'> & { 'aria-label': string }
+
+    const mergedProps = mergeProps(
+      apiProps,
+      localProps as unknown as typeof apiProps
+    ) as WithAriaLabel
 
     const content = children || (
       <Icon>

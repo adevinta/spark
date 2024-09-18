@@ -1,14 +1,19 @@
-import { type IconButtonProps } from '@spark-ui/icon-button'
 import * as pagination from '@zag-js/pagination'
-import { normalizeProps, useMachine } from '@zag-js/react'
+import { normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
 import { createContext, type ReactNode, useContext, useId } from 'react'
 
 import { sliceArrayWithIndex } from './utils'
 
-export interface PaginationContextState {
-  pagination: pagination.Api & {
-    getFirstPageTriggerProps: () => Partial<IconButtonProps>
-    getLastPageTriggerProps: () => Partial<IconButtonProps>
+export interface PaginationContextState<T extends PropTypes = PropTypes> {
+  pagination: pagination.Api<T> & {
+    getFirstPageTriggerProps: () => ReturnType<pagination.Api<T>['getPrevTriggerProps']> & {
+      'data-part': string
+      onClick: () => void
+    }
+    getLastPageTriggerProps: () => ReturnType<pagination.Api<T>['getNextTriggerProps']> & {
+      'data-part': string
+      onClick: () => void
+    }
   }
 }
 
