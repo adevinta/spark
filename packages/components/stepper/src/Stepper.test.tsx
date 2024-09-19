@@ -21,7 +21,13 @@ describe('Stepper', () => {
   it('should handle callback on changing value', async () => {
     const user = userEvent.setup()
 
-    render(<Stepper {...defaultProps} />)
+    render(
+      <Stepper {...defaultProps}>
+        <Stepper.DecrementButton aria-label="Decrement" />
+        <Stepper.Input />
+        <Stepper.IncrementButton aria-label="Increment" />
+      </Stepper>
+    )
 
     const input = screen.getByRole('textbox')
 
@@ -42,7 +48,13 @@ describe('Stepper', () => {
   })
 
   it('should change value on scrolling up or down', () => {
-    render(<Stepper {...defaultProps} />)
+    render(
+      <Stepper {...defaultProps}>
+        <Stepper.DecrementButton aria-label="Decrement" />
+        <Stepper.Input />
+        <Stepper.IncrementButton aria-label="Increment" />
+      </Stepper>
+    )
 
     const input = screen.getByRole('textbox')
 
@@ -61,7 +73,13 @@ describe('Stepper', () => {
     it('should not change value nor accept interaction', async () => {
       const user = userEvent.setup()
 
-      render(<Stepper {...defaultProps} disabled />)
+      render(
+        <Stepper {...defaultProps} disabled>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
 
       await user.click(screen.getByLabelText('Increment'))
       await user.click(screen.getByLabelText('Decrement'))
@@ -73,7 +91,13 @@ describe('Stepper', () => {
     })
 
     it('should not change value on scrolling up or down', () => {
-      render(<Stepper {...defaultProps} disabled />)
+      render(
+        <Stepper {...defaultProps} disabled>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
 
       const input = screen.getByRole('textbox')
 
@@ -90,7 +114,13 @@ describe('Stepper', () => {
     it('should not change value nor accept interaction when readonly', async () => {
       const user = userEvent.setup()
 
-      render(<Stepper {...defaultProps} readOnly />)
+      render(
+        <Stepper {...defaultProps} readOnly>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
 
       const input = screen.getByRole('textbox')
 
@@ -105,7 +135,13 @@ describe('Stepper', () => {
     })
 
     it('should not change value on scrolling up or down', () => {
-      render(<Stepper {...defaultProps} readOnly />)
+      render(
+        <Stepper {...defaultProps} readOnly>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
 
       const input = screen.getByRole('textbox')
 
@@ -123,11 +159,12 @@ describe('Stepper', () => {
 
     render(
       <Stepper {...defaultProps} defaultValue={8}>
-        <Stepper.IncrementButton aria-label="Custom increment">
+        <Stepper.IncrementButton aria-label="Custom increment" asChild>
           <Icon>
             <ArrowHorizontalUp />
           </Icon>
         </Stepper.IncrementButton>
+        <Stepper.Input />
       </Stepper>
     )
 
@@ -141,7 +178,13 @@ describe('Stepper', () => {
     it('should not change the value if max limit has been reached', async () => {
       const user = userEvent.setup()
 
-      render(<Stepper {...defaultProps} maxValue={5} step={5} />)
+      render(
+        <Stepper {...defaultProps} maxValue={5} step={5}>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
 
       await user.click(screen.getByLabelText('Increment'))
       expect(screen.getByRole('textbox')).toHaveValue('5')
@@ -154,7 +197,13 @@ describe('Stepper', () => {
     it('should not change the value if min limit has been reached', async () => {
       const user = userEvent.setup()
 
-      render(<Stepper {...defaultProps} minValue={-10} step={5} />)
+      render(
+        <Stepper {...defaultProps} minValue={-10} step={5}>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
 
       await user.click(screen.getByLabelText('Decrement'))
       await user.click(screen.getByLabelText('Decrement'))
@@ -169,7 +218,13 @@ describe('Stepper', () => {
     it('should clamp the value on blur if input is beyond range bounds', async () => {
       const user = userEvent.setup()
 
-      render(<Stepper {...defaultProps} minValue={0} maxValue={10} />)
+      render(
+        <Stepper {...defaultProps} minValue={0} maxValue={10}>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
 
       const input = screen.getByRole('textbox')
 
@@ -181,14 +236,18 @@ describe('Stepper', () => {
   })
 })
 
-describe.only('Stepper with FormField', () => {
+describe('Stepper with FormField', () => {
   it('should properly inherit some attributes when Stepper is wrapped by FormField', async () => {
     const user = userEvent.setup()
 
     render(
       <FormField name="title" isRequired state="error">
         <FormField.Label>Title</FormField.Label>
-        <Stepper {...defaultProps} />
+        <Stepper {...defaultProps}>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
         <FormField.ErrorMessage>oops</FormField.ErrorMessage>
         <FormField.HelperMessage>This is a helper message</FormField.HelperMessage>
       </FormField>

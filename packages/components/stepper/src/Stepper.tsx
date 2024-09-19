@@ -1,24 +1,20 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
-import { Icon } from '@spark-ui/icon'
-import { Minus } from '@spark-ui/icons/dist/icons/Minus'
-import { Plus } from '@spark-ui/icons/dist/icons/Plus'
 import { InputGroup } from '@spark-ui/input'
 import {
-  Children,
-  cloneElement,
-  type FC,
+  createContext,
   forwardRef,
-  isValidElement,
+  type MutableRefObject,
   type PropsWithChildren,
-  type ReactElement,
-  useCallback,
+  useContext,
   useRef,
 } from 'react'
 
-import { StepperDecrementButton, StepperIncrementButton } from './StepperButton'
-import { StepperInput } from './StepperInput'
-import type { StepperButtonProps, StepperProps } from './types'
+import type { StepperProps, UseStepperReturn } from './types'
 import { useStepper } from './useStepper'
+
+const StepperContext = createContext<
+  (Omit<UseStepperReturn, 'groupProps'> & { inputRef: MutableRefObject<null> }) | null
+>(null)
 
 export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps>>(
   (
@@ -50,23 +46,6 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
       inputRef,
     })
 
-    const findElement = useCallback(
-      (elementDisplayName: string): ReactElement | undefined => {
-        const childrenArray = Children.toArray(children)
-
-        return childrenArray
-          .filter(isValidElement)
-          .find(child =>
-            (child.type as FC & { displayName?: string }).displayName?.includes(elementDisplayName)
-          )
-      },
-      [children]
-    )
-
-    const incrementBtnFromChildren = findElement('Stepper.IncrementButton')
-    const decrementBtnFromChildren = findElement('Stepper.DecrementButton')
-    const inputFromChildren = findElement('Stepper.Input')
-
     const formFieldControlProps = useFormFieldControl()
     const isWrappedInFormField = !!formFieldControlProps.id
 
@@ -90,55 +69,25 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
     }
 
     return (
-      <InputGroup {...stepperProps} {...groupProps} ref={forwardedRef}>
-        {/* 1. DECREMENT BTN */}
-        {renderSubComponent(decrementBtnFromChildren, StepperDecrementButton, {
-          ...(decrementButtonProps as StepperButtonProps),
-          children: (
-            <Icon>
-              <Minus />
-            </Icon>
-          ),
-        })}
-
-        {/* 2. INPUT */}
-        {renderSubComponent(inputFromChildren, StepperInput, {
-          ref: inputRef,
-          ...inputProps,
-        })}
-
-        {/* 3. INCREMENT BTN */}
-        {renderSubComponent(incrementBtnFromChildren, StepperIncrementButton, {
-          ...(incrementButtonProps as StepperButtonProps),
-          children: (
-            <Icon>
-              <Plus />
-            </Icon>
-          ),
-        })}
-      </InputGroup>
+      <StepperContext.Provider
+        value={{ incrementButtonProps, decrementButtonProps, inputProps, inputRef }}
+      >
+        <InputGroup {...stepperProps} {...groupProps} ref={forwardedRef}>
+          {children}
+        </InputGroup>
+      </StepperContext.Provider>
     )
   }
 )
 
 Stepper.displayName = 'Stepper'
 
-/**
- * Returns compound item if found in children prop.
- * If not fallbacks to default item.
- */
-const renderSubComponent = <P extends object>(
-  childItem?: ReactElement<P>,
-  defaultItem?: FC<P> | null,
-  props?: P
-) => {
-  if (childItem) {
-    return cloneElement(childItem, { ...props, ...childItem.props })
-  } else if (defaultItem) {
-    const Item = defaultItem
+export const useStepperContext = () => {
+  const context = useContext(StepperContext)
 
-    return <Item {...(props as P)} />
-  } else {
-    return null
+  if (!context) {
+    throw Error('useStepperContext must be used within a Stepper provider')
   }
+
+  return context
 }
