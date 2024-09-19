@@ -8,7 +8,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Stepper, StepperProps } from '.'
 
 const meta: Meta<typeof Stepper> = {
-  title: 'Experimental/Stepper',
+  title: 'Components/Stepper',
   component: Stepper,
 }
 
