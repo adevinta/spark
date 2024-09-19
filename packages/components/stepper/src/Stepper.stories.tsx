@@ -33,14 +33,14 @@ export const Disabled: StoryFn = _args => (
 )
 
 export const ReadOnly: StoryFn = _args => (
-  <Stepper aria-label="Readonly stepper" readOnly>
+  <Stepper aria-label="Readonly stepper" readOnly defaultValue={10}>
     <Stepper.DecrementButton aria-label="Decrement" />
     <Stepper.Input />
     <Stepper.IncrementButton aria-label="Increment" />
   </Stepper>
 )
 
-export const Compound: StoryFn = _args => (
+export const Custom: StoryFn = _args => (
   <Stepper aria-label="Composed stepper">
     <Stepper.DecrementButton aria-label="Decrement" design="filled" intent="basic" asChild>
       <Icon>
