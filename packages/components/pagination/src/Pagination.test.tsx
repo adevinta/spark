@@ -12,13 +12,7 @@ describe('Pagination', () => {
 
     // Given a pagination with 10 pages of 10 item items each, and a length of 7
     render(
-      <Pagination
-        type="button"
-        aria-label="Pagination"
-        count={100}
-        pageSize={10}
-        visiblePageItems={7}
-      >
+      <Pagination type="button" aria-label="Pagination" count={100} pageSize={10}>
         <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
           {({ pages, totalPages }) =>
@@ -226,6 +220,7 @@ describe('Pagination', () => {
         visiblePageItems={5}
         noEllipsis
       >
+        <Pagination.FirstPageTrigger aria-label="First page" />
         <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
           {({ pages, totalPages }) =>
@@ -249,10 +244,12 @@ describe('Pagination', () => {
           }
         </Pagination.Pages>
         <Pagination.NextTrigger aria-label="Next page" />
+        <Pagination.LastPageTrigger aria-label="Last page" />
       </Pagination>
     )
 
     // The pages above 5 are not visible and "previous page" button is disabled
+    expect(screen.getByRole('button', { name: 'First page' })).toBeDisabled()
     expect(screen.getByRole('button', { name: 'Previous page' })).toBeDisabled()
     expect(screen.getByRole('button', { name: 'Page 1' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Page 2' })).toBeInTheDocument()
@@ -265,11 +262,13 @@ describe('Pagination', () => {
     expect(screen.queryByRole('button', { name: 'Page 9' })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Last page, page 10' })).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Next page' })).not.toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Last page' })).not.toBeDisabled()
 
     // When I click on page 5 (of 10)
     await user.click(screen.getByRole('button', { name: 'Page 5' }))
 
     // Then pages 3 to 7 are visible and both "next" and "prev" buttons are enabled
+    expect(screen.getByRole('button', { name: 'First page' })).not.toBeDisabled()
     expect(screen.getByRole('button', { name: 'Previous page' })).not.toBeDisabled()
     expect(screen.queryByRole('button', { name: 'Page 1' })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Page 2' })).not.toBeInTheDocument()
@@ -282,13 +281,13 @@ describe('Pagination', () => {
     expect(screen.queryByRole('button', { name: 'Page 9' })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Last page, page 10' })).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Next page' })).not.toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Last page' })).not.toBeDisabled()
 
-    // When I click on the last visible page until I reach page 10 (last page)
-    await user.click(screen.getByRole('button', { name: 'Page 7' }))
-    await user.click(screen.getByRole('button', { name: 'Page 9' }))
-    await user.click(screen.getByRole('button', { name: 'Last page, page 10' }))
+    // When I click on the last page trigger
+    await user.click(screen.getByRole('button', { name: 'Last page' }))
 
     // Then pages 2 to 5 are not visible (ellipsis) and "next page" button is disabled
+    expect(screen.getByRole('button', { name: 'First page' })).not.toBeDisabled()
     expect(screen.getByRole('button', { name: 'Previous page' })).not.toBeDisabled()
     expect(screen.queryByRole('button', { name: 'Page 1' })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Page 2' })).not.toBeInTheDocument()
@@ -301,5 +300,6 @@ describe('Pagination', () => {
     expect(screen.getByRole('button', { name: 'Page 9' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Last page, page 10' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Next page' })).toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Last page' })).toBeDisabled()
   })
 })
