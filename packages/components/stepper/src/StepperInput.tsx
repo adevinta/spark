@@ -8,8 +8,16 @@ import type { StepperInputProps } from './types'
 const Input = forwardRef<HTMLInputElement, StepperInputProps>((props, forwardedRef) => {
   const { inputRef, inputProps } = useStepperContext()
   const ref = useMergeRefs(forwardedRef, inputRef)
+  const { className = '', ...remainingProps } = props
 
-  return <SparkInput ref={ref} {...props} {...inputProps} />
+  return (
+    <SparkInput
+      ref={ref}
+      {...remainingProps}
+      {...inputProps}
+      className={`text-center ${className}`}
+    />
+  )
 })
 
 export const StepperInput = Object.assign(Input, {
