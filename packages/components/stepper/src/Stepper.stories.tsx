@@ -16,23 +16,39 @@ export default meta
 
 const states: StepperProps['state'][] = ['error', 'alert', 'success']
 
-export const Default: StoryFn = _args => <Stepper aria-label="Default stepper" />
-
-export const Disabled: StoryFn = _args => (
-  <Stepper aria-label="Disabled stepper" disabled onChange={() => console.log('disabled')} />
+export const Default: StoryFn = _args => (
+  <Stepper aria-label="Default stepper">
+    <Stepper.DecrementButton aria-label="Decrement" />
+    <Stepper.Input />
+    <Stepper.IncrementButton aria-label="Increment" />
+  </Stepper>
 )
 
-export const ReadOnly: StoryFn = _args => <Stepper aria-label="Readonly stepper" readOnly />
+export const Disabled: StoryFn = _args => (
+  <Stepper aria-label="Disabled stepper" disabled onChange={() => console.log('disabled')}>
+    <Stepper.DecrementButton aria-label="Decrement" />
+    <Stepper.Input />
+    <Stepper.IncrementButton aria-label="Increment" />
+  </Stepper>
+)
+
+export const ReadOnly: StoryFn = _args => (
+  <Stepper aria-label="Readonly stepper" readOnly>
+    <Stepper.DecrementButton aria-label="Decrement" />
+    <Stepper.Input />
+    <Stepper.IncrementButton aria-label="Increment" />
+  </Stepper>
+)
 
 export const Compound: StoryFn = _args => (
   <Stepper aria-label="Composed stepper">
-    <Stepper.DecrementButton aria-label="Diminuer" design="filled" intent="basic">
+    <Stepper.DecrementButton aria-label="Decrement" design="filled" intent="basic" asChild>
       <Icon>
         <ArrowHorizontalDown />
       </Icon>
     </Stepper.DecrementButton>
-
-    <Stepper.IncrementButton aria-label="Augmenter" design="filled" intent="basic">
+    <Stepper.Input />
+    <Stepper.IncrementButton aria-label="Increment" design="filled" intent="basic" asChild>
       <Icon>
         <ArrowHorizontalUp />
       </Icon>
@@ -45,16 +61,30 @@ export const State: StoryFn = _args => (
     {states.map(state => (
       <div key={state}>
         <StoryLabel>{state}</StoryLabel>
-        <Stepper aria-label={`Stepper ${state}`} state={state} />
+        <Stepper aria-label={`Stepper ${state}`} state={state}>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
       </div>
     ))}
   </div>
 )
 
-export const Step: StoryFn = _args => <Stepper aria-label="Stepper with custom step" step={3} />
+export const Step: StoryFn = _args => (
+  <Stepper aria-label="Stepper with custom step" step={3}>
+    <Stepper.DecrementButton aria-label="Decrement" />
+    <Stepper.Input />
+    <Stepper.IncrementButton aria-label="Increment" />
+  </Stepper>
+)
 
 export const MinMaxValues: StoryFn = _args => (
-  <Stepper aria-label="Stepper with min/max values" minValue={0} maxValue={100} defaultValue={0} />
+  <Stepper aria-label="Stepper with min/max values" minValue={0} maxValue={100} defaultValue={0}>
+    <Stepper.DecrementButton aria-label="Decrement" />
+    <Stepper.Input />
+    <Stepper.IncrementButton aria-label="Increment" />
+  </Stepper>
 )
 
 export const FormatOptions: StoryFn = _args => (
@@ -66,7 +96,11 @@ export const FormatOptions: StoryFn = _args => (
         minValue={0}
         defaultValue={0.01}
         formatOptions={{ style: 'percent' }}
-      />
+      >
+        <Stepper.DecrementButton aria-label="Decrement" />
+        <Stepper.Input />
+        <Stepper.IncrementButton aria-label="Increment" />
+      </Stepper>
     </div>
 
     <div>
@@ -76,7 +110,11 @@ export const FormatOptions: StoryFn = _args => (
         defaultValue={1}
         step={5}
         formatOptions={{ style: 'currency', currency: 'EUR', currencyDisplay: 'symbol' }}
-      />
+      >
+        <Stepper.DecrementButton aria-label="Decrement" />
+        <Stepper.Input />
+        <Stepper.IncrementButton aria-label="Increment" />
+      </Stepper>
     </div>
 
     <div>
@@ -85,7 +123,11 @@ export const FormatOptions: StoryFn = _args => (
         aria-label="Stepper with units"
         defaultValue={20}
         formatOptions={{ style: 'unit', unit: 'celsius' }}
-      />
+      >
+        <Stepper.DecrementButton aria-label="Decrement" />
+        <Stepper.Input />
+        <Stepper.IncrementButton aria-label="Increment" />
+      </Stepper>
     </div>
   </div>
 )
@@ -93,12 +135,11 @@ export const FormatOptions: StoryFn = _args => (
 export const WithFormField: StoryFn = _args => (
   <FormField name="title" isRequired state="error">
     <FormField.Label>Title</FormField.Label>
-    <Stepper
-      aria-label="Stepper with min/max values"
-      minValue={0}
-      maxValue={100}
-      defaultValue={0}
-    />
+    <Stepper aria-label="Stepper with min/max values" minValue={0} maxValue={100} defaultValue={0}>
+      <Stepper.DecrementButton aria-label="Decrement" />
+      <Stepper.Input />
+      <Stepper.IncrementButton aria-label="Increment" />
+    </Stepper>
     <FormField.ErrorMessage>oops</FormField.ErrorMessage>
     <FormField.HelperMessage>This is a helper message</FormField.HelperMessage>
   </FormField>
