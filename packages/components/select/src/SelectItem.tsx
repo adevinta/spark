@@ -1,13 +1,17 @@
-import { forwardRef, type Ref } from 'react'
+import { ComponentPropsWithoutRef, forwardRef, type Ref } from 'react'
 
-export interface ItemProps {
-  disabled?: boolean
+export interface ItemProps extends ComponentPropsWithoutRef<'option'> {
   value: string
   children: string
+  hidden?: boolean
+  disabled?: boolean
 }
 
 export const Item = forwardRef(
-  ({ disabled = false, value, children }: ItemProps, forwardedRef: Ref<HTMLOptionElement>) => {
+  (
+    { disabled = false, hidden = false, value, children, ...props }: ItemProps,
+    forwardedRef: Ref<HTMLOptionElement>
+  ) => {
     return (
       <option
         data-spark-component="select-item"
@@ -15,7 +19,8 @@ export const Item = forwardRef(
         key={value}
         value={value}
         disabled={disabled}
-        // label
+        hidden={hidden}
+        {...props}
       >
         {children}
       </option>
