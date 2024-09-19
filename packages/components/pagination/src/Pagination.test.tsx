@@ -12,7 +12,13 @@ describe('Pagination', () => {
 
     // Given a pagination with 10 pages of 10 item items each, and a length of 7
     render(
-      <Pagination type="button" aria-label="Pagination" count={100} pageSize={10} length={7}>
+      <Pagination
+        type="button"
+        aria-label="Pagination"
+        count={100}
+        pageSize={10}
+        visiblePageItems={7}
+      >
         <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
           {({ pages, totalPages }) =>
@@ -88,12 +94,18 @@ describe('Pagination', () => {
     expect(screen.getByRole('button', { name: 'Next page' })).toBeDisabled()
   })
 
-  it.only('Should render pagination items as links', async () => {
+  it('Should render pagination items as links', async () => {
     const user = userEvent.setup()
 
     // Given a pagination with 10 pages of 10 item items each, and a length of 7
     render(
-      <Pagination type="link" aria-label="Pagination" count={100} pageSize={10} length={7}>
+      <Pagination
+        type="link"
+        aria-label="Pagination"
+        count={100}
+        pageSize={10}
+        visiblePageItems={7}
+      >
         <Pagination.PrevTrigger aria-label="Previous page" href="#prev" />
         <Pagination.Pages>
           {({ pages, totalPages }) =>
@@ -162,7 +174,13 @@ describe('Pagination', () => {
   it('Should render pagination (single page)', async () => {
     // Given a pagination with a single page
     render(
-      <Pagination type="button" aria-label="Pagination" count={10} pageSize={10} length={7}>
+      <Pagination
+        type="button"
+        aria-label="Pagination"
+        count={10}
+        pageSize={10}
+        visiblePageItems={7}
+      >
         <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
           {({ pages, totalPages }) =>
@@ -205,7 +223,7 @@ describe('Pagination', () => {
         aria-label="Pagination"
         count={100}
         pageSize={10}
-        length={5}
+        visiblePageItems={5}
         noEllipsis
       >
         <Pagination.PrevTrigger aria-label="Previous page" />
