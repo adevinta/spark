@@ -15,7 +15,7 @@ const Input = forwardRef<HTMLInputElement, StepperInputProps>((props, forwardedR
       ref={ref}
       {...remainingProps}
       {...inputProps}
-      className={`text-center ${className}`}
+      className={`min-w-sz-56 text-center ${className}`}
     />
   )
 })
