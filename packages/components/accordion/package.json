@@ -51,6 +51,6 @@
     "@spark-ui/internal-utils": "^5.4.0",
     "@spark-ui/slot": "^5.4.0",
     "@zag-js/accordion": "0.67.0",
-    "@zag-js/react": "0.67.0"
+    "@zag-js/react": "0.70.0"
   }
 }
