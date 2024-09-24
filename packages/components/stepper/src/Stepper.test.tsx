@@ -47,6 +47,29 @@ describe('Stepper', () => {
     expect(input).toHaveValue('1')
   })
 
+  it('should prevent typing non-numeric values', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <Stepper {...defaultProps}>
+        <Stepper.DecrementButton aria-label="Decrement" />
+        <Stepper.Input />
+        <Stepper.IncrementButton aria-label="Increment" />
+      </Stepper>
+    )
+
+    const input = screen.getByRole('textbox')
+
+    // Changing value through stepper buttons...
+    await user.click(screen.getByLabelText('Increment'))
+    expect(screen.getByRole('textbox')).toHaveValue('1')
+
+    await user.type(input, 'abc')
+    act(() => input.blur())
+
+    expect(input).toHaveValue('1')
+  })
+
   it('should change value on scrolling up or down', () => {
     render(
       <Stepper {...defaultProps}>
@@ -69,6 +92,44 @@ describe('Stepper', () => {
     expect(defaultProps.onChange).toHaveBeenCalledTimes(2)
   })
 
+  it('should set value to 0 if value is undefined and user clicks increment', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <Stepper {...defaultProps} defaultValue={undefined}>
+        <Stepper.DecrementButton aria-label="Decrement" />
+        <Stepper.Input />
+        <Stepper.IncrementButton aria-label="Increment" />
+      </Stepper>
+    )
+
+    const input = screen.getByRole('textbox')
+    await user.click(screen.getByLabelText('Increment'))
+
+    expect(input).toHaveValue('0')
+  })
+
+  it('should increment or decrement value using the keyboard arrow up/down keys', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <Stepper {...defaultProps}>
+        <Stepper.DecrementButton aria-label="Decrement" />
+        <Stepper.Input />
+        <Stepper.IncrementButton aria-label="Increment" />
+      </Stepper>
+    )
+
+    const input = screen.getByRole('textbox')
+    await user.click(input)
+
+    await user.keyboard('[ArrowUp]')
+    expect(input).toHaveValue('1')
+
+    await user.keyboard('[ArrowDown]')
+    expect(input).toHaveValue('0')
+  })
+
   describe('disabled', () => {
     it('should not change value nor accept interaction', async () => {
       const user = userEvent.setup()
@@ -83,6 +144,8 @@ describe('Stepper', () => {
 
       await user.click(screen.getByLabelText('Increment'))
       await user.click(screen.getByLabelText('Decrement'))
+      await user.type(screen.getByRole('textbox'), '11')
+      expect(screen.getByRole('textbox')).not.toHaveFocus()
 
       expect(defaultProps.onChange).not.toHaveBeenCalled()
 
@@ -152,9 +215,30 @@ describe('Stepper', () => {
 
       expect(defaultProps.onChange).not.toHaveBeenCalled()
     })
+
+    it('should not increment or decrement value using the keyboard arrow up/down keys', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <Stepper {...defaultProps} readOnly>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
+
+      const input = screen.getByRole('textbox')
+      await user.click(input)
+
+      await user.keyboard('[ArrowUp]')
+      expect(input).toHaveValue('0')
+
+      await user.keyboard('[ArrowDown]')
+      expect(input).toHaveValue('0')
+    })
   })
 
-  it('should allow composability', async () => {
+  it('should allow custom implementation', async () => {
     const user = userEvent.setup()
 
     render(
@@ -232,6 +316,40 @@ describe('Stepper', () => {
       act(() => input.blur())
 
       expect(input).toHaveValue('10')
+    })
+
+    it('should set value to max if value is undefined and user clicks decrement', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <Stepper {...defaultProps} defaultValue={undefined} minValue={0} maxValue={10}>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
+
+      const input = screen.getByRole('textbox')
+      await user.click(screen.getByLabelText('Decrement'))
+
+      expect(input).toHaveValue('10')
+    })
+
+    it('should set value to min if value is undefined and user clicks increment', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <Stepper {...defaultProps} defaultValue={undefined} minValue={4} maxValue={10}>
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
+
+      const input = screen.getByRole('textbox')
+      await user.click(screen.getByLabelText('Increment'))
+
+      expect(input).toHaveValue('4')
     })
   })
 })
