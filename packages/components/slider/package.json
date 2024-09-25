@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/slider",
-  "version": "5.4.1",
+  "version": "5.4.2",
   "description": "An input where the user selects a value from within a given range.",
   "publishConfig": {
     "access": "public"
