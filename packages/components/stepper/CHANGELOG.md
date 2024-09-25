@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/adevinta/spark/compare/v5.4.3...v5.5.0) (2024-09-25)
+
+### Features
+
+- **stepper:** adding compound logic ([a7098dd](https://github.com/adevinta/spark/commit/a7098dde24b5686c0109abe296bae92823ee30c5))
+- **stepper:** adding deps and stepper hook ([846b9e2](https://github.com/adevinta/spark/commit/846b9e27332b39be341a3c3d6cf763af44e1506d))
+- **stepper:** getting started with global implementation ([d4197cc](https://github.com/adevinta/spark/commit/d4197ccd9144613043361e2d991ff4b51dca18da))
+- **stepper:** implement compound component pattern to align with codebase standards ([a5c13df](https://github.com/adevinta/spark/commit/a5c13df93b7a2db84a2f32c78558c812169371ca))
+- **stepper:** improves API and test coverage ([211a67b](https://github.com/adevinta/spark/commit/211a67b4ffbde03a4325d88f8762d6e5334562c8))
+- **stepper:** integrate FormField compatibility ([a679429](https://github.com/adevinta/spark/commit/a679429a1d80544ef7a4a1c584f3cfab1199640f))
+- **stepper:** update dependencies ([10800f8](https://github.com/adevinta/spark/commit/10800f82c0bf1282bde3f59c1eedbff61e4a59a0))
+- **stepper:** update styles following UX feedbacks ([cb6b80b](https://github.com/adevinta/spark/commit/cb6b80bf0868cbfe69e3798117bd5451b9adb901))
+- **stepper:** update styles following UX feedbacks ([69c04ff](https://github.com/adevinta/spark/commit/69c04ff4a37de4b9f303ed21540ead14e8b6b8b4))
+
 ## [5.4.3](https://github.com/adevinta/spark/compare/v5.4.2...v5.4.3) (2024-09-25)
 
 **Note:** Version bump only for package @spark-ui/stepper

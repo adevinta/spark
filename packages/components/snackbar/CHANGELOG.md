@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/adevinta/spark/compare/v5.4.3...v5.5.0) (2024-09-25)
+
+**Note:** Version bump only for package @spark-ui/snackbar
+
 ## [5.4.3](https://github.com/adevinta/spark/compare/v5.4.2...v5.4.3) (2024-09-25)
 
 **Note:** Version bump only for package @spark-ui/snackbar
