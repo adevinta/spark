@@ -1,0 +1,109 @@
+import { Meta, Canvas } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Kbd } from '@spark-ui/kbd'
+
+import { Pagination } from '.'
+
+import * as stories from './Pagination.stories'
+
+<Meta of={stories} />
+
+# Pagination
+
+interface that allows navigating between pages that contain split information, instead of being shown on a single page.
+
+## Install
+
+```sh
+npm install @spark-ui/pagination
+```
+
+## Import
+
+```tsx
+import { Pagination } from '@spark-ui/pagination'
+```
+
+## Props
+
+<ArgTypes
+  of={Pagination}
+  description="Contains all the parts of a pagination."
+  subcomponents={{
+    'Pagination.FirstPageTrigger': {
+      of: Pagination.FirstPageTrigger,
+      description: 'A button to go to the first page, no matter which page is currently selected.',
+    },
+    'Pagination.PrevTrigger': {
+      of: Pagination.PrevTrigger,
+      description:
+        'A button to go to the previous page, no matter which page is currently selected.',
+    },
+    'Pagination.NextTrigger': {
+      of: Pagination.NextTrigger,
+      description: 'A button to go to the next page, no matter which page is currently selected.',
+    },
+    'Pagination.LastPageTrigger': {
+      of: Pagination.LastPageTrigger,
+      description: 'A button to go to the last page, no matter which page is currently selected.',
+    },
+    'Pagination.Pages': {
+      of: Pagination.Pages,
+      description:
+        'This component exposes the internal api of the pagination to render individual page elements by yourself.',
+    },
+    'Pagination.Item': {
+      of: Pagination.Item,
+      description: 'A numbered page item. Can be a link or a button.',
+    },
+    'Pagination.Ellipsis': {
+      of: Pagination.Ellipsis,
+      description: 'Indicates a jump between visible page elements.',
+    },
+  }}
+/>
+
+## Usage
+
+### Default
+
+A basic example combining all parts of the component: a "previous page" button, "last page" button, and a list of pages items/ellipsis.
+
+<Canvas of={stories.Default} />
+
+### Controlled
+
+Use `page` and `onPageChange` to control the pagination.
+
+<Canvas of={stories.Controlled} />
+
+### No Ellipsis
+
+In this setting, ellipsis logic is disabled. This is practical if you have limited space, on smaller screens, to render more numbered pages than ellipsis elements.
+
+<Canvas of={stories.NoEllipsis} />
+
+### Visible page items
+
+Use `visiblePageItems` to define how many items are displayed between the previous and next buttons (includes ellipsis items). Must be an odd number to keep the active page centered.
+
+Minimum is `5` in ellipsis mode (default), `3` otherwise.
+
+<Canvas of={stories.VisiblePageItems} />
+
+## Accessibility
+
+There is no official WAI-ARIA design pattern for a pagination. Instead, we followed the guidelines of a [suggested implementation](https://design-system.w3.org/components/pagination.html).
+
+### Guidelines
+
+When setting **aria-labels**:
+- Use descriptive labels: Indicate purpose (e.g., "Go to first page")
+- Include current page info: "page X of Y"
+- Specify first/last pages: "First page, page 1 of 10"
+
+### Keyboard Interactions
+
+- <Kbd>Enter</Kbd>: Triggers the selected item (can be either a link or a button)
+- <Kbd>Tab</Kbd>: Moves focus to the next focusable element.
+- <Kbd>Shift</Kbd> + <Kbd>Tab</Kbd>: Moves focus to the previous focusable element.

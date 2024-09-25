@@ -22,7 +22,18 @@
   "scripts": {
     "build": "vite build"
   },
+  "dependencies": {
+    "@react-aria/button": "3.9.8",
+    "@react-aria/numberfield": "3.11.6",
+    "@react-stately/numberfield": "3.9.6",
+    "@spark-ui/input": "^5.4.0",
+    "@spark-ui/form-field": "^5.4.0",
+    "@spark-ui/icon": "^5.4.0",
+    "@spark-ui/icon-button": "^5.4.0",
+    "@spark-ui/use-merge-refs": "^5.4.0"
+  },
   "peerDependencies": {
+    "@react-types/numberfield": "3.8.5",
     "@spark-ui/tailwind-plugins": "latest",
     "@spark-ui/theme-utils": "latest",
     "react": "^18.0 || ^19.0",
