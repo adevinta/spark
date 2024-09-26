@@ -77,19 +77,42 @@ Use `page` and `onPageChange` to control the pagination.
 
 <Canvas of={stories.Controlled} />
 
-### No Ellipsis
-
-In this setting, ellipsis logic is disabled. This is practical if you have limited space, on smaller screens, to render more numbered pages than ellipsis elements.
-
-<Canvas of={stories.NoEllipsis} />
-
 ### Visible page items
 
 Use `visiblePageItems` to define how many items are displayed between the previous and next buttons (includes ellipsis items). Must be an odd number to keep the active page centered.
 
-Minimum is `5` in ellipsis mode (default), `3` otherwise.
+Minimum is `5` in ellipsis mode (default).
 
 <Canvas of={stories.VisiblePageItems} />
+
+## No Ellipsis
+
+When passing `noEllipsis` to the `Pagination` root component, **ellipsis** logic will be disabled. This is practical if you have limited space, on smaller screens, to render more numbered pages than ellipsis elements.
+
+<Canvas of={stories.NoEllipsis} />
+
+### TypeScript Inference
+
+When `noEllipsis` is passed to the `Pagination` root component, ellipses won't be rendered. However, TS will still infer that the `Pagination.Pages` component includes both page and ellipsis items:
+
+```ts
+pages: Array<{
+  type: "ellipsis"
+} | {
+  type: "page"
+  value: number
+}>
+```
+
+To ensure TS understands that `pages` only includes `{ type: "page", value: number }` items when `noEllipsis` is set, you can pass the type argument `<noEllipsis>` to `Pagination.Pages` like so:
+
+```tsx
+<Pagination.Pages<'noEllipsis'>>
+  {({ pages, totalPages }) => // TS now infers that `pages` is an array of `{ type: "page", value: number }`
+    pages.map((page, index) => { ... })
+  }
+</Pagination.Pages>
+```
 
 ## Accessibility
 
