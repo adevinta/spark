@@ -72,7 +72,12 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
       <StepperContext.Provider
         value={{ incrementButtonProps, decrementButtonProps, inputProps, inputRef }}
       >
-        <InputGroup {...stepperProps} {...groupProps} ref={forwardedRef}>
+        <InputGroup
+          {...stepperProps}
+          {...groupProps}
+          data-spark-component="stepper"
+          ref={forwardedRef}
+        >
           {children}
         </InputGroup>
       </StepperContext.Provider>
