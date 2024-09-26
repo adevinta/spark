@@ -12,7 +12,13 @@ describe('Pagination', () => {
 
     // Given a pagination with 10 pages of 10 item items each, and a length of 7
     render(
-      <Pagination type="button" aria-label="Pagination" count={100} pageSize={10}>
+      <Pagination
+        visiblePageItems={7}
+        type="button"
+        aria-label="Pagination"
+        count={100}
+        pageSize={10}
+      >
         <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
           {({ pages, totalPages }) =>

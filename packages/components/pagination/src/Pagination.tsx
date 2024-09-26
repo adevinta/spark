@@ -6,15 +6,16 @@ import {
   usePagination,
 } from './PaginationContext'
 
-export type PaginationProps = PaginationProviderProps
+export type PaginationProps = PaginationProviderProps & { className?: string }
 
 export const Pagination = ({
   children,
-  visiblePageItems = 7,
+  visiblePageItems = 5,
   type = 'link',
   noEllipsis = false,
+  className,
   ...rest
-}: PaginationProviderProps) => {
+}: PaginationProps) => {
   return (
     <PaginationProvider
       visiblePageItems={visiblePageItems}
@@ -22,18 +23,24 @@ export const Pagination = ({
       type={type}
       {...rest}
     >
-      <PaginationWrapper>{children}</PaginationWrapper>
+      <PaginationWrapper className={className}>{children}</PaginationWrapper>
     </PaginationProvider>
   )
 }
 
-const PaginationWrapper = ({ children }: { children: ReactNode }) => {
+const PaginationWrapper = ({
+  children,
+  className,
+}: {
+  children: ReactNode
+  className?: string
+}) => {
   const { pagination } = usePagination()
 
   const props = pagination.getRootProps()
 
   return (
-    <nav {...props}>
+    <nav data-spark-component="pagination" {...props} className={className}>
       <ul className="flex flex-wrap gap-md">{children}</ul>
     </nav>
   )

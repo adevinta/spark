@@ -1,17 +1,23 @@
+import { mergeProps } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
-import { forwardRef, ReactNode } from 'react'
+import { type ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { usePagination } from './PaginationContext'
 
-interface EllipsisProps {
-  children?: ReactNode
+interface EllipsisProps extends ComponentPropsWithoutRef<'span'> {
   index: number
 }
 
 export const Ellipsis = forwardRef<HTMLSpanElement, EllipsisProps>(
-  ({ children, index, ...rest }, ref) => {
+  ({ children, index, className, ...rest }, ref) => {
     const { pagination } = usePagination()
-    const props = pagination.getEllipsisProps({ index }) // todo: merge props
+    const apiProps = pagination.getEllipsisProps({ index })
+    const localProps = {
+      className: cx('flex size-sz-44 items-center justify-center', className),
+      ...rest,
+    }
+
+    const mergedProps = mergeProps(apiProps, localProps)
 
     return (
       <li>
@@ -19,8 +25,7 @@ export const Ellipsis = forwardRef<HTMLSpanElement, EllipsisProps>(
           data-spark-component="pagination-ellipsis"
           ref={ref}
           className={cx('flex size-sz-44 items-center justify-center')}
-          {...props}
-          {...rest}
+          {...mergedProps}
         >
           {children || '\u2026'}
         </span>
