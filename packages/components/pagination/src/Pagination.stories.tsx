@@ -77,11 +77,15 @@ export const VisiblePageItems: StoryFn = () => {
   const [visiblePageItems, setVisiblePageItems] = useState(5)
 
   return (
-    <div>
+    <div className="mb-2xl">
       <FormField name="email" className="mb-xl">
         <FormField.Label>
-          Visible page items (these are just example value, you can go above):
+          Visible page items (these are just example values, you can go above):
         </FormField.Label>
+        <FormField.HelperMessage>
+          For this particular story, we&apos;ve added numerical indicators values below each element
+          to aid in visual comprehension⁠
+        </FormField.HelperMessage>
 
         <RadioGroup
           value={`${visiblePageItems}`}
@@ -100,6 +104,7 @@ export const VisiblePageItems: StoryFn = () => {
         count={1000}
         pageSize={10}
         visiblePageItems={visiblePageItems}
+        className="[&>ul]:[counter-reset:list-number]"
       >
         <Pagination.PrevTrigger aria-label="Previous page" />
         <Pagination.Pages>
@@ -107,6 +112,7 @@ export const VisiblePageItems: StoryFn = () => {
             pages.map((page, index) =>
               page.type === 'page' ? (
                 <Pagination.Item
+                  className="relative [counter-increment:list-number] before:pointer-events-none before:absolute before:-bottom-full before:text-caption before:font-regular before:text-neutral/dim-2 before:content-[counter(list-number)]"
                   key={page.value}
                   value={page.value}
                   aria-label={
@@ -118,7 +124,11 @@ export const VisiblePageItems: StoryFn = () => {
                   {page.value}
                 </Pagination.Item>
               ) : (
-                <Pagination.Ellipsis key={`${index}-ellipsis`} index={index} />
+                <Pagination.Ellipsis
+                  className="relative [counter-increment:list-number] before:pointer-events-none before:absolute before:-bottom-full before:text-caption before:text-neutral/dim-2 before:content-[counter(list-number)]"
+                  key={`${index}-ellipsis`}
+                  index={index}
+                />
               )
             )
           }
