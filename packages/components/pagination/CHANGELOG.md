@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/adevinta/spark/compare/v5.5.1...v5.6.0) (2024-09-27)
+
+### Features
+
+- **pagination:** small tweaks ([5405c6a](https://github.com/adevinta/spark/commit/5405c6a259ac914d82f369f209825569ce45a59c))
+- **pagination:** tweak types ([e6c2cd8](https://github.com/adevinta/spark/commit/e6c2cd8040fd4df1fb58041d417315b2d7942381))
+
 ## [5.5.1](https://github.com/adevinta/spark/compare/v5.5.0...v5.5.1) (2024-09-26)
 
 ### Bug Fixes

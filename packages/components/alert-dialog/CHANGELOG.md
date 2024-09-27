@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/adevinta/spark/compare/v5.5.1...v5.6.0) (2024-09-27)
+
+**Note:** Version bump only for package @spark-ui/alert-dialog
+
 ## [5.5.1](https://github.com/adevinta/spark/compare/v5.5.0...v5.5.1) (2024-09-26)
 
 **Note:** Version bump only for package @spark-ui/alert-dialog
