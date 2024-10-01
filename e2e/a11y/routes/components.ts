@@ -25,7 +25,23 @@ export const a11yComponents = {
   kbd: 'kbd',
   label: 'label',
   'link-box': 'link-box',
+  pagination: 'pagination',
+  popover: 'popover',
+  progress: 'progress',
+  'progress-tracker': 'progress-tracker',
+  'radio-group': 'radio-group',
+  rating: 'rating',
+  select: 'select',
+  slider: 'slider',
+  snackbar: 'snackbar',
+  spinner: 'spinner',
+  stepper: 'stepper',
+  switch: 'switch',
+  tabs: 'tabs',
+  tag: 'tag',
+  textarea: 'textarea',
   'text-link': 'text-link',
+  'visually-hidden': 'visually-hidden',
 }
 
 export type A11yComponentsKey = keyof typeof a11yComponents

@@ -20,7 +20,23 @@ import { A11yInput } from '../pages/Input'
 import { A11yKbd } from '../pages/Kbd'
 import { A11yLabel } from '../pages/Label'
 import { A11yLinkBox } from '../pages/LinkBox'
+import { A11yPagination } from '../pages/Pagination'
+import { A11yPopover } from '../pages/Popover'
+import { A11yProgress } from '../pages/Progress'
+import { A11yProgressTracker } from '../pages/ProgressTracker'
+import { A11yRadioGroup } from '../pages/RadioGroup'
+import { A11yRating } from '../pages/Rating'
+import { A11ySelect } from '../pages/Select'
+import { A11ySlider } from '../pages/Slider'
+import { A11ySnackbar } from '../pages/Snackbar'
+import { A11ySpinner } from '../pages/Spinner'
+import { A11yStepper } from '../pages/Stepper'
+import { A11ySwitch } from '../pages/Switch'
+import { A11yTabs } from '../pages/Tabs'
+import { A11yTag } from '../pages/Tag'
+import { A11yTextarea } from '../pages/Textarea'
 import { A11yTextLink } from '../pages/TextLink'
+import { A11yVisuallyHidden } from '../pages/VisuallyHidden'
 import { type A11yComponentsKey } from './components'
 
 /**
@@ -50,5 +66,21 @@ export const a11yElements: Record<A11yComponentsKey, ReactNode> = {
   kbd: <A11yKbd />,
   label: <A11yLabel />,
   'link-box': <A11yLinkBox />,
+  pagination: <A11yPagination />,
+  popover: <A11yPopover />,
+  progress: <A11yProgress />,
+  'progress-tracker': <A11yProgressTracker />,
+  'radio-group': <A11yRadioGroup />,
+  rating: <A11yRating />,
+  select: <A11ySelect />,
+  slider: <A11ySlider />,
+  snackbar: <A11ySnackbar />,
+  spinner: <A11ySpinner />,
+  stepper: <A11yStepper />,
+  switch: <A11ySwitch />,
+  tabs: <A11yTabs />,
+  tag: <A11yTag />,
+  textarea: <A11yTextarea />,
   'text-link': <A11yTextLink />,
+  'visually-hidden': <A11yVisuallyHidden />,
 }
