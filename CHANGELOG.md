@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/adevinta/spark/compare/v5.6.0...v5.7.0) (2024-10-01)
+
+### Features
+
+- **chip:** chips no longer have max width ([606127a](https://github.com/adevinta/spark/commit/606127a602d2aa65ca76322624db2432cebac231))
+
 # [5.6.0](https://github.com/adevinta/spark/compare/v5.5.1...v5.6.0) (2024-09-27)
 
 ### Features
