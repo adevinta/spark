@@ -21,7 +21,7 @@ npm install @spark-ui/slider
 ## Import
 
 ```tsx
-import { Slider } from "@spark-ui/slider"
+import { Slider } from '@spark-ui/slider'
 ```
 
 ## Props
@@ -37,31 +37,36 @@ import { Slider } from "@spark-ui/slider"
     'Slider.Track': {
       of: Slider.Track,
       description: 'The track shows the range available for user selection.',
-    }
+    },
   }}
 />
 
 ## Usage
 
 ### Default
+
 <Canvas of={stories.Default} />
 
 ### Range
+
 Add multiple thumbs and values to create a range slider.
 
 <Canvas of={stories.Range} />
 
 ### Intent
+
 Use `intent` prop to set the color of track and thumb.
 
 <Canvas of={stories.Intent} />
 
 ### Shape
+
 Use `shape` prop to set the shape of track and range.
 
 <Canvas of={stories.Shape} />
 
 ### Disabled
+
 Use `disabled` prop to indicate that slider is disabled.
 
 <Canvas of={stories.Disabled} />
@@ -77,7 +82,7 @@ Additionally, you will need to remap the value from the **Slider** component to 
 
 For example, let's say your set of values is `[10, 25, 50, 100]`. In this case, you would set the `max` property to 3 and remap the values from the **Slider**.
 
-The **Slider** component, by default, outputs values from  `min` to `max` (3 in our case). Therefore, it's your responsibility to map these values to the corresponding values in your set.
+The **Slider** component, by default, outputs values from `min` to `max` (3 in our case). Therefore, it's your responsibility to map these values to the corresponding values in your set.
 
 To ensure **proper accessibility**, make sure to set the `aria-valuetext` attribute to the remapped value. This will ensure that the correct value is announced to users who rely on assistive technologies.
 
@@ -86,7 +91,10 @@ Here's an example to illustrate this:
 <Canvas of={stories.RestrictedValues} />
 
 ## Accessibility
+
 Adheres to the [Slider WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/).
+
+Implementations should define an `aria-label` attribute on each `Slider.Thumb` to preserve accessibility.
 
 ### Keyboard Interactions
 

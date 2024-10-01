@@ -15,7 +15,7 @@ export const Default: StoryFn = _args => (
   <form>
     <Slider defaultValue={[50]} name="default-slider">
       <Slider.Track />
-      <Slider.Thumb />
+      <Slider.Thumb aria-label="Power" />
     </Slider>
   </form>
 )
@@ -25,8 +25,8 @@ export const Range: StoryFn = _args => (
     <Slider defaultValue={[25, 75]}>
       <Slider.Track />
 
-      <Slider.Thumb />
-      <Slider.Thumb />
+      <Slider.Thumb aria-label="Power min" />
+      <Slider.Thumb aria-label="Power max" />
     </Slider>
   </div>
 )
@@ -53,7 +53,7 @@ export const Intent: StoryFn = _args => (
 
         <Slider defaultValue={[75]} intent={intent}>
           <Slider.Track />
-          <Slider.Thumb />
+          <Slider.Thumb aria-label={`Power ${intent}`} />
         </Slider>
       </div>
     ))}
@@ -68,7 +68,7 @@ export const Shape: StoryFn = _args => (
 
         <Slider defaultValue={[75]} shape={shape}>
           <Slider.Track />
-          <Slider.Thumb />
+          <Slider.Thumb aria-label={`Power ${shape}`} />
         </Slider>
       </div>
     ))}
@@ -79,7 +79,7 @@ export const Disabled: StoryFn = _args => (
   <div>
     <Slider defaultValue={[50]} disabled>
       <Slider.Track />
-      <Slider.Thumb />
+      <Slider.Thumb aria-label="Power" />
     </Slider>
   </div>
 )
@@ -94,7 +94,7 @@ export const RestrictedValues: StoryFn = () => {
     <div>
       <Slider onValueChange={setValue} value={value} max={values.length - 1}>
         <Slider.Track />
-        <Slider.Thumb aria-valuetext={String(remappedValue)} />
+        <Slider.Thumb aria-valuetext={String(remappedValue)} aria-label="Power" />
       </Slider>
       <div className="mt-md flex flex-col gap-y-md">
         <p className="font-semi-bold">

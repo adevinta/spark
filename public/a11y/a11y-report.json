@@ -1,12 +1,12 @@
 {
   "@spark-ui/accordion": {
-    "timestamp": "2024-10-01T12:44:07.366Z",
+    "timestamp": "2024-10-01T15:46:22.625Z",
     "url": "http://localhost:3002/a11y/accordion",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/alert-dialog": {
-    "timestamp": "2024-10-01T12:44:08.918Z",
+    "timestamp": "2024-10-01T15:46:24.612Z",
     "url": "http://localhost:3002/a11y/alert-dialog",
     "incomplete": [
       {
@@ -33,7 +33,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span:nth-child(1)"
                     ]
@@ -45,7 +45,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span:nth-child(1)"
             ]
@@ -58,7 +58,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span:nth-child(6)"
                     ]
@@ -70,7 +70,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span:nth-child(6)"
             ]
@@ -118,13 +118,13 @@
     "violations": []
   },
   "@spark-ui/badge": {
-    "timestamp": "2024-10-01T12:44:10.754Z",
+    "timestamp": "2024-10-01T15:46:26.176Z",
     "url": "http://localhost:3002/a11y/badge",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/breadcrumb": {
-    "timestamp": "2024-10-01T12:44:13.026Z",
+    "timestamp": "2024-10-01T15:46:27.969Z",
     "url": "http://localhost:3002/a11y/breadcrumb",
     "incomplete": [
       {
@@ -183,31 +183,31 @@
     "violations": []
   },
   "@spark-ui/button": {
-    "timestamp": "2024-10-01T12:44:15.506Z",
+    "timestamp": "2024-10-01T15:46:29.634Z",
     "url": "http://localhost:3002/a11y/button",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/checkbox": {
-    "timestamp": "2024-10-01T12:44:11.843Z",
+    "timestamp": "2024-10-01T15:46:31.497Z",
     "url": "http://localhost:3002/a11y/checkbox",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/chip": {
-    "timestamp": "2024-10-01T12:44:14.031Z",
+    "timestamp": "2024-10-01T15:46:33.127Z",
     "url": "http://localhost:3002/a11y/chip",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/collapsible": {
-    "timestamp": "2024-10-01T12:44:15.955Z",
+    "timestamp": "2024-10-01T15:46:34.617Z",
     "url": "http://localhost:3002/a11y/collapsible",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/combobox": {
-    "timestamp": "2024-10-01T12:44:17.957Z",
+    "timestamp": "2024-10-01T15:46:36.423Z",
     "url": "http://localhost:3002/a11y/combobox",
     "incomplete": [
       {
@@ -272,7 +272,7 @@
     "violations": []
   },
   "@spark-ui/dialog": {
-    "timestamp": "2024-10-01T12:44:19.977Z",
+    "timestamp": "2024-10-01T15:46:38.046Z",
     "url": "http://localhost:3002/a11y/dialog",
     "incomplete": [
       {
@@ -299,7 +299,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span[data-radix-focus-guard=\"\"]:nth-child(1)"
                     ]
@@ -311,7 +311,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span[data-radix-focus-guard=\"\"]:nth-child(1)"
             ]
@@ -324,7 +324,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span[data-radix-focus-guard=\"\"]:nth-child(6)"
                     ]
@@ -336,7 +336,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span[data-radix-focus-guard=\"\"]:nth-child(6)"
             ]
@@ -405,13 +405,13 @@
     "violations": []
   },
   "@spark-ui/divider": {
-    "timestamp": "2024-10-01T12:44:12.113Z",
+    "timestamp": "2024-10-01T15:46:24.248Z",
     "url": "http://localhost:3002/a11y/divider",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/drawer": {
-    "timestamp": "2024-10-01T12:44:14.318Z",
+    "timestamp": "2024-10-01T15:46:25.921Z",
     "url": "http://localhost:3002/a11y/drawer",
     "incomplete": [
       {
@@ -438,7 +438,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span:nth-child(1)"
                     ]
@@ -450,7 +450,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span:nth-child(1)"
             ]
@@ -463,7 +463,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span:nth-child(6)"
                     ]
@@ -475,7 +475,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span:nth-child(6)"
             ]
@@ -523,7 +523,7 @@
     "violations": []
   },
   "@spark-ui/dropdown": {
-    "timestamp": "2024-10-01T12:44:16.380Z",
+    "timestamp": "2024-10-01T15:46:27.970Z",
     "url": "http://localhost:3002/a11y/dropdown",
     "incomplete": [
       {
@@ -588,26 +588,325 @@
     "violations": []
   },
   "@spark-ui/form-field": {
-    "timestamp": "2024-10-01T12:44:18.137Z",
+    "timestamp": "2024-10-01T15:46:29.592Z",
     "url": "http://localhost:3002/a11y/form-field",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/icon": {
-    "timestamp": "2024-10-01T12:44:20.155Z",
+    "timestamp": "2024-10-01T15:46:31.254Z",
     "url": "http://localhost:3002/a11y/icon",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/icon-button": {
-    "timestamp": "2024-10-01T12:44:12.413Z",
+    "timestamp": "2024-10-01T15:46:32.921Z",
     "url": "http://localhost:3002/a11y/icon-button",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/input": {
-    "timestamp": "2024-10-01T12:44:14.561Z",
+    "timestamp": "2024-10-01T15:46:34.378Z",
     "url": "http://localhost:3002/a11y/input",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/kbd": {
+    "timestamp": "2024-10-01T15:46:35.879Z",
+    "url": "http://localhost:3002/a11y/kbd",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/label": {
+    "timestamp": "2024-10-01T15:46:37.256Z",
+    "url": "http://localhost:3002/a11y/label",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/link-box": {
+    "timestamp": "2024-10-01T15:46:38.692Z",
+    "url": "http://localhost:3002/a11y/link-box",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/pagination": {
+    "timestamp": "2024-10-01T15:46:28.026Z",
+    "url": "http://localhost:3002/a11y/pagination",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/popover": {
+    "timestamp": "2024-10-01T15:46:29.820Z",
+    "url": "http://localhost:3002/a11y/popover",
+    "incomplete": [
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure all ARIA attributes have valid values",
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\"radix-:r1:\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"radix-:r1:\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<button data-spark-component=\"popover-trigger\" type=\"button\" class=\"u-shadow-border-transition box-border inline-flex items-center justify-center gap-md whitespace-nowrap px-lg text-body-1 font-bold focus-visible:outline-none focus-visible:u-ring [&amp;:not(:focus-visible)]:ring-inset min-w-sz-44 h-sz-44 rounded-lg bg-main text-on-main hover:bg-main-hovered enabled:active:bg-main-pressed focus-visible:bg-main-focused\" aria-busy=\"false\" aria-live=\"off\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:r1:\" data-state=\"closed\">",
+            "target": [
+              "button[aria-controls=\"radix-:r1:\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": {
+                  "messageKey": "controlsWithinPopup",
+                  "needsReview": "aria-controls=\"radix-:r3:\""
+                },
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"radix-:r3:\""
+              }
+            ],
+            "none": [],
+            "impact": "critical",
+            "html": "<button data-spark-component=\"popover-trigger\" type=\"button\" class=\"u-shadow-border-transition box-border inline-flex items-center justify-center gap-md whitespace-nowrap px-lg text-body-1 font-bold focus-visible:outline-none focus-visible:u-ring [&amp;:not(:focus-visible)]:ring-inset min-w-sz-44 h-sz-44 rounded-lg bg-main text-on-main hover:bg-main-hovered enabled:active:bg-main-pressed focus-visible:bg-main-focused\" aria-busy=\"false\" aria-live=\"off\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:r3:\" data-state=\"closed\">",
+            "target": [
+              "button[aria-controls=\"radix-:r3:\"]"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  },
+  "@spark-ui/progress": {
+    "timestamp": "2024-10-01T15:46:31.630Z",
+    "url": "http://localhost:3002/a11y/progress",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/progress-tracker": {
+    "timestamp": "2024-10-01T15:46:33.246Z",
+    "url": "http://localhost:3002/a11y/progress-tracker",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/radio-group": {
+    "timestamp": "2024-10-01T15:46:34.802Z",
+    "url": "http://localhost:3002/a11y/radio-group",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/rating": {
+    "timestamp": "2024-10-01T15:46:36.542Z",
+    "url": "http://localhost:3002/a11y/rating",
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "div",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on a div with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<div class=\"relative inline-flex\" data-spark-component=\"rating\" aria-label=\"Rating control\">",
+            "target": [
+              ".inline-flex[data-spark-component=\"rating\"][aria-label=\"Rating control\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "div",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on a div with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<div class=\"relative inline-flex\" data-spark-component=\"rating\" aria-label=\"Rating control with rounded value\">",
+            "target": [
+              "div:nth-child(2) > .inline-flex.relative[data-spark-component=\"rating\"]"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  },
+  "@spark-ui/select": {
+    "timestamp": "2024-10-01T15:46:38.024Z",
+    "url": "http://localhost:3002/a11y/select",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/slider": {
+    "timestamp": "2024-10-01T15:46:39.320Z",
+    "url": "http://localhost:3002/a11y/slider",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/snackbar": {
+    "timestamp": "2024-10-01T15:46:40.304Z",
+    "url": "http://localhost:3002/a11y/snackbar",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/spinner": {
+    "timestamp": "2024-10-01T15:46:41.344Z",
+    "url": "http://localhost:3002/a11y/spinner",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/stepper": {
+    "timestamp": "2024-10-01T15:46:28.340Z",
+    "url": "http://localhost:3002/a11y/stepper",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/switch": {
+    "timestamp": "2024-10-01T15:46:30.046Z",
+    "url": "http://localhost:3002/a11y/switch",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/tabs": {
+    "timestamp": "2024-10-01T15:46:31.936Z",
+    "url": "http://localhost:3002/a11y/tabs",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/tag": {
+    "timestamp": "2024-10-01T15:46:33.477Z",
+    "url": "http://localhost:3002/a11y/tag",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/textarea": {
+    "timestamp": "2024-10-01T15:46:34.956Z",
+    "url": "http://localhost:3002/a11y/textarea",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/text-link": {
+    "timestamp": "2024-10-01T15:46:36.595Z",
+    "url": "http://localhost:3002/a11y/text-link",
+    "incomplete": [
+      {
+        "id": "bypass",
+        "impact": "serious",
+        "tags": [
+          "cat.keyboard",
+          "wcag2a",
+          "wcag241",
+          "section508",
+          "section508.22.o",
+          "TTv5",
+          "TT9.a",
+          "EN-301-549",
+          "EN-9.2.4.1"
+        ],
+        "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+        "help": "Page must have means to bypass repeated blocks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/bypass?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "internal-link-present",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "No valid skip link found"
+              },
+              {
+                "id": "header-present",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Page does not have a heading"
+              },
+              {
+                "id": "landmark",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Page does not have a landmark region"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<html lang=\"en\">",
+            "target": [
+              "html"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  },
+  "@spark-ui/visually-hidden": {
+    "timestamp": "2024-10-01T15:46:38.064Z",
+    "url": "http://localhost:3002/a11y/visually-hidden",
     "incomplete": [],
     "violations": []
   }
