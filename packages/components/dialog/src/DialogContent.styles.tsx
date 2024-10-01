@@ -1,7 +1,12 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
 export const dialogContentStyles = cva(
-  ['z-modal flex flex-col bg-surface group', 'focus-visible:outline-none focus-visible:u-ring'],
+  [
+    'z-modal flex flex-col bg-surface group',
+    'focus-visible:outline-none focus-visible:u-ring',
+    '[&:not(:has(footer))]:pb-lg',
+    '[&:not(:has(header))]:pt-lg',
+  ],
   {
     variants: {
       size: {
