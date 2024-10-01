@@ -8,8 +8,10 @@ export const a11yComponents = {
   accordion: 'accordion',
   'alert-dialog': 'alert-dialog',
   badge: 'badge',
+  breadcrumb: 'breadcrumb',
   button: 'button',
   checkbox: 'checkbox',
+  chip: 'chip',
   collapsible: 'collapsible',
   combobox: 'combobox',
   dialog: 'dialog',
@@ -17,7 +19,13 @@ export const a11yComponents = {
   drawer: 'drawer',
   dropdown: 'dropdown',
   'form-field': 'form-field',
+  icon: 'icon',
   'icon-button': 'icon-button',
+  input: 'input',
+  kbd: 'kbd',
+  label: 'label',
+  'link-box': 'link-box',
+  'text-link': 'text-link',
 }
 
 export type A11yComponentsKey = keyof typeof a11yComponents
