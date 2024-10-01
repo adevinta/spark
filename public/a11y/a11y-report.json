@@ -1,12 +1,12 @@
 {
   "@spark-ui/accordion": {
-    "timestamp": "2024-08-06T14:48:18.100Z",
+    "timestamp": "2024-10-01T12:44:07.366Z",
     "url": "http://localhost:3002/a11y/accordion",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/alert-dialog": {
-    "timestamp": "2024-08-06T14:48:20.066Z",
+    "timestamp": "2024-10-01T12:44:08.918Z",
     "url": "http://localhost:3002/a11y/alert-dialog",
     "incomplete": [
       {
@@ -21,9 +21,9 @@
           "EN-301-549",
           "EN-9.4.1.2"
         ],
-        "description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
+        "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
         "help": "ARIA hidden element must not be focusable or contain focusable elements",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-hidden-focus?application=playwright",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-hidden-focus?application=playwright",
         "nodes": [
           {
             "any": [],
@@ -33,7 +33,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span:nth-child(1)"
                     ]
@@ -45,7 +45,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span:nth-child(1)"
             ]
@@ -58,7 +58,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span:nth-child(6)"
                     ]
@@ -70,7 +70,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span:nth-child(6)"
             ]
@@ -87,9 +87,9 @@
           "EN-301-549",
           "EN-9.4.1.2"
         ],
-        "description": "Ensures all ARIA attributes have valid values",
+        "description": "Ensure all ARIA attributes have valid values",
         "help": "ARIA attributes must conform to valid values",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=playwright",
         "nodes": [
           {
             "any": [],
@@ -118,31 +118,96 @@
     "violations": []
   },
   "@spark-ui/badge": {
-    "timestamp": "2024-08-06T14:48:21.561Z",
+    "timestamp": "2024-10-01T12:44:10.754Z",
     "url": "http://localhost:3002/a11y/badge",
     "incomplete": [],
     "violations": []
   },
+  "@spark-ui/breadcrumb": {
+    "timestamp": "2024-10-01T12:44:13.026Z",
+    "url": "http://localhost:3002/a11y/breadcrumb",
+    "incomplete": [
+      {
+        "id": "bypass",
+        "impact": "serious",
+        "tags": [
+          "cat.keyboard",
+          "wcag2a",
+          "wcag241",
+          "section508",
+          "section508.22.o",
+          "TTv5",
+          "TT9.a",
+          "EN-301-549",
+          "EN-9.2.4.1"
+        ],
+        "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+        "help": "Page must have means to bypass repeated blocks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/bypass?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "internal-link-present",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "No valid skip link found"
+              },
+              {
+                "id": "header-present",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Page does not have a heading"
+              },
+              {
+                "id": "landmark",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Page does not have a landmark region"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<html lang=\"en\">",
+            "target": [
+              "html"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  },
   "@spark-ui/button": {
-    "timestamp": "2024-08-06T14:48:23.444Z",
+    "timestamp": "2024-10-01T12:44:15.506Z",
     "url": "http://localhost:3002/a11y/button",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/checkbox": {
-    "timestamp": "2024-08-06T14:48:19.111Z",
+    "timestamp": "2024-10-01T12:44:11.843Z",
     "url": "http://localhost:3002/a11y/checkbox",
     "incomplete": [],
     "violations": []
   },
+  "@spark-ui/chip": {
+    "timestamp": "2024-10-01T12:44:14.031Z",
+    "url": "http://localhost:3002/a11y/chip",
+    "incomplete": [],
+    "violations": []
+  },
   "@spark-ui/collapsible": {
-    "timestamp": "2024-08-06T14:48:20.702Z",
+    "timestamp": "2024-10-01T12:44:15.955Z",
     "url": "http://localhost:3002/a11y/collapsible",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/combobox": {
-    "timestamp": "2024-08-06T14:48:22.632Z",
+    "timestamp": "2024-10-01T12:44:17.957Z",
     "url": "http://localhost:3002/a11y/combobox",
     "incomplete": [
       {
@@ -155,9 +220,9 @@
           "EN-301-549",
           "EN-9.4.1.2"
         ],
-        "description": "Ensures all ARIA attributes have valid values",
+        "description": "Ensure all ARIA attributes have valid values",
         "help": "ARIA attributes must conform to valid values",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=playwright",
         "nodes": [
           {
             "any": [],
@@ -207,7 +272,7 @@
     "violations": []
   },
   "@spark-ui/dialog": {
-    "timestamp": "2024-08-06T14:48:25.202Z",
+    "timestamp": "2024-10-01T12:44:19.977Z",
     "url": "http://localhost:3002/a11y/dialog",
     "incomplete": [
       {
@@ -222,9 +287,9 @@
           "EN-301-549",
           "EN-9.4.1.2"
         ],
-        "description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
+        "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
         "help": "ARIA hidden element must not be focusable or contain focusable elements",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-hidden-focus?application=playwright",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-hidden-focus?application=playwright",
         "nodes": [
           {
             "any": [],
@@ -234,7 +299,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span[data-radix-focus-guard=\"\"]:nth-child(1)"
                     ]
@@ -246,7 +311,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span[data-radix-focus-guard=\"\"]:nth-child(1)"
             ]
@@ -259,7 +324,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span[data-radix-focus-guard=\"\"]:nth-child(6)"
                     ]
@@ -271,7 +336,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span[data-radix-focus-guard=\"\"]:nth-child(6)"
             ]
@@ -288,9 +353,9 @@
           "EN-301-549",
           "EN-9.4.1.2"
         ],
-        "description": "Ensures all ARIA attributes have valid values",
+        "description": "Ensure all ARIA attributes have valid values",
         "help": "ARIA attributes must conform to valid values",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=playwright",
         "nodes": [
           {
             "any": [],
@@ -340,13 +405,13 @@
     "violations": []
   },
   "@spark-ui/divider": {
-    "timestamp": "2024-08-06T14:48:22.883Z",
+    "timestamp": "2024-10-01T12:44:12.113Z",
     "url": "http://localhost:3002/a11y/divider",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/drawer": {
-    "timestamp": "2024-08-06T14:48:24.860Z",
+    "timestamp": "2024-10-01T12:44:14.318Z",
     "url": "http://localhost:3002/a11y/drawer",
     "incomplete": [
       {
@@ -361,9 +426,9 @@
           "EN-301-549",
           "EN-9.4.1.2"
         ],
-        "description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
+        "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
         "help": "ARIA hidden element must not be focusable or contain focusable elements",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-hidden-focus?application=playwright",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-hidden-focus?application=playwright",
         "nodes": [
           {
             "any": [],
@@ -373,7 +438,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span:nth-child(1)"
                     ]
@@ -385,7 +450,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span:nth-child(1)"
             ]
@@ -398,7 +463,7 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                    "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
                     "target": [
                       "span:nth-child(6)"
                     ]
@@ -410,7 +475,7 @@
             ],
             "none": [],
             "impact": "serious",
-            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: currentcolor; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+            "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
             "target": [
               "span:nth-child(6)"
             ]
@@ -427,9 +492,9 @@
           "EN-301-549",
           "EN-9.4.1.2"
         ],
-        "description": "Ensures all ARIA attributes have valid values",
+        "description": "Ensure all ARIA attributes have valid values",
         "help": "ARIA attributes must conform to valid values",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=playwright",
         "nodes": [
           {
             "any": [],
@@ -458,7 +523,7 @@
     "violations": []
   },
   "@spark-ui/dropdown": {
-    "timestamp": "2024-08-06T14:48:26.527Z",
+    "timestamp": "2024-10-01T12:44:16.380Z",
     "url": "http://localhost:3002/a11y/dropdown",
     "incomplete": [
       {
@@ -471,9 +536,9 @@
           "EN-301-549",
           "EN-9.4.1.2"
         ],
-        "description": "Ensures all ARIA attributes have valid values",
+        "description": "Ensure all ARIA attributes have valid values",
         "help": "ARIA attributes must conform to valid values",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/aria-valid-attr-value?application=playwright",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=playwright",
         "nodes": [
           {
             "any": [],
@@ -523,14 +588,26 @@
     "violations": []
   },
   "@spark-ui/form-field": {
-    "timestamp": "2024-08-06T14:48:27.323Z",
+    "timestamp": "2024-10-01T12:44:18.137Z",
     "url": "http://localhost:3002/a11y/form-field",
     "incomplete": [],
     "violations": []
   },
+  "@spark-ui/icon": {
+    "timestamp": "2024-10-01T12:44:20.155Z",
+    "url": "http://localhost:3002/a11y/icon",
+    "incomplete": [],
+    "violations": []
+  },
   "@spark-ui/icon-button": {
-    "timestamp": "2024-08-06T14:48:23.053Z",
+    "timestamp": "2024-10-01T12:44:12.413Z",
     "url": "http://localhost:3002/a11y/icon-button",
+    "incomplete": [],
+    "violations": []
+  },
+  "@spark-ui/input": {
+    "timestamp": "2024-10-01T12:44:14.561Z",
+    "url": "http://localhost:3002/a11y/input",
     "incomplete": [],
     "violations": []
   }
