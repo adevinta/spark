@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/input",
-  "version": "5.7.3",
+  "version": "6.0.0",
   "description": "Component used to get user input in a text field",
   "publishConfig": {
     "access": "public"
@@ -23,12 +23,12 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/form-field": "^5.7.3",
-    "@spark-ui/icon": "^5.7.3",
-    "@spark-ui/icons": "^5.7.3",
-    "@spark-ui/slot": "^5.7.3",
-    "@spark-ui/use-combined-state": "^5.7.3",
-    "@spark-ui/use-merge-refs": "^5.7.3",
+    "@spark-ui/form-field": "^6.0.0",
+    "@spark-ui/icon": "^6.0.0",
+    "@spark-ui/icons": "^6.0.0",
+    "@spark-ui/slot": "^6.0.0",
+    "@spark-ui/use-combined-state": "^6.0.0",
+    "@spark-ui/use-merge-refs": "^6.0.0",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {

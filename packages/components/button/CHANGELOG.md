@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/adevinta/spark/compare/v5.7.3...v6.0.0) (2024-10-02)
+
+### Features
+
+- removed pressed and focused color token ([7396d0e](https://github.com/adevinta/spark/commit/7396d0e2eb5c984c71e8550b5febee57a387fe6d))
+
+### BREAKING CHANGES
+
+- all -pressed and -focused suffixed tailwind classes must be replaced by -hovered
+  variant
+
 ## [5.7.3](https://github.com/adevinta/spark/compare/v5.7.2...v5.7.3) (2024-10-01)
 
 **Note:** Version bump only for package @spark-ui/button

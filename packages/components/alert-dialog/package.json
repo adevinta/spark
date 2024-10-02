@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/alert-dialog",
-  "version": "5.7.3",
+  "version": "6.0.0",
   "description": "A modal dialog that interrupts the user with important content and expects a response.",
   "publishConfig": {
     "access": "public"
@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "@radix-ui/primitive": "1.0.1",
-    "@spark-ui/dialog": "^5.7.3",
-    "@spark-ui/use-merge-refs": "^5.7.3",
+    "@spark-ui/dialog": "^6.0.0",
+    "@spark-ui/use-merge-refs": "^6.0.0",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {
