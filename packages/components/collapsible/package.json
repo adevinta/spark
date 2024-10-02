@@ -46,7 +46,7 @@
   "license": "MIT",
   "dependencies": {
     "@spark-ui/slot": "^6.1.0",
-    "@zag-js/collapsible": "0.71.0",
+    "@zag-js/collapsible": "0.73.0",
     "@zag-js/react": "0.71.0"
   }
 }
