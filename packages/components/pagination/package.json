@@ -46,7 +46,7 @@
   "dependencies": {
     "@spark-ui/icon": "^6.1.0",
     "@spark-ui/icons": "^6.1.0",
-    "@zag-js/pagination": "0.71.0",
+    "@zag-js/pagination": "0.73.0",
     "@zag-js/react": "0.71.0"
   }
 }
