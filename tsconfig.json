@@ -6,6 +6,7 @@
     "downlevelIteration": true,
     "emitDeclarationOnly": false,
     "noEmit": true,
+    "strict": true,
     "module": "ESNext",
     "paths": {
       "@docs/*": ["documentation/*"]

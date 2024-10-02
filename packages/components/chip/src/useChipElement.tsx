@@ -108,8 +108,12 @@ export const useChipElement = ({
     if (!!clearButton && !disabled && ['Delete', 'Backspace'].includes(event.key)) {
       if (onClear) {
         onClear()
-        event.key === 'Delete' && emulateTab()
-        event.key === 'Backspace' && emulateTab.backwards()
+        if (event.key === 'Delete') {
+          emulateTab()
+        }
+        if (event.key === 'Backspace') {
+          emulateTab.backwards()
+        }
       }
     }
   }
@@ -124,8 +128,10 @@ export const useChipElement = ({
           'data-state': isPressed ? 'on' : 'off',
         }),
         onClick: (event: React.MouseEvent<HTMLButtonElement>): void => {
-          isPressed !== undefined && setIsPressed(!isPressed)
-          onClick && onClick(event, { pressed: isPressed as boolean, value: innerValue })
+          if (isPressed !== undefined) {
+            setIsPressed(!isPressed)
+          }
+          onClick?.(event, { pressed: isPressed as boolean, value: innerValue })
         },
         onKeyDown,
         disabled,

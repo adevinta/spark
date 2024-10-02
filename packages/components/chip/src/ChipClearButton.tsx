@@ -33,7 +33,9 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
     const onClearHandler = useCallback(
       (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation()
-        !disabled && onClear && onClear(event)
+        if (!disabled && onClear) {
+          onClear(event)
+        }
       },
       [disabled, onClear]
     )

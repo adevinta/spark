@@ -1,15 +1,13 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { DEFAULT_KEY } = require('./constants')
-const { hexRgb } = require('./hexRgb')
-
-const {
+import { DEFAULT_KEY } from './constants'
+import { hexRgb } from './hexRgb'
+import {
   doubleHyphensRegex,
   getRemEquivalentValue,
   isHex,
   isObject,
   isStringOrNumber,
   toKebabCase,
-} = require('./utils')
+} from './utils'
 
 function getCSSVariableDeclarations(_theme, htmlFontSize) {
   const CSSVariableObj = {}
@@ -46,4 +44,4 @@ function getCSSVariableDeclarations(_theme, htmlFontSize) {
   return CSSVariableObj
 }
 
-module.exports = { getCSSVariableDeclarations }
+export default { getCSSVariableDeclarations }
