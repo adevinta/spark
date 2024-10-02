@@ -7,8 +7,8 @@ export const contrastVariants = [
     class: tw([
       'text-main',
       'hover:bg-main-container-hovered',
-      'enabled:active:bg-main-container-pressed',
-      'focus-visible:bg-main-container-focused',
+      'enabled:active:bg-main-container-hovered',
+      'focus-visible:bg-main-container-hovered',
     ]),
   },
   {
@@ -17,8 +17,8 @@ export const contrastVariants = [
     class: tw([
       'text-support',
       'hover:bg-support-container-hovered',
-      'enabled:active:bg-support-container-pressed',
-      'focus-visible:bg-support-container-focused',
+      'enabled:active:bg-support-container-hovered',
+      'focus-visible:bg-support-container-hovered',
     ]),
   },
   {
@@ -27,8 +27,8 @@ export const contrastVariants = [
     class: tw([
       'text-accent',
       'hover:bg-accent-container-hovered',
-      'enabled:active:bg-accent-container-pressed',
-      'focus-visible:bg-accent-container-focused',
+      'enabled:active:bg-accent-container-hovered',
+      'focus-visible:bg-accent-container-hovered',
     ]),
   },
   {
@@ -37,8 +37,8 @@ export const contrastVariants = [
     class: tw([
       'text-basic',
       'hover:bg-basic-container-hovered',
-      'enabled:active:bg-basic-container-pressed',
-      'focus-visible:bg-basic-container-focused',
+      'enabled:active:bg-basic-container-hovered',
+      'focus-visible:bg-basic-container-hovered',
     ]),
   },
   {
@@ -47,8 +47,8 @@ export const contrastVariants = [
     class: tw([
       'text-success',
       'hover:bg-success-container-hovered',
-      'enabled:active:bg-success-container-pressed',
-      'focus-visible:bg-success-container-focused',
+      'enabled:active:bg-success-container-hovered',
+      'focus-visible:bg-success-container-hovered',
     ]),
   },
   {
@@ -57,8 +57,8 @@ export const contrastVariants = [
     class: tw([
       'text-alert',
       'hover:bg-alert-container-hovered',
-      'enabled:active:bg-alert-container-pressed',
-      'focus-visible:bg-alert-container-focused',
+      'enabled:active:bg-alert-container-hovered',
+      'focus-visible:bg-alert-container-hovered',
     ]),
   },
   {
@@ -67,8 +67,8 @@ export const contrastVariants = [
     class: tw([
       'text-error',
       'hover:bg-error-container-hovered',
-      'enabled:active:bg-error-container-pressed',
-      'focus-visible:bg-error-container-focused',
+      'enabled:active:bg-error-container-hovered',
+      'focus-visible:bg-error-container-hovered',
     ]),
   },
   {
@@ -77,8 +77,8 @@ export const contrastVariants = [
     class: tw([
       'text-info',
       'hover:bg-info-container-hovered',
-      'enabled:active:bg-info-container-pressed',
-      'focus-visible:bg-info-container-focused',
+      'enabled:active:bg-info-container-hovered',
+      'focus-visible:bg-info-container-hovered',
     ]),
   },
   {
@@ -87,8 +87,8 @@ export const contrastVariants = [
     class: tw([
       'text-neutral',
       'hover:bg-neutral-container-hovered',
-      'enabled:active:bg-neutral-container-pressed',
-      'focus-visible:bg-neutral-container-focused',
+      'enabled:active:bg-neutral-container-hovered',
+      'focus-visible:bg-neutral-container-hovered',
     ]),
   },
   {
@@ -97,8 +97,8 @@ export const contrastVariants = [
     class: tw([
       'text-on-surface',
       'hover:bg-surface-hovered',
-      'enabled:active:bg-surface-pressed',
-      'focus-visible:bg-surface-focused',
+      'enabled:active:bg-surface-hovered',
+      'focus-visible:bg-surface-hovered',
     ]),
   },
 ] as const
