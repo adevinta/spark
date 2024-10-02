@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/adevinta/spark/compare/v6.0.0...v6.1.0) (2024-10-02)
+
+**Note:** Version bump only for package @spark-ui/collapsible
+
 # [6.0.0](https://github.com/adevinta/spark/compare/v5.7.3...v6.0.0) (2024-10-02)
 
 **Note:** Version bump only for package @spark-ui/collapsible

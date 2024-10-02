@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/adevinta/spark/compare/v6.0.0...v6.1.0) (2024-10-02)
+
+### Features
+
+- **dialog:** ensure correct border radius for overflowing content ([e2532dc](https://github.com/adevinta/spark/commit/e2532dc3100b2e41e541c3703e02664160d38f6c))
+
 # [6.0.0](https://github.com/adevinta/spark/compare/v5.7.3...v6.0.0) (2024-10-02)
 
 ### Features
