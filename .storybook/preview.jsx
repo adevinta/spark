@@ -83,7 +83,7 @@ export const decorators = [
             <a
               href={`/iframe.html?${params.toString()}`}
               target="_blank"
-              className="text-basic hover:text-basic-hovered focus:text-basic-focused enabled:active:text-basic-pressed"
+              className="text-basic hover:text-basic-hovered focus:text-basic-hovered enabled:active:text-basic-hovered"
             >
               <Icon size="sm" label="expand">
                 <ShareExpand />
