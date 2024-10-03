@@ -6,7 +6,7 @@ import { type A11yComponentsKey } from './routes/components'
 
 const PUBLIC_A11Y_REPORT_PATH = './public/a11y'
 
-interface Report {
+export interface Report {
   timestamp: string
   url: string
   incomplete: AxeResults['incomplete']
