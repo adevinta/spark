@@ -312,6 +312,7 @@ export const ComboboxProvider = ({
    * - output: https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox#returned-props
    */
   const downshift = useCombobox<ComboboxItem>({
+    inputId: id,
     items: filteredItems,
     selectedItem: multiple ? undefined : selectedItem,
     id,
