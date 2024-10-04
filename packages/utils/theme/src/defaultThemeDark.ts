@@ -42,7 +42,7 @@ export const defaultThemeDark: Theme = createTheme({
     // Main Variant
     mainVariant: '#F49D71',
     onMainVariant: '#2F1305',
-    mainVariantHovered: '#6194FF',
+    mainVariantHovered: '#F07B42',
     // Support
     support: '#C2E0FA',
     onSupport: '#152233',
