@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.1](https://github.com/adevinta/spark/compare/v6.1.0...v6.1.1) (2024-10-04)
+
+### Bug Fixes
+
+- **theme-utils:** invalid color for main-variant-hovered ([d90514f](https://github.com/adevinta/spark/commit/d90514f71aee3b88eab5dfe570346787bec0c35e))
+
 # [6.1.0](https://github.com/adevinta/spark/compare/v6.0.0...v6.1.0) (2024-10-02)
 
 ### Features
