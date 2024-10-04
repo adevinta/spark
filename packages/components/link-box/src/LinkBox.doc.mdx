@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { LinkBox } from '.'
@@ -57,3 +58,7 @@ If your linkbox contains interactive elements inside of it, wrap them with `Link
 It will raise their `z-index` to stay above the main link of your `LinkBox`.
 
 <Canvas of={stories.Nesting} />
+
+## Accessibility
+
+<A11yReport of="link-box" />

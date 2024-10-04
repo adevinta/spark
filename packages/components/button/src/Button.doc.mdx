@@ -1,6 +1,7 @@
 import { Kbd } from '@spark-ui/kbd'
 import { Canvas, Meta } from '@storybook/addon-docs'
 import { ArgTypes, Source } from '@storybook/blocks'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { Callout } from '@docs/helpers/Callout'
 import { Button } from '.'
 import * as ButtonStories from './Button.stories'
@@ -111,6 +112,8 @@ Use `aria-pressed` to transform the button into a toggle button.
 <Canvas of={ButtonStories.Toggle} />
 
 ## Accessibility
+
+<A11yReport of="button" />
 
 This component adheres to the [`button` role requirements](https://www.w3.org/WAI/ARIA/apg/patterns/button).
 

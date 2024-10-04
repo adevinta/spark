@@ -1,6 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
-
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { Chip } from '.'
 import { Callout } from '@docs/helpers/Callout'
 import { Kbd } from '@spark-ui/kbd'
@@ -190,6 +190,8 @@ Suggestion chips help narrow a user’s intent by presenting dynamically generat
 Suggestion chips can offer quick-reply options in a chat or email app, or It can help the user start a search.
 
 ## Accessibility
+
+<A11yReport of="chip" />
 
 - Focusable for **Clickable**, **Selectable**.
 - Clear button keyboard accessible by default when appearing.

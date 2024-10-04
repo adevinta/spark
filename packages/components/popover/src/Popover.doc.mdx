@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/blocks'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Kbd } from '@spark-ui/kbd'
 
@@ -137,6 +138,8 @@ By combining `side` and `align` you can achieve many positions for the popover.
 <Canvas of={stories.Positionning} />
 
 ## Accessibility
+
+<A11yReport of="popover" />
 
 Adheres to the [`Dialog WAI-ARIA design pattern`](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal).
 

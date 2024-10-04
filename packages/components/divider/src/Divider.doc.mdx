@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Divider } from '.'
@@ -99,5 +100,7 @@ Users can also rotate the text to achieve the proper design.
 <Canvas of={stories.Card} />
 
 ## Accessibility
+
+<A11yReport of="divider" />
 
 This component is based on the native <code>hr</code> element which has a non-focusable `role="separator"` natively.

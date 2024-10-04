@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/addon-docs'
 import { ReactLiveBlock } from '@docs/helpers/ReactLiveBlock'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { RadioGroup } from '.'
 import * as stories from './RadioGroup.stories'
@@ -135,6 +136,8 @@ set the `state` prop of the `FormField` to `error` to indicate that the input is
 <Canvas of={stories.FieldInvalid} />
 
 ## Accessibility
+
+<A11yReport of="radio-group" />
 
 This component should always have a label, directly declared through the `children` prop or inherited from the `FormField` wrapper. If none of those are available it is strongly recommended to define an `aria-label` attribute, to comply to accessibility requirements.
 

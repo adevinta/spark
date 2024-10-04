@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@storybook/blocks'
 import { Icon } from '.'
 import * as IconStories from './Icon.stories'
@@ -50,5 +51,7 @@ Use `size` prop to change the size of the icon. If `current` is set the current 
 <Canvas of={IconStories.Sizes} />
 
 ## Accessibility
+
+<A11yReport of="icon" />
 
 Most icons or icon systems come with no accessibility built-in. For example, the same visual cross icon may in fact mean "close" or "delete". This component lets you give meaning to icons used throughout your app.

@@ -3,18 +3,16 @@ import type { Report } from 'e2e/a11y/utils'
 import { useEffect, useState } from 'react'
 
 export const A11yReport = ({ of }: { of: string }) => {
-  const [errors, setErrors] = useState<Report['incomplete']>([])
+  const [errors, setErrors] = useState<Report['violations']>([])
 
   useEffect(() => {
     const fetchReport = async (name: string) => {
-      const { incomplete, violations }: Report = await fetch(`/a11y/a11y-report-${name}.json`)
+      const { violations }: Report = await fetch(`/a11y/a11y-report-${name}.json`)
         .then(response => response.json())
         .then(data => data[`@spark-ui/${name}`])
         .catch(() => console.error('Unable to find accessibility report'))
 
-      if (incomplete.length || violations.length) {
-        setErrors([...violations, ...incomplete])
-      }
+      if (violations.length) setErrors(violations)
     }
 
     fetchReport(of)

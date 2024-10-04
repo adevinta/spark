@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { Callout } from '@docs/helpers/Callout'
 
 import { Combobox } from '.'
@@ -304,5 +305,7 @@ Set the `state` prop of the `FormField` to `error` to indicate that the combobox
 <Canvas of={stories.FormFieldValidation} />
 
 ## Accessibility
+
+<A11yReport of="combobox" />
 
 This component adheres to the [Combobox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
