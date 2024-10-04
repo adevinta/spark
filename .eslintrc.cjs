@@ -20,6 +20,12 @@ module.exports = {
         'max-lines': 0,
       },
     },
+    {
+      files: ['*.stories.tsx', '*.stories.ts'], // avoid "circular dependencies" error inside stories
+      rules: {
+        '@nx/enforce-module-boundaries': 'off',
+      },
+    },
   ],
   settings: {
     react: {
@@ -48,7 +54,7 @@ module.exports = {
     // NX
     '@nx/enforce-module-boundaries': 2,
     // Prettier
-    "prettier/prettier": [1, { "endOfLine": "auto" }],
+    'prettier/prettier': [1, { endOfLine: 'auto' }],
     // Typescript
     '@typescript-eslint/consistent-type-definitions': [1, 'interface'],
     '@typescript-eslint/array-type': [2, { default: 'array', readonly: 'array' }],
