@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/adevinta/spark/compare/v6.1.1...v6.2.0) (2024-10-04)
+
+### Features
+
+- **combobox:** ensure input gets focus when corresponding label is clicked ([28bb25e](https://github.com/adevinta/spark/commit/28bb25ed2abbdd6e2e5a1ab9c78179d498460e9d))
+
 ## [6.1.1](https://github.com/adevinta/spark/compare/v6.1.0...v6.1.1) (2024-10-04)
 
 ### Bug Fixes

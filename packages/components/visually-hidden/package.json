@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/visually-hidden",
-  "version": "6.1.1",
+  "version": "6.2.0",
   "description": "Hides content from the screen in an accessible way",
   "publishConfig": {
     "access": "public"
