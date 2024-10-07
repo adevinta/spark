@@ -74,6 +74,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
       readOnly,
       name,
       id,
+      'aria-label': ariaLabel,
       ...rest
     },
     ref
@@ -140,7 +141,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
         <input
           name={name}
           id={id}
-          aria-label={rest['aria-label']}
+          aria-label={ariaLabel}
           ref={inputRef}
           data-part="input"
           className="peer absolute inset-none opacity-0"
