@@ -3,10 +3,8 @@
 > @spark-ui/theme-utils
 
 [![storybook](https://img.shields.io/badge/storybook-black?logo=storybook)](https://sparkui.vercel.app/?path=/docs/utils-theme--docs)
-[![documentation](https://img.shields.io/badge/documentation-black?logo=googledocs)](https://sparkui-adv.vercel.app/docs/utils/theme)
 [![issue](https://img.shields.io/badge/report%20a%20bug-black?logo=openbugbounty&logoColor=red)](https://github.com/adevinta/spark/issues/new?&projects=4&template=bug-report.yml&assignees=&labels=util,theme)
 [![npm](https://img.shields.io/npm/dt/%40spark-ui/theme-utils?logo=npm&labelColor=black)](https://www.npmjs.com/package/@spark-ui/theme-utils)
-
 
 This package is part of the [`@spark-ui`](https://github.com/adevinta/spark) react-js user interface component library project.
 
