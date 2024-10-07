@@ -33,8 +33,7 @@ coverage
 .nx
 
 # Testing reports
-/public/a11y/*
-!/public/a11y/a11y-report.json
+!/public/a11y/*.json
 /test-results/
 /playwright-report/
 /e2e/report/

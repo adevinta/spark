@@ -1,11 +1,10 @@
 # Tabs
+
 > @spark-ui/tabs
 
 [![storybook](https://img.shields.io/badge/storybook-black?logo=storybook)](https://sparkui.vercel.app/?path=/docs/components-tabs--docs)
-[![documentation](https://img.shields.io/badge/documentation-black?logo=googledocs)](https://sparkui-adv.vercel.app/docs/components/tabs)
 [![issue](https://img.shields.io/badge/report%20a%20bug-black?logo=openbugbounty&logoColor=red)](https://github.com/adevinta/spark/issues/new?&projects=4&template=bug-report.yml&assignees=&labels=Component,Component%3A%20tabs)
 [![npm](https://img.shields.io/npm/dt/%40spark-ui/tabs?logo=npm&labelColor=black)](https://www.npmjs.com/package/@spark-ui/tabs)
-
 
 This package is part of the [`@spark-ui`](https://github.com/adevinta/spark) react-js user interface component library project.
 

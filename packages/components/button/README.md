@@ -1,11 +1,11 @@
 # Button
+
 > @spark-ui/button
 
+![accessibility](https://img.shields.io/badge/WCAG_2.1_AA-passed-green)
 [![storybook](https://img.shields.io/badge/storybook-black?logo=storybook)](https://sparkui.vercel.app/?path=/docs/components-button--docs)
-[![documentation](https://img.shields.io/badge/documentation-black?logo=googledocs)](https://sparkui-adv.vercel.app/docs/components/button)
 [![issue](https://img.shields.io/badge/report%20a%20bug-black?logo=openbugbounty&logoColor=red)](https://github.com/adevinta/spark/issues/new?&projects=4&template=bug-report.yml&assignees=&labels=Component,Component%3A%20button)
 [![npm](https://img.shields.io/npm/dt/%40spark-ui/button?logo=npm&labelColor=black)](https://www.npmjs.com/package/@spark-ui/button)
-
 
 This package is part of the [`@spark-ui`](https://github.com/adevinta/spark) react-js user interface component library project.
 

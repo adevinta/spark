@@ -7,7 +7,6 @@ export default ({ name }) => `# ${name
 [![storybook](https://img.shields.io/badge/storybook-black?logo=storybook)](https://sparkui.vercel.app/?path=/docs/components-${name
   .split('-')
   .join('')}--docs)
-[![documentation](https://img.shields.io/badge/documentation-black?logo=googledocs)](https://sparkui-adv.vercel.app/docs/components/${name})
 [![issue](https://img.shields.io/badge/report%20a%20bug-black?logo=openbugbounty&logoColor=red)](https://github.com/adevinta/spark/issues/new?&projects=4&template=bug-report.yml&assignees=&labels=Component,Component%3A%20${name})
 [![npm](https://img.shields.io/npm/dt/%40spark-ui/${name}?logo=npm&labelColor=black)](https://www.npmjs.com/package/@spark-ui/${name})
 
