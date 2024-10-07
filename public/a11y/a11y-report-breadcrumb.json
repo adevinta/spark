@@ -1,0 +1,61 @@
+{
+  "@spark-ui/breadcrumb": {
+    "timestamp": "2024-10-07T11:59:17.914Z",
+    "url": "http://localhost:3002/a11y/breadcrumb",
+    "incomplete": [
+      {
+        "id": "bypass",
+        "impact": "serious",
+        "tags": [
+          "cat.keyboard",
+          "wcag2a",
+          "wcag241",
+          "section508",
+          "section508.22.o",
+          "TTv5",
+          "TT9.a",
+          "EN-301-549",
+          "EN-9.2.4.1"
+        ],
+        "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+        "help": "Page must have means to bypass repeated blocks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/bypass?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "internal-link-present",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "No valid skip link found"
+              },
+              {
+                "id": "header-present",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Page does not have a heading"
+              },
+              {
+                "id": "landmark",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Page does not have a landmark region"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<html lang=\"en\">",
+            "target": [
+              "html"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": []
+  }
+}
