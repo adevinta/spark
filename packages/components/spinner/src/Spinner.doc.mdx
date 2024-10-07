@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@storybook/blocks'
 import { Spinner } from '.'
 import * as stories from './Spinner.stories'
@@ -54,3 +55,7 @@ Use `label` prop for accessibility, it is important to add a fallback loading te
 Use `size` prop to set the size of the spinner. If you want to set the `full` size for the spinner, don't forget to add a wrapping container with its own size.
 
 <Canvas of={stories.Sizes} />
+
+## Accessibility
+
+<A11yReport of="spinner" />

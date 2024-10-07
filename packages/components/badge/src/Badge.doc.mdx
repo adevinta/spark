@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@storybook/blocks'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { Badge } from '.'
 import * as stories from './Badge.stories'
 
@@ -62,6 +63,8 @@ Use `size` prop to set the size of the badge.
 <Canvas of={stories.Sizes} />
 
 ## Accessibility
+
+<A11yReport of="badge" />
 
 It is recommended to use the `aria-label` attribute to improve the component's readability by assistive technologies. There is no automatic addition as this attribute should be explicit (human readable) and be independent from any internationalization constraint.
 

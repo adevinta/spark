@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
 import { Callout } from '@docs/helpers/Callout'
 
@@ -154,3 +155,7 @@ Apply `readOnly` to the wrapping `FormField` to indicate the Select is only read
 Set the `state` prop of the `FormField` to `error` to indicate that the Select is invalid. Optionally use the `FormField.ErrorMessage` to describe why the Select is invalid.
 
 <Canvas of={stories.FormFieldValidation} />
+
+## Accessibility
+
+<A11yReport of="select" />

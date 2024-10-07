@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Input, InputGroup } from '.'
@@ -166,3 +167,7 @@ Use the `isRequired` prop of the `FormField` to indicate that the input is requi
 set the `state` prop of the `FormField` to `error` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
 
 <Canvas of={stories.FieldInvalid} />
+
+## Accessibility
+
+<A11yReport of="input" />

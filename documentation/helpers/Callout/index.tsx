@@ -42,9 +42,9 @@ const emojiLookup: Record<NonNullable<StylesProps['kind']>, string> = {
 export function Callout({ children, kind = 'info', ...variants }: PropsWithChildren<StylesProps>) {
   return (
     <div className={styles({ kind, ...variants })}>
-      <div className="flex items-center">
-        <div className="pr-sm text-display-3">{emojiLookup[kind]}</div>
-        <div className="ml-sm text-body-2">{children}</div>
+      <div className="flex items-center gap-lg">
+        <div className="text-display-3">{emojiLookup[kind]}</div>
+        <div className="text-body-2">{children}</div>
       </div>
     </div>
   )

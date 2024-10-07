@@ -1,6 +1,7 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { Kbd } from '@spark-ui/kbd'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { StoryLabel } from '@docs/helpers/StoryLabel'
 import { Checkbox, CheckboxGroup } from '.'
 import * as stories from './Checkbox.stories'
@@ -180,6 +181,8 @@ set the `state` prop of the `FormField` to `error` to indicate that the input is
 <Canvas of={stories.FieldInvalid} />
 
 ## Accessibility
+
+<A11yReport of="checkbox" />
 
 This component should always have a label, directly declared through the `children` prop or inherited from the `FormField` wrapper. If none of those are available it is strongly recommended to define an `aria-label` attribute, to comply to accessibility requirements.
 

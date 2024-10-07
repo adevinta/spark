@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Kbd } from '@spark-ui/kbd'
 
@@ -110,6 +111,8 @@ When set to `true`, this option will remove the internal padding of the `Drawer.
 <Canvas of={stories.Inset} />
 
 ## Accessibility
+
+<A11yReport of="drawer" />
 
 Adheres to the [Dialog WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 

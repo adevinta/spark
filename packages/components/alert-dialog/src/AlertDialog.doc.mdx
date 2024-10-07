@@ -1,6 +1,7 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Kbd } from '@spark-ui/kbd'
+import { A11yReport } from '@docs/helpers/A11yReport'
 
 import { AlertDialog } from '.'
 
@@ -99,6 +100,8 @@ Use `open` and `onOpenChange` props to control the state of the dialog. This is 
 <Canvas of={stories.Controlled} />
 
 ## Accessibility
+
+<A11yReport of="alert-dialog" />
 
 Adheres to the [Alert and Message Dialogs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog).
 

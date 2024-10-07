@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/blocks'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Kbd } from '@spark-ui/kbd'
 
@@ -96,12 +97,15 @@ When passing `noEllipsis` to the `Pagination` root component, **ellipsis** logic
 When `noEllipsis` is passed to the `Pagination` root component, ellipses won't be rendered. However, TS will still infer that the `Pagination.Pages` component includes both page and ellipsis items:
 
 ```ts
-pages: Array<{
-  type: "ellipsis"
-} | {
-  type: "page"
-  value: number
-}>
+pages: Array<
+  | {
+      type: 'ellipsis'
+    }
+  | {
+      type: 'page'
+      value: number
+    }
+>
 ```
 
 To ensure TS understands that `pages` only includes `{ type: "page", value: number }` items when `noEllipsis` is set, you can pass the type argument `<noEllipsis>` to `Pagination.Pages` like so:
@@ -116,11 +120,14 @@ To ensure TS understands that `pages` only includes `{ type: "page", value: numb
 
 ## Accessibility
 
+<A11yReport of="pagination" />
+
 There is no official WAI-ARIA design pattern for a pagination. Instead, we followed the guidelines of a [suggested implementation](https://design-system.w3.org/components/pagination.html).
 
 ### Guidelines
 
 When setting **aria-labels**:
+
 - Use descriptive labels: Indicate purpose (e.g., "Go to first page")
 - Include current page info: "page X of Y"
 - Specify first/last pages: "First page, page 1 of 10"

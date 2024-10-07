@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { Kbd } from '@spark-ui/kbd'
 
 import { Collapsible } from '.'
@@ -52,6 +53,8 @@ A `Collapsible` is closed by default. Interacting with its trigger will open the
 <Canvas of={stories.Default} />
 
 ## Accessibility
+
+<A11yReport of="collapsible" />
 
 Adheres to the [Disclosure (Show/Hide) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 

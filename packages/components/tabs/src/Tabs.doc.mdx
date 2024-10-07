@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Tabs } from '.'
 import { Kbd } from '@spark-ui/kbd'
@@ -95,6 +96,8 @@ This can be useful if your tabs load heavy resources on mount, such as heavy ima
 <Canvas of={stories.ForceMount} />
 
 ## Accessibility
+
+<A11yReport of="tabs" />
 
 Adheres to the [Tabs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs).
 

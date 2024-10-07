@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes as ExtendedArgTypes } from '@docs/helpers/ArgTypes'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { Callout } from '@docs/helpers/Callout'
 
 import { Dropdown } from '.'
@@ -251,3 +252,7 @@ Apply `readOnly` to the wrapping `FormField` to indicate the dropdown is only re
 Set the `state` prop of the `FormField` to `error` to indicate that the dropdown is invalid. Optionally use the `FormField.ErrorMessage` to describe why the dropdown is invalid.
 
 <Canvas of={stories.FormFieldValidation} />
+
+## Accessibility
+
+<A11yReport of="dropdown" />

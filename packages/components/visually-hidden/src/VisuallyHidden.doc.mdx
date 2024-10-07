@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { VisuallyHidden } from '.'
 import * as VisuallyHiddenStories from './VisuallyHidden.stories'
 
@@ -29,5 +30,7 @@ A button without text can be absolutely mysterious for someone using screen read
 <Canvas of={VisuallyHiddenStories.Default} />
 
 ## Accessibility
+
+<A11yReport of="visually-hidden" />
 
 This is useful in certain scenarios as an alternative to traditional labelling with `aria-label` or `aria-labelledby`.

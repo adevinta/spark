@@ -26,13 +26,6 @@ test.describe('Spark UI accessibility', () => {
         testInfo,
       })
 
-      // @WIP We disable partially the results check by Axe+Playwright, in order not to block our CI.
-      // There are some inconsistencies in test results that we want to investigate:
-      // https://github.com/dequelabs/axe-core-npm/issues/1090
-      //
-      // eslint-disable-next-line no-console
-      console.warn('incomplete (should be empty):', results.incomplete)
-      // expect(results.incomplete).toEqual([])
       expect(results.violations).toEqual([])
     })
   })

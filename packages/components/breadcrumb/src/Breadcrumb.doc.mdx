@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { A11yReport } from '@docs/helpers/A11yReport'
 import { Kbd } from '@spark-ui/kbd'
 
 import { Breadcrumb } from '.'
@@ -69,6 +70,8 @@ Apply a maximum width on an element to truncate it automatically.
 <Canvas of={stories.Truncate} />
 
 ## Accessibility
+
+<A11yReport of="breadcrumb" />
 
 Adheres to the [Breadcrumb WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/).
 
