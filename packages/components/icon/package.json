@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/icon",
-  "version": "6.2.2",
+  "version": "6.2.3",
   "description": "Accessible icon wrapper",
   "publishConfig": {
     "access": "public"
@@ -35,8 +35,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "^6.2.2",
-    "@spark-ui/visually-hidden": "^6.2.2"
+    "@spark-ui/internal-utils": "^6.2.3",
+    "@spark-ui/visually-hidden": "^6.2.3"
   },
   "peerDependencies": {
     "@spark-ui/tailwind-plugins": "latest",
