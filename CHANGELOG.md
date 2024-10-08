@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.6](https://github.com/adevinta/spark/compare/v6.2.5...v6.2.6) (2024-10-08)
+
+### Bug Fixes
+
+- **dialog:** do not close dialog when foreground elements are clicked ([0f9b7c4](https://github.com/adevinta/spark/commit/0f9b7c467e7096ee7319b829586a17c0f91903b8))
+
 ## [6.2.5](https://github.com/adevinta/spark/compare/v6.2.4...v6.2.5) (2024-10-08)
 
 **Note:** Version bump only for package spark
