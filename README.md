@@ -1,6 +1,7 @@
 # SPARK-UI
 
 ![release](https://github.com/adevinta/spark/workflows/release/badge.svg)
+![accessibility](https://img.shields.io/github/actions/workflow/status/adevinta/spark/playwright-a11y.yml?label=WCAG%202.1%20AA)
 [![codecov](https://codecov.io/gh/adevinta/spark/graph/badge.svg?token=D4KOFA5MEH)](https://codecov.io/gh/adevinta/spark)
 
 [Adevinta](https://www.adevinta.com/)'s React Design System.
