@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.8](https://github.com/adevinta/spark/compare/v6.2.7...v6.2.8) (2024-10-09)
+
+### Bug Fixes
+
+- **theme-utils:** fixed large font size for color contrast check ([2cd41f8](https://github.com/adevinta/spark/commit/2cd41f8198505a8091be2544351e2afe7475b592))
+
 ## [6.2.7](https://github.com/adevinta/spark/compare/v6.2.6...v6.2.7) (2024-10-09)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
