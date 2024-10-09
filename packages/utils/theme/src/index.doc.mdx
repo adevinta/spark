@@ -1,25 +1,16 @@
 import { Meta } from '@storybook/blocks'
 
-<Meta title="utils/Theme" />
+<Meta title="utils/theme-utils/theming" />
 
 # Theme utils
 
 The **`@spark-ui/theme-utils`** exposes the following:
 
 ```tsx
-import { Theme, defaultTheme, defaultThemeDark, createTheme } from '@spark-ui/theme-utils'
+import { defaultTheme, defaultThemeDark, createTheme, type Theme } from '@spark-ui/theme-utils'
 ```
 
-- [Theme](#theme)
-- [defaultTheme](#defaulttheme)
-- [defaultThemeDark](#defaultthemedark)
-- [createTheme](#createtheme)
-
 ## @spark-ui/theme-utils
-
-### Theme
-
-- `Theme`, the TypeScript interface for our theme
 
 ### defaultTheme
 
@@ -28,6 +19,10 @@ import { Theme, defaultTheme, defaultThemeDark, createTheme } from '@spark-ui/th
 ### defaultThemeDark
 
 - `defaultTheme`, our dark default theme, represented as an `Object`
+
+### Theme
+
+- `Theme`, the TypeScript interface for our theme
 
 ### createTheme
 
