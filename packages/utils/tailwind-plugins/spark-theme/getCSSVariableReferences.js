@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const {
+import {
   DEFAULT_KEY,
   tailwindCategoryKeys,
-  transitionDurationLookup,
   transitionDelayDurationLookup,
+  transitionDurationLookup,
   transitionTimingFunctionLookup,
   unassignedColors,
-} = require('./constants')
-const {
+} from './constants'
+import {
   doubleHyphensRegex,
   hasNumber,
   isAlphanumericWithLeadingLetter,
@@ -16,7 +15,7 @@ const {
   isObject,
   isStringOrNumber,
   toKebabCase,
-} = require('./utils')
+} from './utils'
 
 function getCSSVariableReferences(_theme) {
   const themeCpy = JSON.parse(JSON.stringify(_theme))
@@ -117,4 +116,4 @@ function getCSSVariableReferences(_theme) {
   }
 }
 
-module.exports = { getCSSVariableReferences }
+export default { getCSSVariableReferences }

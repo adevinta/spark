@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const animations = require('./animations')
-const sizings = require('./sizings')
-const utilities = require('./utilities')
-const variants = require('./variants')
-const sparkTheme = require('./spark-theme')
-const tailwindConfigViewerUtils = require('./tailwind-config-viewer')
-const tailwindConfigViewerMisc = require('./tailwind-config-viewer/misc')
-const tailwindcssRadix = require('tailwindcss-radix')
+import tailwindcssRadix from 'tailwindcss-radix'
+
+import animations from './animations'
+import sizings from './sizings'
+import sparkTheme from './spark-theme'
+import tailwindConfigViewerUtils from './tailwind-config-viewer'
+import tailwindConfigViewerMisc from './tailwind-config-viewer/misc'
+import utilities from './utilities'
+import variants from './variants'
 
 /**
  * @typedef {Object} Options
@@ -31,7 +31,7 @@ const sparkConfig = ({ htmlFontSize, themes }) => {
   ]
 }
 
-module.exports = {
+export default {
   animations,
   sizings,
   utilities,

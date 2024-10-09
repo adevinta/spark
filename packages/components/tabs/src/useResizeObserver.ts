@@ -35,8 +35,7 @@ export const useResizeObserver = <T extends HTMLElement>(
     resizeObserverRef.current.observe(targetElm as unknown as HTMLElement)
 
     return () => {
-      resizeObserverRef.current &&
-        resizeObserverRef.current.unobserve(targetElm as unknown as HTMLElement)
+      resizeObserverRef.current?.unobserve(targetElm as unknown as HTMLElement)
     }
   }, [target, resizeObserverRef, resizeCallbackRef])
 

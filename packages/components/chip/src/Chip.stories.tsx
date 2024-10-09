@@ -286,7 +286,9 @@ export const Input: StoryFn = () => {
             onChange={event => setValue(event.target.value)}
             onKeyPress={event => {
               if (event.key === 'Enter') {
-                !tags.includes(value) && setTags([...tags, value])
+                if (!tags.includes(value)) {
+                  setTags([...tags, value])
+                }
                 setValue('')
               }
             }}

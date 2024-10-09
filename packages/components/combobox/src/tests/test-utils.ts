@@ -27,7 +27,7 @@ export const getSelectedItem = (accessibleName: string) => {
     return within(item).queryByText(accessibleName)
   })
 
-  return matchingItem || (null as any as HTMLElement)
+  return matchingItem || (null as unknown as HTMLElement)
 }
 
 export const getSelectedItemClearButton = (accessibleName: string) => {

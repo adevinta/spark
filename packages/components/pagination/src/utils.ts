@@ -1,4 +1,13 @@
-export function sliceArrayWithIndex(arr: any[], index: number, length: number) {
+type Page =
+  | {
+      type: 'ellipsis'
+    }
+  | {
+      type: 'page'
+      value: number
+    }
+
+export function sliceArrayWithIndex(arr: Page[], index: number, length: number) {
   const relativeElements = (length - 1) / 2
 
   let start = Math.max(0, index - relativeElements)
