@@ -71,7 +71,7 @@ export function checkColorContrast(
 }
 
 const NORMAL_FONT_SIZE = 16
-const LARGE_FONT_SIZE = 16
+const LARGE_FONT_SIZE = 24
 
 const getSmallAndLargeCompliance = (background: string, foreground: string) => {
   return {
