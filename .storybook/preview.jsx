@@ -44,6 +44,14 @@ export const parameters = {
       order: [
         'Getting Started',
         'Using Spark',
+        [
+          'Setup',
+          'Styling overview',
+          'Handling multiple themes',
+          'Migrating from Styled Components',
+          'Tailwind config viewer',
+          'FAQ',
+        ],
         'Components',
         'Utils',
         'Hooks',
