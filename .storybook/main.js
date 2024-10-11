@@ -27,29 +27,22 @@ module.exports = {
     '../packages/**/*.doc.mdx',
     '../packages/**/*.stories.tsx',
   ],
-  addons: [
-    '@storybook/addon-links',
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        mdxPluginOptions: {
-          mdxCompileOptions: {
-            remarkPlugins: [remarkGfm],
-          },
+  addons: ['@storybook/addon-links', {
+    name: '@storybook/addon-docs',
+    options: {
+      mdxPluginOptions: {
+        mdxCompileOptions: {
+          remarkPlugins: [remarkGfm],
         },
       },
     },
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-        controls: false,
-      },
+  }, {
+    name: '@storybook/addon-essentials',
+    options: {
+      actions: false,
+      controls: false,
     },
-    '@storybook/addon-interactions',
-    '@storybook/addon-styling',
-    '@storybook/addon-a11y',
-  ],
+  }, '@storybook/addon-interactions', '@storybook/addon-styling', '@storybook/addon-a11y', '@chromatic-com/storybook'],
   staticDirs: ['../public'],
   framework: {
     name: '@storybook/react-vite',
@@ -70,7 +63,6 @@ module.exports = {
     },
   },
   docs: {
-    autodocs: true,
-    docsMode: true,
+    docsMode: true
   },
 }
