@@ -23,13 +23,17 @@ export const useActiveAnchor = (elements: HTMLHeadingElement[]): HTMLHeadingElem
   const handleScroll = useCallback(() => {
     if (elements) {
       const closestAnchor = findAnchorClosestToTop(elements)
-      closestAnchor && setActiveAnchor(closestAnchor)
+      if (closestAnchor) {
+        setActiveAnchor(closestAnchor)
+      }
     }
   }, [elements])
 
   useEffect(() => {
     const closestAnchor = elements && findAnchorClosestToTop(elements)
-    closestAnchor && setActiveAnchor(closestAnchor)
+    if (closestAnchor) {
+      setActiveAnchor(closestAnchor)
+    }
 
     window.addEventListener('scroll', handleScroll)
 

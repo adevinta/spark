@@ -1,7 +1,6 @@
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
-const plugin = require('tailwindcss/plugin')
+import { withOptions } from 'tailwindcss/plugin'
 
-module.exports = plugin.withOptions(() => ({ addUtilities, theme }) => {
+export default withOptions(() => ({ addUtilities, theme }) => {
   addUtilities({
     '.u-current-font-size': {
       width: '1em',

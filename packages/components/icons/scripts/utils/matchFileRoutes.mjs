@@ -10,8 +10,8 @@ const matchFileRoutes = (base = process.cwd(), minimatchPattern, accomulator) =>
     const newBase = path.join(base, file)
     if (fs.statSync(newBase).isDirectory()) {
       result = matchFileRoutes(newBase, minimatchPattern, result)
-    } else {
-      minimatch(newBase.replace(`${process.cwd()}/`, ''), minimatchPattern) && result.push(newBase)
+    } else if (minimatch(newBase.replace(`${process.cwd()}/`, ''), minimatchPattern)) {
+      result.push(newBase)
     }
   })
 

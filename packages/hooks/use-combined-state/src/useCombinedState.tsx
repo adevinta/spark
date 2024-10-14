@@ -31,7 +31,7 @@ export function useCombinedState<T>(
       if (shouldUpdate && !isControlled) {
         setInnerValue(nextValue)
       }
-      onChange && onChange(nextValue)
+      onChange?.(nextValue)
     },
     [isControlled, value, onChange]
   )
