@@ -36,7 +36,7 @@
     "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+tabs%22"
   },
   "dependencies": {
-    "@radix-ui/react-tabs": "1.1.0",
+    "@radix-ui/react-tabs": "1.1.1",
     "@spark-ui/button": "^6.2.9",
     "@spark-ui/icon": "^6.2.9",
     "@spark-ui/icons": "^6.2.9",
