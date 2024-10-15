@@ -29,7 +29,6 @@
     "prettier": "prettier --config .prettierrc.cjs --write \"{packages,documentation,src}/**/*.{ts,tsx,js}\"",
     "prettify": "npm run lint && npm run prettier",
     "node:check": "node bin/check-node-version.js",
-    "a11y:check": "concurrently -P --kill-others -g -s first -n storybook,a11y \"storybook build -o dist --loglevel silent && npx http-server dist -p 6008 -s\" \"wait-on -t 60000 tcp:6008 && node bin/check-a11y.js -- {@} \"",
     "generate": "spark-generate",
     "codecov:check-yml": "cat .codecov.yml | curl --data-binary @- https://codecov.io/validate"
   },
@@ -46,7 +45,6 @@
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "3.0.0",
     "@axe-core/playwright": "^4.9.1",
-    "@axe-core/webdriverjs": "^4.9.1",
     "@babel/core": "7.24.7",
     "@chromatic-com/storybook": "^1.9.0",
     "@commitlint/cli": "17.8.1",
@@ -123,7 +121,6 @@
     "resize-observer-polyfill": "^1.5.1",
     "rollup": "^3.28.1",
     "scroll-into-view-if-needed": "^3.0.10",
-    "selenium-webdriver": "^4.8.1",
     "storybook": "^8.3.5",
     "tailwindcss": "3.4.4",
     "tailwindcss-radix": "2.9.0",
