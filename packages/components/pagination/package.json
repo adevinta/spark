@@ -44,8 +44,6 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/button": "^6.2.9",
-    "@spark-ui/icon-button": "^6.2.9",
     "@spark-ui/icon": "^6.2.9",
     "@spark-ui/icons": "^6.2.9",
     "@zag-js/pagination": "0.73.1",
