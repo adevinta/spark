@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@react-aria/button": "3.9.8",
+    "@react-aria/button": "3.10.0",
     "@react-aria/numberfield": "3.11.6",
     "@react-stately/numberfield": "3.9.6",
     "@spark-ui/form-field": "^6.2.9",
