@@ -10,7 +10,7 @@ export const Item = forwardRef<HTMLLIElement, ItemProps>(({ className, ...rest }
     <li
       data-spark-component="breadcrumb-item"
       ref={ref}
-      className={cx('inline-flex items-center gap-sm', className)}
+      className={cx('inline-flex min-w-none items-center gap-sm', className)}
       {...rest}
     />
   )
