@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/adevinta/spark/compare/v6.2.11...v6.3.0) (2024-10-16)
+
+**Note:** Version bump only for package @spark-ui/visually-hidden
+
 ## [6.2.11](https://github.com/adevinta/spark/compare/v6.2.10...v6.2.11) (2024-10-16)
 
 **Note:** Version bump only for package @spark-ui/visually-hidden
