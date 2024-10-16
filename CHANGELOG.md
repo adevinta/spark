@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.10](https://github.com/adevinta/spark/compare/v6.2.9...v6.2.10) (2024-10-16)
+
+### Bug Fixes
+
+- fix release workflow ([509cd3d](https://github.com/adevinta/spark/commit/509cd3dd05a5183b32ce146459352e83211f1b41))
+- **pagination:** fix omitted pagination deps ([85059cb](https://github.com/adevinta/spark/commit/85059cb5ae8094287106c9d60f21475f47dab3dc))
+
 ## [6.2.9](https://github.com/adevinta/spark/compare/v6.2.8...v6.2.9) (2024-10-09)
 
 **Note:** Version bump only for package spark

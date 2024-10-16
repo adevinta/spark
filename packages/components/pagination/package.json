@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/pagination",
-  "version": "6.2.9",
+  "version": "6.2.10",
   "description": "interface that allows navigating between pages that contain split information, instead of being shown on a single page",
   "publishConfig": {
     "access": "public"
@@ -44,10 +44,10 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/button": "^6.2.9",
-    "@spark-ui/icon-button": "^6.2.9",
-    "@spark-ui/icon": "^6.2.9",
-    "@spark-ui/icons": "^6.2.9",
+    "@spark-ui/button": "^6.2.10",
+    "@spark-ui/icon": "^6.2.10",
+    "@spark-ui/icon-button": "^6.2.10",
+    "@spark-ui/icons": "^6.2.10",
     "@zag-js/pagination": "0.73.1",
     "@zag-js/react": "0.73.1"
   }

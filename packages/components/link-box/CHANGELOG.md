@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.10](https://github.com/adevinta/spark/compare/v6.2.9...v6.2.10) (2024-10-16)
+
+**Note:** Version bump only for package @spark-ui/link-box
+
 ## [6.2.9](https://github.com/adevinta/spark/compare/v6.2.8...v6.2.9) (2024-10-09)
 
 **Note:** Version bump only for package @spark-ui/link-box
