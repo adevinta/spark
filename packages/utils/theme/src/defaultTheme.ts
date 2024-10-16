@@ -45,7 +45,7 @@ export const defaultTheme: Theme = {
     accentVariantHovered: '#6B1FAD',
     // Main
     main: '#EC5A13',
-    onMain: '#FFFFFF',
+    onMain: '#3C1707',
     mainHovered: '#F07B42',
     // Main container
     mainContainer: '#FFE9DE',
