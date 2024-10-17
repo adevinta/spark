@@ -42,7 +42,7 @@ module.exports = {
       actions: false,
       controls: false,
     },
-  }, '@storybook/addon-interactions', '@storybook/addon-styling', '@storybook/addon-a11y', '@chromatic-com/storybook'],
+  }, '@storybook/addon-interactions', '@storybook/addon-a11y', '@chromatic-com/storybook'],
   staticDirs: ['../public'],
   framework: {
     name: '@storybook/react-vite',
