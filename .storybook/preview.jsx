@@ -1,5 +1,4 @@
 import { DocsContainer } from '@storybook/blocks'
-import { withThemeByDataAttribute } from '@storybook/addon-styling'
 import { Icon } from '@spark-ui/icon'
 import { ShareExpand } from '@spark-ui/icons/dist/icons/ShareExpand'
 
@@ -68,15 +67,32 @@ export const parameters = {
   },
 }
 
-export const decorators = [
-  withThemeByDataAttribute({
-    themes: {
-      light: 'light',
-      dark: 'dark',
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Set the color theme',
+    defaultValue: 'light',
+    toolbar: {
+      // show the theme name once selected in the toolbar
+      dynamicTitle: true,
+      items: [
+        { value: 'light', right: '⚪️', title: 'Light' },
+        { value: 'dark', right: '⚫️', title: 'Dark' },
+      ],
     },
-    defaultTheme: 'light',
-    attributeName: 'data-theme',
-  }),
+  },
+}
+
+export const decorators = [
+  // custom theme decorator, see https://yannbraga.dev/blog/multi-theme-decorator
+  (storyFn, { globals }) => {
+
+    const htmlElement = document.querySelector("html")
+    if (!htmlElement) return
+    htmlElement.setAttribute("data-theme", globals.theme)
+
+    return storyFn()
+  },
   (storyFn, { id, viewMode }) => {
     const params = new URLSearchParams(window.top?.location.search)
     params.set('id', id)
