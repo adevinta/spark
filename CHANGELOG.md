@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.1](https://github.com/adevinta/spark/compare/v6.3.0...v6.3.1) (2024-10-17)
+
+### Features
+
+- add custom theme decorator to replace sb addon-styling ([c884b8d](https://github.com/adevinta/spark/commit/c884b8d0c389b541a243c2c94a5a714ea16f792a))
+- remove @storybook/addon-styling ([20061ea](https://github.com/adevinta/spark/commit/20061eabedbf2f06be6a4c71990a034a7a788f25))
+
 # [6.3.0](https://github.com/adevinta/spark/compare/v6.2.11...v6.3.0) (2024-10-16)
 
 ### Features
