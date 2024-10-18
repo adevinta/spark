@@ -1,0 +1,31 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@storybook/blocks';
+
+import { Skeleton } from '.'
+
+import * as stories from './Skeleton.stories'
+
+<Meta of={stories} />
+
+# Skeleton
+
+A skeleton gives feedback about loading state of some component.
+
+## Install
+
+```sh
+npm install @spark-ui/skeleton
+```
+
+## Import
+
+```tsx
+import { Skeleton } from "@spark-ui/skeleton"
+```
+
+## Props
+
+<ArgTypes of={Skeleton} />
+
+## Variants
+<Canvas of={stories.Default} />
