@@ -55,17 +55,18 @@ export const ArgTypes = <T extends FC>({
 
   return (
     <Tabs
+      data-theme="light"
       defaultValue={name}
       orientation={tabsOrientation}
-      className="sb-unstyled mt-xl overflow-hidden rounded-md bg-background-variant"
+      className="sb-unstyled mt-xl overflow-hidden rounded-md"
     >
       <Tabs.List className={tabsOrientation === 'horizontal' ? 'mb-md' : ''}>
-        <Tabs.Trigger key={name} value={name} className="bg-transparent">
+        <Tabs.Trigger key={name} value={name} className="bg-transparent text-support">
           {name}
         </Tabs.Trigger>
         <>
           {subComponentsList.map(([name]) => (
-            <Tabs.Trigger key={name} value={name} className="bg-transparent">
+            <Tabs.Trigger key={name} value={name} className="bg-transparent text-on-surface">
               {name}
             </Tabs.Trigger>
           ))}
