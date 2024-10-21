@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.2](https://github.com/adevinta/spark/compare/v6.3.1...v6.3.2) (2024-10-21)
+
+### Features
+
+- apply dark theme only to story content ([a69cee5](https://github.com/adevinta/spark/commit/a69cee5e5b5ed425c46b6e382f75f5ef8abed997))
+
 ## [6.3.1](https://github.com/adevinta/spark/compare/v6.3.0...v6.3.1) (2024-10-17)
 
 ### Features

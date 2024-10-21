@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.2](https://github.com/adevinta/spark/compare/v6.3.1...v6.3.2) (2024-10-21)
+
+**Note:** Version bump only for package @spark-ui/theme-utils
+
 ## [6.3.1](https://github.com/adevinta/spark/compare/v6.3.0...v6.3.1) (2024-10-17)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
