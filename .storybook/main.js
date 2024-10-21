@@ -39,6 +39,7 @@ module.exports = {
   }, {
     name: '@storybook/addon-essentials',
     options: {
+      backgrounds: false,
       actions: false,
       controls: false,
     },
