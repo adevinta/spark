@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
-import { ArgTypes } from '@storybook/blocks';
+import { A11yReport } from '@docs/helpers/A11yReport'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Skeleton } from '.'
 
@@ -20,12 +21,69 @@ npm install @spark-ui/skeleton
 ## Import
 
 ```tsx
-import { Skeleton } from "@spark-ui/skeleton"
+import { Skeleton } from '@spark-ui/skeleton'
 ```
 
 ## Props
 
-<ArgTypes of={Skeleton} />
+<ArgTypes
+  of={Skeleton}
+  description="A container for all Skeleton parts."
+  subcomponents={{
+    'Skeleton.Group': {
+      of: Skeleton.Group,
+      description: 'A simple wrapper to group components for advanced layouts.',
+    },
+    'Skeleton.Circle': {
+      of: Skeleton.Circle,
+    },
+    'Skeleton.Rectangle': {
+      of: Skeleton.Rectangle,
+    },
+    'Skeleton.Line': {
+      of: Skeleton.Line,
+    },
+  }}
+/>
 
-## Variants
+## Usage
+
+### Default
+
 <Canvas of={stories.Default} />
+
+### Size
+
+According to the specific item you implement you can use `width|height` (for `<Skeleton.Rectangle />`) or directly `size` (for `<Skeleton.Circle />`) to define the size of your item, individually.
+
+<Canvas of={stories.Size} />
+
+### Gap
+
+Use `gap` property to set gaps between group items, or lines.
+
+<Canvas of={stories.Gap} />
+
+### Alignment
+
+Use `alignment` property to set alignments for group items, or lines.
+
+<Canvas of={stories.Alignment} />
+
+### Animation
+
+Use `isAnimated` prop display an animation on your `<Skeleton />` content.
+
+<Canvas of={stories.Animation} />
+
+## Advanced usage
+
+### Group
+
+For advanced `<Skeleton />` layouts you can group items to fit your specific needs. You can then define gaps, direction and alignment properties for this group, using dedicated properties `gap`, `direction` and `alignment`.
+
+<Canvas of={stories.Group} />
+
+## Accessibility
+
+<A11yReport of="skeleton" />
