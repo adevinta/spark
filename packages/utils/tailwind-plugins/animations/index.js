@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const plugin = require('tailwindcss/plugin')
 
@@ -197,6 +198,9 @@ module.exports = plugin.withOptions(
               width: '0',
             },
           },
+          shimmer: {
+            '100%': { maskPosition: '-200% 0%' },
+          },
         },
         animation: {
           'fade-in': 'fadeIn 0.25s cubic-bezier(0.2, 0, 0, 1)',
@@ -218,6 +222,8 @@ module.exports = plugin.withOptions(
           // swipeOut
           'swipe-out-right': 'swipeOutRight 0.1s ease-out',
           'swipe-out-left': 'swipeOutLeft 0.1s ease-out',
+          // shimmer
+          shimmer: 'shimmer 2s ease-in infinite',
         },
       },
     },
