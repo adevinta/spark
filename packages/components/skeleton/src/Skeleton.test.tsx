@@ -1,27 +1,32 @@
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { render } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 
-import { Skeleton } from './Skeleton'
+import { Skeleton } from '.'
 
 describe('Skeleton', () => {
-  it('should render', () => {
-    render(<Skeleton>Hello World!</Skeleton>)
+  it('should render skeleton with children components', () => {
+    const { container } = render(
+      <Skeleton>
+        <Skeleton.Rectangle width="100%" height={128} />
+        <Skeleton.Circle size={64} />
+        <Skeleton.Line />
+      </Skeleton>
+    )
 
-    expect(screen.getByText('Hello World!')).toBeInTheDocument()
+    expect(document.querySelector('[data-spark-component="skeleton"]')).toBeInTheDocument()
+
+    expect(container.querySelectorAll('[data-part="rectangle"]')).toHaveLength(1)
+    expect(container.querySelectorAll('[data-part="circle"]')).toHaveLength(1)
+    expect(container.querySelectorAll('[data-part="line"]')).toHaveLength(1)
   })
 
-  it('should trigger click event', async () => {
-    const user = userEvent.setup()
-    const clickEvent = vi.fn()
+  it('should render with as much lines as specified', () => {
+    const { container } = render(
+      <Skeleton>
+        <Skeleton.Line lines={5} />
+      </Skeleton>
+    )
 
-    // Given
-    render(<div onClick={clickEvent}>Hello World!</div>)
-
-    // When
-    await user.click(screen.getByText('Hello World!'))
-
-    // Then
-    expect(clickEvent).toHaveBeenCalledTimes(1)
+    expect(container.querySelectorAll('[data-part="line"]')).toHaveLength(5)
   })
 })
