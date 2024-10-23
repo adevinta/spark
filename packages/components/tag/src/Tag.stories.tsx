@@ -50,7 +50,7 @@ export const Intent: StoryFn = _args => (
           }
 
           return (
-            <Tag key={intent} design={design} intent={intent as any}>
+            <Tag key={intent} design={design} intent={intent as never}>
               {intent} tag
             </Tag>
           )
