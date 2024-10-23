@@ -25,6 +25,7 @@ export const SkeletonGroup = forwardRef<HTMLDivElement, PropsWithChildren<Skelet
   ({ gap, direction = 'row', alignment = 'start', className, children, ...rest }, forwardedRef) => (
     <div
       ref={forwardedRef}
+      data-part="group"
       className={skeletonGroupStyles({ gap, direction, alignment, className })}
       {...rest}
     >
