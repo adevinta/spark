@@ -20,16 +20,31 @@ export const Default: StoryFn = _args => (
 )
 
 export const Size: StoryFn = _args => (
-  <Skeleton gap="xl">
-    <Skeleton.Circle size={32} />
-    <Skeleton.Circle size={64} />
-    <Skeleton.Circle size={128} />
+  <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+    <div>
+      <Skeleton gap="xl">
+        <Skeleton.Circle size={32} />
+        <Skeleton.Circle size={64} />
+        <Skeleton.Circle size={128} />
+      </Skeleton>
+    </div>
 
-    <Skeleton.Group gap="lg">
-      <Skeleton.Rectangle height={64} />
-      <Skeleton.Rectangle height={128} />
-    </Skeleton.Group>
-  </Skeleton>
+    <div>
+      <Skeleton gap="xl">
+        <Skeleton.Rectangle height={32} />
+        <Skeleton.Rectangle height={64} />
+        <Skeleton.Rectangle height={128} />
+      </Skeleton>
+    </div>
+
+    <div>
+      <Skeleton gap="xl">
+        <Skeleton.Line />
+        <Skeleton.Line lines={3} />
+        <Skeleton.Line lines={6} />
+      </Skeleton>
+    </div>
+  </div>
 )
 
 const gaps: ExcludeNull<SkeletonGroupProps['gap']>[] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl']
