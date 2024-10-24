@@ -32,6 +32,7 @@ export const a11yComponents = {
   'radio-group': 'radio-group',
   rating: 'rating',
   select: 'select',
+  skeleton: 'skeleton',
   slider: 'slider',
   snackbar: 'snackbar',
   spinner: 'spinner',
