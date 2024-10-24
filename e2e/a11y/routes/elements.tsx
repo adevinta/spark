@@ -27,6 +27,7 @@ import { A11yProgressTracker } from '../pages/ProgressTracker'
 import { A11yRadioGroup } from '../pages/RadioGroup'
 import { A11yRating } from '../pages/Rating'
 import { A11ySelect } from '../pages/Select'
+import { A11ySkeleton } from '../pages/Skeleton'
 import { A11ySlider } from '../pages/Slider'
 import { A11ySnackbar } from '../pages/Snackbar'
 import { A11ySpinner } from '../pages/Spinner'
@@ -73,6 +74,7 @@ export const a11yElements: Record<A11yComponentsKey, ReactNode> = {
   'radio-group': <A11yRadioGroup />,
   rating: <A11yRating />,
   select: <A11ySelect />,
+  skeleton: <A11ySkeleton />,
   slider: <A11ySlider />,
   snackbar: <A11ySnackbar />,
   spinner: <A11ySpinner />,

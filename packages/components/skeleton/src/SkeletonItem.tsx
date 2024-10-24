@@ -34,7 +34,14 @@ const getSizeValue = (size?: number | string): string | undefined => {
 
 const SkeletonItem = forwardRef<HTMLDivElement, SkeletonItemProps>(
   ({ shape, className, ...rest }, forwardedRef) => {
-    return <div ref={forwardedRef} className={skeletonItemStyles({ shape, className })} {...rest} />
+    return (
+      <div
+        ref={forwardedRef}
+        aria-hidden="true"
+        className={skeletonItemStyles({ shape, className })}
+        {...rest}
+      />
+    )
   }
 )
 
@@ -67,17 +74,21 @@ export const SkeletonCircle = ({ size, ...rest }: SkeletonCircleProps) => (
 
 export const SkeletonLine = ({
   lines = 1,
-  gap,
+  gap: gapProp,
   alignment = 'start',
   className,
   ...rest
-}: SkeletonLineProps) => (
-  <div className={skeletonLineStyles({ alignment, gap, className })} data-part="linegroup">
-    {[...new Array(lines)].map((_, index) => (
-      <SkeletonItem key={`line_${index}`} {...rest} shape="line" data-part="line" />
-    ))}
-  </div>
-)
+}: SkeletonLineProps) => {
+  const gap = gapProp || (lines > 1 ? 'md' : undefined)
+
+  return (
+    <div className={skeletonLineStyles({ alignment, gap, className })} data-part="linegroup">
+      {[...new Array(lines)].map((_, index) => (
+        <SkeletonItem key={`line_${index}`} {...rest} shape="line" data-part="line" />
+      ))}
+    </div>
+  )
+}
 
 SkeletonRectangle.displayName = 'Skeleton.Rectangle'
 SkeletonCircle.displayName = 'Skeleton.Circle'
