@@ -1,3 +1,4 @@
+import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
 import { type SkeletonStyleProps, skeletonStyles } from './Skeleton.styles'
@@ -12,10 +13,14 @@ export interface SkeletonProps
    * @default true
    */
   isAnimated?: boolean
+  /**
+   * Adds an accessible fallback label.
+   */
+  label?: string
 }
 
 export const Skeleton = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonProps>>(
-  ({ isAnimated = true, className, children, ...rest }, forwardedRef) => (
+  ({ isAnimated = true, label, className, children, ...rest }, forwardedRef) => (
     <SkeletonGroup
       ref={forwardedRef}
       data-spark-component="skeleton"
@@ -23,6 +28,8 @@ export const Skeleton = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonPro
       {...rest}
     >
       {children}
+
+      {label && <VisuallyHidden>{label}</VisuallyHidden>}
     </SkeletonGroup>
   )
 )

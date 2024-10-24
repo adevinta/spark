@@ -34,7 +34,14 @@ const getSizeValue = (size?: number | string): string | undefined => {
 
 const SkeletonItem = forwardRef<HTMLDivElement, SkeletonItemProps>(
   ({ shape, className, ...rest }, forwardedRef) => {
-    return <div ref={forwardedRef} className={skeletonItemStyles({ shape, className })} {...rest} />
+    return (
+      <div
+        ref={forwardedRef}
+        aria-hidden="true"
+        className={skeletonItemStyles({ shape, className })}
+        {...rest}
+      />
+    )
   }
 )
 
