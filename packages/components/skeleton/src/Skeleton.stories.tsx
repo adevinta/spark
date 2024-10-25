@@ -63,14 +63,14 @@ export const Gap: StoryFn = _args => {
   )
 }
 
-const alignments: ExcludeNull<SkeletonGroupProps['alignment']>[] = ['start', 'center', 'end']
+const alignments: ExcludeNull<SkeletonGroupProps['align']>[] = ['start', 'center', 'end']
 export const Alignment: StoryFn = _args => (
   <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
     {alignments.map(alignment => (
       <div key={alignment}>
         <StoryLabel>{alignment}</StoryLabel>
         <Skeleton gap="lg">
-          <Skeleton.Line gap="md" alignment={alignment} lines={3} />
+          <Skeleton.Line gap="md" align={alignment} lines={3} />
         </Skeleton>
       </div>
     ))}
@@ -78,7 +78,7 @@ export const Alignment: StoryFn = _args => (
 )
 
 export const Group: StoryFn = _args => {
-  const [alignment, setAlignment] = useState<SkeletonGroupProps['alignment']>('start')
+  const [alignment, setAlignment] = useState<SkeletonGroupProps['align']>('start')
 
   return (
     <div>
@@ -86,7 +86,7 @@ export const Group: StoryFn = _args => {
         className="mb-lg flex gap-md"
         value={alignment}
         orientation="horizontal"
-        onValueChange={value => setAlignment(value as SkeletonGroupProps['alignment'])}
+        onValueChange={value => setAlignment(value as SkeletonGroupProps['align'])}
       >
         <RadioGroup.Radio value="start">Start</RadioGroup.Radio>
         <RadioGroup.Radio value="center">Center</RadioGroup.Radio>
@@ -97,7 +97,7 @@ export const Group: StoryFn = _args => {
         <div>
           <StoryLabel>with direction `row` (default)</StoryLabel>
           <Skeleton gap="lg">
-            <Skeleton.Group gap="lg" alignment={alignment}>
+            <Skeleton.Group gap="lg" align={alignment}>
               <Skeleton.Rectangle height={128} />
               <Skeleton.Rectangle height={48} />
               <Skeleton.Rectangle height={64} />
@@ -108,7 +108,7 @@ export const Group: StoryFn = _args => {
         <div>
           <StoryLabel>with direction `column`</StoryLabel>
           <Skeleton gap="lg">
-            <Skeleton.Group gap="lg" direction="column" alignment={alignment}>
+            <Skeleton.Group gap="lg" direction="column" align={alignment}>
               <Skeleton.Rectangle height={32} width="90%" />
               <Skeleton.Rectangle height={32} width="75%" />
               <Skeleton.Rectangle height={32} />

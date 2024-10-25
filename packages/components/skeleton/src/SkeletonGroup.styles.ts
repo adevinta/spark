@@ -14,7 +14,7 @@ export const skeletonGroupStyles = cva(['flex flex-nowrap flex-auto'], {
       row: 'flex-row',
       column: 'flex-col',
     },
-    alignment: {
+    align: {
       start: 'items-start',
       center: 'items-center',
       end: 'items-end',
@@ -22,7 +22,7 @@ export const skeletonGroupStyles = cva(['flex flex-nowrap flex-auto'], {
   },
   defaultVariants: {
     direction: 'row',
-    alignment: 'start',
+    align: 'start',
   },
 })
 
