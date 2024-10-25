@@ -19,7 +19,7 @@ export type SkeletonLineProps = Omit<SkeletonItemProps, 'shape'> & {
    * Sets the default alignement.
    * @default start
    */
-  alignment?: 'start' | 'center' | 'end'
+  align?: 'start' | 'center' | 'end'
   /**
    * Sets the gaps between group items.
    */
@@ -75,14 +75,14 @@ export const SkeletonCircle = ({ size, ...rest }: SkeletonCircleProps) => (
 export const SkeletonLine = ({
   lines = 1,
   gap: gapProp,
-  alignment = 'start',
+  align = 'start',
   className,
   ...rest
 }: SkeletonLineProps) => {
-  const gap = gapProp || (lines > 1 ? 'md' : undefined)
+  const gap = gapProp || 'md'
 
   return (
-    <div className={skeletonLineStyles({ alignment, gap, className })} data-part="linegroup">
+    <div className={skeletonLineStyles({ align, gap, className })} data-part="linegroup">
       {[...new Array(lines)].map((_, index) => (
         <SkeletonItem key={`line_${index}`} {...rest} shape="line" data-part="line" />
       ))}
