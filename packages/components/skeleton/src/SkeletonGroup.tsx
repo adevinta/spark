@@ -14,7 +14,7 @@ export interface SkeletonGroupProps
    * Sets the default alignement.
    * @default start
    */
-  alignment?: 'start' | 'center' | 'end'
+  align?: 'start' | 'center' | 'end'
   /**
    * Sets the gaps between group items.
    */
@@ -22,11 +22,11 @@ export interface SkeletonGroupProps
 }
 
 export const SkeletonGroup = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonGroupProps>>(
-  ({ gap, direction = 'row', alignment = 'start', className, children, ...rest }, forwardedRef) => (
+  ({ gap, direction = 'row', align = 'start', className, children, ...rest }, forwardedRef) => (
     <div
       ref={forwardedRef}
       data-part="group"
-      className={skeletonGroupStyles({ gap, direction, alignment, className })}
+      className={skeletonGroupStyles({ gap, direction, align, className })}
       {...rest}
     >
       {children}
