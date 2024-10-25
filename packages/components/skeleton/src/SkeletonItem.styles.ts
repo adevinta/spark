@@ -15,7 +15,7 @@ export const skeletonItemStyles = cva(['bg-neutral/dim-4', 'min-h-lg min-w-lg'],
 
 export const skeletonLineStyles = cva(['flex flex-col', 'w-full'], {
   variants: {
-    alignment: {
+    align: {
       start: 'items-start',
       center: 'items-center',
       end: 'items-end',
@@ -30,7 +30,7 @@ export const skeletonLineStyles = cva(['flex flex-col', 'w-full'], {
     },
   },
   defaultVariants: {
-    alignment: 'start',
+    align: 'start',
   },
 })
 
