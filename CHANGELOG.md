@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.8](https://github.com/adevinta/spark/compare/v6.3.7...v6.3.8) (2024-10-29)
+
+### Features
+
+- extend dark mode to entire Storybook UI ([53ca89d](https://github.com/adevinta/spark/commit/53ca89df707f46062db3207d660342acb591c86b))
+
 ## [6.3.7](https://github.com/adevinta/spark/compare/v6.3.6...v6.3.7) (2024-10-29)
 
 **Note:** Version bump only for package spark
