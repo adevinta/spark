@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-separator": "1.0.3",
+    "@radix-ui/react-separator": "1.1.0",
     "@spark-ui/internal-utils": "^6.3.5"
   },
   "peerDependencies": {
