@@ -3,37 +3,18 @@ import { type ReactNode } from 'react'
 
 export const cardStyles = cva(
   [
-    'sb-unstyled group',
-    'inline-flex min-h-sz-96 w-sz-224 flex-col justify-between overflow-hidden rounded-md p-lg',
+    'sb-unstyled',
+    'inline-flex w-sz-224 flex-col justify-between overflow-hidden rounded-md p-md shadow',
     'transition-all duration-200',
-    'text-left text-body-1 font-bold text-on-support-variant',
-    'bg-gradient-to-br from-main to-support-variant shadow',
+    'text-left text-body-1 font-bold text-on-basic',
+    'bg-gradient-to-br from-main to-basic',
     'outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
   ],
   {
     variants: {
       disabled: {
         true: 'opacity-dim-3 hover:cursor-not-allowed',
-        false:
-          'hover:cursor-pointer hover:from-main-hovered hover:to-support-variant-hovered hover:shadow-lg',
-      },
-    },
-    defaultVariants: {
-      disabled: false,
-    },
-  }
-)
-
-export const descriptionStyles = cva(
-  [
-    'text-caption font-regular',
-    'translate-y-[calc(100%+16px)] opacity-0',
-    'transition-all duration-300 ease-out',
-  ],
-  {
-    variants: {
-      disabled: {
-        false: 'group-hover:translate-y-none group-hover:opacity-[1]',
+        false: 'hover:cursor-pointer hover:shadow-lg',
       },
     },
     defaultVariants: {
@@ -59,8 +40,16 @@ export const Card = ({ children, description, href, isExternalLink = false, ...r
 
   return (
     <a className={cardStyles(rest)} href={href} {...dynamicProps}>
-      {children}
-      {description && <p className={descriptionStyles(rest)}>{description}</p>}
+      <div className="sb-unstyled h-full rounded-md bg-surface p-md text-on-surface">
+        {children}
+
+        {description && (
+          <>
+            <hr className="sb-unstyled my-md border-on-surface" />
+            <p className="text-caption font-regular">{description}</p>
+          </>
+        )}
+      </div>
     </a>
   )
 }
