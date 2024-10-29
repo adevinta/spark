@@ -52,7 +52,6 @@ export const ToC = () => {
 
   return (
     <div
-      data-theme="light"
       className={cx('sb-unstyled', [
         ['flex', 'flex-col', 'shrink-0', 'grow-0'],
         [

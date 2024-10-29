@@ -55,7 +55,6 @@ export const ArgTypes = <T extends FC>({
 
   return (
     <Tabs
-      data-theme="light"
       defaultValue={name}
       orientation={tabsOrientation}
       className="sb-unstyled mt-xl overflow-hidden rounded-md"

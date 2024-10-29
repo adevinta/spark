@@ -4,6 +4,7 @@ import { ShareExpand } from '@spark-ui/icons/dist/icons/ShareExpand'
 
 import '../src/tailwind.css'
 import './sb-theming.css'
+
 import { ToC } from '@docs/helpers/ToC'
 
 const ExampleContainer = ({ children, ...props }) => {
@@ -67,29 +68,39 @@ export const parameters = {
   },
 }
 
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Set the color theme',
-    defaultValue: 'light',
-    toolbar: {
-      // show the theme name once selected in the toolbar
-      dynamicTitle: true,
-      items: [
-        { value: 'light', right: '⚪️', title: 'Light' },
-        { value: 'dark', right: '⚫️', title: 'Dark' },
-      ],
+
+
+const preview = {
+  globalTypes: {
+    theme: {
+      name: 'Theme',
+      description: 'Set the color theme',
+      defaultValue: 'light',
+      toolbar: {
+        // show the theme name once selected in the toolbar
+        dynamicTitle: true,
+        items: [
+          { value: 'light', right: '⚪️', title: 'Light' },
+          { value: 'dark', right: '⚫️', title: 'Dark' },
+        ],
+      },
     },
   },
-}
+  initialGlobals: {
+    theme: 'light',
+  },
+};
+
+export default preview
 
 export const decorators = [
   // custom theme decorator, see https://yannbraga.dev/blog/multi-theme-decorator
   (storyFn, { globals }) => {
+    const themeKey = globals.theme
 
     const htmlElement = document.querySelector("html")
     if (!htmlElement) return
-    htmlElement.setAttribute("data-theme", globals.theme)
+    htmlElement.setAttribute("data-theme", themeKey)
 
     return storyFn()
   },
