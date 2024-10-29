@@ -12,8 +12,37 @@
     font-family: var(--font-family-sans) !important;
   }
 
+  html[data-theme="light"] {
+    --colors-code-block: #f5f5f6;
+  }
+
+  html[data-theme="dark"] {
+    --colors-code-block: #f6f8f9;
+  }
+
+  .sbdocs-wrapper .docblock-source pre {
+    background-color: var(--colors-code-block) !important;
+  }
+
   .sbdocs-wrapper {
+    background: rgb(var(--colors-background)) !important;
+    color: rgb(var(--colors-on-background)) !important;
     padding: 30px 20px !important;
+  }
+
+  .sbdocs-wrapper :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
+    color: rgb(var(--colors-on-background)) !important;
+  }
+
+  .sbdocs-wrapper :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+    color: rgb(var(--colors-on-background)) !important;
+  }
+
+  .sbdocs-wrapper #spark-doc-container > h2,
+  .sbdocs-wrapper #spark-doc-container > h3,
+  .sbdocs-wrapper #spark-doc-container > h4,
+  .sbdocs-wrapper #spark-doc-container > h5 {
+    color: rgb(var(--colors-support)) !important;
   }
 
   .sbdocs-content {
@@ -30,10 +59,6 @@
     }
   }
 
-  #spark-doc-container {
-    width: 100%;
-  }
-
   .docblock-source {
     border: 1px solid #ebebed7f !important;
     box-shadow: none !important;
@@ -46,8 +71,12 @@
     grid-template-columns: 100%;
   }
 
+  #spark-doc-container {
+    width: 100%;
+  }
+
   #spark-doc-container > h1 {
-    color: #EC5A13 !important;
+    color: #ec5a13 !important;
     font-weight: 700 !important;
   }
 
@@ -68,6 +97,21 @@
     font-weight: 600;
     background-color: rgb(var(--colors-alert));
     color: rgb(var(--colors-on-alert));
+  }
+
+  /* === ArgTypes TABLE === */
+  table.docblock-argstable thead th {
+    color: rgb(var(--colors-on-background)) !important;
+  }
+
+  table.docblock-argstable tbody td {
+    background-color: rgb(var(--colors-background)) !important;
+    color: rgb(var(--colors-on-background)) !important;
+    border-inline-start-color: rgb(var(--colors-neutral-container)) !important;
+    border-inline-end-color: rgb(var(--colors-neutral-container)) !important;
+    border-block-start-color: rgb(var(--colors-neutral-container)) !important;
+    border-block-end-color: rgb(var(--colors-neutral-container)) !important;
+    border-top-color: rgb(var(--colors-neutral-container)) !important;
   }
 </style>
 
