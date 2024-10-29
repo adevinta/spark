@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/select",
-  "version": "6.3.6",
+  "version": "6.3.7",
   "description": "Displays a list of options for the user to pick from—triggered by a button.",
   "publishConfig": {
     "access": "public"
@@ -42,9 +42,9 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/form-field": "^6.3.6",
-    "@spark-ui/icon": "^6.3.6",
-    "@spark-ui/icons": "^6.3.6",
-    "@spark-ui/use-combined-state": "^6.3.6"
+    "@spark-ui/form-field": "^6.3.7",
+    "@spark-ui/icon": "^6.3.7",
+    "@spark-ui/icons": "^6.3.7",
+    "@spark-ui/use-combined-state": "^6.3.7"
   }
 }
