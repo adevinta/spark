@@ -1,12 +1,21 @@
+/* eslint-disable complexity */
+import { Slot } from '@spark-ui/slot'
 import { ComponentPropsWithoutRef, CSSProperties, forwardRef } from 'react'
 
+import { useSkeleton } from './SkeletonContext'
 import {
-  type SkeletonItemStyleProps,
-  skeletonItemStyles,
+  skeletonCircleStyles,
   skeletonLineStyles,
+  skeletonRectangleStyles,
 } from './SkeletonItem.styles'
 
-interface SkeletonItemProps extends ComponentPropsWithoutRef<'div'>, SkeletonItemStyleProps {}
+interface SkeletonItemProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   * @default false
+   */
+  asChild?: boolean
+}
 
 export type SkeletonRectangleProps = Omit<SkeletonItemProps, 'shape'> & {
   width?: string | number
@@ -32,63 +41,112 @@ const getSizeValue = (size?: number | string): string | undefined => {
   return size
 }
 
-const SkeletonItem = forwardRef<HTMLDivElement, SkeletonItemProps>(
-  ({ shape, className, ...rest }, forwardedRef) => {
+export const SkeletonRectangle = forwardRef<HTMLDivElement, SkeletonRectangleProps>(
+  ({ asChild = false, width = '100%', height, children, className, ...rest }, forwardedRef) => {
+    const { isLoading: isLoadingCtx } = useSkeleton()
+    const isLoading = !isLoadingCtx && !children ? true : isLoadingCtx
+
+    const Component = !isLoading && asChild ? Slot : 'div'
+
+    if (!isLoadingCtx && !children) {
+      console.error('Children content must be declared when using Skeleton loading state')
+    }
+
     return (
-      <div
+      <Component
         ref={forwardedRef}
-        aria-hidden="true"
-        className={skeletonItemStyles({ shape, className })}
+        {...(isLoading && {
+          'aria-hidden': true,
+          'data-part': 'rectangle',
+        })}
+        style={
+          {
+            '--width': getSizeValue(width),
+            '--height': getSizeValue(height),
+          } as CSSProperties
+        }
+        className={skeletonRectangleStyles({
+          isLoading,
+          className: ['h-[--height] w-[--width]', className],
+        })}
         {...rest}
-      />
+      >
+        {isLoading ? null : children}
+      </Component>
     )
   }
 )
 
-export const SkeletonRectangle = ({ width = '100%', height, ...rest }: SkeletonRectangleProps) => {
-  return (
-    <SkeletonItem
-      style={
-        {
-          '--skeleton-rect-width': getSizeValue(width),
-          '--skeleton-rect-height': getSizeValue(height),
-        } as CSSProperties
-      }
-      className="h-[--skeleton-rect-height] w-[--skeleton-rect-width]"
-      {...rest}
-      shape="rectangle"
-      data-part="rectangle"
-    />
-  )
-}
+export const SkeletonCircle = forwardRef<HTMLDivElement, SkeletonCircleProps>(
+  ({ asChild = false, size, children, className, ...rest }, forwardedRef) => {
+    const { isLoading: isLoadingCtx } = useSkeleton()
+    const isLoading = !isLoadingCtx && !children ? true : isLoadingCtx
 
-export const SkeletonCircle = ({ size, ...rest }: SkeletonCircleProps) => (
-  <SkeletonItem
-    style={{ '--skeleton-circle-size': getSizeValue(size) } as CSSProperties}
-    className="size-[--skeleton-circle-size]"
-    {...rest}
-    shape="circle"
-    data-part="circle"
-  />
+    const Component = !isLoading && asChild ? Slot : 'div'
+
+    if (!isLoadingCtx && !children) {
+      console.error('Children content must be declared when using Skeleton loading state')
+    }
+
+    return (
+      <Component
+        ref={forwardedRef}
+        {...(isLoading && {
+          'aria-hidden': true,
+          'data-part': 'circle',
+        })}
+        style={{ '--size': getSizeValue(size) } as CSSProperties}
+        className={skeletonCircleStyles({
+          isLoading,
+          className: ['size-[--size]', className],
+        })}
+        {...rest}
+      >
+        {isLoading ? null : children}
+      </Component>
+    )
+  }
 )
 
-export const SkeletonLine = ({
-  lines = 1,
-  gap: gapProp,
-  align = 'start',
-  className,
-  ...rest
-}: SkeletonLineProps) => {
-  const gap = gapProp || 'md'
+export const SkeletonLine = forwardRef<HTMLDivElement, SkeletonLineProps>(
+  (
+    { asChild = false, lines = 1, gap: gapProp, align = 'start', children, className, ...rest },
+    forwardedRef
+  ) => {
+    const { isLoading: isLoadingCtx } = useSkeleton()
+    const isLoading = !isLoadingCtx && !children ? true : isLoadingCtx
 
-  return (
-    <div className={skeletonLineStyles({ align, gap, className })} data-part="linegroup">
-      {[...new Array(lines)].map((_, index) => (
-        <SkeletonItem key={`line_${index}`} {...rest} shape="line" data-part="line" />
-      ))}
-    </div>
-  )
-}
+    const Component = !isLoading && asChild ? Slot : 'div'
+    const gap = gapProp || 'md'
+
+    if (!isLoadingCtx && !children) {
+      console.error('Children content must be declared when using Skeleton loading state')
+    }
+
+    return (
+      <Component
+        ref={forwardedRef}
+        {...(isLoading && {
+          'aria-hidden': true,
+          'data-part': 'linegroup',
+        })}
+        className={skeletonLineStyles({ align, gap, className })}
+        {...rest}
+      >
+        {isLoading
+          ? [...new Array(lines)].map((_, index) => (
+              <div
+                key={`line_${index}`}
+                aria-hidden="true"
+                data-part="line"
+                className="flex min-h-lg w-full min-w-lg rounded-lg bg-neutral/dim-4 [&:last-child:not(:first-child)]:w-5/6"
+              />
+            ))
+          : children}
+      </Component>
+    )
+  }
+)
 
 SkeletonRectangle.displayName = 'Skeleton.Rectangle'
 SkeletonCircle.displayName = 'Skeleton.Circle'

@@ -1,4 +1,5 @@
 import { StoryLabel } from '@docs/helpers/StoryLabel'
+import { Button } from '@spark-ui/button'
 import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
@@ -14,7 +15,7 @@ const meta: Meta<typeof Skeleton> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <Skeleton>
+  <Skeleton label="Loading...">
     <Skeleton.Rectangle height={128} />
   </Skeleton>
 )
@@ -22,7 +23,7 @@ export const Default: StoryFn = _args => (
 export const Size: StoryFn = _args => (
   <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
     <div>
-      <Skeleton gap="xl">
+      <Skeleton label="Loading..." gap="xl">
         <Skeleton.Circle size={32} />
         <Skeleton.Circle size={64} />
         <Skeleton.Circle size={128} />
@@ -30,7 +31,7 @@ export const Size: StoryFn = _args => (
     </div>
 
     <div>
-      <Skeleton gap="xl">
+      <Skeleton label="Loading..." gap="xl">
         <Skeleton.Rectangle height={32} />
         <Skeleton.Rectangle height={64} />
         <Skeleton.Rectangle height={128} />
@@ -38,7 +39,7 @@ export const Size: StoryFn = _args => (
     </div>
 
     <div>
-      <Skeleton gap="xl">
+      <Skeleton label="Loading..." gap="xl">
         <Skeleton.Line />
         <Skeleton.Line lines={3} />
         <Skeleton.Line lines={6} />
@@ -54,7 +55,7 @@ export const Gap: StoryFn = _args => {
       {gaps.map(gap => (
         <div key={gap}>
           <StoryLabel>{gap}</StoryLabel>
-          <Skeleton key={`skeleton_${gap}`}>
+          <Skeleton label="Loading..." key={`skeleton_${gap}`}>
             <Skeleton.Line gap={gap} lines={3} />
           </Skeleton>
         </div>
@@ -69,7 +70,7 @@ export const Alignment: StoryFn = _args => (
     {alignments.map(alignment => (
       <div key={alignment}>
         <StoryLabel>{alignment}</StoryLabel>
-        <Skeleton gap="lg">
+        <Skeleton label="Loading..." gap="lg">
           <Skeleton.Line gap="md" align={alignment} lines={3} />
         </Skeleton>
       </div>
@@ -96,7 +97,7 @@ export const Group: StoryFn = _args => {
       <div className="grid grid-cols-2 gap-xl">
         <div>
           <StoryLabel>with direction `row` (default)</StoryLabel>
-          <Skeleton gap="lg">
+          <Skeleton label="Loading..." gap="lg">
             <Skeleton.Group gap="lg" align={alignment}>
               <Skeleton.Rectangle height={128} />
               <Skeleton.Rectangle height={48} />
@@ -107,7 +108,7 @@ export const Group: StoryFn = _args => {
 
         <div>
           <StoryLabel>with direction `column`</StoryLabel>
-          <Skeleton gap="lg">
+          <Skeleton label="Loading..." gap="lg">
             <Skeleton.Group gap="lg" direction="column" align={alignment}>
               <Skeleton.Rectangle height={32} width="90%" />
               <Skeleton.Rectangle height={32} width="75%" />
@@ -119,7 +120,7 @@ export const Group: StoryFn = _args => {
 
       <div className="mt-2xl">
         <StoryLabel>with specific gaps</StoryLabel>
-        <Skeleton gap="xl">
+        <Skeleton label="Loading..." gap="xl">
           <Skeleton.Rectangle height={128} />
 
           <Skeleton.Group gap="xl">
@@ -138,16 +139,48 @@ export const Animation: StoryFn = _args => (
     <div>
       <StoryLabel>with animation (default)</StoryLabel>
 
-      <Skeleton gap="lg">
+      <Skeleton label="Loading..." gap="lg">
         <Skeleton.Rectangle height={128} />
       </Skeleton>
     </div>
 
     <div>
       <StoryLabel>without animation</StoryLabel>
-      <Skeleton isAnimated={false} gap="lg">
+      <Skeleton label="Loading..." isAnimated={false} gap="lg">
         <Skeleton.Rectangle height={128} />
       </Skeleton>
     </div>
   </div>
 )
+
+export const WithChildren: StoryFn = _args => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <div className="w-[800px]">
+      <Button onClick={() => setIsLoading(!isLoading)}>Toggle</Button>
+
+      <Skeleton label="Loading..." gap="xl" className="mt-xl" isLoading={isLoading}>
+        <Skeleton.Rectangle height={150}>
+          <img src="https://placehold.co/800x150" />
+        </Skeleton.Rectangle>
+
+        <Skeleton.Group gap="xl">
+          <Skeleton.Circle size={64} asChild>
+            <figure>
+              <img src="https://placehold.co/64" />
+            </figure>
+          </Skeleton.Circle>
+
+          <Skeleton.Line gap="md" lines={3} asChild>
+            <p className="text-body-1">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quis esse
+              tempore, laudantium quisquam ipsa blanditiis facilis non odio cupiditate alias
+              assumenda quod dolore quidem pariatur rem impedit aliquam perspiciatis!
+            </p>
+          </Skeleton.Line>
+        </Skeleton.Group>
+      </Skeleton>
+    </div>
+  )
+}

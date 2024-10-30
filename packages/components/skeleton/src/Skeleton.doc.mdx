@@ -91,6 +91,14 @@ For advanced `<Skeleton />` layouts you can group items to fit your specific nee
 
 <Canvas of={stories.Group} />
 
+### With Children
+
+In some cases where you want to keep your `<Skeleton />` implementations close to your loading content, wrap it within a `<Skeleton />` item (such as `Rectangle|Circle|Line`). The switch between fallback content and the content itself will be easily handled by `isLoading` prop declared at root level.
+
+Finally, to help you keep a clean markup you'll also have the possibility to take benefit of the `asChild` prop.
+
+<Canvas of={stories.WithChildren} />
+
 ## Accessibility
 
 <A11yReport of="skeleton" />

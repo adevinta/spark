@@ -23,7 +23,6 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/radio-group": "^6.3.8",
     "@spark-ui/internal-utils": "^6.3.8",
     "@spark-ui/visually-hidden": "^6.3.8",
     "class-variance-authority": "0.7.0"

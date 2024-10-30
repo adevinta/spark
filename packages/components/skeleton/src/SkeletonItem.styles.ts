@@ -1,15 +1,29 @@
-import { cva, VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 
-export const skeletonItemStyles = cva(['bg-neutral/dim-4', 'min-h-lg min-w-lg'], {
+export const skeletonCircleStyles = cva(
+  ['inline-flex flex-none', 'rounded-full', 'overflow-hidden'],
+  {
+    variants: {
+      isLoading: {
+        true: ['bg-neutral/dim-4', 'min-h-lg min-w-lg'],
+        false: [],
+      },
+    },
+    defaultVariants: {
+      isLoading: true,
+    },
+  }
+)
+
+export const skeletonRectangleStyles = cva(['flex'], {
   variants: {
-    shape: {
-      line: ['flex', 'w-full [&:last-child:not(:first-child)]:w-5/6', 'rounded-lg'],
-      rectangle: ['flex', 'rounded-sm'],
-      circle: ['inline-flex flex-none', 'rounded-full'],
+    isLoading: {
+      true: ['bg-neutral/dim-4', 'min-h-lg min-w-lg', 'rounded-sm'],
+      false: [],
     },
   },
   defaultVariants: {
-    shape: 'rectangle',
+    isLoading: true,
   },
 })
 
@@ -33,5 +47,3 @@ export const skeletonLineStyles = cva(['flex flex-col', 'w-full'], {
     align: 'start',
   },
 })
-
-export type SkeletonItemStyleProps = ExcludeNull<VariantProps<typeof skeletonItemStyles>>
