@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.9](https://github.com/adevinta/spark/compare/v6.3.8...v6.3.9) (2024-10-30)
+
+### Bug Fixes
+
+- prevent removal of anchors from URLs upon page load ([ea35116](https://github.com/adevinta/spark/commit/ea351163e0c34cd74c352be55d95a24269208dc9))
+
 ## [6.3.8](https://github.com/adevinta/spark/compare/v6.3.7...v6.3.8) (2024-10-29)
 
 ### Features
