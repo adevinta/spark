@@ -76,6 +76,18 @@ describe('Skeleton', () => {
     )
   })
 
+  it('should remove visually hidden label when content is loaded', () => {
+    render(
+      <Skeleton label="Loading..." isLoading={false}>
+        <Skeleton.Rectangle width="100%" height={128}>
+          <img src="https://placehold.co/600/128" alt="Rectangular image" />
+        </Skeleton.Rectangle>
+      </Skeleton>
+    )
+
+    expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
+  })
+
   it('should render with as much lines as specified', () => {
     const { container } = render(
       <Skeleton>

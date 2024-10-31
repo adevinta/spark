@@ -36,13 +36,13 @@ export const Skeleton = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonPro
       <SkeletonContext.Provider value={{ isLoading }}>
         <SkeletonGroup
           ref={forwardedRef}
-          data-spark-component="skeleton"
+          {...(isLoading && { 'data-spark-component': 'skeleton' })}
           className={skeletonStyles({ isAnimated, className })}
           {...rest}
         >
           {children}
 
-          {label && <VisuallyHidden>{label}</VisuallyHidden>}
+          {isLoading && label && <VisuallyHidden>{label}</VisuallyHidden>}
         </SkeletonGroup>
       </SkeletonContext.Provider>
     )

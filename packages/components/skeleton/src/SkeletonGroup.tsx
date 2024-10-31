@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
+import { useSkeleton } from './SkeletonContext'
 import { type SkeletonGroupStyleProps, skeletonGroupStyles } from './SkeletonGroup.styles'
 
 export interface SkeletonGroupProps
@@ -22,16 +23,20 @@ export interface SkeletonGroupProps
 }
 
 export const SkeletonGroup = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonGroupProps>>(
-  ({ gap, direction = 'row', align = 'start', className, children, ...rest }, forwardedRef) => (
-    <div
-      ref={forwardedRef}
-      data-part="group"
-      className={skeletonGroupStyles({ gap, direction, align, className })}
-      {...rest}
-    >
-      {children}
-    </div>
-  )
+  ({ gap, direction = 'row', align = 'start', className, children, ...rest }, forwardedRef) => {
+    const { isLoading } = useSkeleton()
+
+    return (
+      <div
+        ref={forwardedRef}
+        {...(isLoading && { 'data-part': 'group' })}
+        className={skeletonGroupStyles({ gap, direction, align, className })}
+        {...rest}
+      >
+        {children}
+      </div>
+    )
+  }
 )
 
 SkeletonGroup.displayName = 'Skeleton.Group'
