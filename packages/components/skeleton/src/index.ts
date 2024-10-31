@@ -1,10 +1,8 @@
 import { Skeleton as Root } from './Skeleton'
+import { SkeletonCircle as Circle } from './SkeletonCircle'
 import { SkeletonGroup as Group } from './SkeletonGroup'
-import {
-  SkeletonCircle as Circle,
-  SkeletonLine as Line,
-  SkeletonRectangle as Rectangle,
-} from './SkeletonItem'
+import { SkeletonLine as Line } from './SkeletonLine'
+import { SkeletonRectangle as Rectangle } from './SkeletonRectangle'
 
 export const Skeleton: typeof Root & {
   Circle: typeof Circle
