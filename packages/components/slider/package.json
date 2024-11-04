@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-slider": "1.1.2",
+    "@radix-ui/react-slider": "1.2.1",
     "class-variance-authority": "0.7.0"
   },
   "devDependencies": {
