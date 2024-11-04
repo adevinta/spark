@@ -1,5 +1,4 @@
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
-const plugin = require('tailwindcss/plugin')
+import { withOptions } from 'tailwindcss/plugin'
 
 function arrToObj(arr) {
   return arr.reduce((acc, cur) => {
@@ -25,7 +24,7 @@ function removeKeyFromObj(obj, key) {
   return copyObj
 }
 
-module.exports = plugin.withOptions(
+export default withOptions(
   /**
    * @typedef {Object} Options
    * @property {string} variantPrefix The prefix to use for the animation variants.

@@ -94,7 +94,9 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
       onSwipeStart: state.pauseAll,
       onSwipeCancel: state.resumeAll,
       onSwipeEnd: ({ direction }) => {
-        ;['left', 'right'].includes(`${direction}`) && state.close(toast.key)
+        if (['left', 'right'].includes(`${direction}`)) {
+          state.close(toast.key)
+        }
       },
     })
 

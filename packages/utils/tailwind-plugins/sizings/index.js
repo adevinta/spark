@@ -1,5 +1,4 @@
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
-const plugin = require('tailwindcss/plugin')
+import { withOptions } from 'tailwindcss/plugin'
 
 const sizingRange = [
   0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 36, 40, 44, 48, 56, 64, 80, 96, 112, 128, 144,
@@ -33,7 +32,7 @@ function getCSSVariableReferences() {
   return CSSVariableReferences
 }
 
-module.exports = plugin.withOptions(
+export default withOptions(
   /**
    * @typedef {Object} Options
    * @property {number} htmlFontSize The base font size of your app.

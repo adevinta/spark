@@ -15,7 +15,7 @@ export function assignRef<T>(ref: ReactRef<T> | null | undefined, value: T) {
 
   try {
     ;(ref as MutableRefObject<T | null>).current = value
-  } catch (error) {
+  } catch {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`)
   }
 }
