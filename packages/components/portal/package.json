@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/portal",
-  "version": "6.3.9",
+  "version": "6.3.10",
   "description": "Renders a React subtree in a different part of the DOM.",
   "publishConfig": {
     "access": "public"
