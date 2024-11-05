@@ -3,9 +3,9 @@ import { cva, VariantProps } from 'class-variance-authority'
 export const skeletonItemStyles = cva(['bg-neutral/dim-4', 'min-h-lg min-w-lg'], {
   variants: {
     shape: {
-      line: ['flex', 'w-full [&:last-child:not(:first-child)]:w-5/6', 'rounded-lg'],
-      rectangle: ['flex', 'rounded-sm'],
-      circle: ['inline-flex flex-none', 'rounded-full'],
+      line: ['w-full [&:last-child:not(:first-child)]:w-5/6', 'rounded-lg'],
+      rectangle: ['rounded-sm'],
+      circle: ['flex-none', 'rounded-full'],
     },
   },
   defaultVariants: {
@@ -15,11 +15,6 @@ export const skeletonItemStyles = cva(['bg-neutral/dim-4', 'min-h-lg min-w-lg'],
 
 export const skeletonLineStyles = cva(['flex flex-col', 'w-full'], {
   variants: {
-    align: {
-      start: 'items-start',
-      center: 'items-center',
-      end: 'items-end',
-    },
     gap: {
       sm: 'gap-sm',
       md: 'gap-md',
@@ -30,7 +25,7 @@ export const skeletonLineStyles = cva(['flex flex-col', 'w-full'], {
     },
   },
   defaultVariants: {
-    align: 'start',
+    gap: 'md',
   },
 })
 

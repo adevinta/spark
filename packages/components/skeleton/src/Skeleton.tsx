@@ -2,12 +2,8 @@ import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
 
 import { type SkeletonStyleProps, skeletonStyles } from './Skeleton.styles'
-import { SkeletonGroup, type SkeletonGroupProps } from './SkeletonGroup'
 
-export interface SkeletonProps
-  extends ComponentPropsWithoutRef<'div'>,
-    SkeletonStyleProps,
-    SkeletonGroupProps {
+export interface SkeletonProps extends ComponentPropsWithoutRef<'div'>, SkeletonStyleProps {
   /**
    * Displays an animated light effect.
    * @default true
@@ -21,7 +17,7 @@ export interface SkeletonProps
 
 export const Skeleton = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonProps>>(
   ({ isAnimated = true, label, className, children, ...rest }, forwardedRef) => (
-    <SkeletonGroup
+    <div
       ref={forwardedRef}
       data-spark-component="skeleton"
       className={skeletonStyles({ isAnimated, className })}
@@ -30,7 +26,7 @@ export const Skeleton = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonPro
       {children}
 
       {label && <VisuallyHidden>{label}</VisuallyHidden>}
-    </SkeletonGroup>
+    </div>
   )
 )
 
