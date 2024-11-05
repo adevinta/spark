@@ -3,13 +3,13 @@ import React from 'react'
 
 export const A11ySkeleton = () => (
   <section>
-    <Skeleton gap="lg">
+    <Skeleton className="gap-lg">
       <Skeleton.Rectangle height={128} />
 
-      <Skeleton.Group gap="lg">
+      <div className="flex flex-wrap gap-lg">
         <Skeleton.Circle size={64} />
         <Skeleton.Line gap="md" lines={3} />
-      </Skeleton.Group>
+      </div>
     </Skeleton>
   </section>
 )

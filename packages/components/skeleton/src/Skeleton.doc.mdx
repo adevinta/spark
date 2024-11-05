@@ -30,10 +30,6 @@ import { Skeleton } from '@spark-ui/skeleton'
   of={Skeleton}
   description="A container for all Skeleton parts."
   subcomponents={{
-    'Skeleton.Group': {
-      of: Skeleton.Group,
-      description: 'A wrapper to group Skeleton components, for advanced layouts.',
-    },
     'Skeleton.Circle': {
       of: Skeleton.Circle,
       description: 'A specific Skeleton component, for circular content.',
@@ -55,27 +51,20 @@ import { Skeleton } from '@spark-ui/skeleton'
 
 <Canvas of={stories.Default} />
 
-### Size
+### Sizing
 
 For `<Skeleton.Rectangle />` component you can use `width|height` props to define the size.
 
+<Canvas of={stories.RectangleSize} />
+
 For `<Skeleton.Circle />` component you can use `size` prop to define the size.
 
-For `<Skeleton.Line />` component you can use `lines` prop to define the number of lines, which will be equivalent to size in this specific usecase.
+<Canvas of={stories.CircleSize} />
 
-<Canvas of={stories.Size} />
+For `<Skeleton.Line />` component you can use `lines` prop to define the number of lines, which will
+be equivalent to size in this specific usecase. To handle spacing between these lines, use `gap` specific prop.
 
-### Gap
-
-Use `gap` property to set gaps between group items, or lines.
-
-<Canvas of={stories.Gap} />
-
-### Alignment
-
-Use `alignment` property to set alignments for group items, or lines.
-
-<Canvas of={stories.Alignment} />
+<Canvas of={stories.LineSize} />
 
 ### Animation
 
@@ -85,11 +74,11 @@ Use `isAnimated` prop display an animation on your `<Skeleton />` content.
 
 ## Advanced usage
 
-### Group
+### Composing layouts
 
-For advanced `<Skeleton />` layouts you can group items to fit your specific needs. You can then define gaps, direction and alignment properties for this group, using dedicated properties `gap`, `direction` and `alignment`.
+For specific needs you may want to build an entire layout using skeleton items (eg. cards, ...). You may then simply add your own solution (such as a specific markup using flexbox or grid CSS modules) in your implementation.
 
-<Canvas of={stories.Group} />
+<Canvas of={stories.Layout} />
 
 ## Accessibility
 

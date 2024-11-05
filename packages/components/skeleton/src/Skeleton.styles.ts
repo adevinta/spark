@@ -1,6 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const skeletonStyles = cva(['flex flex-row !flex-wrap'], {
+export const skeletonStyles = cva([], {
   variants: {
     isAnimated: {
       true: [
