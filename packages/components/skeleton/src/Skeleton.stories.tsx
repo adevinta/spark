@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Skeleton } from '.'
 
 const meta: Meta<typeof Skeleton> = {
-  title: 'Experimental/Skeleton',
+  title: 'Components/Skeleton',
   component: Skeleton,
 }
 

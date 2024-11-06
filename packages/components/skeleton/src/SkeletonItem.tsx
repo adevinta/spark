@@ -52,7 +52,7 @@ export const SkeletonRectangle = ({ width = '100%', height, ...rest }: SkeletonR
       className="h-[--skeleton-rect-height] w-[--skeleton-rect-width]"
       {...rest}
       shape="rectangle"
-      data-part="rectangle"
+      data-shape="rectangle"
     />
   )
 }
@@ -63,7 +63,7 @@ export const SkeletonCircle = ({ size, ...rest }: SkeletonCircleProps) => (
     className="size-[--skeleton-circle-size]"
     {...rest}
     shape="circle"
-    data-part="circle"
+    data-shape="circle"
   />
 )
 
@@ -76,9 +76,9 @@ export const SkeletonLine = ({
   const gap = gapProp || 'md'
 
   return (
-    <div className={skeletonLineStyles({ gap, className })} data-part="linegroup">
+    <div className={skeletonLineStyles({ gap, className })} aria-hidden="true">
       {[...new Array(lines)].map((_, index) => (
-        <SkeletonItem key={`line_${index}`} {...rest} shape="line" data-part="line" />
+        <SkeletonItem key={`line_${index}`} {...rest} shape="line" data-shape="line" />
       ))}
     </div>
   )

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/skeleton",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A skeleton gives feedback about loading state of some component.",
   "publishConfig": {
     "access": "public"

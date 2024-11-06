@@ -1,12 +1,12 @@
 {
   "@spark-ui/accordion": {
-    "timestamp": "2024-10-09T13:34:21.060Z",
+    "timestamp": "2024-11-06T15:04:41.612Z",
     "url": "http://localhost:3002/a11y/accordion",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/alert-dialog": {
-    "timestamp": "2024-10-09T13:34:23.394Z",
+    "timestamp": "2024-11-06T15:04:43.399Z",
     "url": "http://localhost:3002/a11y/alert-dialog",
     "incomplete": [
       {
@@ -118,13 +118,13 @@
     "violations": []
   },
   "@spark-ui/badge": {
-    "timestamp": "2024-10-09T13:34:25.321Z",
+    "timestamp": "2024-11-06T15:04:44.962Z",
     "url": "http://localhost:3002/a11y/badge",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/breadcrumb": {
-    "timestamp": "2024-10-09T13:34:26.776Z",
+    "timestamp": "2024-11-06T15:04:46.588Z",
     "url": "http://localhost:3002/a11y/breadcrumb",
     "incomplete": [
       {
@@ -183,31 +183,31 @@
     "violations": []
   },
   "@spark-ui/button": {
-    "timestamp": "2024-10-09T13:34:28.453Z",
+    "timestamp": "2024-11-06T15:04:48.291Z",
     "url": "http://localhost:3002/a11y/button",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/checkbox": {
-    "timestamp": "2024-10-09T13:34:30.479Z",
+    "timestamp": "2024-11-06T15:04:49.855Z",
     "url": "http://localhost:3002/a11y/checkbox",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/chip": {
-    "timestamp": "2024-10-09T13:34:32.079Z",
+    "timestamp": "2024-11-06T15:04:51.194Z",
     "url": "http://localhost:3002/a11y/chip",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/collapsible": {
-    "timestamp": "2024-10-09T13:34:33.574Z",
+    "timestamp": "2024-11-06T15:04:52.592Z",
     "url": "http://localhost:3002/a11y/collapsible",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/combobox": {
-    "timestamp": "2024-10-09T13:34:35.332Z",
+    "timestamp": "2024-11-06T15:04:54.160Z",
     "url": "http://localhost:3002/a11y/combobox",
     "incomplete": [
       {
@@ -272,7 +272,7 @@
     "violations": []
   },
   "@spark-ui/dialog": {
-    "timestamp": "2024-10-09T13:34:37.186Z",
+    "timestamp": "2024-11-06T15:04:55.760Z",
     "url": "http://localhost:3002/a11y/dialog",
     "incomplete": [
       {
@@ -405,13 +405,13 @@
     "violations": []
   },
   "@spark-ui/divider": {
-    "timestamp": "2024-10-09T13:34:23.328Z",
+    "timestamp": "2024-11-06T15:04:41.560Z",
     "url": "http://localhost:3002/a11y/divider",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/drawer": {
-    "timestamp": "2024-10-09T13:34:25.420Z",
+    "timestamp": "2024-11-06T15:04:43.238Z",
     "url": "http://localhost:3002/a11y/drawer",
     "incomplete": [
       {
@@ -523,7 +523,7 @@
     "violations": []
   },
   "@spark-ui/dropdown": {
-    "timestamp": "2024-10-09T13:34:27.098Z",
+    "timestamp": "2024-11-06T15:04:44.945Z",
     "url": "http://localhost:3002/a11y/dropdown",
     "incomplete": [
       {
@@ -588,55 +588,55 @@
     "violations": []
   },
   "@spark-ui/form-field": {
-    "timestamp": "2024-10-09T13:34:28.783Z",
+    "timestamp": "2024-11-06T15:04:46.558Z",
     "url": "http://localhost:3002/a11y/form-field",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/icon": {
-    "timestamp": "2024-10-09T13:34:30.710Z",
+    "timestamp": "2024-11-06T15:04:48.231Z",
     "url": "http://localhost:3002/a11y/icon",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/icon-button": {
-    "timestamp": "2024-10-09T13:34:32.285Z",
+    "timestamp": "2024-11-06T15:04:49.794Z",
     "url": "http://localhost:3002/a11y/icon-button",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/input": {
-    "timestamp": "2024-10-09T13:34:33.826Z",
+    "timestamp": "2024-11-06T15:04:51.135Z",
     "url": "http://localhost:3002/a11y/input",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/kbd": {
-    "timestamp": "2024-10-09T13:34:35.367Z",
+    "timestamp": "2024-11-06T15:04:52.443Z",
     "url": "http://localhost:3002/a11y/kbd",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/label": {
-    "timestamp": "2024-10-09T13:34:36.866Z",
+    "timestamp": "2024-11-06T15:04:53.776Z",
     "url": "http://localhost:3002/a11y/label",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/link-box": {
-    "timestamp": "2024-10-09T13:34:38.299Z",
+    "timestamp": "2024-11-06T15:04:55.154Z",
     "url": "http://localhost:3002/a11y/link-box",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/pagination": {
-    "timestamp": "2024-10-09T13:34:27.220Z",
+    "timestamp": "2024-11-06T15:04:43.897Z",
     "url": "http://localhost:3002/a11y/pagination",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/popover": {
-    "timestamp": "2024-10-09T13:34:29.230Z",
+    "timestamp": "2024-11-06T15:04:45.601Z",
     "url": "http://localhost:3002/a11y/popover",
     "incomplete": [
       {
@@ -701,85 +701,91 @@
     "violations": []
   },
   "@spark-ui/progress": {
-    "timestamp": "2024-10-09T13:34:31.158Z",
+    "timestamp": "2024-11-06T15:04:47.237Z",
     "url": "http://localhost:3002/a11y/progress",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/progress-tracker": {
-    "timestamp": "2024-10-09T13:34:32.776Z",
+    "timestamp": "2024-11-06T15:04:48.914Z",
     "url": "http://localhost:3002/a11y/progress-tracker",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/radio-group": {
-    "timestamp": "2024-10-09T13:34:34.396Z",
+    "timestamp": "2024-11-06T15:04:50.450Z",
     "url": "http://localhost:3002/a11y/radio-group",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/rating": {
-    "timestamp": "2024-10-09T13:34:36.112Z",
+    "timestamp": "2024-11-06T15:04:51.841Z",
     "url": "http://localhost:3002/a11y/rating",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/select": {
-    "timestamp": "2024-10-09T13:34:37.656Z",
+    "timestamp": "2024-11-06T15:04:53.278Z",
     "url": "http://localhost:3002/a11y/select",
     "incomplete": [],
     "violations": []
   },
+  "@spark-ui/skeleton": {
+    "timestamp": "2024-11-06T15:04:54.550Z",
+    "url": "http://localhost:3002/a11y/skeleton",
+    "incomplete": [],
+    "violations": []
+  },
   "@spark-ui/slider": {
-    "timestamp": "2024-10-09T13:34:38.916Z",
+    "timestamp": "2024-11-06T15:04:55.979Z",
     "url": "http://localhost:3002/a11y/slider",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/snackbar": {
-    "timestamp": "2024-10-09T13:34:39.882Z",
+    "timestamp": "2024-11-06T15:04:56.990Z",
     "url": "http://localhost:3002/a11y/snackbar",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/spinner": {
-    "timestamp": "2024-10-09T13:34:40.820Z",
+    "timestamp": "2024-11-06T15:04:45.224Z",
     "url": "http://localhost:3002/a11y/spinner",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/stepper": {
-    "timestamp": "2024-10-09T13:34:27.610Z",
+    "timestamp": "2024-11-06T15:04:46.858Z",
     "url": "http://localhost:3002/a11y/stepper",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/switch": {
-    "timestamp": "2024-10-09T13:34:29.561Z",
+    "timestamp": "2024-11-06T15:04:48.465Z",
     "url": "http://localhost:3002/a11y/switch",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/tabs": {
-    "timestamp": "2024-10-09T13:34:31.395Z",
+    "timestamp": "2024-11-06T15:04:50.041Z",
     "url": "http://localhost:3002/a11y/tabs",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/tag": {
-    "timestamp": "2024-10-09T13:34:32.931Z",
+    "timestamp": "2024-11-06T15:04:51.411Z",
     "url": "http://localhost:3002/a11y/tag",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/textarea": {
-    "timestamp": "2024-10-09T13:34:34.484Z",
+    "timestamp": "2024-11-06T15:04:52.713Z",
     "url": "http://localhost:3002/a11y/textarea",
     "incomplete": [],
     "violations": []
   },
   "@spark-ui/text-link": {
-    "timestamp": "2024-10-09T13:34:36.207Z",
+    "timestamp": "2024-11-06T15:04:54.062Z",
     "url": "http://localhost:3002/a11y/text-link",
     "incomplete": [
       {
@@ -838,7 +844,7 @@
     "violations": []
   },
   "@spark-ui/visually-hidden": {
-    "timestamp": "2024-10-09T13:34:37.697Z",
+    "timestamp": "2024-11-06T15:04:55.375Z",
     "url": "http://localhost:3002/a11y/visually-hidden",
     "incomplete": [],
     "violations": []

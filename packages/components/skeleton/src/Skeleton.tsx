@@ -20,6 +20,7 @@ export const Skeleton = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonPro
     <div
       ref={forwardedRef}
       data-spark-component="skeleton"
+      role="presentation"
       className={skeletonStyles({ isAnimated, className })}
       {...rest}
     >

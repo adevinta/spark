@@ -16,9 +16,9 @@ describe('Skeleton', () => {
 
     expect(screen.getByText('Loading...')).toBeInTheDocument()
 
-    expect(container.querySelectorAll('[data-part="rectangle"]')).toHaveLength(1)
-    expect(container.querySelectorAll('[data-part="circle"]')).toHaveLength(1)
-    expect(container.querySelectorAll('[data-part="line"]')).toHaveLength(1)
+    expect(container.querySelectorAll('[data-shape="rectangle"]')).toHaveLength(1)
+    expect(container.querySelectorAll('[data-shape="circle"]')).toHaveLength(1)
+    expect(container.querySelectorAll('[data-shape="line"]')).toHaveLength(1)
   })
 
   it('should render with as much lines as specified', () => {
@@ -28,7 +28,7 @@ describe('Skeleton', () => {
       </Skeleton>
     )
 
-    expect(container.querySelectorAll('[data-part="line"]')).toHaveLength(5)
+    expect(container.querySelectorAll('[data-shape="line"]')).toHaveLength(5)
   })
 
   it('should not be reachable on keyboard navigation', async () => {
