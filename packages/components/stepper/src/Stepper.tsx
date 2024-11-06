@@ -37,7 +37,10 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
       incrementButtonProps: _incrementButtonProps,
       decrementButtonProps: _decrementButtonProps,
     } = useStepper({
-      ...stepperProps,
+      ...{
+        ...stepperProps,
+        onChange: stepperProps.onValueChange,
+      },
       formatOptions,
       minValue,
       maxValue,
@@ -68,12 +71,14 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
       }),
     }
 
+    const { onValueChange: _, ...remainingStepperProps } = stepperProps
+
     return (
       <StepperContext.Provider
         value={{ incrementButtonProps, decrementButtonProps, inputProps, inputRef }}
       >
         <InputGroup
-          {...stepperProps}
+          {...remainingStepperProps}
           {...groupProps}
           data-spark-component="stepper"
           ref={forwardedRef}

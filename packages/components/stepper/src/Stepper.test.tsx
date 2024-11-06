@@ -12,7 +12,7 @@ const defaultProps = {
   'aria-label': 'Stepper',
   incrementAriaLabel: 'Increment',
   decrementAriaLabel: 'Decrement',
-  onChange: vi.fn(),
+  onValueChange: vi.fn(),
 }
 
 describe('Stepper', () => {
@@ -38,7 +38,7 @@ describe('Stepper', () => {
     await user.click(screen.getByLabelText('Decrement'))
     expect(screen.getByRole('textbox')).toHaveValue('0')
 
-    expect(defaultProps.onChange).toHaveBeenCalledTimes(2)
+    expect(defaultProps.onValueChange).toHaveBeenCalledTimes(2)
 
     // ... or via direct input
     await user.type(input, '1')
@@ -89,7 +89,7 @@ describe('Stepper', () => {
     fireEvent.wheel(input, { deltaY: -10 })
     expect(input).toHaveValue('0')
 
-    expect(defaultProps.onChange).toHaveBeenCalledTimes(2)
+    expect(defaultProps.onValueChange).toHaveBeenCalledTimes(2)
   })
 
   it('should set value to 0 if value is undefined and user clicks increment', async () => {
@@ -147,7 +147,7 @@ describe('Stepper', () => {
       await user.type(screen.getByRole('textbox'), '11')
       expect(screen.getByRole('textbox')).not.toHaveFocus()
 
-      expect(defaultProps.onChange).not.toHaveBeenCalled()
+      expect(defaultProps.onValueChange).not.toHaveBeenCalled()
 
       expect(screen.getByLabelText('Increment')).toBeDisabled()
       expect(screen.getByLabelText('Decrement')).toBeDisabled()
@@ -169,7 +169,7 @@ describe('Stepper', () => {
       fireEvent.wheel(input, { deltaY: 10 })
       fireEvent.wheel(input, { deltaY: -10 })
 
-      expect(defaultProps.onChange).not.toHaveBeenCalled()
+      expect(defaultProps.onValueChange).not.toHaveBeenCalled()
     })
   })
 
@@ -193,7 +193,7 @@ describe('Stepper', () => {
       await user.type(input, '11')
       act(() => input.blur())
 
-      expect(defaultProps.onChange).not.toHaveBeenCalled()
+      expect(defaultProps.onValueChange).not.toHaveBeenCalled()
       expect(input).toHaveValue('0')
     })
 
@@ -213,7 +213,7 @@ describe('Stepper', () => {
       fireEvent.wheel(input, { deltaY: 10 })
       fireEvent.wheel(input, { deltaY: -10 })
 
-      expect(defaultProps.onChange).not.toHaveBeenCalled()
+      expect(defaultProps.onValueChange).not.toHaveBeenCalled()
     })
 
     it('should not increment or decrement value using the keyboard arrow up/down keys', async () => {
@@ -255,7 +255,7 @@ describe('Stepper', () => {
     await user.click(screen.getByLabelText('Custom increment'))
 
     expect(screen.getByRole('textbox')).toHaveValue('9')
-    expect(defaultProps.onChange).toHaveBeenCalledTimes(1)
+    expect(defaultProps.onValueChange).toHaveBeenCalledTimes(1)
   })
 
   describe('min and max values', () => {
@@ -275,7 +275,7 @@ describe('Stepper', () => {
       expect(screen.getByLabelText('Increment')).toBeDisabled()
 
       await user.click(screen.getByLabelText('Increment'))
-      expect(defaultProps.onChange).toHaveBeenCalledTimes(1)
+      expect(defaultProps.onValueChange).toHaveBeenCalledTimes(1)
     })
 
     it('should not change the value if min limit has been reached', async () => {
@@ -296,7 +296,7 @@ describe('Stepper', () => {
       expect(screen.getByLabelText('Decrement')).toBeDisabled()
 
       await user.click(screen.getByLabelText('Decrement'))
-      expect(defaultProps.onChange).toHaveBeenCalledTimes(2)
+      expect(defaultProps.onValueChange).toHaveBeenCalledTimes(2)
     })
 
     it('should clamp the value on blur if input is beyond range bounds', async () => {
@@ -350,6 +350,43 @@ describe('Stepper', () => {
       await user.click(screen.getByLabelText('Increment'))
 
       expect(input).toHaveValue('4')
+    })
+
+    it('should only trigger the onValueChange prop when input value is updated and blurred, or when incrementing/decrementing', async () => {
+      // see: https://react-spectrum.adobe.com/react-aria/useNumberField.html#controlled
+      const user = userEvent.setup()
+      const onValueChangeSpy = vi.fn()
+
+      render(
+        <Stepper
+          {...defaultProps}
+          onValueChange={onValueChangeSpy}
+          defaultValue={undefined}
+          minValue={4}
+          maxValue={10}
+        >
+          <Stepper.DecrementButton aria-label="Decrement" />
+          <Stepper.Input />
+          <Stepper.IncrementButton aria-label="Increment" />
+        </Stepper>
+      )
+
+      const input = screen.getByRole('textbox')
+      const incrementBtn = screen.getByRole('button', {
+        name: /Increment/i,
+      })
+
+      await user.type(input, '8')
+
+      expect(onValueChangeSpy).not.toHaveBeenCalled()
+      act(() => input.blur())
+
+      expect(onValueChangeSpy).toHaveBeenCalledTimes(1)
+      expect(onValueChangeSpy).toHaveBeenCalledWith(8)
+      expect(input).toHaveValue('8')
+
+      await user.click(incrementBtn)
+      expect(onValueChangeSpy).toHaveBeenLastCalledWith(9)
     })
   })
 })

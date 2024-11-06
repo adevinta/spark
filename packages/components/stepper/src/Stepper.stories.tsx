@@ -25,7 +25,7 @@ export const Default: StoryFn = _args => (
 )
 
 export const Disabled: StoryFn = _args => (
-  <Stepper aria-label="Disabled stepper" disabled onChange={() => console.log('disabled')}>
+  <Stepper aria-label="Disabled stepper" disabled onValueChange={() => console.log('disabled')}>
     <Stepper.DecrementButton aria-label="Decrement" />
     <Stepper.Input />
     <Stepper.IncrementButton aria-label="Increment" />
