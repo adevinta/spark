@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/kbd",
-  "version": "6.3.11",
+  "version": "6.4.0",
   "description": "render a keyboard shortcut",
   "publishConfig": {
     "access": "public"
