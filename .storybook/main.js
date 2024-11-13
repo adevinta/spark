@@ -1,3 +1,4 @@
+import { dirname, join } from 'path'
 const turbosnap = require('vite-plugin-turbosnap')
 const { mergeConfig } = require('vite')
 
@@ -27,26 +28,34 @@ module.exports = {
     '../packages/**/*.doc.mdx',
     '../packages/**/*.stories.tsx',
   ],
-  addons: ['@storybook/addon-links', {
-    name: '@storybook/addon-docs',
-    options: {
-      mdxPluginOptions: {
-        mdxCompileOptions: {
-          remarkPlugins: [remarkGfm],
+  addons: [
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('storybook-addon-tag-badges'),
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
         },
       },
     },
-  }, {
-    name: '@storybook/addon-essentials',
-    options: {
-      backgrounds: false,
-      actions: false,
-      controls: false,
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        backgrounds: false,
+        actions: false,
+        controls: false,
+      },
     },
-  }, '@storybook/addon-interactions', '@storybook/addon-a11y', '@chromatic-com/storybook'],
+    getAbsolutePath('@storybook/addon-interactions'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@chromatic-com/storybook'),
+  ],
   staticDirs: ['../public'],
   framework: {
-    name: '@storybook/react-vite',
+    name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
   typescript: {
@@ -64,6 +73,10 @@ module.exports = {
     },
   },
   docs: {
-    docsMode: true
+    docsMode: true,
   },
+}
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')))
 }

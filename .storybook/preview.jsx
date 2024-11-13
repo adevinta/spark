@@ -68,8 +68,6 @@ export const parameters = {
   },
 }
 
-
-
 const preview = {
   globalTypes: {
     theme: {
@@ -89,7 +87,7 @@ const preview = {
   initialGlobals: {
     theme: 'light',
   },
-};
+}
 
 export default preview
 
@@ -98,9 +96,9 @@ export const decorators = [
   (storyFn, { globals }) => {
     const themeKey = globals.theme
 
-    const htmlElement = document.querySelector("html")
+    const htmlElement = document.querySelector('html')
     if (!htmlElement) return
-    htmlElement.setAttribute("data-theme", themeKey)
+    htmlElement.setAttribute('data-theme', themeKey)
 
     return storyFn()
   },
@@ -129,4 +127,4 @@ export const decorators = [
     )
   },
 ]
-export const tags = ['autodocs'];
+export const tags = []
