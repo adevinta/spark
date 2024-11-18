@@ -73,6 +73,11 @@ export type UseStepperReturn = Pick<
   'groupProps' | 'inputProps' | 'incrementButtonProps' | 'decrementButtonProps'
 >
 
-export type StepperProps = Omit<UseStepperArgs, 'inputRef' | 'aria-label'> & InputGroupProps
+export type StepperProps = Omit<
+  Omit<UseStepperArgs, 'inputRef' | 'aria-label'> & InputGroupProps,
+  'onChange'
+> & {
+  onValueChange?: (e: number) => void
+}
 
 export type StepperInputProps = InputProps
