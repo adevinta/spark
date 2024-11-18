@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.4.1](https://github.com/adevinta/spark/compare/v6.4.0...v6.4.1) (2024-11-18)
+
+**Note:** Version bump only for package @spark-ui/radio-group
+
 # [6.4.0](https://github.com/adevinta/spark/compare/v6.3.11...v6.4.0) (2024-11-08)
 
 **Note:** Version bump only for package @spark-ui/radio-group
