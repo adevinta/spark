@@ -4,6 +4,7 @@ import { Icon } from '@spark-ui/icon'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { ArrowHorizontalUp } from '@spark-ui/icons/dist/icons/ArrowHorizontalUp'
 import { Meta, StoryFn } from '@storybook/react'
+import { useState } from 'react'
 
 import { Stepper, StepperProps } from '.'
 
@@ -16,13 +17,37 @@ export default meta
 
 const states: StepperProps['state'][] = ['error', 'alert', 'success']
 
-export const Default: StoryFn = _args => (
-  <Stepper aria-label="Default stepper">
-    <Stepper.DecrementButton aria-label="Decrement" />
-    <Stepper.Input />
-    <Stepper.IncrementButton aria-label="Increment" />
-  </Stepper>
-)
+export const Default: StoryFn = _args => {
+  return (
+    <Stepper aria-label="Default stepper">
+      <Stepper.DecrementButton aria-label="Decrement" />
+      <Stepper.Input />
+      <Stepper.IncrementButton aria-label="Increment" />
+    </Stepper>
+  )
+}
+
+export const Uncontrolled: StoryFn = () => {
+  return (
+    <Stepper defaultValue={0} onValueChange={console.log} aria-label="Default stepper">
+      <Stepper.DecrementButton aria-label="Decrement" />
+      <Stepper.Input />
+      <Stepper.IncrementButton aria-label="Increment" />
+    </Stepper>
+  )
+}
+
+export const Controlled: StoryFn = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <Stepper value={count} onValueChange={setCount} aria-label="Default stepper">
+      <Stepper.DecrementButton aria-label="Decrement" />
+      <Stepper.Input />
+      <Stepper.IncrementButton aria-label="Increment" />
+    </Stepper>
+  )
+}
 
 export const Disabled: StoryFn = _args => (
   <Stepper aria-label="Disabled stepper" disabled onValueChange={() => console.log('disabled')}>

@@ -66,6 +66,18 @@ import { Stepper } from '@spark-ui/stepper'
 
 <Canvas of={stories.Default} />
 
+### Uncontrolled
+
+Use `defaultValue` prop to set the default value of the stepper. Optionally `onValueChange` prop can be used to know when the value of the stepper changes.
+
+<Canvas of={stories.Uncontrolled} />
+
+### Controlled
+
+Use `value` and `onValueChange` props to control the value of the input.
+
+<Canvas of={stories.Controlled} />
+
 ### Disabled
 
 Use `disabled` prop to indicate that the stepper is disabled and not interactive.
