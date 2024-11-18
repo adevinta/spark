@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/adevinta/spark/compare/v6.4.1...v7.0.0) (2024-11-18)
+
+### Features
+
+- **stepper:** align onChange API with React Aria by only calling onChange with numbers ([f3459fb](https://github.com/adevinta/spark/commit/f3459fbdd6587a1f4bcd5f03acc716b5e0d51926))
+
+### BREAKING CHANGES
+
+- **stepper:** rename onChange prop to onValueChange
+
 ## [6.4.1](https://github.com/adevinta/spark/compare/v6.4.0...v6.4.1) (2024-11-18)
 
 **Note:** Version bump only for package spark
