@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/primitive": "1.0.1",
+    "@radix-ui/primitive": "1.1.0",
     "@spark-ui/dialog": "^7.0.0",
     "@spark-ui/use-merge-refs": "^7.0.0",
     "class-variance-authority": "0.7.0"
