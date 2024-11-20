@@ -8,7 +8,7 @@ import { a11yRoutes } from './a11y/routes'
 import { ComboboxWithinDialog } from './combobox-within-dialog'
 import { DropdownWithAdjacentButtons } from './dropdown-with-adjacent-buttons'
 import { DropdownWithinDialog } from './dropdown-within-dialog'
-import { SparkForm } from './form'
+import { DialogForm, DrawerForm } from './form'
 
 const router = createBrowserRouter([
   ...a11yRoutes,
@@ -25,8 +25,12 @@ const router = createBrowserRouter([
     element: <DropdownWithAdjacentButtons />,
   },
   {
-    path: 'spark-form-with-various-fields',
-    element: <SparkForm />,
+    path: 'spark-form-within-dialog',
+    element: <DialogForm />,
+  },
+  {
+    path: 'spark-form-within-drawer',
+    element: <DrawerForm />,
   },
 ])
 
