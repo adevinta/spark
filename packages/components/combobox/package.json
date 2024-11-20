@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/combobox",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "An input that behaves similarly to a select, with the addition of a free text input to filter options.",
   "publishConfig": {
     "access": "public"
@@ -28,17 +28,17 @@
     "tailwindcss": "^3.0.0"
   },
   "devDependencies": {
-    "@spark-ui/dialog": "^7.0.0"
+    "@spark-ui/dialog": "^7.1.0"
   },
   "dependencies": {
-    "@spark-ui/form-field": "^7.0.0",
-    "@spark-ui/icon": "^7.0.0",
-    "@spark-ui/icon-button": "^7.0.0",
-    "@spark-ui/icons": "^7.0.0",
-    "@spark-ui/popover": "^7.0.0",
-    "@spark-ui/spinner": "^7.0.0",
-    "@spark-ui/use-merge-refs": "^7.0.0",
-    "@spark-ui/visually-hidden": "^7.0.0",
+    "@spark-ui/form-field": "^7.1.0",
+    "@spark-ui/icon": "^7.1.0",
+    "@spark-ui/icon-button": "^7.1.0",
+    "@spark-ui/icons": "^7.1.0",
+    "@spark-ui/popover": "^7.1.0",
+    "@spark-ui/spinner": "^7.1.0",
+    "@spark-ui/use-merge-refs": "^7.1.0",
+    "@spark-ui/visually-hidden": "^7.1.0",
     "class-variance-authority": "0.7.0",
     "downshift": "9.0.7"
   },

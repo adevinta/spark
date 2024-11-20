@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/adevinta/spark/compare/v7.0.0...v7.1.0) (2024-11-20)
+
+### Features
+
+- **pagination:** improve handling of disabled links ([502a180](https://github.com/adevinta/spark/commit/502a180709114bb6aa35cf8f4c1476570e6584c5))
+
 # [7.0.0](https://github.com/adevinta/spark/compare/v6.4.1...v7.0.0) (2024-11-18)
 
 ### Features
