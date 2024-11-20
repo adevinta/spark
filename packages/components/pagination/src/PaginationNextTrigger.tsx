@@ -19,10 +19,14 @@ export type NextTriggerProps = Omit<AnchorProps | ButtonProps, 'aria-label'> & {
 
 export const NextTrigger = forwardRef<HTMLButtonElement, NextTriggerProps>(
   ({ children, className, href, ...props }, ref) => {
-    const { pagination } = usePagination()
+    const { pagination, type } = usePagination()
 
     // ZagJS props
     const apiProps = pagination.getNextTriggerProps()
+
+    const shouldDisableLink =
+      type === 'link' &&
+      (apiProps as typeof apiProps & { 'data-disabled'?: string })['data-disabled'] === ''
 
     // Locally managed props
     const localProps = {
@@ -31,6 +35,11 @@ export const NextTrigger = forwardRef<HTMLButtonElement, NextTriggerProps>(
       design: 'ghost',
       ...props,
       className,
+      ...(shouldDisableLink && {
+        disabled: true,
+        role: 'link',
+        'aria-disabled': true,
+      }),
     }
 
     // We know 'aria-label' is included in props
@@ -51,7 +60,7 @@ export const NextTrigger = forwardRef<HTMLButtonElement, NextTriggerProps>(
       <li>
         {href ? (
           <IconButton ref={ref} {...mergedProps} asChild>
-            <a href={href}>{content}</a>
+            <a href={shouldDisableLink ? undefined : href}>{content}</a>
           </IconButton>
         ) : (
           <IconButton ref={ref} {...mergedProps}>
