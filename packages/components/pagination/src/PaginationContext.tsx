@@ -5,6 +5,7 @@ import { createContext, type ReactNode, useContext, useId } from 'react'
 import { sliceArrayWithIndex } from './utils'
 
 export interface PaginationContextState<T extends PropTypes = PropTypes> {
+  type: pagination.Context['type']
   pagination: pagination.Api<T> & {
     getFirstPageTriggerProps: () => ReturnType<pagination.Api<T>['getPrevTriggerProps']> & {
       'data-part': string
@@ -85,6 +86,7 @@ export const PaginationProvider = ({
   return (
     <PaginationContext.Provider
       value={{
+        type,
         pagination: {
           ...api,
           pages,

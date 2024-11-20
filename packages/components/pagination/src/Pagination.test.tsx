@@ -171,6 +171,85 @@ describe('Pagination', () => {
     expect(screen.getByRole('link', { name: 'Next page' })).toHaveAttribute('data-disabled')
   })
 
+  it('should properly handle disabled links', async () => {
+    const user = userEvent.setup()
+
+    // Given a pagination with 10 pages of 10 item items each, and a length of 7
+    render(
+      <Pagination
+        type="link"
+        aria-label="Pagination"
+        count={100}
+        pageSize={10}
+        visiblePageItems={7}
+      >
+        <Pagination.FirstPageTrigger aria-label="First page" href="#first" />
+        <Pagination.PrevTrigger aria-label="Previous page" href="#prev" />
+        <Pagination.Pages>
+          {({ pages, totalPages }) =>
+            pages.map((page, index) =>
+              page.type === 'page' ? (
+                <Pagination.Item
+                  key={index}
+                  value={page.value}
+                  href={`#p-${page.value}`}
+                  aria-label={
+                    page.value === totalPages
+                      ? `Last page, page ${page.value}`
+                      : `Page ${page.value}`
+                  }
+                >
+                  {page.value}
+                </Pagination.Item>
+              ) : (
+                <Pagination.Ellipsis key={index} index={index} />
+              )
+            )
+          }
+        </Pagination.Pages>
+        <Pagination.NextTrigger aria-label="Next page" href="#next" />
+        <Pagination.LastPageTrigger aria-label="Last page" href="#last" />
+      </Pagination>
+    )
+
+    const prevPageLink = screen.getByRole('link', { name: 'Previous page' })
+    const firstPageLink = screen.getByRole('link', { name: 'First page' })
+
+    const nextPageLink = screen.getByRole('link', { name: 'Next page' })
+    const lastPageLink = screen.getByRole('link', { name: 'Last page' })
+
+    ;[prevPageLink, firstPageLink].forEach(link => {
+      expect(link).toHaveAttribute('data-disabled')
+      expect(link).toHaveAttribute('role', 'link')
+      expect(link).toHaveAttribute('aria-disabled', 'true')
+      expect(link).toHaveAttribute('disabled')
+      expect(link).not.toHaveAttribute('href')
+    })
+    ;[nextPageLink, lastPageLink].forEach(link => {
+      expect(link).not.toHaveAttribute('data-disabled')
+      expect(link).not.toHaveAttribute('role', 'link')
+      expect(link).not.toHaveAttribute('aria-disabled', 'true')
+      expect(link).not.toHaveAttribute('disabled')
+      expect(link).toHaveAttribute('href')
+    })
+
+    await user.click(lastPageLink)
+    ;[prevPageLink, firstPageLink].forEach(link => {
+      expect(link).not.toHaveAttribute('data-disabled')
+      expect(link).not.toHaveAttribute('role', 'link')
+      expect(link).not.toHaveAttribute('aria-disabled', 'true')
+      expect(link).not.toHaveAttribute('disabled')
+      expect(link).toHaveAttribute('href')
+    })
+    ;[nextPageLink, lastPageLink].forEach(link => {
+      expect(link).toHaveAttribute('data-disabled')
+      expect(link).toHaveAttribute('role', 'link')
+      expect(link).toHaveAttribute('aria-disabled', 'true')
+      expect(link).toHaveAttribute('disabled')
+      expect(link).not.toHaveAttribute('href')
+    })
+  })
+
   it('Should render pagination (single page)', async () => {
     // Given a pagination with a single page
     render(
