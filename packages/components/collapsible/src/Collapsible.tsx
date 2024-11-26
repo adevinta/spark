@@ -1,3 +1,4 @@
+import { useEvent } from '@spark-ui/internal-utils'
 import { Slot } from '@spark-ui/slot'
 import * as collapsible from '@zag-js/collapsible'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
@@ -56,9 +57,12 @@ export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
 
     const context: collapsible.Context = {
       ...initialContext,
-      onOpenChange(details) {
-        onOpenChange?.(details.open)
-      },
+      onOpenChange: useEvent(
+        (details: collapsible.OpenChangeDetails) => {
+          onOpenChange?.(details.open)
+        },
+        { sync: true }
+      ),
       open,
       disabled,
     }

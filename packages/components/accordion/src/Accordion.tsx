@@ -1,3 +1,4 @@
+import { useEvent } from '@spark-ui/internal-utils'
 import { Slot } from '@spark-ui/slot'
 import * as accordion from '@zag-js/accordion'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
@@ -85,7 +86,14 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         },
       }),
       // Dynamic state
-      { context: machineProps }
+      {
+        context: {
+          ...machineProps,
+          onValueChange: useEvent((details: accordion.ValueChangeDetails) => {
+            onValueChange?.(details.value)
+          }),
+        },
+      }
     )
 
     const Component = asChild ? Slot : 'div'

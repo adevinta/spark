@@ -1,3 +1,4 @@
+import { useEvent } from '@spark-ui/internal-utils'
 import * as pagination from '@zag-js/pagination'
 import { normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
 import { createContext, type ReactNode, useContext, useId } from 'react'
@@ -75,7 +76,15 @@ export const PaginationProvider = ({
       type,
     }),
     // Dynamic state
-    { context: { page, count, siblingCount, pageSize } }
+    {
+      context: {
+        page,
+        count,
+        siblingCount,
+        pageSize,
+        onPageChange: useEvent(onPageChange, { sync: true }),
+      },
+    }
   )
 
   const api = pagination.connect(state, send, normalizeProps)
