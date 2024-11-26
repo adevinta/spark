@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.1](https://github.com/adevinta/spark/compare/v7.1.0...v7.1.1) (2024-11-26)
+
+### Features
+
+- use spark form within drawer+dialog ([a6d8968](https://github.com/adevinta/spark/commit/a6d8968eef49682fa677a5822b4679f3792a7b7f))
+
 # [7.1.0](https://github.com/adevinta/spark/compare/v7.0.0...v7.1.0) (2024-11-20)
 
 ### Features
