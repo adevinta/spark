@@ -50,6 +50,6 @@
     "@spark-ui/icons": "^7.2.1",
     "@spark-ui/internal-utils": "^7.2.1",
     "@zag-js/pagination": "0.73.1",
-    "@zag-js/react": "0.73.1"
+    "@zag-js/react": "0.77.1"
   }
 }
