@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.1](https://github.com/adevinta/spark/compare/v7.2.0...v7.2.1) (2024-11-26)
+
+### Bug Fixes
+
+- use useEvent to all callbacks to ensure they are memoized correctly ([89a9c10](https://github.com/adevinta/spark/commit/89a9c1051c2753dc0999ee9c85b967ee5db49091))
+
 # [7.2.0](https://github.com/adevinta/spark/compare/v7.1.1...v7.2.0) (2024-11-26)
 
 **Note:** Version bump only for package @spark-ui/collapsible
