@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/adevinta/spark/compare/v7.1.1...v7.2.0) (2024-11-26)
+
+### Features
+
+- **internal-utils:** add "useEvent" internal util ([9b495a1](https://github.com/adevinta/spark/commit/9b495a1f25f3d98e5cc0f74bc4a03943670350f8))
+
 ## [7.1.1](https://github.com/adevinta/spark/compare/v7.1.0...v7.1.1) (2024-11-26)
 
 ### Features
