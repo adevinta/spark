@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/divider",
-  "version": "7.2.3",
+  "version": "7.2.4",
   "description": "A separator between two elements, usually consisting of a horizontal line.",
   "publishConfig": {
     "access": "public"
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@radix-ui/react-separator": "1.1.0",
-    "@spark-ui/internal-utils": "^7.2.3"
+    "@spark-ui/internal-utils": "^7.2.4"
   },
   "peerDependencies": {
     "react": "^18.0 || ^19.0",
