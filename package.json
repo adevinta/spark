@@ -45,7 +45,7 @@
   "devDependencies": {
     "@adevinta/tailwind-config-viewer": "3.0.0",
     "@axe-core/playwright": "^4.9.1",
-    "@babel/core": "7.24.7",
+    "@babel/core": "7.26.0",
     "@chromatic-com/storybook": "^1.9.0",
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
