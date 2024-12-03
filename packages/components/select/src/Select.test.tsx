@@ -32,7 +32,7 @@ describe('Select', () => {
           <Select.LeadingIcon>
             <BookmarkFill />
           </Select.LeadingIcon>
-          <Select.Value placeholder="Pick a book" />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Items>
@@ -56,7 +56,7 @@ describe('Select', () => {
       render(
         <Select>
           <Select.Trigger aria-label="Book">
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>
@@ -89,7 +89,7 @@ describe('Select', () => {
       render(
         <Select>
           <Select.Trigger aria-label="Book">
-            <Select.Value placeholder="Pick a book">You have selected a book</Select.Value>
+            <Select.Value>You have selected a book</Select.Value>
           </Select.Trigger>
 
           <Select.Items>
@@ -132,7 +132,7 @@ describe('Select', () => {
 
             <Select value={value} onValueChange={setValue}>
               <Select.Trigger aria-label="Book">
-                <Select.Value placeholder="Pick a book" />
+                <Select.Value />
               </Select.Trigger>
 
               <Select.Items>
@@ -165,7 +165,7 @@ describe('Select', () => {
           <FormField.Label>Book</FormField.Label>
           <Select>
             <Select.Trigger>
-              <Select.Value placeholder="Pick a book" />
+              <Select.Value />
             </Select.Trigger>
 
             <Select.Items>
@@ -194,7 +194,7 @@ describe('Select', () => {
           <FormField.Label>Book</FormField.Label>
           <Select>
             <Select.Trigger>
-              <Select.Value placeholder="Pick a book" />
+              <Select.Value />
             </Select.Trigger>
 
             <Select.Items>
@@ -219,7 +219,7 @@ describe('Select', () => {
       render(
         <Select>
           <Select.Trigger aria-label="Book">
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>
@@ -251,7 +251,7 @@ describe('Select', () => {
       render(
         <Select defaultValue="book-2">
           <Select.Trigger aria-label="Book">
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>
@@ -277,7 +277,7 @@ describe('Select', () => {
         return (
           <Select value={value} onValueChange={setValue}>
             <Select.Trigger aria-label="Book">
-              <Select.Value placeholder="Pick a book" />
+              <Select.Value />
             </Select.Trigger>
 
             <Select.Items>
@@ -321,7 +321,7 @@ describe('Select', () => {
           }}
         >
           <Select.Trigger aria-label="Book">
-            <Select.Value placeholder="Pick a book" />
+            <Select.Value />
           </Select.Trigger>
 
           <Select.Items>

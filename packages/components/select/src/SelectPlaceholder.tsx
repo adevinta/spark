@@ -1,14 +1,12 @@
 import { forwardRef, type Ref, useEffect } from 'react'
 
 import { useSelectContext } from './SelectContext'
+import { type ItemProps } from './SelectItem'
 
-export interface PlaceholderProps {
-  disabled?: boolean
-  children: string
-}
+export type PlaceholderProps = Omit<ItemProps, 'value'>
 
 export const Placeholder = forwardRef(
-  ({ disabled = false, children }: PlaceholderProps, forwardedRef: Ref<HTMLOptionElement>) => {
+  ({ children, ...props }: PlaceholderProps, forwardedRef: Ref<HTMLOptionElement>) => {
     const { setPlaceholder } = useSelectContext()
 
     useEffect(() => {
@@ -21,7 +19,7 @@ export const Placeholder = forwardRef(
         ref={forwardedRef}
         key="placeholder"
         value=""
-        disabled={disabled}
+        {...props}
       >
         {children}
       </option>
