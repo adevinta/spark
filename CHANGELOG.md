@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.8](https://github.com/adevinta/spark/compare/v7.2.7...v7.2.8) (2024-12-09)
+
+### Bug Fixes
+
+- **snackbar:** last dependabot update broke tests ([7155502](https://github.com/adevinta/spark/commit/71555027499bb2cf4b3c4ac1e6b5b33c27e654a2))
+
 ## [7.2.7](https://github.com/adevinta/spark/compare/v7.2.6...v7.2.7) (2024-12-09)
 
 **Note:** Version bump only for package spark

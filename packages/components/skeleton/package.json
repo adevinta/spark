@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/skeleton",
-  "version": "7.2.7",
+  "version": "7.2.8",
   "description": "A skeleton gives feedback about loading state of some component.",
   "publishConfig": {
     "access": "public"
@@ -23,8 +23,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "^7.2.7",
-    "@spark-ui/visually-hidden": "^7.2.7",
+    "@spark-ui/internal-utils": "^7.2.8",
+    "@spark-ui/visually-hidden": "^7.2.8",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {

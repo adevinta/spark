@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/slot",
-  "version": "7.2.7",
+  "version": "7.2.8",
   "description": "Merges its props onto its immediate child",
   "publishConfig": {
     "access": "public"
