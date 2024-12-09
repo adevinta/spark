@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@radix-ui/react-label": "2.1.0",
-    "@radix-ui/react-radio-group": "1.2.0",
+    "@radix-ui/react-radio-group": "1.2.1",
     "@spark-ui/form-field": "^7.2.5",
     "@spark-ui/internal-utils": "^7.2.5",
     "class-variance-authority": "0.7.0"
