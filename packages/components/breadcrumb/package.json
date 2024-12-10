@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/breadcrumb",
-  "version": "7.2.9",
+  "version": "7.2.10",
   "description": "navigation pattern that helps users understand the hierarchy of a website",
   "publishConfig": {
     "access": "public"
@@ -30,10 +30,10 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "@spark-ui/icon": "^7.2.9",
-    "@spark-ui/icons": "^7.2.9",
-    "@spark-ui/slot": "^7.2.9",
-    "@spark-ui/text-link": "^7.2.9",
+    "@spark-ui/icon": "^7.2.10",
+    "@spark-ui/icons": "^7.2.10",
+    "@spark-ui/slot": "^7.2.10",
+    "@spark-ui/text-link": "^7.2.10",
     "class-variance-authority": "0.7.0"
   },
   "repository": {
