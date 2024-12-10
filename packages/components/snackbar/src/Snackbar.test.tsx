@@ -46,7 +46,7 @@ describe('Snackbar', () => {
      * onanimationend is not supported by `user-event` library,
      * and has to be triggered programmatically with `fireEvent`.
      */
-    fireEvent.animationEnd(screen.getByRole('alert', { hidden: true }))
+    fireEvent.animationEnd(screen.getByRole('alertdialog', { hidden: true }))
   }
 
   it('should render a snackbar item when adding one to the queue', async () => {
