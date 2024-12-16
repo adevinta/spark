@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/accordion",
-  "version": "7.2.10",
+  "version": "7.2.11",
   "description": "An accordion is a vertically stacked set of interactive headings containing a title, content snippet, or thumbnail representing a section of content.",
   "publishConfig": {
     "access": "public"
@@ -45,11 +45,11 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/collapsible": "^7.2.10",
-    "@spark-ui/icon": "^7.2.10",
-    "@spark-ui/icons": "^7.2.10",
-    "@spark-ui/internal-utils": "^7.2.10",
-    "@spark-ui/slot": "^7.2.10",
+    "@spark-ui/collapsible": "^7.2.11",
+    "@spark-ui/icon": "^7.2.11",
+    "@spark-ui/icons": "^7.2.11",
+    "@spark-ui/internal-utils": "^7.2.11",
+    "@spark-ui/slot": "^7.2.11",
     "@zag-js/accordion": "0.78.2",
     "@zag-js/react": "0.78.2"
   }

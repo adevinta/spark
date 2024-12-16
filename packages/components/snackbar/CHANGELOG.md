@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.11](https://github.com/adevinta/spark/compare/v7.2.10...v7.2.11) (2024-12-16)
+
+**Note:** Version bump only for package @spark-ui/snackbar
+
 ## [7.2.10](https://github.com/adevinta/spark/compare/v7.2.9...v7.2.10) (2024-12-10)
 
 **Note:** Version bump only for package @spark-ui/snackbar
