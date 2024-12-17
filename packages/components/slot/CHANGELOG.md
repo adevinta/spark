@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/adevinta/spark/compare/v7.2.12...v7.3.0) (2024-12-17)
+
+**Note:** Version bump only for package @spark-ui/slot
+
 ## [7.2.12](https://github.com/adevinta/spark/compare/v7.2.11...v7.2.12) (2024-12-16)
 
 **Note:** Version bump only for package @spark-ui/slot
