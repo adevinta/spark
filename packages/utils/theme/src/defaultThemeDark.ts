@@ -56,13 +56,13 @@ export const defaultThemeDark: Theme = createTheme({
     onSupportVariant: '#152233',
     supportVariantHovered: '#C2E0FA',
     // Success
-    success: '#95C196',
-    onSuccess: '#101E10',
-    successHovered: '#71AD73',
+    success: '#8ECDAE',
+    onSuccess: '#0C291B',
+    successHovered: '#64BC90',
     // Success container
-    successContainer: '#2F5B30',
-    onSuccessContainer: '#EDF5EE',
-    successContainerHovered: '#1F3D20',
+    successContainer: '#1D6340',
+    onSuccessContainer: '#F5FBF8',
+    successContainerHovered: '#14422B',
     // Alert
     alert: '#FFCC66',
     onAlert: '#332200',
@@ -88,9 +88,9 @@ export const defaultThemeDark: Theme = createTheme({
     onInfoContainer: '#F4F9FE',
     infoContainerHovered: '#094171',
     // Neutral
-    neutral: '#ACB8C7',
+    neutral: '#D0D7DF',
     onNeutral: '#202730',
-    neutralHovered: '#6C819D',
+    neutralHovered: '#ACB8C7',
     // Neutral container
     neutralContainer: '#3A4757',
     onNeutralContainer: '#F6F8F9',
@@ -110,7 +110,7 @@ export const defaultThemeDark: Theme = createTheme({
     onSurfaceInverse: '#2B3441',
     surfaceInverseHovered: '#F0F2F5',
     // Outline
-    outline: '#4F6076',
+    outline: '#6C819D',
     outlineHigh: '#F0F2F5',
     // Overlay
     overlay: '#2B3441B8', // use with dim-1 opacity
