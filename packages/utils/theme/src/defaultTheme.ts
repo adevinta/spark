@@ -68,41 +68,41 @@ export const defaultTheme: Theme = {
     onSupportVariant: '#FFFFFF',
     supportVariantHovered: '#0F69B9',
     // Success
-    success: '#3E7A40',
+    success: '#1D6340',
     onSuccess: '#FFFFFF',
-    successHovered: '#4E9850',
+    successHovered: '#278456',
     // Success container
-    successContainer: '#DCEADC',
-    onSuccessContainer: '#2F5B30',
-    successContainerHovered: '#EDF5EE',
+    successContainer: '#E0F2E9',
+    onSuccessContainer: '#1D6340',
+    successContainerHovered: '#F5FBF8',
     // Alert
     alert: '#FFAA00',
     onAlert: '#202730',
     alertHovered: '#FFBB33',
     // Alert container
     alertContainer: '#FFEECC',
-    onAlertContainer: '#996600',
+    onAlertContainer: '#664400',
     alertContainerHovered: '#FFF6E5',
     // Error
-    error: '#D93426',
+    error: '#AD291F',
     onError: '#FFFFFF',
-    errorHovered: '#E05D52',
+    errorHovered: '#D93426',
     // Error container
     errorContainer: '#F7D7D4',
     onErrorContainer: '#822017',
     errorContainerHovered: '#FBECEB',
     // Info
-    info: '#1388EC',
+    info: '#0C5291',
     onInfo: '#FFFFFF',
-    infoHovered: '#69B2F3',
+    infoHovered: '#0F69B9',
     // Info container
     infoContainer: '#C2E0FA',
     onInfoContainer: '#0C5291',
     infoContainerHovered: '#E6F2FD',
     // Neutral
-    neutral: '#4F6076',
+    neutral: '#3A4757',
     onNeutral: '#FFFFFF',
-    neutralHovered: '#6C819D',
+    neutralHovered: '#4F6076',
     // Neutral container
     neutralContainer: '#F0F2F5',
     onNeutralContainer: '#3A4757',
