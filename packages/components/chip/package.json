@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/chip",
-  "version": "7.3.1",
+  "version": "7.3.2",
   "description": "To help people enter information, make selections, filter content, or trigger actions.",
   "publishConfig": {
     "access": "public"
@@ -44,10 +44,10 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/icon": "^7.3.1",
-    "@spark-ui/icons": "^7.3.1",
-    "@spark-ui/internal-utils": "^7.3.1",
-    "@spark-ui/slot": "^7.3.1",
+    "@spark-ui/icon": "^7.3.2",
+    "@spark-ui/icons": "^7.3.2",
+    "@spark-ui/internal-utils": "^7.3.2",
+    "@spark-ui/slot": "^7.3.2",
     "emulate-tab": "^1.2.1"
   }
 }
