@@ -47,7 +47,7 @@
   "dependencies": {
     "@spark-ui/internal-utils": "^7.3.3",
     "@spark-ui/slot": "^7.3.3",
-    "@zag-js/collapsible": "0.78.2",
-    "@zag-js/react": "0.78.2"
+    "@zag-js/collapsible": "0.79.0",
+    "@zag-js/react": "0.79.0"
   }
 }
