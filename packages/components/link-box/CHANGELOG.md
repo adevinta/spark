@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.4](https://github.com/adevinta/spark/compare/v7.3.3...v7.3.4) (2025-01-06)
+
+**Note:** Version bump only for package @spark-ui/link-box
+
 ## [7.3.3](https://github.com/adevinta/spark/compare/v7.3.2...v7.3.3) (2024-12-27)
 
 **Note:** Version bump only for package @spark-ui/link-box

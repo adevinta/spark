@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/collapsible",
-  "version": "7.3.3",
+  "version": "7.3.4",
   "description": "An interactive component which expands/collapses a panel.",
   "publishConfig": {
     "access": "public"
@@ -45,8 +45,8 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/internal-utils": "^7.3.3",
-    "@spark-ui/slot": "^7.3.3",
+    "@spark-ui/internal-utils": "^7.3.4",
+    "@spark-ui/slot": "^7.3.4",
     "@zag-js/collapsible": "0.78.2",
     "@zag-js/react": "0.78.2"
   }
