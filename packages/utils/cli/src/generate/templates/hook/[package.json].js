@@ -21,7 +21,7 @@ export default ({ name, description }) => {
     "build": "vite build"
   },
   "peerDependencies": {
-    "react": "^18.0 || ^19.0",
+    "react": "^19.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0"
   },
   "repository": {
