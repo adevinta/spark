@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { RefCallback } from 'react'
 import { describe, expect, it, vitest } from 'vitest'
 
 import { Slot } from './Slot'
@@ -120,8 +121,12 @@ describe('Slot', () => {
   it('should handle both refs', async () => {
     // Given
     const refs = new Set()
-    const slotRef = () => refs.add('slot')
-    const childRef = () => refs.add('child')
+    const slotRef: RefCallback<null> = () => {
+      refs.add('slot')
+    }
+    const childRef: RefCallback<null> = () => {
+      refs.add('child')
+    }
 
     // When
     render(

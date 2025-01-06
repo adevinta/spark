@@ -27,7 +27,10 @@ const GroupContent = forwardRef(
     const groupCtx = useComboboxGroupContext()
 
     const hasVisibleOptions = React.Children.toArray(children).some(child => {
-      return React.isValidElement(child) && ctx.filteredItemsMap.get(child.props.value)
+      return (
+        React.isValidElement(child) &&
+        ctx.filteredItemsMap.get((child.props as { value: string }).value)
+      )
     })
 
     return hasVisibleOptions ? (

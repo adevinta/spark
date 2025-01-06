@@ -1,6 +1,6 @@
 import { Root as Separator } from '@radix-ui/react-separator'
 import { cx } from 'class-variance-authority'
-import { forwardRef, HTMLAttributes, PropsWithRef, ReactElement } from 'react'
+import { forwardRef, HTMLAttributes, PropsWithRef, ReactElement, ReactNode } from 'react'
 
 import { dividerStyles, type DividerStylesProps } from './Divider.styles'
 
@@ -44,7 +44,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
     },
     ref
   ) => {
-    const isEmpty = asChild ? !children?.props?.children : !children
+    const isEmpty = asChild ? !(children?.props as { children: ReactNode })?.children : !children
 
     return (
       <Separator

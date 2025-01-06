@@ -55,7 +55,8 @@ export const ChipClearButton = forwardRef<HTMLSpanElement, ChipClearButtonProps>
           className={chipClearButtonStyles({ disabled })}
           aria-label={label}
         >
-          {children && cloneElement(children as React.ReactElement, { 'aria-label': label })}
+          {children &&
+            cloneElement(children as React.ReactElement<HTMLElement>, { ariaLabel: label })}
         </button>
       </span>
     )

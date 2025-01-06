@@ -15,10 +15,10 @@ import {
 } from 'react'
 
 import { snackbarItemVariant, type SnackbarItemVariantProps } from './SnackbarItem.styles'
-import { SnackbarItemAction } from './SnackbarItemAction'
-import { SnackbarItemClose } from './SnackbarItemClose'
+import { SnackbarItemAction, SnackbarItemActionProps } from './SnackbarItemAction'
+import { SnackbarItemClose, SnackbarItemCloseProps } from './SnackbarItemClose'
 import { useSnackbarItemContext } from './SnackbarItemContext'
-import { SnackbarItemIcon } from './SnackbarItemIcon'
+import { SnackbarItemIcon, SnackbarItemIconProps } from './SnackbarItemIcon'
 import { useSwipe } from './useSwipe'
 
 export interface SnackbarItemValue extends SnackbarItemVariantProps {
@@ -117,21 +117,26 @@ export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<Snackba
     )
 
     const findElement = useCallback(
-      (elementDisplayName: string): ReactElement | undefined => {
+      <P extends object>(elementDisplayName: string): ReactElement<P> | undefined => {
         const childrenArray = Children.toArray(children)
 
-        return childrenArray
+        const match = childrenArray
           .filter(isValidElement)
-          .find(child =>
-            (child.type as FC & { displayName?: string }).displayName?.includes(elementDisplayName)
+          .find(
+            (child): child is ReactElement<P> =>
+              !!(child.type as FC<P> & { displayName?: string }).displayName?.includes(
+                elementDisplayName
+              )
           )
+
+        return match as ReactElement<P> | undefined
       },
       [children]
     )
 
-    const iconFromChildren = findElement('Snackbar.ItemIcon')
-    const actionBtnFromChildren = findElement('Snackbar.ItemAction')
-    const closeBtnFromChildren = findElement('Snackbar.ItemClose')
+    const iconFromChildren = findElement<SnackbarItemIconProps>('Snackbar.ItemIcon')
+    const actionBtnFromChildren = findElement<SnackbarItemActionProps>('Snackbar.ItemAction')
+    const closeBtnFromChildren = findElement<SnackbarItemCloseProps>('Snackbar.ItemClose')
 
     return (
       <div

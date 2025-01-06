@@ -31,8 +31,8 @@ const getOrderedItems = (children: ReactNode, result: SelectItem[] = []): Select
       })
     }
 
-    if (child.props.children) {
-      getOrderedItems(child.props.children, result)
+    if ((child.props as { children: ReactNode }).children) {
+      getOrderedItems((child.props as { children: ReactNode }).children, result)
     }
   })
 

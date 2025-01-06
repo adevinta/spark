@@ -28,7 +28,7 @@ export interface DialogProps {
 
 export const Dialog = ({ children, ...rest }: DialogProps): ReactElement => {
   const open = rest.open
-  const activeElementRef = useRef<Element>()
+  const activeElementRef = useRef<Element>(null)
 
   /**
    * This function captures the active element when the Dialog is opened

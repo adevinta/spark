@@ -38,7 +38,7 @@ export const clearSnackbarQueue = () => {
  * we always have a single Snackbar container.
  */
 const GLOBAL_SNACKBAR_STORE = {
-  providers: new Set<RefObject<HTMLDivElement>>(),
+  providers: new Set<RefObject<HTMLDivElement | null>>(),
   subscriptions: new Set<() => void>(),
 }
 

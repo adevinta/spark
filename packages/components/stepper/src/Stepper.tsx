@@ -3,8 +3,8 @@ import { InputGroup } from '@spark-ui/input'
 import {
   createContext,
   forwardRef,
-  type MutableRefObject,
   type PropsWithChildren,
+  RefObject,
   useContext,
   useRef,
 } from 'react'
@@ -13,7 +13,7 @@ import type { StepperProps, UseStepperReturn } from './types'
 import { useStepper } from './useStepper'
 
 const StepperContext = createContext<
-  (Omit<UseStepperReturn, 'groupProps'> & { inputRef: MutableRefObject<null> }) | null
+  (Omit<UseStepperReturn, 'groupProps'> & { inputRef: RefObject<HTMLInputElement | null> }) | null
 >(null)
 
 export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps>>(
@@ -29,7 +29,7 @@ export const Stepper = forwardRef<HTMLDivElement, PropsWithChildren<StepperProps
     },
     forwardedRef
   ) => {
-    const inputRef = useRef(null)
+    const inputRef = useRef<HTMLInputElement>(null)
 
     const {
       groupProps,

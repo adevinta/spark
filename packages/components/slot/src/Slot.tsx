@@ -21,6 +21,10 @@ export const wrapPolymorphicSlot = (
   if (!asChild) return callback(children) // If polymorphic behaviour is not used, we keep the original children
 
   return React.isValidElement(children)
-    ? React.cloneElement(children, undefined, callback(children.props.children))
+    ? React.cloneElement(
+        children,
+        undefined,
+        callback((children.props as { children: ReactNode }).children)
+      )
     : null
 }

@@ -36,7 +36,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     const field = useFormFieldControl()
     const group = useCheckboxGroup()
 
-    const rootRef = useRef<HTMLButtonElement | undefined>()
+    const rootRef = useRef<HTMLButtonElement | undefined>(null)
     const ref = useMergeRefs(forwardedRef, rootRef)
 
     const getCheckboxAttributes = ({
