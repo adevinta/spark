@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.6](https://github.com/adevinta/spark/compare/v7.3.5...v7.3.6) (2025-01-08)
+
+### Bug Fixes
+
+- fixing react 19 ts errors ([def0db2](https://github.com/adevinta/spark/commit/def0db29a4269986138ac5e5be0430a1d9cf2a1b))
+
 ## [7.3.5](https://github.com/adevinta/spark/compare/v7.3.4...v7.3.5) (2025-01-07)
 
 **Note:** Version bump only for package @spark-ui/tabs
