@@ -18,7 +18,7 @@ interface UseSnackbarGlobalStoreReturn<T> {
  * Cf. https://react.dev/reference/react/useSyncExternalStore#subscribing-to-an-external-store
  */
 
-export const useSnackbarGlobalStore = <T = RefObject<HTMLDivElement>>({
+export const useSnackbarGlobalStore = <T = RefObject<HTMLDivElement | null>>({
   providers,
   subscriptions,
 }: UseSnackbarGlobalStoreArgs<T>): UseSnackbarGlobalStoreReturn<T> => {

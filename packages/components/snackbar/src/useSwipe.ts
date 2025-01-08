@@ -2,7 +2,7 @@
 import { type RefObject, useEffect, useRef, useState } from 'react'
 
 interface SwipeArgs<T> {
-  swipeRef: RefObject<T>
+  swipeRef: RefObject<T | null>
   onSwipeStart?: ({ state, direction }: SwipeReturn) => void
   onSwipeMove?: ({ state, direction }: SwipeReturn) => void
   onSwipeCancel?: ({ state, direction }: SwipeReturn) => void
@@ -12,7 +12,7 @@ interface SwipeArgs<T> {
 
 interface SwipeReturn {
   state?: 'start' | 'move' | 'cancel' | 'end'
-  direction?: 'up' | 'down' | 'right' | 'left'
+  direction?: 'up' | 'down' | 'right' | 'left' | null
 }
 
 const SWIPE_THRESHOLD = 75
@@ -27,7 +27,7 @@ export const useSwipe = <T extends HTMLElement>({
 }: SwipeArgs<T>): SwipeReturn => {
   const [state, setState] = useState<SwipeReturn['state']>()
 
-  const direction = useRef<SwipeReturn['direction']>()
+  const direction = useRef<SwipeReturn['direction']>(null)
   const origin = useRef<Record<'x' | 'y', number> | null>(null)
   const delta = useRef<Record<'x' | 'y', number> | null>(null)
 

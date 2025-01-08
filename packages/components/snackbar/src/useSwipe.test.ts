@@ -19,7 +19,7 @@ describe('useSwipe', () => {
   it('should return undefined state and direction on nullish target element', () => {
     const { result } = renderHook(() => useSwipe({ swipeRef: { current: null } }))
 
-    expect(result.current).toEqual({ state: undefined, direction: undefined })
+    expect(result.current).toEqual({ state: undefined, direction: null })
   })
 
   it('should handle callback on pointerdown event', () => {
@@ -27,7 +27,7 @@ describe('useSwipe', () => {
 
     fireEvent.pointerDown(swipeRef.current, { clientX: 0, clientY: 0 })
 
-    expect(result.current).toEqual({ state: undefined, direction: undefined })
+    expect(result.current).toEqual({ state: undefined, direction: null })
   })
 
   it('should handle callback and return state and direction on pointerdown event', () => {

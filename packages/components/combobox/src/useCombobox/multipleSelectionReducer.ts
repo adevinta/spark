@@ -10,7 +10,7 @@ interface Props {
   selectedItems: ComboboxItem[]
   multiselect: UseMultipleSelectionReturnValue<ComboboxItem>
   setSelectedItems: (items: ComboboxItem[]) => void
-  triggerAreaRef: React.RefObject<HTMLDivElement>
+  triggerAreaRef: React.RefObject<HTMLDivElement | null>
 }
 
 export const multipleSelectionReducer = ({

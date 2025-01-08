@@ -1,8 +1,6 @@
-import { LegacyRef, MutableRefObject, RefCallback, useMemo } from 'react'
+import { Ref, RefCallback, RefObject, useMemo } from 'react'
 
-export type ReactRef<T> = RefCallback<T> | MutableRefObject<T> | LegacyRef<T>
-
-export function assignRef<T>(ref: ReactRef<T> | null | undefined, value: T) {
+export function assignRef<T>(ref: Ref<T> | null | undefined, value: T) {
   if (ref == null) {
     return
   }
@@ -14,21 +12,19 @@ export function assignRef<T>(ref: ReactRef<T> | null | undefined, value: T) {
   }
 
   try {
-    ;(ref as MutableRefObject<T | null>).current = value
+    ;(ref as RefObject<T | null>).current = value
   } catch (error) {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`)
   }
 }
 
-export function mergeRefs<T>(
-  ...refs: (MutableRefObject<T> | LegacyRef<T> | null | undefined)[]
-): RefCallback<T> {
+export function mergeRefs<T>(...refs: (Ref<T> | undefined)[]): RefCallback<T> {
   return value => {
     refs.forEach(ref => assignRef(ref, value))
   }
 }
 
-export function useMergeRefs<T>(...refs: (ReactRef<T> | null | undefined)[]) {
+export function useMergeRefs<T>(...refs: (Ref<T> | undefined)[]) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => mergeRefs(...refs), refs)
 }

@@ -1,6 +1,7 @@
 import React, { type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
 
 import { type ItemProps } from './DropdownItem'
+import { ItemTextProps } from './DropdownItemText'
 import { type DropdownItem, type ItemsMap } from './types'
 
 export function getIndexByKey(map: ItemsMap, targetKey: string) {
@@ -51,8 +52,8 @@ export const getOrderedItems = (
       })
     }
 
-    if (child.props.children) {
-      getOrderedItems(child.props.children, result)
+    if ((child.props as { children: ReactNode }).children) {
+      getOrderedItems((child.props as { children: ReactNode }).children, result)
     }
   })
 
@@ -73,11 +74,11 @@ export const getItemText = (children: ReactNode, itemText = ''): string => {
     if (!isValidElement(child)) return
 
     if (getElementDisplayName(child) === 'Dropdown.ItemText') {
-      itemText = child.props.children
+      itemText = (child.props as ItemTextProps).children
     }
 
-    if (child.props.children) {
-      getItemText(child.props.children, itemText)
+    if ((child.props as { children: ReactNode }).children) {
+      getItemText((child.props as { children: ReactNode }).children, itemText)
     }
   })
 
@@ -100,8 +101,8 @@ export const hasChildComponent = (children: ReactNode, displayName: string): boo
 
     if (getElementDisplayName(child) === displayName) {
       return true
-    } else if (child.props.children) {
-      return hasChildComponent(child.props.children, displayName)
+    } else if ((child.props as { children: ReactNode }).children) {
+      return hasChildComponent((child.props as { children: ReactNode }).children, displayName)
     }
 
     return false

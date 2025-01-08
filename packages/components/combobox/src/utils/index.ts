@@ -1,6 +1,7 @@
 import React, { type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
 
 import { type ItemProps } from '../ComboboxItem'
+import { type ItemTextProps } from '../ComboboxItemText'
 import { type ComboboxItem, type ItemsMap } from '../types'
 
 export function getIndexByKey(map: ItemsMap, targetKey: string) {
@@ -51,8 +52,8 @@ export const getOrderedItems = (
       })
     }
 
-    if (child.props.children) {
-      getOrderedItems(child.props.children, result)
+    if ((child.props as ItemProps).children) {
+      getOrderedItems((child.props as ItemProps).children, result)
     }
   })
 
@@ -67,10 +68,10 @@ const findNestedItemText = (children: React.ReactNode): string => {
       const childElement = child as React.ReactElement
 
       if (getElementDisplayName(childElement) === 'Combobox.ItemText') {
-        return childElement.props.children
+        return (childElement.props as ItemTextProps).children
       }
 
-      const foundText = findNestedItemText(childElement.props.children)
+      const foundText = findNestedItemText((childElement.props as ItemTextProps).children)
 
       if (foundText) return foundText
     }
@@ -104,8 +105,8 @@ export const hasChildComponent = (children: ReactNode, displayName: string): boo
 
     if (getElementDisplayName(child) === displayName) {
       return true
-    } else if (child.props.children) {
-      return hasChildComponent(child.props.children, displayName)
+    } else if ((child.props as { children: ReactNode }).children) {
+      return hasChildComponent((child.props as { children: ReactNode }).children, displayName)
     }
 
     return false

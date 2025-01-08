@@ -129,5 +129,7 @@ export const useDropdown = ({
   return {
     ...downshift,
     ...downshiftMultipleSelection,
+    /** There is a Downshift bug in React 19, it duplicates some selectedItems */
+    selectedItems: [...new Set(downshiftMultipleSelection.selectedItems)],
   }
 }

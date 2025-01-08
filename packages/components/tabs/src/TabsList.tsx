@@ -40,7 +40,7 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     },
     ref
   ) => {
-    const wrapperRef = useRef(null)
+    const wrapperRef = useRef<HTMLDivElement>(null)
     const innerRef = useRef(null)
     const listRef = ref || innerRef
     const { orientation } = useTabsContext()

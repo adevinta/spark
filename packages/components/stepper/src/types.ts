@@ -48,7 +48,7 @@ export interface UseStepperArgs
     Omit<NumberFieldStateOptions, 'locale'> & AriaNumberFieldProps,
     SpectrumNumberFieldPropsFilter
   > {
-  inputRef: RefObject<HTMLInputElement>
+  inputRef: RefObject<HTMLInputElement | null>
   /**
    * Sets the component as interactive or not.
    */

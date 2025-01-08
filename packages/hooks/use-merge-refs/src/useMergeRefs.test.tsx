@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { createRef, forwardRef, useEffect, useRef } from 'react'
+import { createRef, forwardRef, RefCallback, useEffect, useRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { useMergeRefs } from './index'
@@ -15,9 +15,9 @@ describe('useMergeRefs', () => {
     // Given
     const refs = {} as refsInterface
     function TestComponent() {
-      const firstRef = useRef()
-      const secondRef = useRef()
-      const thirdRef = useRef()
+      const firstRef = useRef(null)
+      const secondRef = useRef(null)
+      const thirdRef = useRef(null)
 
       const ref = useMergeRefs<HTMLDivElement | undefined>(firstRef, secondRef, thirdRef)
 
@@ -43,8 +43,8 @@ describe('useMergeRefs', () => {
     // Given
     const refs = {} as refsInterface
     const TestComponent = forwardRef(function TestComponent(props, forwardedRef) {
-      const firstRef = useRef()
-      const secondRef = useRef()
+      const firstRef = useRef(null)
+      const secondRef = useRef(null)
 
       const ref = useMergeRefs(firstRef, secondRef, forwardedRef)
 
@@ -70,9 +70,9 @@ describe('useMergeRefs', () => {
     // Given
     const refs = {} as refsInterface
     function TestComponent() {
-      const firstRef = useRef()
-      const secondRef = useRef()
-      const thirdRef = useRef()
+      const firstRef = useRef(null)
+      const secondRef = useRef(null)
+      const thirdRef = useRef(null)
 
       const ref = useMergeRefs<HTMLDivElement | undefined>(
         firstRef,
@@ -108,11 +108,13 @@ describe('useMergeRefs', () => {
       third?: unknown
       fnRef?: unknown
     }
-    const fnRef = (node: HTMLDivElement) => (refs.fnRef = node)
+    const fnRef: RefCallback<HTMLDivElement> = node => {
+      refs.fnRef = node
+    }
     function TestComponent() {
-      const firstRef = useRef()
-      const secondRef = useRef()
-      const thirdRef = useRef()
+      const firstRef = useRef(null)
+      const secondRef = useRef(null)
+      const thirdRef = useRef(null)
 
       const ref = useMergeRefs<HTMLDivElement | undefined>(firstRef, secondRef, thirdRef, fnRef)
 
