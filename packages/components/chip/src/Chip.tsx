@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, forwardRef } from 'react'
+import React, { ComponentPropsWithoutRef, RefObject } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
 import { ChipContext } from './useChipContext'
@@ -30,65 +30,62 @@ export interface ChipProps extends ChipPrimitiveProps, Omit<ChipStylesProps, 'ha
    * Clear chip handler
    */
   onClear?: (event?: React.MouseEvent<HTMLButtonElement>) => void
+  ref?: RefObject<HTMLButtonElement | HTMLDivElement>
 }
 
-export const Chip = forwardRef<HTMLButtonElement | HTMLDivElement, ChipProps>(
-  (
-    {
-      design = 'outlined',
-      disabled,
-      children,
-      intent = 'basic',
-      defaultPressed,
-      pressed,
-      asChild,
-      className,
-      onClick,
-      onClear,
-      ...otherProps
-    },
-    forwardedRef
-  ) => {
-    const {
-      Element: ChipElement,
-      chipProps: { children: formattedChildren, ...chipProps },
-      compoundElements,
-    } = useChipElement({
-      asChild,
-      pressed,
-      defaultPressed,
-      onClick,
-      disabled: !!disabled,
-      value: otherProps.value,
-      defaultValue: otherProps.defaultValue,
-      children,
-      onClear,
-    })
+export const Chip = ({
+  design = 'outlined',
+  disabled,
+  children,
+  intent = 'basic',
+  defaultPressed,
+  pressed,
+  asChild,
+  className,
+  onClick,
+  onClear,
+  ref: forwardedRef,
+  ...otherProps
+}: ChipProps) => {
+  const {
+    Element: ChipElement,
+    chipProps: { children: formattedChildren, ...chipProps },
+    compoundElements,
+  } = useChipElement({
+    asChild,
+    pressed,
+    defaultPressed,
+    onClick,
+    disabled: !!disabled,
+    value: otherProps.value,
+    defaultValue: otherProps.defaultValue,
+    children,
+    onClear,
+  })
 
-    const { clearButton } = compoundElements
+  const { clearButton } = compoundElements
 
-    return (
-      <ChipContext.Provider value={{ disabled, design, intent, onClear }}>
-        <ChipElement
-          ref={forwardedRef}
-          className={chipStyles({
-            className,
-            design,
-            disabled,
-            intent,
-            hasClearButton: !!clearButton,
-          })}
-          {...{
-            ...chipProps,
-            ...otherProps,
-          }}
-          data-spark-component="chip"
-        >
-          {formattedChildren}
-        </ChipElement>
-      </ChipContext.Provider>
-    )
-  }
-)
+  return (
+    <ChipContext.Provider value={{ disabled, design, intent, onClear }}>
+      <ChipElement
+        ref={forwardedRef}
+        className={chipStyles({
+          className,
+          design,
+          disabled,
+          intent,
+          hasClearButton: !!clearButton,
+        })}
+        {...{
+          ...chipProps,
+          ...otherProps,
+        }}
+        data-spark-component="chip"
+      >
+        {formattedChildren}
+      </ChipElement>
+    </ChipContext.Provider>
+  )
+}
 
 Chip.displayName = 'Chip'
