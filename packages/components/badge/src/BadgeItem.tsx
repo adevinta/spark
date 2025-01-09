@@ -1,9 +1,9 @@
-import { forwardRef, HTMLAttributes, PropsWithRef } from 'react'
+import { HTMLAttributes, RefObject } from 'react'
 
 import { styles, type StylesProps } from './BadgeItem.styles'
 
 export interface BadgeItemProps
-  extends PropsWithRef<Omit<HTMLAttributes<HTMLSpanElement>, 'aria-label'>>,
+  extends Omit<HTMLAttributes<HTMLSpanElement>, 'aria-label'>,
     StylesProps {
   /**
    * Numeric value used as indicator inside the component.
@@ -26,43 +26,38 @@ export interface BadgeItemProps
    * @default 'relative'
    */
   type?: 'relative' | 'standalone'
+  ref?: RefObject<HTMLSpanElement>
 }
 
-export const BadgeItem = forwardRef<HTMLSpanElement, BadgeItemProps>(
-  (
-    {
-      intent = 'danger',
-      size = 'md',
-      type = 'relative',
-      count,
-      overflowCount = 99,
-      'aria-label': label,
-      className,
-      ...others
-    },
-    ref
-  ) => {
-    const hasOverflow = count && count > overflowCount
-    const ariaLabel = typeof label === 'function' ? label({ count, overflowCount }) : label
-    const props = { ...others, 'aria-label': ariaLabel }
+export const BadgeItem = ({
+  intent = 'danger',
+  size = 'md',
+  type = 'relative',
+  count,
+  overflowCount = 99,
+  'aria-label': label,
+  className,
+  ...others
+}: BadgeItemProps) => {
+  const hasOverflow = count && count > overflowCount
+  const ariaLabel = typeof label === 'function' ? label({ count, overflowCount }) : label
+  const props = { ...others, 'aria-label': ariaLabel }
 
-    return (
-      <span
-        ref={ref}
-        data-spark-component="badge"
-        role="status"
-        className={styles({
-          intent,
-          size,
-          type,
-          className,
-        })}
-        {...props}
-      >
-        {hasOverflow ? `${overflowCount}+` : count}
-      </span>
-    )
-  }
-)
+  return (
+    <span
+      data-spark-component="badge"
+      role="status"
+      className={styles({
+        intent,
+        size,
+        type,
+        className,
+      })}
+      {...props}
+    >
+      {hasOverflow ? `${overflowCount}+` : count}
+    </span>
+  )
+}
 
 BadgeItem.displayName = 'BadgeItem'

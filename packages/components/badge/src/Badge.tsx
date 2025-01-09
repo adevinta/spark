@@ -1,20 +1,22 @@
-import { forwardRef, PropsWithChildren } from 'react'
+import { PropsWithChildren, RefObject } from 'react'
 
 import { BadgeItem, BadgeItemProps } from './BadgeItem'
 
-export type BadgeProps = PropsWithChildren<Omit<BadgeItemProps, 'type'>>
+export type BadgeProps = PropsWithChildren<Omit<BadgeItemProps, 'type'>> & {
+  ref?: RefObject<HTMLElement>
+}
 
-export const Badge = forwardRef<HTMLElement, BadgeProps>(({ children, ...props }, ref) => {
+export const Badge = ({ children, ...props }: BadgeProps) => {
   const isStandalone = !children
 
   return isStandalone ? (
-    <BadgeItem ref={ref} type="standalone" {...props} />
+    <BadgeItem type="standalone" {...props} />
   ) : (
     <div className="relative inline-flex">
       {children}
-      <BadgeItem ref={ref} {...props} />
+      <BadgeItem {...props} />
     </div>
   )
-})
+}
 
 Badge.displayName = 'Badge'
