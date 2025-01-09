@@ -1,13 +1,12 @@
 import { Dialog, DialogFooterProps } from '@spark-ui/dialog'
-import { ElementRef, forwardRef } from 'react'
+import { RefObject } from 'react'
 
-export type AlertDialogFooterElement = ElementRef<typeof Dialog.Footer>
-export type AlertDialogFooterProps = DialogFooterProps
+export type AlertDialogFooterProps = DialogFooterProps & {
+  ref?: RefObject<HTMLDivElement>
+}
 
-export const AlertDialogFooter = forwardRef<AlertDialogFooterElement, AlertDialogFooterProps>(
-  (props, ref) => {
-    return <Dialog.Footer ref={ref} data-spark-component="alert-dialog-footer" {...props} />
-  }
-)
+export const AlertDialogFooter = (props: AlertDialogFooterProps) => {
+  return <Dialog.Footer data-spark-component="alert-dialog-footer" {...props} />
+}
 
 AlertDialogFooter.displayName = 'AlertDialog.Footer'
