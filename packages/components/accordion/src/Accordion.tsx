@@ -3,7 +3,7 @@ import { Slot } from '@spark-ui/slot'
 import * as accordion from '@zag-js/accordion'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
-import { type ComponentPropsWithoutRef, createContext, forwardRef, useContext, useId } from 'react'
+import { type ComponentPropsWithoutRef, createContext, RefObject, useContext, useId } from 'react'
 
 type ExtentedZagInterface = Omit<
   accordion.Context,
@@ -38,6 +38,7 @@ export interface AccordionProps extends ExtentedZagInterface {
    */
   onValueChange?: (value: string[]) => void
   design?: 'filled' | 'outlined'
+  ref?: RefObject<HTMLDivElement>
 }
 
 const AccordionContext = createContext<
@@ -47,68 +48,64 @@ const AccordionContext = createContext<
   | null
 >(null)
 
-export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  (
+export const Accordion = ({
+  asChild = false,
+  children,
+  collapsible = true,
+  className,
+  defaultValue,
+  design = 'outlined',
+  disabled = false,
+  multiple = false,
+  value,
+  onValueChange,
+  ref,
+  ...props
+}: AccordionProps) => {
+  const [machineProps, localProps] = accordion.splitProps({
+    children,
+    multiple,
+    collapsible,
+    value,
+    disabled,
+    // onValueChange,
+    className: cx('bg-surface rounded-lg h-fit', className),
+    ...props,
+  })
+
+  const [state, send] = useMachine(
+    // Initial state
+    accordion.machine({
+      ...machineProps,
+      value: defaultValue,
+      id: useId(),
+      onValueChange(details) {
+        onValueChange?.(details.value)
+      },
+    }),
+    // Dynamic state
     {
-      asChild = false,
-      children,
-      collapsible = true,
-      className,
-      defaultValue,
-      design = 'outlined',
-      disabled = false,
-      multiple = false,
-      value,
-      onValueChange,
-      ...props
-    },
-    ref
-  ) => {
-    const [machineProps, localProps] = accordion.splitProps({
-      children,
-      multiple,
-      collapsible,
-      value,
-      disabled,
-      // onValueChange,
-      className: cx('bg-surface rounded-lg h-fit', className),
-      ...props,
-    })
-
-    const [state, send] = useMachine(
-      // Initial state
-      accordion.machine({
+      context: {
         ...machineProps,
-        value: defaultValue,
-        id: useId(),
-        onValueChange(details) {
+        onValueChange: useEvent((details: accordion.ValueChangeDetails) => {
           onValueChange?.(details.value)
-        },
-      }),
-      // Dynamic state
-      {
-        context: {
-          ...machineProps,
-          onValueChange: useEvent((details: accordion.ValueChangeDetails) => {
-            onValueChange?.(details.value)
-          }),
-        },
-      }
-    )
+        }),
+      },
+    }
+  )
 
-    const Component = asChild ? Slot : 'div'
-    const api = accordion.connect(state, send, normalizeProps)
-    const mergedProps = mergeProps(api.getRootProps(), localProps)
+  const Component = asChild ? Slot : 'div'
+  const api = accordion.connect(state, send, normalizeProps)
+  const mergedProps = mergeProps(api.getRootProps(), localProps)
 
-    return (
-      <AccordionContext.Provider value={{ ...api, design }}>
-        <Component data-spark-component="accordion" ref={ref} {...mergedProps}>
-          {children}
-        </Component>
-      </AccordionContext.Provider>
-    )
-  }
-)
+  return (
+    <AccordionContext.Provider value={{ ...api, design }}>
+      <Component data-spark-component="accordion" ref={ref} {...mergedProps}>
+        {children}
+      </Component>
+    </AccordionContext.Provider>
+  )
+}
 
 Accordion.displayName = 'Accordion'
 
