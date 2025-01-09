@@ -1,7 +1,7 @@
 import { Slot, wrapPolymorphicSlot } from '@spark-ui/slot'
 import { Spinner, type SpinnerProps } from '@spark-ui/spinner'
 import { cx } from 'class-variance-authority'
-import React, { ComponentPropsWithoutRef, type DOMAttributes, forwardRef, useMemo } from 'react'
+import React, { ComponentPropsWithoutRef, type DOMAttributes, RefObject, useMemo } from 'react'
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
@@ -25,6 +25,7 @@ export interface ButtonProps
    * **Please note that using this can result in layout shifting when the Button goes from loading state to normal state.**
    */
   loadingText?: string
+  ref?: RefObject<HTMLButtonElement>
 }
 
 type DOMAttributesEventHandler = keyof Omit<
@@ -46,83 +47,79 @@ const blockedEventHandlers: DOMAttributesEventHandler[] = [
   'onSubmit',
 ]
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      children,
-      design = 'filled',
-      disabled = false,
-      intent = 'main',
-      isLoading = false,
-      loadingLabel,
-      loadingText,
-      shape = 'rounded',
-      size = 'md',
-      asChild,
-      className,
-      ...others
-    },
-    ref
-  ) => {
-    const Component = asChild ? Slot : 'button'
+export const Button = ({
+  children,
+  design = 'filled',
+  disabled = false,
+  intent = 'main',
+  isLoading = false,
+  loadingLabel,
+  loadingText,
+  shape = 'rounded',
+  size = 'md',
+  asChild,
+  className,
+  ref,
+  ...others
+}: ButtonProps) => {
+  const Component = asChild ? Slot : 'button'
 
-    const shouldNotInteract = !!disabled || isLoading
+  const shouldNotInteract = !!disabled || isLoading
 
-    const disabledEventHandlers = useMemo(() => {
-      const result: Partial<Record<DOMAttributesEventHandler, () => void>> = {}
+  const disabledEventHandlers = useMemo(() => {
+    const result: Partial<Record<DOMAttributesEventHandler, () => void>> = {}
 
-      if (shouldNotInteract) {
-        blockedEventHandlers.forEach(eventHandler => (result[eventHandler] = undefined))
-      }
-
-      return result
-    }, [shouldNotInteract])
-
-    const spinnerProps = {
-      size: 'current' as SpinnerProps['size'],
-      className: loadingText ? 'inline-block' : 'absolute',
-      ...(loadingLabel && { 'aria-label': loadingLabel }),
+    if (shouldNotInteract) {
+      blockedEventHandlers.forEach(eventHandler => (result[eventHandler] = undefined))
     }
 
-    return (
-      <Component
-        data-spark-component="button"
-        {...(Component === 'button' && { type: 'button' })}
-        ref={ref}
-        className={buttonStyles({
-          className,
-          design,
-          disabled: shouldNotInteract,
-          intent,
-          shape,
-          size,
-        })}
-        disabled={!!disabled}
-        aria-busy={isLoading}
-        aria-live={isLoading ? 'assertive' : 'off'}
-        {...others}
-        {...disabledEventHandlers}
-      >
-        {wrapPolymorphicSlot(asChild, children, slotted =>
-          isLoading ? (
-            <>
-              <Spinner {...spinnerProps} />
-              {loadingText && loadingText}
+    return result
+  }, [shouldNotInteract])
 
-              <div
-                aria-hidden
-                className={cx('inline-flex gap-md', loadingText ? 'hidden' : 'opacity-0')}
-              >
-                {slotted}
-              </div>
-            </>
-          ) : (
-            slotted
-          )
-        )}
-      </Component>
-    )
+  const spinnerProps = {
+    size: 'current' as SpinnerProps['size'],
+    className: loadingText ? 'inline-block' : 'absolute',
+    ...(loadingLabel && { 'aria-label': loadingLabel }),
   }
-)
+
+  return (
+    <Component
+      data-spark-component="button"
+      {...(Component === 'button' && { type: 'button' })}
+      ref={ref}
+      className={buttonStyles({
+        className,
+        design,
+        disabled: shouldNotInteract,
+        intent,
+        shape,
+        size,
+      })}
+      disabled={!!disabled}
+      aria-busy={isLoading}
+      aria-live={isLoading ? 'assertive' : 'off'}
+      {...others}
+      {...disabledEventHandlers}
+    >
+      {wrapPolymorphicSlot(asChild, children, slotted =>
+        isLoading ? (
+          <>
+            <Spinner {...spinnerProps} />
+            {loadingText && loadingText}
+
+            <div
+              aria-hidden
+              className={cx('inline-flex gap-md', loadingText ? 'hidden' : 'opacity-0')}
+            >
+              {slotted}
+            </div>
+          </>
+        ) : (
+          slotted
+        )
+      )}
+    </Component>
+  )
+}
 
 Button.displayName = 'Button'
