@@ -1,6 +1,6 @@
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cva, cx } from 'class-variance-authority'
-import { forwardRef, type HTMLAttributes, type ReactNode, type Ref } from 'react'
+import { type HTMLAttributes, type ReactNode, RefObject } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 import { ComboboxItemProvider, useComboboxItemContext } from './ComboboxItemContext'
@@ -10,21 +10,20 @@ export interface ItemProps extends HTMLAttributes<HTMLLIElement> {
   value: string
   children: ReactNode
   className?: string
+  ref?: RefObject<HTMLLIElement>
 }
 
-export const Item = forwardRef(
-  ({ children, ...props }: ItemProps, forwardedRef: Ref<HTMLLIElement>) => {
-    const { value, disabled } = props
+export const Item = ({ children, ref: forwardedRef, ...props }: ItemProps) => {
+  const { value, disabled } = props
 
-    return (
-      <ComboboxItemProvider value={value} disabled={disabled}>
-        <ItemContent ref={forwardedRef} {...props}>
-          {children}
-        </ItemContent>
-      </ComboboxItemProvider>
-    )
-  }
-)
+  return (
+    <ComboboxItemProvider value={value} disabled={disabled}>
+      <ItemContent ref={forwardedRef} {...props}>
+        {children}
+      </ItemContent>
+    </ComboboxItemProvider>
+  )
+}
 
 const styles = cva('px-lg py-md text-body-1', {
   variants: {
@@ -57,46 +56,47 @@ const styles = cva('px-lg py-md text-body-1', {
   ],
 })
 
-const ItemContent = forwardRef(
-  (
-    { className, disabled = false, value, children }: ItemProps,
-    forwardedRef: Ref<HTMLLIElement>
-  ) => {
-    const ctx = useComboboxContext()
-    const itemCtx = useComboboxItemContext()
+const ItemContent = ({
+  className,
+  disabled = false,
+  value,
+  children,
+  ref: forwardedRef,
+}: ItemProps) => {
+  const ctx = useComboboxContext()
+  const itemCtx = useComboboxItemContext()
 
-    const isVisible = !!ctx.filteredItemsMap.get(value)
+  const isVisible = !!ctx.filteredItemsMap.get(value)
 
-    const { ref: downshiftRef, ...downshiftItemProps } = ctx.getItemProps({
-      item: itemCtx.itemData,
-      index: itemCtx.index,
-    })
+  const { ref: downshiftRef, ...downshiftItemProps } = ctx.getItemProps({
+    item: itemCtx.itemData,
+    index: itemCtx.index,
+  })
 
-    const ref = useMergeRefs(forwardedRef, downshiftRef)
+  const ref = useMergeRefs(forwardedRef, downshiftRef)
 
-    if (!isVisible) return null
+  if (!isVisible) return null
 
-    return (
-      <li
-        ref={ref}
-        className={cx(
-          styles({
-            selected: itemCtx.isSelected,
-            disabled,
-            highlighted: ctx.highlightedItem?.value === value,
-            interactionType: ctx.lastInteractionType,
-            className,
-          })
-        )}
-        key={value}
-        {...downshiftItemProps}
-        aria-selected={itemCtx.isSelected}
-        aria-labelledby={itemCtx.textId}
-      >
-        {children}
-      </li>
-    )
-  }
-)
+  return (
+    <li
+      ref={ref}
+      className={cx(
+        styles({
+          selected: itemCtx.isSelected,
+          disabled,
+          highlighted: ctx.highlightedItem?.value === value,
+          interactionType: ctx.lastInteractionType,
+          className,
+        })
+      )}
+      key={value}
+      {...downshiftItemProps}
+      aria-selected={itemCtx.isSelected}
+      aria-labelledby={itemCtx.textId}
+    >
+      {children}
+    </li>
+  )
+}
 
 Item.displayName = 'Combobox.Item'
