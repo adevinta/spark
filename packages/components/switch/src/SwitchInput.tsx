@@ -4,7 +4,7 @@ import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
 import { Slot } from '@spark-ui/slot'
 import { useCombinedState } from '@spark-ui/use-combined-state'
-import React, { type ComponentPropsWithoutRef, forwardRef, type ReactNode } from 'react'
+import React, { type ComponentPropsWithRef, type ReactNode } from 'react'
 
 import {
   styles,
@@ -16,7 +16,7 @@ import {
 
 export interface SwitchInputProps
   extends StylesProps,
-    Omit<ComponentPropsWithoutRef<'button'>, 'value'> {
+    Omit<ComponentPropsWithRef<'button'>, 'value'> {
   /**
    * The state of the switch when it is initially rendered. Use when you do not need to control its state.
    */
@@ -62,59 +62,55 @@ export interface SwitchInputProps
   reverse?: boolean
 }
 
-export const SwitchInput = forwardRef<HTMLButtonElement, SwitchInputProps>(
-  (
-    {
-      checked,
-      checkedIcon = <Check />,
-      defaultChecked,
-      intent: intentProp,
-      uncheckedIcon = <Close />,
-      size = 'md',
-      value = 'on',
-      onCheckedChange,
-      className,
-      required,
-      ...rest
-    },
-    ref
-  ) => {
-    const [isChecked, setIsChecked] = useCombinedState(checked, defaultChecked)
-    const { name, description, state, isRequired, isInvalid } = useFormFieldControl()
-    const intent = state ?? intentProp
+export const SwitchInput = ({
+  checked,
+  checkedIcon = <Check />,
+  defaultChecked,
+  intent: intentProp,
+  uncheckedIcon = <Close />,
+  size = 'md',
+  value = 'on',
+  onCheckedChange,
+  className,
+  required,
+  ref,
+  ...rest
+}: SwitchInputProps) => {
+  const [isChecked, setIsChecked] = useCombinedState(checked, defaultChecked)
+  const { name, description, state, isRequired, isInvalid } = useFormFieldControl()
+  const intent = state ?? intentProp
 
-    const handleCheckedChange = (updatedValue: boolean): void => {
-      setIsChecked(updatedValue)
-      onCheckedChange?.(updatedValue)
-    }
-
-    return (
-      <SwitchPrimitive.Root
-        ref={ref}
-        className={styles({ intent, size, className })}
-        value={value}
-        checked={checked}
-        defaultChecked={defaultChecked}
-        onCheckedChange={handleCheckedChange}
-        name={name}
-        required={required || isRequired}
-        aria-invalid={isInvalid}
-        aria-describedby={description}
-        {...rest}
-      >
-        <span className={thumbWrapperStyles({ checked: isChecked })}>
-          <SwitchPrimitive.Thumb className={thumbStyles({ size, checked: isChecked })}>
-            {isChecked && checkedIcon && (
-              <Slot className={thumbCheckSVGStyles({ size })}>{checkedIcon}</Slot>
-            )}
-            {!isChecked && uncheckedIcon && (
-              <Slot className={thumbCheckSVGStyles({ size })}>{uncheckedIcon}</Slot>
-            )}
-          </SwitchPrimitive.Thumb>
-        </span>
-      </SwitchPrimitive.Root>
-    )
+  const handleCheckedChange = (updatedValue: boolean): void => {
+    setIsChecked(updatedValue)
+    onCheckedChange?.(updatedValue)
   }
-)
+
+  return (
+    <SwitchPrimitive.Root
+      ref={ref}
+      className={styles({ intent, size, className })}
+      value={value}
+      checked={checked}
+      defaultChecked={defaultChecked}
+      onCheckedChange={handleCheckedChange}
+      name={name}
+      required={required || isRequired}
+      aria-invalid={isInvalid}
+      aria-describedby={description}
+      {...rest}
+    >
+      <span className={thumbWrapperStyles({ checked: isChecked })}>
+        <SwitchPrimitive.Thumb className={thumbStyles({ size, checked: isChecked })}>
+          {isChecked && checkedIcon && (
+            <Slot className={thumbCheckSVGStyles({ size })}>{checkedIcon}</Slot>
+          )}
+          {!isChecked && uncheckedIcon && (
+            <Slot className={thumbCheckSVGStyles({ size })}>{uncheckedIcon}</Slot>
+          )}
+        </SwitchPrimitive.Thumb>
+      </span>
+    </SwitchPrimitive.Root>
+  )
+}
 
 SwitchInput.displayName = 'SwitchInput'
