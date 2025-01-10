@@ -1,11 +1,12 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 import { cx } from 'class-variance-authority'
-import { ElementRef, forwardRef } from 'react'
+import { RefObject } from 'react'
 
-export type TitleElement = ElementRef<typeof RadixDialog.Title>
-export type TitleProps = RadixDialog.DialogTitleProps
+export type TitleProps = RadixDialog.DialogTitleProps & {
+  ref?: RefObject<HTMLHeadingElement>
+}
 
-export const Title = forwardRef<TitleElement, TitleProps>(({ className, ...others }, ref) => {
+export const Title = ({ className, ref, ...others }: TitleProps) => {
   return (
     <RadixDialog.Title
       ref={ref}
@@ -17,6 +18,6 @@ export const Title = forwardRef<TitleElement, TitleProps>(({ className, ...other
       {...others}
     />
   )
-})
+}
 
 Title.displayName = 'Dialog.Title'
