@@ -58,3 +58,5 @@ export const Divider = ({
     </Separator>
   )
 }
+
+Divider.displayName = 'Divider'

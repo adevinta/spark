@@ -70,3 +70,5 @@ export const ProgressTracker = ({
     </ProgressTrackerContext.Provider>
   )
 }
+
+ProgressTracker.displayName = 'ProgressTracker'
