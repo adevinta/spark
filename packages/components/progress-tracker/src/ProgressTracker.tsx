@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { type ComponentPropsWithoutRef, forwardRef, type PropsWithChildren, useState } from 'react'
+import { type ComponentPropsWithRef, type PropsWithChildren, useState } from 'react'
 
 import { progressList } from './ProgressTracker.styles'
 import {
@@ -9,7 +9,7 @@ import {
 import type { StepIndicatorVariantProps } from './ProgressTrackerStepIndicator.styles'
 
 export interface ProgressTrackerProps
-  extends ComponentPropsWithoutRef<'div'>,
+  extends ComponentPropsWithRef<'div'>,
     Pick<StepIndicatorVariantProps, 'size' | 'intent' | 'design'> {
   /**
    * The orientation of the progress tracker
@@ -32,45 +32,41 @@ export interface ProgressTrackerProps
   readOnly?: boolean
 }
 
-export const ProgressTracker = forwardRef<HTMLDivElement, PropsWithChildren<ProgressTrackerProps>>(
-  (
-    {
-      stepIndex = 0,
-      onStepClick,
-      readOnly = false,
-      intent = 'basic',
-      size = 'lg',
-      design = 'outline',
-      orientation = 'horizontal',
-      children,
-      className,
-      ...rest
-    },
-    ref
-  ) => {
-    const [steps, setSteps] = useState<ProgressTrackerContextInterface['steps']>(new Map())
+export const ProgressTracker = ({
+  stepIndex = 0,
+  onStepClick,
+  readOnly = false,
+  intent = 'basic',
+  size = 'lg',
+  design = 'outline',
+  orientation = 'horizontal',
+  children,
+  className,
+  ref,
+  ...rest
+}: PropsWithChildren<ProgressTrackerProps>) => {
+  const [steps, setSteps] = useState<ProgressTrackerContextInterface['steps']>(new Map())
 
-    const Component = readOnly ? 'div' : 'nav'
+  const Component = readOnly ? 'div' : 'nav'
 
-    return (
-      <ProgressTrackerContext.Provider
-        value={{ stepIndex, onStepClick, steps, setSteps, size, intent, design, readOnly }}
+  return (
+    <ProgressTrackerContext.Provider
+      value={{ stepIndex, onStepClick, steps, setSteps, size, intent, design, readOnly }}
+    >
+      <Component
+        ref={ref}
+        data-spark-component="progress-tracker"
+        className={cx('inline-flex', className)}
+        {...rest}
       >
-        <Component
-          ref={ref}
-          data-spark-component="progress-tracker"
-          className={cx('inline-flex', className)}
-          {...rest}
+        <ol
+          data-orientation={orientation}
+          className={progressList}
+          style={{ counterReset: 'step' }}
         >
-          <ol
-            data-orientation={orientation}
-            className={progressList}
-            style={{ counterReset: 'step' }}
-          >
-            {children}
-          </ol>
-        </Component>
-      </ProgressTrackerContext.Provider>
-    )
-  }
-)
+          {children}
+        </ol>
+      </Component>
+    </ProgressTrackerContext.Provider>
+  )
+}
