@@ -1,35 +1,32 @@
 import { cx } from 'class-variance-authority'
-import { forwardRef, ReactNode, type Ref } from 'react'
+import { ReactNode, RefObject } from 'react'
 
 import { DropdownGroupProvider, useDropdownGroupContext } from './DropdownItemsGroupContext'
 
 interface GroupProps {
   children: ReactNode
   className?: string
+  ref?: RefObject<HTMLDivElement>
 }
 
-export const Group = forwardRef(
-  ({ children, ...props }: GroupProps, forwardedRef: Ref<HTMLDivElement>) => {
-    return (
-      <DropdownGroupProvider>
-        <GroupContent ref={forwardedRef} {...props}>
-          {children}
-        </GroupContent>
-      </DropdownGroupProvider>
-    )
-  }
-)
-
-const GroupContent = forwardRef(
-  ({ children, className }: GroupProps, forwardedRef: Ref<HTMLDivElement>) => {
-    const { labelId } = useDropdownGroupContext()
-
-    return (
-      <div ref={forwardedRef} role="group" aria-labelledby={labelId} className={cx(className)}>
+export const Group = ({ children, ref: forwardedRef, ...props }: GroupProps) => {
+  return (
+    <DropdownGroupProvider>
+      <GroupContent ref={forwardedRef} {...props}>
         {children}
-      </div>
-    )
-  }
-)
+      </GroupContent>
+    </DropdownGroupProvider>
+  )
+}
+
+const GroupContent = ({ children, className, ref: forwardedRef }: GroupProps) => {
+  const { labelId } = useDropdownGroupContext()
+
+  return (
+    <div ref={forwardedRef} role="group" aria-labelledby={labelId} className={cx(className)}>
+      {children}
+    </div>
+  )
+}
 
 Group.displayName = 'Dropdown.Group'

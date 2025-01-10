@@ -1,12 +1,12 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, forwardRef, type ReactElement, type Ref } from 'react'
+import { ComponentPropsWithoutRef, type ReactElement, RefObject } from 'react'
 
-export type DrawerFooterProps = ComponentPropsWithoutRef<'footer'>
+export type DrawerFooterProps = ComponentPropsWithoutRef<'footer'> & {
+  ref?: RefObject<HTMLDivElement>
+}
 
-export const DrawerFooter = forwardRef(
-  ({ className, ...rest }: DrawerFooterProps, ref: Ref<HTMLDivElement>): ReactElement => (
-    <footer ref={ref} className={cx(['px-xl', 'py-lg'], className)} {...rest} />
-  )
+export const DrawerFooter = ({ className, ref, ...rest }: DrawerFooterProps): ReactElement => (
+  <footer ref={ref} className={cx(['px-xl', 'py-lg'], className)} {...rest} />
 )
 
 DrawerFooter.displayName = 'Drawer.Footer'

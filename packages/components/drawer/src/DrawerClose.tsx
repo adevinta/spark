@@ -1,11 +1,10 @@
 import * as RadixDrawer from '@radix-ui/react-dialog'
-import { ElementRef, forwardRef } from 'react'
+import { RefObject } from 'react'
 
-type CloseElement = ElementRef<typeof RadixDrawer.Close>
-export type DrawerCloseProps = RadixDrawer.DialogCloseProps
+export type DrawerCloseProps = RadixDrawer.DialogCloseProps & {
+  ref?: RefObject<HTMLButtonElement>
+}
 
-export const DrawerClose = forwardRef<CloseElement, DrawerCloseProps>((props, ref) => (
-  <RadixDrawer.Close ref={ref} {...props} />
-))
+export const DrawerClose = (props: DrawerCloseProps) => <RadixDrawer.Close {...props} />
 
 DrawerClose.displayName = 'Drawer.Close'
