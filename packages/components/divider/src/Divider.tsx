@@ -1,11 +1,11 @@
 import { Root as Separator } from '@radix-ui/react-separator'
 import { cx } from 'class-variance-authority'
-import { forwardRef, HTMLAttributes, PropsWithRef, ReactElement, ReactNode } from 'react'
+import { HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react'
 
 import { dividerStyles, type DividerStylesProps } from './Divider.styles'
 
 export interface DividerProps
-  extends PropsWithRef<HTMLAttributes<HTMLDivElement>>,
+  extends HTMLAttributes<HTMLDivElement>,
     Omit<DividerStylesProps, 'isEmpty'> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
@@ -28,36 +28,33 @@ export interface DividerProps
    * Color scheme of the divider.
    */
   intent?: 'outline' | 'current'
+  ref?: RefObject<HTMLDivElement>
 }
 
-export const Divider = forwardRef<HTMLDivElement, DividerProps>(
-  (
-    {
-      asChild,
-      className,
-      isDecorative = false,
-      children,
-      orientation = 'horizontal',
-      alignment = 'center',
-      intent = 'outline',
-      ...props
-    },
-    ref
-  ) => {
-    const isEmpty = asChild ? !(children?.props as { children: ReactNode })?.children : !children
+export const Divider = ({
+  asChild,
+  className,
+  isDecorative = false,
+  children,
+  orientation = 'horizontal',
+  alignment = 'center',
+  intent = 'outline',
+  ref,
+  ...props
+}: DividerProps) => {
+  const isEmpty = asChild ? !(children?.props as { children: ReactNode })?.children : !children
 
-    return (
-      <Separator
-        data-spark-component="divider"
-        asChild={asChild}
-        className={cx(dividerStyles({ isEmpty, orientation, alignment, intent }), className)}
-        orientation={orientation}
-        ref={ref}
-        decorative={isDecorative}
-        {...props}
-      >
-        {children}
-      </Separator>
-    )
-  }
-)
+  return (
+    <Separator
+      data-spark-component="divider"
+      asChild={asChild}
+      className={cx(dividerStyles({ isEmpty, orientation, alignment, intent }), className)}
+      orientation={orientation}
+      ref={ref}
+      decorative={isDecorative}
+      {...props}
+    >
+      {children}
+    </Separator>
+  )
+}
