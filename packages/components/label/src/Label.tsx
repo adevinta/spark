@@ -1,10 +1,12 @@
 import { Label as LabelPrimitive, LabelProps as LabelPrimitiveProps } from '@radix-ui/react-label'
 import { cx } from 'class-variance-authority'
-import { forwardRef } from 'react'
+import { RefObject } from 'react'
 
-export type LabelProps = LabelPrimitiveProps
+export type LabelProps = LabelPrimitiveProps & {
+  ref?: RefObject<HTMLLabelElement>
+}
 
-export const Label = forwardRef<HTMLLabelElement, LabelProps>(({ className, ...others }, ref) => {
+export const Label = ({ className, ref, ...others }: LabelProps) => {
   return (
     <LabelPrimitive
       ref={ref}
@@ -13,6 +15,6 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(({ className, ...o
       {...others}
     />
   )
-})
+}
 
 Label.displayName = 'Label'
