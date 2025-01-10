@@ -1,11 +1,10 @@
 import { Input as SparkInput } from '@spark-ui/input'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { forwardRef } from 'react'
 
 import { useStepperContext } from './Stepper'
 import type { StepperInputProps } from './types'
 
-const Input = forwardRef<HTMLInputElement, StepperInputProps>((props, forwardedRef) => {
+const Input = ({ ref: forwardedRef, ...props }: StepperInputProps) => {
   const { inputRef, inputProps } = useStepperContext()
   const ref = useMergeRefs(forwardedRef, inputRef)
   const { className = '', ...remainingProps } = props
@@ -18,10 +17,10 @@ const Input = forwardRef<HTMLInputElement, StepperInputProps>((props, forwardedR
       className={`min-w-sz-56 text-center ${className}`}
     />
   )
-})
+}
 
 export const StepperInput = Object.assign(Input, {
   id: 'Input',
 })
 
-StepperInput.displayName = 'Stepper.Input'
+Input.displayName = 'Stepper.Input'

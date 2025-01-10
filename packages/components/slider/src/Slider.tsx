@@ -1,5 +1,5 @@
 import * as RadixSlider from '@radix-ui/react-slider'
-import { forwardRef, type PropsWithChildren } from 'react'
+import { type PropsWithChildren, Ref } from 'react'
 
 import { rootStyles } from './Slider.styles'
 import { SliderContext } from './SliderContext'
@@ -56,26 +56,33 @@ export interface SliderProps
    * @default 1
    */
   step?: number
+  ref?: Ref<HTMLDivElement>
 }
 
-export const Slider = forwardRef<HTMLDivElement, SliderProps>(
-  ({ asChild = false, intent = 'basic', shape = 'square', children, className, ...rest }, ref) => (
-    <SliderContext.Provider value={{ intent, shape }}>
-      <RadixSlider.Root
-        ref={ref}
-        data-spark-component="slider"
-        asChild={asChild}
-        className={rootStyles({ className })}
-        dir="ltr"
-        orientation="horizontal"
-        inverted={false}
-        minStepsBetweenThumbs={0}
-        {...rest}
-      >
-        {children}
-      </RadixSlider.Root>
-    </SliderContext.Provider>
-  )
+export const Slider = ({
+  asChild = false,
+  intent = 'basic',
+  shape = 'square',
+  children,
+  className,
+  ref,
+  ...rest
+}: SliderProps) => (
+  <SliderContext.Provider value={{ intent, shape }}>
+    <RadixSlider.Root
+      ref={ref}
+      data-spark-component="slider"
+      asChild={asChild}
+      className={rootStyles({ className })}
+      dir="ltr"
+      orientation="horizontal"
+      inverted={false}
+      minStepsBetweenThumbs={0}
+      {...rest}
+    >
+      {children}
+    </RadixSlider.Root>
+  </SliderContext.Provider>
 )
 
 Slider.displayName = 'Slider'
