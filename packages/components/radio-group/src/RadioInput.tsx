@@ -1,6 +1,6 @@
 import { RadioGroupItem as RadioPrimitive } from '@radix-ui/react-radio-group'
 import { useFormFieldControl } from '@spark-ui/form-field'
-import { ButtonHTMLAttributes, forwardRef } from 'react'
+import { ButtonHTMLAttributes, Ref } from 'react'
 
 import { RadioIndicator } from './RadioIndicator'
 import { radioInputVariants, RadioInputVariantsProps } from './RadioInput.styles'
@@ -24,20 +24,19 @@ export interface RadioInputProps
    * When true, indicates that the user must check the radio item before the owning form can be submitted.
    */
   required?: boolean
+  ref?: Ref<HTMLButtonElement>
 }
 
-export const RadioInput = forwardRef<HTMLButtonElement, RadioInputProps>(
-  ({ intent: intentProp, className, ...others }, ref) => {
-    const { state } = useFormFieldControl()
+export const RadioInput = ({ intent: intentProp, className, ref, ...others }: RadioInputProps) => {
+  const { state } = useFormFieldControl()
 
-    const intent = state ?? intentProp
+  const intent = state ?? intentProp
 
-    return (
-      <RadioPrimitive ref={ref} className={radioInputVariants({ intent, className })} {...others}>
-        <RadioIndicator intent={intent} forceMount />
-      </RadioPrimitive>
-    )
-  }
-)
+  return (
+    <RadioPrimitive ref={ref} className={radioInputVariants({ intent, className })} {...others}>
+      <RadioIndicator intent={intent} forceMount />
+    </RadioPrimitive>
+  )
+}
 
 RadioInput.displayName = 'RadioGroup.RadioInput'
