@@ -1,5 +1,5 @@
 import { Slot } from '@spark-ui/slot'
-import { forwardRef, type PropsWithChildren } from 'react'
+import { type PropsWithChildren, Ref } from 'react'
 
 import { tagStyles, type TagStylesProps } from './Tag.styles'
 
@@ -18,6 +18,7 @@ interface FilteredDesignIntent<
 > {
   design?: Design
   intent?: Exclude<TagStylesProps['intent'], K>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export type ValidTagDesignIntent =
@@ -27,21 +28,26 @@ export type ValidTagDesignIntent =
 
 export type TagProps = BaseTagProps & ValidTagDesignIntent
 
-export const Tag = forwardRef<HTMLButtonElement, TagProps>(
-  ({ design = 'filled', intent = 'basic', asChild, className, ...others }, ref) => {
-    const Component = asChild ? Slot : 'span'
+export const Tag = ({
+  design = 'filled',
+  intent = 'basic',
+  asChild,
+  className,
+  ref,
+  ...others
+}: TagProps) => {
+  const Component = asChild ? Slot : 'span'
 
-    return (
-      <Component
-        data-spark-component="tag"
-        ref={ref}
-        className={tagStyles({
-          className,
-          design,
-          intent,
-        })}
-        {...others}
-      />
-    )
-  }
-)
+  return (
+    <Component
+      data-spark-component="tag"
+      ref={ref}
+      className={tagStyles({
+        className,
+        design,
+        intent,
+      })}
+      {...others}
+    />
+  )
+}
