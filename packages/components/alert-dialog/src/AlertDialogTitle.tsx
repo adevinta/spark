@@ -1,13 +1,12 @@
 import { Dialog, DialogTitleProps } from '@spark-ui/dialog'
-import { ElementRef, forwardRef } from 'react'
+import { Ref } from 'react'
 
-export type AlertDialogTitleElement = ElementRef<typeof Dialog.Description>
-export type AlertDialogTitleProps = DialogTitleProps
+export type AlertDialogTitleProps = DialogTitleProps & {
+  ref?: Ref<HTMLParagraphElement>
+}
 
-export const AlertDialogTitle = forwardRef<AlertDialogTitleElement, AlertDialogTitleProps>(
-  (props, ref) => {
-    return <Dialog.Title ref={ref} data-spark-component="alert-dialog-title" {...props} />
-  }
-)
+export const AlertDialogTitle = (props: AlertDialogTitleProps) => {
+  return <Dialog.Title data-spark-component="alert-dialog-title" {...props} />
+}
 
 AlertDialogTitle.displayName = 'AlertDialog.Title'

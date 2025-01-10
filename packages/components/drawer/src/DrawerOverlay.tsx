@@ -1,23 +1,23 @@
 import * as RadixDrawer from '@radix-ui/react-dialog'
 import { cx } from 'class-variance-authority'
-import { forwardRef, type ReactElement, type Ref } from 'react'
+import { type ReactElement, Ref } from 'react'
 
-export type DrawerOverlayProps = RadixDrawer.DialogOverlayProps
+export type DrawerOverlayProps = RadixDrawer.DialogOverlayProps & {
+  ref?: Ref<HTMLDivElement>
+}
 
-export const DrawerOverlay = forwardRef(
-  ({ className, ...rest }: DrawerOverlayProps, ref: Ref<HTMLDivElement>): ReactElement => (
-    <RadixDrawer.Overlay
-      ref={ref}
-      className={cx(
-        ['fixed', 'top-none', 'left-none', 'w-screen', 'h-screen', 'z-overlay'],
-        ['bg-overlay/dim-3'],
-        ['data-[state=open]:animate-fade-in'],
-        ['data-[state=closed]:animate-fade-out'],
-        className
-      )}
-      {...rest}
-    />
-  )
+export const DrawerOverlay = ({ className, ref, ...rest }: DrawerOverlayProps): ReactElement => (
+  <RadixDrawer.Overlay
+    ref={ref}
+    className={cx(
+      ['fixed', 'top-none', 'left-none', 'w-screen', 'h-screen', 'z-overlay'],
+      ['bg-overlay/dim-3'],
+      ['data-[state=open]:animate-fade-in'],
+      ['data-[state=closed]:animate-fade-out'],
+      className
+    )}
+    {...rest}
+  />
 )
 
 DrawerOverlay.displayName = 'Drawer.Overlay'

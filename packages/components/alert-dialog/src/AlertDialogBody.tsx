@@ -1,13 +1,12 @@
 import { Dialog, DialogBodyProps } from '@spark-ui/dialog'
-import { ElementRef, forwardRef } from 'react'
+import { Ref } from 'react'
 
-export type AlertDialogBodyElement = ElementRef<typeof Dialog.Body>
-export type AlertDialogBodyProps = DialogBodyProps
+export type AlertDialogBodyProps = DialogBodyProps & {
+  ref?: Ref<HTMLDivElement>
+}
 
-export const AlertDialogBody = forwardRef<AlertDialogBodyElement, AlertDialogBodyProps>(
-  (props, ref) => {
-    return <Dialog.Body ref={ref} data-spark-component="alert-dialog-body" {...props} />
-  }
-)
+export const AlertDialogBody = (props: AlertDialogBodyProps) => {
+  return <Dialog.Body data-spark-component="alert-dialog-body" {...props} />
+}
 
 AlertDialogBody.displayName = 'AlertDialog.Body'

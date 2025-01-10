@@ -2,7 +2,7 @@ import { Icon } from '@spark-ui/icon'
 import { StarFill } from '@spark-ui/icons/dist/icons/StarFill'
 import { StarOutline } from '@spark-ui/icons/dist/icons/StarOutline'
 import { cx } from 'class-variance-authority'
-import { forwardRef, type MouseEvent } from 'react'
+import { type MouseEvent, Ref } from 'react'
 
 import {
   ratingStarIconStyles,
@@ -16,43 +16,50 @@ export interface RatingStarProps extends RatingStarstylesProps, RatingStarIconSt
   value: StarValue
   onClick?: (event: MouseEvent<HTMLDivElement>) => void
   onMouseEnter?: (event: MouseEvent<HTMLDivElement>) => void
+  ref?: Ref<HTMLDivElement>
 }
 
-export const RatingStar = forwardRef<HTMLDivElement, RatingStarProps>(
-  ({ value, size, disabled, readOnly, onClick, onMouseEnter }, forwardedRef) => {
-    return (
+export const RatingStar = ({
+  value,
+  size,
+  disabled,
+  readOnly,
+  onClick,
+  onMouseEnter,
+  ref: forwardedRef,
+}: RatingStarProps) => {
+  return (
+    <div
+      ref={forwardedRef}
+      onMouseEnter={onMouseEnter}
+      className={ratingStarStyles({
+        gap: size === 'lg' ? 'md' : 'sm',
+        disabled,
+        readOnly,
+      })}
+      data-part="star"
+      onClick={onClick}
+    >
       <div
-        ref={forwardedRef}
-        onMouseEnter={onMouseEnter}
-        className={ratingStarStyles({
-          gap: size === 'lg' ? 'md' : 'sm',
-          disabled,
-          readOnly,
-        })}
-        data-part="star"
-        onClick={onClick}
+        className={cx(
+          'absolute z-raised overflow-hidden',
+          'group-[[data-part=star][data-hovered]]:overflow-visible'
+        )}
+        style={{ width: value * 100 + '%' }}
       >
-        <div
-          className={cx(
-            'absolute z-raised overflow-hidden',
-            'group-[[data-part=star][data-hovered]]:overflow-visible'
-          )}
-          style={{ width: value * 100 + '%' }}
+        <Icon
+          className={ratingStarIconStyles({
+            size,
+            design: 'filled',
+          })}
         >
-          <Icon
-            className={ratingStarIconStyles({
-              size,
-              design: 'filled',
-            })}
-          >
-            <StarFill />
-          </Icon>
-        </div>
-
-        <Icon className={ratingStarIconStyles({ size, design: 'outlined' })}>
-          <StarOutline />
+          <StarFill />
         </Icon>
       </div>
-    )
-  }
-)
+
+      <Icon className={ratingStarIconStyles({ size, design: 'outlined' })}>
+        <StarOutline />
+      </Icon>
+    </div>
+  )
+}

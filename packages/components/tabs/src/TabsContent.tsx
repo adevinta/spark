@@ -1,5 +1,5 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { forwardRef, type PropsWithChildren } from 'react'
+import { type PropsWithChildren, Ref } from 'react'
 
 import { contentStyles } from './TabsContent.styles'
 import { useTabsContext } from './TabsContext'
@@ -19,36 +19,33 @@ export interface TabsContentProps
    * Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.
    */
   forceMount?: true
+  ref?: Ref<HTMLDivElement>
 }
 
-export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
-  (
-    {
-      /**
-       * Default Radix Primitive values
-       * see https://www.radix-ui.com/docs/primitives/components/tabs#content
-       */
-      children,
-      asChild = false,
-      className,
-      ...rest
-    },
-    ref
-  ) => {
-    const { forceMount } = useTabsContext()
+export const TabsContent = ({
+  /**
+   * Default Radix Primitive values
+   * see https://www.radix-ui.com/docs/primitives/components/tabs#content
+   */
+  children,
+  asChild = false,
+  className,
+  ref,
+  ...rest
+}: TabsContentProps) => {
+  const { forceMount } = useTabsContext()
 
-    return (
-      <RadixTabs.Content
-        ref={ref}
-        forceMount={forceMount || rest.forceMount}
-        className={contentStyles({ className, forceMount })}
-        asChild={asChild}
-        {...rest}
-      >
-        {children}
-      </RadixTabs.Content>
-    )
-  }
-)
+  return (
+    <RadixTabs.Content
+      ref={ref}
+      forceMount={forceMount || rest.forceMount}
+      className={contentStyles({ className, forceMount })}
+      asChild={asChild}
+      {...rest}
+    >
+      {children}
+    </RadixTabs.Content>
+  )
+}
 
 TabsContent.displayName = 'Tabs.Content'

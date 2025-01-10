@@ -1,5 +1,5 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { forwardRef, type PropsWithChildren } from 'react'
+import { type PropsWithChildren, Ref } from 'react'
 
 import { TabsContext } from './TabsContext'
 import { rootStyles } from './TabsRoot.styles'
@@ -18,6 +18,7 @@ export interface TabsProps
    * @default false
    */
   forceMount?: boolean
+  ref?: Ref<HTMLDivElement>
 }
 
 /**
@@ -25,47 +26,43 @@ export interface TabsProps
  */
 export type TabsRootProps = TabsProps
 
-export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
-  (
-    {
-      intent = 'basic',
-      size = 'md',
-      /**
-       * Default Radix Primitive values
-       * see https://www.radix-ui.com/docs/primitives/components/tabs#root
-       */
-      asChild = false,
-      forceMount = false,
-      orientation = 'horizontal',
-      children,
-      className,
-      ...rest
-    },
-    ref
-  ) => {
-    return (
-      <TabsContext.Provider
-        value={{
-          intent,
-          size,
-          orientation,
-          forceMount,
-        }}
+export const Tabs = ({
+  intent = 'basic',
+  size = 'md',
+  /**
+   * Default Radix Primitive values
+   * see https://www.radix-ui.com/docs/primitives/components/tabs#root
+   */
+  asChild = false,
+  forceMount = false,
+  orientation = 'horizontal',
+  children,
+  className,
+  ref,
+  ...rest
+}: TabsProps) => {
+  return (
+    <TabsContext.Provider
+      value={{
+        intent,
+        size,
+        orientation,
+        forceMount,
+      }}
+    >
+      <RadixTabs.Root
+        ref={ref}
+        asChild={asChild}
+        orientation={orientation}
+        className={rootStyles({ className })}
+        data-spark-component="tabs"
+        activationMode="automatic"
+        {...rest}
       >
-        <RadixTabs.Root
-          ref={ref}
-          asChild={asChild}
-          orientation={orientation}
-          className={rootStyles({ className })}
-          data-spark-component="tabs"
-          activationMode="automatic"
-          {...rest}
-        >
-          {children}
-        </RadixTabs.Root>
-      </TabsContext.Provider>
-    )
-  }
-)
+        {children}
+      </RadixTabs.Root>
+    </TabsContext.Provider>
+  )
+}
 
 Tabs.displayName = 'Tabs'

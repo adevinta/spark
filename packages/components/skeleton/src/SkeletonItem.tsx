@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef } from 'react'
+import { ComponentPropsWithRef, CSSProperties } from 'react'
 
 import {
   type SkeletonItemStyleProps,
@@ -6,7 +6,7 @@ import {
   skeletonLineStyles,
 } from './SkeletonItem.styles'
 
-interface SkeletonItemProps extends ComponentPropsWithoutRef<'div'>, SkeletonItemStyleProps {}
+interface SkeletonItemProps extends ComponentPropsWithRef<'div'>, SkeletonItemStyleProps {}
 
 export type SkeletonRectangleProps = Omit<SkeletonItemProps, 'shape'> & {
   width?: string | number
@@ -27,18 +27,16 @@ const getSizeValue = (size?: number | string): string | undefined => {
   return size
 }
 
-const SkeletonItem = forwardRef<HTMLDivElement, SkeletonItemProps>(
-  ({ shape, className, ...rest }, forwardedRef) => {
-    return (
-      <div
-        ref={forwardedRef}
-        aria-hidden="true"
-        className={skeletonItemStyles({ shape, className })}
-        {...rest}
-      />
-    )
-  }
-)
+const SkeletonItem = ({ shape, className, ref: forwardedRef, ...rest }: SkeletonItemProps) => {
+  return (
+    <div
+      ref={forwardedRef}
+      aria-hidden="true"
+      className={skeletonItemStyles({ shape, className })}
+      {...rest}
+    />
+  )
+}
 
 export const SkeletonRectangle = ({ width = '100%', height, ...rest }: SkeletonRectangleProps) => {
   return (

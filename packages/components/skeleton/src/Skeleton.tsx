@@ -1,9 +1,9 @@
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
-import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
+import { ComponentPropsWithRef, PropsWithChildren } from 'react'
 
 import { type SkeletonStyleProps, skeletonStyles } from './Skeleton.styles'
 
-export interface SkeletonProps extends ComponentPropsWithoutRef<'div'>, SkeletonStyleProps {
+export interface SkeletonProps extends ComponentPropsWithRef<'div'>, SkeletonStyleProps {
   /**
    * Displays an animated light effect.
    * @default true
@@ -15,20 +15,25 @@ export interface SkeletonProps extends ComponentPropsWithoutRef<'div'>, Skeleton
   label?: string
 }
 
-export const Skeleton = forwardRef<HTMLDivElement, PropsWithChildren<SkeletonProps>>(
-  ({ isAnimated = true, label, className, children, ...rest }, forwardedRef) => (
-    <div
-      ref={forwardedRef}
-      data-spark-component="skeleton"
-      role="presentation"
-      className={skeletonStyles({ isAnimated, className })}
-      {...rest}
-    >
-      {children}
+export const Skeleton = ({
+  isAnimated = true,
+  label,
+  className,
+  children,
+  ref: forwardedRef,
+  ...rest
+}: PropsWithChildren<SkeletonProps>) => (
+  <div
+    ref={forwardedRef}
+    data-spark-component="skeleton"
+    role="presentation"
+    className={skeletonStyles({ isAnimated, className })}
+    {...rest}
+  >
+    {children}
 
-      {label && <VisuallyHidden>{label}</VisuallyHidden>}
-    </div>
-  )
+    {label && <VisuallyHidden>{label}</VisuallyHidden>}
+  </div>
 )
 
 Skeleton.displayName = 'Skeleton'

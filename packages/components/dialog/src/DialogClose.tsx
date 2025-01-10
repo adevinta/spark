@@ -1,11 +1,10 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
-import { ElementRef, forwardRef } from 'react'
+import { Ref } from 'react'
 
-type CloseElement = ElementRef<typeof RadixDialog.Close>
-export type CloseProps = RadixDialog.DialogCloseProps
+export type CloseProps = RadixDialog.DialogCloseProps & {
+  ref?: Ref<HTMLButtonElement>
+}
 
-export const Close = forwardRef<CloseElement, CloseProps>((props, ref) => (
-  <RadixDialog.Close ref={ref} {...props} />
-))
+export const Close = (props: CloseProps) => <RadixDialog.Close {...props} />
 
 Close.displayName = 'Dialog.Close'

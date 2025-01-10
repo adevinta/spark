@@ -3,9 +3,8 @@ import { useToast } from '@react-aria/toast'
 import {
   Children,
   cloneElement,
-  type ComponentPropsWithoutRef,
+  type ComponentPropsWithRef,
   type FC,
-  forwardRef,
   isValidElement,
   type PropsWithChildren,
   type ReactElement,
@@ -47,9 +46,7 @@ export interface SnackbarItemValue extends SnackbarItemVariantProps {
   actionOnNewline?: boolean
 }
 
-export interface SnackbarItemProps
-  extends ComponentPropsWithoutRef<'div'>,
-    SnackbarItemVariantProps {
+export interface SnackbarItemProps extends ComponentPropsWithRef<'div'>, SnackbarItemVariantProps {
   /**
    * Defines a string value that labels the current element.
    */
@@ -68,127 +65,119 @@ export interface SnackbarItemProps
   'aria-details'?: string
 }
 
-export const SnackbarItem = forwardRef<HTMLDivElement, PropsWithChildren<SnackbarItemProps>>(
-  (
-    {
-      'aria-label': ariaLabel,
-      'aria-labelledby': ariaLabelledby,
-      'aria-describedby': ariaDescribedby,
-      'aria-details': ariaDetails,
-      design: designProp,
-      intent: intentProp,
-      actionOnNewline: actionOnNewlineProp,
-      className,
-      children,
-      ...rest
+export const SnackbarItem = ({
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledby,
+  'aria-describedby': ariaDescribedby,
+  'aria-details': ariaDetails,
+  design: designProp,
+  intent: intentProp,
+  actionOnNewline: actionOnNewlineProp,
+  className,
+  children,
+  ref: forwardedRef,
+  ...rest
+}: PropsWithChildren<SnackbarItemProps>) => {
+  const innerRef = useRef(null)
+  const ref = typeof forwardedRef !== 'function' ? forwardedRef || innerRef : innerRef
+
+  const { toast, state } = useSnackbarItemContext()
+
+  const { state: swipeState, direction: swipeDirection } = useSwipe({
+    swipeRef: ref,
+    onSwipeStart: state.pauseAll,
+    onSwipeCancel: state.resumeAll,
+    onSwipeEnd: ({ direction }) => {
+      ;['left', 'right'].includes(`${direction}`) && state.close(toast.key)
     },
-    forwardedRef
-  ) => {
-    const innerRef = useRef(null)
-    const ref = typeof forwardedRef !== 'function' ? forwardedRef || innerRef : innerRef
+  })
 
-    const { toast, state } = useSnackbarItemContext()
+  const { message, icon, isClosable, onAction, actionLabel } = toast.content
+  const intent = intentProp ?? toast.content.intent
+  const design = designProp ?? toast.content.design
+  const actionOnNewline = actionOnNewlineProp ?? toast.content.actionOnNewline
 
-    const { state: swipeState, direction: swipeDirection } = useSwipe({
-      swipeRef: ref,
-      onSwipeStart: state.pauseAll,
-      onSwipeCancel: state.resumeAll,
-      onSwipeEnd: ({ direction }) => {
-        ;['left', 'right'].includes(`${direction}`) && state.close(toast.key)
-      },
-    })
-
-    const { message, icon, isClosable, onAction, actionLabel } = toast.content
-    const intent = intentProp ?? toast.content.intent
-    const design = designProp ?? toast.content.design
-    const actionOnNewline = actionOnNewlineProp ?? toast.content.actionOnNewline
-
-    const ariaProps = {
-      ariaLabel,
-      ariaLabelledby,
-      ariaDescribedby,
-      ariaDetails,
-    }
-
-    const { toastProps, titleProps, closeButtonProps } = useToast(
-      { toast, ...ariaProps },
-      state,
-      ref
-    )
-
-    const findElement = useCallback(
-      <P extends object>(elementDisplayName: string): ReactElement<P> | undefined => {
-        const childrenArray = Children.toArray(children)
-
-        const match = childrenArray
-          .filter(isValidElement)
-          .find(
-            (child): child is ReactElement<P> =>
-              !!(child.type as FC<P> & { displayName?: string }).displayName?.includes(
-                elementDisplayName
-              )
-          )
-
-        return match as ReactElement<P> | undefined
-      },
-      [children]
-    )
-
-    const iconFromChildren = findElement<SnackbarItemIconProps>('Snackbar.ItemIcon')
-    const actionBtnFromChildren = findElement<SnackbarItemActionProps>('Snackbar.ItemAction')
-    const closeBtnFromChildren = findElement<SnackbarItemCloseProps>('Snackbar.ItemClose')
-
-    return (
-      <div
-        ref={ref}
-        {...toastProps}
-        {...rest}
-        data-animation={toast.animation}
-        {...(!(swipeState === 'cancel' && toast.animation === 'exiting') && {
-          'data-swipe': swipeState,
-          'data-swipe-direction': swipeDirection,
-        })}
-        {...(toast.animation === 'exiting' && {
-          // Remove snackbar when the exiting animation completes
-          onAnimationEnd: () => state.remove(toast.key),
-        })}
-        className={snackbarItemVariant({ design, intent, actionOnNewline, className })}
-      >
-        {/* 1. ICON */}
-        {renderSubComponent(iconFromChildren, icon ? SnackbarItemIcon : null, {
-          children: icon,
-        })}
-
-        {/* 2. MESSAGE */}
-        <p
-          className="row-span-3 px-md py-lg text-body-2"
-          style={{ gridArea: 'message' }}
-          {...titleProps}
-        >
-          {message}
-        </p>
-
-        {/* 3. ACTION BUTTON */}
-        {renderSubComponent(
-          actionBtnFromChildren,
-          actionLabel && onAction ? SnackbarItemAction : null,
-          { intent, design, onClick: onAction, children: actionLabel }
-        )}
-
-        {/* 4. CLOSE BUTTON */}
-        {renderSubComponent(closeBtnFromChildren, isClosable ? SnackbarItemClose : null, {
-          intent,
-          design,
-          /**
-           * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
-           * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
-           */
-          'aria-label': closeButtonProps['aria-label'] as string,
-        })}
-      </div>
-    )
+  const ariaProps = {
+    ariaLabel,
+    ariaLabelledby,
+    ariaDescribedby,
+    ariaDetails,
   }
-)
+
+  const { toastProps, titleProps, closeButtonProps } = useToast({ toast, ...ariaProps }, state, ref)
+
+  const findElement = useCallback(
+    <P extends object>(elementDisplayName: string): ReactElement<P> | undefined => {
+      const childrenArray = Children.toArray(children)
+
+      const match = childrenArray
+        .filter(isValidElement)
+        .find(
+          (child): child is ReactElement<P> =>
+            !!(child.type as FC<P> & { displayName?: string }).displayName?.includes(
+              elementDisplayName
+            )
+        )
+
+      return match as ReactElement<P> | undefined
+    },
+    [children]
+  )
+
+  const iconFromChildren = findElement<SnackbarItemIconProps>('Snackbar.ItemIcon')
+  const actionBtnFromChildren = findElement<SnackbarItemActionProps>('Snackbar.ItemAction')
+  const closeBtnFromChildren = findElement<SnackbarItemCloseProps>('Snackbar.ItemClose')
+
+  return (
+    <div
+      ref={ref}
+      {...toastProps}
+      {...rest}
+      data-animation={toast.animation}
+      {...(!(swipeState === 'cancel' && toast.animation === 'exiting') && {
+        'data-swipe': swipeState,
+        'data-swipe-direction': swipeDirection,
+      })}
+      {...(toast.animation === 'exiting' && {
+        // Remove snackbar when the exiting animation completes
+        onAnimationEnd: () => state.remove(toast.key),
+      })}
+      className={snackbarItemVariant({ design, intent, actionOnNewline, className })}
+    >
+      {/* 1. ICON */}
+      {renderSubComponent(iconFromChildren, icon ? SnackbarItemIcon : null, {
+        children: icon,
+      })}
+
+      {/* 2. MESSAGE */}
+      <p
+        className="row-span-3 px-md py-lg text-body-2"
+        style={{ gridArea: 'message' }}
+        {...titleProps}
+      >
+        {message}
+      </p>
+
+      {/* 3. ACTION BUTTON */}
+      {renderSubComponent(
+        actionBtnFromChildren,
+        actionLabel && onAction ? SnackbarItemAction : null,
+        { intent, design, onClick: onAction, children: actionLabel }
+      )}
+
+      {/* 4. CLOSE BUTTON */}
+      {renderSubComponent(closeBtnFromChildren, isClosable ? SnackbarItemClose : null, {
+        intent,
+        design,
+        /**
+         * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
+         * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
+         */
+        'aria-label': closeButtonProps['aria-label'] as string,
+      })}
+    </div>
+  )
+}
 
 SnackbarItem.displayName = 'Snackbar.Item'
 

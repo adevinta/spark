@@ -1,17 +1,16 @@
 import { cx } from 'class-variance-authority'
-import { forwardRef, type ReactElement, type ReactNode, type Ref } from 'react'
+import { type ReactElement, type ReactNode, Ref } from 'react'
 
 export interface FooterProps {
   children: ReactNode
   className?: string
+  ref?: Ref<HTMLDivElement>
 }
 
-export const Footer = forwardRef(
-  ({ children, className, ...rest }: FooterProps, ref: Ref<HTMLDivElement>): ReactElement => (
-    <footer ref={ref} className={cx(className, ['px-xl', 'py-lg'])} {...rest}>
-      {children}
-    </footer>
-  )
+export const Footer = ({ children, className, ref, ...rest }: FooterProps): ReactElement => (
+  <footer ref={ref} className={cx(className, ['px-xl', 'py-lg'])} {...rest}>
+    {children}
+  </footer>
 )
 
 Footer.displayName = 'Dialog.Footer'

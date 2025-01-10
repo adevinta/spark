@@ -24,7 +24,7 @@ import { useMergeRefs } from "@spark-ui/use-merge-refs"
 import * as React from 'react'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 
-const Demo = React.forwardRef((props, forwardedRef) => {
+const Demo = ({ ref: forwardedRef, ...props }) => {
   const innerRef = useRef()
   const inputRef = useMergeRefs(innerRef, forwardedRef)
 
@@ -39,5 +39,5 @@ const Demo = React.forwardRef((props, forwardedRef) => {
       <Icon ><Close/></Icon>
     </>
   )
-})
+}
 ```

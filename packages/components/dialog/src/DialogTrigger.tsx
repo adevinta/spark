@@ -1,7 +1,6 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
-import { ElementRef, forwardRef, type ReactElement } from 'react'
+import { type ReactElement, Ref } from 'react'
 
-type TriggerElement = ElementRef<typeof RadixDialog.Trigger>
 export interface TriggerProps {
   /**
    * Children of the component.
@@ -11,10 +10,9 @@ export interface TriggerProps {
    * Change the component to the HTML tag or custom component of the only child.
    */
   asChild?: RadixDialog.DialogTriggerProps['asChild']
+  ref?: Ref<HTMLButtonElement>
 }
 
-export const Trigger = forwardRef<TriggerElement, TriggerProps>(
-  (props: TriggerProps, ref): ReactElement => <RadixDialog.Trigger ref={ref} {...props} />
-)
+export const Trigger = (props: TriggerProps): ReactElement => <RadixDialog.Trigger {...props} />
 
 Trigger.displayName = 'Dialog.Trigger'

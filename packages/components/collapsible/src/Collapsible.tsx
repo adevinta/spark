@@ -2,7 +2,7 @@ import { useEvent } from '@spark-ui/internal-utils'
 import { Slot } from '@spark-ui/slot'
 import * as collapsible from '@zag-js/collapsible'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
-import { type ComponentProps, createContext, forwardRef, useContext, useId } from 'react'
+import { type ComponentProps, createContext, Ref, useContext, useId } from 'react'
 
 export interface CollapsibleProps extends ComponentProps<'div'> {
   /**
@@ -29,59 +29,56 @@ export interface CollapsibleProps extends ComponentProps<'div'> {
    * The ids of the elements in the collapsible. Useful for composition
    */
   ids?: collapsible.Context['ids']
+  ref?: Ref<HTMLDivElement>
 }
 
 const CollapsibleContext = createContext<collapsible.Api<PropTypes> | null>(null)
 
-export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
-  (
-    {
-      asChild = false,
-      children,
-      defaultOpen = false,
-      disabled = false,
-      onOpenChange,
-      open,
-      ids,
-      ...props
-    },
-    ref
-  ) => {
-    const initialContext: collapsible.Context = {
-      'open.controlled': open !== undefined,
-      open: defaultOpen || open,
-      disabled,
-      id: useId(),
-      ids,
-    }
-
-    const context: collapsible.Context = {
-      ...initialContext,
-      onOpenChange: useEvent(
-        (details: collapsible.OpenChangeDetails) => {
-          onOpenChange?.(details.open)
-        },
-        { sync: true }
-      ),
-      open,
-      disabled,
-    }
-
-    const [state, send] = useMachine(collapsible.machine(initialContext), { context })
-    const api = collapsible.connect(state, send, normalizeProps)
-    const Component = asChild ? Slot : 'div'
-
-    const mergedProps = mergeProps(api.getRootProps(), props)
-
-    return (
-      <CollapsibleContext.Provider value={api}>
-        <Component data-spark-component="collapsible" ref={ref} {...mergedProps}>
-          {children}
-        </Component>
-      </CollapsibleContext.Provider>
-    )
+export const Collapsible = ({
+  asChild = false,
+  children,
+  defaultOpen = false,
+  disabled = false,
+  onOpenChange,
+  open,
+  ids,
+  ref,
+  ...props
+}: CollapsibleProps) => {
+  const initialContext: collapsible.Context = {
+    'open.controlled': open !== undefined,
+    open: defaultOpen || open,
+    disabled,
+    id: useId(),
+    ids,
   }
-)
+
+  const context: collapsible.Context = {
+    ...initialContext,
+    onOpenChange: useEvent(
+      (details: collapsible.OpenChangeDetails) => {
+        onOpenChange?.(details.open)
+      },
+      { sync: true }
+    ),
+    open,
+    disabled,
+  }
+
+  const [state, send] = useMachine(collapsible.machine(initialContext), { context })
+  const api = collapsible.connect(state, send, normalizeProps)
+  const Component = asChild ? Slot : 'div'
+
+  const mergedProps = mergeProps(api.getRootProps(), props)
+
+  return (
+    <CollapsibleContext.Provider value={api}>
+      <Component data-spark-component="collapsible" ref={ref} {...mergedProps}>
+        {children}
+      </Component>
+    </CollapsibleContext.Provider>
+  )
+}
 
 Collapsible.displayName = 'Collapsible'
 

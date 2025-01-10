@@ -2,7 +2,7 @@ import { Button } from '@spark-ui/button'
 import { RadioGroup } from '@spark-ui/radio-group'
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
-import { forwardRef, PropsWithChildren, useState } from 'react'
+import { PropsWithChildren, Ref, useState } from 'react'
 
 import { Popover } from '.'
 import { type ContentProps } from './PopoverContent'
@@ -14,12 +14,14 @@ const meta: Meta<typeof Popover> = {
 
 export default meta
 
-const ShowcaseContainer = forwardRef<
-  HTMLDivElement,
-  PropsWithChildren<{
-    className?: string
-  }>
->(({ children, className }, ref) => (
+const ShowcaseContainer = ({
+  children,
+  className,
+  ref,
+}: PropsWithChildren<{
+  className?: string
+  ref?: Ref<HTMLDivElement>
+}>) => (
   <div
     ref={ref}
     className={cx(
@@ -29,7 +31,7 @@ const ShowcaseContainer = forwardRef<
   >
     {children}
   </div>
-))
+)
 
 export const Default: StoryFn = _args => {
   return (

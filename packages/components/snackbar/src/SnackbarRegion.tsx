@@ -1,18 +1,12 @@
 import { type AriaToastRegionProps, useToastRegion } from '@react-aria/toast'
-import {
-  cloneElement,
-  type ComponentPropsWithoutRef,
-  forwardRef,
-  type ReactElement,
-  useRef,
-} from 'react'
+import { cloneElement, type ComponentPropsWithRef, type ReactElement, useRef } from 'react'
 
 import { SnackbarItem, type SnackbarItemProps } from './SnackbarItem'
 import { SnackbarItemContext, type SnackbarItemState } from './SnackbarItemContext'
 import { snackbarRegionVariant, type SnackbarRegionVariantProps } from './SnackbarRegion.styles'
 
 export interface SnackbarRegionProps
-  extends ComponentPropsWithoutRef<'div'>,
+  extends ComponentPropsWithRef<'div'>,
     AriaToastRegionProps,
     SnackbarRegionVariantProps,
     Pick<SnackbarItemState, 'state'> {
@@ -40,29 +34,31 @@ export interface SnackbarRegionProps
   children?: ReactElement<SnackbarItemProps, typeof SnackbarItem>
 }
 
-export const SnackbarRegion = forwardRef<HTMLDivElement, SnackbarRegionProps>(
-  (
-    { children = <SnackbarItem />, state, position = 'bottom', className, ...rest },
-    forwardedRef
-  ): ReactElement => {
-    const innerRef = useRef<HTMLDivElement>(null)
-    const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
+export const SnackbarRegion = ({
+  children = <SnackbarItem />,
+  state,
+  position = 'bottom',
+  className,
+  ref: forwardedRef,
+  ...rest
+}: SnackbarRegionProps): ReactElement => {
+  const innerRef = useRef<HTMLDivElement>(null)
+  const ref = forwardedRef && typeof forwardedRef !== 'function' ? forwardedRef : innerRef
 
-    const { regionProps } = useToastRegion(rest, state, ref)
+  const { regionProps } = useToastRegion(rest, state, ref)
 
-    return (
-      <div
-        {...regionProps}
-        ref={ref}
-        data-position={position}
-        className={snackbarRegionVariant({ position, className })}
-      >
-        {state.visibleToasts.map(toast => (
-          <SnackbarItemContext.Provider key={toast.key} value={{ toast, state }}>
-            {cloneElement(children, { key: toast.key })}
-          </SnackbarItemContext.Provider>
-        ))}
-      </div>
-    )
-  }
-)
+  return (
+    <div
+      {...regionProps}
+      ref={ref}
+      data-position={position}
+      className={snackbarRegionVariant({ position, className })}
+    >
+      {state.visibleToasts.map(toast => (
+        <SnackbarItemContext.Provider key={toast.key} value={{ toast, state }}>
+          {cloneElement(children, { key: toast.key })}
+        </SnackbarItemContext.Provider>
+      ))}
+    </div>
+  )
+}

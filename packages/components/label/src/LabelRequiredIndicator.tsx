@@ -1,23 +1,26 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, forwardRef } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
-export type LabelRequiredIndicatorProps = ComponentPropsWithoutRef<'span'>
+export type LabelRequiredIndicatorProps = ComponentPropsWithRef<'span'>
 
-export const LabelRequiredIndicator = forwardRef<HTMLSpanElement, LabelRequiredIndicatorProps>(
-  ({ className, children = '*', ...others }, ref) => {
-    return (
-      <span
-        ref={ref}
-        data-spark-component="label-required-indicator"
-        role="presentation"
-        aria-hidden="true"
-        className={cx(className, 'text-caption text-on-surface/dim-1')}
-        {...others}
-      >
-        {children}
-      </span>
-    )
-  }
-)
+export const LabelRequiredIndicator = ({
+  className,
+  children = '*',
+  ref,
+  ...others
+}: LabelRequiredIndicatorProps) => {
+  return (
+    <span
+      ref={ref}
+      data-spark-component="label-required-indicator"
+      role="presentation"
+      aria-hidden="true"
+      className={cx(className, 'text-caption text-on-surface/dim-1')}
+      {...others}
+    >
+      {children}
+    </span>
+  )
+}
 
 LabelRequiredIndicator.displayName = 'Label.RequiredIndicator'

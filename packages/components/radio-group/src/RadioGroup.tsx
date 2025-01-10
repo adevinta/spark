@@ -1,6 +1,6 @@
 import { RadioGroup as RadioGroupPrimitive } from '@radix-ui/react-radio-group'
 import { useFormFieldControl } from '@spark-ui/form-field'
-import { forwardRef, HTMLAttributes } from 'react'
+import { HTMLAttributes, Ref } from 'react'
 
 import { radioGroupStyles, RadioGroupVariantsProps } from './RadioGroup.styles'
 import { RadioGroupProvider } from './RadioGroupProvider'
@@ -54,45 +54,42 @@ export interface RadioGroupProps
    * When true, the label will be placed on the left side of the Radio
    */
   reverse?: boolean
+  ref?: Ref<HTMLDivElement>
 }
 
-export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
-  (
-    {
-      orientation = 'vertical',
-      loop = true,
-      intent = 'basic',
-      disabled,
-      className,
-      required: requiredProp,
-      reverse = false,
-      ...others
-    },
-    ref
-  ) => {
-    const { labelId, isInvalid, isRequired, description, name } = useFormFieldControl()
-    const required = requiredProp !== undefined ? requiredProp : isRequired
+export const RadioGroup = ({
+  orientation = 'vertical',
+  loop = true,
+  intent = 'basic',
+  disabled,
+  className,
+  required: requiredProp,
+  reverse = false,
+  ref,
+  ...others
+}: RadioGroupProps) => {
+  const { labelId, isInvalid, isRequired, description, name } = useFormFieldControl()
+  const required = requiredProp !== undefined ? requiredProp : isRequired
 
-    return (
-      <RadioGroupProvider reverse={reverse} intent={intent} disabled={disabled}>
-        <RadioGroupPrimitive
-          data-spark-component="radio-group"
-          className={radioGroupStyles({ orientation, className })}
-          name={name}
-          ref={ref}
-          disabled={disabled}
-          orientation={orientation}
-          loop={loop}
-          required={required}
-          aria-labelledby={labelId}
-          aria-invalid={isInvalid}
-          aria-required={required}
-          aria-describedby={description}
-          {...others}
-        />
-      </RadioGroupProvider>
-    )
-  }
-)
+  return (
+    <RadioGroupProvider reverse={reverse} intent={intent} disabled={disabled}>
+      <RadioGroupPrimitive
+        data-spark-component="radio-group"
+        className={radioGroupStyles({ orientation, className })}
+        name={name}
+        ref={ref}
+        disabled={disabled}
+        orientation={orientation}
+        loop={loop}
+        required={required}
+        aria-labelledby={labelId}
+        aria-invalid={isInvalid}
+        aria-required={required}
+        aria-describedby={description}
+        {...others}
+      />
+    </RadioGroupProvider>
+  )
+}
 
 RadioGroup.displayName = 'RadioGroup'

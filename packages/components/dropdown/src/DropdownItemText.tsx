@@ -1,31 +1,30 @@
 import { cx } from 'class-variance-authority'
-import { forwardRef, type Ref, useEffect, useId } from 'react'
+import { Ref, useEffect, useId } from 'react'
 
 import { ID_PREFIX } from './DropdownContext'
 import { useDropdownItemContext } from './DropdownItemContext'
 
 export interface ItemTextProps {
   children: string
+  ref?: Ref<HTMLSpanElement>
 }
 
-export const ItemText = forwardRef(
-  ({ children }: ItemTextProps, forwardedRef: Ref<HTMLSpanElement>) => {
-    const id = `${ID_PREFIX}-item-text-${useId()}`
+export const ItemText = ({ children, ref: forwardedRef }: ItemTextProps) => {
+  const id = `${ID_PREFIX}-item-text-${useId()}`
 
-    const { setTextId } = useDropdownItemContext()
+  const { setTextId } = useDropdownItemContext()
 
-    useEffect(() => {
-      setTextId(id)
+  useEffect(() => {
+    setTextId(id)
 
-      return () => setTextId(undefined)
-    })
+    return () => setTextId(undefined)
+  })
 
-    return (
-      <span id={id} className={cx('inline')} ref={forwardedRef}>
-        {children}
-      </span>
-    )
-  }
-)
+  return (
+    <span id={id} className={cx('inline')} ref={forwardedRef}>
+      {children}
+    </span>
+  )
+}
 
 ItemText.displayName = 'Dropdown.ItemText'

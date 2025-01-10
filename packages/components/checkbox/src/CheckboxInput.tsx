@@ -2,7 +2,7 @@ import { Checkbox as CheckboxPrimitive } from '@radix-ui/react-checkbox'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Minus } from '@spark-ui/icons/dist/icons/Minus'
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, ReactNode, Ref } from 'react'
 
 import { CheckboxIndicator } from './CheckboxIndicator'
 import { checkboxInputStyles, type CheckboxInputStylesProps } from './CheckboxInput.styles'
@@ -48,24 +48,28 @@ export interface CheckboxInputProps
    * Event handler called when the checked state of the checkbox changes.
    */
   onCheckedChange?: (checked: boolean) => void
+  ref?: Ref<HTMLButtonElement>
 }
 
-export const CheckboxInput = forwardRef<HTMLButtonElement, CheckboxInputProps>(
-  (
-    { className, icon = <Check />, indeterminateIcon = <Minus />, intent, checked, ...others },
-    ref
-  ) => (
-    <CheckboxPrimitive
-      ref={ref}
-      className={checkboxInputStyles({ intent, className })}
-      checked={checked}
-      {...others}
-    >
-      <CheckboxIndicator>
-        <Icon size="sm">{checked === 'indeterminate' ? indeterminateIcon : icon}</Icon>
-      </CheckboxIndicator>
-    </CheckboxPrimitive>
-  )
+export const CheckboxInput = ({
+  className,
+  icon = <Check />,
+  indeterminateIcon = <Minus />,
+  intent,
+  checked,
+  ref,
+  ...others
+}: CheckboxInputProps) => (
+  <CheckboxPrimitive
+    ref={ref}
+    className={checkboxInputStyles({ intent, className })}
+    checked={checked}
+    {...others}
+  >
+    <CheckboxIndicator>
+      <Icon size="sm">{checked === 'indeterminate' ? indeterminateIcon : icon}</Icon>
+    </CheckboxIndicator>
+  </CheckboxPrimitive>
 )
 
 CheckboxInput.displayName = 'CheckboxInput'
