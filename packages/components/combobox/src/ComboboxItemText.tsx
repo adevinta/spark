@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { RefObject, useEffect, useId } from 'react'
+import { Ref, useEffect, useId } from 'react'
 
 import { ID_PREFIX } from './ComboboxContext'
 import { useComboboxItemContext } from './ComboboxItemContext'
@@ -7,7 +7,7 @@ import { useComboboxItemContext } from './ComboboxItemContext'
 export interface ItemTextProps {
   children: string
   className?: string
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const ItemText = ({ children, className, ref: forwardedRef }: ItemTextProps) => {

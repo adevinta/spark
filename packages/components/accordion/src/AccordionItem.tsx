@@ -1,7 +1,7 @@
 import { Collapsible } from '@spark-ui/collapsible'
 import { mergeProps } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
-import { type ComponentPropsWithoutRef, RefObject } from 'react'
+import { type ComponentPropsWithoutRef, Ref } from 'react'
 
 import { useAccordionContext } from './Accordion'
 import { AccordionItemProvider } from './AccordionItemContext'
@@ -10,7 +10,7 @@ export interface AccordionItemProps extends ComponentPropsWithoutRef<'div'> {
   value: string
   asChild?: boolean
   disabled?: boolean
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Item = ({

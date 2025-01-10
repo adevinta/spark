@@ -1,5 +1,5 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
-import { type ReactElement, RefObject, useEffect } from 'react'
+import { type ReactElement, Ref, useEffect } from 'react'
 
 import { dialogContentStyles, type DialogContentStylesProps } from './DialogContent.styles'
 import { useDialog } from './DialogContext'
@@ -9,7 +9,7 @@ export interface ContentProps extends RadixDialog.DialogContentProps, DialogCont
    * When set to true, the content will adjust its width to fit the content rather than taking up the full available width.
    */
   isNarrow?: boolean
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Content = ({

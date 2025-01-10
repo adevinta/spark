@@ -1,8 +1,8 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 export type DescriptionProps = RadixDialog.DialogDescriptionProps & {
-  ref?: RefObject<HTMLParagraphElement>
+  ref?: Ref<HTMLParagraphElement>
 }
 
 export const Description = (props: DescriptionProps) => <RadixDialog.Description {...props} />

@@ -1,11 +1,6 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Slot } from '@spark-ui/slot'
-import {
-  ChangeEventHandler,
-  ComponentPropsWithoutRef,
-  KeyboardEventHandler,
-  RefObject,
-} from 'react'
+import { ChangeEventHandler, ComponentPropsWithoutRef, KeyboardEventHandler, Ref } from 'react'
 
 import { inputStyles } from './Input.styles'
 import { useInputGroup } from './InputGroupContext'
@@ -15,7 +10,7 @@ type InputPrimitiveProps = ComponentPropsWithoutRef<'input'>
 export interface InputProps extends InputPrimitiveProps {
   asChild?: boolean
   onValueChange?: (value: string) => void
-  ref?: RefObject<HTMLInputElement>
+  ref?: Ref<HTMLInputElement>
 }
 
 const Root = ({

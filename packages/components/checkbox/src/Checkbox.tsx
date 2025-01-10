@@ -2,7 +2,7 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { RefObject, useId, useMemo, useRef } from 'react'
+import { Ref, useId, useMemo, useRef } from 'react'
 
 import { CheckboxGroupContextState, useCheckboxGroup } from './CheckboxGroupContext'
 import { CheckboxInput, CheckboxInputProps } from './CheckboxInput'
@@ -10,7 +10,7 @@ import { CheckboxLabel } from './CheckboxLabel'
 
 export type CheckboxProps = CheckboxInputProps &
   Pick<CheckboxGroupContextState, 'reverse'> & {
-    ref?: RefObject<HTMLButtonElement>
+    ref?: Ref<HTMLButtonElement>
   }
 
 const ID_PREFIX = ':checkbox'

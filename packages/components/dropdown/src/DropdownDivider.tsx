@@ -1,9 +1,9 @@
 import { cx } from 'class-variance-authority'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 interface DividerProps {
   className?: string
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Divider = ({ className, ref: forwardedRef }: DividerProps) => {

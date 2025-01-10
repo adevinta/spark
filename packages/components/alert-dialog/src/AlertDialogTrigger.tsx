@@ -1,8 +1,8 @@
 import { Dialog, DialogTriggerProps } from '@spark-ui/dialog'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 export type AlertDialogTriggerProps = DialogTriggerProps & {
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const AlertDialogTrigger = (props: AlertDialogTriggerProps) => {

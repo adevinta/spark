@@ -1,12 +1,12 @@
 import { Slot } from '@spark-ui/slot'
 import { TextLink } from '@spark-ui/text-link'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, RefObject } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 export interface CurrentPageProps extends ComponentPropsWithoutRef<typeof TextLink> {
   asChild?: boolean
   className?: string
-  ref?: RefObject<HTMLAnchorElement>
+  ref?: Ref<HTMLAnchorElement>
 }
 
 export const CurrentPage = ({

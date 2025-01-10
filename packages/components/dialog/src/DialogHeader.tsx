@@ -1,10 +1,10 @@
 import { cx } from 'class-variance-authority'
-import { type ReactElement, type ReactNode, RefObject } from 'react'
+import { type ReactElement, type ReactNode, Ref } from 'react'
 
 export interface HeaderProps {
   children: ReactNode
   className?: string
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Header = ({ children, className, ref, ...rest }: HeaderProps): ReactElement => (

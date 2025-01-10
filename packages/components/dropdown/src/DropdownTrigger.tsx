@@ -4,7 +4,7 @@ import { Popover } from '@spark-ui/popover'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { cx } from 'class-variance-authority'
-import { Fragment, ReactNode, RefObject } from 'react'
+import { Fragment, ReactNode, Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { styles } from './DropdownTrigger.styles'
@@ -13,7 +13,7 @@ interface TriggerProps {
   'aria-label'?: string
   children: ReactNode
   className?: string
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const Trigger = ({

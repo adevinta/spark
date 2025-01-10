@@ -1,10 +1,10 @@
 import { cx } from 'class-variance-authority'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 import { FormFieldMessage, FormFieldMessageProps } from './FormFieldMessage'
 
 export type FormFieldHelperMessageProps = FormFieldMessageProps & {
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const FormFieldHelperMessage = ({

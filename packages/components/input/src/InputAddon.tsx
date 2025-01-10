@@ -1,5 +1,5 @@
 import { Slot } from '@spark-ui/slot'
-import { Children, type ComponentPropsWithoutRef, type PropsWithChildren, RefObject } from 'react'
+import { Children, type ComponentPropsWithoutRef, type PropsWithChildren, Ref } from 'react'
 
 import { inputAddonStyles, type InputAddonStylesProps } from './InputAddon.styles'
 import { useInputGroup } from './InputGroupContext'
@@ -7,7 +7,7 @@ import { useInputGroup } from './InputGroupContext'
 export interface InputAddonProps
   extends ComponentPropsWithoutRef<'div'>,
     Omit<InputAddonStylesProps, 'intent' | 'disabled'> {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const InputAddon = ({

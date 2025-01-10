@@ -4,7 +4,7 @@ import { IconButton } from '@spark-ui/icon-button'
 import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalDown'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { ComponentProps, RefObject } from 'react'
+import { ComponentProps, Ref } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
@@ -12,7 +12,7 @@ interface DisclosureProps extends Omit<ComponentProps<typeof IconButton>, 'aria-
   className?: string
   closedLabel: string
   openedLabel: string
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const Disclosure = ({

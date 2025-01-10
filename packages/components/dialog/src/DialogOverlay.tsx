@@ -1,11 +1,11 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 import { cx } from 'class-variance-authority'
-import { type ReactElement, RefObject } from 'react'
+import { type ReactElement, Ref } from 'react'
 
 import { useDialog } from './DialogContext'
 
 export type OverlayProps = RadixDialog.DialogOverlayProps & {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Overlay = ({ className, ref, ...rest }: OverlayProps): ReactElement | null => {

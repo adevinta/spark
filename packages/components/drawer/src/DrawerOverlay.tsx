@@ -1,9 +1,9 @@
 import * as RadixDrawer from '@radix-ui/react-dialog'
 import { cx } from 'class-variance-authority'
-import { type ReactElement, RefObject } from 'react'
+import { type ReactElement, Ref } from 'react'
 
 export type DrawerOverlayProps = RadixDrawer.DialogOverlayProps & {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const DrawerOverlay = ({ className, ref, ...rest }: DrawerOverlayProps): ReactElement => (

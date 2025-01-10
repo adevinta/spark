@@ -2,14 +2,14 @@ import { Collapsible } from '@spark-ui/collapsible'
 import { createSplitProps } from '@spark-ui/internal-utils'
 import { mergeProps } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
-import { type ComponentPropsWithoutRef, RefObject } from 'react'
+import { type ComponentPropsWithoutRef, Ref } from 'react'
 
 import { useAccordionContext } from './Accordion'
 import { useAccordionItemContext } from './AccordionItemContext'
 
 export interface AccordionItemContentProps extends ComponentPropsWithoutRef<'div'> {
   asChild?: boolean
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 const splitVisibilityProps = createSplitProps<{

@@ -2,12 +2,12 @@ import { Icon } from '@spark-ui/icon'
 import { ArrowVerticalRight } from '@spark-ui/icons/dist/icons/ArrowVerticalRight'
 import { Slot } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, RefObject } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 export interface SeparatorProps extends ComponentPropsWithoutRef<'li'> {
   asChild?: boolean
   className?: string
-  ref?: RefObject<HTMLLIElement>
+  ref?: Ref<HTMLLIElement>
 }
 
 export const Separator = ({

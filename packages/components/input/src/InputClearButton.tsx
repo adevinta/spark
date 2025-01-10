@@ -1,13 +1,13 @@
 import { Icon } from '@spark-ui/icon'
 import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, MouseEventHandler, RefObject } from 'react'
+import { ComponentPropsWithoutRef, MouseEventHandler, Ref } from 'react'
 
 import { useInputGroup } from './InputGroupContext'
 
 export interface InputClearButtonProps extends ComponentPropsWithoutRef<'button'> {
   'aria-label': string
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 const Root = ({ className, tabIndex = -1, onClick, ref, ...others }: InputClearButtonProps) => {

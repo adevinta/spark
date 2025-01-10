@@ -1,6 +1,6 @@
 import { Icon } from '@spark-ui/icon'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
-import React, { cloneElement, ComponentPropsWithoutRef, RefObject, useCallback } from 'react'
+import React, { cloneElement, ComponentPropsWithoutRef, Ref, useCallback } from 'react'
 
 import {
   chipClearButtonStyles,
@@ -13,7 +13,7 @@ export interface ChipClearButtonProps
   extends ComponentPropsWithoutRef<'span'>,
     ChipClearButtonStylesProps {
   label: string
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const ChipClearButton = ({

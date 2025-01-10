@@ -1,6 +1,6 @@
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cva, cx } from 'class-variance-authority'
-import { type HTMLAttributes, type ReactNode, RefObject } from 'react'
+import { type HTMLAttributes, type ReactNode, Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { DropdownItemProvider, useDropdownItemContext } from './DropdownItemContext'
@@ -10,7 +10,7 @@ export interface ItemProps extends HTMLAttributes<HTMLLIElement> {
   value: string
   children: ReactNode
   className?: string
-  ref?: RefObject<HTMLLIElement>
+  ref?: Ref<HTMLLIElement>
 }
 
 export const Item = ({ children, ref: forwardedRef, ...props }: ItemProps) => {

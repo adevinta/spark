@@ -3,14 +3,14 @@ import { ArrowHorizontalDown } from '@spark-ui/icons/dist/icons/ArrowHorizontalD
 import { Slot } from '@spark-ui/slot'
 import { mergeProps } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
-import { type ComponentPropsWithoutRef, RefObject } from 'react'
+import { type ComponentPropsWithoutRef, Ref } from 'react'
 
 import { useAccordionContext } from './Accordion'
 import { useAccordionItemContext } from './AccordionItemContext'
 
 export interface AccordionItemTriggerProps extends ComponentPropsWithoutRef<'button'> {
   asChild?: boolean
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const ItemTrigger = ({

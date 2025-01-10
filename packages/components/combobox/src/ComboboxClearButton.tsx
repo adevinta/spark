@@ -1,13 +1,13 @@
 import { Icon } from '@spark-ui/icon'
 import { DeleteOutline } from '@spark-ui/icons/dist/icons/DeleteOutline'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, MouseEventHandler, RefObject } from 'react'
+import { ComponentPropsWithoutRef, MouseEventHandler, Ref } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
 export interface ClearButtonProps extends ComponentPropsWithoutRef<'button'> {
   'aria-label': string
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const ClearButton = ({

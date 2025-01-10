@@ -1,7 +1,7 @@
-import { ComponentPropsWithoutRef, PropsWithChildren, RefObject } from 'react'
+import { ComponentPropsWithoutRef, PropsWithChildren, Ref } from 'react'
 
 export type KbdProps = ComponentPropsWithoutRef<'div'> & {
-  ref?: RefObject<HTMLElement>
+  ref?: Ref<HTMLElement>
 }
 
 export const Kbd = ({ className, ref, ...props }: PropsWithChildren<KbdProps>) => {

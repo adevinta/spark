@@ -1,9 +1,9 @@
-import { PropsWithChildren, RefObject } from 'react'
+import { PropsWithChildren, Ref } from 'react'
 
 import { BadgeItem, BadgeItemProps } from './BadgeItem'
 
 export type BadgeProps = PropsWithChildren<Omit<BadgeItemProps, 'type'>> & {
-  ref?: RefObject<HTMLElement>
+  ref?: Ref<HTMLElement>
 }
 
 export const Badge = ({ children, ...props }: BadgeProps) => {

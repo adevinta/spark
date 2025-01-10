@@ -1,11 +1,11 @@
-import { type ReactElement, type ReactNode, RefObject } from 'react'
+import { type ReactElement, type ReactNode, Ref } from 'react'
 
 import { dialogBodyStyles, type DialogBodyStylesProps } from './DialogBody.styles'
 export interface BodyProps extends DialogBodyStylesProps {
   children: ReactNode
   className?: string
   tabIndex?: number
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Body = ({

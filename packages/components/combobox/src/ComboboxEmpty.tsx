@@ -1,12 +1,12 @@
 import { cx } from 'class-variance-authority'
-import { type ReactNode, RefObject } from 'react'
+import { type ReactNode, Ref } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
 interface EmptyProps {
   className?: string
   children: ReactNode
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Empty = ({ className, children, ref: forwardedRef }: EmptyProps) => {

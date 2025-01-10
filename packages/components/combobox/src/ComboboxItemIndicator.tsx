@@ -1,7 +1,7 @@
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { cx } from 'class-variance-authority'
-import { ReactNode, RefObject } from 'react'
+import { ReactNode, Ref } from 'react'
 
 import { useComboboxItemContext } from './ComboboxItemContext'
 
@@ -9,7 +9,7 @@ export interface ItemIndicatorProps {
   children?: ReactNode
   className?: string
   label?: string
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const ItemIndicator = ({

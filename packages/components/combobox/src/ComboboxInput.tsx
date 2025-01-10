@@ -3,7 +3,7 @@ import { useCombinedState } from '@spark-ui/use-combined-state'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { VisuallyHidden } from '@spark-ui/visually-hidden'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, Fragment, RefObject, useEffect } from 'react'
+import { ComponentPropsWithoutRef, Fragment, Ref, useEffect } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
@@ -15,7 +15,7 @@ interface InputProps extends Omit<InputPrimitiveProps, 'value' | 'placeholder'> 
   value?: string
   defaultValue?: string
   onValueChange?: (value: string) => void
-  ref?: RefObject<HTMLInputElement>
+  ref?: Ref<HTMLInputElement>
 }
 
 export const Input = ({

@@ -1,10 +1,10 @@
 import { Slot } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
-import { type ComponentProps, RefObject } from 'react'
+import { type ComponentProps, Ref } from 'react'
 
 export interface AccordionItemHeaderProps extends ComponentProps<'h3'> {
   asChild?: boolean
-  ref?: RefObject<HTMLHeadingElement>
+  ref?: Ref<HTMLHeadingElement>
 }
 
 export const ItemHeader = ({

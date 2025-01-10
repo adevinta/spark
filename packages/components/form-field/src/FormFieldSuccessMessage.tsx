@@ -1,9 +1,9 @@
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 import { FormFieldStateMessage, FormFieldStateMessageProps } from './FormFieldStateMessage'
 
 export type FormFieldSuccessMessageProps = Omit<FormFieldStateMessageProps, 'state'> & {
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const FormFieldSuccessMessage = ({ ref, ...props }: FormFieldSuccessMessageProps) => {

@@ -2,7 +2,7 @@ import { Icon } from '@spark-ui/icon'
 import { IconButton } from '@spark-ui/icon-button'
 import { ArrowVerticalRight } from '@spark-ui/icons/dist/icons/ArrowVerticalRight'
 import { mergeProps } from '@zag-js/react'
-import { ComponentPropsWithoutRef, RefObject } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 import { usePagination } from './PaginationContext'
 
@@ -15,7 +15,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
 }
 export type NextTriggerProps = Omit<AnchorProps | ButtonProps, 'aria-label'> & {
   'aria-label': string
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const NextTrigger = ({ children, className, href, ref, ...props }: NextTriggerProps) => {

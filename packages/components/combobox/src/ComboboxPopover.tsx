@@ -1,11 +1,11 @@
 import { Popover as SparkPopover } from '@spark-ui/popover'
 import { cx } from 'class-variance-authority'
-import { ComponentProps, RefObject, useEffect } from 'react'
+import { ComponentProps, Ref, useEffect } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
 interface PopoverProps extends ComponentProps<typeof SparkPopover.Content> {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Popover = ({

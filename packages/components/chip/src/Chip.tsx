@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, RefObject } from 'react'
+import React, { ComponentPropsWithoutRef, Ref } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
 import { ChipContext } from './useChipContext'
@@ -30,7 +30,7 @@ export interface ChipProps extends ChipPrimitiveProps, Omit<ChipStylesProps, 'ha
    * Clear chip handler
    */
   onClear?: (event?: React.MouseEvent<HTMLButtonElement>) => void
-  ref?: RefObject<HTMLButtonElement | HTMLDivElement>
+  ref?: Ref<HTMLButtonElement | HTMLDivElement>
 }
 
 export const Chip = ({

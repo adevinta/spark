@@ -3,7 +3,7 @@ import { Slot } from '@spark-ui/slot'
 import * as accordion from '@zag-js/accordion'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
-import { type ComponentPropsWithoutRef, createContext, RefObject, useContext, useId } from 'react'
+import { type ComponentPropsWithoutRef, createContext, Ref, useContext, useId } from 'react'
 
 type ExtentedZagInterface = Omit<
   accordion.Context,
@@ -38,7 +38,7 @@ export interface AccordionProps extends ExtentedZagInterface {
    */
   onValueChange?: (value: string[]) => void
   design?: 'filled' | 'outlined'
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 const AccordionContext = createContext<

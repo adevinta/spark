@@ -1,10 +1,10 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, RefObject, useEffect, useId } from 'react'
+import { ComponentPropsWithoutRef, Ref, useEffect, useId } from 'react'
 
 import { ID_PREFIX, useFormField } from './FormFieldContext'
 
 export type FormFieldMessageProps = ComponentPropsWithoutRef<'span'> & {
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const FormFieldMessage = ({

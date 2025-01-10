@@ -1,11 +1,11 @@
 import { cx } from 'class-variance-authority'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 import { InputAddon, InputAddonProps } from './InputAddon'
 import { useInputGroup } from './InputGroupContext'
 
 export type InputTrailingAddonProps = InputAddonProps & {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 const Root = ({ className, ref, ...others }: InputTrailingAddonProps) => {

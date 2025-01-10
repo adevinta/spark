@@ -1,8 +1,8 @@
 import { Dialog, DialogCloseProps } from '@spark-ui/dialog'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 export type AlertDialogActionProps = DialogCloseProps & {
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const AlertDialogAction = (props: AlertDialogActionProps) => {

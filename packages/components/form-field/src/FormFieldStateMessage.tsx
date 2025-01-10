@@ -3,14 +3,14 @@ import { AlertOutline } from '@spark-ui/icons/dist/icons/AlertOutline'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { WarningOutline } from '@spark-ui/icons/dist/icons/WarningOutline'
 import { cx } from 'class-variance-authority'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 import { useFormField } from './FormFieldContext'
 import { FormFieldMessage, FormFieldMessageProps } from './FormFieldMessage'
 
 export interface FormFieldStateMessageProps extends FormFieldMessageProps {
   state: 'error' | 'alert' | 'success'
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const FormFieldStateMessage = ({

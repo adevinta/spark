@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, RefObject } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 export type FormFieldCharactersCountProps = ComponentPropsWithoutRef<'span'> & {
   /**
@@ -10,7 +10,7 @@ export type FormFieldCharactersCountProps = ComponentPropsWithoutRef<'span'> & {
    * Maximum numeric value to be displayed.
    */
   maxLength: number
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const FormFieldCharactersCount = ({

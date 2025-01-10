@@ -1,6 +1,6 @@
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { useCombinedState } from '@spark-ui/use-combined-state'
-import { ComponentPropsWithoutRef, RefObject, useEffect, useMemo, useRef } from 'react'
+import { ComponentPropsWithoutRef, Ref, useEffect, useMemo, useRef } from 'react'
 
 import { checkboxGroupStyles, CheckboxGroupStylesProps } from './CheckboxGroup.styles'
 import { CheckboxGroupContext, CheckboxGroupContextState } from './CheckboxGroupContext'
@@ -17,7 +17,7 @@ export interface CheckboxGroupProps
    * The callback fired when any children Checkbox is checked or unchecked
    */
   onCheckedChange?: (value: string[]) => void
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const CheckboxGroup = ({

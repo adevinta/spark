@@ -1,8 +1,8 @@
 import { Dialog, DialogOverlayProps } from '@spark-ui/dialog'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 export type AlertDialogOverlayProps = DialogOverlayProps & {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const AlertDialogOverlay = (props: AlertDialogOverlayProps) => {

@@ -1,8 +1,8 @@
 import * as RadixDrawer from '@radix-ui/react-dialog'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 export type DrawerDescriptionProps = RadixDrawer.DialogDescriptionProps & {
-  ref?: RefObject<HTMLParagraphElement>
+  ref?: Ref<HTMLParagraphElement>
 }
 
 export const DrawerDescription = (props: DrawerDescriptionProps) => (

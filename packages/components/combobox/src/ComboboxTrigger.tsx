@@ -2,7 +2,7 @@ import { useFormFieldControl } from '@spark-ui/form-field'
 import { Popover } from '@spark-ui/popover'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import React, { Fragment, ReactNode, RefObject, useEffect, useRef } from 'react'
+import React, { Fragment, ReactNode, Ref, useEffect, useRef } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 import { styles } from './ComboboxTrigger.styles'
@@ -12,7 +12,7 @@ import { useWidthIncreaseCallback } from './utils/useWidthIncreaseCallback'
 interface TriggerProps {
   className?: string
   children: ReactNode
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Trigger = ({ className, children, ref: forwardedRef }: TriggerProps) => {

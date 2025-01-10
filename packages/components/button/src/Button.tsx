@@ -1,7 +1,7 @@
 import { Slot, wrapPolymorphicSlot } from '@spark-ui/slot'
 import { Spinner, type SpinnerProps } from '@spark-ui/spinner'
 import { cx } from 'class-variance-authority'
-import React, { ComponentPropsWithoutRef, type DOMAttributes, RefObject, useMemo } from 'react'
+import React, { ComponentPropsWithoutRef, type DOMAttributes, Ref, useMemo } from 'react'
 
 import { buttonStyles, type ButtonStylesProps } from './Button.styles'
 
@@ -25,7 +25,7 @@ export interface ButtonProps
    * **Please note that using this can result in layout shifting when the Button goes from loading state to normal state.**
    */
   loadingText?: string
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 type DOMAttributesEventHandler = keyof Omit<

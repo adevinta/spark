@@ -1,7 +1,7 @@
 import { composeEventHandlers } from '@radix-ui/primitive'
 import { Dialog, DialogContentProps } from '@spark-ui/dialog'
 import { cx } from 'class-variance-authority'
-import { RefObject, useMemo, useRef } from 'react'
+import { Ref, useMemo, useRef } from 'react'
 
 import { AlertDialogContext } from './AlertDialogContext'
 
@@ -9,7 +9,7 @@ export type AlertDialogContentProps = Omit<
   DialogContentProps,
   'size' | 'isNarrow' | 'onPointerDownOutside' | 'onInteractOutside'
 > & {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const AlertDialogContent = ({

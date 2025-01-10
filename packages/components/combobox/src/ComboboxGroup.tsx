@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { ReactNode, RefObject } from 'react'
+import React, { ReactNode, Ref } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 import { ComboboxGroupProvider, useComboboxGroupContext } from './ComboboxItemsGroupContext'
@@ -7,7 +7,7 @@ import { ComboboxGroupProvider, useComboboxGroupContext } from './ComboboxItemsG
 interface GroupProps {
   children: ReactNode
   className?: string
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Group = ({ children, ref: forwardedRef, ...props }: GroupProps) => {

@@ -1,6 +1,6 @@
 import { Root as Separator } from '@radix-ui/react-separator'
 import { cx } from 'class-variance-authority'
-import { HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react'
+import { HTMLAttributes, ReactElement, ReactNode, Ref } from 'react'
 
 import { dividerStyles, type DividerStylesProps } from './Divider.styles'
 
@@ -28,7 +28,7 @@ export interface DividerProps
    * Color scheme of the divider.
    */
   intent?: 'outline' | 'current'
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Divider = ({

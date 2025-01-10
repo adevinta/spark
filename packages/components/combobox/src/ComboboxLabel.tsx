@@ -1,12 +1,12 @@
 import { cx } from 'class-variance-authority'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 import { useComboboxGroupContext } from './ComboboxItemsGroupContext'
 
 interface LabelProps {
   children: string
   className?: string
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Label = ({ children, className, ref: forwardedRef }: LabelProps) => {

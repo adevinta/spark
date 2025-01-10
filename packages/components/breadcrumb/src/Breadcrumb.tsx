@@ -1,10 +1,10 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, RefObject } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 export interface BreadcrumbProps extends ComponentPropsWithoutRef<'nav'> {
   className?: string
   ['aria-label']: string
-  ref?: RefObject<HTMLElement>
+  ref?: Ref<HTMLElement>
 }
 
 export const Breadcrumb = ({

@@ -1,4 +1,4 @@
-import { HTMLAttributes, RefObject } from 'react'
+import { HTMLAttributes, Ref } from 'react'
 
 import { styles, type StylesProps } from './BadgeItem.styles'
 
@@ -26,7 +26,7 @@ export interface BadgeItemProps
    * @default 'relative'
    */
   type?: 'relative' | 'standalone'
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const BadgeItem = ({

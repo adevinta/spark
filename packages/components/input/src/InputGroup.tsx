@@ -14,7 +14,7 @@ import {
   isValidElement,
   PropsWithChildren,
   ReactElement,
-  RefObject,
+  Ref,
   useCallback,
   useEffect,
   useMemo,
@@ -34,7 +34,7 @@ export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputG
    * Function handler to be executed after the input has been cleared.
    */
   onClear?: () => void
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const InputGroup = ({

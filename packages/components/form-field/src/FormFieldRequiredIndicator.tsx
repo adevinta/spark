@@ -1,9 +1,9 @@
 import { Label, LabelRequiredIndicatorProps } from '@spark-ui/label'
 import { cx } from 'class-variance-authority'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 export type FormFieldRequiredIndicatorProps = LabelRequiredIndicatorProps & {
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const FormFieldRequiredIndicator = ({

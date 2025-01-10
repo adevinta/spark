@@ -1,8 +1,8 @@
 import { cx } from 'class-variance-authority'
-import React, { ComponentPropsWithoutRef, RefObject } from 'react'
+import React, { ComponentPropsWithoutRef, Ref } from 'react'
 
 export type ChipIconProps = ComponentPropsWithoutRef<'span'> & {
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const ChipIcon = ({ children, className, ref: forwardedRef }: ChipIconProps) => {

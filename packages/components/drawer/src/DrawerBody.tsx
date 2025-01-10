@@ -1,11 +1,11 @@
-import { type ReactNode, RefObject } from 'react'
+import { type ReactNode, Ref } from 'react'
 
 import { drawerBodyStyles, type DrawerBodyStylesProps } from './DrawerBody.styles'
 
 export interface DrawerBodyProps extends DrawerBodyStylesProps {
   children: ReactNode
   className?: string
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const DrawerBody = ({

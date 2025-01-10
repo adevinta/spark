@@ -1,10 +1,10 @@
 import { cx } from 'class-variance-authority'
-import React, { RefObject } from 'react'
+import React, { Ref } from 'react'
 
 import { ChipIcon, type ChipIconProps } from './ChipIcon'
 
 export type ChipLeadingIconProps = ChipIconProps & {
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const ChipLeadingIcon = ({

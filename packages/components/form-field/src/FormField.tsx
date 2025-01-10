@@ -1,6 +1,6 @@
 import { Slot } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, RefObject, useId } from 'react'
+import { ComponentPropsWithoutRef, Ref, useId } from 'react'
 
 import { FormFieldContextState, ID_PREFIX } from './FormFieldContext'
 import { FormFieldProvider } from './FormFieldProvider'
@@ -20,7 +20,7 @@ export interface FormFieldProps
    * Sets the component as interactive or not.
    */
   readOnly?: boolean
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const FormField = ({

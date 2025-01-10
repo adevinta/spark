@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { ReactNode, RefObject } from 'react'
+import { ReactNode, Ref } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 
@@ -7,7 +7,7 @@ export interface ValueProps {
   children?: ReactNode
   className?: string
   placeholder: string
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const Value = ({ children, className, placeholder, ref: forwardedRef }: ValueProps) => {

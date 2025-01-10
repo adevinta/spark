@@ -1,9 +1,9 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, RefObject } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 export interface ItemProps extends ComponentPropsWithoutRef<'li'> {
   className?: string
-  ref?: RefObject<HTMLLIElement>
+  ref?: Ref<HTMLLIElement>
 }
 
 export const Item = ({ className, ...rest }: ItemProps) => {

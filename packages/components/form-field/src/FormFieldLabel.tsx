@@ -1,7 +1,7 @@
 import { Label, LabelProps } from '@spark-ui/label'
 import { Slottable } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
-import { ReactNode, RefObject } from 'react'
+import { ReactNode, Ref } from 'react'
 
 import { useFormField } from './FormFieldContext'
 import { FormFieldRequiredIndicator } from './FormFieldRequiredIndicator'
@@ -11,7 +11,7 @@ export interface FormFieldLabelProps extends LabelProps {
    * Element shown when the input is required inside the label.
    */
   requiredIndicator?: ReactNode
-  ref?: RefObject<HTMLLabelElement>
+  ref?: Ref<HTMLLabelElement>
 }
 
 export const FormFieldLabel = ({

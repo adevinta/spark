@@ -1,14 +1,14 @@
 import { Spinner } from '@spark-ui/spinner'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, ReactNode, RefObject, useLayoutEffect, useRef } from 'react'
+import { ComponentPropsWithoutRef, ReactNode, Ref, useLayoutEffect, useRef } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 
 interface ItemsProps extends ComponentPropsWithoutRef<'ul'> {
   children: ReactNode
   className?: string
-  ref?: RefObject<HTMLUListElement>
+  ref?: Ref<HTMLUListElement>
 }
 
 export const Items = ({ children, className, ref: forwardedRef, ...props }: ItemsProps) => {

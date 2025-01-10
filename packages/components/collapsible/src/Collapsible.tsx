@@ -2,7 +2,7 @@ import { useEvent } from '@spark-ui/internal-utils'
 import { Slot } from '@spark-ui/slot'
 import * as collapsible from '@zag-js/collapsible'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
-import { type ComponentProps, createContext, RefObject, useContext, useId } from 'react'
+import { type ComponentProps, createContext, Ref, useContext, useId } from 'react'
 
 export interface CollapsibleProps extends ComponentProps<'div'> {
   /**
@@ -29,7 +29,7 @@ export interface CollapsibleProps extends ComponentProps<'div'> {
    * The ids of the elements in the collapsible. Useful for composition
    */
   ids?: collapsible.Context['ids']
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 const CollapsibleContext = createContext<collapsible.Api<PropTypes> | null>(null)

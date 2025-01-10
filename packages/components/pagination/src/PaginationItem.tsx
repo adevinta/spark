@@ -1,6 +1,6 @@
 import { Button } from '@spark-ui/button'
 import { mergeProps } from '@zag-js/react'
-import { ComponentPropsWithoutRef, RefObject } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 import { usePagination } from './PaginationContext'
 
@@ -14,7 +14,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
 export type ItemProps = Omit<AnchorProps | ButtonProps, 'aria-label'> & {
   'aria-label': string
   value: number
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const Item = ({ children, value, className, href, ref, ...props }: ItemProps) => {

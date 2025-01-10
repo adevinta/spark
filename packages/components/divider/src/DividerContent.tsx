@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode, RefObject } from 'react'
+import { HTMLAttributes, ReactNode, Ref } from 'react'
 
 export interface DividerContentProps extends HTMLAttributes<HTMLSpanElement> {
   /**
@@ -6,7 +6,7 @@ export interface DividerContentProps extends HTMLAttributes<HTMLSpanElement> {
    */
   asChild?: boolean
   children?: ReactNode
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const DividerContent = ({ children, ref, ...props }: DividerContentProps) => {

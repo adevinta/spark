@@ -1,13 +1,13 @@
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { ReactNode, RefObject, useLayoutEffect, useRef } from 'react'
+import { ReactNode, Ref, useLayoutEffect, useRef } from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 
 interface ItemsProps {
   children: ReactNode
   className?: string
-  ref?: RefObject<HTMLUListElement>
+  ref?: Ref<HTMLUListElement>
 }
 
 /**

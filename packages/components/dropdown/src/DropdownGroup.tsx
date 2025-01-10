@@ -1,12 +1,12 @@
 import { cx } from 'class-variance-authority'
-import { ReactNode, RefObject } from 'react'
+import { ReactNode, Ref } from 'react'
 
 import { DropdownGroupProvider, useDropdownGroupContext } from './DropdownItemsGroupContext'
 
 interface GroupProps {
   children: ReactNode
   className?: string
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Group = ({ children, ref: forwardedRef, ...props }: GroupProps) => {

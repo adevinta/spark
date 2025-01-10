@@ -1,12 +1,12 @@
 import { cx } from 'class-variance-authority'
-import { RefObject, useEffect, useId } from 'react'
+import { Ref, useEffect, useId } from 'react'
 
 import { ID_PREFIX } from './DropdownContext'
 import { useDropdownItemContext } from './DropdownItemContext'
 
 export interface ItemTextProps {
   children: string
-  ref?: RefObject<HTMLSpanElement>
+  ref?: Ref<HTMLSpanElement>
 }
 
 export const ItemText = ({ children, ref: forwardedRef }: ItemTextProps) => {

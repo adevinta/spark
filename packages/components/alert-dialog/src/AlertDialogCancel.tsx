@@ -1,11 +1,11 @@
 import { Dialog, DialogCloseProps } from '@spark-ui/dialog'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 import { useAlertDialog } from './AlertDialogContext'
 
 export type AlertDialogCancelProps = DialogCloseProps & {
-  ref?: RefObject<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
 }
 
 export const AlertDialogCancel = ({ ref: forwardedRef, ...props }: AlertDialogCancelProps) => {

@@ -1,8 +1,8 @@
 import { Dialog, DialogFooterProps } from '@spark-ui/dialog'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 export type AlertDialogFooterProps = DialogFooterProps & {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const AlertDialogFooter = (props: AlertDialogFooterProps) => {

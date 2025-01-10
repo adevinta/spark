@@ -1,11 +1,11 @@
 import * as RadixDrawer from '@radix-ui/react-dialog'
-import { RefObject } from 'react'
+import { Ref } from 'react'
 
 import { drawerContentStyles, type DrawerContentStylesProps } from './DrawerContent.styles'
 
 export type DrawerContentProps = RadixDrawer.DialogContentProps &
   DrawerContentStylesProps & {
-    ref?: RefObject<HTMLDivElement>
+    ref?: Ref<HTMLDivElement>
   }
 
 export const DrawerContent = ({

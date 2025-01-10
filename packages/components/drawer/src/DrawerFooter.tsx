@@ -1,8 +1,8 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, type ReactElement, RefObject } from 'react'
+import { ComponentPropsWithoutRef, type ReactElement, Ref } from 'react'
 
 export type DrawerFooterProps = ComponentPropsWithoutRef<'footer'> & {
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const DrawerFooter = ({ className, ref, ...rest }: DrawerFooterProps): ReactElement => (

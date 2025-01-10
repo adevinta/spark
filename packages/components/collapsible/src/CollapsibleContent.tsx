@@ -1,13 +1,13 @@
 import { Slot } from '@spark-ui/slot'
 import { mergeProps } from '@zag-js/react'
 import { cx } from 'class-variance-authority'
-import { type ComponentPropsWithoutRef, RefObject } from 'react'
+import { type ComponentPropsWithoutRef, Ref } from 'react'
 
 import { useCollapsibleContext } from './Collapsible'
 
 export interface CollapsibleContentProps extends ComponentPropsWithoutRef<'div'> {
   asChild?: boolean
-  ref?: RefObject<HTMLDivElement>
+  ref?: Ref<HTMLDivElement>
 }
 
 export const Content = ({
