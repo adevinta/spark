@@ -1,12 +1,14 @@
 import { cx } from 'class-variance-authority'
-import { forwardRef } from 'react'
+import { RefObject } from 'react'
 
 import { InputAddon, InputAddonProps } from './InputAddon'
 import { useInputGroup } from './InputGroupContext'
 
-export type InputLeadingAddonProps = InputAddonProps
+export type InputLeadingAddonProps = InputAddonProps & {
+  ref?: RefObject<HTMLDivElement>
+}
 
-const Root = forwardRef<HTMLDivElement, InputLeadingAddonProps>(({ className, ...others }, ref) => {
+const Root = ({ className, ref, ...others }: InputLeadingAddonProps) => {
   const { disabled, readOnly } = useInputGroup()
   const isInactive = disabled || readOnly
 
@@ -19,10 +21,10 @@ const Root = forwardRef<HTMLDivElement, InputLeadingAddonProps>(({ className, ..
       />
     </div>
   )
-})
+}
 
 export const InputLeadingAddon = Object.assign(Root, {
   id: 'LeadingAddon',
 })
 
-InputLeadingAddon.displayName = 'InputGroup.LeadingAddon'
+Root.displayName = 'InputGroup.LeadingAddon'

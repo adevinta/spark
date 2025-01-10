@@ -11,10 +11,10 @@ import {
   ComponentPropsWithoutRef,
   DetailedReactHTMLElement,
   FC,
-  forwardRef,
   isValidElement,
   PropsWithChildren,
   ReactElement,
+  RefObject,
   useCallback,
   useEffect,
   useMemo,
@@ -34,95 +34,82 @@ export interface InputGroupProps extends ComponentPropsWithoutRef<'div'>, InputG
    * Function handler to be executed after the input has been cleared.
    */
   onClear?: () => void
+  ref?: RefObject<HTMLDivElement>
 }
 
-export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGroupProps>>(
-  (
-    {
-      className,
-      children: childrenProp,
-      state: stateProp,
-      disabled: disabledProp,
-      readOnly: readOnlyProp,
-      onClear,
-      ...others
-    },
-    forwardRef
-  ) => {
-    const getElementId = (element?: ReactElement) => {
-      return element ? (element.type as FC & { id?: string }).id : ''
+export const InputGroup = ({
+  className,
+  children: childrenProp,
+  state: stateProp,
+  disabled: disabledProp,
+  readOnly: readOnlyProp,
+  onClear,
+  ref: forwardedRef,
+  ...others
+}: PropsWithChildren<InputGroupProps>) => {
+  const getElementId = (element?: ReactElement) => {
+    return element ? (element.type as FC & { id?: string }).id : ''
+  }
+
+  const findElement = (...values: string[]) => {
+    return children.find(child => values.includes(getElementId(child) || ''))
+  }
+
+  const children = Children.toArray(childrenProp).filter(isValidElement)
+  const input = findElement('Input') as
+    | DetailedReactHTMLElement<InputProps, HTMLInputElement>
+    | undefined
+  const props = input?.props || {}
+
+  const inputRef = useRef<HTMLInputElement>(null!)
+  const onClearRef = useRef(onClear)
+  const ref = useMergeRefs<HTMLInputElement>(input?.ref, inputRef)
+  const [value, onChange] = useCombinedState(
+    props.value as string,
+    props.defaultValue as string,
+    props.onValueChange
+  )
+
+  // Data derivated from FormField context
+  const field = useFormFieldControl()
+  const state = field.state ?? stateProp
+  const disabled = field.disabled || !!disabledProp
+  const readOnly = field.readOnly || !!readOnlyProp
+
+  // InputGroup elements (in visual order)
+  const leadingAddon = findElement('LeadingAddon')
+  const leadingIcon = findElement('LeadingIcon')
+  const clearButton = findElement('ClearButton')
+  const trailingIcon = findElement('TrailingIcon')
+  const trailingAddon = findElement('TrailingAddon')
+
+  // Acknowledge which subComponents are used in the compound context
+  const hasLeadingAddon = !!leadingAddon
+  const hasTrailingAddon = !!trailingAddon
+  const hasLeadingIcon = !!leadingIcon
+  const hasTrailingIcon = !!trailingIcon
+  const hasClearButton = !!value && !!clearButton && !disabled && !readOnly
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
+    if (props.onChange) {
+      props.onChange(event)
     }
 
-    const findElement = (...values: string[]) => {
-      return children.find(child => values.includes(getElementId(child) || ''))
+    onChange(event.target.value)
+  }
+
+  const handleClear = useCallback(() => {
+    if (onClearRef.current) {
+      onClearRef.current()
     }
 
-    const children = Children.toArray(childrenProp).filter(isValidElement)
-    const input = findElement('Input') as
-      | DetailedReactHTMLElement<InputProps, HTMLInputElement>
-      | undefined
-    const props = input?.props || {}
+    onChange('')
 
-    const inputRef = useRef<HTMLInputElement>(null!)
-    const onClearRef = useRef(onClear)
-    const ref = useMergeRefs<HTMLInputElement>(input?.ref, inputRef)
-    const [value, onChange] = useCombinedState(
-      props.value as string,
-      props.defaultValue as string,
-      props.onValueChange
-    )
+    inputRef.current.focus()
+  }, [onChange])
 
-    // Data derivated from FormField context
-    const field = useFormFieldControl()
-    const state = field.state ?? stateProp
-    const disabled = field.disabled || !!disabledProp
-    const readOnly = field.readOnly || !!readOnlyProp
-
-    // InputGroup elements (in visual order)
-    const leadingAddon = findElement('LeadingAddon')
-    const leadingIcon = findElement('LeadingIcon')
-    const clearButton = findElement('ClearButton')
-    const trailingIcon = findElement('TrailingIcon')
-    const trailingAddon = findElement('TrailingAddon')
-
-    // Acknowledge which subComponents are used in the compound context
-    const hasLeadingAddon = !!leadingAddon
-    const hasTrailingAddon = !!trailingAddon
-    const hasLeadingIcon = !!leadingIcon
-    const hasTrailingIcon = !!trailingIcon
-    const hasClearButton = !!value && !!clearButton && !disabled && !readOnly
-
-    const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
-      if (props.onChange) {
-        props.onChange(event)
-      }
-
-      onChange(event.target.value)
-    }
-
-    const handleClear = useCallback(() => {
-      if (onClearRef.current) {
-        onClearRef.current()
-      }
-
-      onChange('')
-
-      inputRef.current.focus()
-    }, [onChange])
-
-    const current = useMemo(() => {
-      return {
-        state,
-        disabled,
-        readOnly,
-        hasLeadingIcon,
-        hasTrailingIcon,
-        hasLeadingAddon,
-        hasTrailingAddon,
-        hasClearButton,
-        onClear: handleClear,
-      }
-    }, [
+  const current = useMemo(() => {
+    return {
       state,
       disabled,
       readOnly,
@@ -131,43 +118,53 @@ export const InputGroup = forwardRef<HTMLDivElement, PropsWithChildren<InputGrou
       hasLeadingAddon,
       hasTrailingAddon,
       hasClearButton,
-      handleClear,
-    ])
+      onClear: handleClear,
+    }
+  }, [
+    state,
+    disabled,
+    readOnly,
+    hasLeadingIcon,
+    hasTrailingIcon,
+    hasLeadingAddon,
+    hasTrailingAddon,
+    hasClearButton,
+    handleClear,
+  ])
 
-    useEffect(() => {
-      onClearRef.current = onClear
-    }, [onClear])
+  useEffect(() => {
+    onClearRef.current = onClear
+  }, [onClear])
 
-    return (
-      <InputGroupContext.Provider value={current}>
-        <div
-          ref={forwardRef}
-          className={inputGroupStyles({ disabled, readOnly, className })}
-          {...others}
-        >
-          {hasLeadingAddon && leadingAddon}
+  return (
+    <InputGroupContext.Provider value={current}>
+      <div
+        ref={forwardedRef}
+        className={inputGroupStyles({ disabled, readOnly, className })}
+        {...others}
+      >
+        {hasLeadingAddon && leadingAddon}
 
-          <div className="relative inline-flex w-full">
-            {input &&
-              cloneElement(input, {
-                ref,
-                defaultValue: undefined,
-                value: value ?? '',
-                onChange: handleChange,
-              })}
+        <div className="relative inline-flex w-full">
+          {input &&
+            cloneElement(input, {
+              ref,
+              defaultValue: undefined,
+              value: value ?? '',
+              onChange: handleChange,
+            })}
 
-            {leadingIcon}
+          {leadingIcon}
 
-            {hasClearButton && clearButton}
+          {hasClearButton && clearButton}
 
-            {trailingIcon}
-          </div>
-
-          {hasTrailingAddon && trailingAddon}
+          {trailingIcon}
         </div>
-      </InputGroupContext.Provider>
-    )
-  }
-)
+
+        {hasTrailingAddon && trailingAddon}
+      </div>
+    </InputGroupContext.Provider>
+  )
+}
 
 InputGroup.displayName = 'InputGroup'
