@@ -3,7 +3,7 @@ import {
   ToastQueue,
   useToastQueue,
 } from '@react-stately/toast'
-import { forwardRef, type ReactElement, type RefObject, useEffect, useRef } from 'react'
+import { type ReactElement, Ref, type RefObject, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
 import { type SnackbarItemValue } from './SnackbarItem'
@@ -42,34 +42,34 @@ const GLOBAL_SNACKBAR_STORE = {
   subscriptions: new Set<() => void>(),
 }
 
-export type SnackbarProps = Omit<SnackbarRegionProps, 'state'>
+export type SnackbarProps = Omit<SnackbarRegionProps, 'state'> & {
+  ref?: Ref<HTMLDivElement>
+}
 
-export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
-  (props, forwardedRef): ReactElement | null => {
-    const ref = useRef<HTMLDivElement>(null)
+export const Snackbar = ({ ref: forwardedRef, ...props }: SnackbarProps): ReactElement | null => {
+  const ref = useRef<HTMLDivElement>(null)
 
-    const state = useToastQueue(getGlobalSnackBarQueue())
+  const state = useToastQueue(getGlobalSnackBarQueue())
 
-    const { provider, addProvider, deleteProvider } = useSnackbarGlobalStore(GLOBAL_SNACKBAR_STORE)
+  const { provider, addProvider, deleteProvider } = useSnackbarGlobalStore(GLOBAL_SNACKBAR_STORE)
 
-    useEffect(() => {
-      addProvider(ref)
+  useEffect(() => {
+    addProvider(ref)
 
-      return () => {
-        for (const toast of getGlobalSnackBarQueue().visibleToasts) {
-          toast.animation = undefined
-        }
-
-        deleteProvider(ref)
+    return () => {
+      for (const toast of getGlobalSnackBarQueue().visibleToasts) {
+        toast.animation = undefined
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
 
-    return ref === provider && state.visibleToasts.length > 0
-      ? createPortal(<SnackbarRegion ref={forwardedRef} state={state} {...props} />, document.body)
-      : null
-  }
-)
+      deleteProvider(ref)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return ref === provider && state.visibleToasts.length > 0
+    ? createPortal(<SnackbarRegion ref={forwardedRef} state={state} {...props} />, document.body)
+    : null
+}
 
 Snackbar.displayName = 'Snackbar'
 

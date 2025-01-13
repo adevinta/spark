@@ -1,5 +1,5 @@
 import { cva } from 'class-variance-authority'
-import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, PropsWithChildren, Ref } from 'react'
+import { ChangeEvent, ComponentPropsWithRef, PropsWithChildren } from 'react'
 
 import { useSelectContext } from './SelectContext'
 
@@ -35,54 +35,54 @@ export const styles = cva(
   }
 )
 
-export const Items = forwardRef(
-  (
-    { children, className, ...rest }: PropsWithChildren<ComponentPropsWithoutRef<'select'>>,
-    ref: Ref<HTMLSelectElement>
-  ) => {
-    const {
-      state,
-      disabled,
-      readOnly,
-      ariaLabel,
-      fieldLabelId,
-      isControlled,
-      onValueChange,
-      selectedItem,
-      setValue,
-      name,
-      required,
-      fieldId,
-    } = useSelectContext()
+export const Items = ({
+  children,
+  className,
+  ref,
+  ...rest
+}: PropsWithChildren<ComponentPropsWithRef<'select'>>) => {
+  const {
+    state,
+    disabled,
+    readOnly,
+    ariaLabel,
+    fieldLabelId,
+    isControlled,
+    onValueChange,
+    selectedItem,
+    setValue,
+    name,
+    required,
+    fieldId,
+  } = useSelectContext()
 
-    const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-      if (isControlled) {
-        event.preventDefault()
-        onValueChange?.(event.target.value)
-      } else {
-        setValue(event.target.value)
-      }
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    if (isControlled) {
+      event.preventDefault()
+      onValueChange?.(event.target.value)
+    } else {
+      setValue(event.target.value)
     }
-
-    return (
-      <select
-        data-spark-component="select-items"
-        ref={ref}
-        disabled={disabled || readOnly}
-        name={name}
-        required={required}
-        aria-labelledby={fieldLabelId}
-        {...(ariaLabel && { 'aria-label': ariaLabel })}
-        className={styles({ className, state, disabled, readOnly })}
-        value={selectedItem?.value}
-        onChange={handleChange}
-        id={fieldId}
-        {...rest}
-      >
-        {children}
-      </select>
-    )
   }
-)
+
+  return (
+    <select
+      data-spark-component="select-items"
+      ref={ref}
+      disabled={disabled || readOnly}
+      name={name}
+      required={required}
+      aria-labelledby={fieldLabelId}
+      {...(ariaLabel && { 'aria-label': ariaLabel })}
+      className={styles({ className, state, disabled, readOnly })}
+      value={selectedItem?.value}
+      onChange={handleChange}
+      id={fieldId}
+      {...rest}
+    >
+      {children}
+    </select>
+  )
+}
 
 Items.displayName = 'Select.Items'

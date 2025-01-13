@@ -1,14 +1,12 @@
 import { Dialog, DialogDescriptionProps } from '@spark-ui/dialog'
-import { ElementRef, forwardRef } from 'react'
+import { Ref } from 'react'
 
-export type AlertDialogDescriptionElement = ElementRef<typeof Dialog.Description>
-export type AlertDialogDescriptionProps = DialogDescriptionProps
+export type AlertDialogDescriptionProps = DialogDescriptionProps & {
+  ref?: Ref<HTMLParagraphElement>
+}
 
-export const AlertDialogDescription = forwardRef<
-  AlertDialogDescriptionElement,
-  AlertDialogDescriptionProps
->((props, ref) => {
-  return <Dialog.Description ref={ref} data-spark-component="alert-dialog-description" {...props} />
-})
+export const AlertDialogDescription = (props: AlertDialogDescriptionProps) => {
+  return <Dialog.Description data-spark-component="alert-dialog-description" {...props} />
+}
 
 AlertDialogDescription.displayName = 'AlertDialog.Description'

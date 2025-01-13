@@ -1,6 +1,6 @@
 import { Slot } from '@spark-ui/slot'
 import { cva, type VariantProps } from 'class-variance-authority'
-import React, { type ComponentPropsWithoutRef, forwardRef } from 'react'
+import React, { type ComponentPropsWithRef } from 'react'
 
 const textLinkStyles = cva(
   ['inline-flex items-center', 'focus-visible:u-ring focus-visible:outline-none'],
@@ -41,7 +41,7 @@ const textLinkStyles = cva(
 
 export type StylesProps = VariantProps<typeof textLinkStyles>
 
-export type TextLinkProps = ComponentPropsWithoutRef<'a'> &
+export type TextLinkProps = ComponentPropsWithRef<'a'> &
   StylesProps & {
     /**
      * Change the component to the HTML tag or custom component of the only child.
@@ -49,29 +49,25 @@ export type TextLinkProps = ComponentPropsWithoutRef<'a'> &
     asChild?: boolean
   }
 
-export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
-  (
-    {
-      asChild = false,
-      bold = false,
-      children,
-      className,
-      intent = 'current',
-      underline = true,
-      ...props
-    },
-    ref
-  ) => {
-    const Component = asChild ? Slot : 'a'
+export const TextLink = ({
+  asChild = false,
+  bold = false,
+  children,
+  className,
+  intent = 'current',
+  underline = true,
+  ref,
+  ...props
+}: TextLinkProps) => {
+  const Component = asChild ? Slot : 'a'
 
-    return (
-      <Component
-        ref={ref}
-        className={textLinkStyles({ className, bold, intent, underline })}
-        {...props}
-      >
-        {children}
-      </Component>
-    )
-  }
-)
+  return (
+    <Component
+      ref={ref}
+      className={textLinkStyles({ className, bold, intent, underline })}
+      {...props}
+    >
+      {children}
+    </Component>
+  )
+}

@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { forwardRef, ReactNode, type Ref } from 'react'
+import { ReactNode, type Ref } from 'react'
 
 import { useSelectContext } from './SelectContext'
 
@@ -11,36 +11,37 @@ export interface ValueProps {
    * If not specified, the value inside `Select.Placeholder` item will be used.
    */
   placeholder?: string
+  ref?: Ref<HTMLSpanElement>
 }
 
-export const Value = forwardRef(
-  (
-    { children, className, placeholder: customPlaceholder }: ValueProps,
-    forwardedRef: Ref<HTMLSpanElement>
-  ) => {
-    const { selectedItem, placeholder, disabled } = useSelectContext()
+export const Value = ({
+  children,
+  className,
+  placeholder: customPlaceholder,
+  ref: forwardedRef,
+}: ValueProps) => {
+  const { selectedItem, placeholder, disabled } = useSelectContext()
 
-    const isPlaceholderSelected = selectedItem?.value == null
-    const valuePlaceholder = customPlaceholder || placeholder
+  const isPlaceholderSelected = selectedItem?.value == null
+  const valuePlaceholder = customPlaceholder || placeholder
 
-    return (
+  return (
+    <span
+      role="presentation"
+      data-spark-component="select-value"
+      ref={forwardedRef}
+      className={cx('flex shrink items-center text-left', className)}
+    >
       <span
-        role="presentation"
-        data-spark-component="select-value"
-        ref={forwardedRef}
-        className={cx('flex shrink items-center text-left', className)}
+        className={cx(
+          'line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all',
+          isPlaceholderSelected && !disabled && 'text-on-surface/dim-1'
+        )}
       >
-        <span
-          className={cx(
-            'line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all',
-            isPlaceholderSelected && !disabled && 'text-on-surface/dim-1'
-          )}
-        >
-          {isPlaceholderSelected ? valuePlaceholder : children || selectedItem?.text}
-        </span>
+        {isPlaceholderSelected ? valuePlaceholder : children || selectedItem?.text}
       </span>
-    )
-  }
-)
+    </span>
+  )
+}
 
 Value.displayName = 'Select.Value'

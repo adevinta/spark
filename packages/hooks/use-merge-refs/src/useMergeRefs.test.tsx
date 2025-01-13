@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { createRef, forwardRef, RefCallback, useEffect, useRef } from 'react'
+import { createRef, RefCallback, RefObject, useEffect, useRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { useMergeRefs } from './index'
@@ -42,7 +42,12 @@ describe('useMergeRefs', () => {
   it('should merge both legacy and object references', () => {
     // Given
     const refs = {} as refsInterface
-    const TestComponent = forwardRef(function TestComponent(props, forwardedRef) {
+    const TestComponent = function TestComponent({
+      ref: forwardedRef,
+      ...props
+    }: {
+      ref?: RefObject<HTMLElement | null | undefined>
+    }) {
       const firstRef = useRef(null)
       const secondRef = useRef(null)
 
@@ -54,7 +59,7 @@ describe('useMergeRefs', () => {
       }, [])
 
       return <div ref={ref} {...props} />
-    })
+    }
     const refToBeForwarded = createRef<HTMLElement | null | undefined>()
 
     // When
