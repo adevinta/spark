@@ -107,7 +107,7 @@
     "husky": "8.0.3",
     "jsdom": "21.1.1",
     "lerna": "^7.1.1",
-    "lint-staged": "15.2.9",
+    "lint-staged": "15.3.0",
     "nx": "^16.5.0",
     "postcss": "8.4.47",
     "prettier": "3.4.2",
