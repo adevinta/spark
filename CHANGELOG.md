@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/adevinta/spark/compare/v8.0.0...v8.0.1) (2025-01-13)
+
+### Bug Fixes
+
+- lint-staged@15.3.0 ([fcddcb0](https://github.com/adevinta/spark/commit/fcddcb03025c1ed73b016ebcb0a50ca5fcab0b2e))
+
 # [8.0.0](https://github.com/adevinta/spark/compare/v7.3.7...v8.0.0) (2025-01-13)
 
 ### Code Refactoring
