@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/adevinta/spark/compare/v7.3.7...v8.0.0) (2025-01-13)
+
+**Note:** Version bump only for package @spark-ui/use-merge-refs
+
 ## [7.3.7](https://github.com/adevinta/spark/compare/v7.3.6...v7.3.7) (2025-01-08)
 
 **Note:** Version bump only for package @spark-ui/use-merge-refs
