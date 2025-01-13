@@ -1,8 +1,10 @@
-import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react'
+import { HTMLAttributes, PropsWithChildren, Ref } from 'react'
 
-export type VisuallyHiddenProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+export type VisuallyHiddenProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+  ref?: Ref<HTMLElement>
+}
 
-export const VisuallyHidden = forwardRef<HTMLElement, VisuallyHiddenProps>((props, ref) => {
+export const VisuallyHidden = ({ ref, ...props }: VisuallyHiddenProps) => {
   return (
     <span
       {...props}
@@ -23,6 +25,6 @@ export const VisuallyHidden = forwardRef<HTMLElement, VisuallyHiddenProps>((prop
       }}
     />
   )
-})
+}
 
 VisuallyHidden.displayName = 'VisuallyHidden'

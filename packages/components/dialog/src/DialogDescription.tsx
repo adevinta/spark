@@ -1,11 +1,10 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
-import { ElementRef, forwardRef } from 'react'
+import { Ref } from 'react'
 
-export type DescriptionElement = ElementRef<typeof RadixDialog.Description>
-export type DescriptionProps = RadixDialog.DialogDescriptionProps
+export type DescriptionProps = RadixDialog.DialogDescriptionProps & {
+  ref?: Ref<HTMLParagraphElement>
+}
 
-export const Description = forwardRef<DescriptionElement, DescriptionProps>((props, ref) => (
-  <RadixDialog.Description ref={ref} {...props} />
-))
+export const Description = (props: DescriptionProps) => <RadixDialog.Description {...props} />
 
 Description.displayName = 'Dialog.Description'

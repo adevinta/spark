@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 export type FormFieldCharactersCountProps = ComponentPropsWithoutRef<'span'> & {
   /**
@@ -10,23 +10,28 @@ export type FormFieldCharactersCountProps = ComponentPropsWithoutRef<'span'> & {
    * Maximum numeric value to be displayed.
    */
   maxLength: number
+  ref?: Ref<HTMLSpanElement>
 }
 
-export const FormFieldCharactersCount = forwardRef<HTMLSpanElement, FormFieldCharactersCountProps>(
-  ({ className, value = '', maxLength, ...others }, ref) => {
-    const displayValue = `${value.length}/${maxLength}`
+export const FormFieldCharactersCount = ({
+  className,
+  value = '',
+  maxLength,
+  ref,
+  ...others
+}: FormFieldCharactersCountProps) => {
+  const displayValue = `${value.length}/${maxLength}`
 
-    return (
-      <span
-        ref={ref}
-        data-spark-component="form-field-characters-count"
-        className={cx(className, 'text-caption', 'text-neutral')}
-        {...others}
-      >
-        {displayValue}
-      </span>
-    )
-  }
-)
+  return (
+    <span
+      ref={ref}
+      data-spark-component="form-field-characters-count"
+      className={cx(className, 'text-caption', 'text-neutral')}
+      {...others}
+    >
+      {displayValue}
+    </span>
+  )
+}
 
 FormFieldCharactersCount.displayName = 'FormField.CharactersCount'
