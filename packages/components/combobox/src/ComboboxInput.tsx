@@ -76,6 +76,27 @@ export const Input = ({
 
   const hasPlaceholder = ctx.multiple ? ctx.selectedItems.length === 0 : ctx.selectedItem === null
 
+  function mergeHandlers<T extends React.SyntheticEvent>(
+    handlerA?: (event: T) => void,
+    handlerB?: (event: T) => void
+  ) {
+    return (event: T) => {
+      handlerA?.(event)
+      handlerB?.(event)
+    }
+  }
+
+  /**
+   * Downshift has its own callbacks set for a few events types.
+   * We must merge the event handlers with the (optional) forwarded props if consumer wish to use the same events for alernate purposes (ex: tracking)
+   */
+  const mergedEventProps = {
+    onBlur: mergeHandlers(props.onBlur, downshiftInputProps.onBlur),
+    onChange: mergeHandlers(props.onChange, downshiftInputProps.onChange),
+    onClick: mergeHandlers(props.onClick, downshiftInputProps.onClick),
+    onKeyDown: mergeHandlers(props.onKeyDown, downshiftInputProps.onKeyDown),
+  }
+
   return (
     <>
       {ariaLabel && (
@@ -97,6 +118,7 @@ export const Input = ({
           )}
           {...props}
           {...downshiftInputProps}
+          {...mergedEventProps}
           value={ctx.inputValue}
           aria-label={ariaLabel}
           disabled={ctx.disabled}
