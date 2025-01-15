@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.2](https://github.com/adevinta/spark/compare/v8.0.1...v8.0.2) (2025-01-15)
+
+### Bug Fixes
+
+- **combobox:** fuse event callback with downshift on combobox input ([74733d6](https://github.com/adevinta/spark/commit/74733d6c6d8de4c1cc576cbcacd63f27911547f3))
+
 ## [8.0.1](https://github.com/adevinta/spark/compare/v8.0.0...v8.0.1) (2025-01-13)
 
 ### Bug Fixes
