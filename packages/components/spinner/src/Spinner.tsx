@@ -20,7 +20,7 @@ export const Spinner = ({
   ...others
 }: PropsWithChildren<SpinnerProps>) => {
   return (
-    <div
+    <span
       role="status"
       data-spark-component="spinner"
       ref={ref}
@@ -28,6 +28,6 @@ export const Spinner = ({
       {...others}
     >
       {label && <VisuallyHidden>{label}</VisuallyHidden>}
-    </div>
+    </span>
   )
 }
