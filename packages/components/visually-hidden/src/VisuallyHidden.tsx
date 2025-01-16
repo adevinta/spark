@@ -1,12 +1,19 @@
+import { Slot } from '@spark-ui/slot'
 import { HTMLAttributes, PropsWithChildren, Ref } from 'react'
 
 export type VisuallyHiddenProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   */
+  asChild?: boolean
   ref?: Ref<HTMLElement>
 }
 
-export const VisuallyHidden = ({ ref, ...props }: VisuallyHiddenProps) => {
+export const VisuallyHidden = ({ asChild = false, ref, ...props }: VisuallyHiddenProps) => {
+  const Component = asChild ? Slot : 'span'
+
   return (
-    <span
+    <Component
       {...props}
       ref={ref}
       style={{
