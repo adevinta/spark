@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.1](https://github.com/adevinta/spark/compare/v8.1.0...v8.1.1) (2025-01-16)
+
+### Bug Fixes
+
+- **spinner:** set spinner as span ([91bb67d](https://github.com/adevinta/spark/commit/91bb67d76a6d02687115fe68c21f0d52df86fcf0))
+
 # [8.1.0](https://github.com/adevinta/spark/compare/v8.0.3...v8.1.0) (2025-01-16)
 
 ### Features
