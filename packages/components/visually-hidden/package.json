@@ -23,6 +23,9 @@
   "scripts": {
     "build": "vite build"
   },
+  "dependencies": {
+    "@spark-ui/slot": "^8.0.2"
+  },
   "peerDependencies": {
     "react": "^19.0",
     "react-dom": "^19.0",
