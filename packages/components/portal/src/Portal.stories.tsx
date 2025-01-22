@@ -6,6 +6,7 @@ import { Portal } from '.'
 const meta: Meta<typeof Portal> = {
   title: 'Components/Portal',
   component: Portal,
+  tags: ['others'],
 }
 
 export default meta
@@ -25,7 +26,7 @@ export const Usage: StoryFn = () => {
       </div>
 
       <div
-        className=" h-sz-160 w-1/2 rounded-md bg-support-container p-lg text-on-support-container"
+        className="h-sz-160 w-1/2 rounded-md bg-support-container p-lg text-on-support-container"
         ref={setPortalContainer}
       >
         <p>...but rendered here thanks to the Portal</p>

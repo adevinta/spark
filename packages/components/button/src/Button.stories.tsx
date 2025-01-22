@@ -10,6 +10,7 @@ import { Button } from '.'
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
+  tags: ['action'],
 }
 
 export default meta

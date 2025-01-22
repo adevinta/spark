@@ -7,6 +7,7 @@ import { Slider, type SliderProps } from '.'
 const meta: Meta<typeof Slider> = {
   title: 'Components/Slider',
   component: Slider,
+  tags: ['data-entry'],
 }
 
 export default meta

@@ -73,7 +73,7 @@ module.exports = {
     },
   },
   docs: {
-    docsMode: true,
+    docsMode: true
   },
 }
 

@@ -5,6 +5,7 @@ import { Kbd } from '.'
 const meta: Meta<typeof Kbd> = {
   title: 'Components/Kbd',
   component: Kbd,
+  tags: ['others'],
 }
 
 export default meta

@@ -7,6 +7,7 @@ import { Badge, type BadgeProps } from '.'
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
+  tags: ['indicators'],
 }
 
 export default meta

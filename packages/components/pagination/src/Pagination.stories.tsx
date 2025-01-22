@@ -8,6 +8,7 @@ import { Pagination } from '.'
 const meta: Meta<typeof Pagination> = {
   title: 'Components/Pagination',
   component: Pagination,
+  tags: ['navigation'],
 }
 
 export default meta

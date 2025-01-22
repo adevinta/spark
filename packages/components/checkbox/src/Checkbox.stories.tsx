@@ -16,6 +16,7 @@ import { CheckboxGroup } from './CheckboxGroup'
 const meta: Meta<typeof Checkbox> = {
   title: 'Components/Checkbox',
   component: Checkbox,
+  tags: ['data-entry'],
 }
 
 export default meta

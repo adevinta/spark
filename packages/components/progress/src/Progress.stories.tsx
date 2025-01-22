@@ -6,6 +6,7 @@ import { Progress, ProgressProps } from '.'
 const meta: Meta<typeof Progress> = {
   title: 'Components/Progress',
   component: Progress,
+  tags: ['indicators'],
 }
 
 export default meta

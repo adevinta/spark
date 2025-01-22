@@ -6,6 +6,7 @@ import { Slot, Slottable } from '.'
 const meta: Meta<typeof Slot> = {
   title: 'Components/Slot',
   component: Slot,
+  tags: ['others'],
 }
 
 export default meta

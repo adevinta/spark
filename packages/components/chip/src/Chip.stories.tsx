@@ -17,6 +17,7 @@ import { ChipLeadingIcon } from './ChipLeadingIcon'
 const meta: Meta<typeof Chip> = {
   title: 'Components/Chip',
   component: Chip,
+  tags: ['data-entry'],
 }
 
 type ChipProps = ComponentProps<typeof Chip>

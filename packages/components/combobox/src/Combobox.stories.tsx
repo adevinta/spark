@@ -21,6 +21,7 @@ import { Combobox } from '.'
 const meta: Meta<typeof Combobox> = {
   title: 'Components/Combobox',
   component: Combobox,
+  tags: ['data-entry'],
 }
 
 export default meta

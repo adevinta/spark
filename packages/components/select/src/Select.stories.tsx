@@ -10,6 +10,7 @@ import { Select } from '.'
 const meta: Meta<typeof Select> = {
   title: 'Components/Select',
   component: Select,
+  tags: ['data-entry'],
 }
 
 export default meta

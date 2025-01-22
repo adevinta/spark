@@ -11,6 +11,7 @@ import { IconButton, IconButtonProps } from '.'
 const meta: Meta<typeof IconButton> = {
   title: 'Components/IconButton',
   component: IconButton,
+  tags: ['action'],
 }
 
 export default meta

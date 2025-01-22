@@ -9,6 +9,7 @@ type DividerProps = ComponentProps<typeof Divider>
 const meta: Meta<typeof Divider> = {
   title: 'Components/Divider',
   component: Divider,
+  tags: ['data-display'],
 }
 
 export default meta
@@ -119,7 +120,7 @@ export const Card: StoryFn = _args => (
       <h1 className="text-headline-1">spark-ui components</h1>
       <p>An open-source UI component library.</p>
       <Divider />
-      <div className="flex flex-row items-center justify-start ">
+      <div className="flex flex-row items-center justify-start">
         <span>Blog</span>
         <Divider orientation="vertical" />
         <span>Docs</span>

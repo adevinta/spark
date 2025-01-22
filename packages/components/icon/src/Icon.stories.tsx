@@ -7,6 +7,7 @@ import { Icon } from '.'
 const meta: Meta<typeof Icon> = {
   title: 'Components/Icon',
   component: Icon,
+  tags: ['data-display'],
 }
 
 export default meta

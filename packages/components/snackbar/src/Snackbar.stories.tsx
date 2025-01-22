@@ -7,6 +7,7 @@ import { addSnackbar, type AddSnackbarArgs, Snackbar } from '.'
 const meta: Meta<typeof Snackbar> = {
   title: 'Components/Snackbar',
   component: Snackbar,
+  tags: ['overlays'],
 }
 
 export default meta

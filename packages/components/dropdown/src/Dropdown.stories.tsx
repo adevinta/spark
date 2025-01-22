@@ -12,6 +12,7 @@ import { Dropdown } from '.'
 const meta: Meta<typeof Dropdown> = {
   title: 'Components/Dropdown',
   component: Dropdown,
+  tags: ['data-entry'],
 }
 
 export default meta

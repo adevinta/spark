@@ -8,6 +8,7 @@ import { Drawer, type DrawerContentProps } from '.'
 const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',
   component: Drawer,
+  tags: ['overlays'],
 }
 
 export default meta

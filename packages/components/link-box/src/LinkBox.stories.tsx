@@ -9,6 +9,7 @@ import { LinkBox } from '.'
 const meta: Meta<typeof LinkBox> = {
   title: 'Components/LinkBox',
   component: LinkBox,
+  tags: ['others'],
 }
 
 export default meta

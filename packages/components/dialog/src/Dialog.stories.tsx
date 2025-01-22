@@ -10,6 +10,7 @@ import { Dialog, type DialogContentProps } from '.'
 const meta: Meta<typeof Dialog> = {
   title: 'Components/Dialog',
   component: Dialog,
+  tags: ['overlays'],
 }
 
 export default meta

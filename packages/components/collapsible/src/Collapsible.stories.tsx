@@ -10,6 +10,7 @@ import { Collapsible } from '.'
 const meta: Meta<typeof Collapsible> = {
   title: 'Components/Collapsible',
   component: Collapsible,
+  tags: ['data-display'],
 }
 
 export default meta
