@@ -8,6 +8,7 @@ import { Tag } from '.'
 const meta: Meta<typeof Tag> = {
   title: 'Components/Tag',
   component: Tag,
+  tags: ['data-display'],
 }
 
 export default meta

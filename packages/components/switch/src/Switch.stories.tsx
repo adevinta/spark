@@ -10,6 +10,7 @@ import { Switch } from '.'
 const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
+  tags: ['data-entry'],
 }
 
 export default meta

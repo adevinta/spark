@@ -5,6 +5,7 @@ import { Label } from '.'
 const meta: Meta<typeof Label> = {
   title: 'Components/Label',
   component: Label,
+  tags: ['indicators'],
 }
 
 export default meta

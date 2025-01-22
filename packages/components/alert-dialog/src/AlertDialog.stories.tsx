@@ -7,6 +7,7 @@ import { AlertDialog } from '.'
 const meta: Meta<typeof AlertDialog> = {
   title: 'Components/AlertDialog',
   component: AlertDialog,
+  tags: ['overlays'],
 }
 
 export default meta

@@ -7,6 +7,7 @@ import { FormField } from '.'
 const meta: Meta<typeof FormField> = {
   title: 'Components/FormField',
   component: FormField,
+  tags: ['data-entry'],
 }
 
 export default meta

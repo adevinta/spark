@@ -9,6 +9,7 @@ import { ProgressTracker, type ProgressTrackerProps } from '.'
 const meta: Meta<typeof ProgressTracker> = {
   title: 'Components/ProgressTracker',
   component: ProgressTracker,
+  tags: ['indicators'],
 }
 
 export default meta

@@ -6,6 +6,7 @@ import { VisuallyHidden } from '.'
 const meta: Meta<typeof VisuallyHidden> = {
   title: 'Components/VisuallyHidden',
   component: VisuallyHidden,
+  tags: ['others'],
 }
 
 export default meta

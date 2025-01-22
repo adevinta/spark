@@ -11,6 +11,7 @@ import { Stepper, StepperProps } from '.'
 const meta: Meta<typeof Stepper> = {
   title: 'Components/Stepper',
   component: Stepper,
+  tags: ['data-entry'],
 }
 
 export default meta

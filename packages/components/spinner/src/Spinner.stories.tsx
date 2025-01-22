@@ -7,6 +7,7 @@ import { Spinner } from '.'
 const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',
   component: Spinner,
+  tags: ['indicators'],
 }
 
 export default meta

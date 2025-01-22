@@ -6,6 +6,7 @@ import { Rating, type RatingProps } from '.'
 const meta: Meta<typeof Rating> = {
   title: 'Components/Rating',
   component: Rating,
+  tags: ['data-entry'],
 }
 
 export default meta

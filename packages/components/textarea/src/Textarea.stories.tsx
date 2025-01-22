@@ -10,6 +10,7 @@ import { Textarea, TextareaGroup } from '.'
 const meta: Meta<typeof Textarea> = {
   title: 'Components/Textarea',
   component: Textarea,
+  tags: ['data-entry'],
 }
 
 export default meta

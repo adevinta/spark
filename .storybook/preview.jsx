@@ -127,4 +127,4 @@ export const decorators = [
     )
   },
 ]
-export const tags = []
+export const tags = ['autodocs']

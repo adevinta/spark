@@ -8,6 +8,7 @@ import { Accordion } from '.'
 const meta: Meta<typeof Accordion> = {
   title: 'Components/Accordion',
   component: Accordion,
+  tags: ['data-display'],
 }
 
 export default meta

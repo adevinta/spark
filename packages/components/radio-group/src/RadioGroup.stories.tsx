@@ -11,6 +11,7 @@ import { RadioGroup, RadioGroupProps, RadioProps } from '.'
 const meta: Meta<typeof RadioGroup> = {
   title: 'Components/RadioGroup',
   component: RadioGroup,
+  tags: ['data-entry'],
 }
 
 export default meta

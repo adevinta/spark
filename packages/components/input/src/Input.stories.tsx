@@ -19,6 +19,7 @@ import { Input, InputGroup, type InputGroupProps } from '.'
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
   component: Input,
+  tags: ['data-entry'],
 }
 
 export default meta

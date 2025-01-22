@@ -7,6 +7,7 @@ import { TextLink, type TextLinkProps } from '.'
 const meta: Meta<typeof TextLink> = {
   title: 'Components/TextLink',
   component: TextLink,
+  tags: ['action'],
 }
 
 export default meta

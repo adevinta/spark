@@ -12,6 +12,7 @@ import type { TabsListProps } from './TabsList'
 const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
   component: Tabs,
+  tags: ['navigation'],
 }
 
 export default meta
