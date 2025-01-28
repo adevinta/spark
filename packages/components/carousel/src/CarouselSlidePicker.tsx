@@ -28,11 +28,7 @@ export const CarouselSlidePicker = () => {
 
   return (
     <>
-      <div
-        role="radiogroup"
-        className="flex w-full flex-wrap items-center justify-center gap-md"
-        aria-hidden
-      >
+      <div role="radiogroup" className="flex w-full flex-wrap items-center justify-center gap-md">
         {Object.keys(ctx.pages).map((page, i) => {
           const isActivePage = ctx.activePageIndex === i
           const accessibleLabel = `Go to page ${i + 1}`
