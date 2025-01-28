@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect } from 'react'
+import { createContext, ReactNode, RefObject, useRef } from 'react'
 import { SnapCarouselResult, useSnapCarousel } from 'react-snap-carousel'
 
 type SnapType = 'mandatory' | 'proximity' | 'none'
@@ -9,10 +9,10 @@ interface Props {
   snapType?: SnapType
   snapStop?: SnapStop
   scrollBehavior?: ScrollBehavior
-  activeSlide?: number
   itemsPerSlide?: number
   children?: ReactNode
   loop?: boolean
+  ref?: RefObject<HTMLUListElement | null>
 }
 
 interface CarouselContextState extends SnapCarouselResult {
@@ -22,6 +22,7 @@ interface CarouselContextState extends SnapCarouselResult {
   visibleItemsRange: readonly [number, number]
   itemsPerSlide: number | undefined
   loop: boolean
+  internalRef: RefObject<HTMLUListElement | null>
 }
 
 export const CarouselContext = createContext<CarouselContextState>(
@@ -34,10 +35,11 @@ export const Carousel = ({
   scrollBehavior = 'smooth',
   itemsPerSlide = 1,
   loop = false,
-  activeSlide,
   children,
+  // ref: forwardedRef
 }: Props) => {
   const snapCarouselAPI = useSnapCarousel()
+  const internalRef = useRef<HTMLUListElement>(null)
 
   const { activePageIndex, pages } = snapCarouselAPI
 
@@ -47,20 +49,16 @@ export const Carousel = ({
     ? ([visibleItems[0]! + 1, visibleItems[visibleItems.length - 1]! + 1] as const)
     : ([0, 0] as const)
 
-  useEffect(() => {
-    if (activeSlide != null) {
-      snapCarouselAPI.goTo(activeSlide)
-    }
-  }, [activeSlide])
-
   const ctxValue: CarouselContextState = {
     ...snapCarouselAPI,
+    // REF: (el: HTMLElement | null ) => snapCarouselAPI.scrollRef,
     snapType,
     snapStop,
     scrollBehavior,
     visibleItemsRange,
     itemsPerSlide,
     loop,
+    internalRef,
   }
 
   return (

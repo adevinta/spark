@@ -1,13 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, {
-  CSSProperties,
-  ReactNode,
-  Ref,
-  RefObject,
-  useContext,
-  useEffect,
-  useRef,
-} from 'react'
+import React, { CSSProperties, ReactNode, Ref, RefObject, useContext, useEffect } from 'react'
 
 import { CarouselContext } from './Carousel'
 import { CarouselItemProps } from './CarouselItem'
@@ -34,14 +26,13 @@ export function mergeRefs<T>(...refs: (Ref<T> | undefined | null)[]): Ref<T> {
 export const CarouselItems = ({ gap = 16, children, className = '' }: Props) => {
   const ctx = useContext(CarouselContext)
 
-  const internalRef = useRef<HTMLUListElement>(null)
+  const scrollWidth = useDynamicScrollWidth(ctx.internalRef)
 
-  const scrollWidth = useDynamicScrollWidth(internalRef)
-
+  /**
+   * Useful for async loading of slides (after a fetch), to recalculate pagination
+   */
   useEffect(() => {
-    setTimeout(() => {
-      ctx.refresh()
-    }, 0)
+    ctx.refresh()
   }, [scrollWidth])
 
   const snapConfig = {
@@ -96,7 +87,7 @@ export const CarouselItems = ({ gap = 16, children, className = '' }: Props) => 
         // 'mx-[60px]',
         className
       )}
-      ref={mergeRefs<HTMLUListElement>(internalRef, ctx.scrollRef)}
+      ref={mergeRefs<HTMLUListElement>(ctx.internalRef, ctx.scrollRef)}
       style={inlineStyles}
       onKeyDown={handleKeyDown}
       tabIndex={0}

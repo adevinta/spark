@@ -24,7 +24,7 @@ export const CarouselItem = ({
 
   const itemRef = useRef<HTMLLIElement>(null)
 
-  const visibilityState = useVisibility(itemRef)
+  const visibilityState = useVisibility(itemRef, ctx.internalRef)
   const isVisible = visibilityState !== 'hidden'
 
   return (
@@ -32,6 +32,11 @@ export const CarouselItem = ({
       ref={itemRef}
       className={cx(
         'relative box-border shrink-0 overflow-y-hidden bg-neutral-container',
+        'transition-opacity motion-reduce:transition-none',
+        {
+          'opacity-0': !isVisible && ctx.scrollBehavior === 'smooth',
+          'duration-500': ctx.scrollBehavior === 'smooth',
+        },
         className
       )}
       aria-hidden={!isVisible}

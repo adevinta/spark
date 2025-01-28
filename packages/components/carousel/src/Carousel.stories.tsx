@@ -1,11 +1,10 @@
 import { Button } from '@spark-ui/button'
 import { FormField } from '@spark-ui/form-field'
-import { RadioGroup } from '@spark-ui/radio-group'
 import { Select } from '@spark-ui/select'
 import { Slider } from '@spark-ui/slider'
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Carousel } from '.'
 
@@ -68,59 +67,111 @@ export const Default: StoryFn = _args => {
 }
 
 export const Controlled: StoryFn = _args => {
-  const [activeSlide, setActiveSlide] = useState<number>(0)
-  const handleChange = (current: string) => {
-    setActiveSlide(+current)
-  }
+  type ProductsData = {
+    name: string
+    description: string
+    image: string
+  }[]
 
-  const products = [
-    {
-      name: 'EcoSoothe Skincare Serum',
-      description:
-        'A hydrating serum formulated with hyaluronic acid to replenish and rejuvenate the skin, leaving it soft and smooth.',
-      image: 'https://example.com/images/ecoSootheSerum.jpg',
-    },
-    {
-      name: 'QuantumFlex Yoga Mat',
-      description:
-        'A non-slip, eco-friendly yoga mat providing optimal cushioning and support for all your yoga and fitness routines.',
-      image: 'https://example.com/images/quantumFlexMat.jpg',
-    },
-    {
-      name: 'LumaGlow LED Desk Lamp',
-      description:
-        'An adjustable LED desk lamp with multiple brightness levels and color temperatures, perfect for reading and working.',
-      image: 'https://example.com/images/lumaGlowLamp.jpg',
-    },
-    {
-      name: 'AquaPulse Water Bottle',
-      description:
-        'A durable, BPA-free water bottle with a built-in filter, ensuring fresh and clean hydration on the go.',
-      image: 'https://example.com/images/aquaPulseBottle.jpg',
-    },
-    {
-      name: 'ZenithWave Bluetooth Speaker',
-      description:
-        'A portable Bluetooth speaker delivering high-quality sound with a sleek, modern design.',
-      image: 'https://example.com/images/zenithWaveSpeaker.jpg',
-    },
-  ]
+  const [activeSlide, setActiveSlide] = useState<number>(2)
+  const [productsData, setProductsData] = useState<ProductsData>([])
+
+  const carouselRef = useRef<HTMLUListElement>(null)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://picsum.photos/v2/list?page=10&limit=5')
+
+        const data = await response.json()
+
+        setProductsData([
+          {
+            name: 'EcoSoothe Skincare Serum',
+            description:
+              'A hydrating serum formulated with hyaluronic acid to replenish and rejuvenate the skin, leaving it soft and smooth.',
+            image: data?.[0]?.download_url,
+          },
+          {
+            name: 'QuantumFlex Yoga Mat',
+            description:
+              'A non-slip, eco-friendly yoga mat providing optimal cushioning and support for all your yoga and fitness routines.',
+            image: data?.[1]?.download_url,
+          },
+          {
+            name: 'LumaGlow LED Desk Lamp',
+            description:
+              'An adjustable LED desk lamp with multiple brightness levels and color temperatures, perfect for reading and working.',
+            image: data?.[2]?.download_url,
+          },
+          {
+            name: 'AquaPulse Water Bottle',
+            description:
+              'A durable, BPA-free water bottle with a built-in filter, ensuring fresh and clean hydration on the go.',
+            image: data?.[3]?.download_url,
+          },
+          {
+            name: 'ZenithWave Bluetooth Speaker',
+            description:
+              'A portable Bluetooth speaker delivering high-quality sound with a sleek, modern design.',
+            image: data?.[4]?.download_url,
+          },
+        ])
+      } catch (error) {
+        console.error('Error fetching the image:', error)
+      }
+    }
+
+    fetchProducts()
+  }, [])
 
   return (
-    <div className="flex">
-      <RadioGroup value={`${activeSlide}`} onValueChange={handleChange} className="basis-1/2">
-        {products.map((product, i) => {
-          return <RadioGroup.Radio value={`${i}`}>{product.name}</RadioGroup.Radio>
+    <div className="flex max-w-sz-672 gap-md">
+      <ul className="grid h-sz-256 w-sz-80 grid-rows-5 gap-sm">
+        {productsData.map((product, i) => {
+          return (
+            <li key={product.name} className="flex-1">
+              <button
+                type="button"
+                aria-label={product.name}
+                onClick={() => setActiveSlide(+i)}
+                className={cx(
+                  'size-full bg-neutral-container',
+                  i === activeSlide ? 'border-md border-main' : 'opacity-dim-3'
+                )}
+              >
+                <img
+                  className="size-full object-cover"
+                  width="100%"
+                  height="100%"
+                  src={product.image}
+                  alt={product.description}
+                />
+              </button>
+            </li>
+          )
         })}
-      </RadioGroup>
+      </ul>
 
-      <Carousel activeSlide={activeSlide}>
+      <Carousel
+        ref={carouselRef}
+        // activeSlide={activeSlide}
+        // onActiveSlideChange={activeSlide => setActiveSlide(activeSlide)}
+      >
         <Carousel.Viewport>
           <Carousel.Items>
-            {products.map((product, i) => {
+            {productsData.map(product => {
               return (
-                <Carousel.Item key={i} className="flex items-center rounded-md">
-                  <RandomImage imgHeight={256} imgWidth={512} className="h-sz-256 object-cover" />
+                <Carousel.Item key={product.name} className="flex items-center">
+                  <img
+                    className="h-sz-256 object-cover"
+                    width="100%"
+                    height="100%"
+                    src={product.image}
+                    alt={product.description}
+                  />
+
+                  {/* <RandomImage imgHeight={256} imgWidth={512} className="h-sz-256 object-cover" /> */}
                   <p className="absolute top-none w-full bg-overlay/dim-1 p-md text-body-1 font-bold text-on-overlay">
                     {product.name}
                   </p>
