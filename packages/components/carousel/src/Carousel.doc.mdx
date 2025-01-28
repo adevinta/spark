@@ -1,0 +1,119 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
+
+import { Carousel } from '.'
+
+import * as stories from './Carousel.stories'
+
+<Meta of={stories} />
+
+# Carousel
+
+A carousel is a user interface component that displays a collection of items, such as images or content cards, one (or a few) at a time within a single frame.
+
+Users navigate through these items using controls like "Previous" and "Next" buttons or pagination indicators ("dots").
+
+Carousels are ideal for presenting content sequentially, guiding users to focus on one item or group of items at a time.
+
+## Install
+
+```sh
+npm install @spark-ui/carousel
+```
+
+## Import
+
+```tsx
+import { Carousel } from '@spark-ui/carousel'
+```
+
+## Props
+
+<ArgTypes
+  of={Carousel}
+  description="Presents a set of slides, by sequentially displaying a subset of one or more items."
+  subcomponents={{
+    'Carousel.Viewport': {
+      of: Carousel.Viewport,
+      description:
+        'Container for both the carousel items and the carousel controls. The carousel slide picker should remain outside of it.',
+    },
+    'Carousel.Items': {
+      of: Carousel.Items,
+      description: 'The scroll area of the carousel, contains all items to display in slides.',
+    },
+    'Carousel.Item': {
+      of: Carousel.Item,
+      description:
+        'A single content container within a set of content containers that hold the content to be presented by the carousel.',
+    },
+    'Carousel.Controls': {
+      of: Carousel.Controls,
+      description:
+        'Two interactive elements, styled as arrow buttons, that displays the next or previous slide in the rotation sequence.',
+    },
+    'Carousel.SlidePicker': {
+      of: Carousel.SlidePicker,
+      description:
+        'A group of elements, styled as small dots, that enable the user to pick a specific slide in the rotation sequence to display.',
+    },
+  }}
+/>
+
+## Usage
+
+### Default
+
+By default, the carousel will preserve the natural width of every item, and calculate its pagination from it.
+The first cropped item on the right side will be the next snap point (start on the next slide).
+
+It optimizes how many click are necessary to traverse the full list of items.
+
+**a11y**: items outside of the carousel viewport will be considered inert/unreachable with keyboard navigation and screen readers.
+
+<Canvas of={stories.Default} />
+
+### Controlled
+
+<Canvas of={stories.Controlled} />
+
+### Items per slide
+
+Use `itemsPerSlide` to have a fix number of items visible on each slide. For example, 1 if you want each item to take a full slide.
+This is useful for image carousels.
+
+<Canvas of={stories.ItemsPerSlide} />
+
+### Loop
+
+Use `loop` to preserve `Carousel.Controls` when reaching the edges of the carousel.
+
+<Canvas of={stories.Loop} />
+
+### Scroll behavior
+
+Use `snap type`, `snapStop` and `scrollBehavior` props to control the scrolling behaviour.
+
+**1. snapType**:
+
+- `mandatory` (default): The visual viewport of this scroll container must snap to a snap position if it isn't currently scrolled.
+- `proximity`: The visual viewport of this scroll container may snap to a snap position if it isn't currently scrolled. The user agent decides if it snaps or not based on scroll parameters. This is the default snap strictness if any snap axis is specified.
+- `none`: When the visual viewport of this scroll container is scrolled, it must ignore snap points.
+
+**2. snap stop**:
+
+- `normal` (default): When the visual viewport of this element's scroll container is scrolled, it may "pass over" possible snap positions.
+- `always`: The scroll container must not "pass over" a possible snap position; and must snap to the first of this elements' snap positions.
+
+**3. scroll behaviour**:
+
+- `smooth` (default): The scrolling box scrolls in a smooth fashion using a user-agent-defined easing function over a user-agent-defined period of time. User agents should follow platform conventions, if any.
+- `instant`: The scrolling box scrolls instantly when interacting with the carousel controls.
+
+<Canvas of={stories.ScrollBehavior} />
+
+### Custom controls
+
+In this example you can control the carousel using picture thumbnails instead of dots.
+
+TODO (Canvas)
