@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-switch": "1.1.0",
+    "@radix-ui/react-switch": "1.1.2",
     "@spark-ui/form-field": "^8.1.8",
     "@spark-ui/icons": "^8.1.8",
     "@spark-ui/internal-utils": "^8.1.8",
