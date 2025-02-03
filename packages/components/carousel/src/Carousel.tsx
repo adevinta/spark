@@ -1,71 +1,68 @@
-import { createContext, ReactNode, RefObject, useRef } from 'react'
-import { SnapCarouselResult, useSnapCarousel } from 'react-snap-carousel'
+import { cx } from 'class-variance-authority'
+import React, { createContext, ReactNode, useContext } from 'react'
 
-type SnapType = 'mandatory' | 'proximity' | 'none'
-type ScrollBehavior = 'smooth' | 'instant'
-type SnapStop = 'normal' | 'always'
+import { CarouselAPI, UseCarouselProps } from './types'
+import { useCarousel } from './useCarousel'
 
-interface Props {
-  snapType?: SnapType
-  snapStop?: SnapStop
-  scrollBehavior?: ScrollBehavior
-  itemsPerSlide?: number
+interface Props extends UseCarouselProps {
   children?: ReactNode
-  loop?: boolean
-  ref?: RefObject<HTMLUListElement | null>
+  className?: string
 }
 
-interface CarouselContextState extends SnapCarouselResult {
-  snapType: SnapType
-  snapStop: SnapStop
-  scrollBehavior: ScrollBehavior
-  visibleItemsRange: readonly [number, number]
-  itemsPerSlide: number | undefined
-  loop: boolean
-  internalRef: RefObject<HTMLUListElement | null>
-}
-
-export const CarouselContext = createContext<CarouselContextState>(
-  null as unknown as CarouselContextState
-)
+const CarouselContext = createContext<CarouselAPI | null>(null)
 
 export const Carousel = ({
+  className,
   snapType = 'mandatory',
   snapStop = 'always',
   scrollBehavior = 'smooth',
-  itemsPerSlide = 1,
+  slidesPerMove = 'auto',
+  slidesPerPage = 1,
   loop = false,
   children,
-  // ref: forwardedRef
+  gap = 16,
+  defaultPage,
+  page,
+  onPageChange,
 }: Props) => {
-  const snapCarouselAPI = useSnapCarousel()
-  const internalRef = useRef<HTMLUListElement>(null)
-
-  const { activePageIndex, pages } = snapCarouselAPI
-
-  const visibleItems = pages[activePageIndex] as number[]
-
-  const visibleItemsRange = visibleItems
-    ? ([visibleItems[0]! + 1, visibleItems[visibleItems.length - 1]! + 1] as const)
-    : ([0, 0] as const)
-
-  const ctxValue: CarouselContextState = {
-    ...snapCarouselAPI,
-    // REF: (el: HTMLElement | null ) => snapCarouselAPI.scrollRef,
-    snapType,
-    snapStop,
-    scrollBehavior,
-    visibleItemsRange,
-    itemsPerSlide,
+  const carouselApi = useCarousel({
+    defaultPage,
+    slidesPerPage,
+    slidesPerMove,
     loop,
-    internalRef,
-  }
+    gap,
+    scrollBehavior,
+    snapStop,
+    snapType,
+    page,
+    onPageChange,
+  })
 
   return (
-    <CarouselContext.Provider value={ctxValue}>
-      <div className="flex w-full flex-col gap-lg">{children}</div>
+    <CarouselContext.Provider
+      value={{
+        ...carouselApi,
+        scrollBehavior,
+      }}
+    >
+      <div
+        className={cx('gap-lg relative box-border flex flex-col', className)}
+        {...carouselApi.getRootProps()}
+      >
+        {children}
+      </div>
     </CarouselContext.Provider>
   )
 }
 
 Carousel.displayName = 'Carousel'
+
+export const useCarouselContext = () => {
+  const context = useContext(CarouselContext)
+
+  if (!context) {
+    throw Error('useCarouselContext must be used within a Carousel provider')
+  }
+
+  return context
+}

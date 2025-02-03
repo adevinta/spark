@@ -2,7 +2,8 @@ import { Carousel as Root } from './Carousel'
 import { CarouselControls as Controls } from './CarouselControls'
 import { CarouselItem as Item } from './CarouselItem'
 import { CarouselItems as Items } from './CarouselItems'
-import { CarouselSlidePicker as SlidePicker } from './CarouselSlidePicker'
+import { CarouselPageIndicator as PageIndicator } from './CarouselPageIndicator'
+import { CarouselPagePicker as PagePicker } from './CarouselPagePicker'
 import { CarouselViewport as Viewport } from './CarouselViewport'
 
 export const Carousel: typeof Root & {
@@ -10,13 +11,15 @@ export const Carousel: typeof Root & {
   Item: typeof Item
   Items: typeof Items
   Viewport: typeof Viewport
-  SlidePicker: typeof SlidePicker
+  PagePicker: typeof PagePicker
+  PageIndicator: typeof PageIndicator
 } = Object.assign(Root, {
   Controls,
   Item,
   Items,
   Viewport,
-  SlidePicker,
+  PagePicker,
+  PageIndicator,
 })
 
 Carousel.displayName = 'Carousel'

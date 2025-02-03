@@ -1,100 +1,30 @@
 import { cx } from 'class-variance-authority'
-import React, { CSSProperties, ReactNode, Ref, RefObject, useContext, useEffect } from 'react'
+import React, { ComponentProps, ReactNode } from 'react'
 
-import { CarouselContext } from './Carousel'
+import { useCarouselContext } from './Carousel'
 import { CarouselItemProps } from './CarouselItem'
-import { useDynamicScrollWidth } from './useScrollWidth'
 
-interface Props {
-  gap?: number
+interface Props extends ComponentProps<'ul'> {
   children?: ReactNode
   className?: string
 }
 
-export function mergeRefs<T>(...refs: (Ref<T> | undefined | null)[]): Ref<T> {
-  return (value: T | null) => {
-    refs.forEach(ref => {
-      if (typeof ref === 'function') {
-        ref(value)
-      } else if (ref && typeof ref === 'object' && 'current' in ref) {
-        ;(ref as RefObject<T | null>).current = value
-      }
-    })
-  }
-}
+export const CarouselItems = ({ children, className = '' }: Props) => {
+  const ctx = useCarouselContext()
 
-export const CarouselItems = ({ gap = 16, children, className = '' }: Props) => {
-  const ctx = useContext(CarouselContext)
-
-  const scrollWidth = useDynamicScrollWidth(ctx.internalRef)
-
-  /**
-   * Useful for async loading of slides (after a fetch), to recalculate pagination
-   */
-  useEffect(() => {
-    ctx.refresh()
-  }, [scrollWidth])
-
-  const snapConfig = {
-    mandatory: 'x mandatory',
-    proximity: 'x proximity',
-    none: 'none',
-  }
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLUListElement>) => {
-    if (event.key === 'ArrowLeft') {
-      if (!ctx.loop && !ctx.hasPrevPage) return
-
-      const nextPage = ctx.hasPrevPage ? ctx.activePageIndex - 1 : ctx.pages.length - 1
-
-      event.preventDefault()
-      ctx.goTo(nextPage, { behavior: ctx.scrollBehavior })
-    }
-
-    if (event.key === 'ArrowRight') {
-      if (!ctx.loop && !ctx.hasNextPage) return
-
-      const nextPage = ctx.hasNextPage ? ctx.activePageIndex + 1 : 0
-
-      event.preventDefault()
-      ctx.goTo(nextPage, { behavior: ctx.scrollBehavior })
-    }
-  }
-
-  interface CustomCSSProperties extends CSSProperties {
-    '--carousel-gap'?: string
-    '--carousel-px'?: string
-  }
-
-  const inlineStyles: CustomCSSProperties = {
-    scrollSnapType: snapConfig[ctx.snapType],
-    gridAutoColumns: `calc((100% - (var(--carousel-px) * 2) - (var(--carousel-gap) * (${ctx.itemsPerSlide} - 1))) / ${ctx.itemsPerSlide})`,
-    scrollPaddingLeft: 'var(--carousel-px)',
-    scrollPaddingRight: 'var(--carousel-px)',
-    '--carousel-px': '0px',
-    '--carousel-gap': `${gap}px`,
-  }
+  const childrenElements = React.Children.toArray(children)
 
   return (
     <ul
-      id="carousel-items"
-      role="group"
-      aria-roledescription="carousel"
-      aria-labelledby="TODO"
-      className={cx(
-        'grid w-full grid-flow-col gap-[--carousel-gap] overflow-x-auto scroll-smooth u-no-scrollbar',
-        'focus-visible:outline-none focus-visible:u-ring',
-        // 'mx-[60px]',
-        className
-      )}
-      ref={mergeRefs<HTMLUListElement>(ctx.internalRef, ctx.scrollRef)}
-      style={inlineStyles}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
+      {...ctx.getItemGroupProps()}
+      className={cx('focus-visible:u-outline relative w-full rounded-lg', className)}
     >
-      {React.Children.map(children, (child, index) =>
+      {childrenElements.map((child, index) =>
         React.isValidElement<CarouselItemProps>(child)
-          ? React.cloneElement(child, { index })
+          ? React.cloneElement(child, {
+              index,
+              totalItems: childrenElements.length,
+            })
           : child
       )}
     </ul>

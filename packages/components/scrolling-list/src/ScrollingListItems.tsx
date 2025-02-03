@@ -92,8 +92,8 @@ export const ScrollingListItems = ({ children, className = '' }: Props) => {
       aria-roledescription="carousel"
       aria-labelledby="TODO"
       className={cx(
-        'flex w-full gap-[--scrolling-list-gap] overflow-x-auto scroll-smooth u-no-scrollbar',
-        'focus-visible:outline-none focus-visible:u-ring',
+        'u-no-scrollbar flex w-full gap-[--scrolling-list-gap] overflow-x-auto scroll-smooth',
+        'focus-visible:u-outline',
         ctx.itemsPerSlide ? 'grid grid-flow-col' : 'flex flex-row',
         className
       )}

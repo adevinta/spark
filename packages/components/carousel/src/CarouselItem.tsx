@@ -1,51 +1,39 @@
 import { cx } from 'class-variance-authority'
-import { ReactNode, useContext, useRef } from 'react'
+import { ComponentProps, ReactNode, useRef } from 'react'
 
-import { CarouselContext } from './Carousel'
-import { useVisibility } from './useVisibility'
+import { useCarouselContext } from './Carousel'
+import { useIsVisible } from './useIsVisible'
 
-export interface CarouselItemProps {
+export interface CarouselItemProps extends ComponentProps<'li'> {
   isSnapPoint?: boolean
   children?: ReactNode
   index?: number
+  totalItems?: number
   className?: string
-  style?: React.HTMLAttributes<HTMLLIElement>['style']
 }
 
 export const CarouselItem = ({
   children,
   index = 0,
+  totalItems,
   className = '',
-  style = {},
 }: CarouselItemProps) => {
-  const ctx = useContext(CarouselContext)
-
-  const isSnapPoint = ctx.snapPointIndexes.has(index)
-
   const itemRef = useRef<HTMLLIElement>(null)
+  const ctx = useCarouselContext()
 
-  const visibilityState = useVisibility(itemRef, ctx.internalRef)
-  const isVisible = visibilityState !== 'hidden'
+  const isVisible = useIsVisible(itemRef, ctx.ref)
 
   return (
     <li
       ref={itemRef}
+      {...ctx.getItemProps({ index, totalItems: totalItems as number })}
       className={cx(
-        'relative box-border shrink-0 overflow-y-hidden bg-neutral-container',
-        'transition-opacity motion-reduce:transition-none',
-        {
-          'opacity-0': !isVisible && ctx.scrollBehavior === 'smooth',
-          'duration-500': ctx.scrollBehavior === 'smooth',
-        },
+        'bg-surface relative overflow-hidden rounded-lg',
+        'transition-opacity duration-500 motion-reduce:transition-none',
         className
       )}
       aria-hidden={!isVisible}
       inert={!isVisible}
-      style={{
-        scrollSnapAlign: isSnapPoint ? 'start' : '',
-        ...(isSnapPoint && { scrollSnapStop: ctx.snapStop }),
-        ...style,
-      }}
     >
       {children}
     </li>

@@ -5,9 +5,7 @@ interface Props {
 }
 
 export const CarouselViewport = ({ children }: Props) => {
-  return (
-    <div className="relative box-border flex items-center justify-around p-none">{children}</div>
-  )
+  return <div className="relative flex items-center justify-around p-0">{children}</div>
 }
 
 CarouselViewport.displayName = 'Carousel.Viewport'
