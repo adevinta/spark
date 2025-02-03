@@ -1,38 +1,23 @@
 import { Icon } from '@spark-ui/icon'
 import { IconButton } from '@spark-ui/icon-button'
 import { ArrowVerticalLeft, ArrowVerticalRight } from '@spark-ui/icons'
-import React, { useContext } from 'react'
 
-import { CarouselContext } from './Carousel'
+import { useCarouselContext } from './Carousel'
 
 export const CarouselControls = () => {
-  const ctx = useContext(CarouselContext)
-
-  const handlePrevPage = () => {
-    ctx.hasPrevPage
-      ? ctx.prev({ behavior: ctx.scrollBehavior })
-      : ctx.goTo(ctx.pages.length - 1, { behavior: ctx.scrollBehavior })
-  }
-
-  const handleNextPage = () => {
-    ctx.hasNextPage
-      ? ctx.next({ behavior: ctx.scrollBehavior })
-      : ctx.goTo(0, { behavior: ctx.scrollBehavior })
-  }
+  const ctx = useCarouselContext()
 
   return (
     <div
-      className="pointer-events-none absolute inset-none flex flex-row-reverse items-center justify-between"
-      aria-hidden
+      className="px-lg pointer-events-none absolute inset-0 flex flex-row-reverse items-center justify-between"
+      {...ctx.getControlProps()}
     >
       <IconButton
-        intent="support"
-        design="outlined"
-        className="pointer-events-auto !bg-surface disabled:invisible"
-        onClick={handleNextPage}
-        disabled={!ctx.loop && !ctx.hasNextPage}
+        {...ctx.getNextTriggerProps()}
+        intent="surface"
+        design="filled"
+        className="pointer-events-auto cursor-pointer shadow-sm disabled:invisible"
         aria-label="Next group of items"
-        aria-controls="carousel-items"
       >
         <Icon>
           <ArrowVerticalRight />
@@ -40,13 +25,11 @@ export const CarouselControls = () => {
       </IconButton>
 
       <IconButton
-        intent="support"
-        design="outlined"
-        className="pointer-events-auto !bg-surface disabled:invisible"
-        onClick={handlePrevPage}
-        disabled={!ctx.loop && !ctx.hasPrevPage}
+        intent="surface"
+        design="filled"
+        {...ctx.getPrevTriggerProps()}
+        className="pointer-events-auto cursor-pointer shadow-sm disabled:invisible"
         aria-label="Previous group of items"
-        aria-controls="carousel-items"
       >
         <Icon>
           <ArrowVerticalLeft />
