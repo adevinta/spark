@@ -22,7 +22,7 @@ export const ScrollingListControls = () => {
 
   return (
     <div
-      className="pointer-events-none absolute inset-none flex flex-row-reverse items-center justify-between px-md"
+      className="px-md pointer-events-none absolute inset-0 flex flex-row-reverse items-center justify-between"
       aria-hidden
     >
       <IconButton
