@@ -51,7 +51,7 @@ export const Items = ({ children, className, ref: forwardedRef, ...props }: Item
         className,
         'flex flex-col',
         isOpen
-          ? '!pointer-events-auto block' /* 1 */
+          ? 'pointer-events-auto! block' /* 1 */
           : 'pointer-events-none invisible absolute opacity-0',
         hasPopover && 'p-lg'
       )}

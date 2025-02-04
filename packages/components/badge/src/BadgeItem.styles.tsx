@@ -40,7 +40,7 @@ export const styles = cva(
        * @default 'md'
        */
       size: makeVariants<'size', ['sm', 'md']>({
-        sm: ['text-small', 'px-[var(--sz-6)] py-[var(--sz-2)]', 'empty:size-sz-8'],
+        sm: ['text-small', 'px-[var(--spacing-sz-6)] py-[var(--spacing-sz-2)]', 'empty:size-sz-8'],
         md: ['text-caption', 'px-md py-sm', 'empty:size-sz-16'],
       }),
       /**

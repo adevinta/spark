@@ -3,9 +3,9 @@ import { cva, type VariantProps } from 'class-variance-authority'
 export const styles = cva(
   [
     'rounded-md',
-    'shadow',
-    'focus-visible:outline-none focus-visible:u-ring',
-    'max-h-[--radix-popper-available-height] overflow-y-auto',
+    'shadow-sm',
+    'focus-visible:outline-hidden focus-visible:u-ring',
+    'max-h-(--radix-popper-available-height) overflow-y-auto',
   ],
   {
     variants: {
@@ -22,10 +22,10 @@ export const styles = cva(
         neutral: 'bg-neutral-container text-on-neutral-container',
       },
       matchTriggerWidth: {
-        true: 'w-[--radix-popper-anchor-width]',
+        true: 'w-(--radix-popper-anchor-width)',
       },
       enforceBoundaries: {
-        true: ['max-w-[--radix-popper-available-width]'],
+        true: ['max-w-(--radix-popper-available-width)'],
       },
 
       inset: {
@@ -43,7 +43,7 @@ export const styles = cva(
         /**
          * When there is a close button, padding to the right side must be adjusted to avoid content overlapping with it.
          */
-        class: 'has-[[data-spark-component=popover-close-button]]:pr-3xl',
+        class: 'has-data-[spark-component=popover-close-button]:pr-3xl',
       },
       {
         enforceBoundaries: false,

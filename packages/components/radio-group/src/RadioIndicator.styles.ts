@@ -13,7 +13,7 @@ export const radioIndicatorStyles = cva(
     'after:rounded-[50%]',
     "after:content-['']",
     'after:transition-all',
-    'after:spark-state-checked:size-full',
+    'data-[state=checked]:after:size-full',
   ],
   {
     variants: {

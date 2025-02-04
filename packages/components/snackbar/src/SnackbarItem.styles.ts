@@ -7,14 +7,14 @@ export const snackbarItemVariant = cva(
     'col-start-1 row-start-1',
     'inline-grid items-center',
     'px-md',
-    'rounded-md shadow',
+    'rounded-md shadow-sm',
     'max-w-[600px]',
     'cursor-default pointer-events-auto touch-none select-none',
     'absolute',
     /**
      * Focus
      */
-    'group-focus-visible:outline-none group-focus-visible:u-ring group-[&:not(:focus-visible)]:ring-inset',
+    'group-focus-visible:outline-hidden group-focus-visible:u-ring group-not-focus-visible:ring-inset',
     /**
      * Positionning
      */
@@ -23,32 +23,33 @@ export const snackbarItemVariant = cva(
     /**
      * Animation and opacity
      */
-    '!spark-anime-fill-forwards !spark-anime-duration-400',
+    '[animation-fill-mode: forwards]!',
     'data-[animation=queued]:animate-fade-in',
-    'data-[animation=entering]:spark-anime-easing-decelerate-back',
-    'data-[animation=exiting]:spark-anime-easing-standard',
+    'data-[animation=entering]:easing-decelerate-back',
+    'data-[animation=exiting]:easing-standard',
     // Parent position bottom|bottom-left|bottom-right
-    '[&:not([data-swipe])]:group-data-[position=bottom]:data-[animation=entering]:animate-slide-in-bottom',
-    '[&:not([data-swipe])]:group-data-[position=bottom]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
-    '[&:not([data-swipe])]:group-data-[position=bottom-left]:data-[animation=entering]:animate-slide-in-bottom',
-    '[&:not([data-swipe])]:group-data-[position=bottom-left]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
-    '[&:not([data-swipe])]:group-data-[position=bottom-right]:data-[animation=entering]:animate-slide-in-bottom',
-    '[&:not([data-swipe])]:group-data-[position=bottom-right]:data-[animation=exiting]:animate-[fadeOut,_slideOutBottom]',
+    'data-[animation=entering]:group-data-[position=bottom]:[&:not([data-swipe])]:animate-slide-in-bottom',
+    'data-[animation=exiting]:opacity-0 data-[animation=exiting]:transition-opacity',
+    'data-[animation=exiting]:group-data-[position=bottom]:[&:not([data-swipe])]:animate-slide-out-bottom',
+    'data-[animation=entering]:group-data-[position=bottom-left]:[&:not([data-swipe])]:animate-slide-in-bottom',
+    'data-[animation=exiting]:group-data-[position=bottom-left]:[&:not([data-swipe])]:animate-slide-out-bottom',
+    'data-[animation=entering]:group-data-[position=bottom-right]:[&:not([data-swipe])]:animate-slide-in-bottom',
+    'data-[animation=exiting]:group-data-[position=bottom-right]:[&:not([data-swipe])]:animate-slide-out-bottom',
     // Parent position top|top-left|top-right
-    '[&:not([data-swipe])]:group-data-[position=top]:data-[animation=entering]:animate-slide-in-top',
-    '[&:not([data-swipe])]:group-data-[position=top]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
-    '[&:not([data-swipe])]:group-data-[position=top-left]:data-[animation=entering]:animate-slide-in-top',
-    '[&:not([data-swipe])]:group-data-[position=top-left]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
-    '[&:not([data-swipe])]:group-data-[position=top-right]:data-[animation=entering]:animate-slide-in-top',
-    '[&:not([data-swipe])]:group-data-[position=top-right]:data-[animation=exiting]:animate-[fadeOut,_slideOutTop]',
+    'data-[animation=entering]:group-data-[position=top]:[&:not([data-swipe])]:animate-slide-in-top',
+    'data-[animation=exiting]:group-data-[position=top]:[&:not([data-swipe])]:animate-slide-out-top',
+    'data-[animation=entering]:group-data-[position=top-left]:[&:not([data-swipe])]:animate-slide-in-top',
+    'data-[animation=exiting]:group-data-[position=top-left]:[&:not([data-swipe])]:animate-slide-out-top',
+    'data-[animation=entering]:group-data-[position=top-right]:[&:not([data-swipe])]:animate-slide-in-top',
+    'data-[animation=exiting]:group-data-[position=top-right]:[&:not([data-swipe])]:animate-slide-out-top',
     /**
      * Swipe
      */
-    'data-[swipe=move]:data-[swipe-direction=right]:translate-x-[--swipe-position-x]',
-    'data-[swipe=move]:data-[swipe-direction=left]:translate-x-[--swipe-position-x]',
+    'data-[swipe=move]:data-[swipe-direction=right]:translate-x-(--swipe-position-x)',
+    'data-[swipe=move]:data-[swipe-direction=left]:translate-x-(--swipe-position-x)',
     'data-[swipe=cancel]:translate-x-none',
-    'data-[swipe=end]:data-[swipe-direction=right]:animate-swipe-out-right',
-    'data-[swipe=end]:data-[swipe-direction=left]:animate-swipe-out-left',
+    'data-[swipe=end]:data-[swipe-direction=right]:animate-standalone-swipe-out-right',
+    'data-[swipe=end]:data-[swipe-direction=left]:animate-standalone-swipe-out-left',
   ],
   {
     variants: {

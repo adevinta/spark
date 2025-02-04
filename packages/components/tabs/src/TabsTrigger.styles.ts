@@ -6,13 +6,13 @@ export const triggerVariants = cva(
     'px-md',
     'relative flex flex-none items-center',
     'border-outline',
-    'outline-none',
+    'outline-hidden',
     'hover:bg-surface-hovered',
     'after:absolute',
-    'spark-orientation-horizontal:border-b-sm spark-orientation-horizontal:after:inset-x-none spark-orientation-horizontal:after:bottom-[-1px] spark-orientation-horizontal:after:h-sz-2',
-    'spark-orientation-vertical:border-r-sm spark-orientation-vertical:after:inset-y-none spark-orientation-vertical:after:right-[-1px] spark-orientation-vertical:after:w-sz-2',
-    'focus-visible:border-none focus-visible:bg-surface-hovered focus-visible:u-ring-inset',
-    'spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3',
+    'data-[orientation=horizontal]:border-b-sm data-[orientation=horizontal]:after:inset-x-none data-[orientation=horizontal]:after:bottom-[-1px] data-[orientation=horizontal]:after:h-sz-2',
+    'data-[orientation=vertical]:border-r-sm data-[orientation=vertical]:after:inset-y-none data-[orientation=vertical]:after:right-[-1px] data-[orientation=vertical]:after:w-sz-2',
+    'focus-visible:border-none focus-visible:bg-surface-hovered focus-visible:u-outline-inset',
+    'disabled:cursor-not-allowed disabled:opacity-dim-3',
     'duration-300 ease-linear',
     'gap-md [&>*:first-child]:ml-md [&>*:last-child]:mr-md',
     '[&>svg:last-child:first-child]:mx-auto',
@@ -24,9 +24,9 @@ export const triggerVariants = cva(
        * @default basic
        */
       intent: makeVariants<'intent', ['main', 'support', 'basic']>({
-        main: ['spark-state-active:text-main spark-state-active:after:bg-main'],
-        support: ['spark-state-active:text-support spark-state-active:after:bg-support'],
-        basic: ['spark-state-active:text-basic spark-state-active:after:bg-basic'],
+        main: ['data-[state=active]:text-main data-[state=active]:after:bg-main'],
+        support: ['data-[state=active]:text-support data-[state=active]:after:bg-support'],
+        basic: ['data-[state=active]:text-basic data-[state=active]:after:bg-basic'],
       }),
       /**
        * Change the size of the tabs

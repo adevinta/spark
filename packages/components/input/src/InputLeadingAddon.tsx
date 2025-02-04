@@ -16,7 +16,7 @@ const Root = ({ className, ref, ...others }: InputLeadingAddonProps) => {
     <div className={cx('rounded-l-lg', isInactive ? 'bg-on-surface/dim-5' : null)}>
       <InputAddon
         ref={ref}
-        className={cx(className, 'mr-[-1px] !rounded-r-none rounded-l-lg')}
+        className={cx(className, 'mr-[-1px] rounded-l-lg rounded-r-none!')}
         {...others}
       />
     </div>

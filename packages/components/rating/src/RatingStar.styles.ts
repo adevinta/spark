@@ -1,6 +1,6 @@
 import { cva, cx, type VariantProps } from 'class-variance-authority'
 
-const emptyRemainingStarsOnHoverClass = cx('peer-hover:[&_>_div]:!w-none')
+const emptyRemainingStarsOnHoverClass = cx('[&_>_div]:peer-hover:w-none!')
 
 const ratingStarStyles = cva(
   ['peer', 'after:inset-none', 'group', 'relative', 'after:block after:absolute'],
@@ -15,8 +15,8 @@ const ratingStarStyles = cva(
         false: '',
       },
       gap: {
-        sm: ['after:w-[calc(100%_+_theme(spacing.sm))]', 'last-of-type:after:content-none'],
-        md: ['after:w-[calc(100%_+_theme(spacing.md))]', 'last-of-type:after:content-none'],
+        sm: ['after:w-[calc(100%+(var(--spacing-sm)))]', 'last-of-type:after:content-none'],
+        md: ['after:w-[calc(100%+(var(--spacing-md)))]', 'last-of-type:after:content-none'],
       },
     },
     compoundVariants: [

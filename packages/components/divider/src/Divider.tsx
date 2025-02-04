@@ -37,6 +37,7 @@ export const Divider = ({
   isDecorative = false,
   children,
   orientation = 'horizontal',
+  writingMode = 'horizontal-tb',
   alignment = 'center',
   intent = 'outline',
   ref,
@@ -48,11 +49,15 @@ export const Divider = ({
     <Separator
       data-spark-component="divider"
       asChild={asChild}
-      className={cx(dividerStyles({ isEmpty, orientation, alignment, intent }), className)}
+      className={cx(
+        dividerStyles({ isEmpty, orientation, alignment, intent, writingMode }),
+        className
+      )}
       orientation={orientation}
       ref={ref}
       decorative={isDecorative}
       {...props}
+      data-writing-mode={writingMode}
     >
       {children}
     </Separator>

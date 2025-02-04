@@ -68,9 +68,7 @@ export const ClassNames: StoryFn = _args => {
 
   return (
     <div className="flex flex-col">
-      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <Slot className="slotClassName">
-        {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
         <a href="/" className="childrenClassName" ref={ref}>
           Link
         </a>

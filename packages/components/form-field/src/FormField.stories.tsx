@@ -23,7 +23,7 @@ export const Default: StoryFn = () => (
           id={id}
           name={name}
           aria-describedby={description}
-          className="rounded-sm border-md border-neutral p-md outline-none"
+          className="border-md border-neutral p-md rounded-sm outline-hidden"
         />
       )}
     </FormField.Control>
@@ -45,7 +45,7 @@ export const Required: StoryFn = () => (
           aria-describedby={description}
           aria-required={isRequired}
           required={isRequired}
-          className="rounded-sm border-md border-neutral p-md outline-none"
+          className="border-md border-neutral p-md rounded-sm outline-hidden"
         />
       )}
     </FormField.Control>
@@ -75,7 +75,7 @@ export const CustomRequired: StoryFn = () => (
           aria-describedby={description}
           aria-required={isRequired}
           required={isRequired}
-          className="rounded-sm border-md border-neutral p-md outline-none"
+          className="border-md border-neutral p-md rounded-sm outline-hidden"
         />
       )}
     </FormField.Control>
@@ -85,7 +85,7 @@ export const CustomRequired: StoryFn = () => (
 )
 
 export const State: StoryFn = () => (
-  <div className="flex flex-col gap-lg">
+  <div className="gap-lg flex flex-col">
     <FormField name="email" state="error">
       <FormField.Label>Name</FormField.Label>
 
@@ -97,7 +97,7 @@ export const State: StoryFn = () => (
             name={name}
             aria-describedby={description}
             className={cx(
-              'rounded-sm border-md p-md outline-none',
+              'border-md p-md rounded-sm outline-hidden',
               state === 'error' ? 'border-error' : 'border-neutral'
             )}
           />
@@ -118,7 +118,7 @@ export const State: StoryFn = () => (
             name={name}
             aria-describedby={description}
             className={cx(
-              'rounded-sm border-md p-md outline-none',
+              'border-md p-md rounded-sm outline-hidden',
               state === 'success' ? 'border-success' : 'border-neutral'
             )}
           />
@@ -139,7 +139,7 @@ export const State: StoryFn = () => (
             name={name}
             aria-describedby={description}
             className={cx(
-              'rounded-sm border-md p-md outline-none',
+              'border-md p-md rounded-sm outline-hidden',
               state === 'alert' ? 'border-alert' : 'border-neutral'
             )}
           />
@@ -173,12 +173,12 @@ export const CharactersCount: StoryFn = _args => {
             onChange={handleChange}
             maxLength={MAX_LENGTH}
             aria-describedby={description}
-            className="rounded-sm border-md border-neutral p-md outline-none"
+            className="border-md border-neutral p-md rounded-sm outline-hidden"
           />
         )}
       </FormField.Control>
 
-      <div className="flex justify-between gap-md">
+      <div className="gap-md flex justify-between">
         <FormField.HelperMessage>
           Type the text but take into account the max length
         </FormField.HelperMessage>

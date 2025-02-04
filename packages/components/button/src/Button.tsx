@@ -109,7 +109,7 @@ export const Button = ({
 
             <div
               aria-hidden
-              className={cx('inline-flex gap-md', loadingText ? 'hidden' : 'opacity-0')}
+              className={cx('gap-md', loadingText ? 'hidden' : 'inline-flex opacity-0')}
             >
               {slotted}
             </div>

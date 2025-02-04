@@ -36,7 +36,7 @@ const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 export const Default: StoryFn = _args => <Button>Default button</Button>
 
 export const Sizes: StoryFn = _args => (
-  <div className="flex flex-wrap items-center gap-md">
+  <div className="gap-md flex flex-wrap items-center">
     {sizes.map(size => {
       return (
         <Button key={size} size={size}>
@@ -48,7 +48,7 @@ export const Sizes: StoryFn = _args => (
 )
 
 export const Shapes: StoryFn = _args => (
-  <div className="flex flex-wrap items-center gap-md">
+  <div className="gap-md flex flex-wrap items-center">
     {shapes.map(shape => {
       return (
         <Button key={shape} shape={shape}>
@@ -62,7 +62,7 @@ export const Shapes: StoryFn = _args => (
 export const Disabled: StoryFn = _args => <Button disabled>Disabled button</Button>
 
 export const Design: StoryFn = _args => (
-  <div className="flex flex-wrap gap-md">
+  <div className="gap-md flex flex-wrap">
     {designs.map(design => (
       <Button key={design} design={design}>
         {design} button
@@ -72,7 +72,7 @@ export const Design: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-wrap gap-md">
+  <div className="gap-md flex flex-wrap">
     {intents.map(intent => (
       <Button key={intent} intent={intent}>
         {intent} button
@@ -82,7 +82,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Icons: StoryFn = _args => (
-  <div className="flex flex-wrap gap-md">
+  <div className="gap-md flex flex-wrap">
     <Button>
       Button
       <Icon>
@@ -111,7 +111,7 @@ export const Loading: StoryFn = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <div className="flex flex-col items-start gap-lg">
+    <div className="gap-lg flex flex-col items-start">
       <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
         Toggle loading state
       </Checkbox>
@@ -130,12 +130,12 @@ export const LoadingWithText: StoryFn = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <div className="flex flex-col items-start gap-lg">
+    <div className="gap-lg flex flex-col items-start">
       <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
         Toggle loading state
       </Checkbox>
 
-      <Button isLoading={isLoading} loadingText="Loading...">
+      <Button isLoading={isLoading}>
         <Icon>
           <FavoriteOutline />
         </Icon>
@@ -146,7 +146,7 @@ export const LoadingWithText: StoryFn = () => {
 }
 
 export const Link: StoryFn = _args => (
-  <div className="flex flex-wrap gap-md">
+  <div className="gap-md flex flex-wrap">
     <Button asChild>
       <a href="/">Button as a link</a>
     </Button>

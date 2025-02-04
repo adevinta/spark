@@ -3,14 +3,14 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 export const styles = cva(
   tw([
-    'relative flex-shrink-0 self-baseline',
+    'relative shrink-0 self-baseline',
     'cursor-pointer',
     'rounded-full border-transparent',
     'hover:ring-4',
     'transition-colors duration-200 ease-in-out',
-    'disabled:hover:ring-transparent spark-disabled:cursor-not-allowed spark-disabled:opacity-dim-3',
-    'focus-visible:outline-none focus-visible:u-ring',
-    'spark-state-unchecked:bg-on-surface/dim-4',
+    'disabled:hover:ring-transparent disabled:cursor-not-allowed disabled:opacity-dim-3',
+    'focus-visible:u-outline',
+    'data-[state=unchecked]:bg-on-surface/dim-4',
     'u-shadow-border-transition',
     'overflow-x-hidden',
   ]),
@@ -30,15 +30,27 @@ export const styles = cva(
         'intent',
         ['main', 'support', 'accent', 'basic', 'success', 'alert', 'error', 'info', 'neutral']
       >({
-        main: ['spark-state-checked:bg-main', 'hover:ring-main-container', 'text-main'],
-        support: ['spark-state-checked:bg-support', 'hover:ring-support-container', 'text-support'],
-        accent: ['spark-state-checked:bg-accent', 'hover:ring-accent-container', 'text-accent'],
-        basic: ['spark-state-checked:bg-basic', 'hover:ring-basic-container', 'text-basic'],
-        success: ['spark-state-checked:bg-success', 'hover:ring-success-container', 'text-success'],
-        alert: ['spark-state-checked:bg-alert', 'hover:ring-alert-container', 'text-alert'],
-        error: ['spark-state-checked:bg-error', 'hover:ring-error-container', 'text-error'],
-        info: ['spark-state-checked:bg-info', 'hover:ring-info-container', 'text-info'],
-        neutral: ['spark-state-checked:bg-neutral', 'hover:ring-neutral-container', 'text-neutral'],
+        main: ['data-[state=checked]:bg-main', 'hover:ring-main-container', 'text-main'],
+        support: [
+          'data-[state=checked]:bg-support',
+          'hover:ring-support-container',
+          'text-support',
+        ],
+        accent: ['data-[state=checked]:bg-accent', 'hover:ring-accent-container', 'text-accent'],
+        basic: ['data-[state=checked]:bg-basic', 'hover:ring-basic-container', 'text-basic'],
+        success: [
+          'data-[state=checked]:bg-success',
+          'hover:ring-success-container',
+          'text-success',
+        ],
+        alert: ['data-[state=checked]:bg-alert', 'hover:ring-alert-container', 'text-alert'],
+        error: ['data-[state=checked]:bg-error', 'hover:ring-error-container', 'text-error'],
+        info: ['data-[state=checked]:bg-info', 'hover:ring-info-container', 'text-info'],
+        neutral: [
+          'data-[state=checked]:bg-neutral',
+          'hover:ring-neutral-container',
+          'text-neutral',
+        ],
       }),
     },
     defaultVariants: {

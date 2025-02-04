@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 import { intentVariants } from './variants/intents'
 
-export const dividerStyles = cva(['overflow-hidden'], {
+export const dividerStyles = cva(['overflow-hidden group'], {
   variants: {
     isEmpty: {
       true: ['border-solid'],
@@ -12,6 +12,10 @@ export const dividerStyles = cva(['overflow-hidden'], {
     orientation: {
       vertical: ['w-fit inline-flex'],
       horizontal: ['w-full'],
+    },
+    writingMode: {
+      'horizontal-tb': [],
+      'vertical-lr': [],
     },
     alignment: {
       start: [],
@@ -25,6 +29,7 @@ export const dividerStyles = cva(['overflow-hidden'], {
   },
   defaultVariants: {
     orientation: 'horizontal',
+    writingMode: 'horizontal-tb',
     alignment: 'center',
     intent: 'outline',
   },
@@ -42,17 +47,20 @@ export const dividerStyles = cva(['overflow-hidden'], {
     {
       isEmpty: false,
       orientation: 'horizontal',
-      class: tw([
-        'flex-row my-sm grow-0',
-        'before:border-t-sm',
-        'after:border-t-sm',
-        '[&>*]:px-lg',
-      ]),
+      writingMode: 'horizontal-tb',
+      class: tw(['flex-row my-sm grow-0', 'before:border-t-sm', 'after:border-t-sm', '*:px-lg']),
     },
     {
       isEmpty: false,
       orientation: 'vertical',
-      class: tw(['flex-col mx-sm', 'before:border-l-sm', 'after:border-l-sm', '[&>*]:py-lg']),
+      writingMode: 'horizontal-tb',
+      class: tw(['flex-col mx-sm', 'before:border-l-sm', 'after:border-l-sm', '*:py-lg']),
+    },
+    {
+      isEmpty: false,
+      orientation: 'vertical',
+      writingMode: 'vertical-lr',
+      class: tw(['flex-col mx-sm', 'before:border-l-sm', 'after:border-l-sm', '*:px-lg']),
     },
     {
       isEmpty: false,

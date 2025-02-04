@@ -30,7 +30,7 @@ export const Popover = ({
       inset
       asChild
       matchTriggerWidth={matchTriggerWidth}
-      className={cx('relative !z-dropdown', className)}
+      className={cx('z-dropdown! relative', className)}
       sideOffset={sideOffset}
       onOpenAutoFocus={e => {
         /**

@@ -17,7 +17,7 @@ const meta: Meta<typeof RadioGroup> = {
 export default meta
 
 export const Default: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     <div className="w-1/2 shrink basis-auto">
       <RadioGroup defaultValue="1">
         <RadioGroup.Radio value="1">First</RadioGroup.Radio>
@@ -88,7 +88,7 @@ const intents: RadioGroupProps['intent'][] = [
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="grid grid-cols-2 gap-xl sm:grid-cols-3 md:grid-cols-5">
+    <div className="gap-xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
       {intents.map(intent => (
         <div key={intent}>
           <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
@@ -107,7 +107,7 @@ const orientations: RadioGroupProps['orientation'][] = ['horizontal', 'vertical'
 
 export const Orientation: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="gap-xl flex flex-col">
       {orientations.map(orientation => (
         <div key={orientation}>
           <StoryLabel>{orientation}</StoryLabel>
@@ -154,7 +154,7 @@ export const CustomImplementation: StoryFn = () => {
         id={id}
         htmlFor={value}
         className={cx(
-          'flex max-w-sz-320 flex-wrap gap-md rounded-md p-lg shadow',
+          'max-w-sz-320 gap-md p-lg flex flex-wrap rounded-md shadow-sm',
           value === selectedValue ? 'bg-success/dim-4' : '',
           'cursor-pointer'
         )}
@@ -208,7 +208,7 @@ export const InvisibleRadioGroup: StoryFn = () => {
         id={id}
         htmlFor={value}
         className={cx(
-          'flex max-w-sz-320 flex-wrap gap-md rounded-md p-lg shadow',
+          'max-w-sz-320 gap-md p-lg flex flex-wrap rounded-md shadow-sm',
           value === selectedValue ? 'bg-success/dim-4' : '',
           'cursor-pointer',
           'focus-within:ring-outline-high',

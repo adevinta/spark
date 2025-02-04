@@ -40,9 +40,9 @@ export function ReactLiveBlock({ children, editable = true, scope }: ReactLiveBl
     <UnstyledBlock>
       <LiveProvider code={editorCode} scope={scope}>
         <LivePreview />
-        <div className="relative mt-md rounded-md bg-surface-inverse p-md text-body-2 text-on-surface-inverse outline-none">
-          {editable && <p className="text-center text-body-2 font-bold">Editable Example</p>}
-          <div className="absolute right-md top-sm flex gap-md">
+        <div className="mt-md bg-surface-inverse p-md text-body-2 text-on-surface-inverse relative rounded-md outline-hidden">
+          {editable && <p className="text-body-2 text-center font-bold">Editable Example</p>}
+          <div className="right-md top-sm gap-md absolute flex">
             {code !== editorCode && (
               <button onClick={reset} className="hover:text-on-surface-inverse/dim-1">
                 Reset code

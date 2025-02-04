@@ -46,7 +46,7 @@ export const Kind: StoryFn = () => {
   const ref = useRef<HTMLButtonElement>(null)
 
   return (
-    <div className="flex flex-row gap-xl">
+    <div className="gap-xl flex flex-row">
       <Chip onClick={() => console.log('assist')} ref={ref}>
         <ChipLeadingIcon>
           <Icon label="calendar">
@@ -90,8 +90,8 @@ export const SingleSelectionFilter: StoryFn = () => {
   const [activeFilter, setActive] = useState<undefined | string>('fruit')
 
   return (
-    <div className="flex flex-col gap-md">
-      <div className="flex flex-row items-start gap-md">
+    <div className="gap-md flex flex-col">
+      <div className="gap-md flex flex-row items-start">
         {['fruit', 'vegetable'].map(filter => {
           const isActive = activeFilter === filter
 
@@ -116,7 +116,7 @@ export const SingleSelectionFilter: StoryFn = () => {
           )
         })}
       </div>
-      <div className="flex flex-row gap-x-lg">
+      <div className="gap-x-lg flex flex-row">
         {singleSet.map(([element, types]) => {
           const Element = [undefined, ...types].includes(activeFilter) ? 'span' : VisuallyHidden
 
@@ -151,8 +151,8 @@ export const UnionFilter: StoryFn = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>(['animal', 'tree'])
 
   return (
-    <div className="flex flex-col gap-md">
-      <div className="flex flex-row items-start gap-md">
+    <div className="gap-md flex flex-col">
+      <div className="gap-md flex flex-row items-start">
         {['animal', 'flower', 'tree'].map(filter => {
           const isActive = activeFilters?.includes(filter)
 
@@ -181,7 +181,7 @@ export const UnionFilter: StoryFn = () => {
           )
         })}
       </div>
-      <div className="flex flex-row gap-x-lg">
+      <div className="gap-x-lg flex flex-row">
         {multipleUnionSet.map(([element, types]) => {
           const Element = types.some(
             type => activeFilters.includes(type) || activeFilters.length === 0
@@ -225,8 +225,8 @@ export const IntersectionFilter: StoryFn = () => {
   const [activeFilters, setActiveFilters] = useState<string[]>(['land', 'wild'])
 
   return (
-    <div className="flex flex-col gap-md">
-      <div className="flex flex-row items-start gap-md">
+    <div className="gap-md flex flex-col">
+      <div className="gap-md flex flex-row items-start">
         {['land', 'sea', 'air', 'wild', 'domestic'].map(filter => {
           const isActive = activeFilters?.includes(filter)
 
@@ -255,7 +255,7 @@ export const IntersectionFilter: StoryFn = () => {
           )
         })}
       </div>
-      <div className="flex flex-row gap-x-lg">
+      <div className="gap-x-lg flex flex-row">
         {multipleIntersectionSet.map(([element, types]) => {
           const Element = activeFilters.every(filter => types.includes(filter))
             ? 'span'
@@ -277,7 +277,7 @@ export const Input: StoryFn = () => {
   const [tags, setTags] = useState<string[]>(['first', 'second'])
 
   return (
-    <div className="flex flex-col gap-md">
+    <div className="gap-md flex flex-col">
       <div className="flex flex-col">
         <Label htmlFor="content">Value</Label>
         <InputGroup>
@@ -294,7 +294,7 @@ export const Input: StoryFn = () => {
           />
         </InputGroup>
       </div>
-      <span className="flex gap-md">
+      <span className="gap-md flex">
         {tags.map(tag => (
           <Chip
             intent="neutral"
@@ -314,9 +314,9 @@ export const Input: StoryFn = () => {
 }
 
 export const DefaultIntent: StoryFn = _args => (
-  <div className="flex flex-col flex-wrap gap-md">
+  <div className="gap-md flex flex-col flex-wrap">
     {designs.map(design => (
-      <div key={design} className="flex flex-wrap gap-md">
+      <div key={design} className="gap-md flex flex-wrap">
         {intents.map(intent => (
           <Chip
             onClear={() => console.log('clear')}
@@ -334,9 +334,9 @@ export const DefaultIntent: StoryFn = _args => (
 )
 
 export const ActionIntent: StoryFn = _args => (
-  <div className="flex flex-col flex-wrap gap-md">
+  <div className="gap-md flex flex-col flex-wrap">
     {designs.map(design => (
-      <div key={design} className="flex flex-wrap gap-md">
+      <div key={design} className="gap-md flex flex-wrap">
         {intents.map(intent => (
           <Chip
             design={design}
@@ -355,9 +355,9 @@ export const ActionIntent: StoryFn = _args => (
 )
 
 export const SelectionIntent: StoryFn = _args => (
-  <div className="flex flex-col flex-wrap gap-md">
+  <div className="gap-md flex flex-col flex-wrap">
     {designs.map(design => (
-      <div key={design} className="flex flex-wrap gap-md">
+      <div key={design} className="gap-md flex flex-wrap">
         {intents.map(intent => (
           <Chip
             defaultPressed={true}
@@ -386,18 +386,18 @@ export const Disabled: StoryFn = _args => (
 
 export const AssistEvent: StoryFn = _args => {
   return (
-    <div className="flex max-w-sz-320 flex-col gap-sm rounded-md border-md bg-gradient-to-br from-main to-support-variant p-lg text-surface shadow">
-      <div className="flex min-h-sz-128 flex-col items-start justify-between">
-        <span className="font-mono text-small uppercase">Passed Event</span>
+    <div className="max-w-sz-320 gap-sm border-md from-main to-support-variant p-lg text-surface flex flex-col rounded-md bg-linear-to-br shadow-sm">
+      <div className="min-h-sz-128 flex flex-col items-start justify-between">
+        <span className="text-small font-mono uppercase">Passed Event</span>
         <span className="flex flex-col">
           <span className="text-headline-1">WWDC23</span>
           <span className="text-body-1">Worldwide Developers Conference</span>
         </span>
       </div>
       <hr className="bg-surface" />
-      <div className="flex flex-col gap-md">
+      <div className="gap-md flex flex-col">
         <span className="text-small">June 6, 2023</span>
-        <div className="flex flex-row gap-md">
+        <div className="gap-md flex flex-row">
           <Chip intent="surface" onClick={() => console.log('Add to iCal')}>
             <Chip.LeadingIcon>
               <Icon label="calendar">
@@ -429,8 +429,8 @@ export const Suggestion: StoryFn = () => {
   const Component = isBlurred ? 'div' : VisuallyHidden
 
   return (
-    <div className="relative flex flex-col gap-sm rounded-md p-lg">
-      <div className="flex min-h-sz-112 flex-col items-start justify-start">
+    <div className="gap-sm p-lg relative flex flex-col rounded-md">
+      <div className="min-h-sz-112 flex flex-col items-start justify-start">
         <Label htmlFor="email">From</Label>
         <InputGroup>
           <InputGroup.LeadingIcon>
@@ -448,7 +448,7 @@ export const Suggestion: StoryFn = () => {
           <InputGroup.ClearButton aria-label="clear" onClick={() => setContent('')} />
         </InputGroup>
       </div>
-      <Component className="absolute bottom-none right-none flex w-full justify-start gap-md px-lg pb-lg">
+      <Component className="bottom-none right-none gap-md px-lg pb-lg absolute flex w-full justify-start">
         <Chip
           tabIndex={-1}
           design={content === 'john.doe@email.com' ? 'tinted' : 'dashed'}

@@ -1,7 +1,7 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
 export const dialogBodyStyles = cva(
-  ['grow', 'overflow-y-auto', 'outline-none', 'focus-visible:u-ring'],
+  ['grow', 'overflow-y-auto', 'outline-hidden', 'focus-visible:u-ring'],
   {
     variants: {
       inset: {

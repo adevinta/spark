@@ -5,8 +5,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-basic-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-basic-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-basic-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {
@@ -21,8 +21,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-support-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-support-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-support-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {
@@ -37,8 +37,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-main-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-main-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-main-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {
@@ -53,8 +53,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-neutral-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-neutral-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-neutral-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {
@@ -69,8 +69,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-info-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-info-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-info-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {
@@ -85,8 +85,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-accent-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-accent-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-accent-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {
@@ -101,8 +101,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-error-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-error-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-error-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {
@@ -117,8 +117,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-alert-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-alert-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-alert-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {
@@ -133,8 +133,8 @@ export const outlineVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-success-container bg-transparent',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-success-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-transparent',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-success-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-transparent',
     ],
   },
   {

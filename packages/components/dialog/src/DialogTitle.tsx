@@ -12,7 +12,7 @@ export const Title = ({ className, ref, ...others }: TitleProps) => {
       ref={ref}
       className={cx(
         'text-headline-1 text-on-surface',
-        'group-has-[[data-part=close]]:pr-3xl',
+        'group-has-data-[part=close]:pr-3xl',
         className
       )}
       {...others}
