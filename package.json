@@ -13,8 +13,6 @@
     "release": "lerna publish --yes --force-publish",
     "storybook:start": "storybook dev -p 6006",
     "storybook:build": "storybook build -o dist",
-    "tailwind-config-viewer": "npx @adevinta/tailwind-config-viewer -c ./tailwind.config.viewer.mjs",
-    "tailwind-config-viewer:build": "mkdir -p ./dist/viewer && npx @adevinta/tailwind-config-viewer -c ./tailwind.config.viewer.mjs export ./dist/viewer",
     "test": "vitest",
     "test:ui": "vitest watch --ui",
     "test:run": "vitest run",
@@ -43,7 +41,6 @@
     "@storybook/test": "^8.5.0"
   },
   "devDependencies": {
-    "@adevinta/tailwind-config-viewer": "3.0.0",
     "@axe-core/playwright": "^4.9.1",
     "@babel/core": "7.26.0",
     "@chromatic-com/storybook": "^1.9.0",
