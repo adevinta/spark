@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/adevinta/spark/compare/v8.1.8...v9.0.0) (2025-02-06)
+
+### Features
+
+- upgrade Tailwind to v4 ([92758fe](https://github.com/adevinta/spark/commit/92758feaab4b69f1c4d7d3394e1421ec36592511))
+
+### BREAKING CHANGES
+
+- upgrade tailwind to v4
+
 ## [8.1.8](https://github.com/adevinta/spark/compare/v8.1.7...v8.1.8) (2025-01-28)
 
 **Note:** Version bump only for package @spark-ui/slot
