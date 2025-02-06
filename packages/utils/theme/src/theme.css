@@ -131,10 +131,10 @@
   --opacity-dim-5: 8%;
 
   --radius-none: 0px;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  --radius-sm: calc(0.25rem * var(--spacing-factor));
+  --radius-md: calc(0.5rem * var(--spacing-factor));
+  --radius-lg: calc(1rem * var(--spacing-factor));
+  --radius-xl: calc(1.5rem * var(--spacing-factor));
   --radius-full: 9999px;
 
   --shadow-xs: 0 1px 2px 0 var(--color-shadow);
