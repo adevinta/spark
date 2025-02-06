@@ -27,7 +27,6 @@
     "@radix-ui/react-primitive": "1.0.3"
   },
   "peerDependencies": {
-    "@spark-ui/tailwind-plugins": "latest",
     "@spark-ui/theme-utils": "latest",
     "react": "^19.0",
     "react-dom": "^19.0",
