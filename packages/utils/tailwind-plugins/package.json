@@ -19,7 +19,7 @@
     "tailwindcss-radix": "2.9.0"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.0.0"
+    "tailwindcss": "^4.0.0"
   },
   "repository": {
     "type": "git",
