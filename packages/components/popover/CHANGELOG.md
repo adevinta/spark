@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.2](https://github.com/adevinta/spark/compare/v9.0.1...v9.0.2) (2025-02-06)
+
+### Bug Fixes
+
+- adjust peer deps following tailwind v4 update ([7d00dcf](https://github.com/adevinta/spark/commit/7d00dcf132cf8fd7161f6acbfac147a3e68e7bfc))
+
 ## [9.0.1](https://github.com/adevinta/spark/compare/v9.0.0...v9.0.1) (2025-02-06)
 
 ### Bug Fixes

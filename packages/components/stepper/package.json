@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/stepper",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "description": "Stepper allows a user to enter a number, and increment or decrement the value using dedicated buttons.",
   "publishConfig": {
     "access": "public"
@@ -26,11 +26,11 @@
     "@react-aria/button": "3.11.0",
     "@react-aria/numberfield": "3.11.10",
     "@react-stately/numberfield": "3.9.6",
-    "@spark-ui/form-field": "^9.0.1",
-    "@spark-ui/icon": "^9.0.1",
-    "@spark-ui/icon-button": "^9.0.1",
-    "@spark-ui/input": "^9.0.1",
-    "@spark-ui/use-merge-refs": "^9.0.1"
+    "@spark-ui/form-field": "^9.0.2",
+    "@spark-ui/icon": "^9.0.2",
+    "@spark-ui/icon-button": "^9.0.2",
+    "@spark-ui/input": "^9.0.2",
+    "@spark-ui/use-merge-refs": "^9.0.2"
   },
   "peerDependencies": {
     "@react-types/numberfield": "3.8.5",
