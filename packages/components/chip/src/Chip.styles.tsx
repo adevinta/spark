@@ -6,7 +6,7 @@ import { dashedVariants, outlinedVariants, tintedVariants } from './variants'
 export const chipStyles = cva(
   [
     'box-border inline-flex h-sz-32 flex-nowrap items-center justify-center rounded-md text-body-1 font-regular',
-    'focus-visible:outline-none focus-visible:u-ring [&:not(:focus-visible)]:ring-inset',
+    'focus-visible:u-outline',
     'ease-out duration-150',
   ],
   {
@@ -68,7 +68,7 @@ export const chipStyles = cva(
         true: [],
         false: [],
       },
-      // 'pl-[calc(theme(spacing.md)-theme(borderWidth.sm))]'
+      // 'pl-[calc(var(--spacing-md)-(var(--border-width-sm)))]'
     },
     compoundVariants: [...outlinedVariants, ...tintedVariants, ...dashedVariants],
     defaultVariants: {

@@ -63,8 +63,6 @@ jobs:
         run: npm run build
       - name: Build Storybook
         run: npm run storybook:build
-      - name: Build tailwind config viewer
-        run: npm run tailwind-config-viewer:build
       - name: Deploy Storybook to Vercel
         run: vercel deploy --token $VERCEL_TOKEN --prod --yes
         env:

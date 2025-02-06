@@ -24,7 +24,7 @@ export const Content = ({
   const mergedProps = mergeProps(contentProps, {
     className: cx(
       'overflow-hidden',
-      'motion-reduce:!animate-none',
+      'motion-reduce:animate-none!',
       '[&[hidden]]:hidden',
       'data-[state=open]:animate-standalone-collapse-in data-[state=closed]:animate-standalone-collapse-out',
       className

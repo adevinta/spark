@@ -7,42 +7,42 @@
 
   /* Enabled dark mode preview in story views */
   html {
-    background-color: rgb(var(--colors-background));
-    color: rgb(var(--colors-on-background));
-    font-family: var(--font-family-sans) !important;
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-sans) !important;
   }
 
   html[data-theme="light"] {
-    --colors-code-block: #f5f5f6;
+    --color-code-block: #f5f5f6;
   }
 
   html[data-theme="dark"] {
-    --colors-code-block: #f6f8f9;
+    --color-code-block: #f6f8f9;
   }
 
   .sbdocs-wrapper .docblock-source pre {
-    background-color: var(--colors-code-block) !important;
+    background-color: var(--color-code-block) !important;
   }
 
   .sbdocs-wrapper {
-    background: rgb(var(--colors-background)) !important;
-    color: rgb(var(--colors-on-background)) !important;
+    background: var(--color-background) !important;
+    color: var(--color-on-background) !important;
     padding: 30px 20px !important;
   }
 
   .sbdocs-wrapper :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
-    color: rgb(var(--colors-on-background)) !important;
+    color: var(--color-on-background) !important;
   }
 
   .sbdocs-wrapper :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-    color: rgb(var(--colors-on-background)) !important;
+    color: var(--color-on-background) !important;
   }
 
   .sbdocs-wrapper #spark-doc-container > h2,
   .sbdocs-wrapper #spark-doc-container > h3,
   .sbdocs-wrapper #spark-doc-container > h4,
   .sbdocs-wrapper #spark-doc-container > h5 {
-    color: rgb(var(--colors-support)) !important;
+    color: var(--color-support) !important;
   }
 
   .sbdocs-content {
@@ -95,23 +95,23 @@
     z-index: var(--z-index-sticky);
     font-size: 1rem !important;
     font-weight: 600;
-    background-color: rgb(var(--colors-alert));
-    color: rgb(var(--colors-on-alert));
+    background-color: var(--color-alert);
+    color: var(--color-on-alert);
   }
 
   /* === ArgTypes TABLE === */
   table.docblock-argstable thead th {
-    color: rgb(var(--colors-on-background)) !important;
+    color: var(--color-on-background) !important;
   }
 
   table.docblock-argstable tbody td {
-    background-color: rgb(var(--colors-background)) !important;
-    color: rgb(var(--colors-on-background)) !important;
-    border-inline-start-color: rgb(var(--colors-neutral-container)) !important;
-    border-inline-end-color: rgb(var(--colors-neutral-container)) !important;
-    border-block-start-color: rgb(var(--colors-neutral-container)) !important;
-    border-block-end-color: rgb(var(--colors-neutral-container)) !important;
-    border-top-color: rgb(var(--colors-neutral-container)) !important;
+    background-color: var(--color-background) !important;
+    color: var(--color-on-background) !important;
+    border-inline-start-color: var(--color-neutral-container) !important;
+    border-inline-end-color: var(--color-neutral-container) !important;
+    border-block-start-color: var(--color-neutral-container) !important;
+    border-block-end-color: var(--color-neutral-container) !important;
+    border-top-color: var(--color-neutral-container) !important;
   }
 </style>
 

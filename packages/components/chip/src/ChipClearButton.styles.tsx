@@ -1,9 +1,8 @@
 import { tw } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-// eslint-disable-next-line tailwindcss/no-custom-classname
 export const chipClearButtonWrapperStyles = cva(
-  ['ml-md flex h-full items-center justify-center focus-visible:outline-none'],
+  ['ml-md flex h-full items-center justify-center focus-visible:outline-hidden'],
   {
     variants: {
       disabled: {
@@ -55,12 +54,8 @@ export const chipClearButtonWrapperStyles = cva(
   }
 )
 
-// eslint-disable-next-line tailwindcss/no-custom-classname
 export const chipClearButtonStyles = cva(
-  [
-    'rounded-full p-[--sz-2] [font-size:--sz-8] border-sm',
-    'focus-visible:outline-2 focus-visible:outline focus-visible:outline-offset-2  focus-visible:outline-[blue]',
-  ],
+  ['rounded-full p-sz-2 [font-size:var(--spacing-sz-8)] border-sm', 'focus-visible:u-outline'],
   {
     variants: {
       disabled: {

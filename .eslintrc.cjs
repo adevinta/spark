@@ -37,7 +37,6 @@ module.exports = {
   extends: [
     'standard',
     'plugin:@typescript-eslint/recommended',
-    'plugin:tailwindcss/recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
@@ -77,16 +76,6 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-key': 0,
     'react/display-name': [0, { ignoreTranspilerName: false }],
-    // Tailwind
-    'tailwindcss/classnames-order': 0,
-    'tailwindcss/no-custom-classname': [
-      2,
-      {
-        config: './tailwind.config.cjs',
-        callees: ['cx', 'classnames', 'clsx', 'cva', 'tw', 'makeVariants'],
-        whitelist: ['sb-unstyled'],
-      },
-    ],
     // import
     'import/no-absolute-path': 0,
     'import/exports-last': 0,

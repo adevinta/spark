@@ -17,10 +17,6 @@
   "scripts": {
     "build": "vite build"
   },
-  "dependencies": {
-    "deepmerge": "4.3.1",
-    "type-fest": "3.13.1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/adevinta/spark.git",

@@ -69,8 +69,8 @@ export const Controlled: StoryFn = () => {
   const [inputValue, setInputValue] = useState<string>('')
 
   return (
-    <div className="flex flex-wrap gap-lg pb-[300px]">
-      <div className="flex flex-col gap-lg">
+    <div className="gap-lg flex flex-wrap pb-[300px]">
+      <div className="gap-lg flex flex-col">
         <FormField>
           <FormField.Label className="font-bold">Opened state:</FormField.Label>
           <Switch checked={open} onCheckedChange={setOpen}>
@@ -150,27 +150,27 @@ export const CustomItem: StoryFn = _args => {
         <Combobox.Popover>
           <Combobox.Items>
             <Combobox.Empty>No results found</Combobox.Empty>
-            <Combobox.Item value="book-1" className="flex items-center gap-md">
+            <Combobox.Item value="book-1" className="gap-md flex items-center">
               <Combobox.ItemText>To Kill a Mockingbird</Combobox.ItemText>
               <Tag>New</Tag>
             </Combobox.Item>
-            <Combobox.Item value="book-2" className="flex items-center gap-md">
+            <Combobox.Item value="book-2" className="gap-md flex items-center">
               <Combobox.ItemText>War and Peace</Combobox.ItemText>
               <Tag>New</Tag>
             </Combobox.Item>
-            <Combobox.Item value="book-3" className="flex items-center gap-md">
+            <Combobox.Item value="book-3" className="gap-md flex items-center">
               <Combobox.ItemText>The Idiot</Combobox.ItemText>
               <Tag>New</Tag>
             </Combobox.Item>
-            <Combobox.Item value="book-4" className="flex items-center gap-md">
+            <Combobox.Item value="book-4" className="gap-md flex items-center">
               <Combobox.ItemText>A Picture of Dorian Gray</Combobox.ItemText>
               <Tag>New</Tag>
             </Combobox.Item>
-            <Combobox.Item value="book-5" className="flex items-center gap-md">
+            <Combobox.Item value="book-5" className="gap-md flex items-center">
               <Combobox.ItemText>1984</Combobox.ItemText>
               <Tag>New</Tag>
             </Combobox.Item>
-            <Combobox.Item value="book-6" className="flex items-center gap-md">
+            <Combobox.Item value="book-6" className="gap-md flex items-center">
               <Combobox.ItemText>Pride and Prejudice</Combobox.ItemText>
               <Tag>New</Tag>
             </Combobox.Item>
@@ -389,27 +389,27 @@ export const ItemIndicator: StoryFn = _args => {
         <Combobox.Popover>
           <Combobox.Items>
             <Combobox.Empty>No results found</Combobox.Empty>
-            <Combobox.Item value="book-1" className="flex items-center gap-md">
+            <Combobox.Item value="book-1" className="gap-md flex items-center">
               <Combobox.ItemIndicator />
               <Combobox.ItemText>To Kill a Mockingbird</Combobox.ItemText>
             </Combobox.Item>
-            <Combobox.Item value="book-2" className="flex items-center gap-md">
+            <Combobox.Item value="book-2" className="gap-md flex items-center">
               <Combobox.ItemIndicator />
               <Combobox.ItemText>War and Peace</Combobox.ItemText>
             </Combobox.Item>
-            <Combobox.Item value="book-3" className="flex items-center gap-md">
+            <Combobox.Item value="book-3" className="gap-md flex items-center">
               <Combobox.ItemIndicator />
               <Combobox.ItemText>The Idiot</Combobox.ItemText>
             </Combobox.Item>
-            <Combobox.Item value="book-4" className="flex items-center gap-md">
+            <Combobox.Item value="book-4" className="gap-md flex items-center">
               <Combobox.ItemIndicator />
               <Combobox.ItemText>A Picture of Dorian Gray</Combobox.ItemText>
             </Combobox.Item>
-            <Combobox.Item value="book-5" className="flex items-center gap-md">
+            <Combobox.Item value="book-5" className="gap-md flex items-center">
               <Combobox.ItemIndicator />
               <Combobox.ItemText>1984</Combobox.ItemText>
             </Combobox.Item>
-            <Combobox.Item value="book-6" className="flex items-center gap-md">
+            <Combobox.Item value="book-6" className="gap-md flex items-center">
               <Combobox.ItemIndicator />
               <Combobox.ItemText>Pride and Prejudice</Combobox.ItemText>
             </Combobox.Item>
@@ -426,7 +426,7 @@ export const Statuses: StoryFn = () => {
   const statuses: Status[] = ['error', 'alert', 'success']
 
   return (
-    <div className="flex flex-col gap-lg pb-[300px]">
+    <div className="gap-lg flex flex-col pb-[300px]">
       {statuses.map(status => {
         return (
           <Combobox state={status} key={status}>
@@ -490,8 +490,8 @@ export const MultipleSelectionControlled: StoryFn = () => {
   const [inputValue, setInputValue] = useState<string>('')
 
   return (
-    <div className="flex flex-wrap gap-lg pb-[300px]">
-      <div className="flex flex-col gap-lg">
+    <div className="gap-lg flex flex-wrap pb-[300px]">
+      <div className="gap-lg flex flex-col">
         <FormField>
           <FormField.Label className="font-bold">Opened state:</FormField.Label>
           <Switch checked={open} onCheckedChange={setOpen}>
@@ -889,7 +889,7 @@ export const ModalSearch: StoryFn = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
-    <div className="m-sm flex h-[600px] w-full items-center justify-center border-sm border-dashed bg-gradient-to-br from-main to-support-variant text-surface">
+    <div className="m-sm border-sm from-main to-support-variant text-surface flex h-[600px] w-full items-center justify-center border-dashed bg-linear-to-br">
       <Dialog
         open={isOpen}
         onOpenChange={value => {

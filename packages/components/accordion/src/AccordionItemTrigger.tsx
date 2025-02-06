@@ -31,8 +31,8 @@ export const ItemTrigger = ({
       'relative flex gap-lg justify-between items-center min-h-sz-48',
       'w-full px-lg py-md text-left text-headline-2 text-on-surface rounded-[inherit] data-[state=open]:rounded-b-none',
       'hover:enabled:bg-surface-hovered focus:bg-surface-hovered',
-      'focus-visible:u-ring focus-visible:outline-none focus-visible:z-raised',
-      'disabled:opacity-dim-3 disabled:cursor-not-allowed',
+      'focus-visible:u-ring focus-visible:outline-hidden focus-visible:z-raised',
+      'disabled:opacity-dim-3 cursor-pointer disabled:cursor-not-allowed',
       className
     ),
   }
@@ -46,7 +46,7 @@ export const ItemTrigger = ({
 
   return (
     <Component ref={ref} data-spark-component="accordion-item-trigger" {...mergedProps}>
-      <div className="flex grow items-center gap-lg">{children}</div>
+      <div className="gap-lg flex grow items-center">{children}</div>
       <Icon
         intent="neutral"
         className={cx('shrink-0 rotate-0 duration-100 ease-in motion-reduce:transition-none', {

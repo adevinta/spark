@@ -10,8 +10,8 @@ export function Item({ children }: PropsWithChildren<unknown>) {
         <div
           className={cx(
             isOpen ? '[grid-template-rows:auto_1fr]' : '[grid-template-rows:auto_0fr]',
-            'grid border-t-outline transition-all duration-250 ease-in',
-            '[&:not(:first-child)]:border-t-sm'
+            'border-t-outline grid transition-all duration-250 ease-in',
+            'not-first:border-t-sm'
           )}
         >
           {children}

@@ -15,7 +15,7 @@ export const buttonStyles = cva(
     'box-border inline-flex items-center justify-center gap-md whitespace-nowrap',
     'px-lg',
     'text-body-1 font-bold',
-    'focus-visible:outline-none focus-visible:u-ring [&:not(:focus-visible)]:ring-inset',
+    'focus-visible:u-outline',
   ],
   {
     variants: {
@@ -90,6 +90,7 @@ export const buttonStyles = cva(
        */
       disabled: {
         true: ['cursor-not-allowed', 'opacity-dim-3'],
+        false: ['cursor-pointer'],
       },
     },
     compoundVariants: [

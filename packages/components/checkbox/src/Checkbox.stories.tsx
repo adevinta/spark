@@ -42,7 +42,7 @@ export const Uncontrolled: StoryFn = () => {
   }
 
   return (
-    <div className="flex flex-col gap-lg">
+    <div className="gap-lg flex flex-col">
       <Checkbox defaultChecked onCheckedChange={handleCheckedChange}>
         Accept terms and conditions
       </Checkbox>
@@ -72,7 +72,7 @@ export const Controlled: StoryFn = () => {
   }
 
   return (
-    <div className="flex gap-lg">
+    <div className="gap-lg flex">
       <Checkbox checked={checked} onCheckedChange={handleCheckedChange}>
         Accept terms and conditions
       </Checkbox>
@@ -130,7 +130,7 @@ const intents = [
 ] as const
 
 export const Intent: StoryFn = _args => (
-  <div className="grid grid-cols-2 gap-xl sm:grid-cols-3 md:grid-cols-5">
+  <div className="gap-xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
     {intents.map(intent => {
       return (
         <div key={intent}>
@@ -148,7 +148,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Icon: StoryFn = _args => (
-  <div className="flex flex-col gap-lg">
+  <div className="gap-lg flex flex-col">
     <Checkbox defaultChecked icon={<Close />}>
       Accept terms and conditions
     </Checkbox>
@@ -160,7 +160,7 @@ export const Icon: StoryFn = _args => (
 
 export const GroupOrientation: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="gap-xl flex flex-col">
       <div>
         <StoryLabel>Vertical (default)</StoryLabel>
 
@@ -187,7 +187,7 @@ export const Indeterminate: StoryFn = () => {
   const [checked, setChecked] = useState<CheckboxProps['checked']>('indeterminate')
 
   return (
-    <div className="inline-flex flex-col gap-xl">
+    <div className="gap-xl inline-flex flex-col">
       <Checkbox checked={checked} onCheckedChange={setChecked}>
         Indeterminate
       </Checkbox>
@@ -214,7 +214,7 @@ export const CustomImplementation: StoryFn = () => {
         id={id}
         htmlFor={value}
         className={cx(
-          'flex max-w-sz-320 flex-wrap gap-md rounded-md p-lg shadow',
+          'max-w-sz-320 gap-md p-lg flex flex-wrap rounded-md shadow-sm',
           checked ? 'bg-success/dim-4' : '',
           'cursor-pointer'
         )}
@@ -260,7 +260,7 @@ export const InvisibleCheckbox: StoryFn = () => {
         id={id}
         htmlFor={value}
         className={cx(
-          'flex max-w-sz-320 flex-wrap gap-md rounded-md p-lg shadow',
+          'max-w-sz-320 gap-md p-lg flex flex-wrap rounded-md shadow-sm',
           checked ? 'bg-success/dim-3' : '',
           'focus-within:ring-outline-high',
           '[&:has(:focus-visible)]:focus-within:ring-2',

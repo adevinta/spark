@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 export const snackbarRegionVariant = cva(
   [
     'fixed inset-x-lg z-toast group',
-    'outline-none pointer-events-none',
+    'outline-hidden pointer-events-none',
     'grid grid-rows-1 grid-cols-1 gap-lg',
   ],
   {

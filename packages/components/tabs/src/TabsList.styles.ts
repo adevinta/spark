@@ -4,17 +4,17 @@ export const wrapperStyles = cva(['relative flex'])
 
 export const listStyles = cva([
   'flex w-full',
-  'spark-orientation-horizontal:flex-row',
-  'spark-orientation-vertical:flex-col',
-  'overflow-y-hidden u-no-scrollbar spark-orientation-vertical:overflow-x-hidden',
+  'data-[orientation=horizontal]:flex-row',
+  'data-[orientation=vertical]:flex-col',
+  'overflow-y-hidden u-no-scrollbar data-[orientation=vertical]:overflow-x-hidden',
   'after:flex after:shrink after:grow after:border-outline',
-  'spark-orientation-horizontal:after:border-b-sm',
-  'spark-orientation-vertical:after:border-r-sm',
+  'data-[orientation=horizontal]:after:border-b-sm',
+  'data-[orientation=vertical]:after:border-r-sm',
 ])
 
 export const navigationArrowStyles = cva([
-  '!h-auto flex-none',
+  'h-auto! flex-none',
   'border-b-sm border-outline',
-  'outline-none',
-  'focus-visible:border-none focus-visible:bg-surface-hovered focus-visible:u-ring-inset',
+  'outline-hidden',
+  'focus-visible:border-none focus-visible:bg-surface-hovered focus-visible:u-outline-inset!',
 ])

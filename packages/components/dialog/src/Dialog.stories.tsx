@@ -25,7 +25,7 @@ export const Default: StoryFn = () => {
       <Dialog.Portal>
         <Dialog.Overlay />
 
-        <Dialog.Content>
+        <Dialog.Content size="sm">
           <Dialog.Header>
             <Dialog.Title>Edit profile</Dialog.Title>
           </Dialog.Header>
@@ -38,7 +38,7 @@ export const Default: StoryFn = () => {
             <p>Lorem ipsum dolor sit amet</p>
           </Dialog.Body>
 
-          <Dialog.Footer className="flex justify-end gap-md">
+          <Dialog.Footer className="gap-md flex justify-end">
             <Dialog.Close asChild>
               <Button>Close</Button>
             </Dialog.Close>
@@ -85,7 +85,7 @@ export const Controlled: StoryFn = () => {
             ))}
           </Dialog.Body>
 
-          <Dialog.Footer className="flex justify-end gap-md">
+          <Dialog.Footer className="gap-md flex justify-end">
             <Dialog.Close asChild>
               <Button>Close</Button>
             </Dialog.Close>
@@ -107,7 +107,7 @@ export const Sizes = () => {
 
   return (
     <Dialog>
-      <div className="flex gap-md">
+      <div className="gap-md flex">
         <Dialog.Trigger asChild>
           <Button>Open</Button>
         </Dialog.Trigger>
@@ -121,10 +121,10 @@ export const Sizes = () => {
             <Dialog.Title>Edit size</Dialog.Title>
           </Dialog.Header>
 
-          <Dialog.Body className="flex flex-col gap-lg">
+          <Dialog.Body className="gap-lg flex flex-col">
             <Dialog.Description>Please select a dialog size</Dialog.Description>
 
-            <RadioGroup className="flex gap-md" value={size} onValueChange={handleValueChange}>
+            <RadioGroup className="gap-md flex" value={size} onValueChange={handleValueChange}>
               <RadioGroup.Radio value="sm">Small</RadioGroup.Radio>
               <RadioGroup.Radio value="md">Medium</RadioGroup.Radio>
               <RadioGroup.Radio value="lg">Large</RadioGroup.Radio>
@@ -132,7 +132,7 @@ export const Sizes = () => {
             </RadioGroup>
           </Dialog.Body>
 
-          <Dialog.Footer className="flex justify-end gap-md">
+          <Dialog.Footer className="gap-md flex justify-end">
             <Dialog.Close asChild>
               <Button>Close</Button>
             </Dialog.Close>
@@ -162,12 +162,12 @@ export const Inset = () => {
             <Dialog.Title>Inset example</Dialog.Title>
           </Dialog.Header>
 
-          <Dialog.Body inset className="flex flex-col gap-lg">
+          <Dialog.Body inset className="gap-lg flex flex-col">
             <img src="https://placehold.co/600x400" alt="" />
             <p className="px-md">The image above is taking up the full width.</p>
           </Dialog.Body>
 
-          <Dialog.Footer className="flex justify-end gap-md">
+          <Dialog.Footer className="gap-md flex justify-end">
             <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
               Close
             </Button>
@@ -207,14 +207,14 @@ export const Form = () => {
               <Dialog.Title>Create account</Dialog.Title>
             </Dialog.Header>
 
-            <Dialog.Body className="flex flex-col gap-lg">
+            <Dialog.Body className="gap-lg flex flex-col">
               <FormField name="pseudo" isRequired className="flex-1">
                 <FormField.Label>Pseudo</FormField.Label>
                 <Input placeholder="Luke" />
               </FormField>
             </Dialog.Body>
 
-            <Dialog.Footer className="flex justify-end gap-md">
+            <Dialog.Footer className="gap-md flex justify-end">
               <Button type="submit">Submit</Button>
             </Dialog.Footer>
           </form>
@@ -249,7 +249,7 @@ export const ForwardFocus = () => {
             <Dialog.Title>Forward focus</Dialog.Title>
           </Dialog.Header>
 
-          <Dialog.Body className="flex flex-col gap-lg">
+          <Dialog.Body className="gap-lg flex flex-col">
             <Input placeholder="First field" />
             <Input placeholder="Second field (focused)" ref={fieldToFocus} />
             <Input placeholder="Third field" />

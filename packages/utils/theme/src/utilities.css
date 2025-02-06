@@ -1,0 +1,146 @@
+@utility text-display-1 {
+  font-size: calc(2.5rem * var(--spacing-factor));
+  line-height: calc(3.5rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-display-1-expanded {
+  font-size: calc(3rem * var(--spacing-factor));
+  line-height: calc(4rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-display-2 {
+  font-size: calc(2rem * var(--spacing-factor));
+  line-height: calc(2.75rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-display-1-expanded {
+  font-size: calc(2.5rem * var(--spacing-factor));
+  line-height: calc(3.5rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-display-3 {
+  font-size: calc(1.5rem * var(--spacing-factor));
+  line-height: calc(2rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-display-3-expanded {
+  font-size: calc(2rem * var(--spacing-factor));
+  line-height: calc(2.75rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-headline-1 {
+  font-size: calc(1.25rem * var(--spacing-factor));
+  line-height: calc(1.75rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-headline-1-expanded {
+  font-size: calc(1.5rem * var(--spacing-factor));
+  line-height: calc(2rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-headline-2 {
+  font-size: calc(1.125rem * var(--spacing-factor));
+  line-height: calc(1.5rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-headline-2-expanded {
+  font-size: calc(1.25rem * var(--spacing-factor));
+  line-height: calc(1.75rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-subhead {
+  font-size: calc(1rem * var(--spacing-factor));
+  line-height: calc(1.5rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-subhead-expanded {
+  font-size: calc(1rem * var(--spacing-factor));
+  line-height: calc(1.5rem * var(--spacing-factor));
+  font-weight: 700;
+}
+
+@utility text-body-1 {
+  font-size: calc(1rem * var(--spacing-factor));
+  line-height: calc(1.5rem * var(--spacing-factor));
+}
+
+@utility text-body-2 {
+  font-size: calc(0.875rem * var(--spacing-factor));
+  line-height: calc(1.25rem * var(--spacing-factor));
+}
+
+@utility text-caption {
+  font-size: calc(0.75rem * var(--spacing-factor));
+  line-height: calc(1rem * var(--spacing-factor));
+}
+
+@utility text-small {
+  font-size: calc(0.625rem * var(--spacing-factor));
+  line-height: calc(0.875rem * var(--spacing-factor));
+}
+
+@utility text-body-1-link {
+  font-size: calc(1rem * var(--spacing-factor));
+  line-height: calc(1.5rem * var(--spacing-factor));
+}
+
+@utility text-body-2-link {
+  font-size: calc(0.875rem * var(--spacing-factor));
+  line-height: calc(1.125rem * var(--spacing-factor));
+}
+
+@utility text-caption-link {
+  font-size: calc(0.75rem * var(--spacing-factor));
+  line-height: calc(1rem * var(--spacing-factor));
+}
+
+@utility text-callout {
+  font-size: calc(1rem * var(--spacing-factor));
+  line-height: calc(1.5rem * var(--spacing-factor));
+}
+
+@utility u-current-font-size {
+  width: 1em;
+  height: 1em;
+}
+
+@utility u-shadow-border-transition {
+  transition:
+    box-shadow 0.1s cubic-bezier(0.4, 0, 1, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+@utility u-no-scrollbar {
+  scrollbar-width: none;
+}
+
+@utility u-no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility u-outline {
+  outline-color: var(--color-blue);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+@utility u-outline-inset {
+  outline-color: var(--color-blue);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: calc(2px * -1);
+}

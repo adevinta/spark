@@ -3,10 +3,10 @@ import { cva, type VariantProps } from 'class-variance-authority'
 export const thumbVariants = cva(
   [
     'block h-sz-24 w-sz-24 rounded-full cursor-pointer',
-    'outline-none',
-    'focus-visible:u-ring',
-    'data-[interaction=pointerdown]:focus-visible:!ring-0',
-    'spark-disabled:hover:ring-0 spark-disabled:hover:after:w-none spark-disabled:hover:after:h-none spark-disabled:cursor-not-allowed',
+    'outline-hidden',
+    'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue',
+    'data-[interaction=pointerdown]:focus-visible:ring-0!',
+    'data-disabled:hover:ring-0 data-disabled:hover:after:w-none data-disabled:hover:after:h-none data-disabled:cursor-not-allowed',
     'after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:z-hide',
     'after:w-none after:h-none after:rounded-full after:border-solid after:border-sm after:transition-all duration-300',
     'hover:after:w-sz-32 hover:after:h-sz-32',

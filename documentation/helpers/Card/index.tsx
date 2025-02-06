@@ -4,11 +4,11 @@ import { type ReactNode } from 'react'
 export const cardStyles = cva(
   [
     'sb-unstyled',
-    'inline-flex w-sz-224 flex-col justify-between overflow-hidden rounded-md p-md shadow',
+    'inline-flex w-sz-224 flex-col justify-between overflow-hidden rounded-md p-md shadow-sm',
     'transition-all duration-200',
     'text-left text-body-1 font-bold text-on-basic',
-    'bg-gradient-to-br from-main to-basic',
-    'outline-none focus-visible:ring-2 focus-visible:ring-outline-high',
+    'bg-linear-to-br from-main to-basic',
+    'outline-hidden focus-visible:ring-2 focus-visible:ring-outline-high',
   ],
   {
     variants: {
@@ -40,7 +40,7 @@ export const Card = ({ children, description, href, isExternalLink = false, ...r
 
   return (
     <a className={cardStyles(rest)} href={href} {...dynamicProps}>
-      <div className="sb-unstyled h-full rounded-md bg-surface p-md text-on-surface">
+      <div className="sb-unstyled bg-surface p-md text-on-surface h-full rounded-md">
         {children}
 
         {description && (

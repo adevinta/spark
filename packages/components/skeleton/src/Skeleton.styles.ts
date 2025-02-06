@@ -6,7 +6,7 @@ export const skeletonStyles = cva([], {
       true: [
         '[mask-image:linear-gradient(90deg,#000_40%,rgba(0,0,0,.3)_60%,#000_100%)]',
         '[mask-size:200%_100%]',
-        'animate-shimmer motion-reduce:!animate-none',
+        'animate-standalone-shimmer motion-reduce:animate-none!',
       ],
       false: [],
     },

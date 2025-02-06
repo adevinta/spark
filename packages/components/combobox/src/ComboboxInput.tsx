@@ -111,9 +111,9 @@ export const Input = ({
           {...(hasPlaceholder && { placeholder })}
           className={cx(
             'max-w-full shrink-0 grow basis-[80px]',
-            'h-sz-28 text-ellipsis bg-surface px-sm text-body-1 outline-none',
-            'disabled:cursor-not-allowed disabled:bg-transparent disabled:text-on-surface/dim-3',
-            'read-only:cursor-default read-only:bg-transparent read-only:text-on-surface',
+            'h-sz-28 bg-surface px-sm text-body-1 text-ellipsis outline-hidden',
+            'disabled:text-on-surface/dim-3 disabled:cursor-not-allowed disabled:bg-transparent',
+            'read-only:text-on-surface read-only:cursor-default read-only:bg-transparent',
             className
           )}
           {...props}

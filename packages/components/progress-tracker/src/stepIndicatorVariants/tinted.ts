@@ -5,8 +5,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-basic-container bg-basic-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-basic-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-basic-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-basic-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-basic-container',
     ],
   },
   {
@@ -21,8 +21,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-support-container bg-support-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-support-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-support-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-support-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-support-container',
     ],
   },
   {
@@ -37,8 +37,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-main-container bg-main-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-main-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-main-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-main-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-main-container',
     ],
   },
   {
@@ -53,8 +53,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-neutral-container bg-neutral-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-neutral-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-neutral-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-neutral-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-neutral-container',
     ],
   },
   {
@@ -69,8 +69,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-info-container bg-info-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-info-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-info-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-info-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-info-container',
     ],
   },
   {
@@ -85,8 +85,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-accent-container bg-accent-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-accent-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-accent-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-accent-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-accent-container',
     ],
   },
   {
@@ -101,8 +101,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-error-container bg-error-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-error-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-error-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-error-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-error-container',
     ],
   },
   {
@@ -117,8 +117,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-alert-container bg-alert-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-alert-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-alert-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-alert-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-alert-container',
     ],
   },
   {
@@ -133,8 +133,8 @@ export const tintedVariants = [
     state: ['complete', 'incomplete'],
     class: [
       'text-on-success-container bg-success-container',
-      'group-data-[interactive=true]/btn:group-hover/btn:bg-success-container-hovered',
-      'group-data-[interactive=false]/btn:group-hover/btn:bg-success-container',
+      'group-hover/btn:group-data-[interactive=true]/btn:bg-success-container-hovered',
+      'group-hover/btn:group-data-[interactive=false]/btn:bg-success-container',
     ],
   },
   {

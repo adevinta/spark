@@ -1,3 +1,4 @@
+import { cx } from 'class-variance-authority'
 import { HTMLAttributes, ReactNode, Ref } from 'react'
 
 export interface DividerContentProps extends HTMLAttributes<HTMLSpanElement> {
@@ -9,9 +10,13 @@ export interface DividerContentProps extends HTMLAttributes<HTMLSpanElement> {
   ref?: Ref<HTMLSpanElement>
 }
 
-export const DividerContent = ({ children, ref, ...props }: DividerContentProps) => {
+export const DividerContent = ({ children, ref, className, ...props }: DividerContentProps) => {
   return children ? (
-    <span ref={ref} {...props}>
+    <span
+      ref={ref}
+      {...props}
+      className={cx('group-data-[writing-mode=vertical-lr]:[writing-mode:vertical-lr]', className)}
+    >
       {children}
     </span>
   ) : null

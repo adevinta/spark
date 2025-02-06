@@ -5,7 +5,7 @@ export const styles = cva(
     'flex items-start gap-md min-h-sz-44 text-body-1',
     'h-fit rounded-lg px-lg',
     // outline styles
-    'ring-1 outline-none ring-inset focus-within:ring-2',
+    'ring-1 outline-hidden ring-inset focus-within:ring-2',
   ],
   {
     variants: {

@@ -29,7 +29,7 @@ const Root = ({ className, tabIndex = -1, onClick, ref, ...others }: InputClearB
       className={cx(
         className,
         'pointer-events-auto absolute top-1/2 -translate-y-1/2',
-        'inline-flex h-full items-center justify-center outline-none',
+        'inline-flex h-full items-center justify-center outline-hidden',
         'text-neutral hover:text-neutral-hovered',
         hasTrailingIcon ? 'right-3xl px-[var(--sz-12)]' : 'right-none pl-md pr-lg'
       )}

@@ -24,7 +24,7 @@ export const inputAddonStyles = cva(
        * Disable the input addon, preventing user interaction and adding opacity.
        */
       disabled: {
-        true: ['pointer-events-none !border-outline'],
+        true: ['pointer-events-none border-outline!'],
       },
       /**
        * Changes input addon styles based on the read only status from the input.

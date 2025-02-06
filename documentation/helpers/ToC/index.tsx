@@ -16,8 +16,8 @@ const itemStyle = cva(['block', 'py-sm', ['hover:bg-surface']], {
     },
     tagName: {
       H2: 'pl-lg text-body-1',
-      H3: "pl-[calc(theme('spacing.xl')*1)] text-body-2",
-      H4: "pl-[calc(theme('spacing.xl')*2)] text-caption",
+      H3: 'pl-[calc(var(--spacing-xl)*1)] text-body-2',
+      H4: 'pl-[calc(var(--spacing-xl)*2)] text-caption',
     },
   },
 })

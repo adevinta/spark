@@ -8,7 +8,7 @@ export const styles = cva(
     'absolute left-none top-none size-full rounded-lg opacity-0',
     'min-h-sz-44',
     // outline styles
-    'ring-1 outline-none ring-inset focus:ring-2',
+    'ring-1 outline-hidden ring-inset focus:ring-2',
   ],
   {
     variants: {

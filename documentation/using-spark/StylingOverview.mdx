@@ -12,11 +12,7 @@ Before diving into this guide, we recommend familiarizing yourself with Tailwind
 
 Once you're acquainted with it, return to this guide and continue with the rest of the content.
 
-At its core, the Spark styling solution is a **set** of Tailwind plugins that customize the default Tailwind theme to suit our requirements.
-
-<Callout>
-  See documention for our plugins [here](?path=/docs/utils-tailwind-plugins-index--docs)
-</Callout>
+At its core, the Spark styling solution is a **custom Tailwind theme** in which we have remapped the default values—often transforming them from a numerical scale to a more semantic structure—to better suit our requirements.
 
 ## Tokens
 
@@ -24,7 +20,7 @@ It is important to note that although Spark is using TailwindCSS class prefixed,
 
 <div className="flex gap-lg">
   <div className=" bg-error-container text-on-error-container rounded-md flex-1 p-lg">
-    <h3>❌ With Tailwind (arbitrary values)</h3>
+    <h3>❌ With Tailwind (numerical scales)</h3>
     Tailwind's default theme tends to favor numerical scales to manage its tokens.
 
     For instance, **margins** are declared as follows:
@@ -87,14 +83,9 @@ with the **Spark** styling solution:
 - `bg-success` for a success background color
 - …
 
-In summary, our Tailwind plugins primarily remap the **values** of the default Tailwind theme, while maintaining the **same prefixes**.
+In summary, we remap the **values** of the default Tailwind theme, while maintaining the **same prefixes**.
 
 This ensures a seamless experience for those familiar with Tailwind, as the naming convention API remains unchanged, with only the values differing.
-
-<Callout>
-  To learn more about Spark's specific values and class names, please visit our **[dedicated
-  page](https://sparkui.vercel.app/viewer/)**, which features a comprehensive list of these items
-</Callout>
 
 ## Spark specific values/class names:
 
@@ -104,18 +95,10 @@ We don't alter the rest of the classes exposed by Tailwind, such as the `flex`-r
 
 In essence, **every class not related to tokens is kept untouched**.
 
-So, if you don't find the class you're seeking within our [dedicated page](https://sparkui.vercel.app/viewer/), the answer is probably on the [Tailwind website](https://tailwindcss.com).
-
-<Callout marginBottom="large">
-  If you want to know more about the custom token class names used in Spark, please check out our
-  [**dedicated page**](https://sparkui.vercel.app/viewer/) where you can find a comprehensive list
-  of these class names.
-</Callout>
-
-<div className="flex justify-end mt-md">
+<div className="mt-md flex justify-end">
   <Card
-    href="/?path=/docs/using-spark-guide-migrating-from-styled-components--docs#migrating-from-styled-components"
-    description="migration guide for transitioning from styled components to Spark's styling solution"
+    href="/?path=/docs/using-spark-theme--docs"
+    description="handling theme customization"
   >
     Next
   </Card>

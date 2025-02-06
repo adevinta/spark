@@ -213,6 +213,6 @@ describe('Dialog', () => {
       </Dialog>
     )
 
-    expect(screen.getByText(/Edit profile/i)).toHaveClass('group-has-[[data-part=close]]:pr-3xl')
+    expect(screen.getByText(/Edit profile/i)).toHaveClass('group-has-data-[part=close]:pr-3xl')
   })
 })

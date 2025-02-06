@@ -51,7 +51,7 @@ const styles = cva('px-lg py-md text-body-1', {
     {
       highlighted: true,
       interactionType: 'keyboard',
-      class: 'u-ring',
+      class: 'u-outline',
     },
   ],
 })

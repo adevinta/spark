@@ -47,7 +47,7 @@ export const SkeletonRectangle = ({ width = '100%', height, ...rest }: SkeletonR
           '--skeleton-rect-height': getSizeValue(height),
         } as CSSProperties
       }
-      className="h-[--skeleton-rect-height] w-[--skeleton-rect-width]"
+      className="h-(--skeleton-rect-height) w-(--skeleton-rect-width)"
       {...rest}
       shape="rectangle"
       data-shape="rectangle"
@@ -58,7 +58,7 @@ export const SkeletonRectangle = ({ width = '100%', height, ...rest }: SkeletonR
 export const SkeletonCircle = ({ size, ...rest }: SkeletonCircleProps) => (
   <SkeletonItem
     style={{ '--skeleton-circle-size': getSizeValue(size) } as CSSProperties}
-    className="size-[--skeleton-circle-size]"
+    className="size-(--skeleton-circle-size)"
     {...rest}
     shape="circle"
     data-shape="circle"

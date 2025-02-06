@@ -77,12 +77,10 @@ export const Alignment: StoryFn = _args => (
 
 export const Orientation: StoryFn = _args => (
   <>
-    <Divider orientation="horizontal" />
     <Divider orientation="horizontal">
       <Divider.Content>horizontal</Divider.Content>
     </Divider>
-    <div className="flex h-sz-320 w-full">
-      <Divider orientation="vertical" />
+    <div className="h-sz-320 flex w-full">
       <Divider orientation="vertical">
         <Divider.Content>vertical</Divider.Content>
       </Divider>
@@ -96,14 +94,12 @@ export const WrappedContent: StoryFn = _args => (
       <Divider.Content>Top</Divider.Content>
     </Divider>
     <div className="flex flex-row items-stretch justify-between">
-      <Divider orientation="vertical">
-        <Divider.Content className="rotate-180" style={{ writingMode: 'vertical-lr' }}>
-          Left
-        </Divider.Content>
+      <Divider orientation="vertical" writingMode="vertical-lr">
+        <Divider.Content className="rotate-180">Left</Divider.Content>
       </Divider>
-      <div className="flex grow items-center justify-center bg-main-container">wrapped content</div>
-      <Divider orientation="vertical">
-        <Divider.Content style={{ writingMode: 'vertical-lr' }}>Right</Divider.Content>
+      <div className="bg-main-container flex grow items-center justify-center">wrapped content</div>
+      <Divider orientation="vertical" writingMode="vertical-lr">
+        <Divider.Content>Right</Divider.Content>
       </Divider>
     </div>
     <Divider>
@@ -115,8 +111,8 @@ export const WrappedContent: StoryFn = _args => (
 )
 
 export const Card: StoryFn = _args => (
-  <div className="flex w-full items-center justify-center bg-gradient-to-br from-main to-support-variant">
-    <div className="m-3xl flex max-w-sz-320 flex-col rounded-md bg-background p-lg text-on-background shadow">
+  <div className="from-main to-support-variant flex w-full items-center justify-center bg-linear-to-br">
+    <div className="m-3xl max-w-sz-320 bg-background p-lg text-on-background flex flex-col rounded-md shadow-sm">
       <h1 className="text-headline-1">spark-ui components</h1>
       <p>An open-source UI component library.</p>
       <Divider />

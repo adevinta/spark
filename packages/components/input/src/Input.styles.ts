@@ -6,7 +6,7 @@ export const inputStyles = cva(
     'border-sm',
     'peer',
     'w-full',
-    'appearance-none outline-none',
+    'appearance-none outline-hidden',
     'bg-surface',
     'text-ellipsis text-body-1 text-on-surface',
     'caret-neutral',
@@ -86,7 +86,7 @@ export const inputStyles = cva(
       {
         hasTrailingIcon: true,
         hasClearButton: true,
-        class: "pr-[calc(theme('spacing.3xl')*2)]",
+        class: 'pr-[calc(var(--spacing-3xl)*2)]',
       },
     ],
     defaultVariants: {

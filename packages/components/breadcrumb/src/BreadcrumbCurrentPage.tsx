@@ -24,7 +24,7 @@ export const CurrentPage = ({
       aria-disabled
       aria-current="page"
       className={cx(
-        '!inline overflow-hidden text-ellipsis whitespace-nowrap font-bold text-current',
+        'inline! overflow-hidden font-bold text-ellipsis whitespace-nowrap text-current',
         className
       )}
       {...rest}

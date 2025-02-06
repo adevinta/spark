@@ -51,106 +51,16 @@ import { FAQ } from '@docs/helpers/FAQ'
 
   </FAQ.Item>
 
-   <FAQ.Item>
-    <FAQ.Question
-      label="How do I handle multiple themes?"
-    />
-      <FAQ.Answer>
-        1/ To handle multiple themes, you first need to create multiple themes. You can use the `createTheme` helper from the [**@spark-ui/theme-utils**](?path=/docs/utils-theme--docs#createtheme) package to do this.
-        
-        ```tsx
-        import { createTheme } from '@spark-ui/theme-utils'
-
-        export const someTheme = createTheme({...})
-        export const someOtherTheme = createTheme({...})
-        ```
-
-        2/ After creating your themes, add them to the `themes` object when calling the [**sparkConfig**](?path=/docs/utils-tailwind-plugins-spark-config--docs#tailwind-spark-config-plugin) plugin inside your `tailwind.config.js` file.
-
-        ```js
-        // tailwind.config.js
-
-        const themeUtils = require('@spark-ui/theme-utils')
-        const sparkPlugins = require('@spark-ui/tailwind-plugins')
-
-        const { someTheme, someOtherTheme } = require('your/themes')
-
-
-        module.exports = {
-          content: [...],
-          plugins: [
-            ...sparkPlugins.sparkConfig({
-              themes: {
-                default: themeUtils.defaultTheme,
-                someTheme, // 👈
-                someOtherTheme, // 👈
-              },
-            }),
-          ],
-        }
-        ```
-
-        3/ Finally, to switch between themes, set the appropriate `data-theme` attribute to the element you want to change the theme for and set its value to the field of the theme you want to use
-
-        ```tsx
-        <div data-theme="someTheme">...</div>
-        ```
-
-        It is important to note that the value of `data-theme` should match the field of the theme you passed to the `themes` object.
-
-        For example, in our present case, The valid values for the `data-theme` attribute are **someTheme** and **someOtherTheme**.
-
-        <Callout marginTop="medium">
-          For a more in-depth explanation, please visit our dedicated [**page**](?path=/docs/using-spark-handling-multiple-themes--docs#handling-multiple-themes)
-        </Callout>
-
-
-      </FAQ.Answer>
-
-  </FAQ.Item>
-
-  <FAQ.Item>
-    <FAQ.Question
-      label="Can I extend the Spark theme with additional tokens?"
-    />
-      <FAQ.Answer>
-        If you require tokens that are not part of the Spark theme, you can use the [Tailwind API](https://tailwindcss.com/docs/theme#extending-the-default-theme) to achieve this.
-        
-        Since Spark uses Tailwind under the hood, you have access to all its APIs.
-        
-        For example, to add a new breakpoint, you can do the following:
-        ```js
-        // tailwind.config.js
-
-        module.exports = {
-          content: [...],
-          plugins: [...],
-          theme: {
-            extend: {
-              screens: {
-                customScreen: '218px', // ⬅️ extending our Spark theme configuration
-                ...
-              }
-            }
-          },
-        }
-        ```
-      </FAQ.Answer>
-
-  </FAQ.Item>
-
   <FAQ.Item>
     <FAQ.Question
       label="How do I handle complex CSS selectors / not-so-often-used CSS properties with Tailwind"
     />
     <FAQ.Answer>
-      If you need to use complex CSS selectors or certain CSS properties with Tailwind, such as pseudo-selectors (some of which are already [natively handled by Tailwind](https://tailwindcss.com/docs/hover-focus-and-other-states#first-last-odd-and-even)) or complex grids, you have three options:
+      If you need to use complex CSS selectors or certain CSS properties with Tailwind, such as pseudo-selectors (some of which are already [natively handled by Tailwind](https://tailwindcss.com/docs/hover-focus-and-other-states#first-last-odd-and-even)) or complex grids, you have two options:
       
       1/ The first option is to use the **arbitrary** API ([arbitrary properties](https://tailwindcss.com/docs/adding-custom-styles#arbitrary-properties), [arbitrary variants](https://tailwindcss.com/docs/hover-focus-and-other-states#using-arbitrary-variants)), but as useful as it is for handling a few rules, it may quickly become cumbersome.
       <br/>
-      2/ The second option is to register a custom [plugin](https://tailwindcss.com/docs/plugins#adding-variants) that fulfills your needs.
-      <br/>
-      3/ Alternatively, you may consider using a **traditional CSS file**, as using arbitrary values all over the place can make your code difficult to read and maintain.
+      2/ Alternatively, you may consider using a **traditional CSS file**, as using arbitrary values all over the place can make your code difficult to read and maintain.
 
     </FAQ.Answer>
 
@@ -228,21 +138,6 @@ import { FAQ } from '@docs/helpers/FAQ'
         return <div className={cardStyles({ size, intent, className })}>{...}</div>
       }
       ```
-    </FAQ.Answer>
-
-  </FAQ.Item>
-
-  <FAQ.Item>
-    <FAQ.Question
-      label="How can I handle animations?"
-    />
-    <FAQ.Answer>
-      Tailwind provides a [few animations](https://tailwindcss.com/docs/animation) by default, and the Spark config plugin provides a [few more](?path=/docs/utils-tailwind-plugins-animations--docs#keyframes). 
-      <br/>
-      However, if none of these animations are suitable for your use case, you can either [update the Tailwind config file](https://tailwindcss.com/docs/animation#customizing-your-theme) to add more if they are meant to be **reused in multiple places**.
-      <br/>
-      Alternatively, if it's a **one-time thing**, you can add a dedicated CSS file next to the component that needs it and be done with it.
-
     </FAQ.Answer>
 
   </FAQ.Item>
