@@ -140,7 +140,7 @@ export const Rating = ({
         aria-label={ariaLabel}
         ref={inputRef}
         data-part="input"
-        className="peer absolute inset-none opacity-0"
+        className="peer inset-none absolute opacity-0"
         type="range"
         min="0"
         max="5"
@@ -155,7 +155,7 @@ export const Rating = ({
         className={cx(
           size === 'lg' ? 'gap-x-md' : 'gap-x-sm',
           'flex',
-          'peer-focus-visible:u-ring peer-[[data-part=input][data-clicked]]:shadow-none'
+          'peer-focus-visible:u-outline peer-[[data-part=input][data-clicked]]:shadow-none'
         )}
       >
         {Array.from({ length: 5 }).map((_, index) => (

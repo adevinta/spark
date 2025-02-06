@@ -39,7 +39,7 @@ const SelectedItem = ({ item: selectedItem, index }: { item: ComboboxItem; index
         'h-sz-28 bg-neutral-container flex items-center rounded-md align-middle',
         'text-body-2 text-on-neutral-container',
         'disabled:opacity-dim-3 disabled:cursor-not-allowed',
-        'focus-visible:u-ring-inset outline-hidden',
+        'focus-visible:u-outline-inset outline-hidden',
         { 'px-md': !isCleanable, 'pl-md': isCleanable }
       )}
       {...selectedItemProps}
