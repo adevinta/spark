@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.3](https://github.com/adevinta/spark/compare/v9.0.2...v9.0.3) (2025-02-06)
+
+### Bug Fixes
+
+- update radius-related tokens ([739094b](https://github.com/adevinta/spark/commit/739094bbcd7ffe7d09a560691e225b800dbde2ac))
+
 ## [9.0.2](https://github.com/adevinta/spark/compare/v9.0.1...v9.0.2) (2025-02-06)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
