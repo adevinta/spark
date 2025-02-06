@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.1](https://github.com/adevinta/spark/compare/v9.0.0...v9.0.1) (2025-02-06)
+
+### Bug Fixes
+
+- adjust peer deps following tailwind v4 update ([45d356f](https://github.com/adevinta/spark/commit/45d356f0fe55e0bd44a59b262ab1c6293d0aa8a8))
+
 # [9.0.0](https://github.com/adevinta/spark/compare/v8.1.8...v9.0.0) (2025-02-06)
 
 **Note:** Version bump only for package @spark-ui/kbd

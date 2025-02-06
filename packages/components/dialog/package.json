@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/dialog",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
   "publishConfig": {
     "access": "public"
@@ -45,9 +45,9 @@
   "license": "MIT",
   "dependencies": {
     "@radix-ui/react-dialog": "1.1.2",
-    "@spark-ui/icon": "^9.0.0",
-    "@spark-ui/icon-button": "^9.0.0",
-    "@spark-ui/icons": "^9.0.0",
+    "@spark-ui/icon": "^9.0.1",
+    "@spark-ui/icon-button": "^9.0.1",
+    "@spark-ui/icons": "^9.0.1",
     "class-variance-authority": "0.7.0"
   }
 }
