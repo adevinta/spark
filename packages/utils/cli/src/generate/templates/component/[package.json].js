@@ -23,7 +23,6 @@ export default ({ name, description }) => `{
     "build": "vite build"
   },
   "peerDependencies": {
-    "@spark-ui/tailwind-plugins": "latest",
     "@spark-ui/theme-utils": "latest",
     "react": "^19.0",
     "react-dom": "^19.0",
