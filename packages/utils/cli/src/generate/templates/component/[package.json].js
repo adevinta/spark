@@ -27,7 +27,7 @@ export default ({ name, description }) => `{
     "@spark-ui/theme-utils": "latest",
     "react": "^19.0",
     "react-dom": "^19.0",
-    "tailwindcss": "^3.0.0"
+    "tailwindcss": "^4.0.0"
   },
   "repository": {
     "type": "git",

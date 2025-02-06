@@ -4,7 +4,7 @@ export const styles = cva(
   [
     'rounded-md',
     'shadow-sm',
-    'focus-visible:outline-hidden focus-visible:u-ring',
+    'focus-visible:outline-hidden focus-visible:u-outline',
     'max-h-(--radix-popper-available-height) overflow-y-auto',
   ],
   {

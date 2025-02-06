@@ -31,7 +31,7 @@ export const ItemTrigger = ({
       'relative flex gap-lg justify-between items-center min-h-sz-48',
       'w-full px-lg py-md text-left text-headline-2 text-on-surface rounded-[inherit] data-[state=open]:rounded-b-none',
       'hover:enabled:bg-surface-hovered focus:bg-surface-hovered',
-      'focus-visible:u-ring focus-visible:outline-hidden focus-visible:z-raised',
+      'focus-visible:u-outline focus-visible:outline-hidden focus-visible:z-raised',
       'disabled:opacity-dim-3 cursor-pointer disabled:cursor-not-allowed',
       className
     ),

@@ -14,7 +14,7 @@ export const snackbarItemVariant = cva(
     /**
      * Focus
      */
-    'group-focus-visible:outline-hidden group-focus-visible:u-ring group-not-focus-visible:ring-inset',
+    'group-focus-visible:outline-hidden group-focus-visible:u-outline group-not-focus-visible:ring-inset',
     /**
      * Positionning
      */
