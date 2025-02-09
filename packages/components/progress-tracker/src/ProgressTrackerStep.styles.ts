@@ -9,7 +9,7 @@ export const stepItemVariant = cva(
     // Horizontal orientation
     'group-data-[orientation=horizontal]/list:px-[1px]',
     'group-data-[orientation=horizontal]/list:before:absolute group-data-[orientation=horizontal]/list:before:z-base',
-    'group-data-[orientation=horizontal]/list:before:left-none group-data-[orientation=horizontal]/list:after:right-none',
+    'group-data-[orientation=horizontal]/list:before:left-0 group-data-[orientation=horizontal]/list:after:right-0',
     'group-data-[orientation=horizontal]/list:before:h-[1px] group-data-[orientation=horizontal]/list:after:h-[1px]',
     'first:group-data-[orientation=horizontal]/list:before:content-none',
     // Vertical orientation
@@ -89,11 +89,11 @@ export const stepButtonVariant = cva(
     // Horizontal orientation
     'group-data-[orientation=horizontal]/list:flex-col group-data-[orientation=horizontal]/list:items-center',
     'group-data-[orientation=horizontal]/list:text-center group-data-[orientation=horizontal]/list:mx-sm',
-    'group-first/item:group-data-[orientation=horizontal]/list:ml-none group-last/item:group-data-[orientation=horizontal]/list:mr-none',
+    'group-first/item:group-data-[orientation=horizontal]/list:ml-0 group-last/item:group-data-[orientation=horizontal]/list:mr-0',
     // Vertical orientation
     'group-data-[orientation=vertical]/list:flex-row group-data-[orientation=vertical]/list:items-start',
     'group-data-[orientation=vertical]/list:text-left group-data-[orientation=vertical]/list:my-sm',
-    'group-first/item:group-data-[orientation=vertical]/list:mt-none group-last/item:group-data-[orientation=vertical]/list:mb-none',
+    'group-first/item:group-data-[orientation=vertical]/list:mt-0 group-last/item:group-data-[orientation=vertical]/list:mb-0',
   ],
   {
     variants: {

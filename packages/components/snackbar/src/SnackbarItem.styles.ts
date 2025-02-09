@@ -18,8 +18,8 @@ export const snackbarItemVariant = cva(
     /**
      * Positionning
      */
-    'group-data-[position=bottom]:bottom-none group-data-[position=bottom-left]:bottom-none group-data-[position=bottom-right]:bottom-none',
-    'group-data-[position=top]:top-none group-data-[position=top-left]:top-none group-data-[position=top-right]:top-none',
+    'group-data-[position=bottom]:bottom-0 group-data-[position=bottom-left]:bottom-0 group-data-[position=bottom-right]:bottom-0',
+    'group-data-[position=top]:top-0 group-data-[position=top-left]:top-0 group-data-[position=top-right]:top-0',
     /**
      * Animation and opacity
      */
@@ -47,7 +47,7 @@ export const snackbarItemVariant = cva(
      */
     'data-[swipe=move]:data-[swipe-direction=right]:translate-x-(--swipe-position-x)',
     'data-[swipe=move]:data-[swipe-direction=left]:translate-x-(--swipe-position-x)',
-    'data-[swipe=cancel]:translate-x-none',
+    'data-[swipe=cancel]:translate-x-0',
     'data-[swipe=end]:data-[swipe-direction=right]:animate-standalone-swipe-out-right',
     'data-[swipe=end]:data-[swipe-direction=left]:animate-standalone-swipe-out-left',
   ],

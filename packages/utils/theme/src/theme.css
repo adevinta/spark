@@ -14,7 +14,7 @@
   --text-*: initial;
   --z-index-*: initial;
 
-  --border-width-none: 0px;
+  --border-width-0: 0px;
   --border-width-sm: 1px;
   --border-width-md: 2px;
 
@@ -130,7 +130,7 @@
   --opacity-dim-4: 16%;
   --opacity-dim-5: 8%;
 
-  --radius-none: 0px;
+  --radius-0: 0px;
   --radius-sm: calc(0.25rem * var(--spacing-factor));
   --radius-md: calc(0.5rem * var(--spacing-factor));
   --radius-lg: calc(1rem * var(--spacing-factor));
@@ -147,8 +147,7 @@
   --spacing-scale: 16; /* for a 16px base font size */
   --spacing-factor: calc(16 / var(--spacing-scale));
 
-  --spacing-auto: auto;
-  --spacing-none: 0px;
+  --spacing-0: 0;
   --spacing-sm: calc(0.25rem * var(--spacing-factor));
   --spacing-md: calc(0.5rem * var(--spacing-factor));
   --spacing-lg: calc(1rem * var(--spacing-factor));

@@ -4,7 +4,7 @@ export const trackVariants = cva(['relative grow h-sz-4 bg-on-background/dim-4']
   variants: {
     shape: {
       rounded: 'rounded-sm',
-      square: 'rounded-none',
+      square: 'rounded-0',
     },
   },
   defaultVariants: {
@@ -27,7 +27,7 @@ export const rangeVariants = cva(['absolute h-full'], {
     },
     shape: {
       rounded: 'rounded-sm',
-      square: 'rounded-none',
+      square: 'rounded-0',
     },
   },
   defaultVariants: {

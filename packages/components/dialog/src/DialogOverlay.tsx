@@ -16,7 +16,7 @@ export const Overlay = ({ className, ref, ...rest }: OverlayProps): ReactElement
       ref={ref}
       className={cx(
         isFullScreen ? 'hidden' : 'fixed',
-        ['top-none', 'left-none', 'w-screen', 'h-screen', 'z-overlay'],
+        ['top-0', 'left-0', 'w-screen', 'h-screen', 'z-overlay'],
         ['bg-overlay/dim-3'],
         ['data-[state=open]:animate-fade-in'],
         ['data-[state=closed]:animate-fade-out'],

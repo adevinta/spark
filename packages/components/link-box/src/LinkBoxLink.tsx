@@ -14,7 +14,7 @@ export const LinkBoxLink = ({ className, asChild, ref, ...props }: LinkBoxLinkPr
       ref={ref}
       data-spark-component="link-box-link"
       className={cx(
-        "static before:absolute before:left-none before:top-none before:z-base before:block before:size-full before:content-['']",
+        "before:z-base static before:absolute before:top-0 before:left-0 before:block before:size-full before:content-['']",
         className
       )}
       {...props}

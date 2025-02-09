@@ -64,14 +64,14 @@ export type StylesProps = VariantProps<typeof styles>
 
 export const thumbWrapperStyles = cva(
   [
-    'pointer-events-none absolute inset-none flex items-center',
+    'pointer-events-none absolute inset-0 flex items-center',
     'transition-all duration-200 ease-in-out',
   ],
   {
     variants: {
       checked: {
         true: 'translate-x-full',
-        false: 'translate-x-none',
+        false: 'translate-x-0',
       },
     },
   }
@@ -79,7 +79,7 @@ export const thumbWrapperStyles = cva(
 
 export const thumbStyles = cva(
   [
-    'absolute left-none top-none flex items-center justify-center',
+    'absolute left-0 top-0 flex items-center justify-center',
     'bg-surface',
     'rounded-full',
     'ring-0',
@@ -93,7 +93,7 @@ export const thumbStyles = cva(
       }),
       checked: {
         true: '-translate-x-full',
-        false: 'translate-x-none text-on-surface/dim-4',
+        false: 'translate-x-0 text-on-surface/dim-4',
       },
     },
     defaultVariants: {

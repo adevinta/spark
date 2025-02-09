@@ -2,7 +2,7 @@ import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 export const styles = cva(
-  ['inline-flex h-fit', 'empty:p-none', 'text-center font-bold', 'rounded-full box-content'],
+  ['inline-flex h-fit', 'empty:p-0', 'text-center font-bold', 'rounded-full box-content'],
   {
     variants: {
       /**
@@ -48,7 +48,7 @@ export const styles = cva(
        * @default 'relative'
        */
       type: {
-        relative: ['absolute right-none border-md', 'translate-x-1/2 -translate-y-1/2'],
+        relative: ['absolute right-0 border-md', 'translate-x-1/2 -translate-y-1/2'],
         standalone: [],
       },
     },

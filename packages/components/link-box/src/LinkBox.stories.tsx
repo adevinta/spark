@@ -22,7 +22,7 @@ export const Default: StoryFn = _args => (
           <img className="size-full" src="https://picsum.photos/200/200" alt="" />
         </div>
 
-        <div className="space-y-none">
+        <div className="space-y-0">
           <h2>
             <LinkBox.Link className="text-headline-2 line-clamp-1" href="#">
               Title
@@ -52,7 +52,7 @@ export const Nesting: StoryFn = _args => (
           </LinkBox.Raised>
         </div>
 
-        <div className="space-y-none">
+        <div className="space-y-0">
           <h2>
             <LinkBox.Link className="text-headline-2 line-clamp-1" href="#">
               Title
