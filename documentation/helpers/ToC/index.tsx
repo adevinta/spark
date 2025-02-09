@@ -54,14 +54,7 @@ export const ToC = () => {
     <div
       className={cx('sb-unstyled', [
         ['flex', 'flex-col', 'shrink-0', 'grow-0'],
-        [
-          'sticky',
-          'top-none',
-          'bottom-none',
-          'pt-lg',
-          'max-h-[calc(100vh-16px)]',
-          'overflow-y-auto',
-        ],
+        ['sticky', 'top-0', 'bottom-0', 'pt-lg', 'max-h-[calc(100vh-16px)]', 'overflow-y-auto'],
       ])}
     >
       {headings.map(({ tagName, id, textContent }, index) => {

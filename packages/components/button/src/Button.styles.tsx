@@ -82,7 +82,7 @@ export const buttonStyles = cva(
        */
       shape: makeVariants<'shape', ['rounded', 'square', 'pill']>({
         rounded: ['rounded-lg'],
-        square: ['rounded-none'],
+        square: ['rounded-0'],
         pill: ['rounded-full'],
       }),
       /**

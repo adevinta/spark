@@ -47,9 +47,9 @@ export const A11yReport = ({ of }: { of: string }) => {
         <strong>WCAG 2.1 levels A and AA</strong> and for common accessibility best practices.
       </p>
 
-      <ul className="mt-md list-disc pl-xl">
+      <ul className="mt-md pl-xl list-disc">
         {errors.map(error => (
-          <li key={error.id} className="mt-sm text-caption first:mt-none">
+          <li key={error.id} className="mt-sm text-caption first:mt-0">
             <span className="block">
               <strong>
                 {error.description}&nbsp;[{error.impact}]

@@ -27,7 +27,7 @@ export const Item = ({
   const localProps = {
     className: cx(
       'relative first:rounded-t-lg last:rounded-b-lg',
-      'not-last:border-b-none',
+      'not-last:border-b-0',
       { 'border-sm border-outline': accordion.design === 'outlined' },
       className
     ),

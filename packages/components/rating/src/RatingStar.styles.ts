@@ -1,9 +1,9 @@
 import { cva, cx, type VariantProps } from 'class-variance-authority'
 
-const emptyRemainingStarsOnHoverClass = cx('[&_>_div]:peer-hover:w-none!')
+const emptyRemainingStarsOnHoverClass = cx('[&_>_div]:peer-hover:w-0!')
 
 const ratingStarStyles = cva(
-  ['peer', 'after:inset-none', 'group', 'relative', 'after:block after:absolute'],
+  ['peer', 'after:inset-0', 'group', 'relative', 'after:block after:absolute'],
   {
     variants: {
       disabled: {

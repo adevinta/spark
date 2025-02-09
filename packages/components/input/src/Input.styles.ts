@@ -41,14 +41,14 @@ export const inputStyles = cva(
        * Sets if there is an addon before the input text.
        */
       hasLeadingAddon: {
-        true: ['rounded-l-none'],
+        true: ['rounded-l-0'],
         false: ['rounded-l-lg'],
       },
       /**
        * Sets if there is an addon after the input text.
        */
       hasTrailingAddon: {
-        true: ['rounded-r-none'],
+        true: ['rounded-r-0'],
         false: ['rounded-r-lg'],
       },
       /**

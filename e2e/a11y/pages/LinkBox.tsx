@@ -22,7 +22,7 @@ export const A11yLinkBox = () => (
             </LinkBox.Raised>
           </div>
 
-          <div className="space-y-none">
+          <div className="space-y-0">
             <h2>
               <LinkBox.Link className="line-clamp-1 text-headline-2" href="#">
                 Title

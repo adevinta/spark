@@ -10,7 +10,7 @@ export const dialogContentStyles = cva(
   {
     variants: {
       size: {
-        fullscreen: 'fixed size-full top-none  left-none',
+        fullscreen: 'fixed size-full top-0 left-0',
         sm: 'max-w-sz-480',
         md: 'max-w-sz-672',
         lg: 'max-w-sz-864',

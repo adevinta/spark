@@ -448,7 +448,7 @@ export const Suggestion: StoryFn = () => {
           <InputGroup.ClearButton aria-label="clear" onClick={() => setContent('')} />
         </InputGroup>
       </div>
-      <Component className="bottom-none right-none gap-md px-lg pb-lg absolute flex w-full justify-start">
+      <Component className="gap-md px-lg pb-lg absolute right-0 bottom-0 flex w-full justify-start">
         <Chip
           tabIndex={-1}
           design={content === 'john.doe@email.com' ? 'tinted' : 'dashed'}

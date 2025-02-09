@@ -16,23 +16,23 @@ export const drawerContentStyles = cva(
       },
       side: {
         right: [
-          'inset-y-none right-none',
+          'inset-y-0 right-0',
           'data-[state=open]:animate-slide-in-right',
           'data-[state=closed]:animate-slide-out-right',
         ],
         left: [
-          'inset-y-none left-none',
+          'inset-y-0 left-0',
           'data-[state=open]:animate-slide-in-left',
           'data-[state=closed]:animate-slide-out-left',
         ],
         top: [
-          'top-none left-none',
+          'top-0 left-0',
           'w-screen',
           'data-[state=open]:animate-slide-in-top',
           'data-[state=closed]:animate-slide-out-top',
         ],
         bottom: [
-          'bottom-none left-none',
+          'bottom-0 left-0',
           'w-screen',
           'data-[state=open]:animate-slide-in-bottom',
           'data-[state=closed]:animate-slide-out-bottom',

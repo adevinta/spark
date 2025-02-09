@@ -13,7 +13,7 @@ const ComponentDescription = ({ name, children }: { name: string; children: Reac
   const displayName = name.charAt(0) === name.charAt(0).toUpperCase() ? `<${name} />` : `${name}()`
 
   return (
-    <div className="rounded-t-lg pb-none text-on-surface">
+    <div className="text-on-surface rounded-t-lg pb-0">
       <p className="mb-md text-body-1 font-bold">{displayName}</p>
       <p className="text-body-2 italic">{children}</p>
     </div>
@@ -60,12 +60,12 @@ export const ArgTypes = <T extends FC>({
       className="sb-unstyled mt-xl overflow-hidden rounded-md"
     >
       <Tabs.List className={tabsOrientation === 'horizontal' ? 'mb-md' : ''}>
-        <Tabs.Trigger key={name} value={name} className="bg-transparent text-support">
+        <Tabs.Trigger key={name} value={name} className="text-support bg-transparent">
           {name}
         </Tabs.Trigger>
         <>
           {subComponentsList.map(([name]) => (
-            <Tabs.Trigger key={name} value={name} className="bg-transparent text-on-surface">
+            <Tabs.Trigger key={name} value={name} className="text-on-surface bg-transparent">
               {name}
             </Tabs.Trigger>
           ))}
