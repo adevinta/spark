@@ -156,7 +156,7 @@
   --spacing-3xl: calc(2.5rem * var(--spacing-factor));
 
   --spacing-sz-0: 0rem;
-  --spacing-sz-1: calc(0.625rem * var(--spacing-factor));
+  --spacing-sz-1: calc(0.0625rem * var(--spacing-factor));
   --spacing-sz-2: calc(0.125rem * var(--spacing-factor));
   --spacing-sz-4: calc(0.25rem * var(--spacing-factor));
   --spacing-sz-6: calc(0.375rem * var(--spacing-factor));
