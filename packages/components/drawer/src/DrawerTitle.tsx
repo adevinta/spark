@@ -1,5 +1,5 @@
-import * as RadixDrawer from '@radix-ui/react-dialog'
 import { cx } from 'class-variance-authority'
+import { Dialog as RadixDrawer } from 'radix-ui'
 import { Ref } from 'react'
 
 export type DrawerTitleProps = RadixDrawer.DialogTitleProps & {

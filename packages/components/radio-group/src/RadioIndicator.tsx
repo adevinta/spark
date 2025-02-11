@@ -1,4 +1,4 @@
-import { RadioGroupIndicator as RadioIndicatorPrimitive } from '@radix-ui/react-radio-group'
+import { RadioGroup as RadixRadioGroup } from 'radix-ui'
 import { Ref } from 'react'
 
 import { radioIndicatorStyles, RadioIndicatorStylesProps } from './RadioIndicator.styles'
@@ -18,7 +18,7 @@ export interface RadioIndicatorProps extends RadioIndicatorStylesProps {
 
 export const RadioIndicator = ({ intent, className, ref, ...others }: RadioIndicatorProps) => {
   return (
-    <RadioIndicatorPrimitive
+    <RadixRadioGroup.Indicator
       ref={ref}
       className={radioIndicatorStyles({ intent, className })}
       {...others}

@@ -1,8 +1,8 @@
-import * as RadixTabs from '@radix-ui/react-tabs'
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
 import { ArrowVerticalLeft } from '@spark-ui/icons/dist/icons/ArrowVerticalLeft'
 import { ArrowVerticalRight } from '@spark-ui/icons/dist/icons/ArrowVerticalRight'
+import { Tabs as RadixTabs } from 'radix-ui'
 import { type ReactElement, Ref, useEffect, useRef, useState } from 'react'
 
 import { useTabsContext } from './TabsContext'

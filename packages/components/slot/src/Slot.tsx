@@ -1,14 +1,14 @@
-import { Slot as SlotPrimitive } from '@radix-ui/react-slot'
+import { Slot as RadixSlot } from 'radix-ui'
 import React, { PropsWithChildren, ReactNode, Ref } from 'react'
 
-export { Slottable } from '@radix-ui/react-slot'
+export const Slottable = RadixSlot.Slottable
 
 export type SlotProps = PropsWithChildren<React.HTMLAttributes<HTMLElement>> & {
   ref?: Ref<HTMLElement>
 }
 
 export const Slot = ({ ref, ...props }: SlotProps) => {
-  return <SlotPrimitive ref={ref} {...props} />
+  return <RadixSlot.Root ref={ref} {...props} />
 }
 
 /**

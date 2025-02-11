@@ -1,5 +1,5 @@
-import { RadioGroupItem as RadioPrimitive } from '@radix-ui/react-radio-group'
 import { useFormFieldControl } from '@spark-ui/form-field'
+import { RadioGroup as RadixRadioGroup } from 'radix-ui'
 import { ButtonHTMLAttributes, Ref } from 'react'
 
 import { RadioIndicator } from './RadioIndicator'
@@ -33,9 +33,13 @@ export const RadioInput = ({ intent: intentProp, className, ref, ...others }: Ra
   const intent = state ?? intentProp
 
   return (
-    <RadioPrimitive ref={ref} className={radioInputVariants({ intent, className })} {...others}>
+    <RadixRadioGroup.RadioGroupItem
+      ref={ref}
+      className={radioInputVariants({ intent, className })}
+      {...others}
+    >
       <RadioIndicator intent={intent} forceMount />
-    </RadioPrimitive>
+    </RadixRadioGroup.RadioGroupItem>
   )
 }
 

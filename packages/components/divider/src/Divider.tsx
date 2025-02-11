@@ -1,5 +1,5 @@
-import { Root as Separator } from '@radix-ui/react-separator'
 import { cx } from 'class-variance-authority'
+import { Separator } from 'radix-ui'
 import { HTMLAttributes, ReactElement, ReactNode, Ref } from 'react'
 
 import { dividerStyles, type DividerStylesProps } from './Divider.styles'
@@ -46,7 +46,7 @@ export const Divider = ({
   const isEmpty = asChild ? !(children?.props as { children: ReactNode })?.children : !children
 
   return (
-    <Separator
+    <Separator.Root
       data-spark-component="divider"
       asChild={asChild}
       className={cx(
@@ -60,7 +60,7 @@ export const Divider = ({
       data-writing-mode={writingMode}
     >
       {children}
-    </Separator>
+    </Separator.Root>
   )
 }
 

@@ -1,4 +1,4 @@
-import * as RadixDrawer from '@radix-ui/react-dialog'
+import { Dialog as RadixDrawer } from 'radix-ui'
 import { Ref } from 'react'
 
 export type DrawerCloseProps = RadixDrawer.DialogCloseProps & {

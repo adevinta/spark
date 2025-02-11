@@ -1,4 +1,4 @@
-import { Portal as PortalPrimitive } from '@radix-ui/react-portal'
+import { Portal as RadixPortal } from 'radix-ui'
 import React, { type PropsWithChildren, Ref } from 'react'
 
 interface PortalProps {
@@ -10,5 +10,5 @@ interface PortalProps {
 }
 
 export const Portal = (props: PropsWithChildren<PortalProps>) => {
-  return <PortalPrimitive {...props} />
+  return <RadixPortal.Portal {...props} />
 }

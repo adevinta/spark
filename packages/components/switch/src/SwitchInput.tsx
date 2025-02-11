@@ -1,9 +1,9 @@
-import * as SwitchPrimitive from '@radix-ui/react-switch'
 import { useFormFieldControl } from '@spark-ui/form-field'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Close } from '@spark-ui/icons/dist/icons/Close'
 import { Slot } from '@spark-ui/slot'
 import { useCombinedState } from '@spark-ui/use-combined-state'
+import { Switch as RadixSwitch } from 'radix-ui'
 import React, { type ComponentPropsWithRef, type ReactNode } from 'react'
 
 import {
@@ -86,7 +86,7 @@ export const SwitchInput = ({
   }
 
   return (
-    <SwitchPrimitive.Root
+    <RadixSwitch.Root
       ref={ref}
       className={styles({ intent, size, className })}
       value={value}
@@ -100,16 +100,16 @@ export const SwitchInput = ({
       {...rest}
     >
       <span className={thumbWrapperStyles({ checked: isChecked })}>
-        <SwitchPrimitive.Thumb className={thumbStyles({ size, checked: isChecked })}>
+        <RadixSwitch.Thumb className={thumbStyles({ size, checked: isChecked })}>
           {isChecked && checkedIcon && (
             <Slot className={thumbCheckSVGStyles({ size })}>{checkedIcon}</Slot>
           )}
           {!isChecked && uncheckedIcon && (
             <Slot className={thumbCheckSVGStyles({ size })}>{uncheckedIcon}</Slot>
           )}
-        </SwitchPrimitive.Thumb>
+        </RadixSwitch.Thumb>
       </span>
-    </SwitchPrimitive.Root>
+    </RadixSwitch.Root>
   )
 }
 

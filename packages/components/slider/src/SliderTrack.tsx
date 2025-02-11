@@ -1,4 +1,4 @@
-import * as RadixSlider from '@radix-ui/react-slider'
+import { Slider as RadixSlider } from 'radix-ui'
 import { Ref } from 'react'
 
 import { useSliderContext } from './SliderContext'

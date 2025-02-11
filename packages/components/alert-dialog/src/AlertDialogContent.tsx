@@ -1,6 +1,6 @@
-import { composeEventHandlers } from '@radix-ui/primitive'
 import { Dialog, DialogContentProps } from '@spark-ui/dialog'
 import { cx } from 'class-variance-authority'
+import { composeEventHandlers } from 'radix-ui/internal'
 import { Ref, useMemo, useRef } from 'react'
 
 import { AlertDialogContext } from './AlertDialogContext'
