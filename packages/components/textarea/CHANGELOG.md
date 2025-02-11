@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.6](https://github.com/adevinta/spark/compare/v9.0.5...v9.0.6) (2025-02-11)
+
+**Note:** Version bump only for package @spark-ui/textarea
+
 ## [9.0.5](https://github.com/adevinta/spark/compare/v9.0.4...v9.0.5) (2025-02-11)
 
 **Note:** Version bump only for package @spark-ui/textarea

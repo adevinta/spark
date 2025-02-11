@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/drawer",
-  "version": "9.0.5",
+  "version": "9.0.6",
   "description": "A panel that slides out from the edge of the screen. It can be useful when you need users to complete a task or view some details without leaving the current page.",
   "publishConfig": {
     "access": "public"
@@ -44,9 +44,9 @@
   "license": "MIT",
   "dependencies": {
     "@radix-ui/react-dialog": "1.1.2",
-    "@spark-ui/icon": "^9.0.5",
-    "@spark-ui/icon-button": "^9.0.5",
-    "@spark-ui/icons": "^9.0.5",
+    "@spark-ui/icon": "^9.0.6",
+    "@spark-ui/icon-button": "^9.0.6",
+    "@spark-ui/icons": "^9.0.6",
     "class-variance-authority": "0.7.0"
   }
 }
