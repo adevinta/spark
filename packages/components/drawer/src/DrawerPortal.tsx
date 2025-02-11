@@ -1,4 +1,4 @@
-import * as RadixDrawer from '@radix-ui/react-dialog'
+import { Dialog as RadixDrawer } from 'radix-ui'
 import { type ReactElement } from 'react'
 
 export type DrawerPortalProps = RadixDrawer.DialogPortalProps

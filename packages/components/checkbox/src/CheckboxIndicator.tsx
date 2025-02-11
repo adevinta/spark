@@ -1,10 +1,9 @@
-import {
-  CheckboxIndicator as CheckboxIndicatorPrimitive,
-  CheckboxIndicatorProps as CheckboxIndicatorPrimitiveProps,
-} from '@radix-ui/react-checkbox'
+import { Checkbox } from 'radix-ui'
 import { Ref } from 'react'
 
-export type CheckboxIndicatorProps = CheckboxIndicatorPrimitiveProps & {
+const CheckboxIndicatorPrimitive = Checkbox.CheckboxIndicator
+
+export type CheckboxIndicatorProps = Checkbox.CheckboxIndicatorProps & {
   ref?: Ref<HTMLSpanElement>
 }
 

@@ -1,13 +1,15 @@
-import { Checkbox as CheckboxPrimitive } from '@radix-ui/react-checkbox'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { Minus } from '@spark-ui/icons/dist/icons/Minus'
+import { Checkbox } from 'radix-ui'
 import { ComponentPropsWithoutRef, ReactNode, Ref } from 'react'
 
 import { CheckboxIndicator } from './CheckboxIndicator'
 import { checkboxInputStyles, type CheckboxInputStylesProps } from './CheckboxInput.styles'
 
 type CheckedStatus = boolean | 'indeterminate'
+
+const CheckboxPrimitive = Checkbox.Checkbox
 
 export interface CheckboxInputProps
   extends CheckboxInputStylesProps,

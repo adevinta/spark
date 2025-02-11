@@ -1,8 +1,5 @@
-import {
-  Progress as ProgressPrimitive,
-  ProgressProps as ProgressPrimitiveProps,
-} from '@radix-ui/react-progress'
 import { cx } from 'class-variance-authority'
+import { Progress as RadixProgress } from 'radix-ui'
 import { PropsWithChildren, Ref, useMemo, useState } from 'react'
 
 import { ProgressBar } from './ProgressBar'
@@ -10,7 +7,7 @@ import { ProgressContext } from './ProgressContext'
 import { ProgressIndicatorStylesProps } from './ProgressIndicator.styles'
 
 export interface ProgressProps
-  extends ProgressPrimitiveProps,
+  extends RadixProgress.ProgressProps,
     Pick<ProgressIndicatorStylesProps, 'intent'> {
   shape?: 'square' | 'rounded'
   isIndeterminate?: boolean
@@ -36,16 +33,16 @@ export const Progress = ({
 
   return (
     <ProgressContext.Provider data-spark-component="progress" value={value}>
-      <ProgressPrimitive
+      <RadixProgress.Progress
         ref={ref}
-        className={cx('flex flex-col gap-sm', className)}
+        className={cx('gap-sm flex flex-col', className)}
         value={valueProp}
         aria-labelledby={labelId}
         max={max}
         {...others}
       >
         {children}
-      </ProgressPrimitive>
+      </RadixProgress.Progress>
     </ProgressContext.Provider>
   )
 }

@@ -1,4 +1,4 @@
-import * as RadixDialog from '@radix-ui/react-dialog'
+import { Dialog as RadixDialog } from 'radix-ui'
 import { Ref } from 'react'
 
 export type DescriptionProps = RadixDialog.DialogDescriptionProps & {

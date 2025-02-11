@@ -23,7 +23,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "1.1.1"
+    "radix-ui": "1.1.3"
   },
   "peerDependencies": {
     "react": "^19.0",

@@ -1,5 +1,5 @@
-import * as RadixDialog from '@radix-ui/react-dialog'
 import { cx } from 'class-variance-authority'
+import { Dialog as RadixDialog } from 'radix-ui'
 import { type ReactElement, Ref } from 'react'
 
 import { useDialog } from './DialogContext'

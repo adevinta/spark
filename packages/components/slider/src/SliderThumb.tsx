@@ -1,4 +1,4 @@
-import * as RadixSlider from '@radix-ui/react-slider'
+import { Slider as RadixSlider } from 'radix-ui'
 import { type FocusEvent, type KeyboardEvent, type PointerEvent, Ref, useRef } from 'react'
 
 import { useSliderContext } from './SliderContext'

@@ -1,8 +1,8 @@
-import * as RadixPopover from '@radix-ui/react-popover'
 import { Icon } from '@spark-ui/icon'
 import { IconButton } from '@spark-ui/icon-button'
 import { Close as CloseSVG } from '@spark-ui/icons/dist/icons/Close'
 import { cx } from 'class-variance-authority'
+import { Popover as RadixPopover } from 'radix-ui'
 import { Ref } from 'react'
 
 export type CloseButtonProps = RadixPopover.PopoverCloseProps & {
@@ -20,7 +20,7 @@ export const CloseButton = ({
     <RadixPopover.Close
       data-spark-component="popover-close-button"
       ref={ref}
-      className={cx('absolute right-md top-md', className)}
+      className={cx('right-md top-md absolute', className)}
       asChild
       {...rest}
     >

@@ -1,4 +1,4 @@
-import * as RadixDialog from '@radix-ui/react-dialog'
+import { Dialog as RadixDialog } from 'radix-ui'
 import { type ReactElement, Ref, useEffect } from 'react'
 
 import { dialogContentStyles, type DialogContentStylesProps } from './DialogContent.styles'
