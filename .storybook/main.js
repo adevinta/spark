@@ -1,14 +1,22 @@
 import { dirname, join } from 'path'
-const turbosnap = require('vite-plugin-turbosnap')
-const { mergeConfig } = require('vite')
+import { createRequire } from 'module'
+import turbosnap from 'vite-plugin-turbosnap'
+import { mergeConfig } from 'vite'
 
 import remarkGfm from 'remark-gfm'
 
-import { docgenConfig } from '../config/plugins/sparkDocgen/constants'
+import { docgenConfig } from '../config/plugins/sparkDocgen/constants.ts'
 
-module.exports = {
+// Create a require function for CommonJS resolution in an ESM context
+const require = createRequire(import.meta.url)
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')))
+}
+
+export default {
   async viteFinal(config, { configType }) {
-    // This is where we can override vite config for storybook
+    // This is where we can override vite config for Storybook
     return mergeConfig(config, {
       plugins:
         configType === 'PRODUCTION'
@@ -18,7 +26,6 @@ module.exports = {
               }),
             ]
           : [],
-      // ...And any other config you need to change...
     })
   },
 
@@ -64,19 +71,13 @@ module.exports = {
     reactDocgenTypescriptOptions: {
       ...docgenConfig,
       /**
-       * There is a bug in storybook.
+       * There is a bug in Storybook.
        * StoryFn declared using `_args` won't use the displayName by default.
        */
-      componentNameResolver: expression => {
-        return expression.getName()
-      },
+      componentNameResolver: (expression) => expression.getName(),
     },
   },
   docs: {
-    docsMode: true
+    docsMode: true,
   },
-}
-
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, 'package.json')))
 }
