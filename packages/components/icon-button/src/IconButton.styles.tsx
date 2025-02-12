@@ -1,7 +1,8 @@
 import { makeVariants } from '@spark-ui/internal-utils'
 import { cva, VariantProps } from 'class-variance-authority'
 
-export const iconButtonStyles = cva(['px-0'], {
+// override the Button component's px-lg padding by using a more specific class selector (pl-0 pr-0)
+export const iconButtonStyles = cva(['pl-0 pr-0'], {
   variants: {
     /**
      * Sets the size of the icon.
