@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.7](https://github.com/adevinta/spark/compare/v9.0.6...v9.0.7) (2025-02-12)
+
+### Bug Fixes
+
+- prevent runtime error ([acb7a65](https://github.com/adevinta/spark/commit/acb7a65a1de341a4bdcb17d5042d4df24df83aad))
+
 ## [9.0.6](https://github.com/adevinta/spark/compare/v9.0.5...v9.0.6) (2025-02-11)
 
 ### Bug Fixes
