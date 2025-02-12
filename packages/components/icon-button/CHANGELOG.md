@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.8](https://github.com/adevinta/spark/compare/v9.0.7...v9.0.8) (2025-02-12)
+
+### Bug Fixes
+
+- **icon-button:** padding styles ([164af5d](https://github.com/adevinta/spark/commit/164af5d94ffd8c72631980ce85ba52d9bb488a55))
+
 ## [9.0.7](https://github.com/adevinta/spark/compare/v9.0.6...v9.0.7) (2025-02-12)
 
 **Note:** Version bump only for package @spark-ui/icon-button
