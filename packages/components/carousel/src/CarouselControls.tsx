@@ -23,7 +23,6 @@ export const CarouselControls = () => {
           <ArrowVerticalRight />
         </Icon>
       </IconButton>
-
       <IconButton
         intent="surface"
         design="filled"

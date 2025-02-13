@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { a11yRoutes } from './a11y/routes'
+import { CarouselImplementation } from './carousel'
 import { ComboboxWithinDialog } from './combobox-within-dialog'
 import { DropdownWithAdjacentButtons } from './dropdown-with-adjacent-buttons'
 import { DropdownWithinDialog } from './dropdown-within-dialog'
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: 'spark-form-within-drawer',
     element: <DrawerForm />,
+  },
+  {
+    path: 'carousel',
+    element: <CarouselImplementation />,
   },
 ])
 

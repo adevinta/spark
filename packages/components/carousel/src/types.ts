@@ -50,7 +50,7 @@ export interface ComputedTriggerProps<T extends 'prev-trigger' | 'next-trigger'>
   onClick: () => void
 }
 
-export interface ComputedItemGroupProps {
+export interface ComputedSlideGroupProps {
   id: string
   'aria-live': 'polite'
   'data-scope': typeof DATA_SCOPE
@@ -59,10 +59,10 @@ export interface ComputedItemGroupProps {
   dir: typeof DIRECTION
   tabIndex: 0
   style: CSSProperties
-  ref: Ref<HTMLUListElement | null>
+  ref: Ref<HTMLDivElement | null>
 }
 
-export interface ComputedItemProps {
+export interface ComputedSlideProps {
   id: string
   role: 'group'
   'aria-roledescription': 'slide'
@@ -102,8 +102,8 @@ interface AnatomyPropsSetters {
   getControlProps: () => ComputedControlProps
   getPrevTriggerProps: () => ComputedTriggerProps<'prev-trigger'>
   getNextTriggerProps: () => ComputedTriggerProps<'next-trigger'>
-  getItemGroupProps: () => ComputedItemGroupProps
-  getItemProps: (props: { index: number; totalItems: number }) => ComputedItemProps
+  getSlidesContainerProps: () => ComputedSlideGroupProps
+  getSlideProps: (props: { index: number; totalSlides: number }) => ComputedSlideProps
   getIndicatorGroupProps: () => ComputedIndicatorGroupProps
   getIndicatorProps: (props: { index: number }) => ComputedIndicatorProps
 }
