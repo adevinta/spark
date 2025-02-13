@@ -45,19 +45,19 @@ export const Default: StoryFn = _args => {
   return (
     <Carousel>
       <Carousel.Viewport>
-        <Carousel.Items>
+        <Carousel.Slides>
           {Array.from({ length: 11 }).map((_, i) => {
             return (
-              <Carousel.Item key={i} className="flex items-center">
+              <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={256} imgWidth={512} className="h-sz-256 object-contain" />
 
                 <Button asChild className="bottom-lg right-lg absolute" intent="danger">
                   <a href="#">Read article</a>
                 </Button>
-              </Carousel.Item>
+              </Carousel.Slide>
             )
           })}
-        </Carousel.Items>
+        </Carousel.Slides>
         <Carousel.Controls />
       </Carousel.Viewport>
 
@@ -150,10 +150,10 @@ export const Controlled: StoryFn = _args => {
 
       <Carousel page={activePage} onPageChange={handlePageChange} className="w-sz-448">
         <Carousel.Viewport>
-          <Carousel.Items>
+          <Carousel.Slides>
             {productsData.map(product => {
               return (
-                <Carousel.Item key={product.name} className="flex items-center">
+                <Carousel.Slide key={product.name} className="flex items-center">
                   <img
                     className="h-sz-256 object-cover"
                     width="100%"
@@ -170,10 +170,10 @@ export const Controlled: StoryFn = _args => {
                       See article
                     </a>
                   </Button>
-                </Carousel.Item>
+                </Carousel.Slide>
               )
             })}
-          </Carousel.Items>
+          </Carousel.Slides>
           <Carousel.Controls />
         </Carousel.Viewport>
 
@@ -219,9 +219,9 @@ export const Gap: StoryFn = _args => {
 
       <Carousel gap={gap} slidesPerPage={3}>
         <Carousel.Viewport>
-          <Carousel.Items>
+          <Carousel.Slides>
             {Array.from({ length: 11 }).map((_, i) => (
-              <Carousel.Item key={i} className="flex items-center">
+              <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
                 <Button asChild>
@@ -229,9 +229,9 @@ export const Gap: StoryFn = _args => {
                     Read article
                   </a>
                 </Button>
-              </Carousel.Item>
+              </Carousel.Slide>
             ))}
-          </Carousel.Items>
+          </Carousel.Slides>
           <Carousel.Controls />
         </Carousel.Viewport>
 
@@ -255,10 +255,10 @@ export const DefaultPage: StoryFn = _args => {
   return (
     <Carousel defaultPage={2}>
       <Carousel.Viewport>
-        <Carousel.Items>
+        <Carousel.Slides>
           {Array.from({ length: 5 }).map((_, i) => {
             return (
-              <Carousel.Item key={i} className="flex items-center">
+              <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={256} imgWidth={256} className="h-sz-256 object-contain" />
 
                 <Button asChild>
@@ -266,10 +266,10 @@ export const DefaultPage: StoryFn = _args => {
                     Read article
                   </a>
                 </Button>
-              </Carousel.Item>
+              </Carousel.Slide>
             )
           })}
-        </Carousel.Items>
+        </Carousel.Slides>
         <Carousel.Controls />
       </Carousel.Viewport>
 
@@ -288,10 +288,10 @@ export const Loop: StoryFn = _args => {
   return (
     <Carousel loop>
       <Carousel.Viewport>
-        <Carousel.Items>
+        <Carousel.Slides>
           {Array.from({ length: 3 }).map((_, i) => {
             return (
-              <Carousel.Item key={i} className="flex items-center">
+              <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={256} imgWidth={256} className="h-sz-256 object-contain" />
 
                 <Button asChild>
@@ -299,10 +299,10 @@ export const Loop: StoryFn = _args => {
                     Read article
                   </a>
                 </Button>
-              </Carousel.Item>
+              </Carousel.Slide>
             )
           })}
-        </Carousel.Items>
+        </Carousel.Slides>
         <Carousel.Controls />
       </Carousel.Viewport>
 
@@ -386,9 +386,9 @@ export const ScrollBehavior: StoryFn = _args => {
         loop={false}
       >
         <Carousel.Viewport>
-          <Carousel.Items>
+          <Carousel.Slides>
             {Array.from({ length: 11 }).map((_, i) => (
-              <Carousel.Item key={i} className="flex items-center">
+              <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
                 <Button asChild>
@@ -396,9 +396,9 @@ export const ScrollBehavior: StoryFn = _args => {
                     Read article
                   </a>
                 </Button>
-              </Carousel.Item>
+              </Carousel.Slide>
             ))}
-          </Carousel.Items>
+          </Carousel.Slides>
           <Carousel.Controls />
         </Carousel.Viewport>
 
@@ -419,13 +419,13 @@ export const ScrollBehavior: StoryFn = _args => {
 }
 
 export const SlidesPerPage: StoryFn = _args => {
-  const [slidesPerPage, setItemsPerSlide] = useState<number>(3)
+  const [slidesPerPage, setSlidesPerPage] = useState<number>(3)
 
   return (
     <div className="gap-xl flex flex-col">
       <div className="gap-md grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))]">
         <fieldset>
-          <legend>Items per slide: {slidesPerPage}</legend>
+          <legend>Slides per slide: {slidesPerPage}</legend>
 
           <Slider
             value={[slidesPerPage]}
@@ -434,21 +434,21 @@ export const SlidesPerPage: StoryFn = _args => {
             max={5}
             onValueChange={([value]) => {
               if (value) {
-                setItemsPerSlide(value)
+                setSlidesPerPage(value)
               }
             }}
           >
             <Slider.Track />
-            <Slider.Thumb aria-label="Items per page" />
+            <Slider.Thumb aria-label="Slides per page" />
           </Slider>
         </fieldset>
       </div>
 
       <Carousel slidesPerPage={slidesPerPage}>
         <Carousel.Viewport>
-          <Carousel.Items>
+          <Carousel.Slides>
             {Array.from({ length: 11 }).map((_, i) => (
-              <Carousel.Item key={i} className="flex items-center">
+              <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
                 <Button asChild>
@@ -456,9 +456,9 @@ export const SlidesPerPage: StoryFn = _args => {
                     Read article
                   </a>
                 </Button>
-              </Carousel.Item>
+              </Carousel.Slide>
             ))}
-          </Carousel.Items>
+          </Carousel.Slides>
           <Carousel.Controls />
         </Carousel.Viewport>
 
@@ -483,9 +483,9 @@ export const SlidesPerMove: StoryFn = _args => {
     <div className="gap-xl flex flex-col">
       <Carousel slidesPerPage={3} slidesPerMove={1}>
         <Carousel.Viewport>
-          <Carousel.Items>
+          <Carousel.Slides>
             {Array.from({ length: 11 }).map((_, i) => (
-              <Carousel.Item key={i} className="flex items-center">
+              <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
                 <Button asChild>
@@ -493,9 +493,9 @@ export const SlidesPerMove: StoryFn = _args => {
                     Read article
                   </a>
                 </Button>
-              </Carousel.Item>
+              </Carousel.Slide>
             ))}
-          </Carousel.Items>
+          </Carousel.Slides>
           <Carousel.Controls />
         </Carousel.Viewport>
 
@@ -559,10 +559,10 @@ export const CustomPageIndicators: StoryFn = () => {
     <div className="gap-md flex">
       <Carousel className="w-sz-448" loop>
         <Carousel.Viewport>
-          <Carousel.Items>
+          <Carousel.Slides>
             {productsData.map(product => {
               return (
-                <Carousel.Item key={product.name} className="flex items-center">
+                <Carousel.Slide key={product.name} className="flex items-center">
                   <img
                     className="h-sz-256 object-cover"
                     width="100%"
@@ -579,10 +579,10 @@ export const CustomPageIndicators: StoryFn = () => {
                       See article
                     </a>
                   </Button>
-                </Carousel.Item>
+                </Carousel.Slide>
               )
             })}
-          </Carousel.Items>
+          </Carousel.Slides>
           <Carousel.Controls />
         </Carousel.Viewport>
 

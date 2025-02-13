@@ -37,7 +37,7 @@ export const CarouselPageIndicator = ({
   const dotsStyles = cx(
     'before:rounded-sm before:block before:size-md',
     'before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2',
-    'data-[state=active]:before:w-sz-32 data-[state=active]:before:bg-support',
+    'data-[state=active]:before:w-sz-32 data-[state=active]:before:bg-basic',
     'data-[state=inactive]:before:bg-on-surface/dim-3'
   )
 

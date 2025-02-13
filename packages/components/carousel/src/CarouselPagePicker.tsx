@@ -22,10 +22,12 @@ export const CarouselPagePicker = ({ children, className }: Props) => {
         {...ctx.getIndicatorGroupProps()}
         className={cx('flex w-full flex-wrap items-center justify-center', className)}
       >
-        {children({
-          ...ctx,
-          pages: Array.from({ length: ctx.pageSnapPoints.length }, (_, i) => i),
-        })}
+        {ctx.pageSnapPoints.length <= 1
+          ? null
+          : children({
+              ...ctx,
+              pages: Array.from({ length: ctx.pageSnapPoints.length }, (_, i) => i),
+            })}
       </div>
     </>
   )

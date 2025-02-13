@@ -6,9 +6,9 @@ import {
   ComputedControlProps,
   ComputedIndicatorGroupProps,
   ComputedIndicatorProps,
-  ComputedItemGroupProps,
-  ComputedItemProps,
   ComputedRootProps,
+  ComputedSlideGroupProps,
+  ComputedSlideProps,
   ComputedTriggerProps,
   UseCarouselProps,
 } from './types'
@@ -34,7 +34,7 @@ export const useCarousel = ({
   onPageChange,
 }: UseCarouselProps): CarouselAPI => {
   // refs
-  const carouselRef = useRef<HTMLUListElement>(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
   const pageIndicatorsRefs = useRef<(HTMLElement | null)[]>([])
   const isMounted = useIsMounted()
 
@@ -99,7 +99,7 @@ export const useCarousel = ({
   }
 
   function isSnapPoint(slideIndex: number) {
-    return getSnapIndices({ totalItems: getSlidesLength() }).includes(slideIndex)
+    return getSnapIndices({ totalSlides: getSlidesLength() }).includes(slideIndex)
   }
 
   /**
@@ -118,19 +118,19 @@ export const useCarousel = ({
    * Get the indices of each slides that serves as the start of a page
    * @returns number[] (ex: [0, 2, 4])
    */
-  function getSnapIndices({ totalItems }: { totalItems: number }) {
+  function getSnapIndices({ totalSlides }: { totalSlides: number }) {
     const slideBy = slidesPerMove === 'auto' ? slidesPerPage : slidesPerMove
     const snapPoints: number[] = []
 
-    const lastSnapIndex = Math.floor((totalItems - slidesPerPage) / slideBy) * slideBy
+    const lastSnapIndex = Math.floor((totalSlides - slidesPerPage) / slideBy) * slideBy
 
     for (let i = 0; i <= lastSnapIndex; i += slideBy) {
       snapPoints.push(i)
     }
 
     // Adding final snap point if necessary
-    if (snapPoints[snapPoints.length - 1] !== totalItems - slidesPerPage) {
-      snapPoints.push(totalItems - slidesPerPage)
+    if (snapPoints[snapPoints.length - 1] !== totalSlides - slidesPerPage) {
+      snapPoints.push(totalSlides - slidesPerPage)
     }
 
     return snapPoints
@@ -235,7 +235,7 @@ export const useCarousel = ({
       onClick: () => scrollNext(),
     }),
 
-    getItemGroupProps: (): ComputedItemGroupProps => ({
+    getSlidesContainerProps: (): ComputedSlideGroupProps => ({
       id: `carousel::${carouselId}::item-group`,
       'aria-live': 'polite',
       'data-scope': DATA_SCOPE,
@@ -256,8 +256,8 @@ export const useCarousel = ({
       ref: carouselRef,
     }),
 
-    getItemProps: ({ index, totalItems }): ComputedItemProps => {
-      const snaps = getSnapIndices({ totalItems })
+    getSlideProps: ({ index, totalSlides }): ComputedSlideProps => {
+      const snaps = getSnapIndices({ totalSlides })
 
       /**
        * The trick here is that if there is a `defaultPage`, to set scroll-snap-align only on the item matching the start of the `defaultPage`.
