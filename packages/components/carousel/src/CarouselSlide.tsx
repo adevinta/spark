@@ -4,40 +4,36 @@ import { ComponentProps, ReactNode, useRef } from 'react'
 import { useCarouselContext } from './Carousel'
 import { useIsVisible } from './useIsVisible'
 
-export interface CarouselItemProps extends ComponentProps<'li'> {
+export interface CarouselSlideProps extends ComponentProps<'div'> {
   isSnapPoint?: boolean
   children?: ReactNode
   index?: number
-  totalItems?: number
+  totalSlides?: number
   className?: string
 }
 
-export const CarouselItem = ({
+export const CarouselSlide = ({
   children,
   index = 0,
-  totalItems,
+  totalSlides,
   className = '',
-}: CarouselItemProps) => {
-  const itemRef = useRef<HTMLLIElement>(null)
+}: CarouselSlideProps) => {
+  const itemRef = useRef<HTMLDivElement>(null)
   const ctx = useCarouselContext()
 
   const isVisible = useIsVisible(itemRef, ctx.ref)
 
   return (
-    <li
+    <div
       ref={itemRef}
-      {...ctx.getItemProps({ index, totalItems: totalItems as number })}
-      className={cx(
-        'bg-surface relative overflow-hidden rounded-lg',
-        'transition-opacity duration-500 motion-reduce:transition-none',
-        className
-      )}
+      {...ctx.getSlideProps({ index, totalSlides: totalSlides as number })}
+      className={cx('default:bg-surface relative overflow-hidden default:rounded-lg', className)}
       aria-hidden={!isVisible}
       inert={!isVisible}
     >
       {children}
-    </li>
+    </div>
   )
 }
 
-CarouselItem.displayName = 'Carousel.Item'
+CarouselSlide.displayName = 'Carousel.Slide'
