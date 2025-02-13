@@ -21,17 +21,17 @@ describe('Carousel', () => {
     render(
       <Carousel>
         <Carousel.Viewport>
-          <Carousel.Items>
-            <Carousel.Item className="flex items-center">
+          <Carousel.Slides>
+            <Carousel.Slide className="flex items-center">
               <button type="button">Read article 1</button>
-            </Carousel.Item>
-            <Carousel.Item className="flex items-center">
+            </Carousel.Slide>
+            <Carousel.Slide className="flex items-center">
               <button type="button">Read article 2</button>
-            </Carousel.Item>
-            <Carousel.Item className="flex items-center">
+            </Carousel.Slide>
+            <Carousel.Slide className="flex items-center">
               <button type="button">Read article 3</button>
-            </Carousel.Item>
-          </Carousel.Items>
+            </Carousel.Slide>
+          </Carousel.Slides>
           <Carousel.Controls />
         </Carousel.Viewport>
 
