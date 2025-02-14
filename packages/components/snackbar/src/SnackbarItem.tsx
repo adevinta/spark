@@ -104,7 +104,11 @@ export const SnackbarItem = ({
     ariaDetails,
   }
 
-  const { toastProps, titleProps, closeButtonProps } = useToast({ toast, ...ariaProps }, state, ref)
+  const { toastProps, titleProps, closeButtonProps, contentProps } = useToast(
+    { toast, ...ariaProps },
+    state,
+    ref
+  )
 
   const findElement = useCallback(
     <P extends object>(elementDisplayName: string): ReactElement<P> | undefined => {
@@ -129,52 +133,52 @@ export const SnackbarItem = ({
   const closeBtnFromChildren = findElement<SnackbarItemCloseProps>('Snackbar.ItemClose')
 
   return (
-    <div
-      ref={ref}
-      {...toastProps}
-      {...rest}
-      data-animation={toast.animation}
-      {...(!(swipeState === 'cancel' && toast.animation === 'exiting') && {
-        'data-swipe': swipeState,
-        'data-swipe-direction': swipeDirection,
-      })}
-      {...(toast.animation === 'exiting' && {
-        // Remove snackbar when the exiting animation completes
-        onAnimationEnd: () => state.remove(toast.key),
-      })}
-      className={snackbarItemVariant({ design, intent, actionOnNewline, className })}
-    >
-      {/* 1. ICON */}
-      {renderSubComponent(iconFromChildren, icon ? SnackbarItemIcon : null, {
-        children: icon,
-      })}
-
-      {/* 2. MESSAGE */}
-      <p
-        className="row-span-3 px-md py-lg text-body-2"
-        style={{ gridArea: 'message' }}
-        {...titleProps}
+    <div ref={ref} {...toastProps} {...rest}>
+      <div
+        className={snackbarItemVariant({ design, intent, actionOnNewline, className })}
+        data-animation={toast.animation}
+        {...(!(swipeState === 'cancel' && toast.animation === 'exiting') && {
+          'data-swipe': swipeState,
+          'data-swipe-direction': swipeDirection,
+        })}
+        {...(toast.animation === 'exiting' && {
+          // Remove snackbar when the exiting animation completes
+          onAnimationEnd: () => state.remove(toast.key),
+        })}
+        {...contentProps}
       >
-        {message}
-      </p>
+        {/* 1. ICON */}
+        {renderSubComponent(iconFromChildren, icon ? SnackbarItemIcon : null, {
+          children: icon,
+        })}
 
-      {/* 3. ACTION BUTTON */}
-      {renderSubComponent(
-        actionBtnFromChildren,
-        actionLabel && onAction ? SnackbarItemAction : null,
-        { intent, design, onClick: onAction, children: actionLabel }
-      )}
+        {/* 2. MESSAGE */}
+        <p
+          className="px-md py-lg text-body-2 row-span-3"
+          style={{ gridArea: 'message' }}
+          {...titleProps}
+        >
+          {message}
+        </p>
 
-      {/* 4. CLOSE BUTTON */}
-      {renderSubComponent(closeBtnFromChildren, isClosable ? SnackbarItemClose : null, {
-        intent,
-        design,
-        /**
-         * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
-         * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
-         */
-        'aria-label': closeButtonProps['aria-label'] as string,
-      })}
+        {/* 3. ACTION BUTTON */}
+        {renderSubComponent(
+          actionBtnFromChildren,
+          actionLabel && onAction ? SnackbarItemAction : null,
+          { intent, design, onClick: onAction, children: actionLabel }
+        )}
+
+        {/* 4. CLOSE BUTTON */}
+        {renderSubComponent(closeBtnFromChildren, isClosable ? SnackbarItemClose : null, {
+          intent,
+          design,
+          /**
+           * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
+           * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
+           */
+          'aria-label': closeButtonProps['aria-label'] as string,
+        })}
+      </div>
     </div>
   )
 }
