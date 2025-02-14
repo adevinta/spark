@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/adevinta/spark/compare/v9.0.8...v9.1.0) (2025-02-14)
+
+**Note:** Version bump only for package @spark-ui/snackbar
+
 ## [9.0.8](https://github.com/adevinta/spark/compare/v9.0.7...v9.0.8) (2025-02-12)
 
 **Note:** Version bump only for package @spark-ui/snackbar

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/adevinta/spark/compare/v9.0.8...v9.1.0) (2025-02-14)
+
+### Features
+
+- add "default" custom tailwind variant ([ad7773e](https://github.com/adevinta/spark/commit/ad7773ee081d9b50ba2b6f4d5e5cc900e2b8ea19))
+
 ## [9.0.8](https://github.com/adevinta/spark/compare/v9.0.7...v9.0.8) (2025-02-12)
 
 **Note:** Version bump only for package @spark-ui/theme-utils
