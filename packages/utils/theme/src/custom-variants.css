@@ -1,0 +1,6 @@
+/**
+ * This custom-variant uses the CSS :where() pseudo-class to wrap the selector.
+ * This sets its specificity to (0,0,0), ensuring that styles defined
+ * with this variant can be easily overridden without resorting to the important! flag.
+ */
+@custom-variant default (:where(&));
