@@ -20,7 +20,10 @@ export const CarouselPagePicker = ({ children, className }: Props) => {
     <>
       <div
         {...ctx.getIndicatorGroupProps()}
-        className={cx('flex w-full flex-wrap items-center justify-center', className)}
+        className={cx(
+          'default:min-h-sz-16 flex w-full flex-wrap items-center justify-center',
+          className
+        )}
       >
         {ctx.pageSnapPoints.length <= 1
           ? null

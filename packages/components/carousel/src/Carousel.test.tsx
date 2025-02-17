@@ -32,7 +32,10 @@ describe('Carousel', () => {
               <button type="button">Read article 3</button>
             </Carousel.Slide>
           </Carousel.Slides>
-          <Carousel.Controls />
+          <Carousel.Controls>
+            <Carousel.PrevButton aria-label="Next group of items" />
+            <Carousel.NextButton aria-label="Previous group of items" />
+          </Carousel.Controls>
         </Carousel.Viewport>
 
         <Carousel.PagePicker>
@@ -41,7 +44,7 @@ describe('Carousel', () => {
               <Carousel.PageIndicator
                 key={page}
                 index={page}
-                ariaLabel={`Go to page ${page + 1}`}
+                aria-label={`Go to page ${page + 1}`}
               />
             ))
           }
