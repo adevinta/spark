@@ -48,7 +48,7 @@ export const styles = cva(
       {
         enforceBoundaries: false,
         matchTriggerWidth: false,
-        class: 'max-w-[min(var(--sz-384),100vw)]',
+        class: 'max-w-[min(var(--spacing-sz-384),100vw)]',
       },
     ],
     defaultVariants: {
