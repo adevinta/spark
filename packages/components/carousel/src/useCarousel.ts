@@ -51,6 +51,15 @@ export const useCarousel = ({
     if (onPageChange && isMounted.current) onPageChange(pageState)
   }, [pageState])
 
+  useLayoutEffect(() => {
+    if (defaultPage) {
+      carouselRef.current?.scrollTo({
+        left: getSnapPositions()[defaultPage],
+        behavior: 'instant',
+      })
+    }
+  }, [])
+
   // computed
   const canScrollPrev = useRef(loop || pageState > 0)
   const canScrollNext = useRef(loop || pageState < pageSnapPoints.length - 1)
@@ -256,16 +265,8 @@ export const useCarousel = ({
       ref: carouselRef,
     }),
 
-    getSlideProps: ({ index, totalSlides }): ComputedSlideProps => {
-      const snaps = getSnapIndices({ totalSlides })
-
-      /**
-       * The trick here is that if there is a `defaultPage`, to set scroll-snap-align only on the item matching the start of the `defaultPage`.
-       * It will position the carousel on the page without relying on Javascript, which is necessary to support SSR.
-       * This is to avoid a flickering effect on mount.
-       */
-      const shouldSetDefaultPage = !isMounted.current && defaultPage != null
-      const isStopPoint = shouldSetDefaultPage ? snaps[defaultPage] === index : isSnapPoint(index)
+    getSlideProps: ({ index }): ComputedSlideProps => {
+      const isStopPoint = isSnapPoint(index)
 
       return {
         id: `carousel::${carouselId}::item:${index}`,

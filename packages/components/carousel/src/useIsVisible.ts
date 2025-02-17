@@ -1,31 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 export function useIsVisible(
   elementRef: React.RefObject<HTMLElement | null>,
   parentRef: React.RefObject<HTMLElement | null>
 ) {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
-  useEffect(() => {
-    if (!parentRef.current || !elementRef.current) return
+  useLayoutEffect(() => {
+    const el = elementRef.current
+    const parent = parentRef.current
+
+    if (!parent || !el) return
 
     const observer = new IntersectionObserver(
-      entries => {
-        const entry = entries[0]
+      ([entry]) => {
         if (entry) {
           setIsVisible(entry.isIntersecting)
         }
       },
-      {
-        root: parentRef.current,
-        threshold: 0.2,
-      }
+      { root: parent, threshold: 0.2 }
     )
 
-    observer.observe(elementRef.current)
+    observer.observe(el)
 
     return () => observer.disconnect()
-  }, [elementRef, parentRef])
+  })
 
   return isVisible
 }
