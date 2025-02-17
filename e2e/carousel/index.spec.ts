@@ -61,8 +61,6 @@ test.describe('Spark carousel', () => {
         'true'
       )
     })
-
-    await page.waitForTimeout(0) // to preview last step in UI mode
   })
 
   test('should render on default page (prop)', async ({ page }) => {
@@ -83,8 +81,6 @@ test.describe('Spark carousel', () => {
         'true'
       )
     })
-
-    await page.waitForTimeout(0) // to preview last step in UI mode
   })
 
   test('should loop using controls', async ({ page }) => {
@@ -133,8 +129,6 @@ test.describe('Spark carousel', () => {
         'true'
       )
     })
-
-    await page.waitForTimeout(0) // to preview last step in UI mode
   })
 
   test('should control carousel through props (page on onPageChange)', async ({ page }) => {
@@ -171,8 +165,6 @@ test.describe('Spark carousel', () => {
         'true'
       )
     })
-
-    await page.waitForTimeout(0) // to preview last step in UI mode
   })
 
   test('should have two slides per page', async ({ page }) => {
@@ -236,8 +228,6 @@ test.describe('Spark carousel', () => {
         'true'
       )
     })
-
-    await page.waitForTimeout(0) // to preview last step in UI mode
   })
 
   test('should have two slides per page AND one slide per move', async ({ page }) => {
@@ -315,8 +305,6 @@ test.describe('Spark carousel', () => {
         'true'
       )
     })
-
-    await page.waitForTimeout(0) // to preview last step in UI mode
   })
 
   test('should hide controls when carousel has only one page', async ({ page }) => {
@@ -338,7 +326,5 @@ test.describe('Spark carousel', () => {
       expect(prevButton).not.toBeAttached()
       expect(nextButton).not.toBeAttached()
     })
-
-    await page.waitForTimeout(0) // to preview last step in UI mode
   })
 })

@@ -5,7 +5,7 @@ import { useCarouselContext } from './Carousel'
 
 interface Props {
   children?: ReactNode
-  ariaLabel: string
+  'aria-label': string
   index: number
   className?: string
   unstyled?: boolean
@@ -15,7 +15,7 @@ export const CarouselPageIndicator = ({
   children,
   unstyled = false,
   index,
-  ariaLabel,
+  'aria-label': ariaLabel,
   className,
 }: Props) => {
   const ctx = useCarouselContext()
