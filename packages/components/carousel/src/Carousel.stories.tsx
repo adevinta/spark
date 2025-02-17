@@ -51,20 +51,22 @@ export const Default: StoryFn = _args => {
               <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={256} imgWidth={512} className="h-sz-256 object-contain" />
 
-                <Button asChild className="bottom-lg right-lg absolute" intent="danger">
-                  <a href="#">Read article</a>
-                </Button>
+                <Button className="bottom-lg right-lg absolute">Read article</Button>
               </Carousel.Slide>
             )
           })}
         </Carousel.Slides>
-        <Carousel.Controls />
+
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
@@ -174,7 +176,10 @@ export const Controlled: StoryFn = _args => {
               )
             })}
           </Carousel.Slides>
-          <Carousel.Controls />
+          <Carousel.Controls>
+            <Carousel.PrevButton aria-label="Previous group of items" />
+            <Carousel.NextButton aria-label="Next group of items" />
+          </Carousel.Controls>
         </Carousel.Viewport>
 
         <Carousel.PagePicker>
@@ -183,7 +188,7 @@ export const Controlled: StoryFn = _args => {
               <Carousel.PageIndicator
                 key={page}
                 index={page}
-                ariaLabel={`Go to page ${page + 1}`}
+                aria-label={`Go to page ${page + 1}`}
               />
             ))
           }
@@ -224,15 +229,14 @@ export const Gap: StoryFn = _args => {
               <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
-                <Button asChild>
-                  <a href="#" className="bottom-lg right-lg absolute">
-                    Read article
-                  </a>
-                </Button>
+                <Button className="bottom-lg right-lg absolute">Read article</Button>
               </Carousel.Slide>
             ))}
           </Carousel.Slides>
-          <Carousel.Controls />
+          <Carousel.Controls>
+            <Carousel.PrevButton aria-label="Previous group of items" />
+            <Carousel.NextButton aria-label="Next group of items" />
+          </Carousel.Controls>
         </Carousel.Viewport>
 
         <Carousel.PagePicker>
@@ -241,7 +245,7 @@ export const Gap: StoryFn = _args => {
               <Carousel.PageIndicator
                 key={page}
                 index={page}
-                ariaLabel={`Go to page ${page + 1}`}
+                aria-label={`Go to page ${page + 1}`}
               />
             ))
           }
@@ -261,22 +265,21 @@ export const DefaultPage: StoryFn = _args => {
               <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={256} imgWidth={256} className="h-sz-256 object-contain" />
 
-                <Button asChild>
-                  <a href="#" className="bottom-lg right-lg absolute">
-                    Read article
-                  </a>
-                </Button>
+                <Button className="bottom-lg right-lg absolute">Read article</Button>
               </Carousel.Slide>
             )
           })}
         </Carousel.Slides>
-        <Carousel.Controls />
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
@@ -294,22 +297,21 @@ export const Loop: StoryFn = _args => {
               <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={256} imgWidth={256} className="h-sz-256 object-contain" />
 
-                <Button asChild>
-                  <a href="#" className="bottom-lg right-lg absolute">
-                    Read article
-                  </a>
-                </Button>
+                <Button className="bottom-lg right-lg absolute">Read article</Button>
               </Carousel.Slide>
             )
           })}
         </Carousel.Slides>
-        <Carousel.Controls />
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
@@ -391,15 +393,14 @@ export const ScrollBehavior: StoryFn = _args => {
               <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
-                <Button asChild>
-                  <a href="#" className="bottom-lg right-lg absolute">
-                    Read article
-                  </a>
-                </Button>
+                <Button className="bottom-lg right-lg absolute">Read article</Button>
               </Carousel.Slide>
             ))}
           </Carousel.Slides>
-          <Carousel.Controls />
+          <Carousel.Controls>
+            <Carousel.PrevButton aria-label="Previous group of items" />
+            <Carousel.NextButton aria-label="Next group of items" />
+          </Carousel.Controls>
         </Carousel.Viewport>
 
         <Carousel.PagePicker>
@@ -408,7 +409,7 @@ export const ScrollBehavior: StoryFn = _args => {
               <Carousel.PageIndicator
                 key={page}
                 index={page}
-                ariaLabel={`Go to page ${page + 1}`}
+                aria-label={`Go to page ${page + 1}`}
               />
             ))
           }
@@ -451,15 +452,14 @@ export const SlidesPerPage: StoryFn = _args => {
               <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
-                <Button asChild>
-                  <a href="#" className="bottom-lg right-lg absolute">
-                    Read article
-                  </a>
-                </Button>
+                <Button className="bottom-lg right-lg absolute">Read article</Button>
               </Carousel.Slide>
             ))}
           </Carousel.Slides>
-          <Carousel.Controls />
+          <Carousel.Controls>
+            <Carousel.PrevButton aria-label="Previous group of items" />
+            <Carousel.NextButton aria-label="Next group of items" />
+          </Carousel.Controls>
         </Carousel.Viewport>
 
         <Carousel.PagePicker>
@@ -468,7 +468,7 @@ export const SlidesPerPage: StoryFn = _args => {
               <Carousel.PageIndicator
                 key={page}
                 index={page}
-                ariaLabel={`Go to page ${page + 1}`}
+                aria-label={`Go to page ${page + 1}`}
               />
             ))
           }
@@ -488,15 +488,14 @@ export const SlidesPerMove: StoryFn = _args => {
               <Carousel.Slide key={i} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
-                <Button asChild>
-                  <a href="#" className="bottom-lg right-lg absolute">
-                    Read article
-                  </a>
-                </Button>
+                <Button className="bottom-lg right-lg absolute">Read article</Button>
               </Carousel.Slide>
             ))}
           </Carousel.Slides>
-          <Carousel.Controls />
+          <Carousel.Controls>
+            <Carousel.PrevButton aria-label="Previous group of items" />
+            <Carousel.NextButton aria-label="Next group of items" />
+          </Carousel.Controls>
         </Carousel.Viewport>
 
         <Carousel.PagePicker>
@@ -505,7 +504,7 @@ export const SlidesPerMove: StoryFn = _args => {
               <Carousel.PageIndicator
                 key={page}
                 index={page}
-                ariaLabel={`Go to page ${page + 1}`}
+                aria-label={`Go to page ${page + 1}`}
               />
             ))
           }
@@ -583,7 +582,10 @@ export const CustomPageIndicators: StoryFn = () => {
               )
             })}
           </Carousel.Slides>
-          <Carousel.Controls />
+          <Carousel.Controls>
+            <Carousel.PrevButton aria-label="Previous group of items" />
+            <Carousel.NextButton aria-label="Next group of items" />
+          </Carousel.Controls>
         </Carousel.Viewport>
 
         <Carousel.PagePicker className="gap-md">
@@ -597,7 +599,7 @@ export const CustomPageIndicators: StoryFn = () => {
                 <Carousel.PageIndicator
                   key={page}
                   index={page}
-                  ariaLabel={`Go to page ${page + 1}`}
+                  aria-label={`Go to page ${page + 1}`}
                   unstyled
                   className={cx(
                     'flex-1 list-none',

@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
+import { Kbd } from '@spark-ui/kbd'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Carousel } from '.'
@@ -146,3 +147,33 @@ The `unstyled` prop of `Carousel.PageIndicator` allows you to use your own style
 
 <Canvas of={stories.CustomPageIndicators} />
 
+## Accessibility
+
+This component adheres to the [`carousel` pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/).
+
+### Recommandations
+
+- Each `Carousel.Slide` should be given either an `aria-label` or an `aria-labelledby` attribute to be fully accessible.
+- Please use either/both `Carousel.PagePicker` and `Carousel.Controls` if your slides are not focusable (ex: an image carousel).
+- `aria-label` are mandatory on `Carousel.NextButton`, `Carousel.PrevButton` and `Carousel.PageIndicator`.
+
+### Keyboard Interactions
+
+- <Kbd>Tab</Kbd> and <Kbd>Shift + Tab</Kbd>: Move focus through the interactive elements of the carousel as specified by the component tab sequence:
+- <Kbd>LeftArrow</Kbd> or <Kbd>RightArrow</Kbd>: Go to the previous/next page while focused on the carousel OR page picker.
+
+### Keyboard Tab Sequence
+
+**Note: slides outside of the viewport are considered `inert` and cannot be accessed with the keyboard until you reach their page.**
+
+1 - Carousel scrollable area. Once focused, press <Kbd>LeftArrow</Kbd> or <Kbd>RightArrow</Kbd> to go to the next/previous page.
+
+2 - Visible slides, if focusable (a slide may or may not be focusable. Ex: a "link" slide is focusable, an "image" slide is not).
+
+3 - Focusable elements inside visible slides (if any)
+
+4 - "Next" button (if visible). It takes focus before the "Previous" button to facilitate traversing the carousel contents.
+
+5 - "Previous" button (if visible)
+
+6 - Active page indicator. Once focused, press <Kbd>LeftArrow</Kbd> or <Kbd>RightArrow</Kbd> to go to the next/previous page, as the page picker behave like a radio group. This is to limit how many <Kbd>Tab</Kbd> press are necessary to traverse the whole carousel.

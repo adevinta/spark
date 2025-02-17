@@ -17,13 +17,16 @@ const DefaultCarousel = () => {
             <button type="button">Read article 3</button>
           </Carousel.Slide>
         </Carousel.Slides>
-        <Carousel.Controls />
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
@@ -62,7 +65,10 @@ const ControlledCarousel = () => {
               <button type="button">Read article 3</button>
             </Carousel.Slide>
           </Carousel.Slides>
-          <Carousel.Controls />
+          <Carousel.Controls>
+            <Carousel.PrevButton aria-label="Previous group of items" />
+            <Carousel.NextButton aria-label="Next group of items" />
+          </Carousel.Controls>
         </Carousel.Viewport>
 
         <Carousel.PagePicker>
@@ -71,7 +77,7 @@ const ControlledCarousel = () => {
               <Carousel.PageIndicator
                 key={page}
                 index={page}
-                ariaLabel={`Go to page ${page + 1}`}
+                aria-label={`Go to page ${page + 1}`}
               />
             ))
           }
@@ -96,13 +102,16 @@ const LoopCarousel = () => {
             <button type="button">Read article 3</button>
           </Carousel.Slide>
         </Carousel.Slides>
-        <Carousel.Controls />
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
@@ -125,13 +134,16 @@ const DefaultPageCarousel = () => {
             <button type="button">Read article 3</button>
           </Carousel.Slide>
         </Carousel.Slides>
-        <Carousel.Controls />
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
@@ -160,13 +172,16 @@ export const TwoSlidesPerPage = () => {
             <button type="button">Read article 5</button>
           </Carousel.Slide>
         </Carousel.Slides>
-        <Carousel.Controls />
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
@@ -195,13 +210,16 @@ export const OneSlidePerMove = () => {
             <button type="button">Read article 5</button>
           </Carousel.Slide>
         </Carousel.Slides>
-        <Carousel.Controls />
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
@@ -224,13 +242,16 @@ const SinglePageCarousel = () => {
             <button type="button">Read article 3</button>
           </Carousel.Slide>
         </Carousel.Slides>
-        <Carousel.Controls />
+        <Carousel.Controls>
+          <Carousel.PrevButton aria-label="Previous group of items" />
+          <Carousel.NextButton aria-label="Next group of items" />
+        </Carousel.Controls>
       </Carousel.Viewport>
 
       <Carousel.PagePicker>
         {({ pages }) =>
           pages.map(page => (
-            <Carousel.PageIndicator key={page} index={page} ariaLabel={`Go to page ${page + 1}`} />
+            <Carousel.PageIndicator key={page} index={page} aria-label={`Go to page ${page + 1}`} />
           ))
         }
       </Carousel.PagePicker>
