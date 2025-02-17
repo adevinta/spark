@@ -121,7 +121,7 @@ const LoopCarousel = () => {
 
 const DefaultPageCarousel = () => {
   return (
-    <Carousel defaultPage={1}>
+    <Carousel scrollBehavior="instant" defaultPage={1}>
       <Carousel.Viewport>
         <Carousel.Slides>
           <Carousel.Slide className="bg-support-container! text-on-support-container p-xl flex items-center">
