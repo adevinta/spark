@@ -2,11 +2,11 @@ import { tw } from '@spark-ui/internal-utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 export const chipClearButtonWrapperStyles = cva(
-  ['ml-md flex h-full items-center justify-center focus-visible:outline-hidden'],
+  ['ml-md flex h-full items-center justify-center focus-visible:outline-hidden cursor-pointer'],
   {
     variants: {
       disabled: {
-        false: ['cursor-pointer'],
+        false: [''],
         true: ['cursor-not-allowed'],
       },
       isBordered: {
