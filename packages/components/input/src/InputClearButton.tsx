@@ -31,7 +31,7 @@ const Root = ({ className, tabIndex = -1, onClick, ref, ...others }: InputClearB
         'pointer-events-auto absolute top-1/2 -translate-y-1/2',
         'inline-flex h-full items-center justify-center outline-hidden',
         'text-neutral hover:text-neutral-hovered',
-        hasTrailingIcon ? 'right-3xl px-[var(--sz-12)]' : 'pl-md pr-lg right-0'
+        hasTrailingIcon ? 'right-3xl px-sz-12' : 'pl-md pr-lg right-0'
       )}
       tabIndex={tabIndex}
       onClick={handleClick}
