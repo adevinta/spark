@@ -11,8 +11,15 @@ import React, { useState } from 'react'
 import { Carousel } from '.'
 
 const meta: Meta<typeof Carousel> = {
-  title: 'Experimental/Carousel',
+  title: 'Components/Carousel',
   component: Carousel,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=55718-50111&t=BBIndEY6dnQTRa1G-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta

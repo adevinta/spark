@@ -27,7 +27,7 @@ export const CarouselSlide = ({
     <div
       ref={itemRef}
       {...ctx.getSlideProps({ index, totalSlides: totalSlides as number })}
-      className={cx('default:bg-surface relative overflow-hidden default:rounded-lg', className)}
+      className={cx('default:bg-surface relative overflow-hidden', className)}
       aria-hidden={!isVisible}
       inert={!isVisible}
     >
