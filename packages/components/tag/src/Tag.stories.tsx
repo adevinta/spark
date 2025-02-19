@@ -32,7 +32,7 @@ const designs: TagProps['design'][] = ['filled', 'outlined', 'tinted']
 export const Default: StoryFn = _args => <Tag>Default tag</Tag>
 
 export const Design: StoryFn = _args => (
-  <div className="flex flex-row gap-md">
+  <div className="gap-md flex flex-row">
     {designs.map(design => (
       <Tag key={design} design={design}>
         {design} tag
@@ -42,12 +42,16 @@ export const Design: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-col gap-md">
+  <div className="gap-md flex flex-col">
     {designs.map(design => (
-      <div key={design} className="flex flex-row gap-md">
+      <div key={design} className="gap-md flex flex-row">
         {intents.map(intent => {
           if (design !== 'filled' && intent === 'surface') {
-            return <span className="self-center text-small">N/A</span>
+            return (
+              <span key={intent} className="text-small self-center">
+                N/A
+              </span>
+            )
           }
 
           return (
@@ -62,7 +66,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Icons: StoryFn = _args => (
-  <div className="flex flex-wrap gap-md">
+  <div className="gap-md flex flex-wrap">
     <Tag>
       Button
       <Icon>

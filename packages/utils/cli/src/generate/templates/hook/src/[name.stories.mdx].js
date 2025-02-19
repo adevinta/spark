@@ -3,7 +3,7 @@ import { camelCase } from 'camel-case'
 export default ({ name, description }) => {
   const hookName = camelCase(name)
 
-  return `import { Meta, Story } from '@storybook/addon-docs'
+  return `import { Meta, Story } from '@storybook/blocks'
   import { ArgTypes } from '@storybook/blocks';
 
 import { ${hookName} } from '.'
