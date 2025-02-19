@@ -9,6 +9,13 @@ const meta: Meta<typeof Pagination> = {
   title: 'Components/Pagination',
   component: Pagination,
   tags: ['navigation'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=52241-11715&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -113,7 +120,7 @@ export const VisiblePageItems: StoryFn = () => {
             pages.map((page, index) =>
               page.type === 'page' ? (
                 <Pagination.Item
-                  className="relative [counter-increment:list-number] before:pointer-events-none before:absolute before:-bottom-full before:text-caption before:font-regular before:text-neutral/dim-2 before:content-[counter(list-number)]"
+                  className="before:text-caption before:font-regular before:text-neutral/dim-2 relative [counter-increment:list-number] before:pointer-events-none before:absolute before:-bottom-full before:content-[counter(list-number)]"
                   key={page.value}
                   value={page.value}
                   aria-label={
@@ -126,7 +133,7 @@ export const VisiblePageItems: StoryFn = () => {
                 </Pagination.Item>
               ) : (
                 <Pagination.Ellipsis
-                  className="relative [counter-increment:list-number] before:pointer-events-none before:absolute before:-bottom-full before:text-caption before:text-neutral/dim-2 before:content-[counter(list-number)]"
+                  className="before:text-caption before:text-neutral/dim-2 relative [counter-increment:list-number] before:pointer-events-none before:absolute before:-bottom-full before:content-[counter(list-number)]"
                   key={`${index}-ellipsis`}
                   index={index}
                 />
@@ -157,8 +164,8 @@ export const Controlled: StoryFn = () => {
   )
 
   return (
-    <div className="flex flex-col items-center justify-center gap-xl">
-      <div className="flex w-full flex-col gap-md">
+    <div className="gap-xl flex flex-col items-center justify-center">
+      <div className="gap-md flex w-full flex-col">
         {currentPageItems.map(item => {
           return (
             <div key={item.id} className="bg-basic-container p-lg">

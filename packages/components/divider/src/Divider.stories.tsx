@@ -10,6 +10,13 @@ const meta: Meta<typeof Divider> = {
   title: 'Components/Divider',
   component: Divider,
   tags: ['data-display'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=47694-29759&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta

@@ -7,6 +7,13 @@ const meta: Meta<typeof Rating> = {
   title: 'Components/Rating',
   component: Rating,
   tags: ['data-entry'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=11013-788&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -24,7 +31,7 @@ export const Disabled: StoryFn = _args => (
 )
 
 export const Size: StoryFn = _args => (
-  <div className="flex flex-row flex-wrap gap-xl">
+  <div className="gap-xl flex flex-row flex-wrap">
     {sizes.map(size => (
       <div key={size} className="">
         <StoryLabel>{`${size}${size === 'md' ? ' (default)' : ''}`}</StoryLabel>
@@ -35,7 +42,7 @@ export const Size: StoryFn = _args => (
 )
 
 export const Rounded: StoryFn = _args => (
-  <div className="flex flex-row flex-wrap gap-xl">
+  <div className="gap-xl flex flex-row flex-wrap">
     {[1.1, 2.24, 3.75, 4.74].map(val => (
       <div key={val} className="">
         <StoryLabel>{val}</StoryLabel>

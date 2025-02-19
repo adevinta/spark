@@ -7,6 +7,13 @@ const meta: Meta<typeof Progress> = {
   title: 'Components/Progress',
   component: Progress,
   tags: ['indicators'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=54401-18032&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -61,7 +68,7 @@ const intents: ProgressProps['intent'][] = [
 
 export const Intent: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="gap-xl flex flex-col">
       {intents.map(intent => (
         <Progress key={intent} aria-label="Loading" value={60} intent={intent} />
       ))}
@@ -73,7 +80,7 @@ const shapes: ProgressProps['shape'][] = ['square', 'rounded']
 
 export const Shape: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="gap-xl flex flex-col">
       {shapes.map(shape => (
         <Progress key={shape} aria-label="Loading" value={60} shape={shape} />
       ))}
@@ -97,7 +104,7 @@ export const ValueLabel: StoryFn = () => {
 
 export const Label: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-lg">
+    <div className="gap-lg flex flex-col">
       <Progress className="items-start" value={20} max={100}>
         <Progress.Bar />
         <Progress.Label>Loading</Progress.Label>

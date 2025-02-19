@@ -9,6 +9,13 @@ const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',
   component: Drawer,
   tags: ['overlays'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=11237-18028&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -45,12 +52,12 @@ export const Usage: StoryFn = () => {
             ))}
           </Drawer.Body>
 
-          <Drawer.Footer className="flex justify-between gap-md">
+          <Drawer.Footer className="gap-md flex justify-between">
             <Button intent="basic" design="ghost" onClick={() => setOpen(false)}>
               Cancel
             </Button>
 
-            <div className="flex gap-md">
+            <div className="gap-md flex">
               <Button intent="basic" design="outlined" onClick={() => setOpen(false)}>
                 Disagree
               </Button>
@@ -72,7 +79,7 @@ export const Sizes = () => {
   return (
     <div>
       <RadioGroup
-        className="mb-lg flex gap-md"
+        className="mb-lg gap-md flex"
         value={size}
         orientation="horizontal"
         onValueChange={value => setSize(value as ExcludeNull<DrawerContentProps>['size'])}
@@ -97,7 +104,7 @@ export const Sizes = () => {
               <Drawer.Title>Edit size</Drawer.Title>
             </Drawer.Header>
 
-            <Drawer.Body className="flex flex-col gap-lg">
+            <Drawer.Body className="gap-lg flex flex-col">
               <Drawer.Description>Please select a drawer size</Drawer.Description>
 
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -118,7 +125,7 @@ export const Sizes = () => {
               )}
             </Drawer.Body>
 
-            <Drawer.Footer className="flex justify-end gap-md">
+            <Drawer.Footer className="gap-md flex justify-end">
               <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
@@ -154,7 +161,7 @@ export const Inset: StoryFn = () => {
             <img src="https://placehold.co/480x800" alt="" />
           </Drawer.Body>
 
-          <Drawer.Footer className="flex justify-end gap-md">
+          <Drawer.Footer className="gap-md flex justify-end">
             <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
               Cancel
             </Button>
@@ -175,7 +182,7 @@ export const Side = () => {
   return (
     <>
       <RadioGroup
-        className="mb-lg flex gap-md"
+        className="mb-lg gap-md flex"
         value={side}
         orientation="horizontal"
         onValueChange={value => setSide(value as ExcludeNull<DrawerContentProps>['side'])}
@@ -199,7 +206,7 @@ export const Side = () => {
               <Drawer.Title>Edit side</Drawer.Title>
             </Drawer.Header>
 
-            <Drawer.Body className="flex flex-col gap-lg">
+            <Drawer.Body className="gap-lg flex flex-col">
               <Drawer.Description>Please select a drawer side</Drawer.Description>
 
               {Array.from({ length: 10 }, (_, index) => (
@@ -214,7 +221,7 @@ export const Side = () => {
               ))}
             </Drawer.Body>
 
-            <Drawer.Footer className="flex justify-end gap-md">
+            <Drawer.Footer className="gap-md flex justify-end">
               <Button intent="neutral" design="outlined" onClick={() => setOpen(false)}>
                 Cancel
               </Button>

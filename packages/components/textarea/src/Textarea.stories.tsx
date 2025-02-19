@@ -11,6 +11,13 @@ const meta: Meta<typeof Textarea> = {
   title: 'Components/Textarea',
   component: Textarea,
   tags: ['data-entry'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=55066-31324&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -52,7 +59,7 @@ export const CustomizedScrollbar: StoryFn = () => (
 )
 
 export const Disabled: StoryFn = _args => (
-  <div className="flex flex-col gap-md">
+  <div className="gap-md flex flex-col">
     <Textarea
       rows={2}
       defaultValue="IPhone 12 in good condition"
@@ -90,7 +97,7 @@ export const Icon: StoryFn = _args => (
 
 export const State: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="gap-xl flex flex-col">
       <TextareaGroup state="error">
         <Textarea rows={2} aria-label="Description" />
       </TextareaGroup>
@@ -178,7 +185,7 @@ export const FieldCharactersCount: StoryFn = () => {
 
       <Textarea rows={2} value={value} onChange={handleChange} maxLength={maxLength} />
 
-      <div className="flex justify-between gap-md">
+      <div className="gap-md flex justify-between">
         <div className="grow">
           <FormField.HelperMessage>
             An effective description significantly increases your chances of making a sale

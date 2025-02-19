@@ -8,6 +8,13 @@ const meta: Meta<typeof FormField> = {
   title: 'Components/FormField',
   component: FormField,
   tags: ['data-entry'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=44899-1285&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta

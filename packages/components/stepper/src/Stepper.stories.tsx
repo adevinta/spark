@@ -12,6 +12,13 @@ const meta: Meta<typeof Stepper> = {
   title: 'Components/Stepper',
   component: Stepper,
   tags: ['data-entry'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=55687-12472&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -83,7 +90,7 @@ export const Custom: StoryFn = _args => (
 )
 
 export const State: StoryFn = _args => (
-  <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+  <div className="gap-xl grid grid-cols-2 md:grid-cols-3">
     {states.map(state => (
       <div key={state}>
         <StoryLabel>{state}</StoryLabel>
@@ -114,7 +121,7 @@ export const MinMaxValues: StoryFn = _args => (
 )
 
 export const FormatOptions: StoryFn = _args => (
-  <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+  <div className="gap-xl grid grid-cols-2 md:grid-cols-3">
     <div>
       <StoryLabel>Percentages</StoryLabel>
       <Stepper

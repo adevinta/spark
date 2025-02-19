@@ -13,6 +13,13 @@ const meta: Meta<typeof Dropdown> = {
   title: 'Components/Dropdown',
   component: Dropdown,
   tags: ['data-entry'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=46530-8050&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -73,8 +80,8 @@ export const ControlledOpenState: StoryFn = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="flex flex-col gap-lg">
-      <div className="flex gap-md">
+    <div className="gap-lg flex flex-col">
+      <div className="gap-md flex">
         <Button design="outlined" intent="success" disabled={open} onClick={() => setOpen(true)}>
           Open
         </Button>
@@ -115,27 +122,27 @@ export const CustomItem: StoryFn = _args => {
 
         <Dropdown.Popover>
           <Dropdown.Items>
-            <Dropdown.Item value="book-1" className="flex items-center gap-md">
+            <Dropdown.Item value="book-1" className="gap-md flex items-center">
               <Dropdown.ItemText>To Kill a Mockingbird</Dropdown.ItemText>
               <Tag>New</Tag>
             </Dropdown.Item>
-            <Dropdown.Item value="book-2" className="flex items-center gap-md">
+            <Dropdown.Item value="book-2" className="gap-md flex items-center">
               <Dropdown.ItemText>War and Peace</Dropdown.ItemText>
               <Tag>New</Tag>
             </Dropdown.Item>
-            <Dropdown.Item value="book-3" className="flex items-center gap-md">
+            <Dropdown.Item value="book-3" className="gap-md flex items-center">
               <Dropdown.ItemText>The Idiot</Dropdown.ItemText>
               <Tag>New</Tag>
             </Dropdown.Item>
-            <Dropdown.Item value="book-4" className="flex items-center gap-md">
+            <Dropdown.Item value="book-4" className="gap-md flex items-center">
               <Dropdown.ItemText>A Picture of Dorian Gray</Dropdown.ItemText>
               <Tag>New</Tag>
             </Dropdown.Item>
-            <Dropdown.Item value="book-5" className="flex items-center gap-md">
+            <Dropdown.Item value="book-5" className="gap-md flex items-center">
               <Dropdown.ItemText>1984</Dropdown.ItemText>
               <Tag>New</Tag>
             </Dropdown.Item>
-            <Dropdown.Item value="book-6" className="flex items-center gap-md">
+            <Dropdown.Item value="book-6" className="gap-md flex items-center">
               <Dropdown.ItemText>Pride and Prejudice</Dropdown.ItemText>
               <Tag>New</Tag>
             </Dropdown.Item>
@@ -284,27 +291,27 @@ export const ItemIndicator: StoryFn = _args => {
 
         <Dropdown.Popover>
           <Dropdown.Items>
-            <Dropdown.Item value="book-1" className="flex items-center gap-md">
+            <Dropdown.Item value="book-1" className="gap-md flex items-center">
               <Dropdown.ItemIndicator />
               <Dropdown.ItemText>To Kill a Mockingbird</Dropdown.ItemText>
             </Dropdown.Item>
-            <Dropdown.Item value="book-2" className="flex items-center gap-md">
+            <Dropdown.Item value="book-2" className="gap-md flex items-center">
               <Dropdown.ItemIndicator />
               <Dropdown.ItemText>War and Peace</Dropdown.ItemText>
             </Dropdown.Item>
-            <Dropdown.Item value="book-3" className="flex items-center gap-md">
+            <Dropdown.Item value="book-3" className="gap-md flex items-center">
               <Dropdown.ItemIndicator />
               <Dropdown.ItemText>The Idiot</Dropdown.ItemText>
             </Dropdown.Item>
-            <Dropdown.Item value="book-4" className="flex items-center gap-md">
+            <Dropdown.Item value="book-4" className="gap-md flex items-center">
               <Dropdown.ItemIndicator />
               <Dropdown.ItemText>A Picture of Dorian Gray</Dropdown.ItemText>
             </Dropdown.Item>
-            <Dropdown.Item value="book-5" className="flex items-center gap-md">
+            <Dropdown.Item value="book-5" className="gap-md flex items-center">
               <Dropdown.ItemIndicator />
               <Dropdown.ItemText>1984</Dropdown.ItemText>
             </Dropdown.Item>
-            <Dropdown.Item value="book-6" className="flex items-center gap-md">
+            <Dropdown.Item value="book-6" className="gap-md flex items-center">
               <Dropdown.ItemIndicator />
               <Dropdown.ItemText>Pride and Prejudice</Dropdown.ItemText>
             </Dropdown.Item>
@@ -321,7 +328,7 @@ export const Statuses: StoryFn = () => {
   const statuses: Status[] = ['error', 'alert', 'success']
 
   return (
-    <div className="flex flex-col gap-lg pb-[300px]">
+    <div className="gap-lg flex flex-col pb-[300px]">
       {statuses.map(status => {
         return (
           <Dropdown state={status} key={status}>

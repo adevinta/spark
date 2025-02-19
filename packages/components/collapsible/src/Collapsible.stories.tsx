@@ -20,7 +20,7 @@ export const Default: StoryFn = () => {
 
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
-      <div className="mb-lg flex items-center gap-md">
+      <div className="mb-lg gap-md flex items-center">
         <p className="font-bold">Terms and conditions</p>
         <Collapsible.Trigger asChild>
           <IconButton
@@ -32,7 +32,7 @@ export const Default: StoryFn = () => {
         </Collapsible.Trigger>
       </div>
 
-      <Collapsible.Content className="flex flex-col gap-md">
+      <Collapsible.Content className="gap-md flex flex-col">
         <p>
           By accessing or using our services, you agree to comply with the following terms and
           conditions. These terms govern your use of our website, mobile applications, and other

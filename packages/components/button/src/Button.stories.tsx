@@ -2,7 +2,7 @@ import { Checkbox } from '@spark-ui/checkbox'
 import { Icon } from '@spark-ui/icon'
 import { Check } from '@spark-ui/icons/dist/icons/Check'
 import { FavoriteOutline } from '@spark-ui/icons/dist/icons/FavoriteOutline'
-import { Meta, StoryFn } from '@storybook/react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
 import { type ComponentProps, useState } from 'react'
 
 import { Button } from '.'
@@ -11,6 +11,13 @@ const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   tags: ['action'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=2340-22557&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -33,7 +40,9 @@ const intents: ButtonProps['intent'][] = [
 const designs: ButtonProps['design'][] = ['filled', 'outlined', 'tinted', 'ghost', 'contrast']
 const shapes: ButtonProps['shape'][] = ['rounded', 'square', 'pill']
 
-export const Default: StoryFn = _args => <Button>Default button</Button>
+export const Default: StoryObj = {
+  render: _args => <Button>Default button</Button>,
+}
 
 export const Sizes: StoryFn = _args => (
   <div className="gap-md flex flex-wrap items-center">
