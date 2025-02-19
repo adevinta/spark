@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/label",
-  "version": "9.1.3",
+  "version": "9.1.4",
   "description": "Renders an accessible label associated with controls",
   "publishConfig": {
     "access": "public"
@@ -23,8 +23,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "radix-ui": "1.1.3",
-    "class-variance-authority": "0.7.0"
+    "class-variance-authority": "0.7.0",
+    "radix-ui": "1.1.3"
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "latest",
