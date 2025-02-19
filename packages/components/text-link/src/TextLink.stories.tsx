@@ -77,8 +77,8 @@ export const CurrentIntent: StoryFn = _args => {
 
   return (
     <div className="flex flex-row flex-wrap">
-      {cardColors.map(colorStyles => (
-        <p className={'inline p-md ' + colorStyles}>
+      {cardColors.map((colorStyles, i) => (
+        <p key={i} className={'p-md inline ' + colorStyles}>
           Current{' '}
           <TextLink href="https://en.wikipedia.org/wiki/Kitten" target="_blank">
             link
@@ -92,7 +92,7 @@ export const CurrentIntent: StoryFn = _args => {
 
 export const Intents: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-md">
+    <div className="gap-md flex flex-col">
       {intents.map(intent => (
         <p key={intent}>
           {intent}{' '}
@@ -108,10 +108,10 @@ export const Intents: StoryFn = _args => {
 
 export const Sizes: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-md">
-      {['text-caption', 'text-body-1', 'text-headline-1'].map(textSize => {
+    <div className="gap-md flex flex-col">
+      {['text-caption', 'text-body-1', 'text-headline-1'].map((textSize, i) => {
         return (
-          <p className={textSize}>
+          <p key={i} className={textSize}>
             Have you heard about{' '}
             <TextLink href="/?path=/docs/getting-started--docs" target="_blank">
               Spark

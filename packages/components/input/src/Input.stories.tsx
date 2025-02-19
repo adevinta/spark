@@ -48,7 +48,7 @@ export const Disabled: StoryFn = _args => {
   const [isDisabled, setIsDisabled] = useState(true)
 
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="gap-xl flex flex-col">
       <Checkbox checked={isDisabled} onClick={() => setIsDisabled(isDisabled => !isDisabled)}>
         Disabled
       </Checkbox>
@@ -133,7 +133,7 @@ export const ReadOnly: StoryFn = _args => {
   const [isReadOnly, setIsReadOnly] = useState(true)
 
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="gap-xl flex flex-col">
       <Checkbox checked={isReadOnly} onClick={() => setIsReadOnly(isReadOnly => !isReadOnly)}>
         Read Only
       </Checkbox>
@@ -229,8 +229,8 @@ export const ReadOnly: StoryFn = _args => {
 
 export const Addons: StoryFn = _args => {
   return (
-    <div className="flex flex-col gap-xl">
-      <div className="flex flex-col gap-sm">
+    <div className="gap-xl flex flex-col">
+      <div className="gap-sm flex flex-col">
         <StoryLabel>Solid</StoryLabel>
         <InputGroup className="max-w-sz-320">
           <InputGroup.LeadingAddon asChild>
@@ -249,7 +249,7 @@ export const Addons: StoryFn = _args => {
         </InputGroup>
       </div>
 
-      <div className="flex flex-col gap-sm">
+      <div className="gap-sm flex flex-col">
         <StoryLabel>Inline</StoryLabel>
         <InputGroup className="max-w-sz-320">
           <InputGroup.LeadingAddon className="px-lg">
@@ -266,7 +266,7 @@ export const Addons: StoryFn = _args => {
         </InputGroup>
       </div>
 
-      <div className="flex flex-col gap-sm">
+      <div className="gap-sm flex flex-col">
         <StoryLabel>Raw text</StoryLabel>
         <InputGroup className="max-w-sz-320">
           <InputGroup.LeadingAddon className="px-lg">https://</InputGroup.LeadingAddon>
@@ -280,7 +280,7 @@ export const Addons: StoryFn = _args => {
 
 export const Icons: StoryFn = () => {
   return (
-    <div className="flex flex-col items-start gap-lg">
+    <div className="gap-lg flex flex-col items-start">
       <InputGroup className="max-w-sz-320">
         <InputGroup.LeadingIcon>
           <PenOutline />
@@ -341,9 +341,9 @@ export const SearchExample: StoryFn = _args => {
 
 export const State: StoryFn = _args => {
   return (
-    <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+    <div className="gap-xl grid grid-cols-2 md:grid-cols-3">
       {states.map(state => (
-        <div>
+        <div key={state}>
           <StoryLabel>{state}</StoryLabel>
           <InputGroup className="max-w-sz-320" state={state}>
             <InputGroup.LeadingAddon>https://</InputGroup.LeadingAddon>
@@ -416,7 +416,7 @@ export const FieldCharactersCount: StoryFn = _args => {
 
       <Input value={value} onChange={handleChange} maxLength={MAX_LENGTH} />
 
-      <div className="flex justify-between gap-md">
+      <div className="gap-md flex justify-between">
         <FormField.HelperMessage>
           Type the text but take into account the max length
         </FormField.HelperMessage>

@@ -3,7 +3,7 @@ import { pascalCase } from 'pascal-case'
 export default ({ name, description }) => {
   const componentName = pascalCase(name)
 
-  return `import { Meta, Canvas } from '@storybook/addon-docs'
+  return `import { Meta, Canvas } from '@storybook/blocks'
 import { ArgTypes } from '@storybook/blocks';
 
 import { ${componentName} } from '.'

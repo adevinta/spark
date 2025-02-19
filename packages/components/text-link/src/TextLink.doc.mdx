@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/addon-docs'
+import { Meta, Canvas } from '@storybook/blocks'
 import { A11yReport } from '@docs/helpers/A11yReport'
 import { ArgTypes } from '@storybook/blocks'
 import { Kbd } from '@spark-ui/kbd'
@@ -79,18 +79,18 @@ This can be useful to showcase external links, download links, etc.
 By default `TextLink` shows an underline. It can be disabled to only be shown when hovering/focusing the link instead.
 
 <Callout kind="warning">
-  <p>
+  <span>
     If you decide to remove the underline, the links might become more difficult to identify by
     users.
-  </p>
-  <p>
+  </span>
+  <span>
     <span>Please check the </span>
     <TextLink
       href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F73"
       children="official WCAG requirements"
     />
     <span> for accessible links.</span>
-  </p>
+  </span>
 </Callout>
 
 <Canvas of={stories.Underline} />

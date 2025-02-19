@@ -1,4 +1,4 @@
-import { useClipboard } from '@docs/helpers/ReactLiveBlock'
+import { useClipboard } from '@docs/helpers/useClipboard'
 import { Button } from '@spark-ui/button'
 import { Icon } from '@spark-ui/icon'
 import { Meta, StoryFn } from '@storybook/react'
@@ -41,20 +41,20 @@ export const List: StoryFn = _args => {
   }, [])
 
   return (
-    <div className="flex flex-col content-start items-start gap-md">
+    <div className="gap-md flex flex-col content-start items-start">
       <label htmlFor="default-search-input" className="px-md text-small uppercase">
         search
       </label>
 
       <input
-        className="rounded-md px-md py-sm text-on-surface ring-2 ring-current focus-visible:outline-0"
+        className="px-md py-sm text-on-surface rounded-md ring-2 ring-current focus-visible:outline-0"
         id="default-search-input"
         value={value}
         placeholder="icon name"
         onChange={handleChange}
       />
 
-      <div className="grid grid-cols-4 gap-lg md:grid-cols-8 xl:grid-cols-12">
+      <div className="gap-lg grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12">
         {filteredIcons.map(([originalName, , element]) => (
           <Components.IconElement key={originalName} name={originalName} element={element} />
         ))}
@@ -68,13 +68,13 @@ const Components = {
     const { hasCopied, onCopy } = useClipboard(`<${name} />`)
 
     return (
-      <div className="flex flex-col content-start items-center gap-sm" onClick={onCopy}>
+      <div className="gap-sm flex flex-col content-start items-center" onClick={onCopy}>
         <Button design="filled" shape="pill" intent="surface" aria-label={name}>
           <Icon size="lg">
             <Element />
           </Icon>
         </Button>
-        <span className="min-w-[80px] text-center text-caption">{name}</span>
+        <span className="text-caption min-w-[80px] text-center">{name}</span>
         <span>{hasCopied ? 'copied!' : <br />}</span>
       </div>
     )

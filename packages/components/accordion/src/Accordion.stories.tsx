@@ -101,10 +101,10 @@ export const Design: StoryFn = _args => {
   const designs = ['outlined', 'filled'] as const
 
   return (
-    <div className="grid grid-cols-2 gap-xl bg-main-container p-xl">
+    <div className="gap-xl bg-main-container p-xl grid grid-cols-2">
       {designs.map(design => {
         return (
-          <div>
+          <div key={design}>
             <Tag className="mb-sm">{design}</Tag>
             <Accordion design={design} defaultValue={['watercraft']}>
               <Accordion.Item value="watercraft">

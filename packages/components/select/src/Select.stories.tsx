@@ -192,10 +192,10 @@ export const Statuses: StoryFn = () => {
   const statuses: Status[] = ['error', 'alert', 'success']
 
   return (
-    <div className="flex flex-col gap-lg">
+    <div className="gap-lg flex flex-col">
       {statuses.map(status => {
         return (
-          <Select name={'book-' + status} state={status}>
+          <Select key={status} name={'book-' + status} state={status}>
             <Select.Trigger aria-label="Book">
               <Select.Value placeholder="Pick a book" />
             </Select.Trigger>

@@ -8,7 +8,7 @@
     "noEmit": true,
     "module": "ESNext",
     "paths": {
-      "@docs/*": ["documentation/*"]
+      "@docs/*": ["./documentation/*"]
     }
   },
   "exclude": ["node_modules"]

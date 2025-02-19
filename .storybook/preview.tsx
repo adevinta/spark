@@ -1,4 +1,4 @@
-import { DocsContainer } from '@storybook/blocks'
+import { DocsContainer, DocsContainerProps } from '@storybook/blocks'
 import { Icon } from '@spark-ui/icon'
 import { ShareExpand } from '@spark-ui/icons/dist/icons/ShareExpand'
 
@@ -6,17 +6,20 @@ import '../src/tailwind.css'
 import './sb-theming.css'
 
 import { ToC } from '@docs/helpers/ToC'
+import { ReactNode, useEffect, useState } from 'react'
 
-const ExampleContainer = ({ children, ...props }) => {
-  const shouldDisplayExperimentalBanner = (() => {
-    const docsPrepared = props.context.channel.data.docsPrepared
-    if (!docsPrepared) return false
+interface Props extends DocsContainerProps {
+  children: ReactNode
+}
 
-    return docsPrepared.some(doc => {
-      if (!doc.id) return false
-      return doc.id.includes('experimental-')
-    })
-  })()
+const ExampleContainer = ({ children, ...props }: Props) => {
+  const [shouldDisplayExperimentalBanner, setShouldDisplayExperimentalBanner] = useState(false)
+
+  useEffect(() => {
+    const primaryStoryTitle = props.context.componentStories()[0]?.title
+
+    setShouldDisplayExperimentalBanner(primaryStoryTitle?.startsWith('Experimental') || false)
+  }, [props.context?.channel])
 
   return (
     <DocsContainer {...props}>
@@ -93,7 +96,7 @@ export default preview
 
 export const decorators = [
   // custom theme decorator, see https://yannbraga.dev/blog/multi-theme-decorator
-  (storyFn, { globals }) => {
+  (storyFn: () => ReactNode, { globals }: { globals: { theme: string } }) => {
     const themeKey = globals.theme
 
     const htmlElement = document.querySelector('html')
@@ -102,7 +105,7 @@ export const decorators = [
 
     return storyFn()
   },
-  (storyFn, { id, viewMode }) => {
+  (storyFn: () => ReactNode, { id, viewMode }: { id: string; viewMode: string }) => {
     const params = new URLSearchParams(window.top?.location.search)
     params.set('id', id)
     params.delete('path')
@@ -110,7 +113,7 @@ export const decorators = [
     return (
       <div className="relative w-full">
         {viewMode === 'docs' && (
-          <div className="absolute -right-lg -top-xl">
+          <div className="-right-lg -top-xl absolute">
             <a
               href={`/iframe.html?${params.toString()}`}
               target="_blank"
@@ -127,4 +130,3 @@ export const decorators = [
     )
   },
 ]
-export const tags = ['autodocs']
