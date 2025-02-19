@@ -8,6 +8,13 @@ const meta: Meta<typeof Slider> = {
   title: 'Components/Slider',
   component: Slider,
   tags: ['data-entry'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=3409-22562&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -47,7 +54,7 @@ const intents: SliderProps['intent'][] = [
 const shapes: SliderProps['shape'][] = ['square', 'rounded']
 
 export const Intent: StoryFn = _args => (
-  <div className="grid grid-cols-2 gap-xl sm:grid-cols-5">
+  <div className="gap-xl grid grid-cols-2 sm:grid-cols-5">
     {intents.map(intent => (
       <div key={intent} className="grow">
         <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
@@ -62,7 +69,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Shape: StoryFn = _args => (
-  <div className="grid grid-cols-2 gap-xl">
+  <div className="gap-xl grid grid-cols-2">
     {shapes.map(shape => (
       <div key={shape} className="grow">
         <StoryLabel>{`${shape}${shape === 'square' ? ' (default)' : ''}`}</StoryLabel>
@@ -97,7 +104,7 @@ export const RestrictedValues: StoryFn = () => {
         <Slider.Track />
         <Slider.Thumb aria-valuetext={String(remappedValue)} aria-label="Power" />
       </Slider>
-      <div className="mt-md flex flex-col gap-y-md">
+      <div className="mt-md gap-y-md flex flex-col">
         <p className="font-semi-bold">
           slider value: <span className="font-regular">{value}</span>
         </p>

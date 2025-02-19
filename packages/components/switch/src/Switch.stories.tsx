@@ -11,6 +11,13 @@ const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
   tags: ['data-entry'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=55014-22749&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -38,7 +45,7 @@ export const Icons: StoryFn = _args => (
 )
 
 export const Disabled: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     <Switch disabled>Agreed</Switch>
 
     <Switch defaultChecked disabled>
@@ -50,7 +57,7 @@ export const Disabled: StoryFn = _args => (
 const sizes: ComponentProps<typeof Switch>['size'][] = ['sm', 'md']
 
 export const Sizes: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     {sizes.map(size => (
       <div key={size}>
         <StoryLabel>{size}</StoryLabel>
@@ -75,7 +82,7 @@ const intents: ComponentProps<typeof Switch>['intent'][] = [
 ]
 
 export const Intent: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     {intents.map(intent => (
       <div key={intent}>
         <StoryLabel>{intent}</StoryLabel>

@@ -8,6 +8,13 @@ const meta: Meta<typeof Icon> = {
   title: 'Components/Icon',
   component: Icon,
   tags: ['data-display'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=2411-22587&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -24,7 +31,7 @@ const sizes: ComponentProps<typeof Icon>['size'][] = ['sm', 'md', 'lg', 'xl']
 
 export const Sizes: StoryFn = _args => (
   <>
-    <div className="flex gap-lg">
+    <div className="gap-lg flex">
       {sizes.map(size => (
         <div key={size} className="flex flex-col items-center">
           <StoryLabel>{size}</StoryLabel>
@@ -61,7 +68,7 @@ const intents: ComponentProps<typeof Icon>['intent'][] = [
 ]
 
 export const Intent: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     {intents.map(intent => (
       <div key={intent} className="flex flex-col items-center">
         <StoryLabel>{intent}</StoryLabel>

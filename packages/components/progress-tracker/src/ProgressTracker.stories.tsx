@@ -10,6 +10,13 @@ const meta: Meta<typeof ProgressTracker> = {
   title: 'Components/ProgressTracker',
   component: ProgressTracker,
   tags: ['indicators'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=41021-14134&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -30,7 +37,7 @@ const intents: ProgressTrackerProps['intent'][] = [
 const orientations: ProgressTrackerProps['orientation'][] = ['horizontal', 'vertical']
 
 export const Default: StoryFn = _args => (
-  <div className="flex flex-wrap items-center gap-2xl">
+  <div className="gap-2xl flex flex-wrap items-center">
     <ProgressTracker aria-label="Default progress tracker" stepIndex={1}>
       <ProgressTracker.Step>
         <ProgressTracker.StepIndicator />
@@ -114,7 +121,7 @@ export const Readonly: StoryFn = _args => (
 )
 
 export const Size: StoryFn = _args => (
-  <div className="flex flex-wrap items-center gap-2xl">
+  <div className="gap-2xl flex flex-wrap items-center">
     {sizes.map(size => (
       <div key={size}>
         <StoryLabel>{`${size}${size === 'lg' ? ' (default)' : ''}`}</StoryLabel>
@@ -143,7 +150,7 @@ export const Size: StoryFn = _args => (
 )
 
 export const Design: StoryFn = _args => (
-  <div className="flex flex-wrap items-center gap-2xl">
+  <div className="gap-2xl flex flex-wrap items-center">
     {designs.map(design => (
       <div key={design}>
         <StoryLabel>{`${design}${design === 'outline' ? ' (default)' : ''}`}</StoryLabel>
@@ -171,7 +178,7 @@ export const Design: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-wrap items-center gap-2xl">
+  <div className="gap-2xl flex flex-wrap items-center">
     {intents.map(intent => (
       <div key={intent}>
         <StoryLabel>{`${intent}${intent === 'basic' ? ' (default)' : ''}`}</StoryLabel>
@@ -203,7 +210,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Orientation: StoryFn = _args => (
-  <div className="flex flex-wrap gap-2xl">
+  <div className="gap-2xl flex flex-wrap">
     {orientations.map(orientation => (
       <div key={orientation}>
         <StoryLabel>{`${orientation}${

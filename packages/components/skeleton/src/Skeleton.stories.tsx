@@ -7,6 +7,13 @@ const meta: Meta<typeof Skeleton> = {
   title: 'Components/Skeleton',
   component: Skeleton,
   tags: ['others'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=53143-19938&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -36,7 +43,7 @@ export const LineSize: StoryFn = _args => (
 )
 
 export const Animation: StoryFn = _args => (
-  <div className="grid grid-cols-2 gap-xl">
+  <div className="gap-xl grid grid-cols-2">
     <div>
       <StoryLabel>with animation (default)</StoryLabel>
 
@@ -55,8 +62,8 @@ export const Animation: StoryFn = _args => (
 )
 
 export const Layout: StoryFn = _args => (
-  <Skeleton label="Loading..." className="flex flex-col gap-xl">
-    <div className="flex w-1/2 gap-lg">
+  <Skeleton label="Loading..." className="gap-xl flex flex-col">
+    <div className="gap-lg flex w-1/2">
       <Skeleton.Circle size={40} />
       <Skeleton.Line lines={2} />
     </div>

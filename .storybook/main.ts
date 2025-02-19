@@ -29,6 +29,8 @@ const config: StorybookConfig = {
         controls: false,
       },
     },
+    '@storybook/addon-a11y',
+    '@storybook/addon-designs',
   ],
   staticDirs: ['../public'],
   framework: {

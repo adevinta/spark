@@ -11,6 +11,13 @@ const meta: Meta<typeof Popover> = {
   title: 'Components/Popover',
   component: Popover,
   tags: ['overlays'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=4360-24470&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta

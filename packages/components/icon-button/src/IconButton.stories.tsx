@@ -12,6 +12,13 @@ const meta: Meta<typeof IconButton> = {
   title: 'Components/IconButton',
   component: IconButton,
   tags: ['action'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=1835-22582&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -43,7 +50,7 @@ const icon = (
 export const Default: StoryFn = _args => <IconButton aria-label="Button">{icon}</IconButton>
 
 export const Sizes: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     {sizes.map(size => {
       return (
         <div key={size} className="text-center">
@@ -58,7 +65,7 @@ export const Sizes: StoryFn = _args => (
 )
 
 export const Shapes: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     {shapes.map(shape => {
       return (
         <div key={shape} className="text-center">
@@ -79,7 +86,7 @@ export const Disabled: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     {intents.map(intent => (
       <div key={intent} className="text-center">
         <StoryLabel className="mx-auto">{intent}</StoryLabel>
@@ -92,7 +99,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Design: StoryFn = _args => (
-  <div className="flex gap-lg">
+  <div className="gap-lg flex">
     {designs.map(design => (
       <div key={design} className="text-center">
         <StoryLabel className="mx-auto">{design}</StoryLabel>
@@ -108,12 +115,12 @@ export const Loading: StoryFn = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <div className="flex flex-col gap-lg">
+    <div className="gap-lg flex flex-col">
       <Checkbox checked={isLoading} onClick={() => setIsLoading(!isLoading)}>
         Toggle loading state
       </Checkbox>
 
-      <div className="flex flex-wrap gap-md">
+      <div className="gap-md flex flex-wrap">
         <div>
           <IconButton aria-label="Submit" isLoading={isLoading} loadingLabel="Loading...">
             {icon}
@@ -125,7 +132,7 @@ export const Loading: StoryFn = () => {
 }
 
 export const Link: StoryFn = _args => (
-  <div className="flex gap-md">
+  <div className="gap-md flex">
     <IconButton aria-label="Link" asChild>
       <a href="/">{icon}</a>
     </IconButton>

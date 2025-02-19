@@ -8,6 +8,13 @@ const meta: Meta<typeof Snackbar> = {
   title: 'Components/Snackbar',
   component: Snackbar,
   tags: ['overlays'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=55280-12883&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -61,7 +68,7 @@ export const Design: StoryObj = {
       <div>
         <Snackbar />
 
-        <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+        <div className="gap-xl grid grid-cols-2 md:grid-cols-3">
           {designs.map(design => (
             <Button key={design} onClick={() => addSnackbar({ message: "You're done!", design })}>
               {`Display ${design}${design === 'filled' ? ' (default)' : ''} snackbar`}
@@ -95,7 +102,7 @@ export const Intent: StoryObj = {
       <div>
         <Snackbar />
 
-        <div className="grid grid-cols-2 gap-xl md:grid-cols-3">
+        <div className="gap-xl grid grid-cols-2 md:grid-cols-3">
           {intents.map(intent => (
             <Button
               key={intent}
@@ -216,7 +223,7 @@ export const QAWithNewLineAction: StoryFn = _args => (
   <div>
     <Snackbar />
 
-    <div className="grid grid-cols-1 gap-xl md:grid-cols-2">
+    <div className="gap-xl grid grid-cols-1 md:grid-cols-2">
       <Button
         onClick={() =>
           addSnackbar({
@@ -259,7 +266,7 @@ export const Action: StoryObj = {
       <div>
         <Snackbar />
 
-        <div className="grid grid-cols-1 gap-xl md:grid-cols-2">
+        <div className="gap-xl grid grid-cols-1 md:grid-cols-2">
           <Button
             onClick={() =>
               addSnackbar({

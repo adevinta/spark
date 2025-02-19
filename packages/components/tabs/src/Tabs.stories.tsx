@@ -13,6 +13,13 @@ const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
   component: Tabs,
   tags: ['navigation'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/0QchRdipAVuvVoDfTjLrgQ/Component-Specs-of-Spark?node-id=1613-37148&t=RvxIc25Ub8xTcBFf-4',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
@@ -160,7 +167,7 @@ export const Default: StoryFn = _args => (
 )
 
 export const Icons: StoryFn = _args => (
-  <div className="flex flex-col gap-lg">
+  <div className="gap-lg flex flex-col">
     <div>
       <StoryLabel>with icons</StoryLabel>
       {createTabs({ tabs: withIconTabs, rootProps: { defaultValue: 'tab2' } })}
@@ -174,7 +181,7 @@ export const Icons: StoryFn = _args => (
 )
 
 export const Intent: StoryFn = _args => (
-  <div className="flex flex-col gap-lg">
+  <div className="gap-lg flex flex-col">
     <div>
       <StoryLabel>basic (default)</StoryLabel>
       {createTabs()}
@@ -191,7 +198,7 @@ export const Intent: StoryFn = _args => (
 )
 
 export const Orientation: StoryFn = _args => (
-  <div className="flex flex-col gap-lg">
+  <div className="gap-lg flex flex-col">
     <div>
       <StoryLabel>horizontal (default)</StoryLabel>
       {createTabs({ rootProps: { orientation: 'horizontal' } })}
@@ -228,7 +235,7 @@ export const Overflow: StoryFn = _args => {
   ]
 
   return (
-    <div className="flex flex-col gap-lg">
+    <div className="gap-lg flex flex-col">
       <div className="max-w-sz-464 shrink basis-auto overflow-auto">
         <StoryLabel>with loop</StoryLabel>
         {createTabs({
@@ -246,7 +253,7 @@ export const Overflow: StoryFn = _args => {
 }
 
 export const Size: StoryFn = _args => (
-  <div className="flex flex-col gap-lg">
+  <div className="gap-lg flex flex-col">
     <div>
       <StoryLabel>xs</StoryLabel>
       {createTabs({ rootProps: { size: 'xs' } })}
@@ -275,7 +282,7 @@ export const ForceMount: StoryFn = _args => (
 )
 
 export const State: StoryFn = _args => (
-  <div className="flex flex-row gap-lg">
+  <div className="gap-lg flex flex-row">
     <div className="shrink basis-auto overflow-auto">
       {createTabs({
         rootProps: { defaultValue: 'tab2' },
