@@ -1,4 +1,4 @@
-import * as RadixTabs from '@radix-ui/react-tabs'
+import { Tabs as RadixTabs } from 'radix-ui'
 import { type FocusEvent, Ref } from 'react'
 
 import { useTabsContext } from './TabsContext'

@@ -1,4 +1,4 @@
-import { ProgressIndicator as ProgressIndicatorPrimitive } from '@radix-ui/react-progress'
+import { Progress as RadixProgress } from 'radix-ui'
 import { ComponentPropsWithRef, PropsWithChildren } from 'react'
 
 import { useProgress } from './ProgressContext'
@@ -16,7 +16,7 @@ export const ProgressIndicator = ({
   const x = ((max - value) / max) * 100
 
   return (
-    <ProgressIndicatorPrimitive
+    <RadixProgress.ProgressIndicator
       className={progressIndicatorStyles({ className, intent, shape, isIndeterminate })}
       style={{ ...style, ...(!isIndeterminate && { transform: `translateX(-${x}%)` }) }}
       ref={ref}

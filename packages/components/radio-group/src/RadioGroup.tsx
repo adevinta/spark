@@ -1,5 +1,5 @@
-import { RadioGroup as RadioGroupPrimitive } from '@radix-ui/react-radio-group'
 import { useFormFieldControl } from '@spark-ui/form-field'
+import { RadioGroup as RadixRadioGroup } from 'radix-ui'
 import { HTMLAttributes, Ref } from 'react'
 
 import { radioGroupStyles, RadioGroupVariantsProps } from './RadioGroup.styles'
@@ -73,7 +73,7 @@ export const RadioGroup = ({
 
   return (
     <RadioGroupProvider reverse={reverse} intent={intent} disabled={disabled}>
-      <RadioGroupPrimitive
+      <RadixRadioGroup.RadioGroup
         data-spark-component="radio-group"
         className={radioGroupStyles({ orientation, className })}
         name={name}

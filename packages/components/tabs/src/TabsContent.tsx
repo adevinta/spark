@@ -1,4 +1,4 @@
-import * as RadixTabs from '@radix-ui/react-tabs'
+import { Tabs as RadixTabs } from 'radix-ui'
 import { type PropsWithChildren, Ref } from 'react'
 
 import { contentStyles } from './TabsContent.styles'

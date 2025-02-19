@@ -1,4 +1,4 @@
-import * as RadixSlider from '@radix-ui/react-slider'
+import { Slider as RadixSlider } from 'radix-ui'
 import { type PropsWithChildren, Ref } from 'react'
 
 import { rootStyles } from './Slider.styles'

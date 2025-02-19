@@ -1,5 +1,5 @@
-import * as RadixPopover from '@radix-ui/react-popover'
 import { cva } from 'class-variance-authority'
+import { Popover as RadixPopover } from 'radix-ui'
 import { Ref } from 'react'
 
 import { usePopover } from './PopoverContext'
