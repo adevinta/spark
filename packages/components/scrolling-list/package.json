@@ -1,0 +1,53 @@
+{
+  "name": "@spark-ui/scrolling-list",
+  "version": "0.0.0",
+  "description": "A scrolling list presents a set of items, referred to as slides, by sequentially displaying a subset of one or more slides",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "scrolling-list"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "@spark-ui/tailwind-plugins": "latest",
+    "@spark-ui/theme-utils": "latest",
+    "react": "^19.0",
+    "react-dom": "^19.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "dependencies": {
+    "react-snap-carousel": "^0.5.1",
+    "@spark-ui/icon-button": "^9.0.4",
+    "@spark-ui/icon": "^9.0.4",
+    "@spark-ui/icons": "^9.0.4",
+    "class-variance-authority": "0.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/components/scrolling-list"
+  },
+  "config": {
+    "title": "scrolling-list",
+    "category": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+scrolling-list%22"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
+}
