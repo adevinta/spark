@@ -13,7 +13,12 @@ import {
   useRef,
 } from 'react'
 
-import { snackbarItemVariant, type SnackbarItemVariantProps } from './SnackbarItem.styles'
+import {
+  snackbarItemVariant,
+  snackbarItemVariantContent,
+  type SnackbarItemVariantContentProps,
+  type SnackbarItemVariantProps,
+} from './SnackbarItem.styles'
 import { SnackbarItemAction, SnackbarItemActionProps } from './SnackbarItemAction'
 import { SnackbarItemClose, SnackbarItemCloseProps } from './SnackbarItemClose'
 import { useSnackbarItemContext } from './SnackbarItemContext'
@@ -46,7 +51,10 @@ export interface SnackbarItemValue extends SnackbarItemVariantProps {
   actionOnNewline?: boolean
 }
 
-export interface SnackbarItemProps extends ComponentPropsWithRef<'div'>, SnackbarItemVariantProps {
+export interface SnackbarItemProps
+  extends ComponentPropsWithRef<'div'>,
+    SnackbarItemVariantProps,
+    SnackbarItemVariantContentProps {
   /**
    * Defines a string value that labels the current element.
    */
@@ -104,7 +112,11 @@ export const SnackbarItem = ({
     ariaDetails,
   }
 
-  const { toastProps, titleProps, closeButtonProps } = useToast({ toast, ...ariaProps }, state, ref)
+  const { toastProps, titleProps, closeButtonProps, contentProps } = useToast(
+    { toast, ...ariaProps },
+    state,
+    ref
+  )
 
   const findElement = useCallback(
     <P extends object>(elementDisplayName: string): ReactElement<P> | undefined => {
@@ -130,9 +142,7 @@ export const SnackbarItem = ({
 
   return (
     <div
-      ref={ref}
-      {...toastProps}
-      {...rest}
+      className={snackbarItemVariant({ design, intent, className })}
       data-animation={toast.animation}
       {...(!(swipeState === 'cancel' && toast.animation === 'exiting') && {
         'data-swipe': swipeState,
@@ -142,39 +152,43 @@ export const SnackbarItem = ({
         // Remove snackbar when the exiting animation completes
         onAnimationEnd: () => state.remove(toast.key),
       })}
-      className={snackbarItemVariant({ design, intent, actionOnNewline, className })}
+      ref={ref}
+      {...toastProps}
+      {...rest}
     >
-      {/* 1. ICON */}
-      {renderSubComponent(iconFromChildren, icon ? SnackbarItemIcon : null, {
-        children: icon,
-      })}
+      <div className={snackbarItemVariantContent({ actionOnNewline })} {...contentProps}>
+        {/* 1. ICON */}
+        {renderSubComponent(iconFromChildren, icon ? SnackbarItemIcon : null, {
+          children: icon,
+        })}
 
-      {/* 2. MESSAGE */}
-      <p
-        className="row-span-3 px-md py-lg text-body-2"
-        style={{ gridArea: 'message' }}
-        {...titleProps}
-      >
-        {message}
-      </p>
+        {/* 2. MESSAGE */}
+        <p
+          className="px-md py-lg text-body-2 row-span-3"
+          style={{ gridArea: 'message' }}
+          {...titleProps}
+        >
+          {message}
+        </p>
 
-      {/* 3. ACTION BUTTON */}
-      {renderSubComponent(
-        actionBtnFromChildren,
-        actionLabel && onAction ? SnackbarItemAction : null,
-        { intent, design, onClick: onAction, children: actionLabel }
-      )}
+        {/* 3. ACTION BUTTON */}
+        {renderSubComponent(
+          actionBtnFromChildren,
+          actionLabel && onAction ? SnackbarItemAction : null,
+          { intent, design, onClick: onAction, children: actionLabel }
+        )}
 
-      {/* 4. CLOSE BUTTON */}
-      {renderSubComponent(closeBtnFromChildren, isClosable ? SnackbarItemClose : null, {
-        intent,
-        design,
-        /**
-         * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
-         * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
-         */
-        'aria-label': closeButtonProps['aria-label'] as string,
-      })}
+        {/* 4. CLOSE BUTTON */}
+        {renderSubComponent(closeBtnFromChildren, isClosable ? SnackbarItemClose : null, {
+          intent,
+          design,
+          /**
+           * React Spectrum typing of aria-label is inaccurate, and aria-label value should never be undefined.
+           * See https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/i18n/src/useLocalizedStringFormatter.ts#L40
+           */
+          'aria-label': closeButtonProps['aria-label'] as string,
+        })}
+      </div>
     </div>
   )
 }
