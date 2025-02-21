@@ -28,6 +28,7 @@ interface ScrollingListContextState extends SnapCarouselResult {
   scrollPadding: number
   scrollAreaRef: RefObject<HTMLUListElement | null>
   overflow: ScrollOverflow
+  skipKeyboardNavigation: () => void
 }
 
 export const ScrollingListContext = createContext<ScrollingListContextState>(
@@ -44,6 +45,8 @@ export const ScrollingList = ({
   children,
 }: Props) => {
   const scrollAreaRef = useRef<HTMLUListElement>(null)
+  const skipAnchorRef = useRef<HTMLButtonElement>(null)
+
   const snapCarouselAPI = useSnapCarousel()
 
   // const sp = useSnapPoints(scrollAreaRef)
@@ -57,10 +60,15 @@ export const ScrollingList = ({
     ? ([visibleItems[0]! + 1, visibleItems[visibleItems.length - 1]! + 1] as const)
     : ([0, 0] as const)
 
+  const skipKeyboardNavigation = () => {
+    skipAnchorRef.current?.focus()
+  }
+
   const ctxValue: ScrollingListContextState = {
     ...snapCarouselAPI,
     snapType,
     snapStop,
+    skipKeyboardNavigation,
     scrollBehavior,
     visibleItemsRange,
     loop,
@@ -73,6 +81,7 @@ export const ScrollingList = ({
   return (
     <ScrollingListContext.Provider value={ctxValue}>
       <div className="gap-lg group/scrolling-list relative flex w-full flex-col">{children}</div>
+      <span ref={skipAnchorRef} className="size-0 overflow-hidden" tabIndex={-1} />
     </ScrollingListContext.Provider>
   )
 }

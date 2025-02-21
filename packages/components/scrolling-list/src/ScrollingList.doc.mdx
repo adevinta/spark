@@ -61,17 +61,13 @@ import { ScrollingList } from '@spark-ui/scrolling-list'
 ### Default
 
 By default, the scrolling-list will preserve the natural width of every item, and calculate its pagination from it.
-The first cropped item on the right side will be the next snap point (start on the next slide).
+The first cropped item on the right side will be the next snap point when using controls).
 
 It optimizes how many click are necessary to traverse the full list of items.
 
-**a11y**: items outside of the scrolling-list viewport will be considered inert/unreachable with keyboard navigation and screen readers.
+**a11y**: `ScrollingList.SkipButton` must be used to offer keyboard users to skip past the list entirely.
 
 <Canvas of={stories.Default} />
-
-### Controlled
-
-
 
 ### Gap
 
@@ -81,7 +77,7 @@ To customize spacing between items, set the `gap` property. Value in pixels (int
 
 ### Loop
 
-To allow looping of slides, set the `loop` property to `true`.
+To allow looping of slides, set the `loop` property to `true`. The navigation controls will remain accessible even when you reach the edge of the list.
 
 <Canvas of={stories.Loop} />
 
@@ -110,8 +106,6 @@ Use `snap type`, `snapStop` and `scrollBehavior` props to control the scrolling 
 ### Scroll padding
 
 Use `scrollPadding` to always display the right-most part of the previous page to the user, highlighting that there is more content to the left.
-
-**Note: will be ignored if `snapType` is set to `none`.**
 
 <Canvas of={stories.ScrollPadding} />
 

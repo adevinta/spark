@@ -84,7 +84,7 @@ const products = [
 
 export const Default: StoryFn = _args => {
   return (
-    <ScrollingList loop>
+    <ScrollingList>
       <ScrollingList.SkipButton>Ignore the list</ScrollingList.SkipButton>
 
       <ScrollingList.Items>
