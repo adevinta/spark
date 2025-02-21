@@ -1,40 +1,56 @@
+import { Slot } from '@spark-ui/slot'
 import { cx } from 'class-variance-authority'
-import { ReactNode, useContext, useRef } from 'react'
+import { ComponentPropsWithoutRef, ReactNode, useContext, useRef } from 'react'
 
 import { ScrollingListContext } from './ScrollingList'
+import { useFocusWithinScroll } from './useFocusWithinScroll'
 
-export interface ScrollingListItemProps {
-  isSnapPoint?: boolean
+export interface ScrollingListItemProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   */
+  asChild?: boolean
   children?: ReactNode
+  /**
+   * DO NOT USE. This prop is automatically managed by the parent ScrollingList.ListItems
+   */
   index?: number
   className?: string
-  style?: React.HTMLAttributes<HTMLLIElement>['style']
 }
 
 export const ScrollingListItem = ({
+  asChild = false,
   children,
   index = 0,
   className = '',
-  style = {},
+  ...rest
 }: ScrollingListItemProps) => {
   const ctx = useContext(ScrollingListContext)
+  const itemRef = useRef<HTMLDivElement>(null)
 
   const isSnapPoint = ctx.snapPointIndexes.has(index)
 
-  const itemRef = useRef<HTMLLIElement>(null)
+  useFocusWithinScroll(itemRef, ctx.scrollAreaRef)
+
+  const Component = asChild ? Slot : 'div'
 
   return (
-    <li
+    <Component
+      role="listitem"
       ref={itemRef}
-      className={cx('relative box-border shrink-0 overflow-y-hidden default:w-auto', className)}
-      style={{
-        scrollSnapAlign: isSnapPoint ? 'start' : '',
-        ...(isSnapPoint && { scrollSnapStop: ctx.snapStop }),
-        ...style,
-      }}
+      className={cx(
+        'default:w-auto default:shrink-0',
+        {
+          'snap-start': isSnapPoint,
+          'snap-normal': isSnapPoint && ctx.snapStop === 'normal',
+          'snap-always': isSnapPoint && ctx.snapStop === 'always',
+        },
+        className
+      )}
+      {...rest}
     >
       {children}
-    </li>
+    </Component>
   )
 }
 

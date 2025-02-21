@@ -1,5 +1,6 @@
 import { Meta, Canvas } from '@storybook/addon-docs'
 import { ArgTypes } from '@docs/helpers/ArgTypes'
+import { Kbd } from '@spark-ui/kbd'
 
 import { ScrollingList } from '.'
 
@@ -15,63 +16,38 @@ Each item maintains its natural size, which can result in varying dimensions and
 
 This format is suitable when offering an overview of available content, enabling users to quickly browse through a collection without a predefined structure.
 
+<Canvas of={stories.Default} />
+
+By default, the scrolling-list will preserve the natural width of every item, and calculate its pagination from it.
+The first cropped item on the right side will be the next snap point when using controls).
+
+It optimizes how many click are necessary to traverse the full list of items.
+
+**a11y**: `ScrollingList.SkipButton` must be used to offer keyboard users to skip past the list entirely.
+
 ## Install
 
 ```sh
 npm install @spark-ui/scrolling-list
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { ScrollingList } from '@spark-ui/scrolling-list'
+
+return () => (
+  <ScrollingList>
+    <ScrollingList.SkipButton />
+    <ScrollingList.Items>
+      <ScrollingList.Item />
+    <ScrollingList.Gradient />
+    <ScrollingList.Controls />
+  </ScrollingList>
+)
 ```
 
-## Props
-
-<ArgTypes
-  of={ScrollingList}
-  description="Presents a set of slides, by sequentially displaying a subset of one or more items."
-  subcomponents={{
-    'ScrollingList.Items': {
-      of: ScrollingList.Items,
-      description:
-        'The scroll area of the scrolling list, contains all items to display in slides.',
-    },
-    'ScrollingList.Item': {
-      of: ScrollingList.Item,
-      description:
-        'A single content container within a set of content containers that hold the content to be presented by the scrolling list.',
-    },
-    'ScrollingList.Controls': {
-      of: ScrollingList.Controls,
-      description:
-        'Two interactive elements, styled as arrow buttons, that displays the next or previous slide in the rotation sequence.',
-    },
-    'ScrollingList.SkipButton': {
-      of: ScrollingList.SkipButton,
-      description:
-        'A button only visible for keyboard users. Allow them to skip the content of the scrolling list entirely.',
-    },
-  }}
-/>
-
 ## Usage
-
-### Default
-
-By default, the scrolling-list will preserve the natural width of every item, and calculate its pagination from it.
-The first cropped item on the right side will be the next snap point (start on the next slide).
-
-It optimizes how many click are necessary to traverse the full list of items.
-
-**a11y**: items outside of the scrolling-list viewport will be considered inert/unreachable with keyboard navigation and screen readers.
-
-<Canvas of={stories.Default} />
-
-### Controlled
-
-
 
 ### Gap
 
@@ -81,7 +57,7 @@ To customize spacing between items, set the `gap` property. Value in pixels (int
 
 ### Loop
 
-To allow looping of slides, set the `loop` property to `true`.
+To allow looping of slides, set the `loop` property to `true`. The navigation controls will remain accessible even when you reach the edge of the list.
 
 <Canvas of={stories.Loop} />
 
@@ -111,10 +87,48 @@ Use `snap type`, `snapStop` and `scrollBehavior` props to control the scrolling 
 
 Use `scrollPadding` to always display the right-most part of the previous page to the user, highlighting that there is more content to the left.
 
-**Note: will be ignored if `snapType` is set to `none`.**
-
 <Canvas of={stories.ScrollPadding} />
+
+## API Reference
+
+<ArgTypes
+  of={ScrollingList}
+  description="Presents a set of slides, by sequentially displaying a subset of one or more items."
+  subcomponents={{
+    'ScrollingList.Items': {
+      of: ScrollingList.Items,
+      description:
+        'The scroll area of the scrolling list, contains all items to display in slides.',
+    },
+    'ScrollingList.Item': {
+      of: ScrollingList.Item,
+      description:
+        'A single content container within a set of content containers that hold the content to be presented by the scrolling list.',
+    },
+    'ScrollingList.Controls': {
+      of: ScrollingList.Controls,
+      description:
+        'Two interactive elements, styled as arrow buttons, that displays the next or previous slide in the rotation sequence.',
+    },
+    'ScrollingList.SkipButton': {
+      of: ScrollingList.SkipButton,
+      description:
+        'A button only visible for keyboard users. Allow them to skip the content of the scrolling list entirely.',
+    },
+  }}
+/>
 
 ## Accessibility
 
-TODO
+We consider this component to be closer to a `list` role than a `carousel` pattern, as the `carousel` pattern was made with the intention of displaying one slide at a time and do not crop items when they overflow.
+
+### Recommandations
+
+- It is advised to add an accessible name to `ScrollingList.Items`, either using an `aria-label` or an `aria-labelledby` attribute.
+- Because the controls are only displayed when hovering by default, it means they won't appear on mobile devices. Consider using `ScrollingList.Gradient` to show the user that content is overflowing and that they are able to scroll.
+- `aria-label` are mandatory on `ScrollingList.NextButton` and `ScrollingList.PrevButton`.
+
+### Keyboard Interactions
+
+- <Kbd>Tab</Kbd> and <Kbd>Shift + Tab</Kbd>: Move focus through the interactive elements of the list.
+

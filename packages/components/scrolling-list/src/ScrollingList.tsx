@@ -2,7 +2,6 @@ import { createContext, ReactNode, RefObject, useRef } from 'react'
 import { SnapCarouselResult, useSnapCarousel } from 'react-snap-carousel'
 
 import { ScrollOverflow, useScrollOverflow } from './useScrollOverflow'
-// import { useSnapPoints } from './useSnapPoints'
 
 type SnapType = 'mandatory' | 'proximity' | 'none'
 type ScrollBehavior = 'smooth' | 'instant'
@@ -26,8 +25,9 @@ interface ScrollingListContextState extends SnapCarouselResult {
   loop: boolean
   gap: number
   scrollPadding: number
-  scrollAreaRef: RefObject<HTMLUListElement | null>
+  scrollAreaRef: RefObject<HTMLDivElement | null>
   overflow: ScrollOverflow
+  skipKeyboardNavigation: () => void
 }
 
 export const ScrollingListContext = createContext<ScrollingListContextState>(
@@ -43,10 +43,11 @@ export const ScrollingList = ({
   scrollPadding = 0,
   children,
 }: Props) => {
-  const scrollAreaRef = useRef<HTMLUListElement>(null)
+  const scrollAreaRef = useRef<HTMLDivElement>(null)
+  const skipAnchorRef = useRef<HTMLButtonElement>(null)
+
   const snapCarouselAPI = useSnapCarousel()
 
-  // const sp = useSnapPoints(scrollAreaRef)
   const overflow = useScrollOverflow(scrollAreaRef)
 
   const { activePageIndex, pages } = snapCarouselAPI
@@ -57,10 +58,15 @@ export const ScrollingList = ({
     ? ([visibleItems[0]! + 1, visibleItems[visibleItems.length - 1]! + 1] as const)
     : ([0, 0] as const)
 
+  const skipKeyboardNavigation = () => {
+    skipAnchorRef.current?.focus()
+  }
+
   const ctxValue: ScrollingListContextState = {
     ...snapCarouselAPI,
     snapType,
     snapStop,
+    skipKeyboardNavigation,
     scrollBehavior,
     visibleItemsRange,
     loop,
@@ -73,6 +79,7 @@ export const ScrollingList = ({
   return (
     <ScrollingListContext.Provider value={ctxValue}>
       <div className="gap-lg group/scrolling-list relative flex w-full flex-col">{children}</div>
+      <span ref={skipAnchorRef} className="size-0 overflow-hidden" tabIndex={-1} />
     </ScrollingListContext.Provider>
   )
 }

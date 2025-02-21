@@ -84,30 +84,35 @@ const products = [
 
 export const Default: StoryFn = _args => {
   return (
-    <ScrollingList loop>
-      <ScrollingList.SkipButton>Ignore the list</ScrollingList.SkipButton>
+    <div>
+      <h3 id="popular-products-list" className="text-headline-1 mb-md">
+        Popular products:
+      </h3>
+      <ScrollingList>
+        <ScrollingList.SkipButton>Ignore the list</ScrollingList.SkipButton>
 
-      <ScrollingList.Items>
-        {products.map(product => {
-          return (
-            <ScrollingList.Item
-              key={product.name}
-              className="gap-xl max-w-sz-256 bg-support-container text-on-support-container p-lg flex flex-col justify-between rounded-xl"
-            >
-              <div>
-                <p className="text-headline-2">{product.name}</p>
-                <hr className="my-lg border-outline" />
-                <p>{product.description}</p>
-              </div>
+        <ScrollingList.Items aria-labelledby="popular-products-list">
+          {products.map(product => {
+            return (
+              <ScrollingList.Item
+                key={product.name}
+                className="gap-xl max-w-sz-256 bg-support-container text-on-support-container p-lg flex flex-col justify-between rounded-xl"
+              >
+                <div>
+                  <p className="text-headline-2">{product.name}</p>
+                  <hr className="my-lg border-outline" />
+                  <p>{product.description}</p>
+                </div>
 
-              <Button>Go to page</Button>
-            </ScrollingList.Item>
-          )
-        })}
-      </ScrollingList.Items>
-      <ScrollingList.Gradient />
-      <ScrollingList.Controls />
-    </ScrollingList>
+                <Button>Go to page</Button>
+              </ScrollingList.Item>
+            )
+          })}
+        </ScrollingList.Items>
+        <ScrollingList.Gradient />
+        <ScrollingList.Controls />
+      </ScrollingList>
+    </div>
   )
 }
 

@@ -1,11 +1,17 @@
 import { cx } from 'class-variance-authority'
-import React, { CSSProperties, ReactNode, Ref, RefObject, useContext, useEffect } from 'react'
+import React, {
+  ComponentPropsWithoutRef,
+  CSSProperties,
+  ReactNode,
+  Ref,
+  RefObject,
+  useContext,
+} from 'react'
 
 import { ScrollingListContext } from './ScrollingList'
 import { ScrollingListItemProps } from './ScrollingListItem'
-import { useDynamicScrollWidth } from './useScrollWidth'
 
-interface Props {
+interface Props extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode
   className?: string
 }
@@ -22,16 +28,8 @@ export function mergeRefs<T>(...refs: (Ref<T> | undefined | null)[]): Ref<T> {
   }
 }
 
-export const ScrollingListItems = ({ children, className = '' }: Props) => {
+export const ScrollingListItems = ({ children, className = '', ...rest }: Props) => {
   const ctx = useContext(ScrollingListContext)
-
-  const scrollWidth = useDynamicScrollWidth(ctx.scrollAreaRef)
-
-  useEffect(() => {
-    setTimeout(() => {
-      ctx.refresh()
-    }, 0)
-  }, [scrollWidth])
 
   const snapConfig = {
     mandatory: 'x mandatory',
@@ -39,7 +37,7 @@ export const ScrollingListItems = ({ children, className = '' }: Props) => {
     none: 'none',
   }
 
-  const handleLeftArrow = (event: React.KeyboardEvent<HTMLUListElement>) => {
+  const handleLeftArrow = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (!ctx.loop && !ctx.hasPrevPage) return
 
     event.preventDefault()
@@ -48,14 +46,14 @@ export const ScrollingListItems = ({ children, className = '' }: Props) => {
     })
   }
 
-  const handleRightArrow = (event: React.KeyboardEvent<HTMLUListElement>) => {
+  const handleRightArrow = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (!ctx.loop && !ctx.hasNextPage) return
 
     event.preventDefault()
     ctx.goTo(ctx.hasNextPage ? ctx.activePageIndex + 1 : 0, { behavior: ctx.scrollBehavior })
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLUListElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'ArrowLeft') {
       handleLeftArrow(event)
     }
@@ -78,26 +76,25 @@ export const ScrollingListItems = ({ children, className = '' }: Props) => {
   }
 
   return (
-    <ul
+    <div
       id="scrolling-list-items"
-      role="group"
-      aria-roledescription="carousel"
-      aria-labelledby="TODO"
+      role="list"
       className={cx(
         'u-no-scrollbar w-full gap-(--scrolling-list-gap) overflow-x-auto scroll-smooth default:flex default:flex-row',
         'focus-visible:u-outline',
         className
       )}
-      ref={mergeRefs<HTMLUListElement>(ctx.scrollAreaRef, ctx.scrollRef)}
+      ref={mergeRefs<HTMLDivElement>(ctx.scrollAreaRef, ctx.scrollRef)}
       style={inlineStyles}
       onKeyDown={handleKeyDown}
+      {...rest}
     >
       {React.Children.map(children, (child, index) =>
         React.isValidElement<ScrollingListItemProps>(child)
           ? React.cloneElement(child, { index })
           : child
       )}
-    </ul>
+    </div>
   )
 }
 
