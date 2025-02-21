@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.7](https://github.com/adevinta/spark/compare/v9.1.6...v9.1.7) (2025-02-21)
+
+**Note:** Version bump only for package @spark-ui/drawer
+
 ## [9.1.6](https://github.com/adevinta/spark/compare/v9.1.5...v9.1.6) (2025-02-19)
 
 **Note:** Version bump only for package @spark-ui/drawer
