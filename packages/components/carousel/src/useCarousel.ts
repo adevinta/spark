@@ -1,5 +1,5 @@
 /* eslint-disable max-lines-per-function */
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 
 import {
   CarouselAPI,
@@ -12,9 +12,11 @@ import {
   ComputedTriggerProps,
   UseCarouselProps,
 } from './types'
+import { useEvent } from './useEvent'
 import { useIsMounted } from './useIsMounted'
-import { useResizeObserver } from './useResizeObserver'
 import { useScrollEnd } from './useScrollEnd'
+import { useSnapPoints } from './useSnapPoints'
+import { getSnapPositions, isSnapPoint } from './utils'
 
 const DATA_SCOPE = 'carousel' as const
 const DIRECTION = 'ltr' as const
@@ -31,63 +33,110 @@ export const useCarousel = ({
   loop = false,
   // state control
   page: controlledPage,
-  onPageChange,
+  onPageChange: onPageChangeProp,
 }: UseCarouselProps): CarouselAPI => {
-  // refs
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const pageIndicatorsRefs = useRef<(HTMLElement | null)[]>([])
-  const isMounted = useIsMounted()
-
-  // state
   const carouselId = useId()
   const [pageState, setPageState] = useState(defaultPage || controlledPage || 0)
-  const [pageSnapPoints, setPageSnapPoints] = useState<number[]>([])
 
-  useEffect(() => {
-    if (controlledPage != null) scrollTo(controlledPage, scrollBehavior)
-  }, [controlledPage])
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const pageIndicatorsRefs = useRef<(HTMLElement | null)[]>([])
+  const isMountedRef = useIsMounted()
+  const isMounted = isMountedRef.current
+  const onPageChange = useEvent(onPageChangeProp)
 
-  useLayoutEffect(() => {
-    if (onPageChange && isMounted.current) onPageChange(pageState)
-  }, [pageState])
+  const [pageSnapPoints] = useSnapPoints([], {
+    carouselRef,
+    slidesPerMove,
+    slidesPerPage,
+  })
 
-  useLayoutEffect(() => {
-    if (defaultPage) {
-      carouselRef.current?.scrollTo({
-        left: getSnapPositions()[defaultPage],
-        behavior: 'instant',
-      })
-    }
-  }, [])
-
-  // computed
   const canScrollPrev = useRef(loop || pageState > 0)
   const canScrollNext = useRef(loop || pageState < pageSnapPoints.length - 1)
-
   canScrollPrev.current = loop || pageState > 0
   canScrollNext.current = loop || pageState < pageSnapPoints.length - 1
 
-  /**
-   * On resize, dimensions of the carousel might changes, which requires to update the snap points positions in the state.
-   */
-  useResizeObserver(carouselRef, () => {
-    const newSnapPoints = getSnapPositions()
+  const scrollTo = useCallback(
+    (page: number, behavior: 'instant' | 'smooth') => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollTo({
+          left: pageSnapPoints[page],
+          behavior: behavior === 'instant' ? 'auto' : 'smooth',
+        })
+        setPageState(page)
+      }
+    },
+    [setPageState, pageSnapPoints]
+  )
 
-    if (JSON.stringify(pageSnapPoints) !== JSON.stringify(newSnapPoints)) {
-      setPageSnapPoints(newSnapPoints)
+  const scrollPrev = useCallback(
+    (cb?: (pageIndex: number) => void) => {
+      if (canScrollPrev) {
+        const targetPage =
+          loop && pageState === 0 ? pageSnapPoints.length - 1 : Math.max(pageState - 1, 0)
+
+        scrollTo(targetPage, scrollBehavior)
+        cb?.(targetPage)
+      }
+    },
+    [loop, pageSnapPoints, pageState, scrollBehavior, scrollTo]
+  )
+
+  const scrollNext = useCallback(
+    (cb?: (pageIndex: number) => void) => {
+      if (canScrollNext) {
+        const targetPage =
+          loop && pageState === pageSnapPoints.length - 1
+            ? 0
+            : Math.min(pageState + 1, pageSnapPoints.length - 1)
+
+        scrollTo(targetPage, scrollBehavior)
+        cb?.(targetPage)
+      }
+    },
+    [loop, pageSnapPoints, pageState, scrollBehavior, scrollTo]
+  )
+
+  useEffect(() => {
+    if (controlledPage != null) {
+      scrollTo(controlledPage, scrollBehavior)
     }
-  })
+  }, [controlledPage, scrollBehavior, scrollTo])
+
+  useLayoutEffect(() => {
+    if (onPageChange && isMounted) {
+      onPageChange(pageState)
+    }
+  }, [pageState, isMounted, onPageChange])
 
   /**
-   * Monitoring scrollend events inside the scrollable area to sync the carousel dots (active page) with current scroll position.
+   * Set the default scroll position of the carousel based on `defaultPage`.
+   * As this operation is done before the snap points are set in the state, we have to get them from the ref directly.
+   */
+  useLayoutEffect(() => {
+    if (defaultPage != null && !isMounted && carouselRef.current) {
+      const snapPositions = getSnapPositions({
+        container: carouselRef.current,
+        slidesPerMove,
+        slidesPerPage,
+      })
+
+      carouselRef.current.scrollTo({
+        left: snapPositions[defaultPage],
+        behavior: 'instant',
+      })
+    }
+  }, [defaultPage, isMounted, slidesPerMove, slidesPerPage])
+
+  /**
+   * Monitoring scrollend events inside the scrollable area to sync the carousel active page with current scroll position.
    * Scrollend has been chosen over "scroll" for performance reason.
    */
-  useScrollEnd(carouselRef, () => {
+  const syncPageStateWithScrollPosition = useCallback(() => {
     if (!carouselRef.current || pageSnapPoints.length === 0) return
 
     const { scrollLeft, clientWidth } = carouselRef.current
 
-    const pageInViewport = getSnapPositions().findIndex(
+    const pageInViewport = pageSnapPoints.findIndex(
       slideScrollLeft =>
         slideScrollLeft >= scrollLeft - gap && slideScrollLeft <= scrollLeft + clientWidth + gap
     )
@@ -95,87 +144,9 @@ export const useCarousel = ({
     if (pageInViewport !== -1) {
       setPageState(pageInViewport)
     }
-  }, [gap, JSON.stringify(pageSnapPoints)])
+  }, [gap, pageSnapPoints])
 
-  function getSlideElements(): Element[] {
-    return carouselRef.current
-      ? Array.from(carouselRef.current.querySelectorAll('[data-part="item"]'))
-      : []
-  }
-
-  function getSlidesLength(): number {
-    return getSlideElements().length
-  }
-
-  function isSnapPoint(slideIndex: number) {
-    return getSnapIndices({ totalSlides: getSlidesLength() }).includes(slideIndex)
-  }
-
-  /**
-   * Get the scroll value of each slides that serves as the start of a page
-   * @returns number[] (ex for a 400px carousel with no gap: [400, 800, 1200])
-   */
-  function getSnapPositions() {
-    if (!carouselRef.current) return []
-
-    return getSlideElements()
-      .filter((_, index) => isSnapPoint(index))
-      .map(slide => (slide as HTMLElement).offsetLeft)
-  }
-
-  /**
-   * Get the indices of each slides that serves as the start of a page
-   * @returns number[] (ex: [0, 2, 4])
-   */
-  function getSnapIndices({ totalSlides }: { totalSlides: number }) {
-    const slideBy = slidesPerMove === 'auto' ? slidesPerPage : slidesPerMove
-    const snapPoints: number[] = []
-
-    const lastSnapIndex = Math.floor((totalSlides - slidesPerPage) / slideBy) * slideBy
-
-    for (let i = 0; i <= lastSnapIndex; i += slideBy) {
-      snapPoints.push(i)
-    }
-
-    // Adding final snap point if necessary
-    if (snapPoints[snapPoints.length - 1] !== totalSlides - slidesPerPage) {
-      snapPoints.push(totalSlides - slidesPerPage)
-    }
-
-    return snapPoints
-  }
-
-  const scrollTo = (page: number, behavior: 'instant' | 'smooth') => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollTo({
-        left: pageSnapPoints[page],
-        behavior: behavior === 'instant' ? 'auto' : 'smooth',
-      })
-      setPageState(page)
-    }
-  }
-
-  const scrollPrev = (cb?: (pageIndex: number) => void) => {
-    if (canScrollPrev) {
-      const targetPage =
-        loop && pageState === 0 ? pageSnapPoints.length - 1 : Math.max(pageState - 1, 0)
-
-      scrollTo(targetPage, scrollBehavior)
-      cb?.(targetPage)
-    }
-  }
-
-  const scrollNext = (cb?: (pageIndex: number) => void) => {
-    if (canScrollNext) {
-      const targetPage =
-        loop && pageState === pageSnapPoints.length - 1
-          ? 0
-          : Math.min(pageState + 1, pageSnapPoints.length - 1)
-
-      scrollTo(targetPage, scrollBehavior)
-      cb?.(targetPage)
-    }
-  }
+  useScrollEnd(carouselRef, syncPageStateWithScrollPosition)
 
   const contextValue: CarouselAPI = {
     ref: carouselRef,
@@ -266,7 +237,11 @@ export const useCarousel = ({
     }),
 
     getSlideProps: ({ index }): ComputedSlideProps => {
-      const isStopPoint = isSnapPoint(index)
+      const isStopPoint = isSnapPoint(index, {
+        container: carouselRef.current,
+        slidesPerMove,
+        slidesPerPage,
+      })
 
       return {
         id: `carousel::${carouselId}::item:${index}`,
