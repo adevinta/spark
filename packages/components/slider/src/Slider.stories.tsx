@@ -28,6 +28,34 @@ export const Default: StoryFn = _args => (
   </form>
 )
 
+export const Controlled: StoryFn = _args => {
+  const [value, setValue] = useState([0, 100])
+
+  return (
+    <form>
+      <label htmlFor="controlled-slider">
+        Volume between {value[0]} and {value[1]}
+      </label>
+
+      <Slider
+        min={0}
+        max={100}
+        value={value}
+        onValueChange={setValue}
+        onValueCommit={() => {
+          console.log(value)
+        }}
+        id="controlled-slider"
+        name="controlled-slider"
+      >
+        <Slider.Track />
+        <Slider.Thumb aria-label="Power" />
+        <Slider.Thumb aria-label="Power" />
+      </Slider>
+    </form>
+  )
+}
+
 export const Range: StoryFn = _args => (
   <div>
     <Slider defaultValue={[25, 75]}>
