@@ -34,6 +34,11 @@ export const ScrollingListControls = ({ displayMode = 'hover' }: Props) => {
     }
   }
 
+  const controlButtonStyles = cx('pointer-events-auto shadow-sm disabled:invisible', {
+    'group-hover/scrolling-list:opacity-none focus-visible:opacity-none opacity-0':
+      displayMode === 'hover',
+  })
+
   return (
     <div
       className={cx(
@@ -44,10 +49,7 @@ export const ScrollingListControls = ({ displayMode = 'hover' }: Props) => {
       <IconButton
         intent="surface"
         design="filled"
-        className={cx('pointer-events-auto shadow-sm disabled:invisible', {
-          'group-hover/scrolling-list:opacity-none focus-visible:opacity-none opacity-0':
-            displayMode === 'hover',
-        })}
+        className={cx(controlButtonStyles)}
         onClick={handlePrevPage}
         disabled={!ctx.loop && !ctx.overflow.left}
         aria-label="Previous group of items"
@@ -61,10 +63,7 @@ export const ScrollingListControls = ({ displayMode = 'hover' }: Props) => {
       <IconButton
         intent="surface"
         design="filled"
-        className={cx('pointer-events-auto shadow-sm disabled:invisible', {
-          'group-hover/scrolling-list:opacity-none focus-visible:opacity-none opacity-0':
-            displayMode === 'hover',
-        })}
+        className={cx(controlButtonStyles)}
         onClick={handleNextPage}
         disabled={!ctx.loop && !ctx.overflow.right}
         aria-label="Next group of items"

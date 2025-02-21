@@ -10,7 +10,6 @@ export const ScrollingListGradient = () => {
     <>
       <div
         className={cx(
-          // 'z-raised',
           'pointer-events-none absolute top-0 left-0 h-full',
           'to-surface bg-linear-to-l from-transparent transition-all',
           ctx.overflow.left ? 'w-sz-44' : 'w-0'
@@ -19,7 +18,6 @@ export const ScrollingListGradient = () => {
 
       <div
         className={cx(
-          // 'z-raised',
           'pointer-events-none absolute top-0 right-0 h-full',
           'to-surface bg-linear-to-r from-transparent transition-all',
           ctx.overflow.right ? 'w-sz-44' : 'w-0'
