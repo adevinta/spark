@@ -4,9 +4,6 @@ import { filledVariants, tintedVariants } from './snackbarVariants'
 
 export const snackbarItemVariant = cva(
   [
-    'col-start-1 row-start-1',
-    'inline-grid items-center',
-    'px-md',
     'rounded-md shadow-sm',
     'max-w-[600px]',
     'cursor-default pointer-events-auto touch-none select-none',
@@ -77,6 +74,23 @@ export const snackbarItemVariant = cva(
         accent: '',
         inverse: '',
       },
+    },
+    compoundVariants: [...filledVariants, ...tintedVariants],
+    defaultVariants: {
+      design: 'filled',
+      intent: 'neutral',
+    },
+  }
+)
+
+export const snackbarItemVariantContent = cva(
+  [
+    'inline-grid items-center',
+    'col-start-1 row-start-1',
+    'px-md', // applying padding on the parent prevents VoiceOver on Safari from reading snackbar content 🤷
+  ],
+  {
+    variants: {
       /**
        * Force action button displaying on a new line
        * @default false
@@ -93,13 +107,11 @@ export const snackbarItemVariant = cva(
         ],
       },
     },
-    compoundVariants: [...filledVariants, ...tintedVariants],
     defaultVariants: {
-      design: 'filled',
-      intent: 'neutral',
       actionOnNewline: false,
     },
   }
 )
 
 export type SnackbarItemVariantProps = VariantProps<typeof snackbarItemVariant>
+export type SnackbarItemVariantContentProps = VariantProps<typeof snackbarItemVariantContent>

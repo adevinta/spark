@@ -132,7 +132,7 @@ describe('Snackbar', () => {
     fireEvent.pointerDown(snackBarItem, { clientX: 0, clientY: 0 })
     fireEvent.pointerMove(snackBarItem, { clientX: -100, clientY: 0 })
 
-    expect(screen.getByText('You did it!').parentNode).toHaveAttribute(
+    expect(screen.getByText('You did it!').parentNode?.parentNode).toHaveAttribute(
       'data-swipe-direction',
       'left'
     )
@@ -147,7 +147,7 @@ describe('Snackbar', () => {
     fireEvent.pointerDown(snackBarItem, { clientX: 0, clientY: 0 })
     fireEvent.pointerMove(snackBarItem, { clientX: 100, clientY: 0 })
 
-    expect(screen.getByText('You did it!').parentNode).toHaveAttribute(
+    expect(screen.getByText('You did it!').parentNode?.parentNode).toHaveAttribute(
       'data-swipe-direction',
       'right'
     )
@@ -175,7 +175,7 @@ describe('Snackbar', () => {
 
       await user.click(screen.getByText('Show me a snackbar'))
 
-      expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-alert')
+      expect(screen.getByText('You did it!').parentNode?.parentNode).toHaveClass('bg-alert')
       expect(screen.getByTitle('Thumb up')).toBeInTheDocument()
     })
 
@@ -194,7 +194,7 @@ describe('Snackbar', () => {
 
       await user.click(screen.getByText('Show me a snackbar'))
 
-      expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-success')
+      expect(screen.getByText('You did it!').parentNode?.parentNode).toHaveClass('bg-success')
       expect(screen.getByTitle('Thumb up').parentNode).toHaveClass('text-alert')
     })
   })
@@ -251,7 +251,7 @@ describe('Snackbar', () => {
       /**
        * If children item is provided then its props will be used in priority over function options.
        */
-      expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-success')
+      expect(screen.getByText('You did it!').parentNode?.parentNode).toHaveClass('bg-success')
       expect(screen.getByText('Undo')).toHaveClass('bg-error')
 
       await user.click(screen.getByText('Undo'))
@@ -330,7 +330,7 @@ describe('Snackbar', () => {
 
       await user.click(screen.getByText('Show me a snackbar'))
 
-      expect(screen.getByText('You did it!').parentNode).toHaveClass('bg-success')
+      expect(screen.getByText('You did it!').parentNode?.parentNode).toHaveClass('bg-success')
       expect(screen.getByLabelText('Close the snackbar')).toHaveClass('bg-error')
 
       await user.click(screen.getByLabelText('Close the snackbar'))
