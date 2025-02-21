@@ -1,21 +1,17 @@
 import { useEffect } from 'react'
 
 export function useScrollEnd(
-  ref: React.RefObject<HTMLElement | null>,
-  callback: () => void,
-  deps: any[]
+  scrollRef: React.RefObject<HTMLDivElement | null>,
+  onScrollEnd: () => void
 ) {
   useEffect(() => {
-    if (!ref.current) return
+    const element = scrollRef.current
+    if (!element) return
 
-    const handleScrollEnd = () => {
-      callback()
-    }
-
-    ref.current.addEventListener('scrollend', handleScrollEnd, { passive: true })
+    element.addEventListener('scrollend', onScrollEnd)
 
     return () => {
-      ref.current?.removeEventListener('scrollend', handleScrollEnd)
+      element.removeEventListener('scrollend', onScrollEnd)
     }
-  }, [ref, ...deps])
+  }, [scrollRef, onScrollEnd])
 }
