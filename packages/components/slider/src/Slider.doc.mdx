@@ -48,6 +48,16 @@ import { Slider } from '@spark-ui/slider'
 
 <Canvas of={stories.Default} />
 
+### Controlled
+
+Use `value` to control the value with your own state.
+
+Use either `onValueChange` or `onValueCommit` to update this state when internal changes happen:
+- `onValueChange` Event handler called when the value changes.
+- `onValueCommit`: Event handler called when the value changes at the end of an interaction. Useful when you only need to capture a final value e.g. to update a backend service.
+
+<Canvas of={stories.Controlled} />
+
 ### Range
 
 Add multiple thumbs and values to create a range slider.
