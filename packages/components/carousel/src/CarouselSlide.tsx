@@ -17,6 +17,7 @@ export const CarouselSlide = ({
   index = 0,
   totalSlides,
   className = '',
+  ...props
 }: CarouselSlideProps) => {
   const itemRef = useRef<HTMLDivElement>(null)
   const ctx = useCarouselContext()
@@ -30,6 +31,7 @@ export const CarouselSlide = ({
       className={cx('default:bg-surface relative overflow-hidden', className)}
       aria-hidden={!isVisible}
       inert={!isVisible}
+      {...props}
     >
       {children}
     </div>
