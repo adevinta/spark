@@ -17,7 +17,11 @@ export const CarouselSlides = ({ children, className = '' }: Props) => {
   return (
     <div
       {...ctx.getSlidesContainerProps()}
-      className={cx('focus-visible:u-outline relative w-full', className)}
+      className={cx(
+        'focus-visible:u-outline relative w-full',
+        '[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+        className
+      )}
     >
       {childrenElements.map((child, index) =>
         React.isValidElement<CarouselSlideProps>(child)
