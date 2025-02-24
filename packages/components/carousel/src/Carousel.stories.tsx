@@ -11,8 +11,9 @@ import React, { useState } from 'react'
 import { Carousel } from '.'
 
 const meta: Meta<typeof Carousel> = {
-  title: 'Components/Carousel',
+  title: 'Experimental/Carousel',
   component: Carousel,
+  tags: ['layout'],
   parameters: {
     design: {
       type: 'figma',
@@ -55,7 +56,7 @@ export const Default: StoryFn = _args => {
         <Carousel.Slides>
           {Array.from({ length: 11 }).map((_, i) => {
             return (
-              <Carousel.Slide key={i} className="flex items-center">
+              <Carousel.Slide key={i} className="flex items-center" aria-label={`Slide ${i}`}>
                 <RandomImage imgHeight={256} imgWidth={512} className="h-sz-256 object-contain" />
 
                 <Button className="bottom-lg right-lg absolute">Read article</Button>
@@ -162,7 +163,11 @@ export const Controlled: StoryFn = _args => {
           <Carousel.Slides>
             {productsData.map(product => {
               return (
-                <Carousel.Slide key={product.name} className="flex items-center">
+                <Carousel.Slide
+                  key={product.name}
+                  aria-label={product.name}
+                  className="flex items-center"
+                >
                   <img
                     className="h-sz-256 object-cover"
                     width="100%"
@@ -233,7 +238,7 @@ export const Gap: StoryFn = _args => {
         <Carousel.Viewport>
           <Carousel.Slides>
             {Array.from({ length: 11 }).map((_, i) => (
-              <Carousel.Slide key={i} className="flex items-center">
+              <Carousel.Slide key={i} aria-label={`Slide ${i}`} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
                 <Button className="bottom-lg right-lg absolute">Read article</Button>
@@ -269,7 +274,7 @@ export const DefaultPage: StoryFn = _args => {
         <Carousel.Slides>
           {Array.from({ length: 5 }).map((_, i) => {
             return (
-              <Carousel.Slide key={i} className="flex items-center">
+              <Carousel.Slide key={i} aria-label={`Slide ${i}`} className="flex items-center">
                 <RandomImage imgHeight={256} imgWidth={256} className="h-sz-256 object-contain" />
 
                 <Button className="bottom-lg right-lg absolute">Read article</Button>
@@ -301,7 +306,7 @@ export const Loop: StoryFn = _args => {
         <Carousel.Slides>
           {Array.from({ length: 3 }).map((_, i) => {
             return (
-              <Carousel.Slide key={i} className="flex items-center">
+              <Carousel.Slide key={i} aria-label={`Slide ${i}`} className="flex items-center">
                 <RandomImage imgHeight={256} imgWidth={256} className="h-sz-256 object-contain" />
 
                 <Button className="bottom-lg right-lg absolute">Read article</Button>
@@ -397,7 +402,7 @@ export const ScrollBehavior: StoryFn = _args => {
         <Carousel.Viewport>
           <Carousel.Slides>
             {Array.from({ length: 11 }).map((_, i) => (
-              <Carousel.Slide key={i} className="flex items-center">
+              <Carousel.Slide key={i} aria-label={`Slide ${i}`} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
                 <Button className="bottom-lg right-lg absolute">Read article</Button>
@@ -433,7 +438,7 @@ export const SlidesPerPage: StoryFn = _args => {
     <div className="gap-xl flex flex-col">
       <div className="gap-md grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))]">
         <fieldset>
-          <legend>Slides per slide: {slidesPerPage}</legend>
+          <legend>Slides per page: {slidesPerPage}</legend>
 
           <Slider
             value={[slidesPerPage]}
@@ -456,7 +461,7 @@ export const SlidesPerPage: StoryFn = _args => {
         <Carousel.Viewport>
           <Carousel.Slides>
             {Array.from({ length: 11 }).map((_, i) => (
-              <Carousel.Slide key={i} className="flex items-center">
+              <Carousel.Slide key={i} aria-label={`Slide ${i}`} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
                 <Button className="bottom-lg right-lg absolute">Read article</Button>
@@ -492,7 +497,7 @@ export const SlidesPerMove: StoryFn = _args => {
         <Carousel.Viewport>
           <Carousel.Slides>
             {Array.from({ length: 11 }).map((_, i) => (
-              <Carousel.Slide key={i} className="flex items-center">
+              <Carousel.Slide key={i} aria-label={`Slide ${i}`} className="flex items-center">
                 <RandomImage imgHeight={600} imgWidth={600} className="h-sz-256 object-cover" />
 
                 <Button className="bottom-lg right-lg absolute">Read article</Button>
@@ -568,7 +573,11 @@ export const CustomPageIndicators: StoryFn = () => {
           <Carousel.Slides>
             {productsData.map(product => {
               return (
-                <Carousel.Slide key={product.name} className="flex items-center">
+                <Carousel.Slide
+                  key={product.name}
+                  aria-label={product.name}
+                  className="flex items-center"
+                >
                   <img
                     className="h-sz-256 object-cover"
                     width="100%"

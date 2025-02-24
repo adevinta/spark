@@ -52,7 +52,7 @@ export interface ComputedTriggerProps<T extends 'prev-trigger' | 'next-trigger'>
 
 export interface ComputedSlideGroupProps {
   id: string
-  'aria-live': 'polite'
+  'aria-live': 'polite' | 'off'
   'data-scope': typeof DATA_SCOPE
   'data-part': 'item-group'
   'data-orientation': 'horizontal'

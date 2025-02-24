@@ -55,6 +55,16 @@ export const useCarousel = ({
   canScrollPrev.current = loop || pageState > 0
   canScrollNext.current = loop || pageState < pageSnapPoints.length - 1
 
+  const handlePageChange = useCallback(
+    (page: number) => {
+      if (page !== pageState) {
+        setPageState(page)
+        onPageChange?.(page)
+      }
+    },
+    [onPageChange, pageState]
+  )
+
   const scrollTo = useCallback(
     (page: number, behavior: 'instant' | 'smooth') => {
       if (carouselRef.current) {
@@ -62,10 +72,10 @@ export const useCarousel = ({
           left: pageSnapPoints[page],
           behavior: behavior === 'instant' ? 'auto' : 'smooth',
         })
-        setPageState(page)
+        handlePageChange(page)
       }
     },
-    [setPageState, pageSnapPoints]
+    [handlePageChange, pageSnapPoints]
   )
 
   const scrollPrev = useCallback(
@@ -102,12 +112,6 @@ export const useCarousel = ({
     }
   }, [controlledPage, scrollBehavior, scrollTo])
 
-  useLayoutEffect(() => {
-    if (onPageChange && isMounted) {
-      onPageChange(pageState)
-    }
-  }, [pageState, isMounted, onPageChange])
-
   /**
    * Set the default scroll position of the carousel based on `defaultPage`.
    * As this operation is done before the snap points are set in the state, we have to get them from the ref directly.
@@ -134,17 +138,15 @@ export const useCarousel = ({
   const syncPageStateWithScrollPosition = useCallback(() => {
     if (!carouselRef.current || pageSnapPoints.length === 0) return
 
-    const { scrollLeft, clientWidth } = carouselRef.current
+    const { scrollLeft } = carouselRef.current
 
-    const pageInViewport = pageSnapPoints.findIndex(
-      slideScrollLeft =>
-        slideScrollLeft >= scrollLeft - gap && slideScrollLeft <= scrollLeft + clientWidth + gap
-    )
+    const distances = pageSnapPoints.map(pagePosition => Math.abs(scrollLeft - pagePosition))
+    const pageInViewport = distances.indexOf(Math.min(...distances))
 
     if (pageInViewport !== -1) {
-      setPageState(pageInViewport)
+      handlePageChange(pageInViewport)
     }
-  }, [gap, pageSnapPoints])
+  }, [pageSnapPoints, handlePageChange])
 
   useScrollEnd(carouselRef, syncPageStateWithScrollPosition)
 
@@ -217,7 +219,7 @@ export const useCarousel = ({
 
     getSlidesContainerProps: (): ComputedSlideGroupProps => ({
       id: `carousel::${carouselId}::item-group`,
-      'aria-live': 'polite',
+      'aria-live': slidesPerPage > 1 ? 'off' : 'polite',
       'data-scope': DATA_SCOPE,
       'data-part': 'item-group',
       'data-orientation': 'horizontal',
