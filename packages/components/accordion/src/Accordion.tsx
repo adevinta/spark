@@ -1,4 +1,3 @@
-import { useEvent } from '@spark-ui/internal-utils'
 import { Slot } from '@spark-ui/slot'
 import * as accordion from '@zag-js/accordion'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
@@ -6,7 +5,7 @@ import { cx } from 'class-variance-authority'
 import { type ComponentPropsWithoutRef, createContext, Ref, useContext, useId } from 'react'
 
 type ExtentedZagInterface = Omit<
-  accordion.Context,
+  accordion.Props,
   'id' | 'ids' | 'orientation' | 'getRootNode' | 'onValueChange'
 > &
   Omit<ComponentPropsWithoutRef<'div'>, 'defaultChecked'>
@@ -20,7 +19,7 @@ export interface AccordionProps extends ExtentedZagInterface {
    * Whether an accordion item can be closed after it has been expanded.
    */
   collapsible?: boolean
-  defaultValue?: accordion.Context['value']
+  defaultValue?: accordion.Props['value']
   /**
    * Whether the accordion items are disabled
    */
@@ -68,34 +67,23 @@ export const Accordion = ({
     collapsible,
     value,
     disabled,
-    // onValueChange,
     className: cx('bg-surface rounded-lg h-fit', className),
     ...props,
   })
 
-  const [state, send] = useMachine(
-    // Initial state
-    accordion.machine({
-      ...machineProps,
-      value: defaultValue,
-      id: useId(),
-      onValueChange(details) {
-        onValueChange?.(details.value)
-      },
-    }),
-    // Dynamic state
-    {
-      context: {
-        ...machineProps,
-        onValueChange: useEvent((details: accordion.ValueChangeDetails) => {
-          onValueChange?.(details.value)
-        }),
-      },
-    }
-  )
+  const service = useMachine(accordion.machine, {
+    ...machineProps,
+    defaultValue,
+    value,
+    id: useId(),
+    onValueChange(details) {
+      onValueChange?.(details.value)
+    },
+  })
 
   const Component = asChild ? Slot : 'div'
-  const api = accordion.connect(state, send, normalizeProps)
+  const api = accordion.connect(service, normalizeProps)
+
   const mergedProps = mergeProps(api.getRootProps(), localProps)
 
   return (
