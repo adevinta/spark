@@ -1,4 +1,3 @@
-import { useEvent } from '@spark-ui/internal-utils'
 import * as pagination from '@zag-js/pagination'
 import { normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
 import { createContext, type ReactNode, useContext, useId } from 'react'
@@ -6,7 +5,7 @@ import { createContext, type ReactNode, useContext, useId } from 'react'
 import { sliceArrayWithIndex } from './utils'
 
 export interface PaginationContextState<T extends PropTypes = PropTypes> {
-  type: pagination.Context['type']
+  type: pagination.Props['type']
   pagination: pagination.Api<T> & {
     getFirstPageTriggerProps: () => ReturnType<pagination.Api<T>['getPrevTriggerProps']> & {
       'data-part': string
@@ -38,12 +37,12 @@ export interface PaginationProviderProps {
   /**
    * The current page (active page)
    */
-  page?: pagination.Context['page']
+  page?: pagination.Props['page']
   /**
    * If your pagination contains buttons instead of links, set `type` to `button`, extra attributes will be applied on page items for a11y.
    */
-  type?: pagination.Context['type']
-  onPageChange?: pagination.Context['onPageChange']
+  type?: pagination.Props['type']
+  onPageChange?: pagination.Props['onPageChange']
   noEllipsis?: boolean
 }
 
@@ -65,29 +64,17 @@ export const PaginationProvider = ({
 
   const id = useId()
 
-  const [state, send] = useMachine(
-    pagination.machine({
-      id,
-      count,
-      siblingCount,
-      pageSize,
-      page,
-      onPageChange,
-      type,
-    }),
-    // Dynamic state
-    {
-      context: {
-        page,
-        count,
-        siblingCount,
-        pageSize,
-        onPageChange: useEvent(onPageChange, { sync: true }),
-      },
-    }
-  )
+  const service = useMachine(pagination.machine, {
+    id,
+    count,
+    siblingCount,
+    pageSize,
+    page,
+    onPageChange,
+    type,
+  })
 
-  const api = pagination.connect(state, send, normalizeProps)
+  const api = pagination.connect(service, normalizeProps)
   const pages = noEllipsis
     ? sliceArrayWithIndex(api.pages, api.page - 1, visiblePageItems)
     : api.pages

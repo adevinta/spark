@@ -1,4 +1,3 @@
-import { useEvent } from '@spark-ui/internal-utils'
 import { Slot } from '@spark-ui/slot'
 import * as collapsible from '@zag-js/collapsible'
 import { mergeProps, normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
@@ -28,7 +27,7 @@ export interface CollapsibleProps extends ComponentProps<'div'> {
   /**
    * The ids of the elements in the collapsible. Useful for composition
    */
-  ids?: collapsible.Context['ids']
+  ids?: collapsible.Props['ids']
   ref?: Ref<HTMLDivElement>
 }
 
@@ -45,28 +44,17 @@ export const Collapsible = ({
   ref,
   ...props
 }: CollapsibleProps) => {
-  const initialContext: collapsible.Context = {
-    'open.controlled': open !== undefined,
-    open: defaultOpen || open,
+  const service = useMachine(collapsible.machine, {
+    open,
+    defaultOpen,
     disabled,
     id: useId(),
     ids,
-  }
-
-  const context: collapsible.Context = {
-    ...initialContext,
-    onOpenChange: useEvent(
-      (details: collapsible.OpenChangeDetails) => {
-        onOpenChange?.(details.open)
-      },
-      { sync: true }
-    ),
-    open,
-    disabled,
-  }
-
-  const [state, send] = useMachine(collapsible.machine(initialContext), { context })
-  const api = collapsible.connect(state, send, normalizeProps)
+    onOpenChange(details) {
+      onOpenChange?.(details.open)
+    },
+  })
+  const api = collapsible.connect(service, normalizeProps)
   const Component = asChild ? Slot : 'div'
 
   const mergedProps = mergeProps(api.getRootProps(), props)
