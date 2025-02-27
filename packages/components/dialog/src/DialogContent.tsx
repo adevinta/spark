@@ -54,6 +54,8 @@ export const Content = ({
         onInteractOutside?.(e)
       }}
       {...rest}
+      // silence Radix Dialog warning when no Description is provided, see https://www.radix-ui.com/primitives/docs/components/dialog#description
+      aria-describedby={rest['aria-describedby'] || undefined}
     >
       {children}
     </RadixDialog.Content>
