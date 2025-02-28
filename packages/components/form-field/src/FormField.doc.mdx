@@ -12,19 +12,63 @@ import * as stories from './FormField.stories'
 
 Provide context to your form elements easily.
 
+By default, all Spark input components use `FormField.Control` behind the scenes. However, if you want to use a custom input component, or if you need more fine-grained control over the state of a form control, it can be used.
+
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/form-field
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { FormField } from '@spark-ui/form-field'
+
+export default () => (
+  <FormField>
+    <FormField.Label />
+    /**
+     * FormField.Control can be replaced by any Spark component that is an input:
+     * - Checkbox, Combobox, Dropdown, TextInput, RadioGroup, Select, Stepper, Switch, etc
+     */
+    <FormField.Control /> 
+
+    <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
+  </FormField>
+)
 ```
 
-## Props
+
+## Examples
+
+### Characters count
+
+Use `FormField.CharactersCount` to show users how many characters they have left. Can be used in combination with all types of text inputs.
+
+<Canvas of={stories.CharactersCount} />
+
+### Required
+
+Set `isRequired` prop to `true` to mark the input as required and display a required indicator. The default indicator is an asterisk `*`.
+
+<Canvas of={stories.Required} />
+
+#### Custom required indicator
+
+Configure the required indicator using the `requiredIndicator` prop and the `FormRequiredIndicator` component.
+
+<Canvas of={stories.CustomRequired} />
+
+### State
+
+Use the `state` prop to set the visual validation state. Choose between `error`, `success` and `alert`.
+
+<Canvas of={stories.State} />
+
+## API Reference
 
 <ArgTypes
   of={FormField}
@@ -71,37 +115,6 @@ import { FormField } from '@spark-ui/form-field'
   }}
 />
 
-## Usage
-
-### Default
-
-By default, all Spark input components use `FormField.Control` behind the scenes, so **you do not need to use it explicitly**. However, if you want to use a custom input component, or if you need more fine-grained control over the state of a form control, it can be used.
-
-<Canvas of={stories.Default} />
-
-### Characters count
-
-Use `FormField.CharactersCount` to show users how many characters they have left. Can be used in combination with all types of text inputs.
-
-<Canvas of={stories.CharactersCount} />
-
-### Required
-
-Set `isRequired` prop to `true` to mark the input as required and display a required indicator. The default indicator is an asterisk `*`.
-
-<Canvas of={stories.Required} />
-
-#### Custom required indicator
-
-Configure the required indicator using the `requiredIndicator` prop and the `FormRequiredIndicator` component.
-
-<Canvas of={stories.CustomRequired} />
-
-### State
-
-Use the `state` prop to set the visual validation state. Choose between `error`, `success` and `alert`.
-
-<Canvas of={stories.State} />
 
 ## Accessibility
 

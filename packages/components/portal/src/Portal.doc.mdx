@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/blocks'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Portal } from '.'
 import * as PortalStories from './Portal.stories'
 
@@ -12,26 +12,27 @@ Renders a React subtree in a different part of the DOM.
 - Render any React subtree outside of your App.
 - Appends to `document.body` by default but can be customized to use a different container.
 
+In the following example, the JSX element is located in the left block, but rendered inside the right block.
+
+This is because we wrapped it with a `Portal` whose `container` is the block to the right.
+
+<Canvas of={PortalStories.Usage} />
+
 ## Install
 
 ```
 npm install @spark-ui/portal
 ```
 
-## Import
+## Anatomy
 
-```
+```tsx
 import { Portal } from "@spark-ui/portal"
+
+export default () => <Portal />;
 ```
 
-## Props
+## API Reference
 
 <ArgTypes of={Portal} />
 
-## Usage
-
-In the following example, the JSX element is located in the left block, but rendered inside the right block.
-
-This is because we wrapped it with a `Portal` whose `container` is the block to the right.
-
-<Canvas of={PortalStories.Usage} />

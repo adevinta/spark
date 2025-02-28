@@ -12,19 +12,40 @@ import * as stories from './LinkBox.stories'
 
 Semantic component used to wrap elements (cards, blog posts, articles, etc.) in a link.
 
+Simply wrapping an entire component in an `a` tag may seem convenient for linking, but it's considered unsemantic and incorrect. This is because the component might include other clickable elements like tags, timestamps, or buttons.
+
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/link-box
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { LinkBox } from '@spark-ui/link-box'
+
+export default () => (
+  <LinkBox>
+    <LinkBox.Link /> 
+    <LinkBox.Raised />
+  </LinkBox>
+);
 ```
 
-## Props
+## Examples
+
+### Nesting
+
+If your linkbox contains interactive elements inside of it, wrap them with `LinkBox.Raised`.
+
+It will raise their `z-index` to stay above the main link of your `LinkBox`.
+
+<Canvas of={stories.Nesting} />
+
+## API Reference
 
 <ArgTypes
   of={LinkBox}
@@ -42,22 +63,6 @@ import { LinkBox } from '@spark-ui/link-box'
     },
   }}
 />
-
-## Usage
-
-### Default
-
-Simply wrapping an entire component in an `a` tag may seem convenient for linking, but it's considered unsemantic and incorrect. This is because the component might include other clickable elements like tags, timestamps, or buttons.
-
-<Canvas of={stories.Default} />
-
-### Nesting
-
-If your linkbox contains interactive elements inside of it, wrap them with `LinkBox.Raised`.
-
-It will raise their `z-index` to stay above the main link of your `LinkBox`.
-
-<Canvas of={stories.Nesting} />
 
 ## Accessibility
 

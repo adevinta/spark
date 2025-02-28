@@ -15,6 +15,10 @@ A combobox is an input widget that has an associated popup.
 
 The popup enables users to choose one or multiple values for the input from a collection. The popup itself contains a listbox of items.
 
+AutoComplete is used as the default behaviour. The user can only type a value that exists in the list of suggestions.
+
+<Canvas of={stories.Default} />
+
 #### ComboBox is not a Dropdown
 
 <Callout kind="warning">
@@ -54,82 +58,38 @@ However, they have different behaviors and purposes:
 npm install @spark-ui/combobox
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Combobox } from '@spark-ui/combobox'
+
+export default () => (
+  <Combobox>
+    <Combobox.Trigger>
+      <Combobox.LeadingIcon />
+      <ComboBox.SelectedItems /> // only when multiple selection is used
+      <Combobox.Input />
+      <Combobox.TrailingIcon />
+      <Combobox.ClearButton />
+      <Combobox.Disclosure />
+    </Combobox.Trigger>
+    <ComboBox.Popover>
+      <Combobox.Items>
+        <Combobox.Empty />
+        <Combobox.Group>
+          <Combobox.Label />
+          <Combobox.Item>
+            <ComboBox.ItemIndicator />
+            <ComboBox.ItemText />
+          </Combobox.Item>
+        </Combobox.Group>
+      </Combobox.Items>
+    </ComboBox.Popover>
+  </Combobox>
+);
 ```
 
-## Props
-
-<ExtendedArgTypes
-  of={Combobox}
-  description="A form input used for selecting a value: when collapsed it shows the currently selected option and when expanded, it shows a scrollable list of predefined options for the user to choose from."
-  subcomponents={{
-    'Combobox.Trigger': {
-      of: Combobox.Trigger,
-      description:
-        'The area that toggles the combobox popover. The Select.Popover will position itself by aligning with its trigger.',
-    },
-    'Combobox.SelectedItems': {
-      of: Combobox.SelectedItems,
-      description: 'Multiple selection only. Displays selected items as chips inside the trigger.',
-    },
-    'Combobox.Input': {
-      of: Combobox.Input,
-      description:
-        'The typing area in which the user can type. The input behaviour will differ if `autoComplete` is used or not.',
-    },
-    'Combobox.LeadingIcon': {
-      of: Combobox.LeadingIcon,
-      description: 'Prepend a decorative icon inside the input (to the left).',
-    },
-    'Combobox.Disclosure': {
-      of: Combobox.Disclosure,
-      description: 'Optional visual button to open and close the combobox items list.',
-    },
-    'Combobox.Portal': {
-      of: Combobox.Portal,
-      description: 'When used, portals the content part into the body.',
-    },
-    'Combobox.Popover': {
-      of: Combobox.Popover,
-      description: 'The part that is toggled and portaled when the trigger element is clicked.',
-    },
-    'Combobox.Items': {
-      of: Combobox.Items,
-      description: 'The wrapper which contains all the options.',
-    },
-    'Combobox.Item': { of: Combobox.Item, description: 'Each option of the element field' },
-    'Combobox.ItemText': {
-      of: Combobox.ItemText,
-      description:
-        'The textual part of the item. It should only contain the text you want to see in the trigger when that item is selected. It should not be styled to ensure correct positioning.',
-    },
-    'Combobox.ItemIndicator': {
-      of: Combobox.ItemIndicator,
-      description:
-        'Renders when the item is selected. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.',
-    },
-    'Combobox.Group': {
-      of: Combobox.Group,
-      description:
-        'A wrapper for grouping a subset of options (Combobox.Item) when needed. Use in conjunction with Combobox.Label to ensure good accessibility via automatic labelling.',
-    },
-    'Combobox.Label': {
-      of: Combobox.Label,
-      description: "Used to render the label of a group. It won't be focusable using arrow keys.",
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-AutoSuggest is used as the default behaviour. The user can type anything in the input, the list is showing optional suggestions.
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Controlled
 
@@ -252,7 +212,7 @@ This can be useful when the component is used inside a sticky navbar.
 
 <Canvas of={stories.MultipleSelectionNoWrap} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Custom item
 
@@ -303,6 +263,69 @@ Apply `readOnly` to the wrapping `FormField` to indicate the combobox is only re
 Set the `state` prop of the `FormField` to `error` to indicate that the combobox is invalid. Optionally use the `FormField.ErrorMessage` to describe why the combobox is invalid.
 
 <Canvas of={stories.FormFieldValidation} />
+
+## API Reference
+
+<ExtendedArgTypes
+  of={Combobox}
+  description="A form input used for selecting a value: when collapsed it shows the currently selected option and when expanded, it shows a scrollable list of predefined options for the user to choose from."
+  subcomponents={{
+    'Combobox.Trigger': {
+      of: Combobox.Trigger,
+      description:
+        'The area that toggles the combobox popover. The Select.Popover will position itself by aligning with its trigger.',
+    },
+    'Combobox.SelectedItems': {
+      of: Combobox.SelectedItems,
+      description: 'Multiple selection only. Displays selected items as chips inside the trigger.',
+    },
+    'Combobox.Input': {
+      of: Combobox.Input,
+      description:
+        'The typing area in which the user can type. The input behaviour will differ if `autoComplete` is used or not.',
+    },
+    'Combobox.LeadingIcon': {
+      of: Combobox.LeadingIcon,
+      description: 'Prepend a decorative icon inside the input (to the left).',
+    },
+    'Combobox.Disclosure': {
+      of: Combobox.Disclosure,
+      description: 'Optional visual button to open and close the combobox items list.',
+    },
+    'Combobox.Portal': {
+      of: Combobox.Portal,
+      description: 'When used, portals the content part into the body.',
+    },
+    'Combobox.Popover': {
+      of: Combobox.Popover,
+      description: 'The part that is toggled and portaled when the trigger element is clicked.',
+    },
+    'Combobox.Items': {
+      of: Combobox.Items,
+      description: 'The wrapper which contains all the options.',
+    },
+    'Combobox.Item': { of: Combobox.Item, description: 'Each option of the element field' },
+    'Combobox.ItemText': {
+      of: Combobox.ItemText,
+      description:
+        'The textual part of the item. It should only contain the text you want to see in the trigger when that item is selected. It should not be styled to ensure correct positioning.',
+    },
+    'Combobox.ItemIndicator': {
+      of: Combobox.ItemIndicator,
+      description:
+        'Renders when the item is selected. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.',
+    },
+    'Combobox.Group': {
+      of: Combobox.Group,
+      description:
+        'A wrapper for grouping a subset of options (Combobox.Item) when needed. Use in conjunction with Combobox.Label to ensure good accessibility via automatic labelling.',
+    },
+    'Combobox.Label': {
+      of: Combobox.Label,
+      description: "Used to render the label of a group. It won't be focusable using arrow keys.",
+    },
+  }}
+/>
 
 ## Accessibility
 

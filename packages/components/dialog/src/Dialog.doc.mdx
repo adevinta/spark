@@ -19,6 +19,8 @@ A window overlaid on either the primary window or another dialog window, renderi
 - Manages screen reader announcements with `Title` and `Description` components.
 - Esc closes the component automatically.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 Install the component from your command line.
@@ -27,15 +29,68 @@ Install the component from your command line.
 npm install @spark-ui/dialog
 ```
 
-## Import
-
-Import all parts and piece them together.
+## Anatomy
 
 ```tsx
 import { Dialog } from '@spark-ui/dialog'
+
+export default () => (
+  <Dialog>
+    <Dialog.Trigger />
+    <Dialog.Portal>
+      <Dialog.Overlay />
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title />
+        </Dialog.Header>
+        <Dialog.Body>
+          <Dialog.Description />
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Dialog.Close />
+        </Dialog.Footer>
+        <Dialog.CloseButton>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog>
+);
 ```
 
-## Props
+## Examples
+
+### Controlled
+
+Use `open` and `onOpenChange` props to control the state of the dialog. This is specially useful to close the dialog after an async operation has completed.
+
+<Canvas of={stories.Controlled} />
+
+### Sizes
+
+Pick a size among `sm`, `md`, `lg` and `fullscreen`.
+
+<Canvas of={stories.Sizes} />
+
+### Inset
+
+When set to `true`, this option will remove the internal padding of the `Dialog.Body` component. This allows you to have an image or any content that occupies the full width, for example.
+
+<Canvas of={stories.Inset} />
+
+## Advanced Examples
+
+### Form inside a dialog
+
+The `Dialog` component can be effortlessly combined with a form element.
+
+<Canvas of={stories.Form} />
+
+### Forward focus
+
+Use `onOpenAutoFocus` and a `ref` to direct focus to a specific element when the dialog opens.
+
+<Canvas of={stories.ForwardFocus} />
+
+## API Reference
 
 <ArgTypes
   of={Dialog}
@@ -85,44 +140,6 @@ import { Dialog } from '@spark-ui/dialog'
     },
   }}
 />
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
-
-### Controlled
-
-Use `open` and `onOpenChange` props to control the state of the dialog. This is specially useful to close the dialog after an async operation has completed.
-
-<Canvas of={stories.Controlled} />
-
-### Sizes
-
-Pick a size among `sm`, `md`, `lg` and `fullscreen`.
-
-<Canvas of={stories.Sizes} />
-
-### Inset
-
-When set to `true`, this option will remove the internal padding of the `Dialog.Body` component. This allows you to have an image or any content that occupies the full width, for example.
-
-<Canvas of={stories.Inset} />
-
-## Advanced usage
-
-### Form inside a dialog
-
-The `Dialog` component can be effortlessly combined with a form element.
-
-<Canvas of={stories.Form} />
-
-### Forward focus
-
-Use `onOpenAutoFocus` and a `ref` to direct focus to a specific element when the dialog opens.
-
-<Canvas of={stories.ForwardFocus} />
 
 ## Accessibility
 

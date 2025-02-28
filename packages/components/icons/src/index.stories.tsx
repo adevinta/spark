@@ -9,7 +9,7 @@ import { Check as IconCheck } from './icons/Check'
 const meta: Meta = {
   title: 'Components/Icons',
   component: IconCheck,
-  tags: ['others'],
+  tags: ['others', 'hidden'],
 }
 
 export default meta

@@ -12,44 +12,32 @@ import * as stories from './Textarea.stories'
 
 The textarea component allows you to easily create multi-line text inputs.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/textarea
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Textarea, TextareaGroup } from '@spark-ui/textarea'
+
+export default () => <Textarea />;
+
+// Or inside a TextareaGroup
+export default () => (
+  <TextareaGroup>
+    <TextareaGroup.LeadingIcon />
+    <Textarea />
+    <TextareaGroup.TrailingIcon />
+  </TextareaGroup>
+);
 ```
 
-## Props
-
-<ExtendedArgTypes
-  of={Textarea}
-  description="The textarea component allows you to easily create multi-line text inputs."
-  subcomponents={{
-    TextareaGroup: {
-      of: TextareaGroup,
-      description:
-        'Use this wrapper whenever you need a more complex textarea. For example if you need to have leading/trailing icons.',
-    },
-    'TextareaGroup.LeadingIcon': {
-      of: TextareaGroup.LeadingIcon,
-      description: 'Prepend a decorative icon inside the textarea (to the left).',
-    },
-    'TextareaGroup.TrailingIcon': {
-      of: TextareaGroup.TrailingIcon,
-      description:
-        'Append a decorative icon inside the textarea (to the right). This element will be replaced by a status indicator whenever the textarea is in error/alert/success state.',
-    },
-  }}
-/>
-
-## Usage
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Uncontrolled
 
@@ -132,6 +120,30 @@ Use the `isRequired` prop of the `FormField` to indicate that the textarea is re
 set the `state` prop of the `FormField` to `error` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
 
 <Canvas of={stories.FieldInvalid} />
+
+## API Reference
+
+<ExtendedArgTypes
+  of={Textarea}
+  description="The textarea component allows you to easily create multi-line text inputs."
+  subcomponents={{
+    TextareaGroup: {
+      of: TextareaGroup,
+      description:
+        'Use this wrapper whenever you need a more complex textarea. For example if you need to have leading/trailing icons.',
+    },
+    'TextareaGroup.LeadingIcon': {
+      of: TextareaGroup.LeadingIcon,
+      description: 'Prepend a decorative icon inside the textarea (to the left).',
+    },
+    'TextareaGroup.TrailingIcon': {
+      of: TextareaGroup.TrailingIcon,
+      description:
+        'Append a decorative icon inside the textarea (to the right). This element will be replaced by a status indicator whenever the textarea is in error/alert/success state.',
+    },
+  }}
+/>
+
 
 ## Accessibility
 

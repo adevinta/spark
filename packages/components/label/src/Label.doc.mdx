@@ -10,37 +10,27 @@ import * as stories from './Label.stories'
 
 Renders an accessible label associated with controls.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/label
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Label } from '@spark-ui/label'
+
+export default () => (
+  <Label>
+    <Label.RequiredIndicator />
+  </Label>
+);
 ```
 
-## Props
-
-<ArgTypes
-  of={Label}
-  description="A label that can be used to describe a field"
-  subcomponents={{
-    'Label.RequiredIndicator': {
-      of: Label.RequiredIndicator,
-      description:
-        'An optional indicator to display a field as required. Must be rendered inside Label.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Required
 
@@ -53,6 +43,20 @@ Use `Label.RequiredIndicator` component to display a required indicator inside t
 Optionally use the `children` prop to change the indicator.
 
 <Canvas of={stories.RequiredIndicator} />
+
+## API Reference
+
+<ArgTypes
+  of={Label}
+  description="A label that can be used to describe a field"
+  subcomponents={{
+    'Label.RequiredIndicator': {
+      of: Label.RequiredIndicator,
+      description:
+        'An optional indicator to display a field as required. Must be rendered inside Label.',
+    },
+  }}
+/>
 
 ## Accessibility
 

@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas } from '@storybook/blocks'
 import { A11yReport } from '@docs/helpers/A11yReport'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Spinner } from '.'
 import * as stories from './Spinner.stories'
 
@@ -10,27 +10,23 @@ import * as stories from './Spinner.stories'
 
 Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/spinner
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Spinner } from '@spark-ui/spinner'
+
+export default () => <Spinner />;
 ```
 
-## Props
-
-<ArgTypes of={Spinner} />
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Background
 
@@ -55,6 +51,10 @@ Use `label` prop for accessibility, it is important to add a fallback loading te
 Use `size` prop to set the size of the spinner. If you want to set the `full` size for the spinner, don't forget to add a wrapping container with its own size.
 
 <Canvas of={stories.Sizes} />
+
+## API Reference
+
+<ArgTypes of={Spinner} />
 
 ## Accessibility
 

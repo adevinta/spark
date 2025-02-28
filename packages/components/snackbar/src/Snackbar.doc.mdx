@@ -14,52 +14,6 @@ import * as stories from './Snackbar.stories'
 
 Display brief, temporary notifications of actions, errors, or other events in an application.
 
-## Install
-
-```sh
-npm install @spark-ui/snackbar
-```
-
-## Import
-
-```tsx
-import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
-```
-
-## Props & Options
-
-<ArgTypes
-  of={Snackbar}
-  description="A container for queued snackbars. It should be placed at the root of the app."
-  exclude={['position', 'priority']}
-  subcomponents={{
-    'Snackbar.Item': {
-      of: Snackbar.Item,
-      description: "The component that display each snackbar's content.",
-    },
-    'Snackbar.ItemIcon': {
-      of: Snackbar.ItemIcon,
-      description: 'The component that prepend an icon in the snackbar.',
-    },
-    'Snackbar.ItemAction': {
-      of: Snackbar.ItemAction,
-      description: 'The component that renders a button which action is safe to ignore.',
-    },
-    'Snackbar.ItemClose': {
-      of: Snackbar.ItemClose,
-      description: 'The component that closes the snackbar.',
-    },
-    addSnackbar: {
-      of: addSnackbar,
-      description: 'The function that triggers snackbars by adding them to a global queue.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
 To get started, render a `<Snackbar />` provider **at the root of your app**. It will manage the snackbar queue and state for the whole app. Then, to display a snackbar message from any part of the app, you would simply call the `addSnackbar` function.
 
 Customizing each snackbar is made easy using the `addSnackbar` function options. Additionally, you can define global attributes for all snackbars by using the compound API with `<Snackbar.Item />` as children of the `<Snackbar />` component (refer to detailed examples below).
@@ -67,6 +21,23 @@ Customizing each snackbar is made easy using the `addSnackbar` function options.
 Please note that `addSnackbar` options will always take precedence over `<Snackbar.Item />` (and its subcomponents) props. Conversely, any element defined using the compound component, such as close or action buttons, will consistently appear on the `Snackbar` item. Additionally, their optional props will override `addSnackbar` options in this specific scenario.
 
 <Canvas of={stories.Default} />
+
+
+## Install
+
+```sh
+npm install @spark-ui/snackbar
+```
+
+## Anatomy
+
+```tsx
+import { Snackbar, addSnackbar } from '@spark-ui/snackbar'
+
+export default () => <Snackbar/>;
+```
+
+## Examples
 
 ### Design
 
@@ -108,13 +79,43 @@ For accessibility reasons **snackbars won't dismiss automatically when an action
 
 <Canvas of={stories.Action} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Force action/close button
 
 To always render snackbars with their associated action and/or close buttons, you simply need to declare them within a custom `<Snackbar.Item>` implementation.
 
 <Canvas of={stories.AdvancedActionClose} />
+
+## API Reference
+
+<ArgTypes
+  of={Snackbar}
+  description="A container for queued snackbars. It should be placed at the root of the app."
+  exclude={['position', 'priority']}
+  subcomponents={{
+    'Snackbar.Item': {
+      of: Snackbar.Item,
+      description: "The component that display each snackbar's content.",
+    },
+    'Snackbar.ItemIcon': {
+      of: Snackbar.ItemIcon,
+      description: 'The component that prepend an icon in the snackbar.',
+    },
+    'Snackbar.ItemAction': {
+      of: Snackbar.ItemAction,
+      description: 'The component that renders a button which action is safe to ignore.',
+    },
+    'Snackbar.ItemClose': {
+      of: Snackbar.ItemClose,
+      description: 'The component that closes the snackbar.',
+    },
+    addSnackbar: {
+      of: addSnackbar,
+      description: 'The function that triggers snackbars by adding them to a global queue.',
+    },
+  }}
+/>
 
 ## Accessibility
 

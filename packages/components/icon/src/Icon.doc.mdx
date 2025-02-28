@@ -1,6 +1,6 @@
 import { Meta, Canvas } from '@storybook/blocks'
 import { A11yReport } from '@docs/helpers/A11yReport'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Icon } from '.'
 import * as IconStories from './Icon.stories'
 
@@ -10,27 +10,27 @@ import * as IconStories from './Icon.stories'
 
 Accessible icon wrapper
 
+<Canvas of={IconStories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/icon
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Icon } from '@spark-ui/icon'
+
+export default () => (
+  <Icon />
+);
 ```
 
-## Props
 
-<ArgTypes of={Icon} />
 
-## Usage
-
-### Default
-
-<Canvas of={IconStories.Default} />
+## Examples
 
 ### Intent
 
@@ -49,6 +49,10 @@ Use `label` prop so it could be announced correctly by screen readers. There is 
 Use `size` prop to change the size of the icon. If `current` is set the current font size will be used.
 
 <Canvas of={IconStories.Sizes} />
+
+## API Reference
+
+<ArgTypes of={Icon} />
 
 ## Accessibility
 

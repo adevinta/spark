@@ -13,46 +13,32 @@ import * as stories from './ProgressTracker.stories'
 
 A progress tracker component is a visual navigation element typically used to display progress or guide user through a multi-step process.
 
+Step indicator content defaults to step index, or checkmark icon when completed. Use `StepIndicator` to customize this content, through `complete` and `incomplete` props.
+
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/progress-tracker
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { ProgressTracker } from '@spark-ui/progress-tracker'
+
+export default () => (
+  <ProgressTracker>
+    <ProgressTracker.Step>
+      <ProgressTracker.StepIndicator />
+      <ProgressTracker.StepLabel />
+    </ProgressTracker.Step>
+  </ProgressTracker.Step>
+);
 ```
 
-## Props
-
-<ArgTypes
-  of={ProgressTracker}
-  description="Contains all the progress tracker component parts."
-  subcomponents={{
-    'ProgressTracker.Step': {
-      of: ProgressTracker.Step,
-      description: 'Contains the button associated to a step.',
-    },
-    'ProgressTracker.StepLabel': {
-      of: ProgressTracker.StepLabel,
-      description: 'The label describing the step.',
-    },
-    'ProgressTracker.StepIndicator': {
-      of: ProgressTracker.StepIndicator,
-      description: 'Contains the custom content of a step, for complete and incomplete states.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-Step indicator content defaults to step index, or checkmark icon when completed. Use `StepIndicator` to customize this content, through `complete` and `incomplete` props.
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Controlled
 
@@ -95,6 +81,27 @@ Use `design` prop to set the look and feel.
 Use `orientation` prop to set `horizontal|vertical` orientation.
 
 <Canvas of={stories.Orientation} />
+
+## API Reference
+
+<ArgTypes
+  of={ProgressTracker}
+  description="Contains all the progress tracker component parts."
+  subcomponents={{
+    'ProgressTracker.Step': {
+      of: ProgressTracker.Step,
+      description: 'Contains the button associated to a step.',
+    },
+    'ProgressTracker.StepLabel': {
+      of: ProgressTracker.StepLabel,
+      description: 'The label describing the step.',
+    },
+    'ProgressTracker.StepIndicator': {
+      of: ProgressTracker.StepIndicator,
+      description: 'Contains the custom content of a step, for complete and incomplete states.',
+    },
+  }}
+/>
 
 ## Accessibility
 

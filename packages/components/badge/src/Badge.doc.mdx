@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/blocks'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { A11yReport } from '@docs/helpers/A11yReport'
 import { Badge } from '.'
 import * as stories from './Badge.stories'
@@ -10,29 +10,27 @@ import * as stories from './Badge.stories'
 
 Badge component is a visual indicator for numeric values such as tallies and scores.
 
+When using `Badge` as a wrapper, it will position itself to the top-right corner of its child element.
+
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/badge
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Badge } from '@spark-ui/badge'
+
+export default () => (
+  <Badge />
+);
 ```
 
-## Props
-
-<ArgTypes of={Badge} />
-
-## Usage
-
-### Default
-
-When using `Badge` as a wrapper, it will position itself to the top-right corner of its child element.
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Intents
 
@@ -61,6 +59,10 @@ Use `count` prop to display a number inside the `Badge`. There is a default thre
 Use `size` prop to set the size of the badge.
 
 <Canvas of={stories.Sizes} />
+
+## API Reference
+
+<ArgTypes of={Badge} />
 
 ## Accessibility
 

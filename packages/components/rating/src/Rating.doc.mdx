@@ -1,6 +1,6 @@
 import { Meta, Canvas } from '@storybook/blocks'
 import { A11yReport } from '@docs/helpers/A11yReport'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Kbd } from '@spark-ui/kbd'
 
 import { Rating } from '.'
@@ -11,7 +11,9 @@ import * as stories from './Rating.stories'
 
 # Rating
 
-Ratings lets users see and/or set a star rating for a product or other item.
+Ratings lets users see and/or set a star rating for a product or other item, on a scale from 0 to 5.
+
+<Canvas of={stories.Default} />
 
 ## Install
 
@@ -19,23 +21,15 @@ Ratings lets users see and/or set a star rating for a product or other item.
 npm install @spark-ui/rating
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Rating } from '@spark-ui/rating'
+
+export default () => <Rating />;
 ```
 
-## Props
-
-<ArgTypes of={Rating} />
-
-## Usage
-
-### Default
-
-Rating control lets user see and/or set a star rating on a scale from 0 to 5.
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Readonly
 
@@ -55,7 +49,7 @@ Use `size` prop to set the size of the rating control stars.
 
 <Canvas of={stories.Size} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Rounded values
 
@@ -67,6 +61,10 @@ The **Rating** component includes a simple rounding mechanism to guarantee a nic
 <Canvas of={stories.Rounded} />
 
 If for any reason you need some specific rounding mechanisms, feel free to define yours and provide your rounded value.
+
+## API Reference
+
+<ArgTypes of={Rating} />
 
 ## Accessibility
 

@@ -14,61 +14,35 @@ Component used to get user input in a text field.
 
 Use `InputGroup` component to group your input with addons and elements like icons.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/input
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Input, InputGroup } from '@spark-ui/input'
+
+export default () => <Input />
+
+// Or with InputGroup
+export default () => (
+  <InputGroup>
+    <InputGroup.LeadingAddon />
+    <InputGroup.LeadingIcon />
+    <Input />
+    <InputGroup.ClearButton />
+    <InputGroup.TrailingIcon />
+    <InputGroup.TrailingAddon />
+  </InputGroup.LeadingIcon>
+)
 ```
 
-## Props
-
-<ArgTypes
-  of={Input}
-  description="Input component is a component that is used to get user input in a text field."
-  subcomponents={{
-    InputGroup: {
-      of: InputGroup,
-      description:
-        'Use this wrapper whenever you need a more complex text input. For example if you need to have leading/trailing icons or addons.',
-    },
-    'InputGroup.LeadingAddon': {
-      of: InputGroup.LeadingAddon,
-      description:
-        'Add any type of component that will be displayed before the input field.\n This provides flexibility to include additional elements, such as buttons or dropdowns, to enhance the user interface and provide clear context or guidance to the user.',
-    },
-    'InputGroup.LeadingIcon': {
-      of: InputGroup.LeadingIcon,
-      description: 'Prepend a decorative icon inside the input (to the left).',
-    },
-    'InputGroup.TrailingAddon': {
-      of: InputGroup.TrailingAddon,
-      description:
-        'Add any type of component that will be displayed after the input field. This provides flexibility to include additional elements, such as buttons or dropdowns, to enhance the user interface and provide clear context or guidance to the user.',
-    },
-    'InputGroup.TrailingIcon': {
-      of: InputGroup.TrailingIcon,
-      description:
-        'Append a decorative icon inside the input (to the right). This element will be replaced by a status indicator whenever the input is in error/alert/success state.',
-    },
-    'InputGroup.ClearButton': {
-      of: InputGroup.ClearButton,
-      description:
-        'Clears the input value. Only for search inputs. This button will be shown when the user has typed something in the input.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Uncontrolled
 
@@ -114,7 +88,7 @@ Use `state` prop to assign a specific state to the group, choosing from: `error`
 
 <Canvas of={stories.State} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Search
 
@@ -167,6 +141,44 @@ Use the `isRequired` prop of the `FormField` to indicate that the input is requi
 set the `state` prop of the `FormField` to `error` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
 
 <Canvas of={stories.FieldInvalid} />
+
+## API Reference
+
+<ArgTypes
+  of={Input}
+  description="Input component is a component that is used to get user input in a text field."
+  subcomponents={{
+    InputGroup: {
+      of: InputGroup,
+      description:
+        'Use this wrapper whenever you need a more complex text input. For example if you need to have leading/trailing icons or addons.',
+    },
+    'InputGroup.LeadingAddon': {
+      of: InputGroup.LeadingAddon,
+      description:
+        'Add any type of component that will be displayed before the input field.\n This provides flexibility to include additional elements, such as buttons or dropdowns, to enhance the user interface and provide clear context or guidance to the user.',
+    },
+    'InputGroup.LeadingIcon': {
+      of: InputGroup.LeadingIcon,
+      description: 'Prepend a decorative icon inside the input (to the left).',
+    },
+    'InputGroup.TrailingAddon': {
+      of: InputGroup.TrailingAddon,
+      description:
+        'Add any type of component that will be displayed after the input field. This provides flexibility to include additional elements, such as buttons or dropdowns, to enhance the user interface and provide clear context or guidance to the user.',
+    },
+    'InputGroup.TrailingIcon': {
+      of: InputGroup.TrailingIcon,
+      description:
+        'Append a decorative icon inside the input (to the right). This element will be replaced by a status indicator whenever the input is in error/alert/success state.',
+    },
+    'InputGroup.ClearButton': {
+      of: InputGroup.ClearButton,
+      description:
+        'Clears the input value. Only for search inputs. This button will be shown when the user has typed something in the input.',
+    },
+  }}
+/>
 
 ## Accessibility
 

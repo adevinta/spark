@@ -1,6 +1,6 @@
 import { Meta, Canvas } from '@storybook/blocks'
 import { A11yReport } from '@docs/helpers/A11yReport'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 
 import { Kbd } from '.'
 
@@ -12,28 +12,6 @@ import * as stories from './Kbd.stories'
 
 The keyboard key component exists to show which key or combination of keys performs a given action.
 
-## Install
-
-```sh
-npm install @spark-ui/kbd
-```
-
-## Import
-
-```tsx
-import { Kbd } from '@spark-ui/kbd'
-```
-
-## Props
-
-<ArgTypes of={Kbd} />
-
-## Default
-
-<Canvas of={stories.Default} />
-
-# Guideline
-
 All shortcuts should do their best to match what appears on the user’s keyboard.
 
 - All single letters A-Z are uppercase.
@@ -43,7 +21,26 @@ All shortcuts should do their best to match what appears on the user’s keyboar
 - For function keys, stick to uppercase.
 - For combination between keys and mouse events type the mouse event name upper-cased preceded by the 🖱️unicode glyph.
 
-# Combinations
+
+<Canvas of={stories.Default} />
+
+## Install
+
+```sh
+npm install @spark-ui/kbd
+```
+
+## Anatomy
+
+```tsx
+import { Kbd } from '@spark-ui/kbd'
+
+export default () => <Kbd />;
+```
+
+## Examples
+
+### Combinations
 
 The only punctuation you should need is the + to indicate that a combination of keys will activate the shortcut.
 
@@ -60,6 +57,10 @@ If two different keys can execute the same action or the shortcut itself may loo
 When combining a keyboard key and a mouse action combine it using the previous rules and the action name bold and uppercase preceded by the 🖱symbol glyph.
 
 <Canvas of={stories.OptionPlusScroll} />
+
+## API Reference
+
+<ArgTypes of={Kbd} />
 
 ## Accessibility
 

@@ -18,19 +18,50 @@ A modal dialog that interrupts the user with important content and expects a res
 - Manages screen reader announcements with Title and Description components.
 - Esc closes the component automatically.
 
+<Canvas of={stories.Usage} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/alert-dialog
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { AlertDialog } from '@spark-ui/alert-dialog'
+
+export default () => (
+  <AlertDialog>
+      <AlertDialog.Trigger />
+      <AlertDialog.Portal>
+        <AlertDialog.Overlay />
+        <AlertDialog.Content>
+          <AlertDialog.Header>
+            <AlertDialog.Title />
+          </AlertDialog.Header>
+          <AlertDialog.Body>
+            <AlertDialog.Description />
+          </AlertDialog.Body>
+          <AlertDialog.Footer>
+            <AlertDialog.Cancel />
+            <AlertDialog.Action />
+          </AlertDialog.Footer>
+        </AlertDialog.Content>
+      </AlertDialog.Portal>
+    </AlertDialog>
+);
 ```
 
-## Props
+## Examples
+
+### Controlled
+
+Use `open` and `onOpenChange` props to control the state of the dialog. This is specially useful to close the dialog after an async operation has completed.
+
+<Canvas of={stories.Controlled} />
+
+## API Reference
 
 <ArgTypes
   of={AlertDialog}
@@ -86,18 +117,6 @@ import { AlertDialog } from '@spark-ui/alert-dialog'
     },
   }}
 />
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Usage} />
-
-### Controlled
-
-Use `open` and `onOpenChange` props to control the state of the dialog. This is specially useful to close the dialog after an async operation has completed.
-
-<Canvas of={stories.Controlled} />
 
 ## Accessibility
 

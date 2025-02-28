@@ -1,7 +1,8 @@
 import { Kbd } from '@spark-ui/kbd'
 import { Canvas, Meta } from '@storybook/blocks'
-import { ArgTypes, Source } from '@storybook/blocks'
+import { Source } from '@storybook/blocks'
 import { A11yReport } from '@docs/helpers/A11yReport'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Callout } from '@docs/helpers/Callout'
 import { Button } from '.'
 import * as ButtonStories from './Button.stories'
@@ -12,27 +13,25 @@ import * as ButtonStories from './Button.stories'
 
 Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
 
+<Canvas of={ButtonStories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/button
 ```
 
-## Import
+## Anatomy
 
 ```js
 import { Button } from '@spark-ui/button'
+
+export default () => (
+  <Button />
+);
 ```
 
-## Props
-
-<ArgTypes of={Button} />
-
-## Usage
-
-### Default
-
-<Canvas of={ButtonStories.Default} />
+## Examples
 
 ### Design
 
@@ -87,7 +86,7 @@ Use `size` prop to set the size of a button.
 
 <Canvas of={ButtonStories.Sizes} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Link
 
@@ -110,6 +109,10 @@ This polymorphic behaviour can be used with any type of HTML element.
 Use `aria-pressed` to transform the button into a toggle button.
 
 <Canvas of={ButtonStories.Toggle} />
+
+## API Reference
+
+<ArgTypes of={Button} />
 
 ## Accessibility
 

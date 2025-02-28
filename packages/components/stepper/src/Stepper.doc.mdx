@@ -13,58 +13,29 @@ import * as stories from './Stepper.stories'
 
 Stepper allows a user to enter a number, and increment or decrement the value using dedicated buttons.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/stepper
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Stepper } from '@spark-ui/stepper'
+
+export default () => (
+  <Stepper>
+    <Stepper.DecrementButton />
+    <Stepper.Input />
+    <Stepper.IncrementButton />
+  </Stepper>
+);
 ```
 
-## Props
-
-<ArgTypes
-  of={Stepper}
-  description="A container for all the stepper component parts."
-  exclude={[
-    'onPress',
-    'onPressStart',
-    'onPressEnd',
-    'onPressChange',
-    'onPressUp',
-    'onFocusChange',
-    'aria-labelledby',
-    'aria-describedby',
-    'aria-details',
-    'onKeyDown',
-    'onKeyUp',
-    'placeholder',
-  ]}
-  subcomponents={{
-    'Stepper.Input': {
-      of: Stepper.Input,
-      description: 'The input field to display and change the value.',
-    },
-    'Stepper.IncrementButton': {
-      of: Stepper.IncrementButton,
-      description: 'The button to increment the value of the input.',
-    },
-    'Stepper.DecrementButton': {
-      of: Stepper.DecrementButton,
-      description: 'The button to decrement the value of the input.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Uncontrolled
 
@@ -120,7 +91,7 @@ Use `formatOptions` prop to adapt your value display to your needs (percentages,
 
 <Canvas of={stories.FormatOptions} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Custom implementation
 
@@ -133,6 +104,41 @@ Below is an implementation of a `Stepper` with custom **increment** and **decrem
 When using the `Stepper` component you might want to use it in combination with `FormField` to add a proper label, error message, etc.
 
 <Canvas of={stories.WithFormField} />
+
+## API Reference
+
+<ArgTypes
+  of={Stepper}
+  description="A container for all the stepper component parts."
+  exclude={[
+    'onPress',
+    'onPressStart',
+    'onPressEnd',
+    'onPressChange',
+    'onPressUp',
+    'onFocusChange',
+    'aria-labelledby',
+    'aria-describedby',
+    'aria-details',
+    'onKeyDown',
+    'onKeyUp',
+    'placeholder',
+  ]}
+  subcomponents={{
+    'Stepper.Input': {
+      of: Stepper.Input,
+      description: 'The input field to display and change the value.',
+    },
+    'Stepper.IncrementButton': {
+      of: Stepper.IncrementButton,
+      description: 'The button to increment the value of the input.',
+    },
+    'Stepper.DecrementButton': {
+      of: Stepper.DecrementButton,
+      description: 'The button to decrement the value of the input.',
+    },
+  }}
+/>
 
 ## Accessibility
 

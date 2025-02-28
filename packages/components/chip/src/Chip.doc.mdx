@@ -13,6 +13,8 @@ import * as stories from './Chip.stories'
 
 Help people enter information, make selections, filter content, or trigger actions.
 
+<Canvas of={stories.Default} />
+
 #### Chips aren’t buttons
 
 <Callout kind="warning">
@@ -61,42 +63,21 @@ Combining those features chips give 4 different usages:
 npm install @spark-ui/chip
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Chip } from '@spark-ui/chip'
+
+export default () => (
+  <Chip>
+    <Chip.LeadingIcon />
+    <Chip.Content />
+    <Chip.ClearButton />
+  </Chip>
+);
 ```
 
-## Props
-
-<ExtendedArgTypes
-  of={Chip}
-  description="Component for offering information"
-  subcomponents={{
-    'Chip.Content': {
-      of: Chip.Content,
-      description: 'The main chip container',
-    },
-    'Chip.LeadingIcon': {
-      of: Chip.LeadingIcon,
-      description: 'Prepend a decorative icon inside the chip (to the left).',
-    },
-    'Chip.TrailingIcon': {
-      of: Chip.TrailingIcon,
-      description: 'Append a decorative icon inside the chip (to the right).',
-    },
-    'Chip.ClearButton': {
-      of: Chip.ClearButton,
-      description: 'For removing the chip.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Kind
 
@@ -122,7 +103,7 @@ When a chip is `disabled`, no action is fired when clicking on it.
 
 <Canvas of={stories.Disabled} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Assist
 
@@ -188,6 +169,31 @@ Suggestion chips help narrow a user’s intent by presenting dynamically generat
 <Canvas of={stories.Suggestion} />
 
 Suggestion chips can offer quick-reply options in a chat or email app, or It can help the user start a search.
+
+## API Reference
+
+<ExtendedArgTypes
+  of={Chip}
+  description="Component for offering information"
+  subcomponents={{
+    'Chip.Content': {
+      of: Chip.Content,
+      description: 'The main chip container',
+    },
+    'Chip.LeadingIcon': {
+      of: Chip.LeadingIcon,
+      description: 'Prepend a decorative icon inside the chip (to the left).',
+    },
+    'Chip.TrailingIcon': {
+      of: Chip.TrailingIcon,
+      description: 'Append a decorative icon inside the chip (to the right).',
+    },
+    'Chip.ClearButton': {
+      of: Chip.ClearButton,
+      description: 'For removing the chip.',
+    },
+  }}
+/>
 
 ## Accessibility
 

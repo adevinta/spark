@@ -15,19 +15,30 @@ An interactive component which expands/collapses a panel.
 
 This component has no styles and serves as a behaviourial component.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/collapsible
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Collapsible } from '@spark-ui/collapsible'
+
+export default () => (
+  <Collapsible>
+    <Collapsible.Trigger />
+    <Collapsible.Content />
+  </Collapsible>
+);
 ```
 
-## Props
+## Examples
+
+## API Reference
 
 <ArgTypes
   of={Collapsible}
@@ -43,14 +54,6 @@ import { Collapsible } from '@spark-ui/collapsible'
     },
   }}
 />
-
-## Usage
-
-### Default
-
-A `Collapsible` is closed by default. Interacting with its trigger will open the associated content.
-
-<Canvas of={stories.Default} />
 
 ## Accessibility
 

@@ -18,36 +18,27 @@ A few common uses are:
 - Separating items in a list
 - Creating a visual contrast between 2 sides of a page
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/divider
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Divider } from '@spark-ui/divider'
+
+export default () => (
+  <Divider>
+    <Divider.Content />
+  </Divider>
+);
 ```
 
-## Props
-
-<ExtendedArgTypes
-  of={Divider}
-  description="Visually or semantically separates content."
-  subcomponents={{
-    'Divider.Content': {
-      of: Divider.Content,
-      description: 'A label appearing on top of the divider if necessary.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Content
 
@@ -87,7 +78,7 @@ The divider can set its intent setting it as a prop.
 
 <Canvas of={stories.Intent} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Wrapped Content
 
@@ -98,6 +89,20 @@ Users can also rotate the text to achieve the proper design.
 ### Card Content
 
 <Canvas of={stories.Card} />
+
+## API Reference
+
+<ExtendedArgTypes
+  of={Divider}
+  description="Visually or semantically separates content."
+  subcomponents={{
+    'Divider.Content': {
+      of: Divider.Content,
+      description: 'A label appearing on top of the divider if necessary.',
+    },
+  }}
+/>
+
 
 ## Accessibility
 
