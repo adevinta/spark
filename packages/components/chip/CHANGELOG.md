@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.2](https://github.com/adevinta/spark/compare/v9.2.1...v9.2.2) (2025-02-28)
+
+**Note:** Version bump only for package @spark-ui/chip
+
 ## [9.2.1](https://github.com/adevinta/spark/compare/v9.2.0...v9.2.1) (2025-02-28)
 
 **Note:** Version bump only for package @spark-ui/chip
