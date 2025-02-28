@@ -9,37 +9,27 @@ import { Slot, Slottable } from '.'
 
 Merges its props onto its immediate child.
 
+`Slot` props are merged with the child ones.
+
+<Canvas of={SlotStories.Default} />
+
 ## Install
 
 ```
 npm install @spark-ui/slot
 ```
 
-## Import
+## Anatomy
 
+```tsx
+import { Slot, Slottable } from "@spark-ui/slot"
+
+export default () => (
+  <Slot>
+    <Slottable />
+  </Slot>
+);
 ```
-import { Slot } from "@spark-ui/slot"
-```
-
-## Props
-
-<ExtendedArgTypes
-  of={Slot}
-  description="Merges its props onto its immediate child."
-  subcomponents={{
-    Slottable: {
-      of: Slottable,
-      description:
-        'Wraps the elements on a fragment appending all other slot descendant elements not wrapped into it.',
-    },
-  }}
-/>
-
-## Default
-
-`Slot` props are merged with the child ones.
-
-<Canvas of={SlotStories.Default} />
 
 ## Prop Merge Techniques
 
@@ -97,3 +87,17 @@ A `Slot` can have multiple descendant elements as children, but only one of them
 All non Slottable direct Slot children descendant elements will be appended to the Slottable unique children Element.
 
 <Canvas of={SlotStories.Append} />
+
+## API Reference
+
+<ExtendedArgTypes
+  of={Slot}
+  description="Merges its props onto its immediate child."
+  subcomponents={{
+    Slottable: {
+      of: Slottable,
+      description:
+        'Wraps the elements on a fragment appending all other slot descendant elements not wrapped into it.',
+    },
+  }}
+/>

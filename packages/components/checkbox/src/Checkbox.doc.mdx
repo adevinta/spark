@@ -13,36 +13,6 @@ import * as stories from './Checkbox.stories'
 A control that allows the user to toggle between checked and not checked.
 It is used in forms when a user needs to select multiple values from several options.
 
-## Install
-
-```sh
-npm install @spark-ui/checkbox
-```
-
-## Import
-
-```tsx
-import { Checkbox, CheckboxGroup } from '@spark-ui/checkbox'
-```
-
-## Props
-
-<ArgTypes
-  of={Checkbox}
-  description="A control that allows the user to toggle between checked and not checked."
-  subcomponents={{
-    CheckboxGroup: {
-      of: CheckboxGroup,
-      description:
-        'A checkbox group allows users to select one or more items from a list of choices.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
 Checkbox label can be multiline. Still you should care of not using elements (for the label) with greater line height than the checkbox input height, to preserve vertical alignment.
 
 <StoryLabel>Standalone</StoryLabel>
@@ -50,6 +20,30 @@ Checkbox label can be multiline. Still you should care of not using elements (fo
 
 <StoryLabel>Group</StoryLabel>
 <Canvas of={stories.DefaultGroup} />
+
+## Install
+
+```sh
+npm install @spark-ui/checkbox
+```
+
+## Anatomy
+
+```tsx
+import { Checkbox, CheckboxGroup } from '@spark-ui/checkbox'
+
+// Standalone
+export default () => <Checkbox />;
+
+// Group
+export default () => (
+  <CheckboxGroup>
+    <Checkbox />
+  </CheckboxGroup>
+);
+```
+
+## Examples
 
 ### Uncontrolled
 
@@ -122,7 +116,7 @@ Use `orientation` prop to set the orientation of the checkbox group which could 
 
 <Canvas of={stories.GroupOrientation} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Indeterminate
 
@@ -179,6 +173,20 @@ Use the `isRequired` prop of the `FormField` to indicate that the input is requi
 set the `state` prop of the `FormField` to `error` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
 
 <Canvas of={stories.FieldInvalid} />
+
+## API Reference
+
+<ArgTypes
+  of={Checkbox}
+  description="A control that allows the user to toggle between checked and not checked."
+  subcomponents={{
+    CheckboxGroup: {
+      of: CheckboxGroup,
+      description:
+        'A checkbox group allows users to select one or more items from a list of choices.',
+    },
+  }}
+/>
 
 ## Accessibility
 

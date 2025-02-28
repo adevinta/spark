@@ -18,6 +18,8 @@ const config: StorybookConfig = {
     '../documentation/**/*.mdx',
     '../packages/**/*.doc.mdx',
     '../packages/**/*.stories.tsx',
+    '!..packages/components/icons/**/*.doc.mdx',
+    '!..packages/components/icons/**/*.stories.tsx',
   ],
   addons: [
     'storybook-addon-tag-badges',

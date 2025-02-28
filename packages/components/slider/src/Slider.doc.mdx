@@ -13,40 +13,28 @@ import * as stories from './Slider.stories'
 
 An input where the user selects a value from within a given range.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/slider
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Slider } from '@spark-ui/slider'
+
+export default () => (
+  <Slider>
+    <Slider.Track /> 
+    <Slider.thumb /> 
+  </Slider>
+);
 ```
 
-## Props
-
-<ArgTypes
-  of={Slider}
-  description="Contains all the slider component parts. It will render an input for each thumb when used within a form to ensure events propagate correctly."
-  subcomponents={{
-    'Slider.Thumb': {
-      of: Slider.Thumb,
-      description: 'A draggable thumb. You can render multiple thumbs.',
-    },
-    'Slider.Track': {
-      of: Slider.Track,
-      description: 'The track shows the range available for user selection.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Controlled
 
@@ -82,7 +70,7 @@ Use `disabled` prop to indicate that slider is disabled.
 
 <Canvas of={stories.Disabled} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Restricted values
 
@@ -100,6 +88,24 @@ To ensure **proper accessibility**, make sure to set the `aria-valuetext` attrib
 Here's an example to illustrate this:
 
 <Canvas of={stories.RestrictedValues} />
+
+## API Reference
+
+<ArgTypes
+  of={Slider}
+  description="Contains all the slider component parts. It will render an input for each thumb when used within a form to ensure events propagate correctly."
+  subcomponents={{
+    'Slider.Thumb': {
+      of: Slider.Thumb,
+      description: 'A draggable thumb. You can render multiple thumbs.',
+    },
+    'Slider.Track': {
+      of: Slider.Track,
+      description: 'The track shows the range available for user selection.',
+    },
+  }}
+/>
+
 
 ## Accessibility
 

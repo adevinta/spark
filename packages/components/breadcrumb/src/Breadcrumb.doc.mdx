@@ -13,19 +13,44 @@ import * as stories from './Breadcrumb.stories'
 
 Navigation pattern that helps users understand the hierarchy of a website
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/breadcrumb
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Breadcrumb } from '@spark-ui/breadcrumb'
+
+export default () => (
+  <Breadcrumb>
+    <Breadcrumb.Item>
+      <Breadcrumb.Link /> // or <Breadcrumb.CurrentPage />
+    </Breadcrumb.Item>
+    <Breadcrumb.Separator />
+  </Breadcrumb>
+);
 ```
 
-## Props
+## Examples
+
+### Custom Separator
+
+Use the `children` property of `Breadcrumb.Separator` to use a different icon for the separator. You can also use raw text.
+
+<Canvas of={stories.CustomSeparator} />
+
+### Truncate
+
+Apply a maximum width on an element to truncate it automatically.
+
+<Canvas of={stories.Truncate} />
+
+## API Reference
 
 <ArgTypes
   of={Breadcrumb}
@@ -50,24 +75,6 @@ import { Breadcrumb } from '@spark-ui/breadcrumb'
     },
   }}
 />
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
-
-### Custom Separator
-
-Use the `children` property of `Breadcrumb.Separator` to use a different icon for the separator. You can also use raw text.
-
-<Canvas of={stories.CustomSeparator} />
-
-### Truncate
-
-Apply a maximum width on an element to truncate it automatically.
-
-<Canvas of={stories.Truncate} />
 
 ## Accessibility
 

@@ -12,44 +12,31 @@ import * as stories from './Progress.stories'
 
 Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/progress
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Progress } from '@spark-ui/progress'
+
+export default () => <Progress />;
+
+// Or
+export default () => (
+  <Progress>
+    <Progress.Bar />
+    <Progress.Label />
+  </Progress>
+);
 ```
 
-## Props
-
-<ArgTypes
-  of={Progress}
-  description="Contains all of the progress parts. It also makes progress accessible to assistive technologies."
-  subcomponents={{
-    'Progress.Bar': {
-      of: Progress.Bar,
-      description: 'Used to show the progress bar.',
-    },
-    'Progress.Label': {
-      of: Progress.Label,
-      description: 'Used to display a label for the progress.',
-    },
-    'Progress.Indicator': {
-      of: Progress.Indicator,
-      description: 'Used to show the progress. Automatically added by the progress bar.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Intent
 
@@ -93,13 +80,34 @@ Use `isIndeterminate` prop to represent an interdeterminate operation.
 
 <Canvas of={stories.Indeterminate} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Visible value
 
 Displaying the progress value as text is possible by composing the different components.
 
 <Canvas of={stories.VisibleValue} />
+
+## API Reference
+
+<ArgTypes
+  of={Progress}
+  description="Contains all of the progress parts. It also makes progress accessible to assistive technologies."
+  subcomponents={{
+    'Progress.Bar': {
+      of: Progress.Bar,
+      description: 'Used to show the progress bar.',
+    },
+    'Progress.Label': {
+      of: Progress.Label,
+      description: 'Used to display a label for the progress.',
+    },
+    'Progress.Indicator': {
+      of: Progress.Indicator,
+      description: 'Used to show the progress. Automatically added by the progress bar.',
+    },
+  }}
+/>
 
 ## Accessibility
 

@@ -11,38 +11,29 @@ import { Kbd } from '@spark-ui/kbd'
 
 Component used when only one choice may be selected in a series of options.
 
+Radio label can be multiline. Still you should care of not using elements (for the label) with greater line height than the radio input height, to preserve vertical alignment.
+
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/radio-group
 ```
 
-## Import
+## Anatomy
 
 ```ts
 import { RadioGroup } from '@spark-ui/radio-group'
+
+export default () => (
+  <RadioGroup>
+    <RadioGroup.Radio />
+  </RadioGroup>
+);
 ```
 
-## Props
-
-<ArgTypes
-  of={RadioGroup}
-  description="Contains all the parts of a radio group."
-  subcomponents={{
-    'RadioGroup.Radio': {
-      of: RadioGroup.Radio,
-      description: 'An item in the group that can be checked.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
-
-Radio label can be multiline. Still you should care of not using elements (for the label) with greater line height than the radio input height, to preserve vertical alignment.
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Uncontrolled
 
@@ -82,7 +73,7 @@ Use `orientation` prop to set the orientation of the checkbox group which could 
 
 <Canvas of={stories.Orientation} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Custom implementation
 
@@ -133,6 +124,20 @@ Use the `FormField.HelperMessage` component to provide a description to the inpu
 set the `state` prop of the `FormField` to `error` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
 
 <Canvas of={stories.FieldInvalid} />
+
+## API Reference
+
+<ArgTypes
+  of={RadioGroup}
+  description="Contains all the parts of a radio group."
+  subcomponents={{
+    'RadioGroup.Radio': {
+      of: RadioGroup.Radio,
+      description: 'An item in the group that can be checked.',
+    },
+  }}
+/>
+
 
 ## Accessibility
 

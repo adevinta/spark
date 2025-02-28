@@ -1,6 +1,6 @@
 import { Meta, Canvas } from '@storybook/blocks'
 import { A11yReport } from '@docs/helpers/A11yReport'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Kbd } from '@spark-ui/kbd'
 import { Callout } from '@docs/helpers/Callout'
 
@@ -12,7 +12,9 @@ import * as stories from './TextLink.stories'
 
 # TextLink
 
-TextLink is an accessible element for navigation.
+TextLink is an inline link (`a` tag) to use on your pages.
+
+<Canvas of={stories.Default} />
 
 ## Install
 
@@ -20,23 +22,15 @@ TextLink is an accessible element for navigation.
 npm install @spark-ui/text-link
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { TextLink } from '@spark-ui/text-link'
+
+export default () => <TextLink />;
 ```
 
-## Props
-
-This component support [all HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes) supported by the `a` tag.
-
-<ArgTypes of={TextLink} />
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Bold
 
@@ -64,7 +58,7 @@ Simply use css classes to set a difference size if necessary.
 
 <Canvas of={stories.Sizes} />
 
-## Advanced Usage
+## Advanced Examples
 
 ### Icons
 
@@ -94,6 +88,12 @@ By default `TextLink` shows an underline. It can be disabled to only be shown wh
 </Callout>
 
 <Canvas of={stories.Underline} />
+
+## API Reference
+
+This component support [all HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attributes) supported by the `a` tag.
+
+<ArgTypes of={TextLink} />
 
 ## Accessibility
 

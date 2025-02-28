@@ -13,62 +13,6 @@ import * as stories from './Popover.stories'
 
 Displays rich content in a portal, triggered by a button.
 
-## Install
-
-```sh
-npm install @spark-ui/popover
-```
-
-## Import
-
-```tsx
-import { Popover } from '@spark-ui/popover'
-```
-
-## Props
-
-<ArgTypes
-  of={Popover}
-  description="Contains all the parts of a popover."
-  subcomponents={{
-    'Popover.Trigger': {
-      of: Popover.Trigger,
-      description:
-        'The button that toggles the popover. By default, the Popover.Content will position itself against the trigger.',
-    },
-    'Popover.Anchor': {
-      of: Popover.Anchor,
-      description:
-        'An optional element to position the Popover.Content against. If this part is not used, the content will position alongside the Popover.Trigger.',
-    },
-    'Popover.Portal': {
-      of: Popover.Portal,
-      description: 'When used, portals the content part into the body.',
-    },
-    'Popover.Content': {
-      of: Popover.Content,
-      description: 'The component that pops out when the popover is open.',
-    },
-    'Popover.Header': {
-      of: Popover.Header,
-      description:
-        'Header for the popover content. Also serve as an accessible name for the Popover. Must be rendered inside Popover.Content.',
-    },
-    'Popover.CloseButton': {
-      of: Popover.CloseButton,
-      description: 'The button that closes an open popover.',
-    },
-    'Popover.Arrow': {
-      of: Popover.Arrow,
-      description:
-        'An optional arrow element to render alongside the popover. This can be used to help visually link the anchor with the Popover.Content. Must be rendered inside Popover.Content.',
-    },
-  }}
-/>
-
-## Usage
-
-### Default
 
 A basic popover should have a trigger element and a content element.
 
@@ -76,6 +20,34 @@ The trigger is the element that should toggle the popover.
 The content is the popover itself.
 
 <Canvas of={stories.Default} />
+
+## Install
+
+```sh
+npm install @spark-ui/popover
+```
+
+## Anatomy
+
+```tsx
+import { Popover } from '@spark-ui/popover'
+
+export default () => (
+  <Popover>
+    <Popover.Trigger />
+    <Popover.Portal>
+      <Popover.Content>
+        <Popover.Header />
+        <Popover.Arrow />
+        <Popover.CloseButton />
+      </Popover.Content>
+    </Popover.Portal>
+    <Popover.Anchor />
+  </Popover.Portal>
+);
+```
+
+## Examples
 
 ### Inset
 
@@ -136,6 +108,47 @@ By combining `side` and `align` you can achieve many positions for the popover.
 - `align`: The preferred alignment against the anchor. May change when collisions occur.
 
 <Canvas of={stories.Positionning} />
+
+## API Reference
+
+<ArgTypes
+  of={Popover}
+  description="Contains all the parts of a popover."
+  subcomponents={{
+    'Popover.Trigger': {
+      of: Popover.Trigger,
+      description:
+        'The button that toggles the popover. By default, the Popover.Content will position itself against the trigger.',
+    },
+    'Popover.Anchor': {
+      of: Popover.Anchor,
+      description:
+        'An optional element to position the Popover.Content against. If this part is not used, the content will position alongside the Popover.Trigger.',
+    },
+    'Popover.Portal': {
+      of: Popover.Portal,
+      description: 'When used, portals the content part into the body.',
+    },
+    'Popover.Content': {
+      of: Popover.Content,
+      description: 'The component that pops out when the popover is open.',
+    },
+    'Popover.Header': {
+      of: Popover.Header,
+      description:
+        'Header for the popover content. Also serve as an accessible name for the Popover. Must be rendered inside Popover.Content.',
+    },
+    'Popover.CloseButton': {
+      of: Popover.CloseButton,
+      description: 'The button that closes an open popover.',
+    },
+    'Popover.Arrow': {
+      of: Popover.Arrow,
+      description:
+        'An optional arrow element to render alongside the popover. This can be used to help visually link the anchor with the Popover.Content. Must be rendered inside Popover.Content.',
+    },
+  }}
+/>
 
 ## Accessibility
 

@@ -13,6 +13,8 @@ import * as stories from './Drawer.stories'
 
 A panel that slides out from the edge of the screen. It can be useful when you need users to complete a task or view some details without leaving the current page.
 
+<Canvas of={stories.Usage} />
+
 - ✅ Supports modal and non-modal modes.
 - ✅ Focus is automatically trapped when modal.
 - ✅ Can be controlled or uncontrolled.
@@ -27,15 +29,54 @@ Install the component from your command line.
 npm install @spark-ui/drawer
 ```
 
-## Import
-
-Import all parts and piece them together.
+## Anatomy
 
 ```tsx
 import { Drawer } from '@spark-ui/drawer'
+
+export default () => (
+  <Drawer>
+    <Drawer.Trigger />
+    <Drawer.Portal>
+      <Drawer.Overlay />
+      <Drawer.Content>
+        <Drawer.Header>
+          <Drawer.Title />
+        </Drawer.Header>
+        <Drawer.Body>
+          <Drawer.Description />
+        </Drawer.Body>
+        <Drawer.Footer>
+          <Drawer.Close />
+        </Drawer.Footer>
+        <Drawer.CloseButton>
+      </Drawer.Content>
+    </Drawer.Portal>
+  </Drawer>
+);
 ```
 
-## Props
+## Examples
+
+### Side
+
+Pick a side among `right`, `left`, `top` and `bottom`.
+
+<Canvas of={stories.Side} />
+
+### Size
+
+Pick a size among `sm`, `md`, `lg`, `fluid` and `fullscreen`.
+
+<Canvas of={stories.Sizes} />
+
+### Inset
+
+When set to `true`, this option will remove the internal padding of the `Drawer.Body` component. This allows you to have an image or any content that occupies the full width, for example.
+
+<Canvas of={stories.Inset} />
+
+## API Reference
 
 <ArgTypes
   of={Drawer}
@@ -85,30 +126,6 @@ import { Drawer } from '@spark-ui/drawer'
     },
   }}
 />
-
-## Usage
-
-### Default
-
-<Canvas of={stories.Usage} />
-
-### Side
-
-Pick a side among `right`, `left`, `top` and `bottom`.
-
-<Canvas of={stories.Side} />
-
-### Size
-
-Pick a size among `sm`, `md`, `lg`, `fluid` and `fullscreen`.
-
-<Canvas of={stories.Sizes} />
-
-### Inset
-
-When set to `true`, this option will remove the internal padding of the `Drawer.Body` component. This allows you to have an image or any content that occupies the full width, for example.
-
-<Canvas of={stories.Inset} />
 
 ## Accessibility
 

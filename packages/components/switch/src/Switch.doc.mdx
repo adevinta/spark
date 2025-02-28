@@ -1,5 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { A11yReport } from '@docs/helpers/A11yReport'
 import { Kbd } from '@spark-ui/kbd'
 import { Switch } from '.'
@@ -11,25 +11,23 @@ import * as stories from './Switch.stories'
 
 A control that allows the user to toggle between checked and not checked.
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/switch
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { Switch } from '@spark-ui/switch'
+
+export default () => <Switch />;
 ```
 
-## Props
-
-<ArgTypes of={Switch} />
-
-## Usage
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Uncontrolled
 
@@ -84,6 +82,10 @@ Use the `FormField.HelperMessage` component to provide a description to the swit
 set the `state` prop of the `FormField` to `error` to indicate that the input is invalid. Optionally use the `FormField.ErrorMessage` to describe why the input is invalid.
 
 <Canvas of={stories.FieldInvalid} />
+
+## API Reference
+
+<ArgTypes of={Switch} />
 
 ## Accessibility
 

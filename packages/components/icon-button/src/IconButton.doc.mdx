@@ -1,6 +1,6 @@
 import { Meta, Canvas } from '@storybook/blocks'
 import { A11yReport } from '@docs/helpers/A11yReport'
-import { ArgTypes } from '@storybook/blocks'
+import { ArgTypes } from '@docs/helpers/ArgTypes'
 import { Kbd } from '@spark-ui/kbd'
 import { Callout } from '@docs/helpers/Callout'
 import { IconButton } from '.'
@@ -12,27 +12,23 @@ import * as stories from './IconButton.stories'
 
 Icon button renders an icon within in a button
 
+<Canvas of={stories.Default} />
+
 ## Install
 
 ```sh
 npm install @spark-ui/icon-button
 ```
 
-## Import
+## Anatomy
 
 ```tsx
 import { IconButton } from '@spark-ui/icon-button'
+
+export default () => <IconButton />;
 ```
 
-## Props
-
-<ArgTypes of={IconButton} />
-
-## usage
-
-### Default
-
-<Canvas of={stories.Default} />
+## Examples
 
 ### Design
 
@@ -72,7 +68,7 @@ Use `size` prop to set the size of a button.
 
 <Canvas of={stories.Sizes} />
 
-## Advanced usage
+## Advanced Examples
 
 ### Link
 
@@ -95,6 +91,10 @@ This polymorphic behaviour can be used with any type of HTML element.
 Use `aria-pressed` to transform the button into a toggle button.
 
 <Canvas of={stories.Toggle} />
+
+## API Reference
+
+<ArgTypes of={IconButton} />
 
 ## Accessibility
 
