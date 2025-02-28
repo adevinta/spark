@@ -1,0 +1,52 @@
+{
+  "name": "@spark-ui/carousel",
+  "version": "0.0.0",
+  "description": "A carousel presents a set of items, referred to as slides, by sequentially displaying a subset of one or more slides",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@spark-ui",
+    "react",
+    "component",
+    "accessible",
+    "accessibility",
+    "wai-aria",
+    "aria",
+    "a11y",
+    "carousel"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "@spark-ui/tailwind-plugins": "latest",
+    "@spark-ui/theme-utils": "latest",
+    "react": "^19.0",
+    "react-dom": "^19.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "dependencies": {
+    "@spark-ui/icon-button": "^9.0.4",
+    "@spark-ui/icon": "^9.0.4",
+    "@spark-ui/icons": "^9.0.4",
+    "class-variance-authority": "0.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinta/spark.git",
+    "directory": "packages/components/carousel"
+  },
+  "config": {
+    "title": "carousel",
+    "category": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+carousel%22"
+  },
+  "homepage": "https://sparkui.vercel.app",
+  "license": "MIT"
+}
