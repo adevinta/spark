@@ -120,7 +120,7 @@
     "tailwindcss": "^4.0.0",
     "ts-node": "10.9.2",
     "type-fest": "3.13.1",
-    "typescript": "5.5.4",
+    "typescript": "5.8.2",
     "vite": "^4.3.9",
     "vite-plugin-dts": "2.3.0",
     "vite-tsconfig-paths": "4.3.2",
