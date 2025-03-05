@@ -110,7 +110,10 @@ export const Default: StoryFn = _args => {
           })}
         </ScrollingList.Items>
         <ScrollingList.Gradient />
-        <ScrollingList.Controls />
+        <ScrollingList.Controls>
+          <ScrollingList.PrevButton aria-label="Previous group of items" />
+          <ScrollingList.NextButton aria-label="Next group of items" />
+        </ScrollingList.Controls>
       </ScrollingList>
     </div>
   )
@@ -161,7 +164,10 @@ export const Gap: StoryFn = _args => {
           })}
         </ScrollingList.Items>
         <ScrollingList.Gradient />
-        <ScrollingList.Controls />
+        <ScrollingList.Controls>
+          <ScrollingList.PrevButton aria-label="Previous group of items" />
+          <ScrollingList.NextButton aria-label="Next group of items" />
+        </ScrollingList.Controls>
       </ScrollingList>
     </div>
   )
@@ -190,7 +196,10 @@ export const Loop: StoryFn = _args => {
         })}
       </ScrollingList.Items>
       <ScrollingList.Gradient />
-      <ScrollingList.Controls />
+      <ScrollingList.Controls>
+        <ScrollingList.PrevButton aria-label="Previous group of items" />
+        <ScrollingList.NextButton aria-label="Next group of items" />
+      </ScrollingList.Controls>
     </ScrollingList>
   )
 }
@@ -276,7 +285,10 @@ export const ScrollBehavior: StoryFn = _args => {
           ))}
         </ScrollingList.Items>
         <ScrollingList.Gradient />
-        <ScrollingList.Controls />
+        <ScrollingList.Controls>
+          <ScrollingList.PrevButton aria-label="Previous group of items" />
+          <ScrollingList.NextButton aria-label="Next group of items" />
+        </ScrollingList.Controls>
       </ScrollingList>
     </div>
   )
@@ -327,7 +339,10 @@ export const ScrollPadding: StoryFn = _args => {
           })}
         </ScrollingList.Items>
         <ScrollingList.Gradient />
-        <ScrollingList.Controls />
+        <ScrollingList.Controls>
+          <ScrollingList.PrevButton aria-label="Previous group of items" />
+          <ScrollingList.NextButton aria-label="Next group of items" />
+        </ScrollingList.Controls>
       </ScrollingList>
     </div>
   )
