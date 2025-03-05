@@ -42,7 +42,10 @@ return () => (
     <ScrollingList.Items>
       <ScrollingList.Item />
     <ScrollingList.Gradient />
-    <ScrollingList.Controls />
+    <ScrollingList.Controls>
+      <ScrollingList.PrevButton />
+      <ScrollingList.NextButton />
+    </ScrollingList.Controls>
   </ScrollingList>
 )
 ```
@@ -109,6 +112,16 @@ Use `scrollPadding` to always display the right-most part of the previous page t
       of: ScrollingList.Controls,
       description:
         'Two interactive elements, styled as arrow buttons, that displays the next or previous slide in the rotation sequence.',
+    },
+    'ScrollingList.PrevButton': {
+      of: ScrollingList.PrevButton,
+      description:
+        'Button that scroll to previous set of items.',
+    },
+    'ScrollingList.NextButton': {
+      of: ScrollingList.NextButton,
+      description:
+        'Button that scroll to next set of items.',
     },
     'ScrollingList.SkipButton': {
       of: ScrollingList.SkipButton,
