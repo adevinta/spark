@@ -1,6 +1,5 @@
 import { ScrollingList as Root } from './ScrollingList'
 import { ScrollingListControls as Controls } from './ScrollingListControls'
-import { ScrollingListGradient as Gradient } from './ScrollingListGradient'
 import { ScrollingListItem as Item } from './ScrollingListItem'
 import { ScrollingListItems as Items } from './ScrollingListItems'
 import { ScrollingListNextButton as NextButton } from './ScrollingListNextButton'
@@ -14,7 +13,6 @@ export const ScrollingList: typeof Root & {
   Item: typeof Item
   Items: typeof Items
   SkipButton: typeof SkipButton
-  Gradient: typeof Gradient
 } = Object.assign(Root, {
   Controls,
   NextButton,
@@ -22,7 +20,6 @@ export const ScrollingList: typeof Root & {
   Item,
   Items,
   SkipButton,
-  Gradient,
 })
 
 ScrollingList.displayName = 'ScrollingList'

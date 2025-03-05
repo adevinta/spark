@@ -6,15 +6,7 @@ import { useContext } from 'react'
 
 import { ScrollingListContext } from './ScrollingList'
 
-interface Props extends IconButtonProps {
-  displayMode?: 'hover' | 'always'
-}
-
-export const ScrollingListNextButton = ({
-  'aria-label': ariaLabel,
-  displayMode = 'hover',
-  ...rest
-}: Props) => {
+export const ScrollingListNextButton = ({ 'aria-label': ariaLabel, ...rest }: IconButtonProps) => {
   const ctx = useContext(ScrollingListContext)
 
   const handleNextPage = () => {
@@ -27,12 +19,13 @@ export const ScrollingListNextButton = ({
 
   return (
     <IconButton
+      size="sm"
       intent="surface"
       design="filled"
-      className={cx('pointer-events-auto shadow-sm disabled:invisible', {
-        'group-hover/scrolling-list:opacity-none focus-visible:opacity-none opacity-0':
-          displayMode === 'hover',
-      })}
+      className={cx(
+        'pointer-events-auto opacity-(--scrolling-list-controls-opacity) shadow-sm disabled:invisible',
+        'group-hover/scrolling-list:opacity-none focus-visible:opacity-none'
+      )}
       onClick={handleNextPage}
       disabled={!ctx.loop && !ctx.overflow.right}
       aria-label={ariaLabel}
