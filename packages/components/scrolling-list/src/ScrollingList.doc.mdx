@@ -41,7 +41,6 @@ return () => (
     <ScrollingList.SkipButton />
     <ScrollingList.Items>
       <ScrollingList.Item />
-    <ScrollingList.Gradient />
     <ScrollingList.Controls>
       <ScrollingList.PrevButton />
       <ScrollingList.NextButton />
@@ -50,7 +49,21 @@ return () => (
 )
 ```
 
-## Usage
+## Examples
+
+### Controls visibility
+
+Set `visibility` to `hover` on `ScrollingList.Controls` if you wish the navigation buttons to be hidden by default.
+
+**a11y**: this impacts the accessibility on touch screens as the controls become ivisible. When using this, you must provide an alternative control close to the list that replaces them. 
+
+<Canvas of={stories.ControlsVisibility} />
+
+### Fade effect
+
+Use `withFade` to add a fade effect to indicate content overflow. It uses an alpha css mask to be compatible no matter wich background is behind your list.
+
+<Canvas of={stories.Fade} />
 
 ### Gap
 

@@ -73,6 +73,12 @@ export const ScrollingListItems = ({ children, className = '', ...rest }: Props)
     scrollPaddingInline: 'var(--scrolling-list-px)',
     '--scrolling-list-px': `${ctx.scrollPadding}px`,
     '--scrolling-list-gap': `${ctx.gap}px`,
+    ...(ctx.widthFade && {
+      maskImage:
+        'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 44px, rgba(0, 0, 0, 1) calc(100% - 44px), rgba(0, 0, 0, 0))',
+      maskSize: `calc(100% + ${ctx.overflow.left ? '0px' : '44px'} + ${ctx.overflow.right ? '0px' : '44px'}) 100%`,
+      maskPosition: `${ctx.overflow.left ? '0px' : '-44px'} 0`,
+    }),
   }
 
   return (
@@ -80,7 +86,9 @@ export const ScrollingListItems = ({ children, className = '', ...rest }: Props)
       id="scrolling-list-items"
       role="list"
       className={cx(
-        'u-no-scrollbar w-full gap-(--scrolling-list-gap) overflow-x-auto scroll-smooth default:flex default:flex-row',
+        'relative transition-all duration-300',
+        'u-no-scrollbar overflow-x-auto scroll-smooth default:overscroll-contain',
+        'w-full gap-(--scrolling-list-gap) default:flex default:flex-row',
         'focus-visible:u-outline',
         className
       )}
