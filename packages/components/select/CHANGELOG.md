@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.4](https://github.com/adevinta/spark/compare/v9.2.3...v9.2.4) (2025-03-06)
+
+**Note:** Version bump only for package @spark-ui/select
+
 ## [9.2.3](https://github.com/adevinta/spark/compare/v9.2.2...v9.2.3) (2025-03-04)
 
 **Note:** Version bump only for package @spark-ui/select
