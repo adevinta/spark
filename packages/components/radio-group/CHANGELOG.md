@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/adevinta/spark/compare/v9.2.4...v9.3.0) (2025-03-06)
+
+**Note:** Version bump only for package @spark-ui/radio-group
+
 ## [9.2.4](https://github.com/adevinta/spark/compare/v9.2.3...v9.2.4) (2025-03-06)
 
 **Note:** Version bump only for package @spark-ui/radio-group
