@@ -1,6 +1,7 @@
-import React, { CSSProperties, ReactNode } from 'react'
+import { cx } from 'class-variance-authority'
+import React, { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react'
 
-interface ScrollingListControls {
+interface ScrollingListControls extends ComponentPropsWithoutRef<'div'> {
   /**
    * Visibility behavior of the control buttons:
    * - `always`: buttons are always visible.
@@ -16,18 +17,22 @@ interface ScrollingListControls {
 export const ScrollingListControls = ({
   children,
   visibility = 'always',
+  className,
+  ...rest
 }: ScrollingListControls) => {
   return (
     <div
-      className="px-md pointer-events-none absolute inset-0 flex flex-row items-center justify-between overflow-hidden"
+      className={cx(
+        'default:px-md pointer-events-none absolute inset-0 flex flex-row items-center justify-between overflow-hidden',
+        className
+      )}
       style={
         {
           '--scrolling-list-controls-opacity': visibility === 'hover' ? '0' : '1',
         } as CSSProperties
       }
-      data-scope="DATA_SCOPE"
-      data-part="control"
       data-orientation="horizontal"
+      {...rest}
     >
       {children}
     </div>

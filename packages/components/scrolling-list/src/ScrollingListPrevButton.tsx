@@ -26,6 +26,9 @@ export const ScrollingListPrevButton = ({
     }
   }
 
+  const listHasOverflow = ctx.overflow.left || ctx.overflow.right
+  const isDisabled = !listHasOverflow || (!ctx.loop && !ctx.overflow.left)
+
   return (
     <IconButton
       size="sm"
@@ -36,7 +39,7 @@ export const ScrollingListPrevButton = ({
         'group-hover/scrolling-list:opacity-none focus-visible:opacity-none'
       )}
       onClick={handlePrevPage}
-      disabled={!ctx.loop && !ctx.overflow.left}
+      disabled={isDisabled}
       aria-label={ariaLabel}
       aria-controls="scrolling-list-items"
       {...rest}

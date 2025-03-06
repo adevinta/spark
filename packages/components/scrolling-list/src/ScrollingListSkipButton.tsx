@@ -1,14 +1,14 @@
 import { Button } from '@spark-ui/button'
 import { cx } from 'class-variance-authority'
-import React, { useContext } from 'react'
+import React, { ComponentPropsWithoutRef, useContext } from 'react'
 
 import { ScrollingListContext } from './ScrollingList'
 
-interface Props {
+interface Props extends ComponentPropsWithoutRef<'button'> {
   children: string
 }
 
-export const ScrollingListSkipButton = ({ children }: Props) => {
+export const ScrollingListSkipButton = ({ children, ...rest }: Props) => {
   const ctx = useContext(ScrollingListContext)
 
   return (
@@ -22,6 +22,7 @@ export const ScrollingListSkipButton = ({ children }: Props) => {
         'not-focus-visible:pointer-events-none not-focus-visible:size-0 not-focus-visible:opacity-0'
       )}
       onClick={ctx.skipKeyboardNavigation}
+      {...rest}
     >
       {children}
     </Button>

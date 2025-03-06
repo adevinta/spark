@@ -82,21 +82,23 @@ const products = [
   },
 ]
 
-export const Default: StoryFn = _args => {
+export const Default: StoryFn = () => {
   return (
     <div>
       <h3 id="popular-products-list" className="text-headline-1 mb-md">
-        Popular products:
+        Popular products
       </h3>
       <ScrollingList>
-        <ScrollingList.SkipButton>Ignore the list</ScrollingList.SkipButton>
+        <ScrollingList.SkipButton aria-describedby="popular-products-list">
+          Ignore the list
+        </ScrollingList.SkipButton>
 
         <ScrollingList.Items aria-labelledby="popular-products-list">
           {products.map(product => {
             return (
               <ScrollingList.Item
                 key={product.name}
-                className="gap-xl max-w-sz-256 bg-main-container text-on-main-conbg-main-container p-lg flex flex-col justify-between rounded-xl"
+                className="gap-xl max-w-sz-256 bg-main-container text-on-main-container p-lg flex flex-col justify-between rounded-xl"
               >
                 <div>
                   <p className="text-headline-2">{product.name}</p>
@@ -104,14 +106,20 @@ export const Default: StoryFn = _args => {
                   <p>{product.description}</p>
                 </div>
 
-                <Button>Go to page</Button>
+                <Button>Learn more</Button>
               </ScrollingList.Item>
             )
           })}
         </ScrollingList.Items>
         <ScrollingList.Controls>
-          <ScrollingList.PrevButton aria-label="Previous group of items" />
-          <ScrollingList.NextButton aria-label="Next group of items" />
+          <ScrollingList.PrevButton
+            aria-label="Previous items"
+            aria-describedby="popular-products-list"
+          />
+          <ScrollingList.NextButton
+            aria-label="Next items"
+            aria-describedby="popular-products-list"
+          />
         </ScrollingList.Controls>
       </ScrollingList>
     </div>
@@ -123,12 +131,12 @@ export const ControlsVisibility: StoryFn = _args => {
     <ScrollingList>
       <ScrollingList.SkipButton>Ignore the list</ScrollingList.SkipButton>
 
-      <ScrollingList.Items aria-labelledby="popular-products-list">
+      <ScrollingList.Items>
         {products.map(product => {
           return (
             <ScrollingList.Item
               key={product.name}
-              className="gap-xl max-w-sz-256 bg-main-container text-on-main-conbg-main-container p-lg flex flex-col justify-between rounded-xl"
+              className="gap-xl max-w-sz-256 bg-main-container text-on-main-container p-lg flex flex-col justify-between rounded-xl"
             >
               <div>
                 <p className="text-headline-2">{product.name}</p>
@@ -136,14 +144,14 @@ export const ControlsVisibility: StoryFn = _args => {
                 <p>{product.description}</p>
               </div>
 
-              <Button>Go to page</Button>
+              <Button>Learn more</Button>
             </ScrollingList.Item>
           )
         })}
       </ScrollingList.Items>
       <ScrollingList.Controls visibility="hover">
-        <ScrollingList.PrevButton aria-label="Previous group of items" />
-        <ScrollingList.NextButton aria-label="Next group of items" />
+        <ScrollingList.PrevButton aria-label="Previous items" />
+        <ScrollingList.NextButton aria-label="Next items" />
       </ScrollingList.Controls>
     </ScrollingList>
   )
@@ -188,14 +196,14 @@ export const Gap: StoryFn = _args => {
                   <p>{product.description}</p>
                 </div>
 
-                <Button>Go to page</Button>
+                <Button>Learn more</Button>
               </ScrollingList.Item>
             )
           })}
         </ScrollingList.Items>
         <ScrollingList.Controls>
-          <ScrollingList.PrevButton aria-label="Previous group of items" />
-          <ScrollingList.NextButton aria-label="Next group of items" />
+          <ScrollingList.PrevButton aria-label="Previous items" />
+          <ScrollingList.NextButton aria-label="Next items" />
         </ScrollingList.Controls>
       </ScrollingList>
     </div>
@@ -207,12 +215,12 @@ export const Fade: StoryFn = _args => {
     <ScrollingList widthFade>
       <ScrollingList.SkipButton>Ignore the list</ScrollingList.SkipButton>
 
-      <ScrollingList.Items aria-labelledby="popular-products-list">
+      <ScrollingList.Items>
         {products.map(product => {
           return (
             <ScrollingList.Item
               key={product.name}
-              className="gap-xl max-w-sz-256 bg-main-container text-on-main-conbg-main-container p-lg flex flex-col justify-between rounded-xl"
+              className="gap-xl max-w-sz-256 bg-main-container text-on-main-container p-lg flex flex-col justify-between rounded-xl"
             >
               <div>
                 <p className="text-headline-2">{product.name}</p>
@@ -220,14 +228,14 @@ export const Fade: StoryFn = _args => {
                 <p>{product.description}</p>
               </div>
 
-              <Button>Go to page</Button>
+              <Button>Learn more</Button>
             </ScrollingList.Item>
           )
         })}
       </ScrollingList.Items>
       <ScrollingList.Controls>
-        <ScrollingList.PrevButton aria-label="Previous group of items" />
-        <ScrollingList.NextButton aria-label="Next group of items" />
+        <ScrollingList.PrevButton aria-label="Previous items" />
+        <ScrollingList.NextButton aria-label="Next items" />
       </ScrollingList.Controls>
     </ScrollingList>
   )
@@ -250,14 +258,14 @@ export const Loop: StoryFn = _args => {
                 <p>{product.description}</p>
               </div>
 
-              <Button>Go to page</Button>
+              <Button>Learn more</Button>
             </ScrollingList.Item>
           )
         })}
       </ScrollingList.Items>
       <ScrollingList.Controls>
-        <ScrollingList.PrevButton aria-label="Previous group of items" />
-        <ScrollingList.NextButton aria-label="Next group of items" />
+        <ScrollingList.PrevButton aria-label="Previous items" />
+        <ScrollingList.NextButton aria-label="Next items" />
       </ScrollingList.Controls>
     </ScrollingList>
   )
@@ -339,13 +347,13 @@ export const ScrollBehavior: StoryFn = _args => {
               className="bg-main-container text-on-main-container p-lg rounded-md"
             >
               <div>card {i + 1}</div>
-              <Button>Go to page</Button>
+              <Button>Learn more</Button>
             </ScrollingList.Item>
           ))}
         </ScrollingList.Items>
         <ScrollingList.Controls>
-          <ScrollingList.PrevButton aria-label="Previous group of items" />
-          <ScrollingList.NextButton aria-label="Next group of items" />
+          <ScrollingList.PrevButton aria-label="Previous items" />
+          <ScrollingList.NextButton aria-label="Next items" />
         </ScrollingList.Controls>
       </ScrollingList>
     </div>
@@ -391,14 +399,14 @@ export const ScrollPadding: StoryFn = _args => {
                   <p>{product.description}</p>
                 </div>
 
-                <Button>Go to page</Button>
+                <Button>Learn more</Button>
               </ScrollingList.Item>
             )
           })}
         </ScrollingList.Items>
         <ScrollingList.Controls>
-          <ScrollingList.PrevButton aria-label="Previous group of items" />
-          <ScrollingList.NextButton aria-label="Next group of items" />
+          <ScrollingList.PrevButton aria-label="Previous items" />
+          <ScrollingList.NextButton aria-label="Next items" />
         </ScrollingList.Controls>
       </ScrollingList>
     </div>

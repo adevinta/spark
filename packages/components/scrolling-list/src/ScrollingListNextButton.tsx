@@ -17,6 +17,9 @@ export const ScrollingListNextButton = ({ 'aria-label': ariaLabel, ...rest }: Ic
     }
   }
 
+  const listHasOverflow = ctx.overflow.left || ctx.overflow.right
+  const isDisabled = !listHasOverflow || (!ctx.loop && !ctx.overflow.right)
+
   return (
     <IconButton
       size="sm"
@@ -27,7 +30,7 @@ export const ScrollingListNextButton = ({ 'aria-label': ariaLabel, ...rest }: Ic
         'group-hover/scrolling-list:opacity-none focus-visible:opacity-none'
       )}
       onClick={handleNextPage}
-      disabled={!ctx.loop && !ctx.overflow.right}
+      disabled={isDisabled}
       aria-label={ariaLabel}
       aria-controls="scrolling-list-items"
       {...rest}
