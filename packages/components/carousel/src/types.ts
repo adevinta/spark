@@ -4,14 +4,45 @@ export const DATA_SCOPE = 'carousel' as const
 export const DIRECTION = 'ltr' as const
 
 export interface UseCarouselProps {
+  /**
+   * Opens the carousel on a predefined page index.
+   */
   defaultPage?: number
+  /**
+   * Active page of the carousel.
+   * Use it to control the carousel with your own state.
+   */
   page?: number
+  /**
+   * Space (in pixels) between slides.
+   */
   gap?: number
+  /**
+   * CSS scroll snap behavior.
+   * - `mandatory` to force snapping on each "page".
+   * - `proximity` to force snapping only when scroll position is near the edge of a "page". Behavior can change depending on each browser.
+   */
   snapType?: 'proximity' | 'mandatory'
+  /**
+   * Defines whether or not the scroll container is allowed to "pass over" possible snap positions.
+   */
   snapStop?: 'always' | 'normal'
+  /**
+   * Offset (in pixels) of the left of the optimal viewing region of the list.
+   */
   scrollPadding?: number
+  /**
+   * Number of slides to display in the carousel viewport.
+   */
   slidesPerPage?: number
+  /**
+   * By default, the carousel scroll N slides per move, N being the number of slides in the carousel viewport.
+   * Use this prop if you prefer to scroll by a smaller amount of slides each time.
+   */
   slidesPerMove?: number | 'auto'
+  /**
+   * When `true`, allow previous and next buttons to be used when reaching the edges of the carousel.
+   */
   loop?: boolean
   scrollBehavior?: 'instant' | 'smooth'
   onPageChange?: (pageIndex: number) => void

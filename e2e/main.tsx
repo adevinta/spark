@@ -10,6 +10,7 @@ import { ComboboxWithinDialog } from './combobox-within-dialog'
 import { DropdownWithAdjacentButtons } from './dropdown-with-adjacent-buttons'
 import { DropdownWithinDialog } from './dropdown-within-dialog'
 import { DialogForm, DrawerForm } from './form'
+import { ScrollingListImplementation } from './scrolling-list'
 
 const router = createBrowserRouter([
   ...a11yRoutes,
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: 'carousel',
     element: <CarouselImplementation />,
+  },
+  {
+    path: 'scrolling-list',
+    element: <ScrollingListImplementation />,
   },
 ])
 
