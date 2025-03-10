@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/carousel",
-  "version": "9.3.1",
+  "version": "9.3.2",
   "description": "A carousel presents a set of items, referred to as slides, by sequentially displaying a subset of one or more slides",
   "publishConfig": {
     "access": "public"
@@ -30,9 +30,9 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "@spark-ui/icon": "^9.3.1",
-    "@spark-ui/icon-button": "^9.3.1",
-    "@spark-ui/icons": "^9.3.1",
+    "@spark-ui/icon": "^9.3.2",
+    "@spark-ui/icon-button": "^9.3.2",
+    "@spark-ui/icons": "^9.3.2",
     "class-variance-authority": "0.7.0"
   },
   "repository": {
