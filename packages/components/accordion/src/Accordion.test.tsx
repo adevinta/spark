@@ -13,16 +13,12 @@ describe('Accordion', () => {
       <Accordion>
         <Accordion.Item value="a">
           <Accordion.ItemTrigger>First trigger</Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <p>First panel</p>
-          </Accordion.ItemContent>
+          <Accordion.ItemContent>First panel</Accordion.ItemContent>
         </Accordion.Item>
 
         <Accordion.Item value="b">
           <Accordion.ItemTrigger>Second trigger</Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <p>Second panel</p>
-          </Accordion.ItemContent>
+          <Accordion.ItemContent>Second panel</Accordion.ItemContent>
         </Accordion.Item>
       </Accordion>
     )
@@ -34,8 +30,10 @@ describe('Accordion', () => {
     await user.click(screen.getByRole('button', { name: 'First trigger' }))
 
     // Then first panel has been opened
-    expect(screen.getByText('First panel')).toBeVisible()
-    expect(screen.getByText('Second panel')).not.toBeVisible()
+    await waitFor(() => {
+      expect(screen.getByText('First panel')).toBeVisible()
+      expect(screen.getByText('Second panel')).not.toBeVisible()
+    })
 
     await user.click(screen.getByRole('button', { name: 'Second trigger' }))
 
@@ -54,16 +52,12 @@ describe('Accordion', () => {
       <Accordion multiple>
         <Accordion.Item value="a">
           <Accordion.ItemTrigger>First trigger</Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <p>First panel</p>
-          </Accordion.ItemContent>
+          <Accordion.ItemContent>First panel</Accordion.ItemContent>
         </Accordion.Item>
 
         <Accordion.Item value="b">
           <Accordion.ItemTrigger>Second trigger</Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <p>Second panel</p>
-          </Accordion.ItemContent>
+          <Accordion.ItemContent>Second panel</Accordion.ItemContent>
         </Accordion.Item>
       </Accordion>
     )
@@ -95,16 +89,12 @@ describe('Accordion', () => {
       <Accordion disabled>
         <Accordion.Item value="a">
           <Accordion.ItemTrigger>First trigger</Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <p>First panel</p>
-          </Accordion.ItemContent>
+          <Accordion.ItemContent>First panel</Accordion.ItemContent>
         </Accordion.Item>
 
         <Accordion.Item value="b">
           <Accordion.ItemTrigger>Second trigger</Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <p>Second panel</p>
-          </Accordion.ItemContent>
+          <Accordion.ItemContent>Second panel</Accordion.ItemContent>
         </Accordion.Item>
       </Accordion>
     )
@@ -128,16 +118,12 @@ describe('Accordion', () => {
       <Accordion>
         <Accordion.Item value="a">
           <Accordion.ItemTrigger>First trigger</Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <p>First panel</p>
-          </Accordion.ItemContent>
+          <Accordion.ItemContent>First panel</Accordion.ItemContent>
         </Accordion.Item>
 
         <Accordion.Item value="b" disabled>
           <Accordion.ItemTrigger>Second trigger</Accordion.ItemTrigger>
-          <Accordion.ItemContent>
-            <p>Second panel</p>
-          </Accordion.ItemContent>
+          <Accordion.ItemContent>Second panel</Accordion.ItemContent>
         </Accordion.Item>
       </Accordion>
     )
