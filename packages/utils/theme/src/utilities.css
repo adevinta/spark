@@ -16,7 +16,7 @@
   font-weight: 700;
 }
 
-@utility text-display-1-expanded {
+@utility text-display-2-expanded {
   font-size: calc(2.5rem * var(--spacing-factor));
   line-height: calc(3.5rem * var(--spacing-factor));
   font-weight: 700;
