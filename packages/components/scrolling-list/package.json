@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/scrolling-list",
-  "version": "9.3.5",
+  "version": "9.3.6",
   "description": "A scrolling list presents a set of items, referred to as slides, by sequentially displaying a subset of one or more slides",
   "publishConfig": {
     "access": "public"
@@ -30,9 +30,9 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
-    "@spark-ui/icon": "^9.3.5",
-    "@spark-ui/icon-button": "^9.3.5",
-    "@spark-ui/icons": "^9.3.5",
+    "@spark-ui/icon": "^9.3.6",
+    "@spark-ui/icon-button": "^9.3.6",
+    "@spark-ui/icons": "^9.3.6",
     "class-variance-authority": "0.7.0",
     "react-snap-carousel": "^0.5.1"
   },
