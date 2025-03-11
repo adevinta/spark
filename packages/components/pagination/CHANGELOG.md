@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.5](https://github.com/adevinta/spark/compare/v9.3.4...v9.3.5) (2025-03-11)
+
+**Note:** Version bump only for package @spark-ui/pagination
+
 ## [9.3.4](https://github.com/adevinta/spark/compare/v9.3.3...v9.3.4) (2025-03-10)
 
 **Note:** Version bump only for package @spark-ui/pagination
