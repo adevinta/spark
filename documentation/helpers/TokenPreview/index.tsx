@@ -1,6 +1,19 @@
 export const getCssVariable = (varName: string) =>
   getComputedStyle(document.documentElement).getPropertyValue(varName)
 
+export const getComputedCssVariable = (cssAttributeName: string, className: string) => {
+  const element = document.createElement('div')
+  element.className = className
+  element.style.position = 'absolute'
+  element.style.left = '-9999px'
+  element.style.top = '-9999px'
+  document.body.appendChild(element)
+  const value = getComputedStyle(element).getPropertyValue(cssAttributeName)
+  document.body.removeChild(element)
+
+  return value
+}
+
 export const ColorPreview = ({ bg }: { bg: string }) => {
   return (
     <div>

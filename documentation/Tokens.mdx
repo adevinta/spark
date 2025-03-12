@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/blocks'
 import { Card } from '@docs/helpers/Card'
 import { Tag } from '@spark-ui/tag'
-import { getCssVariable, BackgroundColorPreview, TextColorPreview, OutlineColorPreview } from '@docs/helpers/TokenPreview'
+import { getCssVariable, getComputedCssVariable, BackgroundColorPreview, TextColorPreview, OutlineColorPreview } from '@docs/helpers/TokenPreview'
 
 <Meta title="Tokens" />
 
@@ -26,140 +26,62 @@ Spark uses TailwindCSS for styling.
 
 ## Spacing 
 
+export const spacing = [
+    {computed: 'p-sm', className: 'size-sm'},
+    {computed: 'p-md', className: 'size-md'},
+    {computed: 'p-lg', className: 'size-lg'},
+    {computed: 'p-xl', className: 'size-xl'},
+    {computed: 'p-2xl', className: 'size-2xl'},
+    {computed: 'p-3xl', className: 'size-3xl'},
+]
+
 <div className='sb-unstyled flex flex-col gap-xl'>
-    <div className="gap-lg flex items-center">
-        <div className={`size-sm bg-basic`} />
-        <div className="flex flex-col">
-            <p className="text-body-1">sm</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--spacing-sm')}</p>
-        </div>
-    </div>
-
-    <div className="gap-lg flex items-center">
-        <div className={`size-md bg-basic`} />
-        <div className="flex flex-col">
-            <p className="text-body-1">md</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--spacing-md')}</p>
-        </div>
-    </div>
-
-    <div className="gap-lg flex items-center">
-        <div className={`size-lg bg-basic`} />
-        <div className="flex flex-col">
-            <p className="text-body-1">lg</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--spacing-lg')}</p>
-        </div>
-    </div>
-
-    <div className="gap-lg flex items-center">
-        <div className={`size-xl bg-basic`} />
-        <div className="flex flex-col">
-            <p className="text-body-1">xl</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--spacing-xl')}</p>
-        </div>
-    </div>
-
-    <div className="gap-lg flex items-center">
-        <div className={`size-2xl bg-basic`} />
-        <div className="flex flex-col">
-            <p className="text-body-1">2xl</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--spacing-2xl')}</p>
-        </div>
-    </div>
-
-    <div className="gap-lg flex items-center">
-        <div className={`size-3xl bg-basic`} />
-        <div className="flex flex-col">
-            <p className="text-body-1">3xl</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--spacing-3xl')}</p>
-        </div>
-    </div>
+    {spacing.map(({ computed, className }) => {
+        return (
+            <div className="gap-lg flex items-center">
+                <div className={`${className} bg-basic`} />
+                <div className="flex flex-col">
+                    <p className="text-body-1">{computed}</p>
+                    <p className="text-body-2 opacity-dim-1">{getComputedCssVariable('padding', computed)}</p>
+                </div>
+            </div>
+        )
+    })}
 </div>
 
 ## Font Sizes
 
+export const fontSizes = [
+    'text-display-1-expanded',
+    'text-display-1',
+    'text-display-2-expanded',
+    'text-display-2',
+    'text-display-3-expanded',
+    'text-display-3',
+    'text-headline-1-expanded',
+    'text-headline-1',
+    'text-headline-2-expanded',
+    'text-headline-2',
+    'text-subhead-expanded',
+    'text-subhead',  
+    'text-body-1',
+    'text-body-2',
+    'text-caption',
+    'text-small',
+]
+
+
 <div className='sb-unstyled'>
     <div className='gap-lg grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] flex-wrap'>
-        <div className="">
-            <p className='text-display-1-expanded bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-display-1-expanded</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 3rem, line-height: 4rem, font-weight: 700</p>
-        </div>
-        <div className="">
-            <p className='text-display-1 bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-display-1</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 2.5rem, line-height: 3.5rem, font-weight: 700</p>
-        </div>   
-        <div className="">
-            <p className='text-display-2-expanded bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-display-2-expanded</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 2.5rem, line-height: 3.5rem, font-weight: 700</p>
-        </div>
-        <div className="">    
-            <p className='text-display-2 bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-display-2</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 2rem, line-height: 2.75rem, font-weight: 700</p>
-        </div>
-        <div className="">
-            <p className='text-display-3-expanded bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-display-3-expanded</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 2rem, line-height: 2.75rem, font-weight: 700</p>
-        </div>   
-        <div className="">
-            <p className='text-display-3 bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-display-3</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 1.5rem, line-height: 2rem, font-weight: 700</p>
-        </div>   
-        <div className="">
-            <p className='text-headline-1-expanded bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-headline-1-expanded</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 1.5rem, line-height: 2rem, font-weight: 700</p>
-        </div>   
-        <div className="">
-            <p className='text-headline-1 bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-headline-1</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 1.25rem, line-height: 1.75rem, font-weight: 700</p>
-        </div>   
-        <div className="">
-            <p className='text-headline-2-expanded bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-headline-2-expanded</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 1.25rem, line-height: 1.75rem, font-weight: 700</p>
-        </div>   
-        <div className="">
-            <p className='text-headline-2 bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-headline-2</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 1.125rem, line-height: 1.5rem, font-weight: 700</p>
-        </div>
-        <div className="">
-            <p className='text-subhead-expanded bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-subhead-expanded</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 1rem, line-height: 1.5rem, font-weight: 700</p>
-        </div>   
-        <div className="">
-            <p className='text-subhead bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-subhead</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 1rem, line-height: 1.5rem, font-weight: 700</p>
-        </div>   
-        <div className="">
-            <p className='text-body-1 bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-body-1</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 1rem, line-height: 1.5rem</p>
-        </div>   
-        <div className="">
-            <p className='text-body-2 bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-body-2</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 0.875remrem, line-height: 1.25rem</p>
-        </div>   
-        <div className="">
-            <p className='text-caption bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-caption</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 0.75remrem, line-height: 1rem</p>
-        </div>   
-        <div className="">
-            <p className='text-small bg-basic-container text-on-basic-container px-lg'>Hello world.</p>
-            <p>text-small</p>
-            <p className='text-body-2 opacity-dim-1'>font-size: 0.625rem, line-height: 0.875rem</p>
-        </div>         
+        {fontSizes.map((fontSize) => {
+            return (
+                <div>
+                    <p className={`${fontSize} bg-basic-container text-on-basic-container px-lg`}>Hello world.</p>
+                    <p>text-{fontSize}</p>
+                    <p className='text-body-2 opacity-dim-1'>font-size: {getComputedCssVariable('font-size', fontSize)}, line-height: {getComputedCssVariable('line-height', fontSize)}, font-weight: {getComputedCssVariable('font-weight', fontSize)}</p>
+                </div>
+            )
+        })}       
     </div>
 </div>
 
@@ -247,32 +169,32 @@ Spark uses TailwindCSS for styling.
         <div className='flex flex-col gap-sm'>
             <div className='bg-main size-sz-44 rounded-tl-0 p-xl' />
             <p>rounded-0</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--radius-0')}</p>
+            <p className="text-body-2 opacity-dim-1">{getComputedCssVariable('border-radius', 'rounded-0')}</p>
         </div>
         <div className='flex flex-col gap-sm'>
             <div className='bg-main size-sz-44 rounded-tl-sm p-xl' />
             <p>rounded-sm</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--radius-sm')}</p>
+            <p className="text-body-2 opacity-dim-1">{getComputedCssVariable('border-radius', 'rounded-sm')}</p>
         </div>
         <div className='flex flex-col gap-sm'>
             <div className='bg-main size-sz-44 rounded-tl-md p-xl' />
             <p>rounded-md</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--radius-md')}</p>
+            <p className="text-body-2 opacity-dim-1">{getComputedCssVariable('border-radius', 'rounded-md')}</p>
         </div>
         <div className='flex flex-col gap-sm'>
             <div className='bg-main size-sz-44 rounded-tl-lg p-xl' />
             <p>rounded-lg</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--radius-lg')}</p>
+            <p className="text-body-2 opacity-dim-1">{getComputedCssVariable('border-radius', 'rounded-lg')}</p>
         </div>
         <div className='flex flex-col gap-sm'>  
             <div className='bg-main size-sz-44 rounded-tl-xl p-xl' />
             <p>rounded-xl</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--radius-xl')}</p>
+            <p className="text-body-2 opacity-dim-1">{getComputedCssVariable('border-radius', 'rounded-xl')}</p>
         </div>
         <div className='flex flex-col gap-sm'>
             <div className='bg-main size-sz-44 rounded-tl-full p-xl' />
             <p>rounded-full</p>
-            <p className="text-body-2 opacity-dim-1">{getCssVariable('--radius-full')}</p>
+            <p className="text-body-2 opacity-dim-1">{getComputedCssVariable('border-radius', 'rounded-full')}</p>
         </div>
     </div>
 </div>
