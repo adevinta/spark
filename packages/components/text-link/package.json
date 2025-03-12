@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:adevinta/spark.git",
+    "url": "git@github.com:leboncoin/spark-web.git",
     "directory": "packages/components/text-link"
   },
   "config": {
@@ -41,7 +41,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+text-link%22"
+    "url": "https://github.com/leboncoin/spark-web/issues?q=is%3Aopen+label%3A%22Component%3A+text-link%22"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

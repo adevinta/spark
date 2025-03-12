@@ -1,6 +1,6 @@
 ## TYPE(SCOPE): TITLE
 
-<!-- https://github.com/adevinta/spark/issues -->
+<!-- https://github.com/leboncoin/spark-web/issues -->
 **TASK**: <!--- #issueID -->
 
 ### Description, Motivation and Context

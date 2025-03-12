@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adevinta/spark.git",
+    "url": "https://github.com/leboncoin/spark-web.git",
     "directory": "packages/hooks/use-mounted-state"
   },
   "config": {
@@ -31,7 +31,7 @@
     "category": "hooks"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3Ahook+label%3Ause-mounted-state"
+    "url": "https://github.com/leboncoin/spark-web/issues?q=is%3Aopen+label%3Ahook+label%3Ause-mounted-state"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

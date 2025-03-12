@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adevinta/spark.git",
+    "url": "https://github.com/leboncoin/spark-web.git",
     "directory": "packages/components/alert-dialog"
   },
   "config": {
@@ -43,7 +43,7 @@
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/labels/Component%3A%20alert-dialog"
+    "url": "https://github.com/leboncoin/spark-web/labels/Component%3A%20alert-dialog"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

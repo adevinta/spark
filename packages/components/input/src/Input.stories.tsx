@@ -440,7 +440,7 @@ export const FieldInvalid: StoryFn = _args => {
       <FormField.Label>Title</FormField.Label>
 
       <InputGroup>
-        <Input defaultValue="adevinta.com" />
+        <Input defaultValue="leboncoin.fr" />
       </InputGroup>
 
       <FormField.ErrorMessage>The URL is invalid</FormField.ErrorMessage>
