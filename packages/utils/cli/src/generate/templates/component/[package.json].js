@@ -30,7 +30,7 @@ export default ({ name, description }) => `{
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adevinta/spark.git",
+    "url": "https://github.com/leboncoin/spark-web.git",
     "directory": "packages/components/${name}"
   },
   "config": {
@@ -38,7 +38,7 @@ export default ({ name, description }) => `{
     "category": "components"
   },
   "bugs": {
-    "url": "https://github.com/adevinta/spark/issues?q=is%3Aopen+label%3A%22Component%3A+${name}%22"
+    "url": "https://github.com/leboncoin/spark-web/issues?q=is%3Aopen+label%3A%22Component%3A+${name}%22"
   },
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT"

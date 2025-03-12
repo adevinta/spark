@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:adevinta/spark.git"
+    "url": "git@github.com:leboncoin/spark-web.git"
   },
   "dependencies": {
     "@rollup/plugin-terser": "^0.4.4",

@@ -1,24 +1,23 @@
-import { memo, useEffect, useSyncExternalStore, useRef } from "react"
+import { memo, useEffect, useSyncExternalStore, useRef } from 'react'
 
 /*
   1. Refer to this issue for the context behind this:
-     https://github.com/adevinta/spark/pull/2497
+     https://github.com/leboncoin/spark-web/pull/2497
 */
 
-import { useGlobals } from "@storybook/manager-api"
-
+import { useGlobals } from '@storybook/manager-api'
 
 function useUrlChange() {
   /* 1 */
   return useSyncExternalStore(
-    (callback) => {
-      window.addEventListener("popstate", callback)
+    callback => {
+      window.addEventListener('popstate', callback)
 
       return () => {
-        window.removeEventListener("popstate", callback)
+        window.removeEventListener('popstate', callback)
       }
     },
-    () => window.location.href,
+    () => window.location.href
   )
 }
 
@@ -27,8 +26,8 @@ export const SkinlessThemeSwitcherHandler = memo(function SkinlessThemeSwitcherH
 
   const theme = globals?.theme
   const url = useUrlChange()
-  const initialUrlHashRef = useRef("")
-  const initialUrlSearchRef = useRef("")
+  const initialUrlHashRef = useRef('')
+  const initialUrlSearchRef = useRef('')
 
   useEffect(() => {
     /* 1 */
@@ -46,20 +45,20 @@ export const SkinlessThemeSwitcherHandler = memo(function SkinlessThemeSwitcherH
 
     const newUrl = new URL(window.location)
     newUrl.hash = initialUrlHashRef.current
-    window.history.replaceState(null, "", newUrl)
+    window.history.replaceState(null, '', newUrl)
   }, [url])
 
   useEffect(() => {
     if (!theme) return
 
-    const htmlElement = document.querySelector("html")
+    const htmlElement = document.querySelector('html')
     if (htmlElement) {
-      htmlElement.setAttribute("data-theme", theme)
+      htmlElement.setAttribute('data-theme', theme)
     }
-    const iframe = document.querySelector("#storybook-preview-iframe")
+    const iframe = document.querySelector('#storybook-preview-iframe')
     if (iframe) {
       const iframeHtmlElement = iframe.contentDocument?.documentElement
-      iframeHtmlElement.setAttribute("data-theme", theme)
+      iframeHtmlElement.setAttribute('data-theme', theme)
     }
   }, [theme])
 
