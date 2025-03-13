@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.7](https://github.com/leboncoin/spark-web/compare/v9.3.6...v9.3.7) (2025-03-13)
+
+**Note:** Version bump only for package @spark-ui/divider
+
 ## [9.3.6](https://github.com/leboncoin/spark-web/compare/v9.3.5...v9.3.6) (2025-03-11)
 
 **Note:** Version bump only for package @spark-ui/divider
