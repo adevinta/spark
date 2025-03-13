@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.SA_TOKEN }}
+          token: ${{ secrets.SPARK_SA_TOKEN }}
           fetch-depth: 0
       - name: Identity
         run: |
