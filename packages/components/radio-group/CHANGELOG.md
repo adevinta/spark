@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.9](https://github.com/leboncoin/spark-web/compare/v9.3.8...v9.3.9) (2025-03-13)
+
+**Note:** Version bump only for package @spark-ui/radio-group
+
 ## [9.3.8](https://github.com/leboncoin/spark-web/compare/v9.3.7...v9.3.8) (2025-03-13)
 
 **Note:** Version bump only for package @spark-ui/radio-group

@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/tabs",
-  "version": "9.3.8",
+  "version": "9.3.9",
   "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
   "publishConfig": {
     "access": "public"
@@ -36,9 +36,9 @@
     "url": "https://github.com/leboncoin/spark-web/issues?q=is%3Aopen+label%3A%22Component%3A+tabs%22"
   },
   "dependencies": {
-    "@spark-ui/button": "^9.3.8",
-    "@spark-ui/icon": "^9.3.8",
-    "@spark-ui/icons": "^9.3.8",
+    "@spark-ui/button": "^9.3.9",
+    "@spark-ui/icon": "^9.3.9",
+    "@spark-ui/icons": "^9.3.9",
     "class-variance-authority": "0.7.0",
     "radix-ui": "1.1.3"
   },
