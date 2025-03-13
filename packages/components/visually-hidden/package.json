@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/visually-hidden",
-  "version": "9.3.7",
+  "version": "9.3.8",
   "description": "Hides content from the screen in an accessible way",
   "publishConfig": {
     "access": "public"
@@ -24,7 +24,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/slot": "^9.3.7"
+    "@spark-ui/slot": "^9.3.8"
   },
   "peerDependencies": {
     "react": "^19.0",

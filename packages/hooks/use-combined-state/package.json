@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/use-combined-state",
-  "version": "9.3.7",
+  "version": "9.3.8",
   "description": "combine controlled-uncontrolled component state by stateful-stateless inner state management",
   "publishConfig": {
     "access": "public"
@@ -18,7 +18,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@spark-ui/use-mounted-state": "^9.3.7",
+    "@spark-ui/use-mounted-state": "^9.3.8",
     "@types/lodash.isequal": "4.5.8",
     "lodash.isequal": "4.5.0"
   },

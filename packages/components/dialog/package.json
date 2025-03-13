@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/dialog",
-  "version": "9.3.7",
+  "version": "9.3.8",
   "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
   "publishConfig": {
     "access": "public"
@@ -43,9 +43,9 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/icon": "^9.3.7",
-    "@spark-ui/icon-button": "^9.3.7",
-    "@spark-ui/icons": "^9.3.7",
+    "@spark-ui/icon": "^9.3.8",
+    "@spark-ui/icon-button": "^9.3.8",
+    "@spark-ui/icons": "^9.3.8",
     "class-variance-authority": "0.7.0",
     "radix-ui": "1.1.3"
   }
