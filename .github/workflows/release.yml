@@ -20,8 +20,8 @@ jobs:
           columns_per_row: 8
           use_username: true
           commit_message: 'docs(chore): update contributors'
-          committer_username: 'spark-ui-bot'
-          committer_email: 'gp.gt.ft.ade.spark@adevinta.com'
+          committer_username: 'github-actions[bot]'
+          committer_email: 'github-actions[bot]@users.noreply.github.com'
           auto_detect_branch_protection: false
           collaborators: 'outside'
         env:
@@ -36,8 +36,8 @@ jobs:
           fetch-depth: 0
       - name: Identity
         run: |
-          git config --global user.name 'spark-ui-bot'
-          git config --global user.email 'gp.gt.ft.ade.spark@adevinta.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
       - name: Install
         uses: ./.github/composite-actions/install
