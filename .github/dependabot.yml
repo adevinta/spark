@@ -6,9 +6,6 @@ updates:
       interval: 'weekly'
     reviewers:
       - 'acd02'
-      - 'andresin87'
-      - 'andresz1'
-      - 'kikoruiz'
       - 'Powerplex'
       - 'soykje'
     ignore:

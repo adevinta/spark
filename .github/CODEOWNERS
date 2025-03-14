@@ -1,7 +1,7 @@
 # Each line is a file pattern followed by one or more owners.
 
 # These owners will be the default owners for everything in the repo.
-- @kikoruiz @andresin87 @andresz1 @turolopezsanabria @thomas-leguellec @victorsolajurnet @Powerplex @acd02 @solygambas @soykje
+- @Powerplex @acd02 @soykje
 
 # Order is important. The last matching pattern has the most precedence.
 
