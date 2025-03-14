@@ -25,7 +25,7 @@
   "dependencies": {
     "@react-aria/button": "3.11.0",
     "@react-aria/numberfield": "3.11.10",
-    "@react-stately/numberfield": "3.9.6",
+    "@react-stately/numberfield": "3.9.10",
     "@spark-ui/form-field": "^9.3.9",
     "@spark-ui/icon": "^9.3.9",
     "@spark-ui/icon-button": "^9.3.9",
