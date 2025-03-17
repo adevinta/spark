@@ -1,26 +1,248 @@
+import { useState, useId } from 'react'
 import { Meta } from '@storybook/blocks'
 import { Card } from '@docs/helpers/Card'
 import { Tag } from '@spark-ui/tag'
+import { Button } from '@spark-ui/button'
+import { IconButton } from '@spark-ui/icon-button'
+import { LikeOutline } from '@spark-ui/icons/dist/icons/LikeOutline'
+import { BookmarkOutline } from '@spark-ui/icons/dist/icons/BookmarkOutline'
+import { Icon } from '@spark-ui/icon'
+import { Label } from '@spark-ui/label'
+import { RadioGroup } from '@spark-ui/radio-group'
+import { VisuallyHidden } from '@spark-ui/visually-hidden'
+import { cx } from 'class-variance-authority'
+import Xarrow, { Xwrapper } from "react-xarrows";
 import { getCssVariable, getComputedCssVariable, BackgroundColorPreview, TextColorPreview, OutlineColorPreview } from '@docs/helpers/TokenPreview'
 
 <Meta title="Tokens" />
 
 # Spark Tokens
 
-Spark uses TailwindCSS for styling. 
+export const CustomRadio = ({
+    children,
+    selectedValue,
+    ...others
+  }) => {
+    const id = useId()
+    const { value } = others
+
+    return (
+      <Label
+        id={id}
+        htmlFor={value}
+        className={cx(
+          'py-sm px-lg rounded-md border-sm',
+          value === selectedValue ? 'bg-basic text-on-basic border-basic' : 'border-basic',
+          'cursor-pointer',
+          'focus-within:u-outline',
+          '[&:has(:focus-visible)]:focus-within:ring-2'
+        )}
+      >
+        <VisuallyHidden>
+          <RadioGroup.Radio aria-labelledby={id} id={value} {...others} />
+        </VisuallyHidden>
+        {children}
+      </Label>
+    )
+  }
+
+export const ColorCard = () => {
+    const [currentIntent, setCurrentIntent] = useState('main')
+    const arrowProps = {
+        color: 'var(--color-info)',
+        strokeWidth: 2,
+        headShape: 'circle',
+        tailShape: "circle",
+        showTail: false,
+        headSize: 4,
+    }
+
+    const intents = [
+        { name: 'Main', intentProp: 'main', styles: { card: 'bg-main-container text-on-main-container', button: 'bg-main text-on-main'}, description: 'Use Main color to emphasize the most relevant components and essential elements on the UI, like primary actions or brand panels. These colors play a crucial role in helping to strengthen the brand identity. By using the Main colors strategically, users can easily recognize and connect with the brand, which leads to building trust and familiarity with an interface that is cohesive and unique.' },
+        { name: 'Support', intentProp: 'support', styles: { card: 'bg-support-container text-on-support-container', button: 'bg-support text-on-support'}, description: 'Use Support colors to complement the main actions or primary elements to provide a sense of hierarchy and visual consistency in the UI. They are typically darker tones that complement the primary color scheme without overpowering it. They help distinguish secondary elements from primary ones, making it easy for users to navigate the interface.' },
+        { name: 'Accent', intentProp: 'accent', styles: { card: 'bg-accent-container text-on-accent-container', button: 'bg-accent text-on-accent'}, description: 'Use accent color to highlight important elements in the interface. Draw attention to specific elements and create visual interest while guiding users\' focus.' },
+        { name: 'Basic', intentProp: 'basic', styles: { card: 'bg-basic-container text-on-basic-container', button: 'bg-basic text-on-basic'}, description: 'Use Basic colors on fundamental components of the UI that do not require a specific intent, such as form elements like Switch, RadioButton, CheckBox, and ProgressBar. Using Basic color in form components enables a smooth transition between brands.' },
+        { name: 'Success', intentProp: 'success', styles: { card: 'bg-success-container text-on-success-container', button: 'bg-success text-on-success'}, description: 'Convey to the user a successful action, like after a form has been successfully submitted.' },    
+        { name: 'Alert', intentProp: 'alert', styles: { card: 'bg-alert-container text-on-alert-container', button: 'bg-alert text-on-alert'}, description: 'Convey to the user a warning, for example over a sensitive action.' },
+        { name: 'Error', intentProp: 'danger', styles: { card: 'bg-error-container text-on-error-container', button: 'bg-error text-on-error'}, description: 'Convey to the user an error, for example when a form field is invalid.' },
+        { name: 'Info', intentProp: 'info', styles: { card: 'bg-info-container text-on-info-container', button: 'bg-info text-on-info'}, description: 'Convet to the user additional information, for example in a tooltip.' },
+        { name: 'Neutral', intentProp: 'neutral', styles: { card: 'bg-neutral-container text-on-neutral-container', button: 'bg-neutral text-on-neutral'}, description: 'Neutral family should be using grey colors and is used for neutral elements, such as: border, dividers, a banner with no specific intent, etc.' },
+    ]
+
+    const currentConfig = intents.find(intent => intent.intentProp === currentIntent)
+
+    return (
+        <div className='flex flex-col gap-md sb-unstyled'>
+            <RadioGroup value={currentIntent} name="sport" onValueChange={setCurrentIntent} orientation='horizontal' className='gap-md! flex-wrap'>
+                {intents.map(intent => {
+                    return (
+                        <CustomRadio selectedValue={currentIntent} key={intent.intentProp} value={intent.intentProp}>
+                                <span className="font-bold">{intent.name}</span>
+                        </CustomRadio>
+                    )
+                })}
+            </RadioGroup>
+
+            <div className={cx('p-lg rounded-lg ', currentConfig.styles.card)}>
+              <p className='bg-surface text-on-suface p-lg'>{currentConfig.description}</p>
+            </div>
+
+            <div className='sb-unstyled relative flex justify-center items-center min-h-sz-400 bg-neutral-container'>
+                <Xwrapper>
+                    <div id='card-target' className={cx('shadow-md flex overflow-hidden items-stretch rounded-lg ', currentConfig.styles.card)}>
+                        
+                        <div className='flex flex-col gap-sm p-lg'>
+                            <p id="card-text-target" className='text-headline-1'>This is a title</p>
+                            <p className='text-body-2'>Lorem ipsum dolor sit amet</p>
+
+                            <Button id="card-button-target" intent={currentConfig.intentProp} design='filled'><span id="card-button-text-target">Read more</span></Button>
+                        </div>
+
+                        <div id="card-surface-target" className="relative flex flex-col gap-sm bg-surface flex-1 p-md border-l-sm border-outline">
+                            <IconButton id="card-surface-button-target" size="sm" intent={currentConfig.intentProp} design='outlined'>
+                                <Icon><LikeOutline /></Icon>
+                            </IconButton>
+
+                            <IconButton id="card-surface-button-target" size="sm" intent={currentConfig.intentProp} design='outlined'>
+                                <Icon><BookmarkOutline /></Icon>
+                            </IconButton>
+
+                            
+                            <div id="card-outline-target" className='absolute left-0 top-0 h-full' />
+                            
+                        </div>
+                    </div>
+                    
+                    <div className='flex flex-col gap-sm absolute left-lg top-lg'>  
+                        <Tag id="card-bg-tip" intent='info' design='tinted'>
+                            {currentConfig.name} container
+                        </Tag>
+
+                        <Tag id="card-text-tip" intent='info' design='tinted'>
+                            On {currentConfig.name} container
+                        </Tag>
+                    </div>
+
+                    <div className='flex flex-col gap-sm absolute left-lg bottom-lg'>
+                        <Tag id="card-button-tip" intent='info' design='tinted'>
+                            {currentConfig.name}
+                        </Tag>
+
+                        <Tag id="card-button-text-tip" intent='info' design='tinted'>
+                            On {currentConfig.name}
+                        </Tag>
+                    </div>
+
+                    <div className='flex flex-col gap-sm absolute right-lg top-lg'>
+                        <Tag id="card-surface-tip" intent='info' design='tinted'>
+                            Surface
+                        </Tag>
+                    </div>
+
+                    <div className='flex flex-col gap-sm absolute right-lg bottom-lg'>
+                        <Tag id="card-outline-tip" intent='info' design='tinted'>
+                            Outline
+                        </Tag>
+                    </div>
+
+
+                    <Xarrow start="card-target" end="card-bg-tip" {...arrowProps} startAnchor="top"/>
+                    <Xarrow start="card-text-target" end="card-text-tip" {...arrowProps}/>
+                    <Xarrow start="card-button-target" end="card-button-tip" {...arrowProps}/>
+                    <Xarrow start="card-button-text-target" end="card-button-text-tip" {...arrowProps} startAnchor="bottom"/>
+                    <Xarrow start="card-surface-target" end="card-surface-tip" {...arrowProps} startAnchor="top"/>
+                    <Xarrow start="card-outline-target" end="card-outline-tip" {...arrowProps} startAnchor="bottom"/>
+
+                    
+                </Xwrapper>
+            </div>
+        </div>
+    )
+}
 
 ## Colors
 
+### Color families
 
-### Background
+Spark opt-outs of the default TailwindCSS color palette and offers 9 color families, each with multiple color tokens with their own semantic usage.
+
+<ColorCard />
+
+
+### Colors syntax
+
+Each color family offers various tokens with their own semantic usage. 
+
+#### Base token
+
+Main color tokens of each family, they represent the visual identity of your theme and should be vivid/strong. They are used for important elements of your interfaces, such as the main call to actions and elements that makes your website identity (logo, illustrations, etc)
+
+```jsx
+<div className="bg-main" />
+```
+
+#### Container token
+
+Toned down versions of the main color tokens. They must re-use the same color hue but be less saturated or with softer lightness. They are used for background elements of your interfaces.
+
+```jsx
+<div className="bg-main-container" />
+```
+
+#### Contrasting color token
+
+Colors to use on top of a `*` or `*-container` background. Usually for text or icons. Their purpose is to contrast with the background color. 
+- Never use as a background. 
+- Never use on a background of a different color family.
+- They don't exist in an `*-hovered` state, as Spark chose to animate the background color instead.   
+
+```jsx
+<div className="bg-main text-on-main" />
+<div className="bg-main-container text-on-main-container" />
+```
+
+#### Hovered token
+
+Hovered state of a `*` or `*-container` element. We advise to use the same color hue and saturation as the base colorand simply apply a delta on the lightness.
+
+```jsx
+<button type="button" className="bg-main hover:bg-main-hovered">Click me</button>
+
+```
+
+#### Outline token  
+
+Colors to use for generic outlines/dividers. **Never use on text or background**.
+
+```jsx
+<hr className="border-sm border-outline" />
+```
+
+#### Outline high token
+
+Colors to use for high contrast outlines/dividers. **Never use on text or background**.   
+
+```jsx
+<hr className="border-sm border-outline-high" />
+```
+
+#### Overlay token
+
+Colors to use for overlays (ex: modals, tooltips, dropdowns). Combine it with `dim-3` opacity for consistancy.
+
+```jsx
+<div className="bg-overlay/dim-3" />
+```
+
+### Preview - Backgrounds
 
 <BackgroundColorPreview />
 
-### Text
+### Preview - Text
 
 <TextColorPreview />
 
-### Outline
+### Preview - Outlines
 
 <OutlineColorPreview />
 
