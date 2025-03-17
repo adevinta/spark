@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.14](https://github.com/leboncoin/spark-web/compare/v9.3.13...v9.3.14) (2025-03-17)
+
+**Note:** Version bump only for package @spark-ui/select
+
 ## [9.3.13](https://github.com/leboncoin/spark-web/compare/v9.3.12...v9.3.13) (2025-03-14)
 
 **Note:** Version bump only for package @spark-ui/select

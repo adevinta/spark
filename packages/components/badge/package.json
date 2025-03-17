@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/badge",
-  "version": "9.3.13",
+  "version": "9.3.14",
   "description": "Badge component is a visual indicator for numeric values such as tallies and scores.",
   "publishConfig": {
     "access": "public"
@@ -35,7 +35,7 @@
     "url": "https://github.com/leboncoin/spark-web/issues?q=is%3Aopen+is%3Aissue+label%3A%22Component%3A+badge%22"
   },
   "dependencies": {
-    "@spark-ui/internal-utils": "^9.3.13",
+    "@spark-ui/internal-utils": "^9.3.14",
     "class-variance-authority": "0.7.0"
   },
   "peerDependencies": {

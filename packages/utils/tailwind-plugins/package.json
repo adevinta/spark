@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/tailwind-plugins",
-  "version": "9.3.13",
+  "version": "9.3.14",
   "description": "Spark Tailwind plugins",
   "publishConfig": {
     "access": "public"
@@ -15,7 +15,7 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "@spark-ui/theme-utils": "^9.3.13",
+    "@spark-ui/theme-utils": "^9.3.14",
     "tailwindcss-radix": "2.9.0"
   },
   "peerDependencies": {
