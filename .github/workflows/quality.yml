@@ -87,7 +87,7 @@ jobs:
           fetch-depth: 0
 
       - name: Get changed files
-        uses: tj-actions/changed-files@v41
+        uses: tj-actions/changed-files@v46
         id: e2efiles
         with:
           files: |
@@ -109,7 +109,7 @@ jobs:
           fetch-depth: 0
 
       - name: Get changed files
-        uses: tj-actions/changed-files@v41
+        uses: tj-actions/changed-files@v46
         id: a11yfiles
         with:
           files: |
