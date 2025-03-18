@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 import { ScrollingList } from '.'
 
 const meta: Meta<typeof ScrollingList> = {
-  title: 'Experimental/ScrollingList',
+  title: 'Components/ScrollingList',
   component: ScrollingList,
 }
 
@@ -94,19 +94,21 @@ export const Default: StoryFn = () => {
         </ScrollingList.SkipButton>
 
         <ScrollingList.Items aria-labelledby="popular-products-list">
-          {products.map(product => {
+          {products.map((product, index) => {
             return (
               <ScrollingList.Item
                 key={product.name}
                 className="gap-xl max-w-sz-256 bg-main-container text-on-main-container p-lg flex flex-col justify-between rounded-xl"
               >
                 <div>
-                  <p className="text-headline-2">{product.name}</p>
+                  <p className="text-headline-2" id={`product-${index}-title`}>
+                    {product.name}
+                  </p>
                   <hr className="my-lg border-outline" />
                   <p>{product.description}</p>
                 </div>
 
-                <Button>Learn more</Button>
+                <Button aria-describedby={`product-${index}-title`}>Learn more</Button>
               </ScrollingList.Item>
             )
           })}
