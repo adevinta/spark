@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/leboncoin/spark-web/compare/v9.3.15...v9.4.0) (2025-03-18)
+
+### Features
+
+- **carousel:** release carousel and scrolling-list packages as stable ([f4253e2](https://github.com/leboncoin/spark-web/commit/f4253e24fb2a3427ae210c53a981477db00e939b))
+
 ## [9.3.15](https://github.com/leboncoin/spark-web/compare/v9.3.14...v9.3.15) (2025-03-17)
 
 **Note:** Version bump only for package @spark-ui/carousel

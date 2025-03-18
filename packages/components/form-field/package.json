@@ -1,6 +1,6 @@
 {
   "name": "@spark-ui/form-field",
-  "version": "9.3.15",
+  "version": "9.4.0",
   "description": "Provide context to your form elements",
   "publishConfig": {
     "access": "public"
@@ -45,9 +45,9 @@
   "homepage": "https://sparkui.vercel.app",
   "license": "MIT",
   "dependencies": {
-    "@spark-ui/icon": "^9.3.15",
-    "@spark-ui/icons": "^9.3.15",
-    "@spark-ui/label": "^9.3.15",
-    "@spark-ui/slot": "^9.3.15"
+    "@spark-ui/icon": "^9.4.0",
+    "@spark-ui/icons": "^9.4.0",
+    "@spark-ui/label": "^9.4.0",
+    "@spark-ui/slot": "^9.4.0"
   }
 }
