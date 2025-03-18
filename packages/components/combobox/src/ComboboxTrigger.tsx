@@ -92,8 +92,8 @@ export const Trigger = ({ className, children, ref: forwardedRef }: TriggerProps
           <div
             ref={scrollableAreaRef}
             className={cx(
-              'inline-flex min-w-none grow items-start gap-sm py-md',
-              ctx.wrap ? 'flex-wrap' : 'overflow-x-auto p-[2px] u-no-scrollbar'
+              'min-w-none gap-sm py-md inline-flex grow items-start',
+              ctx.wrap ? 'flex-wrap' : 'u-no-scrollbar overflow-x-auto p-[2px]'
             )}
           >
             {selectedItems}

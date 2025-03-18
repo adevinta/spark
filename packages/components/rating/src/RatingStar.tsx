@@ -42,7 +42,7 @@ export const RatingStar = ({
     >
       <div
         className={cx(
-          'absolute z-raised overflow-hidden',
+          'z-raised absolute overflow-hidden',
           'group-[[data-part=star][data-hovered]]:overflow-visible'
         )}
         style={{ width: value * 100 + '%' }}

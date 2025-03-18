@@ -20,7 +20,7 @@ export const Breadcrumb = ({
       aria-label={ariaLabel}
       className={cx('text-caption text-neutral', className)}
     >
-      <ol className={cx('flex flex-wrap items-center gap-sm break-words')} {...rest} />
+      <ol className={cx('gap-sm flex flex-wrap items-center break-words')} {...rest} />
     </nav>
   )
 }

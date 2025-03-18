@@ -53,7 +53,7 @@ export const Radio = ({
     </>
   )
 
-  return <div className={cx('flex items-start gap-md text-body-1', className)}>{content}</div>
+  return <div className={cx('gap-md text-body-1 flex items-start', className)}>{content}</div>
 }
 
 Radio.displayName = 'RadioGroup.Radio'

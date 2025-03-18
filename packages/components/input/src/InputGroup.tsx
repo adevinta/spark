@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable complexity */
 
 import { useFormFieldControl } from '@spark-ui/form-field'

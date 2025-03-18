@@ -21,7 +21,7 @@ export const Value = ({ children, className, placeholder, ref: forwardedRef }: V
     <span ref={forwardedRef} className={cx('flex shrink items-center text-left', className)}>
       <span
         className={cx(
-          'line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all',
+          'line-clamp-1 flex-1 overflow-hidden break-all text-ellipsis',
           !hasSelectedItems && 'text-on-surface/dim-1'
         )}
       >

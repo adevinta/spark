@@ -1,18 +1,18 @@
 {
   "config/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}": [
-    "eslint --config .eslintrc.cjs --fix",
+    "eslint --config eslint.config.js --fix",
     "prettier --config .prettierrc.cjs --write"
   ],
   "documentation/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}": [
-    "eslint --config .eslintrc.cjs --fix",
+    "eslint --config eslint.config.js --fix",
     "prettier --config .prettierrc.cjs --write"
   ],
   "packages/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}": [
-    "eslint --config .eslintrc.cjs --fix",
+    "eslint --config eslint.config.js --fix",
     "prettier --config .prettierrc.cjs --write"
   ],
   "src/**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}": [
-    "eslint --config .eslintrc.cjs --fix",
+    "eslint --config eslint.config.js --fix",
     "prettier --config .prettierrc.cjs --write"
   ]
 }

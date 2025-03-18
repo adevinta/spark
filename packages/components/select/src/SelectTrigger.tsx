@@ -36,7 +36,7 @@ export const Trigger = ({
       ref={forwardedRef}
       className={styles({ className, state, disabled, readOnly })}
     >
-      <span className="flex items-center justify-start gap-md">{children}</span>
+      <span className="gap-md flex items-center justify-start">{children}</span>
 
       <Icon className="ml-md shrink-0" size="sm">
         <ArrowHorizontalDown />

@@ -67,7 +67,6 @@ export const ToC = () => {
             onClick={e => {
               e.preventDefault()
               scrollToAnchor(id)
-              // eslint-disable-next-line no-undef
               parent.location.href = parent.location.href.split('#')[0] + '#' + id
             }}
             className={itemStyle({

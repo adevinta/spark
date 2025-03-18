@@ -232,7 +232,7 @@ describe('FormField error message', () => {
           )}
         </FormField.Control>
 
-        <div className="flex justify-between gap-md">
+        <div className="gap-md flex justify-between">
           <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
 
           <FormField.CharactersCount value={DEFAULT_VALUE} maxLength={MAX_LENGTH} />
@@ -264,7 +264,7 @@ describe('FormField error message', () => {
           )}
         </FormField.Control>
 
-        <div className="flex justify-between gap-md">
+        <div className="gap-md flex justify-between">
           <FormField.HelperMessage>We will never share your email</FormField.HelperMessage>
 
           <FormField.CharactersCount value={DEFAULT_VALUE} maxLength={MAX_LENGTH} />

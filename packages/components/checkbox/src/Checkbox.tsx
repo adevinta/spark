@@ -132,7 +132,7 @@ export const Checkbox = ({
   return (
     <div
       data-spark-component="checkbox"
-      className={cx('relative flex items-start gap-md text-body-1', className)}
+      className={cx('gap-md text-body-1 relative flex items-start', className)}
     >
       {content}
     </div>

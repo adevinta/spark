@@ -25,7 +25,7 @@ export const Separator = ({
       aria-hidden
       data-spark-component="breadcrumb-separator"
       ref={ref}
-      className={cx('inline-flex items-center gap-sm', className)}
+      className={cx('gap-sm inline-flex items-center', className)}
       {...rest}
     >
       {children ?? (

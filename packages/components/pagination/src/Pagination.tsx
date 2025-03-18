@@ -41,7 +41,7 @@ const PaginationWrapper = ({
 
   return (
     <nav data-spark-component="pagination" {...props} className={className}>
-      <ul className="flex flex-wrap gap-md">{children}</ul>
+      <ul className="gap-md flex flex-wrap">{children}</ul>
     </nav>
   )
 }

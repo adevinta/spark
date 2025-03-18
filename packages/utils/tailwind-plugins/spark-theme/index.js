@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { getCSSVariableDeclarations } = require('./getCSSVariableDeclarations')
 const { getCSSVariableReferences } = require('./getCSSVariableReferences')
 const { retrieveArrayDifferences, getAllObjectKeys, getObjectDifferences } = require('./utils')

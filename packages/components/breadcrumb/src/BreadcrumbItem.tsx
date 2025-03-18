@@ -10,7 +10,7 @@ export const Item = ({ className, ...rest }: ItemProps) => {
   return (
     <li
       data-spark-component="breadcrumb-item"
-      className={cx('inline-flex min-w-none items-center gap-sm', className)}
+      className={cx('min-w-none gap-sm inline-flex items-center', className)}
       {...rest}
     />
   )

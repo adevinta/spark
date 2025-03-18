@@ -16,7 +16,7 @@ export const Label = ({ children, className, ref: forwardedRef }: LabelProps) =>
     <div
       ref={forwardedRef}
       id={groupCtx.groupLabelId}
-      className={cx('px-md py-sm text-body-2 italic text-neutral', className)}
+      className={cx('px-md py-sm text-body-2 text-neutral italic', className)}
     >
       {children}
     </div>

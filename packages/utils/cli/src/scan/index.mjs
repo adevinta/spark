@@ -1,5 +1,4 @@
 /* eslint-disable complexity */
-/* eslint-disable max-lines-per-function */
 import * as process from 'node:process'
 
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
