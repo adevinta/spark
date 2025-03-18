@@ -11,7 +11,7 @@ import React, { useState } from 'react'
 import { Carousel } from '.'
 
 const meta: Meta<typeof Carousel> = {
-  title: 'Experimental/Carousel',
+  title: 'Components/Carousel',
   component: Carousel,
   tags: ['layout'],
   parameters: {
