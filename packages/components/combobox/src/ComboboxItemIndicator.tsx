@@ -29,7 +29,7 @@ export const ItemIndicator = ({
   return (
     <span
       ref={forwardedRef}
-      className={cx('flex min-h-sz-16 min-w-sz-16', disabled && 'opacity-dim-3', className)}
+      className={cx('min-h-sz-16 min-w-sz-16 flex', disabled && 'opacity-dim-3', className)}
     >
       {isSelected && childElement}
     </span>

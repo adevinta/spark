@@ -31,7 +31,7 @@ export function Question({ label }: Props) {
       <button
         ref={btnRef}
         id={slugifiedLabel}
-        className="flex w-full scroll-mt-lg items-start justify-between"
+        className="scroll-mt-lg flex w-full items-start justify-between"
         onClick={handleClick}
       >
         <span className="flex basis-11/12 font-bold">{label}</span>

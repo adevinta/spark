@@ -256,6 +256,7 @@ export const ComboboxProvider = ({
     stateReducer: (state, { type, changes }) => {
       const types = useMultipleSelection.stateChangeTypes
 
+      // eslint-disable-next-line @typescript-eslint/switch-exhaustiveness-check
       switch (type) {
         case types.SelectedItemKeyDownBackspace:
         case types.SelectedItemKeyDownDelete: {

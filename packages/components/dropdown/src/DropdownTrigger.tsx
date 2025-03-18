@@ -64,7 +64,7 @@ export const Trigger = ({
           {...downshiftTriggerProps}
           data-spark-component="dropdown-trigger"
         >
-          <span className="flex items-center justify-start gap-md">{children}</span>
+          <span className="gap-md flex items-center justify-start">{children}</span>
 
           <Icon
             className={cx('ml-md shrink-0 rotate-0 transition duration-100 ease-in', {

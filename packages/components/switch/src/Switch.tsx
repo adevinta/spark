@@ -62,7 +62,7 @@ export const Switch = ({
   return (
     <div
       data-spark-component="switch"
-      className={cx('flex items-center gap-md text-body-1', className)}
+      className={cx('gap-md text-body-1 flex items-center', className)}
     >
       {content}
     </div>

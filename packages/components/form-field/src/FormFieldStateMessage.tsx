@@ -32,7 +32,7 @@ export const FormFieldStateMessage = ({
       data-spark-component="form-field-state-message"
       aria-live="polite"
       className={cx(
-        'flex items-center gap-sm',
+        'gap-sm flex items-center',
         state === 'error' ? 'text-error' : 'text-on-surface/dim-1',
         className
       )}

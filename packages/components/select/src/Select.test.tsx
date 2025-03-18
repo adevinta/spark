@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 import { FormField } from '@spark-ui/form-field'
 import { BookmarkFill } from '@spark-ui/icons/dist/icons/BookmarkFill'
 import { render, screen } from '@testing-library/react'

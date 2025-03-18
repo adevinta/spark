@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 
 import { Command } from 'commander'
+
 import { adoption, config } from '../src/scan/index.mjs'
 
 const program = new Command()

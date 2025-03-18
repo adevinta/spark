@@ -34,7 +34,7 @@ export const Value = ({
     >
       <span
         className={cx(
-          'line-clamp-1 flex-1 overflow-hidden text-ellipsis break-all',
+          'line-clamp-1 flex-1 overflow-hidden break-all text-ellipsis',
           isPlaceholderSelected && !disabled && 'text-on-surface/dim-1'
         )}
       >

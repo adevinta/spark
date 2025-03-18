@@ -13,7 +13,7 @@ export function assignRef<T>(ref: Ref<T> | null | undefined, value: T) {
 
   try {
     ;(ref as RefObject<T | null>).current = value
-  } catch (error) {
+  } catch {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`)
   }
 }

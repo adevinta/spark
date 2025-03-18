@@ -1,5 +1,4 @@
 /* eslint-disable max-lines-per-function */
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const plugin = require('tailwindcss/plugin')
 
 function arrToObj(arr) {
