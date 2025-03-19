@@ -5,13 +5,31 @@ updates:
     schedule:
       interval: 'weekly'
     reviewers:
-      - 'acd02'
       - 'Powerplex'
-      - 'soykje'
-    ignore:
-      - dependency-name: '*'
-        update-types: ['version-update:semver-major']
-      - dependency-name: '@storybook/*'
-      - dependency-name: 'storybook'
     commit-message:
       prefix: 'build(npm)'
+    groups:
+      zag-js:
+        patterns:
+          - '@zag-js/*'
+      testing:
+        patterns:
+          - '@testing-library/*'
+          - '@testing-library'
+          - 'vitest'
+          - '@vitest/*'
+          - '@vitest'
+          - '@playwright/*'
+          - '@playwright'
+      storybook:
+        patterns:
+          - '@storybook/*'
+          - '*storybook*'
+      vite:
+        patterns:
+          - 'vite'
+          - '@vitejs/*'
+          - '*vite*'
+      dependencies:
+        patterns:
+          - '*'
