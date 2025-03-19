@@ -1,7 +1,8 @@
+import { readdir } from 'node:fs/promises'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { camelCase } from 'camel-case'
-import glob from 'glob'
 import { pascalCase } from 'pascal-case'
 
 import { Generator } from './Generator.mjs'
@@ -32,18 +33,11 @@ export class TemplateGenerator extends Generator {
     return `${basePath}/packages/${context}/${name}`
   }
 
-  getTemplatePaths({ type }) {
-    const pattern = fileURLToPath(new URL(`../templates/${type}/**/*.js`, import.meta.url))
+  async getTemplatePaths({ type }) {
+    const templateDir = fileURLToPath(new URL(`../templates/${type}`, import.meta.url))
+    const files = await readdir(templateDir, { recursive: true })
 
-    return new Promise((resolve, reject) => {
-      glob(pattern, async (error, paths) => {
-        if (error) {
-          return reject(error)
-        }
-
-        resolve(paths)
-      })
-    })
+    return files.filter(file => file.endsWith('.js')).map(file => join(templateDir, file))
   }
 
   getTemplatePath({ path, name, type, dest }) {
