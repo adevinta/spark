@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.4.4](https://github.com/leboncoin/spark-web/compare/v9.4.3...v9.4.4) (2025-03-19)
+
+### Bug Fixes
+
+- cva 0.7.1 ([41325c7](https://github.com/leboncoin/spark-web/commit/41325c7fbcc1807a8957acfcc97f3b435e1cdff8))
+
 ## [9.4.3](https://github.com/leboncoin/spark-web/compare/v9.4.2...v9.4.3) (2025-03-18)
 
 **Note:** Version bump only for package @spark-ui/input
