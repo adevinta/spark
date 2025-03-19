@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.4.6](https://github.com/leboncoin/spark-web/compare/v9.4.5...v9.4.6) (2025-03-19)
+
+### Bug Fixes
+
+- deleted spark plugins package ([205f056](https://github.com/leboncoin/spark-web/commit/205f0560db4dc49633dfccf97262d19c1809ef1b))
+
 ## [9.4.5](https://github.com/leboncoin/spark-web/compare/v9.4.4...v9.4.5) (2025-03-19)
 
 **Note:** Version bump only for package @spark-ui/carousel

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.4.6](https://github.com/leboncoin/spark-web/compare/v9.4.5...v9.4.6) (2025-03-19)
+
+### Bug Fixes
+
+- removed minimatch deps from icons build ([6804f09](https://github.com/leboncoin/spark-web/commit/6804f09325bc5ae5755325a0f4da7177c89277e0))
+
 ## [9.4.5](https://github.com/leboncoin/spark-web/compare/v9.4.4...v9.4.5) (2025-03-19)
 
 **Note:** Version bump only for package @spark-ui/icons
