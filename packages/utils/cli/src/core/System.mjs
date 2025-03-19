@@ -1,5 +1,6 @@
-import fse from 'fs-extra'
-import glob from 'glob'
+import { mkdir, readFileSync, writeFile } from 'node:fs'
+import { dirname } from 'node:path'
+import { promisify } from 'node:util'
 
 export class System {
   logger
@@ -19,7 +20,7 @@ export class System {
 
   getPackageJSON() {
     const basePath = this.getBasePath()
-    const raw = fse.readFileSync(`${basePath}/package.json`).toString()
+    const raw = readFileSync(`${basePath}/package.json`).toString()
 
     return JSON.parse(raw)
   }
@@ -29,16 +30,25 @@ export class System {
     const packageJSON = this.getPackageJSON()
 
     return packageJSON.workspaces.some(workspace => {
-      const packages = glob.sync(`${base}/${workspace}/`)
+      try {
+        const packages = readFileSync(`${base}/${workspace}`, { withFileTypes: true })
+          .filter(dirent => dirent.isDirectory())
+          .map(dirent => `${base}/${workspace}/${dirent.name}/`)
 
-      return packages.some(path => path.endsWith(`/${name}/`))
+        return packages.some(path => path.endsWith(`/${name}/`))
+      } catch {
+        return false
+      }
     })
   }
 
-  writeFile({ path, content }) {
-    return fse
-      .outputFile(path, content)
-      .then(() => this.logger.info(`Created ${path}`))
-      .catch(() => this.exit(`Failed creating ${path}`))
+  async writeFile({ path, content }) {
+    try {
+      await promisify(mkdir)(dirname(path), { recursive: true })
+      await promisify(writeFile)(path, content)
+      this.logger.info(`Created ${path}`)
+    } catch {
+      this.exit(`Failed creating ${path}`)
+    }
   }
 }
