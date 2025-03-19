@@ -80,7 +80,7 @@
     "babel-loader": "8.4.1",
     "browserslist-to-esbuild": "1.2.0",
     "chalk": "^5.2.0",
-    "class-variance-authority": "0.7.0",
+    "class-variance-authority": "0.7.1",
     "commitizen": "4.3.1",
     "concurrently": "^8.2.0",
     "copy-to-clipboard": "3.3.3",

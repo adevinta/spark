@@ -29,7 +29,7 @@
     "@spark-ui/slot": "^9.4.3",
     "@spark-ui/use-combined-state": "^9.4.3",
     "@spark-ui/use-merge-refs": "^9.4.3",
-    "class-variance-authority": "0.7.0"
+    "class-variance-authority": "0.7.1"
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "latest",
