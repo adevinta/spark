@@ -25,7 +25,7 @@
   "dependencies": {
     "@spark-ui/internal-utils": "^9.4.3",
     "@spark-ui/visually-hidden": "^9.4.3",
-    "class-variance-authority": "0.7.0"
+    "class-variance-authority": "0.7.1"
   },
   "peerDependencies": {
     "@spark-ui/theme-utils": "latest",

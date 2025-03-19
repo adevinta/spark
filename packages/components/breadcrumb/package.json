@@ -33,7 +33,7 @@
     "@spark-ui/icons": "^9.4.3",
     "@spark-ui/slot": "^9.4.3",
     "@spark-ui/text-link": "^9.4.3",
-    "class-variance-authority": "0.7.0"
+    "class-variance-authority": "0.7.1"
   },
   "repository": {
     "type": "git",
