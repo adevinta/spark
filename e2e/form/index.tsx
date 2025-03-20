@@ -1,6 +1,6 @@
-import { Button } from '@spark-ui/button'
-import { Dialog } from '@spark-ui/dialog'
-import { Drawer } from '@spark-ui/drawer'
+import { Button } from '@spark-ui/ui/button'
+import { Dialog } from '@spark-ui/ui/dialog'
+import { Drawer } from '@spark-ui/ui/drawer'
 import React from 'react'
 
 import { DropdownField as PositionField } from './fields/DropdownField'
@@ -9,7 +9,7 @@ import { InputField as NameField } from './fields/InputField'
 
 const SparkForm = () => {
   return (
-    <form style={{ width: 400 }} className="m-lg mx-auto flex flex-col gap-xl">
+    <form style={{ width: 400 }} className="m-lg gap-xl mx-auto flex flex-col">
       <NameField defaultValue="" />
 
       <PositionField isRequired defaultValue="" />

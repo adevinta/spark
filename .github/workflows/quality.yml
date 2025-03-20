@@ -92,7 +92,7 @@ jobs:
         with:
           files: |
             ./e2e/**/*.{ts,tsx}
-            ./packages/components/**/*.{ts,tsx,mdx,json}
+            ./packages/ui/**/*.{ts,tsx,mdx,json}
 
       - name: E2E testing
         if: steps.e2efiles.outputs.all_changed_files_count > 0
@@ -114,7 +114,7 @@ jobs:
         with:
           files: |
             ./e2e/a11y/pages/**/*.tsx
-            ./packages/components/**/*.{ts,tsx,mdx,json}
+            ./packages/ui/**/*.{ts,tsx,mdx,json}
 
       - name: Accessibility checking
         if: steps.a11yfiles.outputs.all_changed_files_count > 0

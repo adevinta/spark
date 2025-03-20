@@ -1,6 +1,6 @@
-import { Button } from '@spark-ui/button'
-import { Drawer } from '@spark-ui/drawer'
-import { Tabs, type TabsProps } from '@spark-ui/tabs'
+import { Button } from '@spark-ui/ui/button'
+import { Drawer } from '@spark-ui/ui/drawer'
+import { Tabs, type TabsProps } from '@spark-ui/ui/tabs'
 import { ArgTypes as StorybookArgTypes } from '@storybook/blocks'
 import { type FC, type ReactNode, useEffect, useState } from 'react'
 

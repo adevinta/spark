@@ -1,4 +1,4 @@
-import { Stepper } from '@spark-ui/stepper'
+import { Stepper } from '@spark-ui/ui/stepper'
 import React from 'react'
 
 export const A11yStepper = () => (

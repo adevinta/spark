@@ -1,4 +1,4 @@
-import { Chip } from '@spark-ui/chip'
+import { Chip } from '@spark-ui/ui/chip'
 import React from 'react'
 
 export const A11yChip = () => (

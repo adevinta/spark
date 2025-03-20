@@ -1,4 +1,4 @@
-import { Icon } from '@spark-ui/icon'
+import { Icon } from '@spark-ui/ui/icon'
 import React from 'react'
 
 export const A11yIcon = () => (

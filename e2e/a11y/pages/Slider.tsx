@@ -1,4 +1,4 @@
-import { Slider } from '@spark-ui/slider'
+import { Slider } from '@spark-ui/ui/slider'
 import React from 'react'
 
 export const A11ySlider = () => (
