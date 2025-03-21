@@ -1,4 +1,4 @@
-import React, { createContext, type PropsWithChildren, useContext, useId } from 'react'
+import { createContext, type PropsWithChildren, useContext, useId } from 'react'
 
 import { ID_PREFIX } from './ComboboxContext'
 

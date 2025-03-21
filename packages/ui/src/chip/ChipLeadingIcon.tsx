@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { Ref } from 'react'
+import { Ref } from 'react'
 
 import { ChipIcon, type ChipIconProps } from './ChipIcon'
 

@@ -1,8 +1,8 @@
-import { useLayoutEffect, useState } from 'react'
+import { useLayoutEffect, useState, RefObject } from 'react'
 
 export function useIsVisible(
-  elementRef: React.RefObject<HTMLElement | null>,
-  parentRef: React.RefObject<HTMLElement | null>
+  elementRef: RefObject<HTMLElement | null>,
+  parentRef: RefObject<HTMLElement | null>
 ) {
   const [isVisible, setIsVisible] = useState(true)
 

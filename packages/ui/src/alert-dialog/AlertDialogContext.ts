@@ -1,7 +1,7 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext, MutableRefObject } from 'react'
 
 export interface AlertDialogContextValue {
-  cancelRef: React.MutableRefObject<HTMLButtonElement | null>
+  cancelRef: MutableRefObject<HTMLButtonElement | null>
 }
 
 export const AlertDialogContext = createContext<AlertDialogContextValue | null>(null)

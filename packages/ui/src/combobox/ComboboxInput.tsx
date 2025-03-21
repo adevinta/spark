@@ -1,7 +1,14 @@
 import { useCombinedState } from '@spark-ui/use-combined-state'
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef, Fragment, Ref, useEffect } from 'react'
+import {
+  ChangeEvent,
+  ComponentPropsWithoutRef,
+  Fragment,
+  Ref,
+  SyntheticEvent,
+  useEffect,
+} from 'react'
 
 import { Popover } from '../popover'
 import { VisuallyHidden } from '../visually-hidden'
@@ -68,7 +75,7 @@ export const Input = ({
      * - without this, the input cursor is moved to the end after every change.
      * @see https://github.com/downshift-js/downshift/issues/1108#issuecomment-674180157
      */
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange: (e: ChangeEvent<HTMLInputElement>) => {
       ctx.setInputValue(e.target.value)
     },
     ref: inputRef,
@@ -76,7 +83,7 @@ export const Input = ({
 
   const hasPlaceholder = ctx.multiple ? ctx.selectedItems.length === 0 : ctx.selectedItem === null
 
-  function mergeHandlers<T extends React.SyntheticEvent>(
+  function mergeHandlers<T extends SyntheticEvent>(
     handlerA?: (event: T) => void,
     handlerB?: (event: T) => void
   ) {

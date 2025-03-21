@@ -1,11 +1,11 @@
 import { Label } from 'radix-ui'
-import type { PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import { radioLabelStyles, RadioLabelStylesProps } from './RadioLabel.styles'
 
 export interface RadioLabelProps
   extends RadioLabelStylesProps,
-    PropsWithChildren<React.HTMLAttributes<HTMLLabelElement>> {
+    PropsWithChildren<HTMLAttributes<HTMLLabelElement>> {
   /**
    * Change the component to the HTML tag or custom component of the only child.
    */

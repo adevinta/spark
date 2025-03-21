@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { BookmarkFill } from '@spark-ui/icons/BookmarkFill'
 import { Meta, StoryFn } from '@storybook/react'
-import React, { ComponentProps, useState } from 'react'
+import { ComponentProps, useState } from 'react'
 
 import { Button } from '../button'
 import { FormField } from '../form-field'

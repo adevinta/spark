@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { ComponentPropsWithoutRef, type DOMAttributes, Ref, useMemo } from 'react'
+import { ComponentPropsWithoutRef, type DOMAttributes, Ref, useMemo } from 'react'
 
 import { Slot, wrapPolymorphicSlot } from '../slot'
 import { Spinner, type SpinnerProps } from '../spinner'

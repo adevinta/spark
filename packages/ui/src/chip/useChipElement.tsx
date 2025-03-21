@@ -1,37 +1,49 @@
 import { useCombinedState } from '@spark-ui/use-combined-state'
 import { emulateTab } from 'emulate-tab'
-import React, { Children, FC, isValidElement, ReactElement } from 'react'
+import {
+  Children,
+  ElementType,
+  FC,
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  isValidElement,
+  KeyboardEvent,
+  MouseEvent,
+  ReactElement,
+  ReactNode,
+  RefAttributes,
+} from 'react'
 
 import { Slot } from '../slot'
 
 interface ReturnedValue {
   Element:
-    | React.ForwardRefExoticComponent<
-        React.HTMLAttributes<HTMLElement> & {
-          children?: React.ReactNode
-        } & React.RefAttributes<HTMLElement>
+    | ForwardRefExoticComponent<
+        HTMLAttributes<HTMLElement> & {
+          children?: ReactNode
+        } & RefAttributes<HTMLElement>
       >
-    | React.ElementType
+    | ElementType
   chipProps:
     | {
         type: 'button'
         'aria-pressed'?: boolean
         'data-state'?: 'on' | 'off'
-        onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
-        onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void
+        onClick: (event: MouseEvent<HTMLButtonElement>) => void
+        onKeyDown?: (event: KeyboardEvent<HTMLButtonElement>) => void
         disabled?: boolean
-        children: React.ReactNode
+        children: ReactNode
       }
     | {
         'aria-disabled'?: boolean
-        children: React.ReactNode
-        onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void
+        children: ReactNode
+        onKeyDown?: (event: KeyboardEvent<HTMLButtonElement>) => void
       }
   compoundElements: {
-    leadingIcon: React.ReactNode
-    trailingIcon: React.ReactNode
-    content: React.ReactNode
-    clearButton: React.ReactNode
+    leadingIcon: ReactNode
+    trailingIcon: ReactNode
+    content: ReactNode
+    clearButton: ReactNode
   }
 }
 
@@ -40,7 +52,7 @@ const getDisplayName = (element?: ReactElement) => {
 }
 
 const findElement =
-  (children: React.ReactNode) =>
+  (children: ReactNode) =>
   (...values: string[]) => {
     const validChildren = Children.toArray(children).filter(isValidElement)
 
@@ -64,18 +76,18 @@ export const useChipElement = ({
   onClear,
 }: {
   onClick?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    event: MouseEvent<HTMLButtonElement>,
     args: { pressed: boolean; value?: string | number | readonly string[] }
   ) => void
-  onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void
+  onKeyDown?: (event: KeyboardEvent<HTMLButtonElement>) => void
   asChild?: boolean
   pressed?: boolean
   defaultPressed?: boolean
   value?: string | number | readonly string[]
   defaultValue?: string | number | readonly string[]
   disabled?: boolean
-  children?: React.ReactNode
-  onClear?: (event?: React.MouseEvent<HTMLButtonElement>) => void
+  children?: ReactNode
+  onClear?: (event?: MouseEvent<HTMLButtonElement>) => void
 }): ReturnedValue => {
   const [isPressed, setIsPressed] = useCombinedState<boolean | undefined>(pressed, defaultPressed)
   const [innerValue] = useCombinedState<string | number | readonly string[] | undefined>(
@@ -105,7 +117,7 @@ export const useChipElement = ({
     </>
   )
 
-  const onKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>): void => {
+  const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>): void => {
     if (!!clearButton && !disabled && ['Delete', 'Backspace'].includes(event.key)) {
       if (onClear) {
         onClear()
@@ -124,7 +136,7 @@ export const useChipElement = ({
           'aria-pressed': isPressed,
           'data-state': isPressed ? 'on' : 'off',
         }),
-        onClick: (event: React.MouseEvent<HTMLButtonElement>): void => {
+        onClick: (event: MouseEvent<HTMLButtonElement>): void => {
           isPressed !== undefined && setIsPressed(!isPressed)
           onClick && onClick(event, { pressed: isPressed as boolean, value: innerValue })
         },

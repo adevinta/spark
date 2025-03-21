@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import { RefObject, useEffect, useRef } from 'react'
 
 export const useWidthIncreaseCallback = (
-  elementRef: React.RefObject<HTMLDivElement | null>,
+  elementRef: RefObject<HTMLDivElement | null>,
   callback: () => void
 ): void => {
   const prevWidthRef = useRef<number | null>(null)

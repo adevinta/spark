@@ -1,4 +1,4 @@
-import React, { type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
+import { type FC, isValidElement, type ReactElement, type ReactNode, Children } from 'react'
 
 import { type ItemProps } from '../ComboboxItem'
 import { type ItemTextProps } from '../ComboboxItemText'
@@ -40,7 +40,7 @@ export const getOrderedItems = (
   children: ReactNode,
   result: ComboboxItem[] = []
 ): ComboboxItem[] => {
-  React.Children.forEach(children, child => {
+  Children.forEach(children, child => {
     if (!isValidElement(child)) return
 
     if (getElementDisplayName(child) === 'Combobox.Item') {
@@ -60,12 +60,12 @@ export const getOrderedItems = (
   return result
 }
 
-const findNestedItemText = (children: React.ReactNode): string => {
+const findNestedItemText = (children: ReactNode): string => {
   if (!children) return ''
 
-  for (const child of React.Children.toArray(children)) {
-    if (React.isValidElement(child)) {
-      const childElement = child as React.ReactElement
+  for (const child of Children.toArray(children)) {
+    if (isValidElement(child)) {
+      const childElement = child as ReactElement
 
       if (getElementDisplayName(childElement) === 'Combobox.ItemText') {
         return (childElement.props as ItemTextProps).children
@@ -85,7 +85,7 @@ const findNestedItemText = (children: React.ReactNode): string => {
  * - is a string, then the string is used.
  * - is JSX markup, then we look for Combobox.ItemText to get its string value.
  */
-export const getItemText = (children: React.ReactNode): string => {
+export const getItemText = (children: ReactNode): string => {
   return typeof children === 'string' ? children : findNestedItemText(children)
 }
 
@@ -100,7 +100,7 @@ export const getItemsFromChildren = (children: ReactNode): ItemsMap => {
 }
 
 export const hasChildComponent = (children: ReactNode, displayName: string): boolean => {
-  return React.Children.toArray(children).some(child => {
+  return Children.toArray(children).some(child => {
     if (!isValidElement(child)) return false
 
     if (getElementDisplayName(child) === displayName) {
@@ -114,7 +114,7 @@ export const hasChildComponent = (children: ReactNode, displayName: string): boo
 }
 
 export const findElement = (children: ReactNode, value: string) => {
-  return React.Children.toArray(children)
-    .filter(React.isValidElement)
+  return Children.toArray(children)
+    .filter(isValidElement)
     .find(child => value === getElementDisplayName(child) || '')
 }

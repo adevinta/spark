@@ -1,4 +1,4 @@
-import React, { type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
+import { type FC, isValidElement, type ReactElement, type ReactNode, Children } from 'react'
 
 import { type ItemProps } from './DropdownItem'
 import { ItemTextProps } from './DropdownItemText'
@@ -40,7 +40,7 @@ export const getOrderedItems = (
   children: ReactNode,
   result: DropdownItem[] = []
 ): DropdownItem[] => {
-  React.Children.forEach(children, child => {
+  Children.forEach(children, child => {
     if (!isValidElement(child)) return
 
     if (getElementDisplayName(child) === 'Dropdown.Item') {
@@ -70,7 +70,7 @@ export const getItemText = (children: ReactNode, itemText = ''): string => {
     return children
   }
 
-  React.Children.forEach(children, child => {
+  Children.forEach(children, child => {
     if (!isValidElement(child)) return
 
     if (getElementDisplayName(child) === 'Dropdown.ItemText') {
@@ -96,7 +96,7 @@ export const getItemsFromChildren = (children: ReactNode): ItemsMap => {
 }
 
 export const hasChildComponent = (children: ReactNode, displayName: string): boolean => {
-  return React.Children.toArray(children).some(child => {
+  return Children.toArray(children).some(child => {
     if (!isValidElement(child)) return false
 
     if (getElementDisplayName(child) === displayName) {

@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react'
 
 interface ScrollingListControls extends ComponentPropsWithoutRef<'div'> {
   /**

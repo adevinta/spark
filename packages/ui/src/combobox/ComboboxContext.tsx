@@ -7,6 +7,7 @@ import {
   Dispatch,
   Fragment,
   PropsWithChildren,
+  RefObject,
   SetStateAction,
   useContext,
   useEffect,
@@ -36,8 +37,8 @@ export interface ComboboxContextState extends DownshiftState {
   setHasPopover: Dispatch<SetStateAction<boolean>>
   setLastInteractionType: (type: 'mouse' | 'keyboard') => void
   setOnInputValueChange: Dispatch<SetStateAction<((v: string) => void) | null>>
-  innerInputRef: React.RefObject<HTMLInputElement | null>
-  triggerAreaRef: React.RefObject<HTMLDivElement | null>
+  innerInputRef: RefObject<HTMLInputElement | null>
+  triggerAreaRef: RefObject<HTMLDivElement | null>
   isLoading?: boolean
   isTyping?: boolean
   setIsTyping: Dispatch<SetStateAction<boolean>>

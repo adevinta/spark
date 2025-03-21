@@ -3,7 +3,7 @@
 import { PenOutline } from '@spark-ui/icons/PenOutline'
 import { Search } from '@spark-ui/icons/Search'
 import { Meta, StoryFn } from '@storybook/react'
-import React, { ComponentProps, useState } from 'react'
+import { ComponentProps, useState } from 'react'
 
 import { Button } from '../button'
 import { Checkbox, CheckboxGroup } from '../checkbox'

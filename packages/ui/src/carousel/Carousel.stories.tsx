@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { Meta, StoryFn } from '@storybook/react'
 import { cx } from 'class-variance-authority'
-import React, { useState } from 'react'
+import { memo, useState } from 'react'
 
 import { Button } from '../button'
 import { FormField } from '../form-field'
@@ -25,7 +25,7 @@ const meta: Meta<typeof Carousel> = {
 
 export default meta
 
-const RandomImage = React.memo(
+const RandomImage = memo(
   ({
     imgWidth = 200,
     imgHeight = 300,

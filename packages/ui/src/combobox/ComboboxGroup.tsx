@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { ReactNode, Ref } from 'react'
+import { Children, isValidElement, ReactNode, Ref } from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 import { ComboboxGroupProvider, useComboboxGroupContext } from './ComboboxItemsGroupContext'
@@ -24,10 +24,9 @@ const GroupContent = ({ children, className, ref: forwardedRef }: GroupProps) =>
   const ctx = useComboboxContext()
   const groupCtx = useComboboxGroupContext()
 
-  const hasVisibleOptions = React.Children.toArray(children).some(child => {
+  const hasVisibleOptions = Children.toArray(children).some(child => {
     return (
-      React.isValidElement(child) &&
-      ctx.filteredItemsMap.get((child.props as { value: string }).value)
+      isValidElement(child) && ctx.filteredItemsMap.get((child.props as { value: string }).value)
     )
   })
 

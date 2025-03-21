@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { ComponentPropsWithoutRef, Ref } from 'react'
+import { ComponentPropsWithoutRef, Ref } from 'react'
 
 export type ChipIconProps = ComponentPropsWithoutRef<'span'> & {
   ref?: Ref<HTMLSpanElement>

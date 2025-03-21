@@ -1,6 +1,6 @@
 import { useMergeRefs } from '@spark-ui/use-merge-refs'
 import { cx } from 'class-variance-authority'
-import React, { Fragment, ReactNode, Ref, useEffect, useRef } from 'react'
+import { Fragment, ReactNode, Ref, useEffect, useRef } from 'react'
 
 import { useFormFieldControl } from '../form-field'
 import { Popover } from '../popover'

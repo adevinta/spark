@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
-import React, { useRef, useState } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 
 import { Button } from '../button'
 import { FormField } from '../form-field'
@@ -194,7 +194,7 @@ export const Form = () => {
     setOpen(open)
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setOpen(false)
   }

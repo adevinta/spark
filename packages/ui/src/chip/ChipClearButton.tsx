@@ -1,5 +1,12 @@
 import { Close } from '@spark-ui/icons/Close'
-import React, { cloneElement, ComponentPropsWithoutRef, Ref, useCallback } from 'react'
+import {
+  cloneElement,
+  ComponentPropsWithoutRef,
+  MouseEvent,
+  ReactElement,
+  Ref,
+  useCallback,
+} from 'react'
 
 import { Icon } from '../icon'
 import {
@@ -29,7 +36,7 @@ export const ChipClearButton = ({
   const { design, disabled, onClear } = useChipContext()
 
   const onClearHandler = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
+    (event: MouseEvent<HTMLButtonElement>) => {
       event.stopPropagation()
       !disabled && onClear && onClear(event)
     },
@@ -53,8 +60,7 @@ export const ChipClearButton = ({
         className={chipClearButtonStyles({ disabled })}
         aria-label={label}
       >
-        {children &&
-          cloneElement(children as React.ReactElement<HTMLElement>, { ariaLabel: label })}
+        {children && cloneElement(children as ReactElement<HTMLElement>, { ariaLabel: label })}
       </button>
     </span>
   )

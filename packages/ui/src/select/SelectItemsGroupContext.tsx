@@ -1,4 +1,4 @@
-import React, { createContext, type PropsWithChildren, useContext, useState } from 'react'
+import { createContext, type PropsWithChildren, useContext, useState } from 'react'
 
 export interface SelectContextState {
   groupLabel: string

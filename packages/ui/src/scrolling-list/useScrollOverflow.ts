@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, RefObject } from 'react'
 
 export interface ScrollOverflow {
   left: number
   right: number
 }
 
-export function useScrollOverflow(scrollRef: React.RefObject<HTMLElement | null>): ScrollOverflow {
+export function useScrollOverflow(scrollRef: RefObject<HTMLElement | null>): ScrollOverflow {
   const [overflow, setOverflow] = useState<ScrollOverflow>({
     left: 0,
     right: 0,

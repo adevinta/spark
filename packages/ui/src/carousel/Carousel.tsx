@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { createContext, ReactNode, useContext } from 'react'
+import { createContext, ReactNode, useContext } from 'react'
 
 import { CarouselAPI, UseCarouselProps } from './types'
 import { useCarousel } from './useCarousel'

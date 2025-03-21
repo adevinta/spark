@@ -1,7 +1,7 @@
-import { useLayoutEffect } from 'react'
+import { useLayoutEffect, RefObject } from 'react'
 
 export function useResizeObserver<T extends HTMLElement | null>(
-  ref: React.RefObject<T>,
+  ref: RefObject<T>,
   callback: (width: number) => void
 ) {
   useLayoutEffect(() => {

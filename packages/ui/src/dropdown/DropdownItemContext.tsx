@@ -1,4 +1,11 @@
-import React, { createContext, type PropsWithChildren, useContext, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  type PropsWithChildren,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react'
 
 import { useDropdownContext } from './DropdownContext'
 import { DropdownItem } from './types'
@@ -8,7 +15,7 @@ type ItemTextId = string | undefined
 
 interface DropdownItemContextState {
   textId: ItemTextId
-  setTextId: React.Dispatch<React.SetStateAction<ItemTextId>>
+  setTextId: Dispatch<SetStateAction<ItemTextId>>
   isSelected: boolean
   itemData: DropdownItem
   index: number

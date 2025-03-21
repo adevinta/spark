@@ -1,8 +1,9 @@
 import { cx } from 'class-variance-authority'
+import { ComponentPropsWithRef } from 'react'
 
 import { Slot } from '../slot'
 
-export interface LinkBoxProps extends React.ComponentPropsWithRef<'div'> {
+export interface LinkBoxProps extends ComponentPropsWithRef<'div'> {
   asChild?: boolean
 }
 

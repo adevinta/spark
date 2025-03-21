@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority'
-import React, { type ComponentPropsWithRef } from 'react'
+import { type ComponentPropsWithRef } from 'react'
 
 import { Slot } from '../slot'
 

@@ -1,10 +1,10 @@
-import { type PropsWithChildren, Ref } from 'react'
+import { ButtonHTMLAttributes, type PropsWithChildren, Ref } from 'react'
 
 import { Slot } from '../slot'
 import { tagStyles, type TagStylesProps } from './Tag.styles'
 
 interface BaseTagProps
-  extends PropsWithChildren<React.ButtonHTMLAttributes<HTMLSpanElement>>,
+  extends PropsWithChildren<ButtonHTMLAttributes<HTMLSpanElement>>,
     TagStylesProps {
   /**
    * Change the component to the HTML tag or custom component of the only child.

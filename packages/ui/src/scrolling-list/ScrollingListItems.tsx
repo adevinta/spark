@@ -1,7 +1,11 @@
 import { cx } from 'class-variance-authority'
-import React, {
+import {
+  Children,
+  cloneElement,
   ComponentPropsWithoutRef,
   CSSProperties,
+  isValidElement,
+  KeyboardEvent,
   ReactNode,
   Ref,
   RefObject,
@@ -37,7 +41,7 @@ export const ScrollingListItems = ({ children, className = '', ...rest }: Props)
     none: 'none',
   }
 
-  const handleLeftArrow = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleLeftArrow = (event: KeyboardEvent<HTMLDivElement>) => {
     if (!ctx.loop && !ctx.hasPrevPage) return
 
     event.preventDefault()
@@ -46,14 +50,14 @@ export const ScrollingListItems = ({ children, className = '', ...rest }: Props)
     })
   }
 
-  const handleRightArrow = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleRightArrow = (event: KeyboardEvent<HTMLDivElement>) => {
     if (!ctx.loop && !ctx.hasNextPage) return
 
     event.preventDefault()
     ctx.goTo(ctx.hasNextPage ? ctx.activePageIndex + 1 : 0, { behavior: ctx.scrollBehavior })
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'ArrowLeft') {
       handleLeftArrow(event)
     }
@@ -97,10 +101,8 @@ export const ScrollingListItems = ({ children, className = '', ...rest }: Props)
       onKeyDown={handleKeyDown}
       {...rest}
     >
-      {React.Children.map(children, (child, index) =>
-        React.isValidElement<ScrollingListItemProps>(child)
-          ? React.cloneElement(child, { index })
-          : child
+      {Children.map(children, (child, index) =>
+        isValidElement<ScrollingListItemProps>(child) ? cloneElement(child, { index }) : child
       )}
     </div>
   )

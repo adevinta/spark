@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { ComponentPropsWithoutRef, useContext } from 'react'
+import { ComponentPropsWithoutRef, useContext } from 'react'
 
 import { Button } from '../button'
 import { ScrollingListContext } from './ScrollingList'

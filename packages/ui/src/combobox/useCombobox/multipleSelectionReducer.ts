@@ -1,5 +1,5 @@
 import { useCombobox, UseComboboxProps, UseMultipleSelectionReturnValue } from 'downshift'
-import React from 'react'
+import { RefObject } from 'react'
 
 import { ComboboxItem, ItemsMap } from '../types'
 import { getIndexByKey } from '../utils'
@@ -10,7 +10,7 @@ interface Props {
   selectedItems: ComboboxItem[]
   multiselect: UseMultipleSelectionReturnValue<ComboboxItem>
   setSelectedItems: (items: ComboboxItem[]) => void
-  triggerAreaRef: React.RefObject<HTMLDivElement | null>
+  triggerAreaRef: RefObject<HTMLDivElement | null>
 }
 
 export const multipleSelectionReducer = ({

@@ -1,5 +1,5 @@
 import { Portal as RadixPortal } from 'radix-ui'
-import React, { type PropsWithChildren, Ref } from 'react'
+import { type PropsWithChildren, Ref } from 'react'
 
 interface PortalProps {
   /**

@@ -1,9 +1,16 @@
 import { Slot as RadixSlot } from 'radix-ui'
-import React, { PropsWithChildren, ReactNode, Ref } from 'react'
+import {
+  cloneElement,
+  HTMLAttributes,
+  isValidElement,
+  PropsWithChildren,
+  ReactNode,
+  Ref,
+} from 'react'
 
 export const Slottable = RadixSlot.Slottable
 
-export type SlotProps = PropsWithChildren<React.HTMLAttributes<HTMLElement>> & {
+export type SlotProps = PropsWithChildren<HTMLAttributes<HTMLElement>> & {
   ref?: Ref<HTMLElement>
 }
 
@@ -22,8 +29,8 @@ export const wrapPolymorphicSlot = (
 ) => {
   if (!asChild) return callback(children) // If polymorphic behaviour is not used, we keep the original children
 
-  return React.isValidElement(children)
-    ? React.cloneElement(
+  return isValidElement(children)
+    ? cloneElement(
         children,
         undefined,
         callback((children.props as { children: ReactNode }).children)

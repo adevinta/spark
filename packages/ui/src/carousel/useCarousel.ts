@@ -1,5 +1,13 @@
 /* eslint-disable max-lines-per-function */
-import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  KeyboardEvent,
+} from 'react'
 
 import {
   CarouselAPI,
@@ -288,7 +296,7 @@ export const useCarousel = ({
         onClick: () => {
           scrollTo(index, scrollBehavior)
         },
-        onKeyDown: (event: React.KeyboardEvent) => {
+        onKeyDown: (event: KeyboardEvent) => {
           const focusActiveIndicator = (page: number) => {
             pageIndicatorsRefs.current[page]?.focus()
           }

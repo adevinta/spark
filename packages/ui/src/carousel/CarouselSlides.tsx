@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import React, { ComponentProps, ReactNode } from 'react'
+import { Children, cloneElement, ComponentProps, isValidElement, ReactNode } from 'react'
 
 import { useCarouselContext } from './Carousel'
 import { CarouselSlideProps } from './CarouselSlide'
@@ -12,7 +12,7 @@ interface Props extends ComponentProps<'div'> {
 export const CarouselSlides = ({ children, className = '' }: Props) => {
   const ctx = useCarouselContext()
 
-  const childrenElements = React.Children.toArray(children)
+  const childrenElements = Children.toArray(children)
 
   return (
     <div
@@ -24,8 +24,8 @@ export const CarouselSlides = ({ children, className = '' }: Props) => {
       )}
     >
       {childrenElements.map((child, index) =>
-        React.isValidElement<CarouselSlideProps>(child)
-          ? React.cloneElement(child, {
+        isValidElement<CarouselSlideProps>(child)
+          ? cloneElement(child, {
               index,
               totalSlides: childrenElements.length,
             })

@@ -1,9 +1,9 @@
-import React, { Children, type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
+import { Children, type FC, isValidElement, type ReactElement, type ReactNode } from 'react'
 
 import { type ItemProps } from './SelectItem'
 import { type ItemsMap, type SelectItem } from './types'
 
-export const findElement = (children: React.ReactNode) => (name: string) => {
+export const findElement = (children: ReactNode) => (name: string) => {
   const validChildren = Children.toArray(children).filter(isValidElement)
 
   return validChildren.find(child => {
@@ -16,7 +16,7 @@ const getElementDisplayName = (element?: ReactElement) => {
 }
 
 const getOrderedItems = (children: ReactNode, result: SelectItem[] = []): SelectItem[] => {
-  React.Children.forEach(children, child => {
+  Children.forEach(children, child => {
     if (!isValidElement(child)) return
 
     if (

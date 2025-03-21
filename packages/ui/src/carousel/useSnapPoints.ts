@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, RefObject } from 'react'
 
 import { useResizeObserver } from './useResizeObserver'
 import { getSnapPositions } from './utils'
@@ -14,7 +14,7 @@ export function useSnapPoints<T extends HTMLDivElement | null>(
     slidesPerMove,
     slidesPerPage,
   }: {
-    carouselRef: React.RefObject<T>
+    carouselRef: RefObject<T>
     slidesPerMove: 'auto' | number
     slidesPerPage: number
   }

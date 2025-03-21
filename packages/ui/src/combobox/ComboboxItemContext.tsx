@@ -1,4 +1,11 @@
-import React, { createContext, type PropsWithChildren, useContext, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  type PropsWithChildren,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react'
 
 import { useComboboxContext } from './ComboboxContext'
 import { ComboboxItem } from './types'
@@ -8,7 +15,7 @@ type ItemTextId = string | undefined
 
 interface ComboboxItemContextState {
   textId: ItemTextId
-  setTextId: React.Dispatch<React.SetStateAction<ItemTextId>>
+  setTextId: Dispatch<SetStateAction<ItemTextId>>
   isSelected: boolean
   itemData: ComboboxItem
   index: number

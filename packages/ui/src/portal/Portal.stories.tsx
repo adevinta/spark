@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
+import { useState } from 'react'
 
 import { Portal } from '.'
 
@@ -12,7 +12,7 @@ const meta: Meta<typeof Portal> = {
 export default meta
 
 export const Usage: StoryFn = () => {
-  const [portalContainer, setPortalContainer] = React.useState<HTMLDivElement | null>(null)
+  const [portalContainer, setPortalContainer] = useState<HTMLDivElement | null>(null)
 
   return (
     <div className="gap-lg flex">

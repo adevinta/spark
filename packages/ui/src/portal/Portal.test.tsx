@@ -1,5 +1,5 @@
 import { render, screen, within } from '@testing-library/react'
-import React from 'react'
+import { useState } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { Portal } from './Portal'
@@ -28,7 +28,7 @@ describe('Portal', () => {
   it('should render wrapped element inside a specific container', () => {
     // Given we want to display an element in a different container than its parent
     const WithCustomContainer = () => {
-      const [portalContainer, setPortalContainer] = React.useState<HTMLDivElement | null>(null)
+      const [portalContainer, setPortalContainer] = useState<HTMLDivElement | null>(null)
 
       return (
         <div>

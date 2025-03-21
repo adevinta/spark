@@ -1,4 +1,4 @@
-import React, { Ref } from 'react'
+import { Ref } from 'react'
 
 import { Button, ButtonProps } from '../button'
 import { iconButtonStyles } from './IconButton.styles'

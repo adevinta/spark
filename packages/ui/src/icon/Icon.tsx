@@ -1,4 +1,4 @@
-import { Children, cloneElement, ComponentPropsWithoutRef, ReactNode } from 'react'
+import { Children, cloneElement, ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
 
 import { VisuallyHidden } from '../visually-hidden'
 import { iconStyles, IconVariantsProps } from './Icon.styles'
@@ -27,7 +27,7 @@ export const Icon = ({
 
   return (
     <>
-      {cloneElement(child as React.ReactElement<Record<string, any>>, {
+      {cloneElement(child as ReactElement<Record<string, any>>, {
         className: iconStyles({ className, size, intent }),
         'data-spark-component': 'icon',
         'aria-hidden': 'true',

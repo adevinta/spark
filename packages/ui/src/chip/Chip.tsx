@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, Ref } from 'react'
+import { ComponentPropsWithoutRef, MouseEvent, Ref } from 'react'
 
 import { chipStyles, type ChipStylesProps } from './Chip.styles'
 import { ChipContext } from './useChipContext'
@@ -23,13 +23,13 @@ export interface ChipProps extends ChipPrimitiveProps, Omit<ChipStylesProps, 'ha
    * Event handler fired each clicking event
    */
   onClick?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    event: MouseEvent<HTMLButtonElement>,
     args: { pressed: boolean; value?: number | string | readonly string[] }
   ) => void
   /**
    * Clear chip handler
    */
-  onClear?: (event?: React.MouseEvent<HTMLButtonElement>) => void
+  onClear?: (event?: MouseEvent<HTMLButtonElement>) => void
   ref?: Ref<HTMLButtonElement | HTMLDivElement>
 }
 

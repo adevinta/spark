@@ -1,11 +1,11 @@
 import { Dialog as RadixDialog } from 'radix-ui'
-import { type ReactElement, Ref } from 'react'
+import { type ReactElement, ReactNode, Ref } from 'react'
 
 export interface TriggerProps {
   /**
    * Children of the component.
    */
-  children?: React.ReactNode
+  children?: ReactNode
   /**
    * Change the component to the HTML tag or custom component of the only child.
    */

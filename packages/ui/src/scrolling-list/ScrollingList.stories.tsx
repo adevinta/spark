@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import { Meta, StoryFn } from '@storybook/react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { Button } from '../button'
 import { FormField } from '../form-field'

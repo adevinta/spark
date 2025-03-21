@@ -1,4 +1,4 @@
-import { CSSProperties, Ref, RefObject } from 'react'
+import { CSSProperties, Ref, RefObject, KeyboardEvent } from 'react'
 
 export const DATA_SCOPE = 'carousel' as const
 export const DIRECTION = 'ltr' as const
@@ -125,7 +125,7 @@ export interface ComputedIndicatorProps {
   'data-state': 'active' | 'inactive'
   tabIndex: 0 | -1
   onClick: () => void
-  onKeyDown: (event: React.KeyboardEvent) => void
+  onKeyDown: (event: KeyboardEvent) => void
 }
 
 interface AnatomyPropsSetters {

@@ -1,10 +1,17 @@
-import React, { createContext, type PropsWithChildren, useContext, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  type PropsWithChildren,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react'
 
 interface AccordionItemContextState {
   value: string
-  setValue: React.Dispatch<React.SetStateAction<string>>
+  setValue: Dispatch<SetStateAction<string>>
   disabled: boolean
-  setDisabled: React.Dispatch<React.SetStateAction<boolean>>
+  setDisabled: Dispatch<SetStateAction<boolean>>
 }
 
 const AccordionItemContext = createContext<AccordionItemContextState | null>(null)

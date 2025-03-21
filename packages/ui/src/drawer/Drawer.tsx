@@ -1,5 +1,5 @@
 import { Dialog as RadixDrawer } from 'radix-ui'
-import { type ReactElement } from 'react'
+import { type ReactElement, ReactNode } from 'react'
 
 export interface DrawerProps {
   /**
@@ -25,7 +25,7 @@ export interface DrawerProps {
 }
 
 export interface DialogProps {
-  children?: React.ReactNode
+  children?: ReactNode
   open?: boolean
   defaultOpen?: boolean
   onOpenChange?(open: boolean): void
