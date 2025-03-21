@@ -1,7 +1,7 @@
-import { Button } from '@spark-ui/ui/button'
-import { Dropdown } from '@spark-ui/ui/dropdown'
-import { Dialog } from '@spark-ui/ui/dialog'
-import { FormField } from '@spark-ui/ui/form-field'
+import { Button } from '@spark-ui/components/button'
+import { Dropdown } from '@spark-ui/components/dropdown'
+import { Dialog } from '@spark-ui/components/dialog'
+import { FormField } from '@spark-ui/components/form-field'
 import React from 'react'
 
 export function DropdownWithinDialog() {

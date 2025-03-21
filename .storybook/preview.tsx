@@ -1,5 +1,5 @@
 import { DocsContainer, DocsContainerProps } from '@storybook/blocks'
-import { Icon } from '@spark-ui/ui/icon'
+import { Icon } from '@spark-ui/components/icon'
 import { ShareExpand } from '@spark-ui/icons/ShareExpand'
 
 import '../src/tailwind.css'

@@ -1,4 +1,4 @@
-import { Label } from '@spark-ui/ui/label'
+import { Label } from '@spark-ui/components/label'
 import React from 'react'
 
 export const A11yLabel = () => (

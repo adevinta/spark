@@ -1,6 +1,6 @@
 import { useClipboard } from '@docs/helpers/useClipboard'
-import { Button } from '@spark-ui/ui/button'
-import { Icon } from '@spark-ui/ui/icon'
+import { Button } from '@spark-ui/components/button'
+import { Icon } from '@spark-ui/components/icon'
 import { Meta, StoryFn } from '@storybook/react'
 import { ChangeEvent, FC, useEffect, useState } from 'react'
 

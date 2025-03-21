@@ -1,5 +1,5 @@
-import { Button } from '@spark-ui/ui/button'
-import { Drawer } from '@spark-ui/ui/drawer'
+import { Button } from '@spark-ui/components/button'
+import { Drawer } from '@spark-ui/components/drawer'
 import React from 'react'
 
 export const A11yDrawer = () => (

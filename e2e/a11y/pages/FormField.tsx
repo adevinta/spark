@@ -1,4 +1,4 @@
-import { FormField } from '@spark-ui/ui/form-field'
+import { FormField } from '@spark-ui/components/form-field'
 import React from 'react'
 
 export const A11yFormField = () => (

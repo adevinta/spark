@@ -1,4 +1,4 @@
-import { Pagination } from '@spark-ui/ui/pagination'
+import { Pagination } from '@spark-ui/components/pagination'
 import React from 'react'
 
 export const A11yPagination = () => (

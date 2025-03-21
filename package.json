@@ -39,7 +39,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@spark-ui/theme-utils": "^4.0.0",
     "@storybook/test": "^8.5.8",
-    "@spark-ui/ui": "*"
+    "@spark-ui/components": "*"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.9.1",
@@ -135,7 +135,7 @@
   "workspaces": [
     "packages/hooks/*",
     "packages/utils/*",
-    "packages/ui",
+    "packages/components",
     "packages/icons"
   ],
   "browserslist": [

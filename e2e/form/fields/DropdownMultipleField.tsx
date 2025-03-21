@@ -1,5 +1,5 @@
-import { Dropdown } from '@spark-ui/ui/dropdown'
-import { FormField, FormFieldProps } from '@spark-ui/ui/form-field'
+import { Dropdown } from '@spark-ui/components/dropdown'
+import { FormField, FormFieldProps } from '@spark-ui/components/form-field'
 import React from 'react'
 
 interface DropdownMultipleFieldProps extends FormFieldProps {

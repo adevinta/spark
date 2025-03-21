@@ -1,5 +1,5 @@
-import { FormField } from '@spark-ui/ui/form-field'
-import { RadioGroup } from '@spark-ui/ui/radio-group'
+import { FormField } from '@spark-ui/components/form-field'
+import { RadioGroup } from '@spark-ui/components/radio-group'
 import React from 'react'
 
 export const A11yRadioGroup = () => (

@@ -1,8 +1,8 @@
 import { Close } from '@spark-ui/icons/Close'
 import { MapExpand } from '@spark-ui/icons/MapExpand'
-import { Collapsible } from '@spark-ui/ui/collapsible'
-import { Icon } from '@spark-ui/ui/icon'
-import { IconButton } from '@spark-ui/ui/icon-button'
+import { Collapsible } from '@spark-ui/components/collapsible'
+import { Icon } from '@spark-ui/components/icon'
+import { IconButton } from '@spark-ui/components/icon-button'
 import React from 'react'
 
 export const A11yCollapsible = () => (

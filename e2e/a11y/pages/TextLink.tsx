@@ -1,6 +1,6 @@
 import { Link as LinkSVG } from '@spark-ui/icons/Link'
-import { Icon } from '@spark-ui/ui/icon'
-import { TextLink } from '@spark-ui/ui/text-link'
+import { Icon } from '@spark-ui/components/icon'
+import { TextLink } from '@spark-ui/components/text-link'
 import React from 'react'
 
 export const A11yTextLink = () => (

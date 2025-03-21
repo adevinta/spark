@@ -1,5 +1,5 @@
-import { AlertDialog } from '@spark-ui/ui/alert-dialog'
-import { Button } from '@spark-ui/ui/button'
+import { AlertDialog } from '@spark-ui/components/alert-dialog'
+import { Button } from '@spark-ui/components/button'
 import React from 'react'
 
 export const A11yAlertDialog = () => (

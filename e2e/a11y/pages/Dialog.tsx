@@ -1,7 +1,7 @@
-import { Button } from '@spark-ui/ui/button'
-import { Dialog } from '@spark-ui/ui/dialog'
-import { FormField } from '@spark-ui/ui/form-field'
-import { Input } from '@spark-ui/ui/input'
+import { Button } from '@spark-ui/components/button'
+import { Dialog } from '@spark-ui/components/dialog'
+import { FormField } from '@spark-ui/components/form-field'
+import { Input } from '@spark-ui/components/input'
 import React from 'react'
 
 export const A11yDialog = () => (

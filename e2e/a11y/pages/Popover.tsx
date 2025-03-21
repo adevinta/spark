@@ -1,5 +1,5 @@
-import { Button } from '@spark-ui/ui/button'
-import { Popover } from '@spark-ui/ui/popover'
+import { Button } from '@spark-ui/components/button'
+import { Popover } from '@spark-ui/components/popover'
 import React from 'react'
 
 export const A11yPopover = () => (

@@ -1,4 +1,4 @@
-import { Skeleton } from '@spark-ui/ui/skeleton'
+import { Skeleton } from '@spark-ui/components/skeleton'
 import React from 'react'
 
 export const A11ySkeleton = () => (

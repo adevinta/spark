@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxGroup } from '@spark-ui/ui/checkbox'
+import { Checkbox, CheckboxGroup } from '@spark-ui/components/checkbox'
 import React from 'react'
 
 export const A11yCheckbox = () => (

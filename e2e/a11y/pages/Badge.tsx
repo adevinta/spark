@@ -1,5 +1,5 @@
-import { Badge } from '@spark-ui/ui/badge'
-import { Button } from '@spark-ui/ui/button'
+import { Badge } from '@spark-ui/components/badge'
+import { Button } from '@spark-ui/components/button'
 import React from 'react'
 
 export const A11yBadge = () => (

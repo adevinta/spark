@@ -12,7 +12,7 @@ const config: StorybookConfig = {
         ...config.resolve,
         alias: {
           ...config.resolve?.alias,
-          '@spark-ui/ui': '/packages/ui/src',
+          '@spark-ui/components': '/packages/components/src',
         },
       },
     })

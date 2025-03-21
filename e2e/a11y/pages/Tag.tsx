@@ -1,4 +1,4 @@
-import { Tag } from '@spark-ui/ui/tag'
+import { Tag } from '@spark-ui/components/tag'
 import React from 'react'
 
 export const A11yTag = () => (

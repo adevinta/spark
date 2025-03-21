@@ -1,6 +1,6 @@
 import { Search } from '@spark-ui/icons/Search'
-import { Button } from '@spark-ui/ui/button'
-import { Input, InputGroup } from '@spark-ui/ui/input'
+import { Button } from '@spark-ui/components/button'
+import { Input, InputGroup } from '@spark-ui/components/input'
 import React from 'react'
 
 export const A11yInput = () => (

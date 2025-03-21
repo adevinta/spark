@@ -1,6 +1,6 @@
-import { Button } from '@spark-ui/ui/button'
-import { Dialog } from '@spark-ui/ui/dialog'
-import { Drawer } from '@spark-ui/ui/drawer'
+import { Button } from '@spark-ui/components/button'
+import { Dialog } from '@spark-ui/components/dialog'
+import { Drawer } from '@spark-ui/components/drawer'
 import React from 'react'
 
 import { DropdownField as PositionField } from './fields/DropdownField'
